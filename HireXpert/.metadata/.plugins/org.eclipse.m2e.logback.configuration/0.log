@@ -1,0 +1,35 @@
+2020-04-22 12:24:33,280 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-04-22 12:37:59,650 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-04-22 12:39:41,410 [Worker-12: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: HireXpert:Hire:0.0.1-SNAPSHOT @ C:\Users\TLP33\eclipse-workspace\Hire\pom.xml.
+2020-04-22 12:39:41,410 [Worker-7: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: momentumbasic:momentumbasic:0.0.1-SNAPSHOT @ C:\Users\TLP33\eclipse-workspace\momentumbasic\pom.xml.
+2020-04-22 12:39:42,432 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-22 12:39:42,432 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\TLP33\eclipse-workspace\Hire\src\main\resources
+2020-04-22 12:39:42,435 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-22 12:39:42,435 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\TLP33\eclipse-workspace\Hire\src\test\resources
+2020-04-22 12:39:42,847 [Worker-0: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: momentumbasic:momentumbasic:0.0.1-SNAPSHOT @ C:\Users\TLP33\eclipse-workspace\momentumbasic\pom.xml.
+2020-04-22 12:39:43,172 [Worker-0: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: MomentumPOM:MomentumPOMTest:0.0.1-SNAPSHOT @ C:\Users\TLP33\eclipse-workspace\MomentumPOMTest\pom.xml.
+2020-04-22 12:39:43,755 [Worker-0: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: HireXpert:Hire:0.0.1-SNAPSHOT @ C:\Users\TLP33\eclipse-workspace\Hire\pom.xml.
+2020-04-22 12:39:45,870 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-22 12:39:45,871 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\TLP33\eclipse-workspace\Hire\src\main\resources
+2020-04-22 12:39:45,873 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-22 12:39:45,873 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\TLP33\eclipse-workspace\Hire\src\test\resources
+2020-04-22 12:39:46,346 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-22 12:39:46,346 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\TLP33\eclipse-workspace\MomentumPOMTest\src\main\resources
+2020-04-22 12:39:46,349 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-22 12:39:46,349 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\TLP33\eclipse-workspace\MomentumPOMTest\src\test\resources
+2020-04-22 12:39:46,844 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-22 12:39:46,844 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\TLP33\eclipse-workspace\momentumbasic\src\main\resources
+2020-04-22 12:39:46,846 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-22 12:39:46,846 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\TLP33\eclipse-workspace\momentumbasic\src\test\resources
+2020-04-22 12:40:37,665 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-22 12:40:37,665 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\TLP33\eclipse-workspace\Hire\src\main\resources
+2020-04-22 12:40:37,666 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-22 12:40:37,667 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\TLP33\eclipse-workspace\Hire\src\test\resources
+2020-04-22 12:40:37,685 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-22 12:40:37,685 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\TLP33\eclipse-workspace\MomentumPOMTest\src\main\resources
+2020-04-22 12:40:37,686 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-22 12:40:37,687 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\TLP33\eclipse-workspace\MomentumPOMTest\src\test\resources
+2020-04-22 12:40:37,700 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-22 12:40:37,700 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\TLP33\eclipse-workspace\momentumbasic\src\main\resources
+2020-04-22 12:40:37,702 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-22 12:40:37,703 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\TLP33\eclipse-workspace\momentumbasic\src\test\resources
