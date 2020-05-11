@@ -1,0 +1,46 @@
+browser = chrome
+url = http://103.68.10.36:8100/
+
+employeremail = sayali@gmail.com
+agencyemail = sayagency@gmail.com
+agencyemail1 = abagency2@gmail.com
+candidateemail = can01@gmail.com
+teamemail = sayaliteam3@gmail.com
+agencyteamemail = sayagencyteam2@gmail.com
+agency1teamemail = abagencyteam1@gmail.com
+password = 12345
+
+#T
+employerusername = employermain01@gmail.com
+agencyusername = agencymain01@gmail.com
+
+#K
+loginid= pemp@gmail.com
+pwd= 12345
+name= emp
+browser= Chrome
+canid=can11@gmail.com
+agyid= pagy@gmail.com
+agency2=pagy1
+agyid2=pagy1@gmail.com
+
+#Task for Employer
+teamField= pemp
+AssignTo= pe1
+note= Task should complete before time
+note1=complete before 1 pm
+employer=pemp
+team=pe1
+teamid= pe1@gmail.com
+
+#Task for Employer
+agyteamField= Pagy
+agyAssignTo= pa1
+agency=pagy
+agyteam=pa1
+agyteamid= pa1@gmail.com
+
+#Marketplace
+jobname=komaljob4 - Active
+isshared=komaljob4
+

@@ -1,0 +1,36 @@
+package pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import utilPackage.baseclass;
+
+public class AddQuestionaryPage extends baseclass {
+	
+	@FindBy(xpath="//input[@placeholder='Add Question']")
+	public WebElement AddQuestiontextbox;
+	
+	@FindBy(xpath="//input[@placeholder='Marks']")
+	public WebElement TotalMarksofQuestion;
+	
+	
+	public AddQuestionaryPage() {
+		
+		PageFactory.initElements(driver, this);
+		this.driver = driver;
+	}
+	
+	public void AddQuestionT(String Question) {
+		 
+		AddQuestiontextbox.sendKeys(Question);
+	}
+	
+	public void AddTotalMarksT(String Marks) {
+		 
+		TotalMarksofQuestion.sendKeys(Marks);
+	}
+	
+	
+
+}

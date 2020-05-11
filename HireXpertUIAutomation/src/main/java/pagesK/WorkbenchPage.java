@@ -1,0 +1,108 @@
+package pagesK;
+//package com.Hirexpert.pages;
+//
+//
+//import java.io.IOException;
+//import java.util.List;
+//
+//import org.openqa.selenium.By;
+//import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.support.FindBy;
+//import org.openqa.selenium.support.PageFactory;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.support.ui.Select;
+//
+//import com.Hirexpert.utils.TestBase;
+//
+//
+//public class WorkbenchPage extends TestBase {
+//	
+//	public String jobname;
+////	String nameOfCan;
+//	
+//	@FindBy(xpath = "/html/body/app-root/div/div/div/workbench/div/div[1]/div/div[1]/div[3]/div[1]/button[1]")
+//	public WebElement addjob;
+//	
+//	@FindBy(id = "jobDropdown")
+//	public WebElement jobDropDown;
+//	
+//	@FindBy(xpath = "//button[contains(text(),'Share With Agency')]")
+//	public WebElement shareWithAgencyButton;
+//	
+//	@FindBy(xpath = "//button[contains(text(),'Add Candidate')]")
+//	public WebElement addCandidateButton;
+//	
+//	@FindBy(xpath = "//button[contains(text(),'Share With Team')]")
+//	public WebElement shareWithTeamButton;
+//	
+//	@FindBy(xpath = "//button[contains(text(),'Edit Job')]")
+//	public WebElement editJobButton;
+//	
+//	@FindBy(xpath = "//a[@href='#/workbench']")
+//	public WebElement workbenchbtn;
+//	
+//	@FindBy(xpath = "//button[@title='Add Task']")
+//	public WebElement addtask;
+//	
+////	@FindBy(xpath = "//button[@title='Agreement']")
+////	public WebElement agreementbtn;
+//	
+//	@FindBy(xpath = "//button[@title='Add Candidate']")
+//	public WebElement addCandidatebtn;
+//	
+//	@FindBy(xpath = "//input[@placeholder='Enter Email']")
+//	public WebElement emailfield;
+//	
+//	@FindBy(xpath = "//button[text()='Find']")
+//	public WebElement findbtn;
+//	
+//	@FindBy(xpath = "//input[@formcontrolname='Name']")
+//	public WebElement name;
+//	
+////	public void enterEmailId() throws InterruptedException           //added on add candidate page
+////	{
+////		emailfield.sendKeys(prop.getProperty("canid"));
+////		Thread.sleep(1000);
+////		findbtn.click();
+////		Thread.sleep(1000);
+////		common.clickOnOKBtn();
+////		nameOfCan= name.getText();
+////	}
+//	
+////	public void clickOnAddCandidate() throws InterruptedException       //added on workbench page
+////	{
+////		Thread.sleep(2000);
+////		addCandidatebtn.click();
+////	}
+//	
+////	public void clickOnAgreementbtn() throws InterruptedException       //added on workbench page
+////	{
+////		Thread.sleep(1000);
+////		agreementbtn.click();
+////	}
+//	
+//	public WorkbenchPage() throws IOException{
+//		
+//		PageFactory.initElements(driver, this);
+//		this.driver = driver;
+//	}
+//	
+//	public void AddJob() {
+//		
+//		addjob.click();
+//	}
+//	
+//	
+//	
+////	public void selectJob() throws InterruptedException                    //added in workbench page
+////	{
+////		Thread.sleep(2000);
+////		select = new Select(jobDropDown);
+////		select.selectByVisibleText(prop.getProperty("jobname"));	
+////	}
+//		
+//	public void clickOnWorkbenchTab()
+//	{
+//		executor.executeScript("arguments[0].click();",workbenchbtn);
+//	}
+//}

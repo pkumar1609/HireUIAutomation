@@ -1,0 +1,16 @@
+package pages;
+
+import org.openqa.selenium.support.PageFactory;
+
+import utilPackage.baseclass;
+
+public class EditCandidatePage extends baseclass {
+	
+	
+	public EditCandidatePage() {
+		
+		PageFactory.initElements(driver, this);
+		this.driver = driver;
+	}
+
+}

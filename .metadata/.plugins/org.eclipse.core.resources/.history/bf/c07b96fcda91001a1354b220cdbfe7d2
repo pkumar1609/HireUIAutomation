@@ -1,0 +1,33 @@
+#url= http://103.68.10.36:8100/
+#loginid= pemp@gmail.com
+#pwd= 12345
+#name= emp
+#browser= Chrome
+#canid=can11@gmail.com
+#agyid= pagy@gmail.com
+#agency2=pagy1
+#agyid2=pagy1@gmail.com
+#
+#
+##Task for Employer
+#teamField= pemp
+#AssignTo= pe1
+#note= Task should complete before time
+#note1=complete before 1 pm
+#employer=pemp
+#team=pe1
+#teamid= pe1@gmail.com
+#
+##Task for Employer
+#agyteamField= Pagy
+#agyAssignTo= pa1
+#agency=pagy
+#agyteam=pa1
+#agyteamid= pa1@gmail.com
+#
+##Marketplace
+#
+#jobname=komaljob4 - Active
+#isshared=komaljob4
+#
+#

@@ -1,0 +1,18 @@
+package pages;
+
+import org.openqa.selenium.support.PageFactory;
+
+import utilPackage.baseclass;
+
+public class AddQuestionaryPage extends baseclass {
+	
+	
+	
+	
+	public AddQuestionaryPage() {
+		
+		PageFactory.initElements(driver, this);
+		this.driver = driver;
+	}
+
+}

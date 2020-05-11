@@ -1,0 +1,130 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import utilPackage.baseclass;
+
+public class WorkbenchPage extends baseclass {
+	
+	@FindBy(xpath = "/html/body/app-root/div/div/div/workbench/div/div[1]/div/div[1]/div[3]/div[1]/button[1]")
+	public WebElement addjob;
+	
+	@FindBy(id = "jobDropdown")
+	public WebElement jobDropDown;
+	
+	@FindBy(xpath = "//button[contains(text(),'Share With Agency')]")
+	public WebElement shareWithAgencyButton;
+	
+	@FindBy(xpath = "//button[contains(text(),'Add Candidate')]")
+	public WebElement addCandidateButton;
+	
+	@FindBy(xpath = "//button[contains(text(),'Share With Team')]")
+	public WebElement shareWithTeamButton;
+	
+	@FindBy(xpath = "//button[contains(text(),'Edit Job')]")
+	public WebElement editJobButton;
+	
+	@FindBy(xpath = "//button[@title=\"Schedule Interview\"]")
+	public WebElement scheduleInterview;
+	
+	@FindBy(xpath = "//p[contains(text(),'28')]")
+	public WebElement candidateCardInterviewDetails;
+	
+	@FindBy(xpath = "/html/body/app-root/div/div/div/workbench/div/div[2]/div/table/tbody/tr/td[1]/div/div/div/div/div[2]/div[3]/div/div[2]/button")
+	public WebElement candidateCardEditInterview;
+	
+	@FindBy(id="EditCandidate")
+	public WebElement candidateCardEditCandidateIcon;
+	
+	@FindBy(xpath="//button[@title='Delete Candidate']")
+	public WebElement candidateCardDeleteCandidateIcon;
+	
+	@FindBy(xpath="//button[contains(text(),'Add Questionnaire')]")
+	public WebElement AddQuestionarybtn;
+	
+	@FindBy(xpath="//button[@title='Collect Answer']")
+	public WebElement candidateCardCollectAnswericon;
+	
+	@FindBy(xpath="//button[contains(text(),'Screening')]")
+	public WebElement screeningbtn;
+	
+	@FindBy(xpath = "//img[contains(@class,'profile')]")
+	public WebElement profile;
+	
+	@FindBy(xpath="//a[contains(text(),'Change Password')]")
+	public WebElement ChangePasswordTab;
+	
+	
+	public WorkbenchPage() {
+		
+		PageFactory.initElements(driver, this);
+		this.driver = driver;
+	}
+	
+	public void AddJob() {
+		
+		addjob.click();
+	}
+	
+	public Select se;
+	
+	public void selectJob() {
+		
+		se = new Select(jobDropDown);
+		se.selectByIndex(1);
+	}
+	
+	public void selectAgencyJob() {
+		
+		se = new Select(jobDropDown);
+		se.selectByIndex(1);
+	}
+	
+	public void selectjobT() {
+		se = new Select (jobDropDown);
+  		se.selectByVisibleText("Job-1 Test Engineer - Active");
+	}
+	
+	public void verifyCollectAnswericonT() {
+		
+		if((candidateCardCollectAnswericon).isDisplayed()){
+			System.out.println("Collect Answer icon is displayed on candidates card for giving answers");
+		}
+		else{
+			System.out.println("Collect Answer icon is not displayed on candidates card for giving answers");
+		}
+	}
+	
+	public void verifyQuestionnarieScreeningTabT() {
+		
+		if((AddQuestionarybtn)!= null){
+			System.out.println("Add Questionnarie button is not present on Agency Login");
+		}
+		else{
+			System.out.println("Add Questionnarie button is present on Agency Login");
+		}
+		
+		if((screeningbtn)!= null){
+			System.out.println("Screening button is not present on Agency Login");
+		}
+		else{
+			System.out.println("Screening button is present on Agency Login");
+		}
+	}
+	
+	public void openChangePasswordPage() {
+		
+		WebElement we = profile;
+		Actions action = new Actions(driver);
+		action.moveToElement(we).perform();
+		ChangePasswordTab.click();
+	}
+	
+	
+
+}
