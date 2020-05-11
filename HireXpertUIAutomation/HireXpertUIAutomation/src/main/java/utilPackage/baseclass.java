@@ -74,7 +74,7 @@ public class baseclass {
 		try 
 		{
 			prop = new Properties();
-			FileInputStream fis = new FileInputStream("C:\\Users\\Admin\\Documents\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
+			FileInputStream fis = new FileInputStream("C:\\Users\\Admin\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
 			prop.load(fis);	
 		}
 		catch(IOException e) {
