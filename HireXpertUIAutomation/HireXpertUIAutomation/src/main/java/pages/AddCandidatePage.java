@@ -1,5 +1,10 @@
 package pages;
 
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -119,30 +124,48 @@ public class AddCandidatePage extends baseclass {
 		se.selectByIndex(3);
 	}
 	
-	public void EnterAllMandatoryfieldsT(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) {
-     	 
-		name.sendKeys(Name);
-	      
-		contactNumber.sendKeys(ContactNumber);
-	      
-		designation.sendKeys(Designation);
-		designation.sendKeys(Keys.ENTER);
-	      
-	      
-		gender.sendKeys(Keys.ENTER);
-		se = new Select (gender);
-		se.selectByVisibleText(Gender);
-	      
-	  	noticePeriod.sendKeys(NoticePeriod);
-	      
-	  	location.sendKeys(Location);
-	  	location.sendKeys(Keys.ENTER);
-	      
-	  	communicationMode.sendKeys(Keys.ENTER);
-	  	se = new Select (communicationMode);
-	  	se.selectByVisibleText(Communicationmode);
-	  	  
-	 }
+	public void EnterAllMandatoryfieldsT(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws InterruptedException {
+    	 
+		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		
+		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),'Congratulation, We got candidate information which')]"));
+		if(dynamicElement.size() != 0){
+			
+			System.out.println("Candidate is already present in system");
+			
+			Thread.sleep(3000);
+			
+			OKButtonPopup.click();
+		}
+		
+		else{
+			
+			System.out.println("Candidate is not present in system and you need to enter candidate details");
+			
+			name.sendKeys(Name);
+		      
+			contactNumber.sendKeys(ContactNumber);
+		      
+			designation.sendKeys(Designation);
+			designation.sendKeys(Keys.ENTER);
+		      
+		      
+			gender.sendKeys(Keys.ENTER);
+			se = new Select (gender);
+			se.selectByVisibleText(Gender);
+		      
+		  	noticePeriod.sendKeys(NoticePeriod);
+		      
+		  	location.sendKeys(Location);
+		  	location.sendKeys(Keys.ENTER);
+		      
+		  	communicationMode.sendKeys(Keys.ENTER);
+		  	se = new Select (communicationMode);
+		  	se.selectByVisibleText(Communicationmode);
+		}
+	}
+		
+
 	
 	public void enterEmailIdK() throws InterruptedException
 	{

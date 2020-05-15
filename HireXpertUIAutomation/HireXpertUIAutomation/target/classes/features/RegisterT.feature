@@ -62,7 +62,7 @@ And click on save button
 
 Examples: 
 | EmployerName  |   EmployerEmail     | EmployerContactNumber | EmployerUserType | timezone             | country | password | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName | AgencyEmail     | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName | CandidateEmail  | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel |
-| Tom27         |  tom27@gmail.com    | 211394644             | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Tom28      | tom28@gmail.com |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Tom33         | tom33@gmail.com | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+| Tom38         |  tom38@gmail.com    | 211394644             | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Tom39      | tom39@gmail.com |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Tom40         | tom40@gmail.com | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
 
 
 

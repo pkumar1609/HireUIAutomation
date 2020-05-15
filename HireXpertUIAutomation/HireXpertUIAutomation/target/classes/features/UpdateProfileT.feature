@@ -25,7 +25,7 @@ And click on Submit button
 Examples:
 
 | AgencyName | AgencyEmail        | AgencyContactNumber | AgencyUserType | timezone              | country | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity | organizationname | password |
-| Agency15   | agency15@gmail.com | 565566625           |   Agency       |  Indian Standard Time |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |
+| Agency16   | agency16@gmail.com | 565566625           |   Agency       |  Indian Standard Time |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |
 
 
 Scenario Outline: Verify that Employer is not able to continue without completing the profile and Employer is able to update profile.
@@ -53,7 +53,7 @@ And click on Submit button
 Examples:
 
 | EmployerName | EmployerEmail          | EmployerContactNumber | EmployerUserType | timezone              | country | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | organizationname | password |
-|Employer03    | employer03@gmail.com   | 565566625             |   Employer       |  Indian Standard Time |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      | 12345    |
+|Employer05    | employer05@gmail.com   | 565566625             |   Employer       |  Indian Standard Time |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      | 12345    |
 
 
 

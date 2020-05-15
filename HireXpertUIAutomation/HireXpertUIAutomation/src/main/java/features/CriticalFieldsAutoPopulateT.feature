@@ -15,4 +15,4 @@ Then verify the Auto Populated fields on Candidate update profile popup window
 Examples:
 
 | CandidateName | CandidateEmail    | CandidateContactNumber | CandidateUserType | password | timezone             | country |
-|Peter07        | peter07@gmail.com | 9564783126             | Candidate         | 12345    | Indian Standard Time | India   |
+|Peter08        | peter08@gmail.com | 9564783126             | Candidate         | 12345    | Indian Standard Time | India   |

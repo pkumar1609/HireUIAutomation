@@ -1,6 +1,8 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotVisibleException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -77,6 +79,9 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Add Task']")
 	public WebElement addTaskButton;
 	
+	@FindBy(xpath = "//button[contains(text(),'Reload Candidate')]")
+	public WebElement reloadcandidatebtn;
+	
 	public String jobname;
 	
 	
@@ -118,14 +123,18 @@ public class WorkbenchPage extends baseclass {
 	
 	public void verifyCollectAnswericonT() {
 		
-		if((candidateCardCollectAnswericon).isDisplayed()){
-			System.out.println("Collect Answer icon is displayed on candidates card for giving answers");
+		try
+		{
+			candidateCardCollectAnswericon.isDisplayed();
+		  System.out.println("Collect Answer icon is displayed on candidates card for giving answers");
+		  
 		}
-		else{
-			System.out.println("Collect Answer icon is not displayed on candidates card for giving answers");
-		}
+		catch (NoSuchElementException e)
+		{
+		  System.out.println("Collect Answer icon is not displayed on candidates card as all the questions are deleted from Questionary tab");
+		} 
 	}
-	
+
 	public void verifyQuestionnarieScreeningTabT() {
 		
 		if((AddQuestionarybtn)!= null){
