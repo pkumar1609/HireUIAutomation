@@ -4,6 +4,7 @@ import java.io.IOException;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import cucumber.api.DataTable;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -27,7 +28,7 @@ public class TheEmployerIsAbleToAddAgency extends baseclass {
 	DataTable credentials;
 	@Given("^User must be registered as employer profile abc$")
 	public void user_must_be_registered_as_employer_profile() throws Throwable {    
-
+		
 	}
 
 	@When("^title of login page is Home abc$")
@@ -37,7 +38,7 @@ public class TheEmployerIsAbleToAddAgency extends baseclass {
 
 	@And("^user enters valid credentials abc$")
 	public void user_enters_valid_credentials() throws InterruptedException{
-		loginpage.loginInAppWithAgyK();
+		loginpage.loginInAppWithEmpK();
 	}
 
 	@And("^Click on Agencies tab$")
@@ -48,7 +49,7 @@ public class TheEmployerIsAbleToAddAgency extends baseclass {
 
 	@And("^Click on add Button to add the agency$")
 	public void click_on_Add_Button_to_add_the_agency() throws InterruptedException {
-		Thread.sleep(1000);
+	
 		agenciespage.clickOnAddButton();
 	}
 	
@@ -72,7 +73,6 @@ public class TheEmployerIsAbleToAddAgency extends baseclass {
 	public void employer_should_be_able_to_add_Agency() {
 	boolean b=  driver.findElement(By.xpath("//h5[@class='modal-title w-100']")).isDisplayed();
 	Assert.assertEquals(b, true);
-	//sucessful message
 	}
 
 	@Then("^Newly added agency should be displayed in Agencies page$")
@@ -89,6 +89,14 @@ public class TheEmployerIsAbleToAddAgency extends baseclass {
 	public void delete_the_added_agency() throws InterruptedException  {
 		agenciespage.deleteagy();
 	}
+	
+	@After()
+	public void teardown()
+	{
+		driver.quit();
+	}
+	
+	
 	
 }
 

@@ -95,44 +95,25 @@ public class TaskPage extends baseclass {
 		
 	}
 	
-	public void selectTeamId(DataTable credentials) throws InterruptedException
-	{
-		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{
-		Select dropdown = new Select(teamid);
-		Thread.sleep(4000);
-		//String value= prop.getProperty("employer");
-		dropdown.selectByVisibleText(data.get("teamField"));
-	}
-	}
-	
-	public void selectAssignTo(DataTable credentials) throws InterruptedException
-	{
-		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{
-		Select dropdown = new Select(Assigntofield);
-		Thread.sleep(4000);
-		dropdown.selectByVisibleText(data.get("AssignTo"));
-	    }
-	}
-	
 	public void enterAlldetails(DataTable credentials) throws InterruptedException {
 		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-			clickOnAddTaskBtn();	
+			clickOnAddTaskBtn();
 			Thread.sleep(2000);
 			titlebtn.sendKeys(data.get("Title for emp"));
 			addedtask= titlebtn.getText();
-			selectTeamId(credentials);
+			select= new Select(teamid);
 			Thread.sleep(1000);
-			selectAssignTo(credentials);
+			select.selectByVisibleText(data.get("teamField"));
+			select= new Select(Assigntofield);
+			select.selectByVisibleText(data.get("AssignTo"));
 			assignto= Assigntofield.getText();
 			notefield.sendKeys(data.get("note"));
 			employerspage.ClickSubmitBtn();
+			
 		}
-		Thread.sleep(2000);
-		employerspage.ClickCloseBtn();
+		
 	}
 	
 	public void edittaskdetailsforemp(DataTable credentials) throws InterruptedException {
@@ -141,11 +122,6 @@ public class TaskPage extends baseclass {
 			Thread.sleep(2000);
 			titlebtn.clear();
 			titlebtn.sendKeys(data.get("Title for emp"));
-//			addedtask= titlebtn.getText();
-//			selectTeamId(credentials);
-//			Thread.sleep(1000);
-//			selectAssignTo(credentials);
-//			assignto= Assigntofield.getText();
 			notefield.clear();
 			notefield.sendKeys(data.get("note"));
 			employerspage.ClickSubmitBtn();
@@ -161,12 +137,6 @@ public class TaskPage extends baseclass {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
 			titlebtn.getText().contentEquals(data.get("Title for emp"));
-//			title= titlebtn.getText();
-//			a = "task1";
-//			Assert.assertEquals(title, a);
-////			Assert.assertEquals(title, a);
-////			Assert.assertEquals(Assigntofield.getText(),data.get("AssignTo"));
-////			Assert.assertEquals(notefield.getText(), prop.get("note"));
 			
 		}
 	}
@@ -187,12 +157,12 @@ public void validateTaskDisplayingProperly()
 		boolean b= driver.getPageSource().contentEquals(addedtask);
 		Assert.assertEquals(b, true);
 	}
-	
-	
-	}
+}
 
 public void ValidateTaskDisplayingForTeam()
 {
+	
+	
 	if(assignto.equals(prop.getProperty("team")))
 	{
 		mytask.click();
@@ -204,8 +174,8 @@ public void ValidateTaskDisplayingForTeam()
 		teamtask.click();
 		boolean b= driver.getPageSource().contentEquals(addedtask);
 		Assert.assertEquals(b, true);
+	
 	}
-
 	}
 
 	public void clickondeletetask() throws InterruptedException
@@ -239,9 +209,10 @@ public void ValidateTaskDisplayingForTeam()
 		executor.executeScript("arguments[0].click();",okbtn);
 	}
 	
-	public void ClickOnEditTask()
+	public void ClickOnEditTask() throws InterruptedException
 	{
-		explicitwait.until(ExpectedConditions.elementToBeClickable(edittaskbtn));
+//		explicitwait.until(ExpectedConditions.elementToBeClickable(edittaskbtn));
+		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",edittaskbtn);
 		
 
@@ -249,22 +220,6 @@ public void ValidateTaskDisplayingForTeam()
 	
 	public void searchTask(DataTable credentials) throws InterruptedException 
 	{
-//		try {
-//			
-//		taskcard.isDisplayed();
-//			
-//		}
-//		catch(NoSuchElementException e1)
-//		{
-//			teamtask.click();
-//			
-//			try {
-//			
-//				taskcard.isDisplayed();
-//				
-//			}
-//			catch(NoSuchElementException e)
-//			{
 				this.emp=loginpage.b;
 				System.out.println("emp "+emp);
 				taskpage.clickOnAddTaskBtn();
@@ -296,76 +251,58 @@ public void ValidateTaskDisplayingForTeam()
 
 public void validateTaskDisplayingProperlyForAgy() throws InterruptedException
 {
-	
-	System.out.println("----"+addedtaskagy);
+	System.out.println(addedtaskagy);
 	if(assignto.equals(prop.getProperty("agency")))
 	{
+		Thread.sleep(2000);
 		mytask.click();
-		boolean b= driver.getPageSource().contentEquals(addedtaskagy);
+		boolean b= driver.getPageSource().contains(addedtaskagy);
 		Assert.assertEquals(b, true);
 	}
 	else
 	{
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		teamtask.click();
-		boolean b= driver.getPageSource().contentEquals(addedtaskagy);
+		boolean b= driver.getPageSource().contains(addedtaskagy);
 		Assert.assertEquals(b, true);
 	}
 }
+
+
 
 public void TaskDisplayingForAgyTeam() throws InterruptedException
 {
 	if(assignto.equals(prop.getProperty("agency")))
 	{
 		teamtask.click();
-		boolean b= driver.getPageSource().contentEquals(addedtaskagy);
+		boolean b= driver.getPageSource().contains(addedtaskagy);
 		Assert.assertEquals(b, true);
 	}
 	else 
 	{
 		Thread.sleep(10000);
 		mytask.click();
-		boolean b= driver.getPageSource().contentEquals(addedtaskagy);
+		boolean b= driver.getPageSource().contains(addedtaskagy);
 		Assert.assertEquals(b, true);
 	}
-
 	}
 
-public void selectAgyTeamId(DataTable credentials) throws InterruptedException
-{
-	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-	{
-	Select dropdown = new Select(teamid);
-//	String value= prop.getProperty("agency");
-	Thread.sleep(2000);
-	dropdown.selectByVisibleText(data.get("agency"));
-}
-}
-public void selectAgyAssignTo(DataTable credentials)
-{
-	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-	{
-
-	Select dropdown = new Select(Assigntofield);
-	dropdown.selectByVisibleText(data.get("agyAssignTo"));
-}
-}
 
 public void enterAlldetailsForAgy(DataTable credentials) throws InterruptedException {
 	
 	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 	{
+		Thread.sleep(1000);
 		clickOnAddTaskBtn();
-		explicitwait.until(ExpectedConditions.elementToBeClickable(titlebtn));		
+		Thread.sleep(2000);
 		titlebtn.sendKeys(data.get("Title for agy"));
-		addedtask= titlebtn.getText();
-		System.out.println(addedtask);
+		addedtaskagy = titlebtn.getAttribute("value");
+		System.out.println(addedtaskagy);
 		select = new Select(teamid);
 	    explicitwait.until(ExpectedConditions.elementToBeClickable(teamid));
 	    select.selectByVisibleText(data.get("agency"));
-//		selectAgyAssignTo(credentials);
-		Select dropdown1 = new Select(Assigntofield);
-		dropdown1.selectByVisibleText(data.get("agyAssignTo"));
+	    select= new Select(Assigntofield);
+	    select.selectByVisibleText(data.get("agyAssignTo"));
 		assignto= Assigntofield.getText();
 		notefield.sendKeys(data.get("agynote"));
 		Thread.sleep(2000);
@@ -393,12 +330,6 @@ public void editTaskDetailsForAgy(DataTable credentials) throws InterruptedExcep
 		Thread.sleep(2000);
 		titlebtn.clear();
 		titlebtn.sendKeys(data.get("Title for emp"));
-//		addedtaskagy= titlebtn.getText();
-//		System.out.println(addedtaskagy);
-//		selectAgyTeamId(credentials);
-//		Thread.sleep(1000);
-//		selectAgyAssignTo(credentials);
-//		assignto= Assigntofield.getText();
 		notefield.clear();
 		notefield.sendKeys(data.get("agynote"));
 		employerspage.ClickSubmitBtn();

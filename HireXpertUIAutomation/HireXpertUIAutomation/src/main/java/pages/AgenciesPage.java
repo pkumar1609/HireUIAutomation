@@ -15,7 +15,7 @@ import utilPackage.baseclass;
 
 public class AgenciesPage extends baseclass {
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-list-jobprovider/div[1]/h5/button[2]")
+	@FindBy(xpath = "//button[@title='Agencies']")
 	public WebElement addAgencyButton;
 	
 	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[1]/input")
@@ -36,16 +36,18 @@ public class AgenciesPage extends baseclass {
 	@FindBy(xpath="//button[@id='confirmModalBtn']")
 	static WebElement confimYes;
 	
-	public static String namevalidate;
-	
-	public AgenciesPage() {
+	public String namevalidate;
+	String empname;
+	String empAdded= "//td[contains(text(),'" +empname+ "')]";
+	public AgenciesPage() 
+	{
 		
 		PageFactory.initElements(driver, this);
 		this.driver = driver;
 	}
 	
-	public void clickOnAddButton() {
-		
+	public void clickOnAddButton() throws InterruptedException {
+		Thread.sleep(2000);
 		addAgencyButton.click();
 	}
 	
@@ -62,29 +64,30 @@ public class AgenciesPage extends baseclass {
 		Assert.assertEquals(Title, "HireXpert");
 		
 	}
-	public void Clickagencybtn()
+	public void Clickagencybtn() throws InterruptedException
 	{
 		wait= new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.elementToBeClickable(dashboardpage.agencies));
 		dashboardpage.openAgenciesPage();
 	}
 	
-//	public void ClickAddbtn()
-//	{
-//		addbtn.click();
-//	}
+	public void ClickAddbtn()
+	{
+		addbtn.click();
+	}
 	
 	public void enterAllDetails(DataTable credentials)
 	{
 	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 	{
 		agencyName.sendKeys(data.get("Name"));
+		empname=data.get("Name");
 		agencyEmail.sendKeys(data.get("Email"));
 		agencyContactNumber.sendKeys(data.get("contact"));
 		namevalidate= data.get("Name");
 		WebElement testDropDown = driver.findElement(By.xpath("//select[@formcontrolname='CountryId']"));
-		Select dropdown = new Select(testDropDown);
-		dropdown.selectByVisibleText("India");
+		select = new Select(testDropDown);
+		select.selectByVisibleText("India");
 	}
 	}
 	
@@ -95,9 +98,19 @@ public class AgenciesPage extends baseclass {
 	
 	public void deleteagy() throws InterruptedException
 	{
-		
+		Thread.sleep(2000);
 		deletebtn.click();
 		confimYes.click();	
+	}
+	
+	public void AddedAgyencyDisplaying()
+	{
+		if(driver.getPageSource().contains(empname))
+		{
+			System.out.println("Text is present");
+			}else{
+			System.out.println("Text is absent");
+			}
 	}
 
 

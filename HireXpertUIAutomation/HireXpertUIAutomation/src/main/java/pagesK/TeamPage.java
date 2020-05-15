@@ -1,194 +1,226 @@
 package pagesK;
-//package com.Hirexpert.pages;
-//
-//import java.io.IOException;
-//import java.util.List;
-//import java.util.Map;
-//
-//import org.openqa.selenium.By;
-//import org.openqa.selenium.NoSuchElementException;
-//import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.WebElement;
-//import org.openqa.selenium.support.FindBy;
-//import org.openqa.selenium.support.PageFactory;
-//import org.openqa.selenium.support.ui.ExpectedConditions;
-//import org.openqa.selenium.support.ui.Select;
-//
-//import com.Hirexpert.utils.TestBase;
-//
-//import cucumber.api.DataTable;
-//
-//public class TeamPage extends TestBase{
-//
-//		public TeamPage() throws IOException {
-//		super();
-//		PageFactory.initElements(driver, this);
-//		this.driver=driver;
-//	}
-//		
-//		public String namevalidate;
-//		public String teamMemberName;
-//
-////		@FindBy(xpath ="(//a[@class='nav-link'])[5]")
-////		private WebElement teamtab; 
-////		
-////		@FindBy(xpath ="//button[@title='Team Members']")
-////		private WebElement addbtn ; 
-//		
-////		@FindBy(xpath="//button[@type='button'][text()='Close']")     //AddClosebtn webelement on team page
-////		public WebElement Closebtn;
-//		
-////		@FindBy(xpath="//button[@class='btn btn-outline-dark']")      //closeButton webelement on team page
-////		public WebElement teamclosebtn;
-//		
-////		@FindBy(xpath="//button[@title='Delete']")
-////		public WebElement deletebtn;
-//		
-////		@FindBy(xpath="//button[@id='confirmModalBtn']")               //confimYesDelete webelement on team page
-////		static WebElement confimYes;
-//		
-//		
-////		String teammemberpresent= "//td[text()='" +teamMemberName+ "']";
-//		
-////		@FindBy(xpath="//td[text()='pe2']")
-////		public WebElement teammemberpresent;
-//		
-////		@FindBy(xpath="//input[@formcontrolname='Name']")          //added on team page
-////		public WebElement namefield ;
-////		
-////		@FindBy(xpath="//input[@formcontrolname='Email']")
-////		public WebElement emailfield;
-////		
-////		@FindBy(xpath="//input[@formcontrolname='ContactNumber']")
-////		public WebElement contactnumber ;
-//		
-////		@FindBy(xpath="//select[@formcontrolname='CountryId']")
-////		public WebElement countryid;
-//		
-////		@FindBy(xpath="//button[@type='submit']")                //submitButton webelement on team page
-////		public WebElement submitbtn;
-//		
-//		
-////		public void clickOnTeamtab()      //added on dashboard page
-////		{
-////			executor.executeScript("arguments[0].click();",teamtab);
-////		}
-//
-////		public void clickOnAddBtn()                        //added on team page
-////		{
-////			explicitwait.until(ExpectedConditions.elementToBeClickable(addbtn));
-////			executor.executeScript("arguments[0].click();",addbtn);
-////			
-////		}
-////		public void AddAllDetails(DataTable credentials) throws InterruptedException
-////		{
-////			
-////			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-////			{
-////				teampage.clickOnAddBtn();
-////				explicitwait.until(ExpectedConditions.elementToBeClickable(namefield));
-////				namefield.sendKeys(data.get("Name"));
-////				namevalidate = data.get("Name");
-////				emailfield.sendKeys(data.get("Email"));
-////				contactnumber.sendKeys(data.get("contact"));
-////				Select dropdown = new Select(countryid);
-////				dropdown.selectByVisibleText("India");
-////				teampage.ClickSumbit();
-////				
-////			}
-////		    }
-//		
-////		public void AddAllDetailsagy(DataTable credentials) throws InterruptedException
-////		{
-////			
-////			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-////			{
-////				namefield.sendKeys(data.get("Nameagy"));
-////				namevalidate= data.get("Nameagy");
-////				emailfield.sendKeys(data.get("Emailagy"));
-////				contactnumber.sendKeys(data.get("contactagy"));
-////				Select dropdown = new Select(countryid);
-////				dropdown.selectByVisibleText("India");
-////				Thread.sleep(1000);
-////				teampage.ClickSumbit();
-////				Thread.sleep(1000);
-////				teampage.clickOnAddBtn();
-////			}
-////				Thread.sleep(1000);
-////				teampage.Closebtn.click();
-////				
-////		}
-//		
-//	
-////		public void ClickSumbit() throws InterruptedException
-////		{
-////			Thread.sleep(2000);
-////			submitbtn.click();
-////			
-////		}
-//
-////		public void deleteteam()
-////		{
-////			
-////			
-////			List<WebElement> ele= driver.findElements(By.xpath("//button[@title='Delete']"));
-////	 if(ele.get(0).isEnabled())
-////	 {
-////		 ele.get(0).click();
-////		 confimYes.click();
-////	 }
-////	 else
-////	 {	
-////		ele.get(1).click();
-////	 confimYes.click();
-////			}
-////	 
-////			
-////		}
-////public void closeTeamPage()
-////{
-////	executor.executeScript("arguments[0].click();",teamclosebtn);
-////}
-//
-////is team member present?
-////public void isTeamPresentForEmp(DataTable credentials) throws InterruptedException
-////{
-////	clickOnTeamtab();
-////	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-////	{
-////		
-////		teamMemberName=prop.getProperty("team");
-////		try
-////		{
-////			driver.findElement(By.xpath(teammemberpresent)).isDisplayed();
-////			teampage.closeTeamPage();
-////		}
-////		catch(NoSuchElementException e)
-////		{
-////			AddAllDetails(credentials);
-////			teampage.closeTeamPage();
-////		}	
-////	}
-////	}
-////
-////
-////public void isTeamPresentForAgy(DataTable credentials) throws InterruptedException
-////{
-////	clickOnTeamtab();
-////	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-////	{
-////		teamMemberName=prop.getProperty("agyteam");
-////		try
-////		{
-////			driver.findElement(By.xpath(teammemberpresent)).isDisplayed();
-////			teampage.closeTeamPage();
-////		}
-////		catch(NoSuchElementException e)
-////		{
-////			AddAllDetailsagy(credentials);
-////			teampage.closeTeamPage();
-////		}	
-////	}
-////	}
-//}
-//
+
+import java.util.List;
+import java.util.Map;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import cucumber.api.DataTable;
+import utilPackage.baseclass;
+
+public class TeamPage extends baseclass {
+	
+	@FindBy(xpath = "//h5[@class='modal-title w-100']")
+	public WebElement pagetitle;
+	
+	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-list-jobprovider/div[1]/h5/button[3]")
+	public WebElement AddTeamButton;
+	
+	@FindBy(xpath ="/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[1]/input")
+	public WebElement TeamMemberName;
+	
+	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[2]/input")
+	public WebElement TeamMemberEmail;
+	
+	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[3]/input")
+	public WebElement TeamMemberContactNumber;
+	
+	@FindBy(xpath="//select[@formcontrolname='CountryId']")
+	public WebElement countryid;
+	
+	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")
+	public WebElement submitButton;
+	
+	@FindBy(xpath="//button[@type='button'][text()='Close']")
+	public WebElement AddClosebtn;
+	
+	@FindBy(xpath="//button[@title='Delete']")
+	public WebElement deletebtn;
+	
+	@FindBy(xpath="//button[@id='confirmModalBtn']")
+	static WebElement confimYesDelete;
+	
+	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-list-jobprovider/div[3]/button")
+	public WebElement closeButton;
+	
+	@FindBy(xpath = "//input[@placeholder='Search']")
+	public WebElement searchField;
+	
+	
+	public String namevalidate;
+	public String teamMemberName;
+	public String teamMemberNameAgy;
+	
+	WebDriverWait explicitwait = new WebDriverWait(driver,20);
+	
+	
+	public TeamPage() {
+		
+		PageFactory.initElements(driver, this);
+		this.driver = driver;
+	}
+	
+	public void validatePageTitle() {
+		
+		String title = pagetitle.getText();
+		System.out.println("Page title: " + title);
+	}
+	
+	public void fillTeamMemberDetails() {
+		
+		TeamMemberName.sendKeys("sayali team 2");
+		TeamMemberEmail.sendKeys(prop.getProperty("teamemail"));
+		TeamMemberContactNumber.sendKeys("2451565965");
+	}
+	
+	public void fillAgencyTeamMemberDetails() {
+		
+		TeamMemberName.sendKeys("say Agency team 2");
+		TeamMemberEmail.sendKeys(prop.getProperty("agencyteamemail"));
+		TeamMemberContactNumber.sendKeys("2451565965");
+	}
+	
+	public void searchTeamMember() {
+		
+		String expectedEmail = prop.getProperty("teamemail");
+		searchField.click();
+		searchField.sendKeys(expectedEmail);
+	}
+	
+	public void clickOnAddBtnK()
+	{
+		explicitwait.until(ExpectedConditions.elementToBeClickable(AddTeamButton));
+		executor.executeScript("arguments[0].click();",AddTeamButton);
+		
+	}
+	
+	public void ClickSumbit() throws InterruptedException
+	{
+		Thread.sleep(4000);
+		submitButton.click();
+		
+	}
+	
+	public void AddAllDetailsK(DataTable credentials) throws InterruptedException
+	{
+		
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+			Thread.sleep(2000);
+			teampage.clickOnAddBtnK();
+			explicitwait.until(ExpectedConditions.elementToBeClickable(TeamMemberName));
+			TeamMemberName.sendKeys(data.get("Name"));
+			namevalidate = data.get("Name");
+			TeamMemberEmail.sendKeys(data.get("Email"));
+			TeamMemberContactNumber.sendKeys(data.get("contact"));
+			Select dropdown = new Select(countryid);
+			dropdown.selectByVisibleText("India");
+			ClickSumbit();
+			if(common.okbtn.isDisplayed())
+			{ 
+				common.okbtn.click();
+				System.out.println("these team member are already added");
+			}
+			else
+			{
+				System.out.println("team added succesfully");
+			}
+			
+		}
+	 }
+	
+	public void AddAllDetailsagyK(DataTable credentials) throws InterruptedException
+	{
+		
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+			TeamMemberName.sendKeys(data.get("Nameagy"));
+			namevalidate= data.get("Nameagy");
+			TeamMemberName.sendKeys(data.get("Emailagy"));
+			TeamMemberContactNumber.sendKeys(data.get("contactagy"));
+			Select dropdown = new Select(countryid);
+			dropdown.selectByVisibleText("India");
+			Thread.sleep(1000);
+			ClickSumbit();
+			Thread.sleep(1000);
+			clickOnAddBtnK();
+		}
+			Thread.sleep(1000);
+			closeButton.click();
+			
+	}
+	
+	public void deleteteamK()
+	{
+		List<WebElement> ele= driver.findElements(By.xpath("//button[@title='Delete']"));
+		if(ele.get(0).isEnabled())
+		{
+			ele.get(0).click();
+			confimYesDelete.click();
+		}
+		else
+		{	
+			ele.get(1).click();
+			confimYesDelete.click();
+		}
+	}
+	
+	public void closeTeamPage()
+	{
+		executor.executeScript("arguments[0].click();",closeButton);
+	}
+	
+	//is team member present?
+	public void isTeamPresentForEmp(DataTable credentials) throws InterruptedException
+	{
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+			dashboardpage.openTeamPage();
+			teamMemberName=data.get("Name");
+			String teammemberpresent= "//td[text()='" +teamMemberName+ "']";
+			try  
+			{
+				driver.findElement(By.xpath(teammemberpresent)).isDisplayed();
+				teampage.closeTeamPage();
+			}
+			catch(NoSuchElementException e)
+			{
+				AddAllDetailsK(credentials);
+				teampage.closeTeamPage();
+			}	
+		}
+		}
+
+
+	public void isTeamPresentForAgy(DataTable credentials) throws InterruptedException
+	{
+		
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+			dashboardpage.openTeamPage();
+			teamMemberNameAgy=data.get("agyteam");
+			String teammemberpresent= "//td[text()='" +teamMemberNameAgy+ "']";
+			try
+			{
+				driver.findElement(By.xpath(teammemberpresent)).isDisplayed();
+				teampage.closeTeamPage();
+			}
+			catch(NoSuchElementException e)
+			{
+				AddAllDetailsagyK(credentials);
+				teampage.closeTeamPage();
+			}	
+		}
+		}
+
+	
+	
+
+}

@@ -38,8 +38,9 @@ public class Commonfunction extends baseclass {
 		savebtn.click();
 	}
 	
-	public void clickOnCloseBtn()
+	public void clickOnCloseBtn() throws InterruptedException
 	{
+		Thread.sleep(2000);
 		closebtn.click();
 	}
 	

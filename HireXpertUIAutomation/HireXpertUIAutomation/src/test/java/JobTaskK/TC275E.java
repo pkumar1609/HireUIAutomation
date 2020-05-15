@@ -50,27 +50,18 @@ public class TC275E extends baseclass {
 
 	@And("^user enters valid credentials$")
 	public void user_enters_valid_and_credentials() throws Throwable {
-		Actions Action = new Actions(driver);
 		
-		loginpage.loginInAppWithAgyK();
-		Action.moveToElement(loginpage.profile).click().perform();
-//	boolean b= driver.findElement(By.xpath("//a[@title='Employer']")).isDisplayed();
-		if(loginpage.profile.isSelected())
-		{
-			flag++;
-		}
-		else 
-		{
-			flag=0;
-		}
-		
-		System.out.println(b);
+//		loginpage.loginInAppWithAgyK();
+		loginpage.loginInAppWithEmpK();
+		loginpage.identifyUserK();
+		this.b=loginpage.b;
+
 	}
 
 	@And("^Add task and assign it to team member$")
 	public void add_task_and_assign_it_to_team_member(DataTable credentials) throws InterruptedException  {
 		
-		taskpage.clickOnAddTaskBtn();
+		
 		if(flag==1) {
 		taskpage.enterAlldetails(credentials);
 		}
@@ -78,7 +69,7 @@ public class TC275E extends baseclass {
 		{
 			taskpage.enterAlldetailsForAgy(credentials);
 		}
-		employerspage.ClickSubmitBtn();
+		
 		
 	}
 

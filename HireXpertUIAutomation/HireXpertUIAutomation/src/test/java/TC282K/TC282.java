@@ -61,16 +61,14 @@ boolean ispresent;
 		{
 		teampage.isTeamPresentForAgy(credentials);
 		}
-	
-	
 	}
 
 	@And("^go to workbench$")
-	public void go_to_workbench() throws Throwable {
+	public void go_to_workbench() throws InterruptedException  {
 		
 		dashboardpage.openWorkbenchPage();
 	}
-
+ 
 	@And("^select job$")
 	public void select_job() throws Throwable {
 		workbenchpage.selectJobK();
@@ -82,15 +80,10 @@ boolean ispresent;
 		if (b==true)
 		{
 		taskpage.enterAlldetails(credentials);
-		Thread.sleep(1000);
-		employerspage.ClickCloseBtn();
 		}
 		else
 		{
 			taskpage.enterAlldetailsForAgy(credentials);
-			Thread.sleep(1000);
-			employerspage.ClickCloseBtn();
-
 		}
 		
 	}

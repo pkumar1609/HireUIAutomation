@@ -3,12 +3,14 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import utilPackage.baseclass;
 
 public class DashboardPage extends baseclass {
+
 	
-	@FindBy(xpath = "//a[contains(text(),'Workbench')]")
+	@FindBy(xpath = "//a[@href='#/workbench']")
 	public WebElement workbench;
 	
 	@FindBy(xpath = "//a[contains(text(),'Employers')]")
@@ -24,7 +26,9 @@ public class DashboardPage extends baseclass {
 	public WebElement interviews;
 	
 	@FindBy(xpath= "//a[@href='#/jobdashboard']")
-	public WebElement dashboard;
+	public WebElement dashboard ;
+	
+	
 	
 	public DashboardPage() {
 		
@@ -32,9 +36,11 @@ public class DashboardPage extends baseclass {
 		this.driver = driver;
 	}
 	
-	public void openWorkbenchPage() {
+
+	public void openWorkbenchPage() throws InterruptedException {
 		
-		workbench.click();
+		Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();",workbench);
 	}
 	
 	public void openEmployersPage() {
@@ -42,13 +48,16 @@ public class DashboardPage extends baseclass {
 		employers.click();
 	}
 	
-	public void openAgenciesPage() {
+	public void openAgenciesPage() throws InterruptedException {
 		
+//		wait.until(ExpectedConditions.elementToBeClickable(agencies));
+		Thread.sleep(3000);
 		agencies.click();
 	}
 	
-	public void openTeamPage() {
-		
+	public void openTeamPage() throws InterruptedException {
+//		wait.until(ExpectedConditions.elementToBeClickable(team));
+		Thread.sleep(3000);
 		team.click();
 	}
 	
@@ -59,6 +68,7 @@ public class DashboardPage extends baseclass {
 	
 	public void openDashboardPage()
 	{
+		wait.until(ExpectedConditions.elementToBeClickable(dashboard));
 		executor.executeScript("arguments[0].click();",dashboard);
 	} 
 

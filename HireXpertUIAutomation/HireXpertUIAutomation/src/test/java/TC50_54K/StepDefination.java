@@ -52,7 +52,7 @@ public class StepDefination extends baseclass {
 	@And("^Click on add Button to add the team$")
 	public void click_on_add_Button_to_add_the_team() throws Throwable {
 		Thread.sleep(1000);
-		teampage.clickOnAddBtnK();
+//		teampage.clickOnAddBtnK();
 
 	}
 

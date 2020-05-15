@@ -54,7 +54,7 @@ public class TC359 extends baseclass {
 
 	@And("^Click on Apply button of job$")
 	public void click_on_Apply_button_of_job() throws Throwable {
-//		marketpage.clickApplybtnOfParticularJob();
+		marketpage.clickApplybtnOfParticularJob();
 	
 	}
 
@@ -76,7 +76,7 @@ public class TC359 extends baseclass {
 
 	@And("^Click on reject button of that proposal$")
 	public void click_on_reject_button_of_that_proposal() throws InterruptedException {
-//		marketpage.ClickOnRejectBtn();
+		marketplacepage.ClickOnRejectBtn();
 	}
 
 	@Then("^Job proposal area should show rejected status$")

@@ -49,7 +49,7 @@ public class MarketPlacePage extends baseclass {
 	@FindBy(xpath ="//a[@href='#/agencyMarketPlace']")
 	public WebElement agymarketPlaceTab;
 	
-	@FindBy(xpath ="//select[@formcontrolname='Job']")
+	@FindBy(xpath ="//select[@id='jobDropdown']")
 	public WebElement jobdropdown;
 	
 	@FindBy(xpath ="//p[text()='mns ckjsd']//following::p[text()='Rejected']")
@@ -80,7 +80,7 @@ public class MarketPlacePage extends baseclass {
 	public WebElement viewagreement;
 	
 	//change the job according to selected
-	String job=prop.getProperty("isshared");
+	public String job=prop.getProperty("isshared");
 
 	//Applybtn
 	String x="//a[contains(text(),'" + job + "')]//following::button[text()='Apply']";
@@ -111,7 +111,8 @@ public class MarketPlacePage extends baseclass {
 	//deactivate the request
 	String x4= "//a[text()='" +job+ "']//following::button[text()='Deactivate']";
 	
-	String editjobproposalbtn="//a[contains(text(),'" +job+ "')]//following::button[text()='Edit']";
+	String agyStatus="//input[@formcontrolname='Status']";
+	String editjobproposalbtn = "//a[contains(text(),'" +job+ "')]//following::button[text()='Edit']" ;
 	public void clickOnAcceptAndSignbtn() throws InterruptedException
 	{
 		explicitwait.until(ExpectedConditions.elementToBeClickable(acceptAndSign));
@@ -130,7 +131,7 @@ public class MarketPlacePage extends baseclass {
 	public void clickOnEditJobProposalBtn() throws InterruptedException
 	{
 //	  explicitwait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(editjobproposalbtn))));
-	  Thread.sleep(1000);
+	  Thread.sleep(2000);
 		driver.findElement(By.xpath(editjobproposalbtn)).click();
 	}
 	
@@ -191,31 +192,47 @@ public class MarketPlacePage extends baseclass {
 		
 			}		
 		}	
-	public void clickApplybtnOfParticularJob()
+	public void clickApplybtnOfParticularJob() throws InterruptedException
 	{
+	try
+		{
+			driver.findElement(By.xpath(x)).isDisplayed();
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			WebElement ele =driver.findElement(By.xpath(x));
-			explicitwait.until(ExpectedConditions.visibilityOf(ele));
+//			wait.until(ExpectedConditions.visibilityOf(ele));
 			js.executeScript("arguments[0].scrollIntoView();", ele);
+			Thread.sleep(2000);
 			ele.click();
 			common.clickOnConfirmYes();
+		}
+		catch(NoSuchElementException e)
+		{
+			System.out.println("you already applied for this job");
+		}
+		
 	}
-				
+	
 	public void selectjob() throws InterruptedException
 	{
 		Thread.sleep(2000);
-		select=new Select(jobdropdown);	
-		select.selectByVisibleText(prop.getProperty("jobname"));
+		select=new Select(jobdropdown);
+		select.selectByVisibleText("komaljob15 - Active");
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", searchbtn);
 	}
 	
 	public void ClickOnRejectBtn() throws InterruptedException
 	{
+		if(driver.findElement(By.xpath(x1)).isEnabled())
+		{
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(x1)).click();
 		common.clickOnConfirmYes();
-		
+		}
+		else
+		{
+			System.out.println("status is rejected");
+		}
 	}
 	public void ClickOnReviewBtn() throws InterruptedException
 	{
@@ -295,20 +312,19 @@ public class MarketPlacePage extends baseclass {
 	 
 	public void marketPlaceJobAtAgy()
 	 {
-		 List<WebElement> list=driver.findElements(By.xpath("//td"));
-		 for(int i=0; i<list.size(); i++)
-		 { 
-			 if(list.contains(workbenchpage.jobname))
+		
+		try
 			 {
+				driver.findElement(By.xpath(x)).isDisplayed();
 				 System.out.println("job is displaying");
 			 }
-			 else
+			 catch(NoSuchElementException e)
 			 {
 				 System.out.println("job is not displaying");
 			 }
 		 }
 	
-	 }
+	 
 	public void ValidatetheRequestDetails(DataTable credentials) throws InterruptedException
 	{
 		 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
@@ -321,16 +337,17 @@ public class MarketPlacePage extends baseclass {
 		employerfield.getText().contentEquals(prop.getProperty("employer"));
 		loginpage.identifyUserK();
 		agencyfield.getText().contentEquals(loginpage.logedinuser);
-		if(driver.getPageSource().contains(x2))
+		String Status= driver.findElement(By.xpath(agyStatus)).getText();
+		if(Status.equals("Rejected"))
 		{
-			statusfield.getText().contentEquals("Rejected");
+			System.out.println("Status field is displaying rejected status");
 		}
 		else
 		{
 			System.out.println("Status field not displaying any status");
 		}
-		common.clickOnCloseBtn();
 		
+	common.clickOnCloseBtn();	
 	}
 		 
 	}
@@ -342,7 +359,7 @@ public class MarketPlacePage extends baseclass {
 	}
  public void ClickOnViewAgreement() throws InterruptedException
  {
-	 Thread.sleep(1000);
+	 Thread.sleep(2000);
 	 viewagreement.click();
  }
  

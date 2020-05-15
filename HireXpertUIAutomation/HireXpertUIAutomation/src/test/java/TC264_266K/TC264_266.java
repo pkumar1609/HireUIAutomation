@@ -59,14 +59,14 @@ public class TC264_266 extends baseclass {
 
 	@And("^In add task popup, Fill all the mandatory details$")
 	public void in_add_task_popup_Fill_all_the_mandatory_details(DataTable credentials) throws Throwable {
-		Thread.sleep(1000);
+		
 		taskpage.enterAlldetails(credentials);
 	}
 
 	@And("^Click on submit$")
 	public void click_on_submit() throws Throwable {
-		Thread.sleep(1000);
-		employerspage.ClickSubmitBtn();
+//		Thread.sleep(1000);
+//		employerspage.ClickSubmitBtn();
 
 	}
 
@@ -89,24 +89,22 @@ public class TC264_266 extends baseclass {
 	public void go_to_workbench() throws Throwable {
 		Thread.sleep(1000);
 		loginpage.loginInAppWithEmpK();
-		Thread.sleep(1000);
 		dashboardpage.openWorkbenchPage();
 		
 	}
 
 	@And("^Select a job and click on add task button$")
 	public void select_a_job_and_click_on_add_task_button() throws Throwable {
-		Thread.sleep(2000);
+	
 		workbenchpage.selectJob();
-		Thread.sleep(2000);
-		workbenchpage.addTaskButton.click();
+		
+		workbenchpage.addTaskBtn();
 		
 	}
 
 	@And("^In add task popup, Fill all the mandatory details and assign to Himeself$")
 	public void in_add_task_popup_Fill_all_the_mandatory_details_and_assign_to_Himeself(DataTable credentials) throws Throwable {
 		
-		Thread.sleep(2000);
 		taskpage.enterAlldetails(credentials);
 		
 		
