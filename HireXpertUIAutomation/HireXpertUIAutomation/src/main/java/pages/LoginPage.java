@@ -99,12 +99,8 @@ public class LoginPage extends baseclass {
 		signin.click();
 	}
 	
-	public void signInAgencyTeam() {
-		emailaddress.sendKeys(prop.getProperty("agencyteamemail"));
-		password.sendKeys(prop.getProperty("password"));
-		signin.click();
-	}
-	
+
+
 	public void signInAgency2() {
 		emailaddress.sendKeys(prop.getProperty("agencyemail2"));
 		password.sendKeys(prop.getProperty("password"));
@@ -123,12 +119,12 @@ public class LoginPage extends baseclass {
 		signin.click();
 	}
 	
-	public void loginInAppWithEmpK() {
+    public void loginInAppWithEmpK() throws InterruptedException {
 		
 		emailaddress.sendKeys(prop.getProperty("loginid"));
 		password.sendKeys(prop.getProperty("pwd"));
-//		explicitwait.until(ExpectedConditions.elementToBeClickable(login));
-//		Thread.sleep(2000);
+//		explicitwait.until(ExpectedConditions.elementToBeClickable(signin));
+		Thread.sleep(3000);
 		signin.click();
 	}
 	

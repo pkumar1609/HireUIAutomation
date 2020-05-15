@@ -1,12 +1,11 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotVisibleException;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import utilPackage.baseclass;
@@ -79,11 +78,26 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Add Task']")
 	public WebElement addTaskButton;
 	
-	@FindBy(xpath = "//button[contains(text(),'Reload Candidate')]")
-	public WebElement reloadcandidatebtn;
+	@FindBy(xpath = "//button[@title='Add Candidate']")
+	public WebElement addCandidatebtn;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Email']")
+	public WebElement emailfield;
+	
+	@FindBy(xpath = "//button[text()='Find']")
+	public WebElement findbtn;
+	
+	@FindBy(xpath = "//input[@formcontrolname='Name']")
+	public WebElement name;
 	
 	public String jobname;
+	String nameOfCan;
 	
+	public void addTaskBtn() throws InterruptedException
+	{
+		Thread.sleep(2000);
+		addTaskButton.click();
+	}
 	
 	public WorkbenchPage() {
 		
@@ -98,14 +112,14 @@ public class WorkbenchPage extends baseclass {
 	
 	public Select se;
 	
-	public void selectJob() {
-		
+	public void selectJob() throws InterruptedException {
+		Thread.sleep(2000);
 		se = new Select(jobDropDown);
 		se.selectByIndex(1);
 	}
 	
-	public void selectAgencyJob() {
-		
+	public void selectAgencyJob() throws InterruptedException {
+		Thread.sleep(2000);
 		se = new Select(jobDropDown);
 		se.selectByIndex(1);
 	}
@@ -118,23 +132,20 @@ public class WorkbenchPage extends baseclass {
 	public void selectJobK() throws InterruptedException {
 		Thread.sleep(2000);
 		select = new Select(jobDropDown);
-		select.selectByVisibleText(prop.getProperty("jobname"));	
+		jobname=prop.getProperty("jobname");
+		select.selectByVisibleText("komaljob15 - Active");	
 	}
 	
 	public void verifyCollectAnswericonT() {
 		
-		try
-		{
-			candidateCardCollectAnswericon.isDisplayed();
-		  System.out.println("Collect Answer icon is displayed on candidates card for giving answers");
-		  
+		if((candidateCardCollectAnswericon).isDisplayed()){
+			System.out.println("Collect Answer icon is displayed on candidates card for giving answers");
 		}
-		catch (NoSuchElementException e)
-		{
-		  System.out.println("Collect Answer icon is not displayed on candidates card as all the questions are deleted from Questionary tab");
-		} 
+		else{
+			System.out.println("Collect Answer icon is not displayed on candidates card for giving answers");
+		}
 	}
-
+	
 	public void verifyQuestionnarieScreeningTabT() {
 		
 		if((AddQuestionarybtn)!= null){
@@ -184,9 +195,19 @@ public class WorkbenchPage extends baseclass {
 	
 	public void clickOnAgreementbtn() throws InterruptedException
 	{
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		agreementbtn.click();
 	}
+	public void enterEmailId() throws InterruptedException           //added on add candidate page
+	{
+		emailfield.sendKeys(prop.getProperty("canid"));
+		Thread.sleep(1000);
+		findbtn.click();
+		Thread.sleep(1000);
+		common.clickOnOKBtn();
+		nameOfCan= name.getText();
+	}
+	
 	
 	
 

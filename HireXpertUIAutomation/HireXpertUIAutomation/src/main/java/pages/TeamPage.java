@@ -56,8 +56,9 @@ public class TeamPage extends baseclass {
 	
 	public String namevalidate;
 	public String teamMemberName;
-	String teammemberpresent= "//td[text()='" +teamMemberName+ "']";
-	WebDriverWait explicitwait = new WebDriverWait(driver,80);
+	public String teamMemberNameAgy;
+	
+	WebDriverWait explicitwait = new WebDriverWait(driver,20);
 	
 	
 	public TeamPage() {
@@ -72,19 +73,19 @@ public class TeamPage extends baseclass {
 		System.out.println("Page title: " + title);
 	}
 	
-//	public void fillTeamMemberDetails() {
-//		
-//		TeamMemberName.sendKeys("sayali 8 team 1");
-//		TeamMemberEmail.sendKeys(prop.getProperty("teamemail"));
-//		TeamMemberContactNumber.sendKeys("2451565965");
-//	}
+	public void fillTeamMemberDetails() {
+		
+		TeamMemberName.sendKeys("sayali team 2");
+		TeamMemberEmail.sendKeys(prop.getProperty("teamemail"));
+		TeamMemberContactNumber.sendKeys("2451565965");
+	}
 	
-//	public void fillAgencyTeamMemberDetails() {
-//		
-//		TeamMemberName.sendKeys("say Agency 1 team 1");
-//		TeamMemberEmail.sendKeys(prop.getProperty("agencyteamemail"));
-//		TeamMemberContactNumber.sendKeys("2451565965");
-//	}
+	public void fillAgencyTeamMemberDetails() {
+		
+		TeamMemberName.sendKeys("say Agency team 2");
+		TeamMemberEmail.sendKeys(prop.getProperty("agencyteamemail"));
+		TeamMemberContactNumber.sendKeys("2451565965");
+	}
 	
 	public void searchTeamMember() {
 		
@@ -102,7 +103,7 @@ public class TeamPage extends baseclass {
 	
 	public void ClickSumbit() throws InterruptedException
 	{
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		submitButton.click();
 		
 	}
@@ -112,6 +113,7 @@ public class TeamPage extends baseclass {
 		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
+			Thread.sleep(2000);
 			teampage.clickOnAddBtnK();
 			explicitwait.until(ExpectedConditions.elementToBeClickable(TeamMemberName));
 			TeamMemberName.sendKeys(data.get("Name"));
@@ -121,7 +123,16 @@ public class TeamPage extends baseclass {
 			Select dropdown = new Select(countryid);
 			dropdown.selectByVisibleText("India");
 			ClickSumbit();
-			Thread.sleep(3000);
+			if(common.okbtn.isDisplayed())
+			{ 
+				common.okbtn.click();
+				System.out.println("these team member are already added");
+			}
+			else
+			{
+				System.out.println("team added succesfully");
+			}
+			
 		}
 	 }
 	
@@ -148,8 +159,6 @@ public class TeamPage extends baseclass {
 	
 	public void deleteteamK()
 	{
-		
-		
 		List<WebElement> ele= driver.findElements(By.xpath("//button[@title='Delete']"));
 		if(ele.get(0).isEnabled())
 		{
@@ -171,12 +180,12 @@ public class TeamPage extends baseclass {
 	//is team member present?
 	public void isTeamPresentForEmp(DataTable credentials) throws InterruptedException
 	{
-		dashboardpage.openTeamPage();
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-			
-			teamMemberName=prop.getProperty("team");
-			try
+			dashboardpage.openTeamPage();
+			teamMemberName=data.get("Name");
+			String teammemberpresent= "//td[text()='" +teamMemberName+ "']";
+			try  
 			{
 				driver.findElement(By.xpath(teammemberpresent)).isDisplayed();
 				teampage.closeTeamPage();
@@ -192,10 +201,12 @@ public class TeamPage extends baseclass {
 
 	public void isTeamPresentForAgy(DataTable credentials) throws InterruptedException
 	{
-		dashboardpage.openTeamPage();
+		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-			teamMemberName=prop.getProperty("agyteam");
+			dashboardpage.openTeamPage();
+			teamMemberNameAgy=data.get("agyteam");
+			String teammemberpresent= "//td[text()='" +teamMemberNameAgy+ "']";
 			try
 			{
 				driver.findElement(By.xpath(teammemberpresent)).isDisplayed();
