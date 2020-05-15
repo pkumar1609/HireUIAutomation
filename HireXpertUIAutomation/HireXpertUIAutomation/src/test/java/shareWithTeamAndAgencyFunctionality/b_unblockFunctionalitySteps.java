@@ -1,4 +1,4 @@
-package unblockFunctionality;
+package shareWithTeamAndAgencyFunctionality;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -15,7 +15,7 @@ import cucumber.api.java.en.When;
 import utilPackage.baseclass;
 import utilPackage.utilclass;
 
-public class unblockFunctionalitySteps extends baseclass {
+public class b_unblockFunctionalitySteps extends baseclass {
 
 //scenario 1:
 	@Given("^User is on Home page of application$")
@@ -29,26 +29,6 @@ public class unblockFunctionalitySteps extends baseclass {
 	    
 		String title = loginpage.validateTitle();
 		System.out.println("Title of page: " + title);
-	}
-
-	@When("^enter valid user email address and password for registered employer and click on Sign in button$")
-	public void enter_valid_user_email_address_and_password_for_registered_employer_and_click_on_Sign_in_button() throws Throwable {
-	    
-		loginpage.signInEmployer();
-		Thread.sleep(5000);
-	}
-
-	@When("^click on Agencies tab and add one new agency by clicking on Add button if agencies are not present$")
-	public void click_on_Agencies_tab_and_add_one_new_agency_by_clicking_on_Add_button_if_agencies_are_not_present() throws Throwable {
-	    
-//		dashboardpage.openAgenciesPage();
-//		Thread.sleep(3000);
-		
-	}
-
-	@When("^click on Close button from Agencies window$")
-	public void click_on_Close_button_from_Agencies_window() throws Throwable {
-	    
 	}
 
 	@When("^click on Workbench tab and select job from Jobs drop down$")
@@ -105,12 +85,9 @@ public class unblockFunctionalitySteps extends baseclass {
 	@Then("^logout with employer and login with Agency valid credentials which you unblocked$")
 	public void logout_with_employer_and_login_with_Agency_valid_credentials_which_you_unblocked() throws Throwable {
 	    
-		WebElement we = driver.findElement(By.xpath("//img[@class='profile']"));
-		Actions action = new Actions(driver);
-		action.moveToElement(we).perform();
-		driver.findElement(By.xpath("//a[contains(text(),'Log Out')]")).click();
+		workbenchpage.ClickonLogout();
 		Thread.sleep(3000);
-		loginpage.signInAgency();
+		loginpage.signInAgency2();
 		Thread.sleep(5000);
 	}
 
@@ -120,7 +97,7 @@ public class unblockFunctionalitySteps extends baseclass {
 		dashboardpage.openWorkbenchPage();
 		Thread.sleep(3000);
 		workbenchpage.se = new Select(workbenchpage.jobDropDown);
-		workbenchpage.se.selectByVisibleText("a03 - Active");
+		workbenchpage.se.selectByVisibleText("Automation1 - Active");
 		Thread.sleep(3000);
 	}
 
@@ -131,7 +108,7 @@ public class unblockFunctionalitySteps extends baseclass {
 		Thread.sleep(3000);
 	}
 
-	@Then("^enter email id of candidate and click on Find button$")
+	@When("^enter email id of candidate and click on Find button$")
 	public void enter_email_id_of_candidate_and_click_on_Find_button(DataTable dt) throws Throwable {
 	    
 		List<List<String>> data = dt.raw();
@@ -186,85 +163,31 @@ public class unblockFunctionalitySteps extends baseclass {
 		loginpage.signin.click();
 		Thread.sleep(5000);
 	}
-	
-	@When("^click on Team tab and add one new team member by clicking on Add button$")
-	public void click_on_Team_tab_and_add_one_new_team_member_by_clicking_on_Add_button(DataTable dt) throws Throwable {
-	    
-		List<List<String>> data = dt.raw();
-		
-		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-		
-		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
-		if(dynamicElement.size() != 0){
-			
-			System.out.println("\nUser logged in as Employer..");
-			
-			dashboardpage.openTeamPage();
-			Thread.sleep(3000);
-			
-			teampage.AddTeamButton.click();
-			Thread.sleep(3000);
-			teampage.TeamMemberName.sendKeys(data.get(0).get(0));
-			teampage.TeamMemberEmail.sendKeys(data.get(0).get(1));
-			teampage.TeamMemberContactNumber.sendKeys(data.get(0).get(2));
-			teampage.submitButton.click();
-			System.out.println("\nNew team member get added by employer..");
-			Thread.sleep(3000);
-		}
-		
-		else{
-			
-			System.out.println("\nUser logged in as Agency..");
-			
-			dashboardpage.openTeamPage();
-			Thread.sleep(3000);
 
-			teampage.AddTeamButton.click();
-			Thread.sleep(3000);
-			teampage.TeamMemberName.sendKeys(data.get(0).get(3));
-			teampage.TeamMemberEmail.sendKeys(data.get(0).get(4));
-			teampage.TeamMemberContactNumber.sendKeys(data.get(0).get(5));
-			teampage.submitButton.click();
-			System.out.println("\nNew team member get added by agency..");
-			Thread.sleep(3000);
-		}
-		
-		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
-
-	}
-
-	@When("^click on Close button from Team Members window$")
-	public void click_on_Close_button_from_Team_Members_window() throws Throwable {
-	    
-		teampage.closeButton.click();
-	}
-
-	@When("^click on Share With Team button and select the Share checkbox present in front of the team member to share the job$")
-	public void click_on_Share_With_Team_button_and_select_the_Share_checkbox_present_in_front_of_the_team_member_to_share_the_job() throws Throwable {
+	@When("^click on Share With Team button and select Share checkbox present in front of the team member to share the job$")
+	public void click_on_Share_With_Team_button_and_select_Share_checkbox_present_in_front_of_the_team_member_to_share_the_job() throws Throwable {
 	    
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
 		if(dynamicElement.size() != 0){
 			
-		 //If list size is non-zero, element is present
 			System.out.println("\nSearching team member with Employer..");
 			
 			workbenchpage.shareWithTeamButton.click();
 			Thread.sleep(3000);
-			sharewithteampage.searchEmployerTeam();
+			sharewithteampage.searchEmployerTeam3();
 			sharewithteampage.shareCheckbox.click();
 			Thread.sleep(2000);
 		}
 		
 		else{
 			
-		 //Else if size is 0, then element is not present
 			System.out.println("\nSearching team member with Agency..");
 			
 			workbenchpage.shareWithTeamButton.click();
 			Thread.sleep(3000);
-			sharewithteampage.searchAgencyTeam();
+			sharewithteampage.searchAgencyTeam3();
 			sharewithteampage.shareCheckbox.click();
 			Thread.sleep(2000);
 		}
@@ -276,7 +199,7 @@ public class unblockFunctionalitySteps extends baseclass {
 	@When("^click on Yes button from confirmation popup and select the Block/Unblock checkbox present in front of the team member with whom you shared the job$")
 	public void click_on_Yes_button_from_confirmation_popup_and_select_the_Block_Unblock_checkbox_present_in_front_of_the_team_member_with_whom_you_shared_the_job() throws Throwable {
 	    
-		driver.findElement(By.id("confirmModalBtn")).click();
+		sharewithagencypage.yesButtonConfirmation.click();
 		Thread.sleep(3000);
 		sharewithteampage.blockUnblockCheckbox.click();
 		Thread.sleep(2000);
@@ -287,15 +210,6 @@ public class unblockFunctionalitySteps extends baseclass {
 	    
 		sharewithteampage.blockUnblockCheckbox.click();
 		Thread.sleep(2000);
-	}
-	
-	@When("^click on Yes button from confirmation popup and click on Close button from Share Job$")
-	public void click_on_Yes_button_from_confirmation_popup_and_click_on_Close_button_from_Share_Job() throws Throwable {
-	    
-		sharewithagencypage.yesButtonConfirmation.click();
-		Thread.sleep(3000);
-		sharewithteampage.closeButton.click();
-		Thread.sleep(1000);
 	}
 
 	@Then("^User should be able to unblock the team member$")
@@ -311,30 +225,22 @@ public class unblockFunctionalitySteps extends baseclass {
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
 		if(dynamicElement.size() != 0){
-			
-		 //If list size is non-zero, element is present
+
 			System.out.println("\nLogout with Employer and login with Employer team member..");
 			
-			WebElement we = driver.findElement(By.xpath("//img[@class='profile']"));
-			Actions action = new Actions(driver);
-			action.moveToElement(we).perform();
-			driver.findElement(By.xpath("//a[contains(text(),'Log Out')]")).click();
+			workbenchpage.ClickonLogout();
 			Thread.sleep(3000);
-			loginpage.signInTeam();
+			loginpage.signInTeam3();
 			Thread.sleep(5000);
 		}
 		
 		else{
-			
-		 //Else if size is 0, then element is not present
+
 			System.out.println("\nLogout with Agency and login with Agency team member..");
 			
-			WebElement we = driver.findElement(By.xpath("//img[@class='profile']"));
-			Actions action = new Actions(driver);
-			action.moveToElement(we).perform();
-			driver.findElement(By.xpath("//a[contains(text(),'Log Out')]")).click();
+			workbenchpage.ClickonLogout();
 			Thread.sleep(3000);
-			loginpage.signInAgencyTeam();
+			loginpage.signInAgencyTeam3();
 			Thread.sleep(5000);
 		}
 		
@@ -350,6 +256,39 @@ public class unblockFunctionalitySteps extends baseclass {
 		workbenchpage.se = new Select(workbenchpage.jobDropDown);
 		workbenchpage.se.selectByVisibleText("Automation1 - Active");
 		Thread.sleep(3000);
+	}
+	
+	@Then("^click on Add Candidate button and enter email id of candidate and click on the Find button$")
+	public void click_on_Add_Candidate_button_and_enter_email_id_of_candidate_and_click_on_the_Find_button(DataTable dt) throws Throwable {
+	    
+		List<List<String>> data = dt.raw(); 
+		
+		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		
+		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+		if(dynamicElement.size() != 0){
+			
+			workbenchpage.addCandidateButton.click();
+			Thread.sleep(3000);
+			addcandidatepage.validatePageTitle();
+			addcandidatepage.emailField.click();
+			addcandidatepage.emailField.sendKeys(data.get(0).get(0));
+			addcandidatepage.FindButton.click();
+			Thread.sleep(3000);
+		}
+		
+		else{
+
+			workbenchpage.addCandidateButton.click();
+			Thread.sleep(3000);
+			addcandidatepage.validatePageTitle();
+			addcandidatepage.emailField.click();
+			addcandidatepage.emailField.sendKeys(data.get(0).get(1));
+			addcandidatepage.FindButton.click();
+			Thread.sleep(3000);
+		}
+		
+		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 	}
 
 	@Then("^Unblocked team member should be able add candidate$")

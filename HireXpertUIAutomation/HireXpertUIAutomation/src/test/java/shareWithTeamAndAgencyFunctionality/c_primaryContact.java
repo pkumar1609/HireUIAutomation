@@ -1,4 +1,4 @@
-package primaryContact;
+package shareWithTeamAndAgencyFunctionality;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -12,42 +12,11 @@ import cucumber.api.java.en.When;
 import utilPackage.baseclass;
 import utilPackage.utilclass;
 
-public class primaryContact extends baseclass {
-	
-	@Given("^User is on Home page of application$")
-	public void user_is_on_Home_page_of_application() throws Throwable {
-	    
-		baseclass.initialization();
-	}
-
-	@When("^title of page is HireXpert$")
-	public void title_of_page_is_HireXpert() throws Throwable {
-	    
-		String title = loginpage.validateTitle();
-		System.out.println("Title of application: " + title);
-	}
-
-	@When("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
-	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String arg1, String arg2) throws Throwable {
-	    
-		loginpage.emailaddress.sendKeys(arg1);
-		loginpage.password.sendKeys(arg2);
-		loginpage.signin.click();
-		Thread.sleep(5000);
-	}
-
-	@When("^click on Workbench tab and select job from Jobs drop down$")
-	public void click_on_Workbench_tab_and_select_job_from_Jobs_drop_down() throws Throwable {
-	    
-		dashboardpage.openWorkbenchPage();
-		Thread.sleep(3000);
-		workbenchpage.selectJob();
-		Thread.sleep(3000);
-	}
+public class c_primaryContact extends baseclass {
 
 	@When("^click on Share With Team button and observe the primary contact then add new team member and try to make that team member as primary contact$")
 	public void click_on_Share_With_Team_button_and_observe_the_primary_contact_then_add_new_team_member_and_try_to_make_that_team_member_as_primary_contact(DataTable dt) throws Throwable {
-	    
+	    		
 				List<List<String>> data = dt.raw();
 		
 				driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
@@ -112,7 +81,6 @@ public class primaryContact extends baseclass {
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
 		if(dynamicElement.size() != 0){
 			
-		 //If list size is non-zero, element is present
 			workbenchpage.shareWithTeamButton.click();
 			Thread.sleep(3000);
 			
@@ -123,8 +91,6 @@ public class primaryContact extends baseclass {
 		
 		else{
 			
-		 //Else if size is 0, then element is not present
-			
 			workbenchpage.shareWithTeamButton.click();
 			Thread.sleep(3000);
 			
@@ -134,13 +100,6 @@ public class primaryContact extends baseclass {
 		}
 		
 		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
-	}
-	
-	@Then("^close the browser$")
-	public void close_the_browser() throws Throwable {
-	    
-		Thread.sleep(5000);
-		driver.quit();
 	}
 
 }

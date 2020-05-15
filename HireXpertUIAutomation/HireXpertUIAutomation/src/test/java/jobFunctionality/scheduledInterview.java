@@ -1,4 +1,4 @@
-package scheduledInterview;
+package jobFunctionality;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -16,34 +16,34 @@ import utilPackage.utilclass;
 
 public class scheduledInterview extends baseclass {
 	
-	@Given("^User is on Home page of application$")
-	public void user_is_on_Home_page_of_application() throws Throwable {
-	    
-		baseclass.initialization();
-	}
-
-	@When("^title of page is HireXpert$")
-	public void title_of_page_is_HireXpert() throws Throwable {
-	    
-		String title = loginpage.validateTitle();
-		System.out.println("Title of page: " + title);
-	}
+//	@Given("^User is on Home page of application$")
+//	public void user_is_on_Home_page_of_application() throws Throwable {
+//	    
+//		baseclass.initialization();
+//	}
+//
+//	@When("^title of page is HireXpert$")
+//	public void title_of_page_is_HireXpert() throws Throwable {
+//	    
+//		String title = loginpage.validateTitle();
+//		System.out.println("Title of page: " + title);
+//	}
 	
-	@When("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
-	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String arg1, String arg2) throws Throwable {
-	    
-		loginpage.emailaddress.sendKeys(arg1);
-		loginpage.password.sendKeys(arg2);
-		loginpage.signin.click();
-		Thread.sleep(5000);
-	}
+//	@When("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
+//	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String arg1, String arg2) throws Throwable {
+//	    
+//		loginpage.emailaddress.sendKeys(arg1);
+//		loginpage.password.sendKeys(arg2);
+//		loginpage.signin.click();
+//		Thread.sleep(5000);
+//	}
 
-	@When("^click on Workbench tab$")
-	public void click_on_Workbench_tab() throws Throwable {
-	    
-		dashboardpage.openWorkbenchPage();
-		Thread.sleep(3000);
-	}
+//	@When("^click on Workbench tab$")
+//	public void click_on_Workbench_tab() throws Throwable {
+//	    
+//		dashboardpage.openWorkbenchPage();
+//		Thread.sleep(3000);
+//	}
 
 	@When("^select job from jobs drop down$")
 	public void select_job_from_jobs_drop_down() throws Throwable {
@@ -55,13 +55,15 @@ public class scheduledInterview extends baseclass {
 	@When("^click on Add Candidate button and one new candidate for the job$")
 	public void click_on_Add_Candidate_button_and_one_new_candidate_for_the_job(DataTable dt) throws Throwable {
 	    
-				List<List<String>> data = dt.raw();
+		List<List<String>> data = dt.raw();
 		
+		//Set implict wait to 0
 				driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 				
 				List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
 				if(dynamicElement.size() != 0){
 					
+				 //If list size is non-zero, element is present
 					System.out.println("\nUser logged in as Employer..");
 					
 					workbenchpage.addCandidateButton.click();
@@ -80,6 +82,7 @@ public class scheduledInterview extends baseclass {
 				
 				else{
 					
+				 //Else if size is 0, then element is not present
 					System.out.println("\nUser logged in as Agency..");
 					
 					workbenchpage.addCandidateButton.click();
@@ -96,6 +99,7 @@ public class scheduledInterview extends baseclass {
 					Thread.sleep(3000);
 				}
 				
+				//Revert back to default value of implicit wait
 				driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 	}
 
@@ -224,11 +228,11 @@ public class scheduledInterview extends baseclass {
 		interviewspage.findInterviewDetails();
 	}
 
-	@Then("^close the browser$")
-	public void close_the_browser() throws Throwable {
-	    
-		Thread.sleep(5000);
-		driver.quit();
-	}
+//	@Then("^close the browser$")
+//	public void close_the_browser() throws Throwable {
+//	    
+//		Thread.sleep(5000);
+//		driver.quit();
+//	}
 
 }

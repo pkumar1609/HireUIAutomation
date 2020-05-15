@@ -72,19 +72,19 @@ public class TeamPage extends baseclass {
 		System.out.println("Page title: " + title);
 	}
 	
-	public void fillTeamMemberDetails() {
-		
-		TeamMemberName.sendKeys("sayali team 2");
-		TeamMemberEmail.sendKeys(prop.getProperty("teamemail"));
-		TeamMemberContactNumber.sendKeys("2451565965");
-	}
+//	public void fillTeamMemberDetails() {
+//		
+//		TeamMemberName.sendKeys("sayali 8 team 1");
+//		TeamMemberEmail.sendKeys(prop.getProperty("teamemail"));
+//		TeamMemberContactNumber.sendKeys("2451565965");
+//	}
 	
-	public void fillAgencyTeamMemberDetails() {
-		
-		TeamMemberName.sendKeys("say Agency team 2");
-		TeamMemberEmail.sendKeys(prop.getProperty("agencyteamemail"));
-		TeamMemberContactNumber.sendKeys("2451565965");
-	}
+//	public void fillAgencyTeamMemberDetails() {
+//		
+//		TeamMemberName.sendKeys("say Agency 1 team 1");
+//		TeamMemberEmail.sendKeys(prop.getProperty("agencyteamemail"));
+//		TeamMemberContactNumber.sendKeys("2451565965");
+//	}
 	
 	public void searchTeamMember() {
 		

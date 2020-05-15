@@ -11,6 +11,7 @@ Feature: Job Management
     And click on Add Job button and fill all mandatory details on Add Job popup window
     And click on submit button
     Then Job should get successfully added and Job should be visible in Job drop down
+    And click on Employers tab at the top and verify user able to delete the employer or not when agency is logged in
     And click on Job drop down and select recently added job
     And click on Edit Job button to make changes in job
     And make any changes in the job
@@ -25,8 +26,8 @@ Feature: Job Management
     And close the browser
     
 Examples:
-|    email address    |  password  |
-|  sayali@gmail.com   |   12345    |
-| sayagency@gmail.com |   12345    |
+|    email address     |  password  |
+|  sayali8@gmail.com   |   12345    |
+| sayagency1@gmail.com |   12345    |
 
-#TC ID - 15,21,22,46,74
+#TC ID - 15,21,22,46,74,76,94

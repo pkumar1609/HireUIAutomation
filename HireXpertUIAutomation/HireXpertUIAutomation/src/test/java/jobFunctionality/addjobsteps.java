@@ -1,4 +1,4 @@
-package stepDefinition1;
+package jobFunctionality;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -14,18 +14,18 @@ import utilPackage.utilclass;
 
 public class addjobsteps extends baseclass{
 
-	@Given("^User is on Home page of application$")
-	public void user_is_on_Home_page_of_application() throws Throwable {
-		
-		baseclass.initialization();
-	}
-
-	@When("^title of page is HireXpert$")
-	public void title_of_page_is_HireXpert() throws Throwable {
-	    
-		String pageTitle = loginpage.validateTitle();
-		System.out.println("Home page of application: " +pageTitle);
-	}
+//	@Given("^User is on Home page of application$")
+//	public void user_is_on_Home_page_of_application() throws Throwable {
+//		
+//		baseclass.initialization();
+//	}
+//
+//	@When("^title of page is HireXpert$")
+//	public void title_of_page_is_HireXpert() throws Throwable {
+//	    
+//		String pageTitle = loginpage.validateTitle();
+//		System.out.println("Home page of application: " +pageTitle);
+//	}
 	
 	@When("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
 	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String arg1, String arg2) throws Throwable {
@@ -111,7 +111,37 @@ public class addjobsteps extends baseclass{
 	    
 		System.out.println("\nNew job get added..");
 	}
+	
+	@Then("^click on Employers tab at the top and verify user able to delete the employer or not when agency is logged in$")
+	public void click_on_Employers_tab_at_the_top_and_verify_user_able_to_delete_the_employer_or_not_when_agency_is_logged_in() throws Throwable {
+	    
+		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		
+		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+		if(dynamicElement.size() != 0){
 
+			System.out.println("\nEmployer tab not present for Employer user..");
+		}
+		
+		else{
+			
+			dashboardpage.openEmployersPage();
+			Thread.sleep(3000);
+			employerspage.searchEmployer();	
+			Thread.sleep(2000);
+			employerspage.deleteSearchedEmployer();
+			Thread.sleep(2000);
+			System.out.println("\nError message should display like: Job is added for this employer. to delete it first you need to close the jos for this employer and then delete.");
+			driver.findElement(By.id("alertModalCloseBtn")).click();
+			Thread.sleep(1000);
+			employerspage.clickEmployersCloseButton();
+			dashboardpage.openWorkbenchPage();
+			Thread.sleep(5000);
+		}
+		
+		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);	
+	}
+	
 	@Then("^click on Job drop down and select recently added job$")
 	public void click_on_Job_drop_down_and_select_recently_added_job() throws Throwable {
 	    
@@ -126,7 +156,7 @@ public class addjobsteps extends baseclass{
 		workbenchpage.editJobButton.click();
 		Thread.sleep(3000);
 		String title1 = driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/add-edit-job/div[1]/h5")).getText();
-		System.out.println("Title of page: " + title1);
+		System.out.println("\nTitle of page: " + title1);
 	}
 
 	@Then("^make any changes in the job$")
@@ -194,11 +224,11 @@ public class addjobsteps extends baseclass{
 		System.out.println("\nSelected skill get deleted");
 	}
 	
-	@Then("^close the browser$")
-	public void close_the_browser() throws Throwable {
-	    
-		Thread.sleep(5000);
-		driver.quit();
-	}
+//	@Then("^close the browser$")
+//	public void close_the_browser() throws Throwable {
+//	    
+//		Thread.sleep(5000);
+//		driver.quit();
+//	}
 	
 }

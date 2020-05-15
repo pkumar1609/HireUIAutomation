@@ -49,8 +49,8 @@ public class ShareWithTeamPage extends baseclass {
 	@FindBy(xpath = "//td[4]//label[1]//span[1]") //2nd team member primary contact after searching
 	public WebElement secondRowPrimaryContact;
 	
-	@FindBy(id = "confirmModalBtn")
-	public WebElement yesButtonShareCheckbox;
+//	@FindBy(id = "confirmModalBtn")
+//	public WebElement yesButtonShareCheckbox;
 	
 	@FindBy(id = "confirmModalBtn")
 	public WebElement yesButtonRadioButton;
@@ -69,19 +69,19 @@ public class ShareWithTeamPage extends baseclass {
 		AddTeamButton.click();
 	}
 	
-	public void fillEmployerTeamDetails() {
-		
-		TeamName.sendKeys("Sayali Team 3");
-		TeamEmail.sendKeys("sayaliteam3@gmail.com");
-		TeamContactNumber.sendKeys("2542144154");
-	}
+//	public void fillEmployerTeamDetails() {
+//		
+//		TeamName.sendKeys("Sayali Team 3");
+//		TeamEmail.sendKeys("sayaliteam3@gmail.com");
+//		TeamContactNumber.sendKeys("2542144154");
+//	}
 	
-	public void fillAgencyTeamDetails() {
-		
-		TeamName.sendKeys("AB Agency Team 1");
-		TeamEmail.sendKeys("abagencyteam1@gmail.com");
-		TeamContactNumber.sendKeys("2542144154");
-	}
+//	public void fillAgencyTeamDetails() {
+//		
+//		TeamName.sendKeys("Say Agency 1 Team 1");
+//		TeamEmail.sendKeys("sayagency1team1@gmail.com");
+//		TeamContactNumber.sendKeys("2542144154");
+//	}
 	
 	public void selectAddToTeamMember() {
 		
@@ -90,7 +90,7 @@ public class ShareWithTeamPage extends baseclass {
 	
 	public void searchAgencyTeam() {
 		
-		String expectedEmail = prop.getProperty("agencyteamemail");
+		String expectedEmail = prop.getProperty("agencyteamemail1");
 		searchField.click();
 		searchField.sendKeys(expectedEmail);
 	}
@@ -98,6 +98,27 @@ public class ShareWithTeamPage extends baseclass {
 	public void searchEmployerTeam() {
 		
 		String expectedEmail = prop.getProperty("teamemail");
+		searchField.click();
+		searchField.sendKeys(expectedEmail);
+	}
+	
+	public void searchAgencyTeam11() {
+		
+		String expectedEmail = prop.getProperty("agencyteamemail11");
+		searchField.click();
+		searchField.sendKeys(expectedEmail);
+	}
+	
+	public void searchAgencyTeam3() {
+		
+		String expectedEmail = prop.getProperty("agencyteamemail3");
+		searchField.click();
+		searchField.sendKeys(expectedEmail);
+	}
+	
+	public void searchEmployerTeam3() {
+		
+		String expectedEmail = prop.getProperty("teamemail3");
 		searchField.click();
 		searchField.sendKeys(expectedEmail);
 	}
@@ -162,11 +183,10 @@ public class ShareWithTeamPage extends baseclass {
 	
 	public void findShareCheckboxForEmployerTeam() throws InterruptedException {
 		
-		//Set implicit wait to 0
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		
 		Thread.sleep(1000);
-		String s2 = prop.getProperty("teamemail");
+		String s2 = prop.getProperty("teamemail2");
 		System.out.println("\nNew team member: " + s2);
 		
 		String xpath_start_email = "//*[@id=\"style-5\"]/table/tbody/tr[";
@@ -205,7 +225,7 @@ public class ShareWithTeamPage extends baseclass {
 				WebElement we = driver.findElement(By.xpath(xpath_start_sharecheckbox+i+xpath_end_sharecheckbox));		
 				we.click();
 				Thread.sleep(1000);
-				yesButtonShareCheckbox.click();
+				sharewithagencypage.yesButtonConfirmation.click();
 				System.out.println("\nNow job is shared with other team member..");
 				Thread.sleep(3000);
 				
@@ -220,7 +240,6 @@ public class ShareWithTeamPage extends baseclass {
 			i++;
 		}
 		
-		//Revert back to default value of implicit wait
 		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 	}
 	
@@ -244,7 +263,7 @@ public class ShareWithTeamPage extends baseclass {
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		
 		Thread.sleep(1000);
-		String s2 = prop.getProperty("agency1teamemail");
+		String s2 = prop.getProperty("agencyteamemail2");
 		System.out.println("\nNew team member: " + s2);
 		
 		String xpath_start_email = "//*[@id=\"style-5\"]/table/tbody/tr[";
@@ -283,7 +302,7 @@ public class ShareWithTeamPage extends baseclass {
 				WebElement we = driver.findElement(By.xpath(xpath_start_sharecheckbox+i+xpath_end_sharecheckbox));		
 				we.click();
 				Thread.sleep(1000);
-				yesButtonShareCheckbox.click();
+				sharewithagencypage.yesButtonConfirmation.click();
 				System.out.println("\nNow job is shared with other team member..");
 				Thread.sleep(3000);
 				

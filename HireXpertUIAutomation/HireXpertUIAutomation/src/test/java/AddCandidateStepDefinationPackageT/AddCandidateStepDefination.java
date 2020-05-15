@@ -71,7 +71,7 @@ public class AddCandidateStepDefination extends baseclass {
 		
 		Thread.sleep(3000);
 		addcandidatepage.saveButton.click();
-		addcandidatepage.yesButtonProbabilityPopup.click();
+		addcandidatepage.yesButtonPopup.click();
 	   
 	}
 	@When("^login with Agency credential Who already have a Job added$")
@@ -83,7 +83,7 @@ public class AddCandidateStepDefination extends baseclass {
 	@Then("^Click on OK button$")
 	public void click_on_OK_button()  {
 	   
-		addcandidatepage.OKButtonSuccessPopup.click();
+		addcandidatepage.OKButtonPopup.click();
 	}
 	
 	@Then("^Quit the browser$")

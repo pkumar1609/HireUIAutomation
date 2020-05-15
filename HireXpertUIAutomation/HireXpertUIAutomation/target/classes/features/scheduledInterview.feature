@@ -29,8 +29,8 @@ Feature: Interview Management
     
 Examples:
 |   email address     |  password  |
-|  sayali@gmail.com   |   12345    |
-| sayagency@gmail.com |   12345    |
+|  sayali8@gmail.com   |   12345    |
+| sayagency1@gmail.com |   12345    |
 
     
 #TC ID: 30,105,108,110,224

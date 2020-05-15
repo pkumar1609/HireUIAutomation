@@ -11,16 +11,16 @@ public class ShareWithAgencyPage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	public WebElement searchField;
 	
-	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div/div/table/tbody/tr/td[4]/label/span")
+	@FindBy(xpath = "//span[@class='checkmark CheckBoxM']")
 	public WebElement shareCheckbox;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-sharejob/div[3]/button")
+	@FindBy(xpath = "//button[@class='btn btn-outline-dark']")
 	public WebElement closeButton;
 	
-	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div/div/table/tbody/tr/td[5]/label/span")
+	@FindBy(xpath = "//td[5]//label[1]//span[1]")
 	public WebElement blockUnblockCheckbox;
 	
-	@FindBy(id = "confirmModalBtn")
+	@FindBy(xpath = "//button[@id = 'confirmModalBtn']")
 	public WebElement yesButtonConfirmation;
 	
 	public ShareWithAgencyPage() {
@@ -38,7 +38,7 @@ public class ShareWithAgencyPage extends baseclass {
 	
 	public void searchAgencyOwner() {
 		
-		String expectedEmail = prop.getProperty("agencyemail");
+		String expectedEmail = prop.getProperty("agencyemail2");
 		searchField.click();
 		searchField.sendKeys(expectedEmail);
 	}

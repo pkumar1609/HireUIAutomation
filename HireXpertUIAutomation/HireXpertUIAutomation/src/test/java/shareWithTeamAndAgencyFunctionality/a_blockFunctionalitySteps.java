@@ -1,4 +1,4 @@
-package blockFunctionality;
+package shareWithTeamAndAgencyFunctionality;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -15,22 +15,9 @@ import cucumber.api.java.en.When;
 import utilPackage.baseclass;
 import utilPackage.utilclass;
 
-public class blockFunctionalitySteps extends baseclass {
+public class a_blockFunctionalitySteps extends baseclass {
 
 //scenario 1:
-	
-	@Given("^User is on Home page of application$")
-	public void User_is_on_Home_page_of_application() throws Throwable {
-	    
-		baseclass.initialization();
-	}
-
-	@When("^title of page is HireXpert$")
-	public void title_of_page_is_HireXpert() throws Throwable {
-	    
-		String title = loginpage.validateTitle();
-		System.out.println("Title of application: " + title);
-	}
 
 	@When("^enter valid user email address and password for registered employer and click on Sign in button$")
 	public void enter_valid_user_email_address_and_password_for_registered_employer_and_click_on_Sign_in_button(DataTable dt) throws Throwable {
@@ -61,14 +48,6 @@ public class blockFunctionalitySteps extends baseclass {
 //		Thread.sleep(2000);
 	}
 
-	@When("^click on Workbench tab and select job from Jobs drop down$")
-	public void click_on_Workbench_tab_and_select_job_from_Jobs_drop_down() throws Throwable {
-	    
-		dashboardpage.openWorkbenchPage();
-		Thread.sleep(3000);
-		workbenchpage.selectJob();
-		Thread.sleep(3000);
-	}
 
 	@When("^click on Share With Agency button and select the Share checkbox present in front of the agency to share the job$")
 	public void click_on_Share_With_Agency_button_and_select_the_Share_checkbox_present_in_front_of_the_agency_to_share_the_job() throws Throwable {
@@ -84,7 +63,7 @@ public class blockFunctionalitySteps extends baseclass {
 	@When("^click on Yes button from confirmation popup and click on Close button from Share Job window$")
 	public void click_on_Yes_button_from_confirmation_popup_and_click_on_Close_button_from_Share_Job_window() throws Throwable {
 	    
-		driver.findElement(By.id("confirmModalBtn")).click();
+		sharewithagencypage.yesButtonConfirmation.click();
 		Thread.sleep(4000);
 		sharewithagencypage.closeButton.click();
 		Thread.sleep(1000);
@@ -96,7 +75,7 @@ public class blockFunctionalitySteps extends baseclass {
 		workbenchpage.shareWithAgencyButton.click();
 		Thread.sleep(3000);
 		sharewithagencypage.searchAgency();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		sharewithagencypage.blockUnblockCheckbox.click();
 		Thread.sleep(2000);
 	}
@@ -104,10 +83,7 @@ public class blockFunctionalitySteps extends baseclass {
 	@When("^logout with employer and login with Agency valid credentials which you blocked on Share Job page$")
 	public void logout_with_employer_and_login_with_Agency_valid_credentials_which_you_blocked_on_Share_Job_page() throws Throwable {
 	    
-		WebElement we = driver.findElement(By.xpath("//img[@class='profile']"));
-		Actions action = new Actions(driver);
-		action.moveToElement(we).perform();
-		driver.findElement(By.xpath("//a[contains(text(),'Log Out')]")).click();
+		workbenchpage.ClickonLogout();
 		Thread.sleep(3000);
 		loginpage.signInAgency1();
 		Thread.sleep(5000);
@@ -137,15 +113,8 @@ public class blockFunctionalitySteps extends baseclass {
 		Thread.sleep(3000);
 	}
 
-	@When("^click on Add Candidate button$")
-	public void click_on_Add_Candidate_button() throws Throwable {
-	    
-		workbenchpage.addCandidateButton.click();
-		Thread.sleep(3000);
-	}
-
-	@When("^enter email id of candidate and click on Find button$")
-	public void enter_email_id_of_candidate_and_click_on_Find_button(DataTable dt) throws Throwable {
+	@When("^enter email id of candidate and click on Find button and observe$")
+	public void enter_email_id_of_candidate_and_click_on_Find_button_and_observe(DataTable dt) throws Throwable {
 	    
 		List<List<String>> data = dt.raw();
 		
@@ -156,44 +125,26 @@ public class blockFunctionalitySteps extends baseclass {
 		Thread.sleep(3000);
 	}
 
-	@When("^click on OK button from success popup window if you entered email id of registered candidate$")
-	public void click_on_OK_button_from_success_popup_window_if_you_entered_email_id_of_registered_candidate() throws Throwable {
-	    
-		driver.findElement(By.id("alertModalCloseBtn")).click();
-	}
-
-	@When("^Fill all details and click on Save button$")
-	public void fill_all_details_and_click_on_Save_button() throws Throwable {
-	    
-		addcandidatepage.salaryOffered.sendKeys("400000");
-		addcandidatepage.saveButton.click();
-	}
-
-	@When("^click on Yes button if probability related fields are not filled and observe$")
-	public void click_on_Yes_button_if_probability_related_fields_are_not_filled_and_observe() throws Throwable {
-	    
-		driver.findElement(By.id("confirmModalBtn")).click();
-		Thread.sleep(3000);
-	}
-
 	@Then("^Blocked agency should not be able to add candidate for the job and error message message should display and he should be able to see all candidate status which are added for that job$")
 	public void blocked_agency_should_not_be_able_to_add_candidate_for_the_job_and_error_message_message_should_display_and_he_should_be_able_to_see_all_candidate_status_which_are_added_for_that_job() throws Throwable {
 	    
 		System.out.println("\nBlocked agency not able to add candidate for the job");
-		System.out.println("Error message should display like - This User is blocked for this job. So cannot add candidate for this job");
+		System.out.println("Error message should display like - You are blocked by employer so you can not add more candidate now");
 	}
 
 	@Then("^click on OK button from error message popup$")
 	public void click_on_OK_button_from_error_message_popup() throws Throwable {
 	    
-		driver.findElement(By.id("alertModalCloseBtn")).click();
+		addcandidatepage.OKButtonPopup.click();
+		Thread.sleep(1000);
 	}
 
 	@Then("^click on Close button from Add Candidate page and click on Yes button from confirmation popup$")
 	public void click_on_Close_button_from_Add_Candidate_page_and_click_on_Yes_button_from_confirmation_popup() throws Throwable {
 	    
 		addcandidatepage.closeButton.click();
-		driver.findElement(By.id("confirmModalBtn")).click();
+		addcandidatepage.yesButtonPopup.click();
+		Thread.sleep(2000);
 	}
 
 	@Then("^click on Share With Team button and observe team is added and if not then add new team by clicking on Add button on Share Job page$")
@@ -203,10 +154,12 @@ public class blockFunctionalitySteps extends baseclass {
 		Thread.sleep(3000);
 		sharewithteampage.clickOnAddButton();
 		Thread.sleep(3000);
+		
 		List<List<String>> data = dt.raw();
 		sharewithteampage.TeamName.sendKeys(data.get(0).get(0));
 		sharewithteampage.TeamEmail.sendKeys(data.get(0).get(1));
 		sharewithteampage.TeamContactNumber.sendKeys(data.get(0).get(2));
+		
 		sharewithteampage.selectAddToTeamMember();
 		sharewithteampage.submitButton.click();
 		Thread.sleep(3000);
@@ -215,9 +168,9 @@ public class blockFunctionalitySteps extends baseclass {
 	@Then("^search for team member and select the Share checkbox present in front of the agency team member to share the job with team member$")
 	public void search_for_team_member_and_select_the_Share_checkbox_present_in_front_of_the_agency_team_member_to_share_the_job_with_team_member() throws Throwable {
 	    
-		sharewithteampage.searchAgencyTeam();
+		sharewithteampage.searchAgencyTeam11();
 		Thread.sleep(1000);
-		sharewithteampage.shareCheckboxForSearchedTeam.click();
+		sharewithagencypage.shareCheckbox.click();
 	}
 
 	@Then("^click on Yes button from confirmation popup and observe$")
@@ -234,23 +187,9 @@ public class blockFunctionalitySteps extends baseclass {
 		System.out.println("Error message displayed like - You are blocked by employer so you can not share this job anymore");
 	}
 
-	@Then("^close the browser$")
-	public void close_the_browser() throws Throwable {
-	    
-		Thread.sleep(5000);
-		driver.quit();
-	}
-
+	
 	
 //scenario 2:
-	@When("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
-	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String arg1, String arg2) throws Throwable {
-	   
-		loginpage.emailaddress.sendKeys(arg1);
-		loginpage.password.sendKeys(arg2);
-		loginpage.signin.click();
-		Thread.sleep(5000);
-	}
 
 	@When("^click on Team tab and add one new team member by clicking on Add button$")
 	public void click_on_Team_tab_and_add_one_new_team_member_by_clicking_on_Add_button(DataTable dt) throws Throwable {
@@ -266,7 +205,6 @@ public class blockFunctionalitySteps extends baseclass {
 			
 			dashboardpage.openTeamPage();
 			Thread.sleep(3000);
-			
 			teampage.AddTeamButton.click();
 			Thread.sleep(3000);
 			teampage.TeamMemberName.sendKeys(data.get(0).get(0));
@@ -312,7 +250,6 @@ public class blockFunctionalitySteps extends baseclass {
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
 		if(dynamicElement.size() != 0){
 			
-		 //If list size is non-zero, element is present
 			System.out.println("\nSearching team member with Employer..");
 			
 			workbenchpage.shareWithTeamButton.click();
@@ -324,7 +261,6 @@ public class blockFunctionalitySteps extends baseclass {
 		
 		else{
 			
-		 //Else if size is 0, then element is not present
 			System.out.println("\nSearching team member with Agency..");
 			
 			workbenchpage.shareWithTeamButton.click();
@@ -341,7 +277,7 @@ public class blockFunctionalitySteps extends baseclass {
 	@When("^click on Yes button from confirmation popup and now select the Block/Unblock checkbox present in front of the team member$")
 	public void click_on_Yes_button_from_confirmation_popup_and_now_select_the_Block_Unblock_checkbox_present_in_front_of_the_team_member() throws Throwable {
 	    
-		driver.findElement(By.id("confirmModalBtn")).click();
+		sharewithagencypage.yesButtonConfirmation.click();
 		Thread.sleep(3000);
 		sharewithteampage.blockUnblockCheckbox.click();
 		Thread.sleep(2000);
@@ -350,7 +286,7 @@ public class blockFunctionalitySteps extends baseclass {
 	@When("^click on Yes button from confirmation popup and click on Close button from Share Job$")
 	public void click_on_Yes_button_from_confirmation_popup_and_click_on_Close_button_from_Share_Job() throws Throwable {
 	    
-		driver.findElement(By.id("confirmModalBtn")).click();
+		sharewithagencypage.yesButtonConfirmation.click();
 		Thread.sleep(4000);
 		sharewithteampage.closeButton.click();
 		Thread.sleep(1000);
@@ -364,13 +300,9 @@ public class blockFunctionalitySteps extends baseclass {
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
 		if(dynamicElement.size() != 0){
 			
-		 //If list size is non-zero, element is present
 			System.out.println("\nLogout with Employer and login with Employer team member..");
 			
-			WebElement we = driver.findElement(By.xpath("//img[@class='profile']"));
-			Actions action = new Actions(driver);
-			action.moveToElement(we).perform();
-			driver.findElement(By.xpath("//a[contains(text(),'Log Out')]")).click();
+			workbenchpage.ClickonLogout();
 			Thread.sleep(3000);
 			loginpage.signInTeam();
 			Thread.sleep(5000);
@@ -378,15 +310,11 @@ public class blockFunctionalitySteps extends baseclass {
 		
 		else{
 			
-		 //Else if size is 0, then element is not present
 			System.out.println("\nLogout with Agency and login with Agency team member..");
 			
-			WebElement we = driver.findElement(By.xpath("//img[@class='profile']"));
-			Actions action = new Actions(driver);
-			action.moveToElement(we).perform();
-			driver.findElement(By.xpath("//a[contains(text(),'Log Out')]")).click();
+			workbenchpage.ClickonLogout();
 			Thread.sleep(3000);
-			loginpage.signInAgencyTeam();
+			loginpage.signInAgencyTeam1();
 			Thread.sleep(5000);
 		}
 		

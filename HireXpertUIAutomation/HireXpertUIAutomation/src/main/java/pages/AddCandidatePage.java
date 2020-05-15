@@ -20,7 +20,7 @@ public class AddCandidatePage extends baseclass {
 	public WebElement FindButton;
 	
 	@FindBy(id = "alertModalCloseBtn")
-	public WebElement OKButtonSuccessPopup;
+	public WebElement OKButtonPopup;
 	
 	@FindBy(id = "Name")
 	public WebElement name;
@@ -59,7 +59,7 @@ public class AddCandidatePage extends baseclass {
 	public WebElement salaryOffered;
 	
 	@FindBy(id = "confirmModalBtn")
-	public WebElement yesButtonProbabilityPopup;
+	public WebElement yesButtonPopup;
 	
 	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[2]/select")
 	public WebElement expertiseLevel;
@@ -88,11 +88,11 @@ public class AddCandidatePage extends baseclass {
 		location.sendKeys("Pune");
 	}
 	
-	public void searchCandidateEmail() {
-		
-		emailField.click();
-		emailField.sendKeys(prop.getProperty("candidateemail"));
-	}
+//	public void searchCandidateEmail() {
+//		
+//		emailField.click();
+//		emailField.sendKeys(prop.getProperty("candidateemail"));
+//	}
 	
 	public void EntercandidateemailT(String CandidateEmail) {
      	 

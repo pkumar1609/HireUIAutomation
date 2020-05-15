@@ -173,11 +173,6 @@ public class AddJobPage extends baseclass {
 		employerContactNumber.sendKeys("215245554");
 	}
 	
-//	public void fillEmployerEmailPlusIcon() {
-//		
-//		employerEmail.sendKeys("sayali@gmail.com");
-//	}
-	
 	public void employerDropDown() {
 		
 		se = new Select(employer);

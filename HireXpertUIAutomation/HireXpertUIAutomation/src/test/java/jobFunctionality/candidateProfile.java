@@ -1,4 +1,4 @@
-package candidateProfile;
+package jobFunctionality;
 
 import java.util.List;
 import org.openqa.selenium.By;
@@ -12,17 +12,17 @@ import utilPackage.baseclass;
 
 public class candidateProfile extends baseclass {
 	
-@Given("^User is on Home page of application$")
-public void user_is_on_Home_page_of_application() throws Throwable {
-    
-	baseclass.initialization();
-}
-
-@When("^title of page is HireXpert$")
-public void title_of_page_is_HireXpert() throws Throwable {
-    String title = loginpage.validateTitle();
-    System.out.println("Title of page: " + title);
-}
+//@Given("^User is on Home page of application$")
+//public void user_is_on_Home_page_of_application() throws Throwable {
+//    
+//	baseclass.initialization();
+//}
+//
+//@When("^title of page is HireXpert$")
+//public void title_of_page_is_HireXpert() throws Throwable {
+//    String title = loginpage.validateTitle();
+//    System.out.println("Title of page: " + title);
+//}
 
 @When("^enter valid user email address and password for employer and click on Sign in button$")
 public void enter_valid_user_email_address_and_password_for_employer_and_click_on_Sign_in_button(DataTable dt) throws Throwable {
@@ -282,17 +282,17 @@ public void one_job_skill_row_should_get_added_after_clicking_on_Add_Skill_butto
     Thread.sleep(2000);
 }
 
-@Then("^click on Delete Skill button in front of any skill$")
-public void click_on_Delete_Skill_button_in_front_of_any_skill() throws Throwable {
+@Then("^click on Delete Skill button in front of any skill for candidate$")
+public void click_on_Delete_Skill_button_in_front_of_any_skill_for_candidate() throws Throwable {
     
 	candidateupdateprofilepage.skill3Delete.click();
 }
 
-@Then("^after clicking on Delete Skill button present in front of skill then that skill row should get deleted$")
-public void after_clicking_on_Delete_Skill_button_present_in_front_of_skill_then_that_skill_row_should_get_deleted() throws Throwable {
-    
-	System.out.println("Selected skill get deleted");
-}
+//@Then("^after clicking on Delete Skill button present in front of skill then that skill row should get deleted$")
+//public void after_clicking_on_Delete_Skill_button_present_in_front_of_skill_then_that_skill_row_should_get_deleted() throws Throwable {
+//    
+//	System.out.println("Selected skill get deleted");
+//}
 
 @Then("^Click on Add Role button and observe$")
 public void click_on_Add_Role_button_and_observe() throws Throwable {
@@ -324,11 +324,11 @@ public void after_clicking_on_Delete_Role_button_present_in_front_of_role_then_t
 	System.out.println("Selected role get deleted");
 }
 
-@Then("^close the browser$")
-public void close_the_browser() throws Throwable {
-    
-	Thread.sleep(3000);
-	driver.quit();
-}
+//@Then("^close the browser$")
+//public void close_the_browser() throws Throwable {
+//    
+//	Thread.sleep(3000);
+//	driver.quit();
+//}
 
 }

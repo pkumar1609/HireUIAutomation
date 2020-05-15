@@ -13,10 +13,10 @@ import utilPackage.baseclass;
 
 public class EmployersPage extends baseclass {
 	
-	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div/div/input")
+	@FindBy(xpath = "//input[@name='search']")
 	public WebElement searchfield;
 	
-	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div/div/table/tbody/tr/td[4]/button")
+	@FindBy(xpath = "//button[@title='Delete']")
 	public WebElement deleteEmployer;
 	
 	public static String namevalidate;
@@ -46,6 +46,9 @@ public class EmployersPage extends baseclass {
 	@FindBy(xpath="//button[@class='btn btn-outline-dark'][@type='button']")
 	WebElement closebtn;
 	
+	@FindBy(xpath = "//button[@class='btn btn-outline-dark']")
+	WebElement employersCloseButton;
+	
 	@FindBy(xpath="//button[@title='Delete']")
 	public static WebElement deletebtn;
 	
@@ -69,7 +72,7 @@ public class EmployersPage extends baseclass {
 		searchfield.click();
 		searchfield.sendKeys(expectedEmail);
 		
-		String actualEmail = driver.findElement(By.xpath("//*[@id=\"style-5\"]/div/div/div/table/tbody/tr/td[2]")).getText();
+		String actualEmail = driver.findElement(By.xpath("//td[contains(text(),'sayali@gmail.com')]")).getText();
 		
 		if(actualEmail.equals(expectedEmail)) {
 			System.out.println("Employer found..");
@@ -144,6 +147,10 @@ public class EmployersPage extends baseclass {
 		confimYes.click();	
 	}
 	
+	public void clickEmployersCloseButton() {
+		
+		employersCloseButton.click();
+	}
 	
 
 }
