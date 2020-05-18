@@ -11,14 +11,30 @@ public class UpdateProfilePopupPage extends baseclass {
 	@FindBy(xpath="//input[@id='Name']")
 	public WebElement Name;
 	
+	@FindBy(xpath="//input[@formcontrolname='name']")
+	public WebElement AgencyEmployerName;
+	
 	@FindBy(xpath="//input[@id='Email']")
 	public WebElement Email;
+	
+	@FindBy(xpath="//input[@formcontrolname='email']")
+	public WebElement AgencyEmployerEmail;
 	
 	@FindBy(xpath="//input[@id='ContactNumber']")
 	public WebElement ContactNumber;
 	
+	@FindBy(xpath="//input[@formcontrolname='contactNumber']")
+	public WebElement AgencyEmployerContactNumber;
+	
+	@FindBy(xpath="//select[@formcontrolname='timezone']")
+	public WebElement AgencyEmployerTimeZone;
+	
 	@FindBy(xpath="//select[@formcontrolname='CountryId']")
 	public WebElement Country;
+	
+	
+	@FindBy(xpath="//input[@formcontrolname='language']")
+	public WebElement language;
 	
 	@FindBy(xpath="//input[@id='ExperienceInYears']")
 	public WebElement ExperienceinYears;
@@ -28,6 +44,9 @@ public class UpdateProfilePopupPage extends baseclass {
 	
 	@FindBy(xpath="//textarea[@id='agencyaddress']")
 	public WebElement Address;
+	
+	@FindBy(xpath="//textarea[@formcontrolname='address']")
+	public WebElement Address1;
 	
 	@FindBy(xpath="//input[@formcontrolname='OrganizationId']")
 	public WebElement OrganizationName;
@@ -161,17 +180,9 @@ public class UpdateProfilePopupPage extends baseclass {
 		 OrganizationName.sendKeys(organizationname);		
     }
      
-    public void VerifyAutoPopulatedFieldsOnUpdateCandidateProfile () {
+    public void VerifyAutoPopulatedFieldsOnUpdateAgencyProfile () {
     	   
-    	   if (Title.getAttribute("value").isEmpty()) {
-    		   
-    		   System.out.println("Title field is blank and it is not autopopulated");
-    	   }else {
-    		   
-    		   System.out.println("Title field is autopopulated on Update Profile Popup Window");
-    	   }
-    	   
-    	   if (Name.getAttribute("value").isEmpty()) {
+    	   if (AgencyEmployerName.getAttribute("value").isEmpty()) {
     		   
                System.out.println("Name field is blank and it is not autopopulated");
     	   }else {
@@ -179,7 +190,7 @@ public class UpdateProfilePopupPage extends baseclass {
        		   System.out.println("Name field is autopopulated on Update Profile Popup Window");
     	   }
     	   
-    	   if (Email.getAttribute("value").isEmpty()) {
+    	   if (AgencyEmployerEmail.getAttribute("value").isEmpty()) {
    		   
    		         System.out.println("Email field is blank and it is not autopopulated");
    	       }else {
@@ -187,7 +198,7 @@ public class UpdateProfilePopupPage extends baseclass {
    	    	System.out.println("Email field is autopopulated on Update Profile Popup Window");
    	       }
     	   
-    	   if (ContactNumber.getAttribute("value").isEmpty()) {
+    	   if (AgencyEmployerContactNumber.getAttribute("value").isEmpty()) {
       		   
 		          System.out.println("ContactNumber field is blank and it is not autopopulated");
 	       }else {
@@ -195,30 +206,6 @@ public class UpdateProfilePopupPage extends baseclass {
 	    	   System.out.println("ContactNumber field is autopopulated on Update Profile Popup Window");
 	       }
  
-    	   if (Designation.getAttribute("value").isEmpty()) {
-    		   
-             System.out.println("Designation field is blank and it is not autopopulated");
-	       }else {
-		   
-		         System.out.println("Designation field is autopopulated on Update Profile Popup Window");
-	       }
-         
-    	   if (Noticeperiod.getAttribute("value").isEmpty()) {
-              
-		         System.out.println("NoticePeriod field is blank and it is not autopopulated");
-	       }else {
-		   
-	    	   System.out.println("NoticePeriod field is autopopulated on Update Profile Popup Window");
-	       }
-
-    	   if (Industry.getAttribute("value").isEmpty()) {
-              
-		        System.out.println("Industry field is blank and it is not autopopulated");
-	       }else {
-		   
-	    	   System.out.println("Industry field is autopopulated on Update Profile Popup Window");   
-	       }
-
     	   if (Country.getAttribute("value").isEmpty()) {
               
 		        System.out.println("Country field is blank and it is not autopopulated");
@@ -227,39 +214,229 @@ public class UpdateProfilePopupPage extends baseclass {
 	    	   System.out.println("Country field is autopopulated on Update Profile Popup Window");
 	       }
           
-    	   if (CityofCandidate.getAttribute("value").isEmpty()) {
+    	   if (City.getAttribute("value").isEmpty()) {
               
 		         System.out.println("City field is blank and it is not autopopulated");
 	       }else {
 		   
 	    	   System.out.println("City field is autopopulated on Update Profile Popup Window");
 	       }
+    	   
+    	   if (AgencyEmployerTimeZone.getAttribute("value").isEmpty()) {
+               
+		         System.out.println("TimeZone field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("Timezone field is autopopulated on Update Profile Popup Window");
+	       }
+    	   
+    	   if (language.getAttribute("value").isEmpty()) {
+               
+		         System.out.println("language field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("language field is autopopulated on Update Profile Popup Window");
+	       }
 
-    	   if (Gender.getAttribute("value").isEmpty()) {
-              
+    	   if (Address1.getAttribute("value").isEmpty()) {
+               
+		         System.out.println("Address field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("Address field is autopopulated on Update Profile Popup Window");
+	       }
+    	   
+    	   if (OrganizationName.getAttribute("value").isEmpty()) {
+               
+		         System.out.println("Organization Name field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("Organization Name field is autopopulated on Update Profile Popup Window");
+	       }
+    }
+    
+    
+    public void VerifyAutoPopulatedFieldsOnUpdateEmployerProfile () {
+ 	   
+ 	   if (AgencyEmployerName.getAttribute("value").isEmpty()) {
+ 		   
+            System.out.println("Name field is blank and it is not autopopulated");
+ 	   }else {
+ 		   
+    		   System.out.println("Name field is autopopulated on Update Profile Popup Window");
+ 	   }
+ 	   
+ 	   if (AgencyEmployerEmail.getAttribute("value").isEmpty()) {
+		   
+		         System.out.println("Email field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	System.out.println("Email field is autopopulated on Update Profile Popup Window");
+	       }
+ 	   
+ 	   if (AgencyEmployerContactNumber.getAttribute("value").isEmpty()) {
+   		   
+		          System.out.println("ContactNumber field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("ContactNumber field is autopopulated on Update Profile Popup Window");
+	       }
+
+ 	   if (Country.getAttribute("value").isEmpty()) {
+           
+		        System.out.println("Country field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("Country field is autopopulated on Update Profile Popup Window");
+	       }
+       
+ 	   if (City.getAttribute("value").isEmpty()) {
+           
+		         System.out.println("City field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("City field is autopopulated on Update Profile Popup Window");
+	       }
+ 	   
+ 	   if (AgencyEmployerTimeZone.getAttribute("value").isEmpty()) {
+            
+		         System.out.println("TimeZone field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("Timezone field is autopopulated on Update Profile Popup Window");
+	       }
+ 	   
+ 	   if (language.getAttribute("value").isEmpty()) {
+            
+		         System.out.println("language field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("language field is autopopulated on Update Profile Popup Window");
+	       }
+
+ 	   if (Address1.getAttribute("value").isEmpty()) {
+            
+		         System.out.println("Address field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("Address field is autopopulated on Update Profile Popup Window");
+	       }
+ 	   
+ 	   if (OrganizationName.getAttribute("value").isEmpty()) {
+            
+		         System.out.println("Organization Name field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("Organization Name field is autopopulated on Update Profile Popup Window");
+	       }
+
+ 	   
+    
+ }
+    
+    
+    
+    
+    
+    public void VerifyAutoPopulatedFieldsOnUpdateCandidateProfile () {
+ 	   
+ 	   if (Title.getAttribute("value").isEmpty()) {
+ 		   
+ 		   System.out.println("Title field is blank and it is not autopopulated");
+ 	   }else {
+ 		   
+ 		   System.out.println("Title field is autopopulated on Update Profile Popup Window");
+ 	   }
+ 	   
+ 	   if (Name.getAttribute("value").isEmpty()) {
+ 		   
+            System.out.println("Name field is blank and it is not autopopulated");
+ 	   }else {
+ 		   
+    		   System.out.println("Name field is autopopulated on Update Profile Popup Window");
+ 	   }
+ 	   
+ 	   if (Email.getAttribute("value").isEmpty()) {
+		   
+		         System.out.println("Email field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	System.out.println("Email field is autopopulated on Update Profile Popup Window");
+	       }
+ 	   
+ 	   if (ContactNumber.getAttribute("value").isEmpty()) {
+   		   
+		          System.out.println("ContactNumber field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("ContactNumber field is autopopulated on Update Profile Popup Window");
+	       }
+
+ 	   if (Designation.getAttribute("value").isEmpty()) {
+ 		   
+          System.out.println("Designation field is blank and it is not autopopulated");
+	       }else {
+		   
+		         System.out.println("Designation field is autopopulated on Update Profile Popup Window");
+	       }
+      
+ 	   if (Noticeperiod.getAttribute("value").isEmpty()) {
+           
+		         System.out.println("NoticePeriod field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("NoticePeriod field is autopopulated on Update Profile Popup Window");
+	       }
+
+ 	   if (Industry.getAttribute("value").isEmpty()) {
+           
+		        System.out.println("Industry field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("Industry field is autopopulated on Update Profile Popup Window");   
+	       }
+
+ 	   if (Country.getAttribute("value").isEmpty()) {
+           
+		        System.out.println("Country field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("Country field is autopopulated on Update Profile Popup Window");
+	       }
+       
+ 	   if (CityofCandidate.getAttribute("value").isEmpty()) {
+           
+		         System.out.println("City field is blank and it is not autopopulated");
+	       }else {
+		   
+	    	   System.out.println("City field is autopopulated on Update Profile Popup Window");
+	       }
+
+ 	   if (Gender.getAttribute("value").isEmpty()) {
+           
 		         System.out.println("Gender field is blank and it is not autopopulated");
 	       }else {
 		   
 	    	   System.out.println("Gender field is autopopulated on Update Profile Popup Window");
 	       }
 
-    	   if (ExperienceinYears.getAttribute("value").isEmpty()) {
-              
+ 	   if (ExperienceinYears.getAttribute("value").isEmpty()) {
+           
 		        System.out.println("Experience (in Years)field is blank and it is not autopopulated");
 	       }else {
 		   
 	    	   System.out.println("Experience (in Years) field is autopopulated as 0 on Update Profile Popup Window");
 	       }
- 	   
-    	   if (CTCperAnnum.getAttribute("value").isEmpty()) {
-              
+	   
+ 	   if (CTCperAnnum.getAttribute("value").isEmpty()) {
+           
 		        System.out.println("CTC (Per Annum) field is blank and it is not autopopulated");
 	       }else {
 		   
 	    	   System.out.println("CTC (Per Annum) field is autopopulated as 0 on Update Profile Popup Window");
 	       }
-       
-    }
+    
+ }
 }
 
 

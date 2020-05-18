@@ -70,4 +70,17 @@ public class CriticalFieldsAutoPopulateStepDefination extends baseclass {
 		updateprofilepopuppage.VerifyAutoPopulatedFieldsOnUpdateCandidateProfile();
 	}
 
-}
+	@Then("^verify the Auto Populated fields on agency update profile popup window$")
+	public void verify_the_Auto_Populated_fields_on_agency_update_profile_popup_window() throws Throwable {
+	    
+		Thread.sleep(3000);
+		updateprofilepopuppage.VerifyAutoPopulatedFieldsOnUpdateAgencyProfile();
+	}
+
+	@Then("^verify the Auto Populated fields on employer update profile popup window$")
+	public void verify_the_Auto_Populated_fields_on_employer_update_profile_popup_window() throws Throwable {
+	    
+		Thread.sleep(3000);
+		updateprofilepopuppage.VerifyAutoPopulatedFieldsOnUpdateEmployerProfile();
+	}
+	}
