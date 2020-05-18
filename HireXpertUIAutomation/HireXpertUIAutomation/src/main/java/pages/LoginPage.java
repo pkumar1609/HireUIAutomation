@@ -99,7 +99,11 @@ public class LoginPage extends baseclass {
 		signin.click();
 	}
 	
-
+	public void signInAgencyTeam() {
+		emailaddress.sendKeys(prop.getProperty("agencyteamemail"));
+		password.sendKeys(prop.getProperty("password"));
+		signin.click();
+	}
 
 	public void signInAgency2() {
 		emailaddress.sendKeys(prop.getProperty("agencyemail2"));

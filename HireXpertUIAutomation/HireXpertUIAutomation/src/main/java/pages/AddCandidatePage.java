@@ -167,15 +167,15 @@ public class AddCandidatePage extends baseclass {
 		
 
 	
-	public void enterEmailIdK() throws InterruptedException
-	{
-		emailField.sendKeys(prop.getProperty("canid"));
-		Thread.sleep(1000);
-		FindButton.click();
-		Thread.sleep(1000);
-		common.clickOnOKBtn();
-		nameOfCan= name.getText();
-	}
+//	public void enterEmailIdK() throws InterruptedException
+//	{
+//		emailField.sendKeys(prop.getProperty("canid"));
+//		Thread.sleep(1000);
+//		FindButton.click();
+//		Thread.sleep(1000);
+//		common.clickOnOKBtn();
+//		nameOfCan= name.getText();
+//	}
 	
 	
 

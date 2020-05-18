@@ -90,6 +90,9 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//input[@formcontrolname='Name']")
 	public WebElement name;
 	
+	@FindBy(xpath = "//button[@title='Reload Candidate']")
+	public WebElement ReloadCandidateButton;
+	
 	public String jobname;
 	String nameOfCan;
 	
@@ -198,6 +201,7 @@ public class WorkbenchPage extends baseclass {
 		Thread.sleep(2000);
 		agreementbtn.click();
 	}
+	
 	public void enterEmailId() throws InterruptedException           //added on add candidate page
 	{
 		emailfield.sendKeys(prop.getProperty("canid"));
@@ -208,7 +212,10 @@ public class WorkbenchPage extends baseclass {
 		nameOfCan= name.getText();
 	}
 	
-	
+	public void clickReloadCandidateButton() {
+		
+		ReloadCandidateButton.click();
+	}
 	
 
 }
