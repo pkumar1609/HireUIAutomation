@@ -1,5 +1,6 @@
 Feature: User Management
 
+@bvt @regression1_01
 	Scenario: To verify the functionality of Update Profile page of candidate
 	
 	Given User is on Home page of application
@@ -10,13 +11,13 @@ Feature: User Management
     And click on Workbench tab and select job from Jobs drop down
     And click on Add Candidate button
     And enter email id of candidate which is not registered previously and click on Find button
-    | c20@gmail.com |
+    | c21@gmail.com |
     And Fill all mandatory details and click on Save button
-    | c20 | 431632620 | test engineer | 30 | Pune |
+    | c21 | 4316326201 | test engineer | 30 | Pune |
     And click on Yes button if probability related fields are not filled and observe
     Then new candidate should get added in New column
     And logout with employer and login with new candidate added by employer
-    | c20@gmail.com | 12345 |
+    | c21@gmail.com | 12345 |
     Then Update profile pop up will appears 
     And observe the auto-populated fields on the update candidate profile popup
     Then all filled information should auto populate if candidate added through employer
@@ -45,7 +46,47 @@ Feature: User Management
     And click on Delete Role button in front of any role
     Then after clicking on Delete Role button present in front of role then that role should get deleted
 	And close the browser
+	
+#TC ID: 25,36,37,38,39,92,228,229	
     
+@regression1_02
+	Scenario Outline: To verify the functionality of Upload Resume on candidate profile
+	
+	Given User is on Home page of application
     
-#TC ID: 39,92,228,229,36,37,38
+    When title of page is HireXpert
+    And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+    And click on Workbench tab and select job from Jobs drop down
+   And click on Add Candidate button and one new candidate for the job and click on Find button
+    | c01@gmail.com | c02@gmail.com |
+    And fill mandatory details
+    And click on Browse button and Upload file with any format like document 
+    And click on Save button
+    Then User should be able to upload cv in document format
+    And click on Edit Candidate icon from candidate card
+    And click on Browse button and upload another file with different format like executable file format and click on Save button
+    Then User should be able to upload cv in executable file format
+    And click on Edit Candidate icon from candidate card
+    And click on Browse button and upload another file with different format like zip file format and click on Save button
+    Then User should be able to upload cv in zip format
+    And click on Edit Candidate icon from candidate card
+    And click on Browse button and upload another file with different format like PDF file format
+    And click on Save button
+    Then User should be able to upload cv in PDF file format
+    And click on Edit Candidate icon from candidate card
+    And click on Browse button and upload another file with different format like text file format
+    And click on Save button
+    Then User should be able to upload cv in text file format
+    And click on Edit Candidate icon from candidate card
+    And click on Browse button and upload another file with different format like PNG file format
+    And click on Save button
+    Then User should be able to upload cv in PNG file format
+    And close the browser
     
+Examples:
+|    email address     |  password  |
+|  sayali8@gmail.com   |   12345    |
+| sayagency1@gmail.com |   12345    |    
+    
+
+#TC ID: 26    

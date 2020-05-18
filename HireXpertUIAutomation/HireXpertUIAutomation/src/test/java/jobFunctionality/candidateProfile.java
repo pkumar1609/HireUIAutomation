@@ -1,6 +1,8 @@
 package jobFunctionality;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -9,20 +11,11 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utilPackage.baseclass;
+import utilPackage.utilclass;
 
 public class candidateProfile extends baseclass {
 	
-//@Given("^User is on Home page of application$")
-//public void user_is_on_Home_page_of_application() throws Throwable {
-//    
-//	baseclass.initialization();
-//}
-//
-//@When("^title of page is HireXpert$")
-//public void title_of_page_is_HireXpert() throws Throwable {
-//    String title = loginpage.validateTitle();
-//    System.out.println("Title of page: " + title);
-//}
+// @bvt @regression1_01
 
 @When("^enter valid user email address and password for employer and click on Sign in button$")
 public void enter_valid_user_email_address_and_password_for_employer_and_click_on_Sign_in_button(DataTable dt) throws Throwable {
@@ -98,7 +91,47 @@ public void click_on_Yes_button_if_probability_related_fields_are_not_filled_and
 @Then("^new candidate should get added in New column$")
 public void new_candidate_should_get_added_in_New_column() throws Throwable {
     
-	System.out.println("New candidate get added to the job..");
+	System.out.println("New candidate get added to the job in New column..");
+	workbenchpage.clickReloadCandidateButton();
+	
+	driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+	
+	List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+	
+	if(dynamicElement.size() != 0){
+		
+		String candidateName = "c21";
+		
+		WebElement candidateName1 = driver.findElement(By.xpath("//span[contains(text(),'c21')]"));
+		
+		List<WebElement> element = driver.findElements(By.xpath("//div[@class='item-box cdk-drag']"));
+		int cardCount = element.size();
+		System.out.println("Card count: " + cardCount);
+		
+		if(cardCount != 0){
+			
+			System.out.println("Candidate card is available..");
+			
+			String candidateNameOnCard = candidateName1.getText();
+//			System.out.println(candidateNameOnCard);
+			
+			for(int i = 1; i<=cardCount; i++) {
+				
+				if(candidateName.equals(candidateNameOnCard)) {
+					
+					System.out.println("Candidate found at "+i+" position..");
+					Thread.sleep(3000);
+				}
+			}
+		}
+		
+		else {
+			
+			System.out.println("Candidate card is not available..");
+		}
+
+	}
+	
 }
 
 @Then("^logout with employer and login with new candidate added by employer$")
@@ -226,8 +259,6 @@ public void entered_certificate_should_appear_in_skill_section_on_candidate_dash
 	candidatedashboardpage.findSkillAndCertificate();
 	candidatedashboardpage.skillsRefreshButton.click();
 	Thread.sleep(3000);
-//	driver.navigate().refresh();
-	
 }
 
 @Then("^again go to update profile and delete certificate value of the skill and click on save button$")
@@ -288,12 +319,6 @@ public void click_on_Delete_Skill_button_in_front_of_any_skill_for_candidate() t
 	candidateupdateprofilepage.skill3Delete.click();
 }
 
-//@Then("^after clicking on Delete Skill button present in front of skill then that skill row should get deleted$")
-//public void after_clicking_on_Delete_Skill_button_present_in_front_of_skill_then_that_skill_row_should_get_deleted() throws Throwable {
-//    
-//	System.out.println("Selected skill get deleted");
-//}
-
 @Then("^Click on Add Role button and observe$")
 public void click_on_Add_Role_button_and_observe() throws Throwable {
     
@@ -324,11 +349,156 @@ public void after_clicking_on_Delete_Role_button_present_in_front_of_role_then_t
 	System.out.println("Selected role get deleted");
 }
 
-//@Then("^close the browser$")
-//public void close_the_browser() throws Throwable {
-//    
-//	Thread.sleep(3000);
-//	driver.quit();
-//}
+// @regression1_02
+
+@When("^click on Add Candidate button and one new candidate for the job and click on Find button$")
+public void click_on_Add_Candidate_button_and_one_new_candidate_for_the_job_and_click_on_Find_button(DataTable dt) throws Throwable {
+    
+	List<List<String>> data = dt.raw();
+	
+	driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+	
+	List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+	if(dynamicElement.size() != 0){
+		
+		System.out.println("\nUser logged in as Employer..");
+		
+		workbenchpage.addCandidateButton.click();
+		Thread.sleep(1000);
+		addcandidatepage.validatePageTitle();
+		addcandidatepage.emailField.sendKeys(data.get(0).get(0));
+		addcandidatepage.FindButton.click();
+		Thread.sleep(3000);
+		addcandidatepage.OKButtonPopup.click();
+	}
+	
+	else{
+		
+		System.out.println("\nUser logged in as Agency..");
+		
+		workbenchpage.addCandidateButton.click();
+		Thread.sleep(1000);
+		addcandidatepage.validatePageTitle();
+		addcandidatepage.emailField.sendKeys(data.get(0).get(1));
+		addcandidatepage.FindButton.click();
+		Thread.sleep(3000);
+		addcandidatepage.OKButtonPopup.click();
+	}
+	
+	driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
+}
+
+@When("^fill mandatory details$")
+public void fill_mandatory_details() throws Throwable {
+    
+	addcandidatepage.salaryOffered.sendKeys("300000");
+	Thread.sleep(1000);
+}
+
+@When("^click on Browse button and Upload file with any format like document$")
+public void click_on_Browse_button_and_Upload_file_with_any_format_like_document() throws Throwable {
+    
+	addcandidatepage.clickUploadResumeField();
+	addcandidatepage.uploadResumeDocument();
+	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+}
+
+@Then("^click on Save button$")
+public void click_on_Save_button() throws Throwable {
+    
+	addcandidatepage.saveButton.click();
+	addcandidatepage.yesButtonPopup.click();
+	Thread.sleep(5000);
+}
+
+@Then("^User should be able to upload cv in document format$")
+public void user_should_be_able_to_upload_cv_in_document_format() throws Throwable {
+    
+	System.out.println("\nUser able to upload resume in document file format..");
+}
+
+@Then("^click on Edit Candidate icon from candidate card$")
+public void click_on_Edit_Candidate_icon_from_candidate_card() throws Throwable {
+    
+	workbenchpage.candidateCardEditCandidateIcon.click();
+	Thread.sleep(3000);
+}
+
+@Then("^click on Browse button and upload another file with different format like executable file format and click on Save button$")
+public void click_on_Browse_button_and_upload_another_file_with_different_format_like_executable_file_format_and_click_on_Save_button() throws Throwable {
+    
+	addcandidatepage.clickUploadResumeField();
+	editcandidatepage.uploadResumeExecutableFile();
+	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	addcandidatepage.saveButton.click();
+	addcandidatepage.yesButtonPopup.click();
+	Thread.sleep(16000);
+}
+
+@Then("^User should be able to upload cv in executable file format$")
+public void user_should_be_able_to_upload_cv_in_executable_file_format() throws Throwable {
+    
+	System.out.println("\nUser able to upload resume in executable file format..");
+}
+
+@Then("^click on Browse button and upload another file with different format like zip file format and click on Save button$")
+public void click_on_Browse_button_and_upload_another_file_with_different_format_like_zip_file_format_and_click_on_Save_button() throws Throwable {
+    
+	addcandidatepage.clickUploadResumeField();
+	editcandidatepage.uploadResumeZipFile();
+	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	addcandidatepage.saveButton.click();
+	addcandidatepage.yesButtonPopup.click();
+	Thread.sleep(7000);
+}
+
+@Then("^User should be able to upload cv in zip format$")
+public void user_should_be_able_to_upload_cv_in_zip_format() throws Throwable {
+    
+	System.out.println("\nUser able to upload resume in ZIP file format..");
+}
+
+@Then("^click on Browse button and upload another file with different format like PDF file format$")
+public void click_on_Browse_button_and_upload_another_file_with_different_format_like_PDF_file_format() throws Throwable {
+    
+	addcandidatepage.clickUploadResumeField();
+	editcandidatepage.uploadResumePDFFile();
+	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+}
+
+@Then("^User should be able to upload cv in PDF file format$")
+public void user_should_be_able_to_upload_cv_in_PDF_file_format() throws Throwable {
+    
+	System.out.println("\nUser able to upload resume in PDF file format..");
+}
+
+@Then("^click on Browse button and upload another file with different format like text file format$")
+public void click_on_Browse_button_and_upload_another_file_with_different_format_like_text_file_format() throws Throwable {
+    
+	addcandidatepage.clickUploadResumeField();
+	editcandidatepage.uploadResumeTextFile();
+	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+}
+
+@Then("^User should be able to upload cv in text file format$")
+public void user_should_be_able_to_upload_cv_in_text_file_format() throws Throwable {
+    
+	System.out.println("\nUser able to upload resume in text file format..");
+}
+
+@Then("^click on Browse button and upload another file with different format like PNG file format$")
+public void click_on_Browse_button_and_upload_another_file_with_different_format_like_PNG_file_format() throws Throwable {
+    
+	addcandidatepage.clickUploadResumeField();
+	editcandidatepage.uploadResumePNGFile();
+	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+}
+
+@Then("^User should be able to upload cv in PNG file format$")
+public void user_should_be_able_to_upload_cv_in_PNG_file_format() throws Throwable {
+    
+	System.out.println("\nUser able to upload resume in PNG file format..");
+}
+
 
 }
