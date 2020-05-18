@@ -1,6 +1,11 @@
 package pages;
 
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -69,8 +74,11 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[2]/select")
 	public WebElement expertiseLevel;
 	
-	String nameOfCan;
+	@FindBy(xpath = "//div[@class='custom-file']")
+	public WebElement uploadResumeField;
 	
+	String nameOfCan;
+	Robot rb;
 	
 	public AddCandidatePage() {
 		
@@ -165,18 +173,29 @@ public class AddCandidatePage extends baseclass {
 		}
 	}
 		
-
+	public void clickUploadResumeField() {
+		
+		uploadResumeField.click();
+	}
 	
-//	public void enterEmailIdK() throws InterruptedException
-//	{
-//		emailField.sendKeys(prop.getProperty("canid"));
-//		Thread.sleep(1000);
-//		FindButton.click();
-//		Thread.sleep(1000);
-//		common.clickOnOKBtn();
-//		nameOfCan= name.getText();
-//	}
-	
+	public void uploadResumeDocument() throws AWTException {
+		
+		rb = new Robot();
+		rb.setAutoDelay(2000);
+		
+		StringSelection ss = new StringSelection("C:\\Users\\Admin\\Downloads\\New Microsoft Word Document.docx");
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+		
+		rb.setAutoDelay(3000);
+		rb.keyPress(KeyEvent.VK_CONTROL);
+		rb.keyPress(KeyEvent.VK_V);   
+		rb.keyRelease(KeyEvent.VK_CONTROL);
+		rb.keyRelease(KeyEvent.VK_V);
+		
+		rb.setAutoDelay(2000);
+		rb.keyPress(KeyEvent.VK_ENTER);   
+		rb.setAutoDelay(3000);
+	}
 	
 
 }

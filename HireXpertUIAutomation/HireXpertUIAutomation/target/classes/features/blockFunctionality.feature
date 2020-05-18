@@ -31,7 +31,7 @@ Feature: Job Management
     Then user should able to search team member and blocked agency should not able to share job with any team members and error message should display
     And close the browser
     
-#TC ID - 66,384 
+#TC ID - 61,65,66,384
  
 @teamblock
  Scenario Outline: Verify the Block functionality for team member with Employer and Agency login
@@ -61,4 +61,4 @@ Examples:
 |sayagency1@gmail.com|    12345     |
 
 
-#TC ID - 72,73
+#TC ID - 67,72,73
