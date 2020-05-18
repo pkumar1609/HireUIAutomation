@@ -11,9 +11,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utilPackage.baseclass;
 
-public class StepDefination extends baseclass {
+public class TC50_54K extends baseclass {
 
-	public StepDefination() throws IOException 
+	public TC50_54K() throws IOException 
 	{
 		super();
 	}

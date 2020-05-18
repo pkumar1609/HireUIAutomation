@@ -2,6 +2,7 @@ package pages;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -100,29 +101,35 @@ public class EmployersPage extends baseclass {
 		addbtn.click();
 	}
 	
-	public void selectCountry()
-	{
-		Select dropdown = new Select(countryid);
-		dropdown.selectByVisibleText("India");
-	}
+	
 	
 	public void enterValidCredentials(DataTable credentials) throws InterruptedException {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
+			ClickAddBtn();
 			Thread.sleep(1000);
 			namefield.sendKeys(data.get("Name"));
 			namevalidate=data.get("Name");
 			ar.add(namevalidate);
 			emailfield.sendKeys(data.get("Email"));
 			contactnumberfield.sendKeys(data.get("contact"));
-			selectCountry();
-			ClickSubmitBtn();
-			Thread.sleep(1000);
-			ClickAddBtn();
+			select = new Select(countryid);
+			select.selectByVisibleText("India");
+			common.ClickSumbit();
+			try
+			{ 
+				common.okbtn.isDisplayed();
+				common.clickOnOKBtn();
+				common.clickOnAddClosebtn();
+				System.out.println("these employer member are already added");
+			}
+			catch(NoSuchElementException e)
+			{
+				System.out.println("Employer added succesfully");
+			}
+			
 		}
-		size= ar.size();
-		Thread.sleep(1000);
-		ClickCloseBtn();
+		
 	}
 
 	public void ClickSubmitBtn() throws InterruptedException

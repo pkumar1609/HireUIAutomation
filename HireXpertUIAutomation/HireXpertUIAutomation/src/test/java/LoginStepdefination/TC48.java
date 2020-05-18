@@ -32,7 +32,7 @@ public class TC48 extends baseclass {
 		dashboardpage.openTeamPage();
 	}
 
-	@And("^Click on add Button and Fill all the mandatory details for team$")
+	@And("^Click on add Button and Fill all the mandatory details for Employer team$")
 	public void fill_all_the_mandatory_details(DataTable credentials) throws Throwable {
 		teampage.AddAllDetailsK(credentials);
 	}
@@ -45,7 +45,8 @@ public class TC48 extends baseclass {
 
 	@Then("^Newly added team member should be displayed in team page$")
 	public void newly_added_team_member_should_be_displayed_in_team_page()  {
-		if(driver.getPageSource().contains(teampage.TeamMemberName))
+		
+		if(driver.getPageSource().contains(teampage.namevalidate))
 		{
 			System.out.println("Team get added sucesfully");
 			}else{

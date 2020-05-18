@@ -101,34 +101,30 @@ public class TeamPage extends baseclass {
 		
 	}
 	
-	public void ClickSumbit() throws InterruptedException
-	{
-		Thread.sleep(4000);
-		submitButton.click();
-		
-	}
+	
 	
 	public void AddAllDetailsK(DataTable credentials) throws InterruptedException
 	{
 		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-			Thread.sleep(2000);
 			teampage.clickOnAddBtnK();
-			explicitwait.until(ExpectedConditions.elementToBeClickable(TeamMemberName));
 			TeamMemberName.sendKeys(data.get("Name"));
 			namevalidate = data.get("Name");
 			TeamMemberEmail.sendKeys(data.get("Email"));
 			TeamMemberContactNumber.sendKeys(data.get("contact"));
 			Select dropdown = new Select(countryid);
 			dropdown.selectByVisibleText("India");
-			ClickSumbit();
-			if(common.okbtn.isDisplayed())
+			Thread.sleep(1000);
+			common.ClickSumbit();
+			try
 			{ 
-				common.okbtn.click();
+				common.okbtn.isDisplayed();
+				common.clickOnOKBtn();
+				common.clickOnAddClosebtn();
 				System.out.println("these team member are already added");
 			}
-			else
+			catch(NoSuchElementException e)
 			{
 				System.out.println("team added succesfully");
 			}
@@ -141,19 +137,28 @@ public class TeamPage extends baseclass {
 		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
+			clickOnAddBtnK();
 			TeamMemberName.sendKeys(data.get("Nameagy"));
 			namevalidate= data.get("Nameagy");
-			TeamMemberName.sendKeys(data.get("Emailagy"));
+			TeamMemberEmail.sendKeys(data.get("Emailagy"));
 			TeamMemberContactNumber.sendKeys(data.get("contactagy"));
-			Select dropdown = new Select(countryid);
-			dropdown.selectByVisibleText("India");
-			Thread.sleep(1000);
-			ClickSumbit();
-			Thread.sleep(1000);
-			clickOnAddBtnK();
+			select = new Select(countryid);
+			select.selectByVisibleText("India");
+			common.ClickSumbit();
+			try
+			{ 
+				common.okbtn.isDisplayed();
+				common.clickOnOKBtn();
+				common.clickOnAddClosebtn();
+				System.out.println("these Agency team member are already added");
+			}
+			catch(NoSuchElementException e)
+			{
+				System.out.println("Agency team added succesfully");
+			}
+			
 		}
-			Thread.sleep(1000);
-			closeButton.click();
+			
 			
 	}
 	
@@ -219,6 +224,8 @@ public class TeamPage extends baseclass {
 			}	
 		}
 		}
+	
+
 
 	
 	

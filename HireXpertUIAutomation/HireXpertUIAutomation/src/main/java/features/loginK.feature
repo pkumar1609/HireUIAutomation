@@ -39,7 +39,7 @@ Given User must be registered
 When title of login page is Home 
 And Employer enters valid credentials 
 And Click on team tab
-And Click on add Button and Fill all the mandatory details for team
+And Click on add Button and Fill all the mandatory details for Employer team
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
@@ -56,14 +56,13 @@ Given User must be registered
 When title of login page is Home 
 And agency enters valid credentials 
 And Click on Employer tab
-And Click on add Button to add the employer
-And Fill all the mandatory details
+And Click on add Button and Fill all the mandatory details for Agency 
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
 Then Agency should be able to add Employer
 Then Newly added employer should be displayed in employer page
-And delete the added employer
+And  delete the added employer
 Then deleted employer should not be display in employer page
 
 
@@ -75,11 +74,10 @@ Given User must be registered
 When title of login page is Home 
 And agency enters valid credentials 
 And Click on team tab
-And Click on add Button to add the team
-And Fill all the mandatory details
-|Name|         Email   | contact  |
-|pa1 | pa1@gmail.com   | 1234564  |
-|pa2 | pa2@gmail.com   | 1234564  |
+And Click on add Button and Fill all the mandatory details for agency team
+|Nameagy|         Emailagy  | contactagy  |
+|pa1    | pa1@gmail.com     | 1234564     |
+|pa2    | pa2@gmail.com     | 1234564     |
 Then Agency should be able to add team
 Then Newly added team should be displayed in team page
 And delete the added team
