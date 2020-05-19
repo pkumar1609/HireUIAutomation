@@ -174,11 +174,12 @@ public class WorkbenchPage extends baseclass {
 		ChangePasswordTab.click();
 	}
 	
-	public void openUpdateProfilePage() {
+	public void openUpdateProfilePage() throws InterruptedException {
 		
 		WebElement we = profile;
 		Actions action = new Actions(driver);
 		action.moveToElement(we).perform();
+		Thread.sleep(2000);
 		updateProfile.click();
 	}
 	

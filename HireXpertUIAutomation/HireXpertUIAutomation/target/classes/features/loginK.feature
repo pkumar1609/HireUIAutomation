@@ -71,7 +71,7 @@ Then deleted employer should not be display in team page
 #Regression Test Cases
 
 @TC77_79_95
-Scenario: To verify search funtionality of Agency and team tab
+Scenario: To verify search funtionality of Employer and team tab
 
 Given User must be registered
 
@@ -123,5 +123,22 @@ And Click on Search section and enter already existing agency team
 |pa1 |
 And User should able to search agency team
 
+
+@TC41_89
+Scenario Outline: To verify Error message for character limit for both agency and employer
+
+Given User must be registered
+
+When title of login page is Home 
+And user enters valid credentials
+And Go to update profile
+And Check the character limit for fields with <"Name">
+And Click on team tab
+And Click on Add button and fill  <"Name">
+Then Error message should show only after exceeding character limit
+
+Examples:
+|Name|
+|jfdjkvfhniduvnufdfjnvjkugfbigufnb  |
 
 
