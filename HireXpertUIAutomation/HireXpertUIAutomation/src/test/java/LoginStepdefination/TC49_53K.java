@@ -45,7 +45,7 @@ public class TC49_53K extends baseclass {
 
 
 
-	@And("^Click on add Button and Fill all the mandatory details for Agency$")
+	@And("^Click on add Button and Fill all the mandatory details for employer$")
 	public void fill_all_the_mandatory_details(DataTable credentials) throws InterruptedException   {
 		Thread.sleep(1000);
 		employerspage.enterValidCredentials(credentials);

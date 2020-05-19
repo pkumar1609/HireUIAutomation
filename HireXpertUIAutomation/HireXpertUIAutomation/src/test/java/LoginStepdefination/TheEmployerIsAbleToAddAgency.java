@@ -47,27 +47,15 @@ public class TheEmployerIsAbleToAddAgency extends baseclass {
 		agenciespage.Clickagencybtn();
 	}
 
-	@And("^Click on add Button to add the agency$")
-	public void click_on_Add_Button_to_add_the_agency() throws InterruptedException {
 	
-		agenciespage.clickOnAddButton();
+	
+
+	@And("^Click on add Button Fill all the mandatory details for agency$")
+		public void fill_all_the_mandatory_detail(DataTable credentials) throws InterruptedException  {
+		agenciespage.enterAllDetails(credentials);
 	}
 	
 
-	@And("^Fill all the mandatory details$")
-		public void fill_all_the_mandatory_detail(DataTable credentials) throws InterruptedException  {
-		Thread.sleep(1000);
-		
-		agenciespage.enterAllDetails(credentials);
-		this.credentials= credentials; 
-	}
-	
-	@And("^Click on Submit button$")
-	public void click_on_Submit_button() throws InterruptedException   
-	{
-		Thread.sleep(1000);
-		agenciespage.Submitbtn();
-	}
 
 	@Then("^Employer should be able to add Agency$")
 	public void employer_should_be_able_to_add_Agency() {

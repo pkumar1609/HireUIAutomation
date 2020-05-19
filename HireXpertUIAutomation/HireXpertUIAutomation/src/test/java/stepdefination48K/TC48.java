@@ -43,7 +43,7 @@ public class TC48 extends baseclass {
 
 	@And("^Click on team tab$")
 	public void click_on_team_tab() throws InterruptedException  {
-		Thread.sleep(2000);
+		
 		dashboardpage.openTeamPage();
 	}
 

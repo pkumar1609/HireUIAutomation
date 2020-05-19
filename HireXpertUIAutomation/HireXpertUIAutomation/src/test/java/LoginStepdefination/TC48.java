@@ -32,7 +32,7 @@ public class TC48 extends baseclass {
 		dashboardpage.openTeamPage();
 	}
 
-	@And("^Click on add Button and Fill all the mandatory details for Employer team$")
+	@And("^Click on add Button and Fill all the mandatory details for employer team$")
 	public void fill_all_the_mandatory_details(DataTable credentials) throws Throwable {
 		teampage.AddAllDetailsK(credentials);
 	}

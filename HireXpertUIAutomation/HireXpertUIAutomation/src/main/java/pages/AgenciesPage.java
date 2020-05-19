@@ -3,6 +3,7 @@ package pages;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -14,6 +15,8 @@ import cucumber.api.DataTable;
 import utilPackage.baseclass;
 
 public class AgenciesPage extends baseclass {
+	
+	public String ele ;
 	
 	@FindBy(xpath = "//button[@title='Agencies']")
 	public WebElement addAgencyButton;
@@ -36,9 +39,15 @@ public class AgenciesPage extends baseclass {
 	@FindBy(xpath="//button[@id='confirmModalBtn']")
 	static WebElement confimYes;
 	
+	@FindBy(xpath="//input[@placeholder='Search']")
+	static WebElement search;
+	
+//	public String searchele= "//td[contains(text(),'"+ ele1 +"')]";
+
 	public String namevalidate;
 	String empname;
 	String empAdded= "//td[contains(text(),'" +empname+ "')]";
+	
 	public AgenciesPage() 
 	{
 		
@@ -71,15 +80,17 @@ public class AgenciesPage extends baseclass {
 		dashboardpage.openAgenciesPage();
 	}
 	
-	public void ClickAddbtn()
+	public void ClickAddbtn() throws InterruptedException
 	{
-		addbtn.click();
+		Thread.sleep(2000);
+		addAgencyButton.click();
 	}
 	
-	public void enterAllDetails(DataTable credentials)
+	public void enterAllDetails(DataTable credentials) throws InterruptedException
 	{
 	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 	{
+		ClickAddbtn();
 		agencyName.sendKeys(data.get("Name"));
 		empname=data.get("Name");
 		agencyEmail.sendKeys(data.get("Email"));
@@ -88,13 +99,24 @@ public class AgenciesPage extends baseclass {
 		WebElement testDropDown = driver.findElement(By.xpath("//select[@formcontrolname='CountryId']"));
 		select = new Select(testDropDown);
 		select.selectByVisibleText("India");
+		common.ClickSumbit();
+		try
+		{ 
+			common.okbtn.isDisplayed();
+			common.clickOnOKBtn();
+			common.clickOnAddClosebtn();
+			System.out.println("this agency is already added");
+		}
+		catch(NoSuchElementException e)
+		{
+			System.out.println("team added succesfully");
+		}
+		
 	}
 	}
 	
-	public void Submitbtn()
-	{
-		submitButton.click(); 
-	}
+
+
 	
 	public void deleteagy() throws InterruptedException
 	{
@@ -112,6 +134,15 @@ public class AgenciesPage extends baseclass {
 			System.out.println("Text is absent");
 			}
 	}
-
+	
+	public void enterAgyNameInSearchSection(DataTable credentials)
+	{
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+		wait.until(ExpectedConditions.elementToBeClickable(search));
+		search.sendKeys(data.get("Name"));
+		ele=data.get("Name");
+		}
+	}
 
 }

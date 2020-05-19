@@ -6,6 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.DataTable;
@@ -13,6 +14,8 @@ import utilPackage.baseclass;
 
 
 public class EmployersPage extends baseclass {
+	
+	public String ele ;
 	
 	@FindBy(xpath = "//input[@name='search']")
 	public WebElement searchfield;
@@ -58,6 +61,9 @@ public class EmployersPage extends baseclass {
 	
 	@FindBy(xpath="//td")
 	static WebElement tableele;
+
+	
+	
 	
 	public EmployersPage() {
 		
@@ -97,7 +103,8 @@ public class EmployersPage extends baseclass {
 //		empbtn.click();
 //	}
 	
-	public void ClickAddBtn() {
+	public void ClickAddBtn() throws InterruptedException {
+		Thread.sleep(2000);
 		addbtn.click();
 	}
 	
@@ -159,5 +166,13 @@ public class EmployersPage extends baseclass {
 		employersCloseButton.click();
 	}
 	
-
+	public void searchExistingEmp(DataTable credentials)
+	{
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+		wait.until(ExpectedConditions.elementToBeClickable(searchfield));
+		searchfield.sendKeys(data.get("Name"));
+		ele=data.get("Name");
+		}
+     }
 }

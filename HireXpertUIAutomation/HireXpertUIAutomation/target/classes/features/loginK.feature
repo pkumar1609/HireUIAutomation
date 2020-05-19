@@ -1,18 +1,5 @@
 Feature: UserAccount Feature
 
-#Scenario: Verify that employer is able to update profile.
-#
-#Given User must is registered
-#When title of login page is Home
-#And user enters valid credentials
-#And user clicks on Sign in button
-#And user is on update profile page
-#And enter all neccessory detalis
-#And Click on submit button
-#Then User is on Home page
-#Then user close the browser
-
-
 @TC47_51
 Scenario: To verify whether the employer is able to add agency.
 
@@ -21,12 +8,10 @@ Given User must be registered
 When title of login page is Home 
 And Employer enters valid credentials 
 And Click on Agencies tab
-And Click on add Button to add the agency
-And Fill all the mandatory details
-|Name|         Email   | contact  |
-|dagy| dagy@gmail.com  | 1234564  |
-#|pemp| pemp@gmail.com  | 1234564  |
-And Click on Submit button
+And Click on add Button Fill all the mandatory details for agency
+|Name  |         Email     | contact  |
+|pagy  | pagy@gmail.com    | 1234564  |
+|pagy1 | pagy1@gmail.com   | 1234564  |
 Then Employer should be able to add Agency
 Then Newly added agency should be displayed in Agencies page
 And delete the added agency 
@@ -39,7 +24,7 @@ Given User must be registered
 When title of login page is Home 
 And Employer enters valid credentials 
 And Click on team tab
-And Click on add Button and Fill all the mandatory details for Employer team
+And Click on add Button and Fill all the mandatory details for employer team
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
@@ -56,7 +41,7 @@ Given User must be registered
 When title of login page is Home 
 And agency enters valid credentials 
 And Click on Employer tab
-And Click on add Button and Fill all the mandatory details for Agency 
+And Click on add Button and Fill all the mandatory details for employer 
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
@@ -83,11 +68,60 @@ Then Newly added team should be displayed in team page
 And delete the added team
 Then deleted employer should not be display in team page
 
+#Regression Test Cases
+
+@TC77_79_95
+Scenario: To verify search funtionality of Agency and team tab
+
+Given User must be registered
+
+When title of login page is Home 
+And Employer enters valid credentials
+And Click on Agencies tab
+And Click on add Button Fill all the mandatory details for agency
+|Name  |      Email        | contact  |
+|pagy  | pagy@gmail.com    | 1234564  |
+|pagy1 | pagy1@gmail.com   | 1234564  |
+And Click on Search section and enter already existing agency
+|Name|
+|pagy|
+And User should able to search agency
+And Click on team tab
+And Click on add Button and Fill all the mandatory details for employer team
+|Name|         Email   | contact  |
+|pe1 | pe1@gmail.com   | 1234564  |
+|pe2 | pe2@gmail.com   | 1234564  |
+And Click on Search section and enter already existing employer team
+|Name|
+|pe1 |
+And User should able to search employer team
 
 
+@TC_78_80_95
+Scenario: To verify search funtionality of Agency and team tab
 
+Given User must be registered
 
-
+When title of login page is Home 
+And agency enters valid credentials
+And Click on Employer tab
+And Click on add Button and Fill all the mandatory details for employer 
+|Name|         Email   | contact  |
+|pe1 | pe1@gmail.com   | 1234564  |
+|pe2 | pe2@gmail.com   | 1234564  |
+And Click on Search section and enter already existing employer
+|Name|
+|pe1 |
+And User should able to search employer
+And Click on team tab
+And Click on add Button and Fill all the mandatory details for agency team
+|Nameagy|         Emailagy  | contactagy |
+|pa1    | pa1@gmail.com     | 1234564    |
+|pa2    | pa2@gmail.com     | 1234564    |
+And Click on Search section and enter already existing agency team
+|Name|
+|pa1 |
+And User should able to search agency team
 
 
 

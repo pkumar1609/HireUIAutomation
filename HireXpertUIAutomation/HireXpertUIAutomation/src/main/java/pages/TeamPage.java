@@ -17,19 +17,21 @@ import utilPackage.baseclass;
 
 public class TeamPage extends baseclass {
 	
+	
+	
 	@FindBy(xpath = "//h5[@class='modal-title w-100']")
 	public WebElement pagetitle;
 	
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-list-jobprovider/div[1]/h5/button[3]")
 	public WebElement AddTeamButton;
 	
-	@FindBy(xpath ="/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[1]/input")
+	@FindBy(xpath ="//input[@formcontrolname='Name']")
 	public WebElement TeamMemberName;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[2]/input")
+	@FindBy(xpath = "//input[@formcontrolname='Email']")
 	public WebElement TeamMemberEmail;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[3]/input")
+	@FindBy(xpath = "//input[@formcontrolname='ContactNumber']")
 	public WebElement TeamMemberContactNumber;
 	
 	@FindBy(xpath="//select[@formcontrolname='CountryId']")
@@ -53,10 +55,13 @@ public class TeamPage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	public WebElement searchField;
 	
+//	public String ele;
+//	public String searchele= "//td[contains(text(),'"+ ele +"')]";
 	
 	public String namevalidate;
 	public String teamMemberName;
 	public String teamMemberNameAgy;
+	public String ele;
 	
 	WebDriverWait explicitwait = new WebDriverWait(driver,20);
 	
@@ -225,7 +230,18 @@ public class TeamPage extends baseclass {
 		}
 		}
 	
-
+	public void searchExistingTeam(DataTable credentials)
+	{
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+		
+		wait.until(ExpectedConditions.elementToBeClickable(searchField));
+		searchField.sendKeys(data.get("Name"));
+		ele=data.get("Name");
+		System.out.println(ele);
+		}
+	}
+	
 
 	
 	
