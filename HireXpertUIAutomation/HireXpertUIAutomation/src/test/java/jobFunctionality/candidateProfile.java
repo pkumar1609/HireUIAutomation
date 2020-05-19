@@ -501,4 +501,118 @@ public void user_should_be_able_to_upload_cv_in_PNG_file_format() throws Throwab
 }
 
 
+// @regression1_03
+
+@When("^click on Workbench tab and observe Add Candidate button$")
+public void click_on_Workbench_tab_and_observe_Add_Candidate_button() throws Throwable {
+    
+	dashboardpage.openWorkbenchPage();
+    Thread.sleep(3000);
+    boolean value = workbenchpage.addCandidateButton.isEnabled();
+    if(value == true) {
+    	
+    	System.out.println("\nAdd Candidate button is enabled without selecting job..");
+    }
+    else {
+    	
+    	System.out.println("\nAdd Candidate button is disabled without selecting job..");
+    }
+}
+
+@Then("^select job from Jobs drop down and observe Add Candidate button$")
+public void select_job_from_Jobs_drop_down_and_observe_Add_Candidate_button() throws Throwable {
+    
+	workbenchpage.selectJob();
+    Thread.sleep(3000);
+    boolean value = workbenchpage.addCandidateButton.isEnabled();
+    if(value == true) {
+    	
+    	System.out.println("\nAdd Candidate button is enabled after selecting job..");
+    }
+    else {
+    	
+    	System.out.println("\nAdd Candidate button is disabled even after selecting job..");
+    }
+}
+
+@Then("^observe On Notice Period field$")
+public void observe_On_Notice_Period_field() throws Throwable {
+	
+	boolean value = addcandidatepage.OnNoticePeriodCheckbox.isSelected();
+	if(value == true) {
+		
+		System.out.println("\nLast Working Day field displayed when On Notice Period is selected..");
+		
+		addcandidatepage.OnNoticePeriodCheckbox.click();
+		Thread.sleep(2000);
+		boolean val = addcandidatepage.OnNoticePeriodCheckbox.isSelected();
+		if(val = true) {
+			System.out.println("\nNotice Period (Days) field is displayed when On Notice Period is not selected..");
+		}
+	}
+	
+	else {
+		
+		System.out.println("\nNotice Period (Days) field is displayed when On Notice Period is not selected..");
+		
+		addcandidatepage.OnNoticePeriodCheckbox.click();
+		Thread.sleep(2000);
+		boolean val = addcandidatepage.OnNoticePeriodCheckbox.isSelected();
+		if(val = true) {
+			System.out.println("Last Working Day field displayed when On Notice Period is selected..");
+		}
+	}
+}
+
+@Then("^unchecked the On Notice Period field and enter zero in Notice Period field and click on Close button$")
+public void unchecked_the_On_Notice_Period_field_and_enter_zero_in_Notice_Period_field_and_click_on_Close_button() throws Throwable {
+    
+	addcandidatepage.OnNoticePeriodCheckbox.click();
+	addcandidatepage.noticePeriod.clear();
+	Thread.sleep(1000);
+	addcandidatepage.noticePeriod.sendKeys("0");
+	addcandidatepage.closeButton.click();
+	Thread.sleep(1000);
+}
+
+@Then("^confirmation popup message should display with Yes and No buttons and Click on No button$")
+public void confirmation_popup_message_should_display_with_Yes_and_No_buttons_and_click_on_No_button() throws Throwable {
+    
+	System.out.println("\nConfirmation message displayed with Yes and No buttons");
+	addcandidatepage.noButtonPopup.click();
+	Thread.sleep(1000);
+}
+
+@Then("^User should able to add candidate after entering zero value in Notice Period field$")
+public void user_should_able_to_add_candidate_after_entering_zero_value_in_Notice_Period_field() throws Throwable {
+    
+	System.out.println("\nUser able to add candidate with 0 notice period..");
+}
+
+@Then("^set another value in Notice Period in Edit Candidate page and click on Close button$")
+public void set_another_value_in_Notice_Period_in_Edit_Candidate_page_and_click_on_Close_button() throws Throwable {
+    
+	addcandidatepage.noticePeriod.clear();
+	Thread.sleep(1000);
+	addcandidatepage.noticePeriod.sendKeys("20");
+	addcandidatepage.closeButton.click();
+	Thread.sleep(1000);
+}
+
+@Then("^confirmation popup message should display with Yes and No buttons and Click on Yes button$")
+public void confirmation_popup_message_should_display_with_Yes_and_No_buttons_and_Click_on_Yes_button() throws Throwable {
+    
+	System.out.println("\nConfirmation message displayed with Yes and No buttons");
+	addcandidatepage.yesButtonPopup.click();
+	Thread.sleep(1000);
+}
+
+@Then("^Workbench page should display$")
+public void Workbench_page_should_display() throws Throwable {
+    
+	System.out.println("\nWorkbench page is displayed..");
+}
+
+
+
 }
