@@ -15,7 +15,7 @@ Feature: User Management
     And Fill all mandatory details and click on Save button
     | c21 | 4316326201 | test engineer | 30 | Pune |
     And click on Yes button if probability related fields are not filled and observe
-    Then new candidate should get added in New column
+    Then user should able to add new candidate and candidate should get added in New column
     And logout with employer and login with new candidate added by employer
     | c21@gmail.com | 12345 |
     Then Update profile pop up will appears 
@@ -47,7 +47,8 @@ Feature: User Management
     Then after clicking on Delete Role button present in front of role then that role should get deleted
 	And close the browser
 	
-#TC ID: 25,36,37,38,39,92,228,229	
+#TC ID: 36,37,38,39,92,228,229
+#regression TC ID: 25,104
     
 @regression1_02
 	Scenario Outline: To verify the functionality of Upload Resume on candidate profile

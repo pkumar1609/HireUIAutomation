@@ -88,9 +88,10 @@ public void click_on_Yes_button_if_probability_related_fields_are_not_filled_and
 	Thread.sleep(3000);
 }
 
-@Then("^new candidate should get added in New column$")
-public void new_candidate_should_get_added_in_New_column() throws Throwable {
+@Then("^user should able to add new candidate and candidate should get added in New column$")
+public void user_should_able_to_add_new_candidate_and_candidate_should_get_added_in_New_column() throws Throwable {
     
+	System.out.println("User able to add new candidate without registration..");
 	System.out.println("New candidate get added to the job in New column..");
 	workbenchpage.clickReloadCandidateButton();
 	
@@ -113,7 +114,6 @@ public void new_candidate_should_get_added_in_New_column() throws Throwable {
 			System.out.println("Candidate card is available..");
 			
 			String candidateNameOnCard = candidateName1.getText();
-//			System.out.println(candidateNameOnCard);
 			
 			for(int i = 1; i<=cardCount; i++) {
 				

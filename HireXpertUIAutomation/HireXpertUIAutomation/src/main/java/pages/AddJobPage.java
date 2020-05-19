@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import utilPackage.baseclass;
+import utilPackage.utilclass;
 
 public class AddJobPage extends baseclass {
 	
@@ -41,7 +44,7 @@ public class AddJobPage extends baseclass {
 	public WebElement addskillbutton;
 	
 	@FindBy(xpath = "//tr[3]//td[6]//button[1]")
-	public WebElement skill3;
+	public WebElement deleteSkill3;
 	
 	@FindBy(xpath = "//*[@id=\"style-5\"]/form/div/div/div[1]/div[1]/div[5]/div/div[2]/button")
 	public WebElement employerplusicon;
@@ -67,10 +70,10 @@ public class AddJobPage extends baseclass {
 	@FindBy(xpath = "//tr[1]//td[1]//input[1]")
 	public WebElement jobskill1;
 	
-	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[2]/select")
+	@FindBy(xpath = "//tr[1]//td[2]//select[1]")
 	public WebElement expertiselevel1;
 	
-	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[3]/select")
+	@FindBy(xpath = "//tr[1]//td[3]//select[1]")
 	public WebElement weightage1;
 	
 	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[4]/label/span")
@@ -87,6 +90,15 @@ public class AddJobPage extends baseclass {
 	
 	@FindBy(xpath = "//tr[2]//td[3]//select[1]")
 	public WebElement weightage2;
+	
+	@FindBy(xpath = "//tr[3]//td[1]//input[1]")
+	public WebElement jobskill3;
+	
+	@FindBy(xpath = "//tr[3]//td[2]//select[1]")
+	public WebElement expertiselevel3;
+	
+	@FindBy(xpath = "//tr[3]//td[3]//select[1]")
+	public WebElement weightage3;
 	
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/add-edit-job/div[3]/button[2]")
 	public WebElement submitButton;
@@ -114,7 +126,7 @@ public class AddJobPage extends baseclass {
 	public void noOfInterviews() {
 		
 		se = new Select(totalinterviews);
-		se.selectByIndex(1);
+		se.selectByIndex(4);
 	}
 	
 	public void fillDetails() throws InterruptedException {
@@ -163,7 +175,7 @@ public class AddJobPage extends baseclass {
 	
 	public void deleteSkills() {
 		
-		skill3.click();
+		deleteSkill3.click();
 	}
 	
 	public void fillEmployerDetailsPlusIcon() {
@@ -183,7 +195,6 @@ public class AddJobPage extends baseclass {
 		
 		submitButton.click();
 	}
-	
 	
 
 }
