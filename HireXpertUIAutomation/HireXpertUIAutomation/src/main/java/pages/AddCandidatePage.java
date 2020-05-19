@@ -47,9 +47,6 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(id = "NoticePeriod")
 	public WebElement noticePeriod;
 	
-	@FindBy(xpath = "//label[@class='check mt-4']//span[@class='checkmark']")
-	public WebElement OnNoticePeriodCheckbox;
-	
 	@FindBy(xpath = "//*[@id=\"fromDatePicker\"]/div/div/input")
 	public WebElement lastWorkingDay;
 	
@@ -62,10 +59,10 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div[1]/form/div[2]/div[1]/div/div/div[3]/div[5]/select")
 	public WebElement communicationMode;
 	
-	@FindBy(xpath = "//button[@class='btn btn-primary Cbtn-primary']")
+	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/job-applicant-component/div[3]/button[2]")
 	public WebElement saveButton;
 	
-	@FindBy(xpath = "//button[@class='btn btn-outline-dark']")
+	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/job-applicant-component/div[3]/button[1]")
 	public WebElement closeButton;
 	
 	@FindBy(id = "salaryOffered")
@@ -73,9 +70,6 @@ public class AddCandidatePage extends baseclass {
 	
 	@FindBy(id = "confirmModalBtn")
 	public WebElement yesButtonPopup;
-	
-	@FindBy(id = "confirmModalCloseBtn")
-	public WebElement noButtonPopup;
 	
 	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[2]/select")
 	public WebElement expertiseLevel;
