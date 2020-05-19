@@ -1,6 +1,8 @@
 Feature: HireXpert Update Profile feature
 
-Scenario Outline: Verify that Agency is not able to continue without completing the profile and Agency is able to update profile.
+#TC ID :- 84, 85, 31, 35, 17, 87, 57
+
+Scenario Outline: Verify that Agency, Employer & Candidate is not able to continue without completing the profile. Also Agency, Employer $ Candidate is able to update profile.
 
 Given User open browser
 When click on Register link 
@@ -16,21 +18,14 @@ And Click on Close button on Agency Update Profile popup
 And Click on No button on the confirmation message
 And Login with that agency "<AgencyEmail>" "<password>"
 And click on Signin button
+Then verify the Auto Populated fields on agency update profile popup window
 And Update Agency Profile  "<AgencyAddress>" "<AgencyOrganizationName>" "<AgencyWebsite>" "<AgencyCity>"
 And click on Submit button
 And Click on Update Profile tab
 And Make changes in Agency profile "<organizationname>"
 And click on Submit button
 
-Examples:
-
-| AgencyName | AgencyEmail        | AgencyContactNumber | AgencyUserType | timezone              | country | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity | organizationname | password |
-| Agency16   | agency16@gmail.com | 565566625           |   Agency       |  Indian Standard Time |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |
-
-
-Scenario Outline: Verify that Employer is not able to continue without completing the profile and Employer is able to update profile.
-
-Given User open browser
+And User open browser
 When click on Register link 
 And enter employer details "<EmployerName>" "<EmployerEmail>" "<EmployerContactNumber>" 
 And Select value from dropdown for employer "<EmployerUserType>" "<timezone>" "<country>"
@@ -44,17 +39,39 @@ And Click on Close button on Employer Update Profile popup
 And Click on No button on the confirmation message
 And Login with that employer "<EmployerEmail>" "<password>"
 And click on Signin button
+Then verify the Auto Populated fields on employer update profile popup window
 And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<EmployerWebsite>" "<EmployerCity>"
 And click on Submit button
 And Click on Update Profile tab
 And Make changes in Employer profile "<organizationname>"
 And click on Submit button
 
+And User open browser
+When click on Register link 
+And enter candidate details "<CandidateName>" "<CandidateEmail>" "<CandidateContactNumber>" 
+And Select value from dropdown for candidate "<CandidateUserType>" "<timezone>" "<country>"
+And click on Submit button
+And User should get confirmation message and click on OK button
+And enter candidate email and password  "<CandidateEmail>" "<password>" 
+And click on Signin button
+And Click on Close button on Employer Update Profile popup
+And Click on Yes button on the confirmation message
+And Click on Close button on Employer Update Profile popup
+And Click on No button on the confirmation message
+And Login with that candidate "<CandidateEmail>" "<password>"
+And click on Signin button
+Then verify the Auto Populated fields on candidate update profile popup window
+And Update Candidate Profile "<title>" "<designation>" "<noticeperiod>" "<industry>" "<CandidateCity>" "<gender>" "<expertiselevel>"
+And click on save button
+And Click on Update Profile tab
+And Make changes in candidate profile "<noticeperiod>"
+And click on save button
+
+
 Examples:
 
-| EmployerName | EmployerEmail          | EmployerContactNumber | EmployerUserType | timezone              | country | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | organizationname | password |
-|Employer05    | employer05@gmail.com   | 565566625             |   Employer       |  Indian Standard Time |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      | 12345    |
-
+| AgencyName | AgencyEmail          | AgencyContactNumber | AgencyUserType | timezone              | country | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity | organizationname | password |EmployerName  | EmployerEmail            | EmployerContactNumber | EmployerUserType | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | organizationname | CandidateName  | CandidateEmail     | CandidateContactNumber | CandidateUserType     | country |title         | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel | 
+| AgencyAj12 | agencyaj12@gmail.com | 565566625           |   Agency       | Indian Standard Time  |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |EmployerEM12  | employerEM12@gmail.com   | 565566625             |   Employer       | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      |Petaa06         | petaa06@gmail.com  | 9564783126             | Candidate             | India   |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate   |
 
 
 

@@ -29,7 +29,7 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	WebElement UserType;
 	
 	@FindBy(xpath="//select[@formcontrolname='TimeZone']")
-	WebElement TimeZone;
+    WebElement TimeZone;
 	
 	@FindBy(xpath="//select[@formcontrolname='countryId']")
 	WebElement Country;
@@ -216,8 +216,12 @@ public void alreadyregisterUserdetails1(String usertype, String timezone, String
 		}
        
        public void enterCandidateEmailandPassword (String CandidateEmail, String password) {
+    	   
+    	    Emailaddress.clear();
 			
 			Emailaddress.sendKeys(CandidateEmail);
+			
+			Password.clear();
 			
 			Password.sendKeys(password);
 		}

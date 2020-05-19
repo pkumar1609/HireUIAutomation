@@ -179,6 +179,12 @@ public class UpdateProfilePopupPage extends baseclass {
     	 OrganizationName.clear();
 		 OrganizationName.sendKeys(organizationname);		
     }
+    
+    public void MakeChangesinCandidateUpdateProfile(String noticeperiod) {
+    	   
+    	Noticeperiod.clear();
+		Noticeperiod.sendKeys(noticeperiod);		
+   }
      
     public void VerifyAutoPopulatedFieldsOnUpdateAgencyProfile () {
     	   
@@ -329,13 +335,7 @@ public class UpdateProfilePopupPage extends baseclass {
 		   
 	    	   System.out.println("Organization Name field is autopopulated on Update Profile Popup Window");
 	       }
-
- 	   
-    
  }
-    
-    
-    
     
     
     public void VerifyAutoPopulatedFieldsOnUpdateCandidateProfile () {
