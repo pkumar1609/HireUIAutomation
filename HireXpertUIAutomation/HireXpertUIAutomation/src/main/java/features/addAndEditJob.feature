@@ -47,7 +47,7 @@ Examples:
     Then Job should get successfully added and Job should be visible in Job drop down
     And click on Job drop down and select recently added job
     And click on Add Candidate button
-    And click on Add Candidate button and add one new candidate for the job and click on Find button
+    And add one new candidate for the job and click on Find button
     | c01@gmail.com |
     And Fill mandatory details 
     And click on Save button

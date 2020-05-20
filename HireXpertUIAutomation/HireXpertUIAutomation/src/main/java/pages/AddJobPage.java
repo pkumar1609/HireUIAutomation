@@ -100,9 +100,11 @@ public class AddJobPage extends baseclass {
 	@FindBy(xpath = "//tr[3]//td[3]//select[1]")
 	public WebElement weightage3;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/add-edit-job/div[3]/button[2]")
+	@FindBy(xpath = "//button[@class='btn btn-primary Cbtn-primary']")
 	public WebElement submitButton;
 	
+	@FindBy(xpath = "//button[@class='btn btn-outline-dark']")
+	public WebElement closeButton;
 	
 	@FindBy(id = "noticeperiod")
 	public WebElement noticePeriod;
