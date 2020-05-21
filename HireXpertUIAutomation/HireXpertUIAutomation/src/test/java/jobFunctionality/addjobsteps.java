@@ -217,8 +217,8 @@ public class addjobsteps extends baseclass{
 // @regression1_01	
 
 	
-	@Then("^click on Add Candidate button and add one new candidate for the job and click on Find button$")
-	public void click_on_Add_Candidate_button_and_add_one_new_candidate_for_the_job_and_click_on_Find_button(DataTable dt) throws Throwable {
+	@Then("^add one new candidate for the job and click on Find button$")
+	public void add_one_new_candidate_for_the_job_and_click_on_Find_button(DataTable dt) throws Throwable {
 	    
 		List<List<String>> data = dt.raw();
 		
