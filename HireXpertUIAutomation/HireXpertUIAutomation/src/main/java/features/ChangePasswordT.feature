@@ -1,5 +1,6 @@
 Feature: HireXpert Change Password feature
 
+#TC:- 81, 10
 Scenario Outline: Verify user should not be able to Login with old password after creating the new password
 
 Given User open browser

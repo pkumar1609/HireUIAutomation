@@ -1,5 +1,7 @@
 package StepDefinationPackageTZ;
 
+import org.openqa.selenium.By;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -190,7 +192,7 @@ public class UpdateProfileStepDefination extends baseclass {
 	}
 
 	@Then("^Update Candidate Profile \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void update_Candidate_Profile(String title, String designation, String noticeperiod, String industry, String CandidateCity, String gender, String expertiselevel) throws Throwable {
+	public void update_Candidate_Profile(String title, String designation, String noticeperiod, String CandidateCity, String industry, String gender, String expertiselevel) throws Throwable {
 	    
         Thread.sleep(3000);
         updateprofilepopuppage.UpdateProfileCandidate(title, designation, noticeperiod, industry, CandidateCity, gender);
@@ -229,5 +231,56 @@ public class UpdateProfileStepDefination extends baseclass {
 		registerpage.enterCandidateEmailandPassword(CandidateEmail, password);
 	}
 
+	@When("^verify user login as Agency has redirect on correct agency update profile or not$")
+	public void verify_user_login_as_Agency_has_redirect_on_correct_agency_update_profile_or_not() throws Throwable {
+	    
+		updateprofilepopuppage.ToVerifyAgencyisonAgencyUpdateProfilePopupOrNot();
+	}
+
+	@Then("^Verify that the critical fields on Update Agency Profile popup are not editable$")
+	public void verify_that_the_critical_fields_on_Update_Agency_Profile_popup_are_not_editable() throws Throwable {
+	    
+		updateprofilepopuppage.verifyEmail();
+		
+		Thread.sleep(1000);
+		
+		updateprofilepopuppage.verifylanguage();
+	}
+
+
+	@Then("^Verify that the critical fields on Update Employer Profile popup are not editable$")
+	public void verify_that_the_critical_fields_on_Update_Employer_Profile_popup_are_not_editable() throws Throwable {
+	    
+        updateprofilepopuppage.verifyEmail();
+		
+		Thread.sleep(1000);
+		
+		updateprofilepopuppage.verifylanguage();
+	}
+
+	@When("^verify user login as Employer has redirect on correct employer update profile or not$")
+	public void verify_user_login_as_Employer_has_redirect_on_correct_employer_update_profile_or_not() throws Throwable {
+	    
+		updateprofilepopuppage.ToVerifyEmployerisonEmployerUpdateProfilePopupOrNot();
+	}
+
+	@When("^verify user login as Candidate has redirect on correct candidate update profile or not$")
+	public void verify_user_login_as_Candidate_has_redirect_on_correct_candidate_update_profile_or_not() throws Throwable {
+	    
+		updateprofilepopuppage.ToVerifyCandidateisonCandidateUpdateProfilePopupOrNot();
+	}
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+

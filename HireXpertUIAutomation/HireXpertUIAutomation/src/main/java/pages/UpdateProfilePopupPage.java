@@ -1,9 +1,12 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
 import utilPackage.baseclass;
 
 public class UpdateProfilePopupPage extends baseclass {
@@ -13,6 +16,9 @@ public class UpdateProfilePopupPage extends baseclass {
 	
 	@FindBy(xpath="//input[@formcontrolname='name']")
 	public WebElement AgencyEmployerName;
+	
+//	@FindBy(xpath="//label[contains(text(),'Agency Name')]")
+//	public WebElement AgencyEmployerNameLable;
 	
 	@FindBy(xpath="//input[@id='Email']")
 	public WebElement Email;
@@ -31,7 +37,6 @@ public class UpdateProfilePopupPage extends baseclass {
 	
 	@FindBy(xpath="//select[@formcontrolname='CountryId']")
 	public WebElement Country;
-	
 	
 	@FindBy(xpath="//input[@formcontrolname='language']")
 	public WebElement language;
@@ -120,6 +125,81 @@ public class UpdateProfilePopupPage extends baseclass {
 	}
 		
 	//Actions
+	
+	public void ToVerifyAgencyisonAgencyUpdateProfilePopupOrNot() {
+		
+    if (driver.findElement(By.xpath("//label[contains(text(),'Agency Name')]")).isDisplayed()==true) {
+			
+			System.out.println("Agency has redirected to correct update profile popup window");
+		}
+		
+		else {
+			
+			System.out.println("Agency has not redirected to correct update profile popup window");
+		}
+	}
+	
+	public void ToVerifyEmployerisonEmployerUpdateProfilePopupOrNot() {
+		
+	    if (driver.findElement(By.xpath("//label[contains(text(),'Employer Name')]")).isDisplayed()==true) {
+				
+				System.out.println("Employer has redirected to correct update profile popup window");
+			}
+			
+			else {
+				
+				System.out.println("Employer has not redirected to correct update profile popup window");
+			}
+		}
+	
+    public void ToVerifyCandidateisonCandidateUpdateProfilePopupOrNot() {
+		
+	    if (driver.findElement(By.xpath("//label[contains(text(),'Name')]")).isDisplayed()==true){
+				
+				System.out.println("Candidate has redirected to correct update profile popup window");
+			}
+			
+			else {
+				
+				System.out.println("Candidate has not redirected to correct update profile popup window");
+			}
+		}
+				
+	
+      public void verifyEmail() {
+		
+	    AgencyEmployerEmail.click();
+		
+		String emailAttribute = updateprofilepopuppage.AgencyEmployerEmail.getAttribute("readonly");
+		System.out.println("\nEmail readonly field: " + emailAttribute);
+		
+		if(emailAttribute.equals("true")) {
+			System.out.println("Email ID field is not editable.. Email ID field is critical field..");
+		}
+		else {
+			System.out.println("Email ID field is editable..");
+		}
+		
+	}
+      
+      public void verifylanguage() {
+  		
+  	    language.click();
+  		
+  		String languageAttribute = updateprofilepopuppage.language.getAttribute("readonly");
+  		System.out.println("\nEmail readonly field: " + languageAttribute);
+  		
+  		if(languageAttribute.equals("true")) {
+  			System.out.println("Language field is not editable.. Language field is critical field..");
+  		}
+  		else {
+  			System.out.println("Language field is editable..");
+  		}
+  		
+  	}
+	
+     
+	
 	public void UpdateProfileEmployer (String EmployerAddress, String EmployerOrganizationName, String EmployerWebsite, String EmployerCity) {
 				
 		Address.sendKeys(EmployerAddress);
