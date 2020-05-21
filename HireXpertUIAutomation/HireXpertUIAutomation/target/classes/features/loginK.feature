@@ -138,7 +138,7 @@ And Click on Add button and fill  <"Name">
 Then Error message should show only after exceeding character limit
 
 Examples:
-|Name|
+|Name                               |
 |jfdjkvfhniduvnufdfjnvjkugfbigufnb  |
 
 
