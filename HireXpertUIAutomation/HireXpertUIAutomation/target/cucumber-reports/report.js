@@ -1,208 +1,367 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("C:/Users/TLP33/Documents/GitHub/HireUIAutomation/HireXpertUIAutomation/HireXpertUIAutomation/src/main/java/features/loginK.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("C:/Users/TLP33/Documents/GitHub/HireUIAutomation/HireXpertUIAutomation/HireXpertUIAutomation/src/main/java/features/TaskK.feature");
 formatter.feature({
   "line": 1,
-  "name": "UserAccount Feature",
+  "name": "Task Feature",
   "description": "",
-  "id": "useraccount-feature",
+  "id": "task-feature",
   "keyword": "Feature"
 });
-formatter.scenarioOutline({
-  "line": 128,
-  "name": "To verify Error message for character limit for both agency and employer",
+formatter.scenario({
+  "line": 184,
+  "name": "to verify Mark Completed task functionality from employer login",
   "description": "",
-  "id": "useraccount-feature;to-verify-error-message-for-character-limit-for-both-agency-and-employer",
-  "type": "scenario_outline",
-  "keyword": "Scenario Outline",
+  "id": "task-feature;to-verify-mark-completed-task-functionality-from-employer-login",
+  "type": "scenario",
+  "keyword": "Scenario",
   "tags": [
     {
-      "line": 127,
-      "name": "@TC41_89"
+      "line": 183,
+      "name": "@TC273"
     }
   ]
 });
 formatter.step({
-  "line": 130,
-  "name": "User must be registered",
+  "line": 185,
+  "name": "User should be registered",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 132,
+  "line": 186,
   "name": "title of login page is Home",
   "keyword": "When "
 });
 formatter.step({
-  "line": 133,
-  "name": "user enters valid credentials",
+  "line": 187,
+  "name": "Employer enters valid credentials",
   "keyword": "And "
 });
 formatter.step({
-  "line": 134,
-  "name": "Go to update profile",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 135,
-  "name": "Check the character limit for fields with \u003c\"Name\"\u003e",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 136,
-  "name": "Click on team tab",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 137,
-  "name": "Click on Add button and fill  \u003c\"Name\"\u003e",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 138,
-  "name": "Error message should show only after exceeding character limit",
-  "keyword": "Then "
-});
-formatter.examples({
-  "line": 140,
-  "name": "",
-  "description": "",
-  "id": "useraccount-feature;to-verify-error-message-for-character-limit-for-both-agency-and-employer;",
+  "line": 188,
+  "name": "Click on Add task button and enter all details employer",
   "rows": [
     {
       "cells": [
-        "Name"
+        "Title for emp",
+        "teamField",
+        "AssignTo",
+        "note",
+        "employer",
+        "team",
+        "teamid",
+        "Title for agy",
+        "agyteamField",
+        "agyAssignTo",
+        "agynote",
+        "agency",
+        "agyteam",
+        "agyteamid"
       ],
-      "line": 141,
-      "id": "useraccount-feature;to-verify-error-message-for-character-limit-for-both-agency-and-employer;;1"
+      "line": 189
     },
     {
       "cells": [
-        "jfdjkvfhniduvnufdfjnvjkugfbigufnb"
+        "task4",
+        "pemp",
+        "pe1",
+        "Task should complete before time",
+        "pemp",
+        "pe1",
+        "pe1@gmail.com",
+        "particular task",
+        "pagy",
+        "pa1",
+        "Task should complete before time",
+        "pagy",
+        "pa1",
+        "pe1@gmail.com"
       ],
-      "line": 142,
-      "id": "useraccount-feature;to-verify-error-message-for-character-limit-for-both-agency-and-employer;;2"
+      "line": 190
     }
   ],
-  "keyword": "Examples"
+  "keyword": "And "
 });
-formatter.scenario({
-  "line": 142,
-  "name": "To verify Error message for character limit for both agency and employer",
-  "description": "",
-  "id": "useraccount-feature;to-verify-error-message-for-character-limit-for-both-agency-and-employer;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
+formatter.step({
+  "line": 191,
+  "name": "the task should display for employer",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 192,
+  "name": "Task should also display for employer team member",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 193,
+  "name": "Click on Mark Complete from team member login",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 194,
+  "name": "Logout from App",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 195,
+  "name": "Employer enters valid credentials",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 196,
+  "name": "the task should not display on employer side",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 197,
+  "name": "Logout from App",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 198,
+  "name": "Employer enters valid credentials",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 199,
+  "name": "Click on Add task button and enter all details employer",
+  "rows": [
     {
-      "line": 127,
-      "name": "@TC41_89"
-    }
-  ]
-});
-formatter.step({
-  "line": 130,
-  "name": "User must be registered",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 132,
-  "name": "title of login page is Home",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 133,
-  "name": "user enters valid credentials",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 134,
-  "name": "Go to update profile",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 135,
-  "name": "Check the character limit for fields with \u003c\"Name\"\u003e",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 136,
-  "name": "Click on team tab",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 137,
-  "name": "Click on Add button and fill  \u003c\"Name\"\u003e",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 138,
-  "name": "Error message should show only after exceeding character limit",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "TheEmployerIsAbleToAddAgency.user_must_be_registered()"
-});
-formatter.result({
-  "duration": 31944273000,
-  "status": "passed"
-});
-formatter.match({
-  "location": "TheEmployerIsAbleToAddAgency.title_of_login_page_is_Home()"
-});
-formatter.result({
-  "duration": 14610100,
-  "status": "passed"
-});
-formatter.match({
-  "location": "TC41_89.user_enters_valid_credentials()"
-});
-formatter.result({
-  "duration": 25272446400,
-  "status": "passed"
-});
-formatter.match({
-  "location": "TC41_89.go_to_update_profile()"
-});
-formatter.result({
-  "duration": 2294625600,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
+      "cells": [
+        "Title for emp",
+        "teamField",
+        "AssignTo",
+        "note",
+        "employer",
+        "team",
+        "teamid",
+        "Title for agy",
+        "agyteamField",
+        "agyAssignTo",
+        "agynote",
+        "agency",
+        "agyteam",
+        "agyteamid"
+      ],
+      "line": 200
+    },
     {
-      "val": "Name",
-      "offset": 44
+      "cells": [
+        "task5",
+        "pemp",
+        "pemp",
+        "Task should complete before time",
+        "pemp",
+        "pe1",
+        "pe1@gmail.com",
+        "particular task",
+        "pagy",
+        "pagy",
+        "Task should complete before time",
+        "pagy",
+        "pa1",
+        "pe1@gmail.com"
+      ],
+      "line": 201
     }
   ],
-  "location": "TC41_89.check_the_character_limit_for_all_fields(String)"
+  "keyword": "And "
+});
+formatter.step({
+  "line": 202,
+  "name": "the task should display for employer",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 203,
+  "name": "Task should also display for employer team member",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 204,
+  "name": "Logout from App",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 205,
+  "name": "Employer enters valid credentials",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 206,
+  "name": "the task should display for employer",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 207,
+  "name": "Click on Mark Complete from team member login",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 208,
+  "name": "Logout from App",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 209,
+  "name": "login as employer team",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 210,
+  "name": "the task should not display on employer side",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "TC275E.user_should_be_registered()"
 });
 formatter.result({
-  "duration": 27072722700,
+  "duration": 14765419500,
   "status": "passed"
 });
 formatter.match({
-  "location": "TC48.click_on_team_tab()"
+  "location": "TC264_266.title_of_login_page_is_Home()"
 });
 formatter.result({
-  "duration": 4075015200,
+  "duration": 19255700,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "Name",
-      "offset": 32
-    }
-  ],
-  "location": "TC41_89.click_on_Add_button_and_fill_all_details(String)"
+  "location": "TC264_266.employer_enters_valid_credentials()"
 });
 formatter.result({
-  "duration": 399680900,
+  "duration": 3247084900,
   "status": "passed"
 });
 formatter.match({
-  "location": "TC41_89.error_message_should_show_only_after_exceeding_character_limit()"
+  "location": "TC264_266.in_add_task_popup_Fill_all_the_mandatory_details(DataTable)"
 });
 formatter.result({
-  "duration": 22464114600,
+  "duration": 5945496400,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC264_266.the_task_should_display_for_both_employer()"
+});
+formatter.result({
+  "duration": 7560809900,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC264_266.task_should_also_display_for_team_member()"
+});
+formatter.result({
+  "duration": 8633662200,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC273.click_on_Mark_Complete_from_team_member_login()"
+});
+formatter.result({
+  "duration": 3081853200,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC275E.Logout_from_App()"
+});
+formatter.result({
+  "duration": 4278793600,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC264_266.employer_enters_valid_credentials()"
+});
+formatter.result({
+  "duration": 3245561600,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC273.the_task_should_not_display_on_employer_side()"
+});
+formatter.result({
+  "duration": 23168325400,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC275E.Logout_from_App()"
+});
+formatter.result({
+  "duration": 4322060300,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC264_266.employer_enters_valid_credentials()"
+});
+formatter.result({
+  "duration": 3226975000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC264_266.in_add_task_popup_Fill_all_the_mandatory_details(DataTable)"
+});
+formatter.result({
+  "duration": 5831559400,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC264_266.the_task_should_display_for_both_employer()"
+});
+formatter.result({
+  "duration": 6415568000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC264_266.task_should_also_display_for_team_member()"
+});
+formatter.result({
+  "duration": 9712568200,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC275E.Logout_from_App()"
+});
+formatter.result({
+  "duration": 4338619500,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC264_266.employer_enters_valid_credentials()"
+});
+formatter.result({
+  "duration": 3248068900,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC264_266.the_task_should_display_for_both_employer()"
+});
+formatter.result({
+  "duration": 6776867700,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC273.click_on_Mark_Complete_from_team_member_login()"
+});
+formatter.result({
+  "duration": 3062600300,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC275E.Logout_from_App()"
+});
+formatter.result({
+  "duration": 4293001100,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC273.login_as_employer_team()"
+});
+formatter.result({
+  "duration": 4278133100,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC273.the_task_should_not_display_on_employer_side()"
+});
+formatter.result({
+  "duration": 22693835900,
   "status": "passed"
 });
 });

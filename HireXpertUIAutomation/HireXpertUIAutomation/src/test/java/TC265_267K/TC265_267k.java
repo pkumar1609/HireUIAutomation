@@ -46,11 +46,6 @@ public class TC265_267k extends baseclass {
 		Assert.assertEquals(url, "http://103.68.10.36:8100/#/home");
 	}
 
-	@And("^In task section click on add task \\(\\+\\) icon$")
-	public void in_task_section_click_on_add_task_icon() throws Throwable {
-		Thread.sleep(2000);
-//		taskpage.clickOnAddTaskBtn();
-	}
 
 	@And("^In add task popup, Fill all the mandatory details$")
 	public void in_add_task_popup_Fill_all_the_mandatory_details(DataTable credentials) throws Throwable {
@@ -58,14 +53,7 @@ public class TC265_267k extends baseclass {
 		taskpage.enterAlldetailsForAgy(credentials); 
 	}
 
-	@And("^Click on submit$")
-	public void click_on_submit() throws Throwable {
-//		Thread.sleep(1000);
-//		employerspage.ClickSubmitBtn();
-	}
-	
-
-	@Then("^the task should display for both agency$")
+	@Then("^the task should display both agency$")
 	public void the_task_should_display_for_both_agency() throws Throwable {
 		taskpage.validateTaskDisplayingProperlyForAgy();
 	}

@@ -18,15 +18,15 @@ public class TC264_266 extends baseclass {
 		super();
 	}
 	
-	@Before()
-	public void setup() throws IOException
-	{
-		baseclass.initialization();
-	}
+//	@Before()
+//	public void setup() throws IOException
+//	{
+//		
+//	}
 	
 	@Given("^User must be registered as Employer profile$")
 	public void user_must_be_registered_as_Employer_profile() throws Throwable {
-	     //enter email id should exist in sysytem
+		baseclass.initialization();
 	}
 	
 	
@@ -40,7 +40,6 @@ public class TC264_266 extends baseclass {
 	@And("^Employer enters valid credentials$")
 	public void employer_enters_valid_credentials() throws Throwable {
 		loginpage.loginInAppWithEmpK();
-
 	}
 
 	@And("^Go to dashboard$")
@@ -51,37 +50,27 @@ public class TC264_266 extends baseclass {
 		
 	}
 
-	@And("^In task section click on add task \\(\\+\\) icon$")
-	public void in_task_section_click_on_add_task_icon() throws Throwable {
-		Thread.sleep(2000);
-		taskpage.clickOnAddTaskBtn();
-	}
 
-	@And("^In add task popup, Fill all the mandatory details$")
+	@And("^Click on Add task button and enter all details employer$")
 	public void in_add_task_popup_Fill_all_the_mandatory_details(DataTable credentials) throws Throwable {
-		
 		taskpage.enterAlldetails(credentials);
 	}
+	
+	
 
-	@And("^Click on submit$")
-	public void click_on_submit() throws Throwable {
-//		Thread.sleep(1000);
-//		employerspage.ClickSubmitBtn();
-
-	}
-
-	@And("^the task should display for both employer$")
+	@And("^the task should display for employer$")
 	public void the_task_should_display_for_both_employer() throws Throwable {
+		System.out.println("task on employer side");
 		taskpage.validateTaskDisplayingProperly();
 	}
 
-	@And("^Task should also display for team member$")
+	@And("^Task should also display for employer team member$")
 	public void task_should_also_display_for_team_member() throws Throwable {
 		loginpage.logoutFromAppK();
 		loginpage.loginInAppWithTeamK();
+		System.out.println("task on employer team side");
 		taskpage.ValidateTaskDisplayingForTeam();
-		Thread.sleep(1000);
-		loginpage.logoutFromAppK();
+
 	}
 
 
@@ -93,37 +82,35 @@ public class TC264_266 extends baseclass {
 		
 	}
 
-	@And("^Select a job and click on add task button$")
+	@And("^Select a job$")
 	public void select_a_job_and_click_on_add_task_button() throws Throwable {
 	
 		workbenchpage.selectJob();
 		
-		workbenchpage.addTaskBtn();
-		
 	}
 
-	@And("^In add task popup, Fill all the mandatory details and assign to Himeself$")
-	public void in_add_task_popup_Fill_all_the_mandatory_details_and_assign_to_Himeself(DataTable credentials) throws Throwable {
-		
-		taskpage.enterAlldetails(credentials);
-		
-		
-	}
+//	@And("^Click on Add task button and enter all details for employer$")
+//	public void in_add_task_popup_Fill_all_the_mandatory_details_and_assign_to_Himeself(DataTable credentials) throws Throwable {
+//		
+//		taskpage.enterAlldetails(credentials);
+//		
+//		
+//	}
 
-	@Then("^the task added should display on employer$")
-	public void the_task_added_should_display_on_employer() throws Throwable {
-		Thread.sleep(2000);
-		dashboardpage.openDashboardPage();
-		taskpage.validateTaskDisplayingProperly();
-		
-	}
-	
-	@Then("^the task should also display on team member login$")
-	public void the_task_should_also_display_on_team_member_login() throws InterruptedException
-	{
-		Thread.sleep(2000);
-		loginpage.logoutFromAppK();
-		loginpage.loginInAppWithTeamK();
-		taskpage.ValidateTaskDisplayingForTeam();
-	}
+//	@Then("^the task added should display for employer$")
+//	public void the_task_added_should_display_on_employer() throws Throwable {
+//		Thread.sleep(2000);
+//		dashboardpage.openDashboardPage();
+//		taskpage.validateTaskDisplayingProperly();
+//		
+//	}
+//	
+//	@Then("^the task should also display on employer team member login$")
+//	public void the_task_should_also_display_on_team_member_login() throws InterruptedException
+//	{
+//		Thread.sleep(2000);
+//		loginpage.logoutFromAppK();
+//		loginpage.loginInAppWithTeamK();
+//		taskpage.ValidateTaskDisplayingForTeam();
+//	}
 }

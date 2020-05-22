@@ -45,7 +45,7 @@ public class LoginPage extends baseclass {
 	public String username;
 	public String user;
 	public boolean b;
-	String logedinuser;
+	public String logedinuser;
 	Actions Action = new Actions(driver);
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
 	
@@ -153,7 +153,7 @@ public class LoginPage extends baseclass {
 	{
 		emailaddress.sendKeys(prop.getProperty("teamid"));
 		password.sendKeys(prop.getProperty("pwd"));
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		signin.click();
 	}
 	
@@ -167,6 +167,7 @@ public class LoginPage extends baseclass {
 	
 	public void logoutFromAppK() throws InterruptedException
 	{
+		Thread.sleep(2000);
 		explicitwait.until(ExpectedConditions.elementToBeClickable(profile));
 		Action.moveToElement(profile).click().perform();
 		executor.executeScript("arguments[0].click();",Logout);

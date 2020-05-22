@@ -1,31 +1,26 @@
 Feature: Task Feature
 
-
-
 @TC264_266
 Scenario: Verify functionality of adding general task and particular task from Employer login
 
 Given User must be registered as Employer profile 
 
 When title of login page is Home
-And Employer enters valid credentials 
+And Employer enters valid credentials
 And Go to dashboard
-And In task section click on add task (+) icon
-And Click on Add task button and enter all details for employer
+And Click on Add task button and enter all details employer
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |genral task        |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
-And Click on submit
-And the task should display for both employer
+And the task should display for employer
 And Task should also display for employer team member
+And Logout from App
 And Go to workbench
-And Select a job 
-And Click on Add task button and enter all details for employer
+And Select a job
+And Click on Add task button and enter all details employer
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |particular task    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
-And Click on submit 
-Then the task added should display on employer 
-Then the task should also display on employer team member login
-
+Then the task should display for employer
+Then Task should also display for employer team member
 
 @TC265_267
 Scenario: Verify agency can add general task and particular task.
@@ -38,14 +33,14 @@ And Go to dashboard
 And Click on Add task button and enter all details for agency
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |particular task    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
-Then the task should display for both agency
+Then the task should display for agency
 Then Task should also display for agency team member 
+And Logout as emp/agency
 And Go to agency workbench
 And Select a job 
 And Click on Add task button and enter all details for agency
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|particular task    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
-And Click on submit 
+|particular task    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com         |
 Then the task added should display on agency login
 Then the task should also display on agency team member login
 
@@ -84,7 +79,7 @@ When title of login page is Home
 And user enters valid credentials
 And go to workbench
 And select job
-And Add a task and assign that task to the team member 
+And Click on Add task button and enter all details 
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |particular task    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 And Logout as emp/agency
@@ -103,7 +98,7 @@ Scenario: verify the functionality of edit for general tasks
 Given User should be registered
 When title of login page is Home
 And user enters valid credentials
-And Add a task and assign that task to the team member 
+And Click on Add task button and enter all details
 |Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |Genral task      |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |Genral task      |pagy         |pa1         |Task should complete before time    |pagy   		    |pe1       |pe1@gmail.com        |
 
@@ -138,7 +133,9 @@ And edit the task
 Then verify all the edited details 
 |Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |task2            |pemp      |pe1      |complete before 1 pm             |pemp    		    |pe1       |pe1@gmail.com        |task1            |pagy         |pa1         |complete before 1 pm                |pagy   		    |pe1       |pe1@gmail.com        |
-
+Then verify all the edited details 
+|Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task2            |pemp      |pe1      |complete before 1 pm             |pemp    		    |pe1       |pe1@gmail.com        |task1            |pagy         |pa1         |complete before 1 pm                |pagy   		    |pe1       |pe1@gmail.com        |
 
 
 @TC294
@@ -157,7 +154,57 @@ And Click on Team Task
 Then Again Click on Reload Task button
 
 
+@TC269_271
+Scenario: to verify Mark inprogress task functionality from employer login
+Given User should be registered
+When title of login page is Home
+And Employer enters valid credentials
+And Click on Add task button and enter all details employer
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task4              |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And the task should display for employer
+And Task should also display for employer team member
+And Click on mark in progress
+And Logout as emp/agency
+And Employer enters valid credentials
+And Go to dashboard
+And the task should display for employer
+And Logout as emp/agency
+And Employer enters valid credentials
+And Click on Add task button and enter all details employer
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task5              |pemp      |pemp     |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pagy        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And the task should display for employer
+And Click on mark in progress
+And Logout as emp/agency
+And Login with team member
+And Task should also display for employer team member
 
-
-
-
+@TC273
+Scenario: to verify Mark Completed task functionality from employer login
+Given User should be registered
+When title of login page is Home
+And Employer enters valid credentials
+And Click on Add task button and enter all details employer
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task4              |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And the task should display for employer
+And Task should also display for employer team member
+And Click on Mark Complete from team member login
+And Logout from App
+And Employer enters valid credentials
+And the task should not display on employer side 
+And Logout from App
+And Employer enters valid credentials
+And Click on Add task button and enter all details employer
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task5              |pemp      |pemp     |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pagy        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And the task should display for employer
+And Task should also display for employer team member
+And Logout from App
+And Employer enters valid credentials
+And the task should display for employer
+And Click on Mark Complete from team member login
+And Logout from App
+And login as employer team
+And the task should not display on employer side

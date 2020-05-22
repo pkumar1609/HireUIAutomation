@@ -33,7 +33,8 @@ public class TC275E extends baseclass {
 
 	 @Given("^User should be registered$")
 	 public void user_should_be_registered() throws Throwable {
-		 baseclass.initialization();
+		baseclass.initialization();
+		
 	 }
 
 
@@ -83,8 +84,8 @@ public class TC275E extends baseclass {
 	}
 
 
-	@And("^Logout as emp/agency$")
-	public void logout_as_emp_agency() throws Throwable {
+	@And("^Logout from App$")
+	public void Logout_from_App() throws Throwable {
 		Thread.sleep(2000);
 		loginpage.logoutFromAppK();
 	}

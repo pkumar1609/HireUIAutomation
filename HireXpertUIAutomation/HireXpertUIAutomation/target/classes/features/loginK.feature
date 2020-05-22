@@ -129,7 +129,7 @@ Scenario Outline: To verify Error message for character limit for both agency an
 
 Given User must be registered
 
-When title of login page is Home 
+When title of login page is Home
 And user enters valid credentials
 And Go to update profile
 And Check the character limit for fields with <"Name">

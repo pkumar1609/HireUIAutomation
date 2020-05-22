@@ -39,8 +39,9 @@ public class TC265_267k extends baseclass {
 		taskpage.enterAlldetailsForAgy(credentials); 
 	}
 	
-	@Then("^the task should display for both agency$")
+	@Then("^the task should display for agency$")
 	public void the_task_should_display_for_both_agency() throws Throwable {
+		dashboardpage.openDashboardPage();
 		taskpage.validateTaskDisplayingProperlyForAgy();
 	}
 
@@ -61,18 +62,18 @@ public class TC265_267k extends baseclass {
 	}
 
 
-	@Then("^the task added should display on agency login$")
-	public void the_task_added_should_display_on_agency() throws Throwable {
-		Thread.sleep(2000);
-		dashboardpage.openDashboardPage();
-		taskpage.validateTaskDisplayingProperlyForAgy();
-	}
-
-	@Then("^the task should also display on agency team member login$")
-	public void the_task_should_also_display_on_team_member_login() throws Throwable {
-		Thread.sleep(2000);
-		loginpage.logoutFromAppK();
-		loginpage.loginInAppWithAgyTeamK();
-		taskpage.TaskDisplayingForAgyTeam();
-	}
+//	@Then("^the task added should display on agency login$")
+//	public void the_task_added_should_display_on_agency() throws Throwable {
+//		Thread.sleep(2000);
+//		dashboardpage.openDashboardPage();
+//		taskpage.validateTaskDisplayingProperlyForAgy();
+//	}
+//
+//	@Then("^the task should also display on agency team member login$")
+//	public void the_task_should_also_display_on_team_member_login() throws Throwable {
+//		Thread.sleep(2000);
+//		loginpage.logoutFromAppK();
+//		loginpage.loginInAppWithAgyTeamK();
+//		taskpage.TaskDisplayingForAgyTeam();
+//	}
 }

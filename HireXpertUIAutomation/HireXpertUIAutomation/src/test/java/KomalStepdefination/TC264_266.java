@@ -47,27 +47,16 @@ public class TC264_266 extends baseclass {
 		dashboardpage.openDashboardPage();
 	}
 
-	@And("^In task section click on add task \\(\\+\\) icon$")
-	public void in_task_section_click_on_add_task_icon() throws Throwable {
-		Thread.sleep(2000);
-//		taskpage.clickOnAddTaskBtn();
-	}
 
-	@And("^Click on Add task button and enter all details for employer$")
+
+	@And("^Click on Add task button and enter all details employer$")
 	public void in_add_task_popup_Fill_all_the_mandatory_details(DataTable credentials) throws Throwable {
-		
 		taskpage.enterAlldetails(credentials);
 	}
 
-	@And("^Click on submit$")
-	public void click_on_submit() throws Throwable {
-//		Thread.sleep(1000);
-//		employerspage.ClickSubmitBtn();
-
-	}
-
-	@And("^the task should display for both employer$")
+	@And("^the task should display for employer$")
 	public void the_task_should_display_for_both_employer() throws Throwable {
+	
 		taskpage.validateTaskDisplayingProperly();
 	}
 
@@ -76,8 +65,6 @@ public class TC264_266 extends baseclass {
 		loginpage.logoutFromAppK();
 		loginpage.loginInAppWithTeamK();
 		taskpage.ValidateTaskDisplayingForTeam();
-		Thread.sleep(1000);
-		loginpage.logoutFromAppK();
 	}
 
 
@@ -99,20 +86,20 @@ public class TC264_266 extends baseclass {
 
 	
 
-	@Then("^the task added should display on employer$")
-	public void the_task_added_should_display_on_employer() throws Throwable {
-		Thread.sleep(2000);
-		dashboardpage.openDashboardPage();
-		taskpage.validateTaskDisplayingProperly();
-		
-	}
-	
-	@Then("^the task should also display on employer team member login$")
-	public void the_task_should_also_display_on_team_member_login() throws InterruptedException
-	{
-		Thread.sleep(2000);
-		loginpage.logoutFromAppK();
-		loginpage.loginInAppWithTeamK();
-		taskpage.ValidateTaskDisplayingForTeam();
-	}
+//	@Then("^the task should display for employer$")
+//	public void the_task_added_should_display_on_employer() throws Throwable {
+//		Thread.sleep(2000);
+//		dashboardpage.openDashboardPage();
+//		taskpage.validateTaskDisplayingProperly();
+//		
+//	}
+//	
+//	@Then("^the task should also display on employer team member login$")
+//	public void the_task_should_also_display_on_team_member_login() throws InterruptedException
+//	{
+//		Thread.sleep(2000);
+//		loginpage.logoutFromAppK();
+//		loginpage.loginInAppWithTeamK();
+//		taskpage.ValidateTaskDisplayingForTeam();
+//	}
 }
