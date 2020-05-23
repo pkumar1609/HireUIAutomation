@@ -37,7 +37,7 @@ public class ShareWithTeamPage extends baseclass {
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-share-job-with-team/div[2]/div[2]/div/div/table/tbody/tr/td[4]/label/input")
 	public WebElement primaryContactRadioButton;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-share-job-with-team/div[3]/button") 
+	@FindBy(xpath = "//button[@class='btn btn-outline-dark']")
 	public WebElement closeButton;
 	
 	@FindBy(xpath = "//td[5]//label[1]//span[1]")   //2nd team member share checkbox after searching
@@ -49,7 +49,7 @@ public class ShareWithTeamPage extends baseclass {
 	@FindBy(xpath = "//td[4]//label[1]//span[1]") //2nd team member primary contact after searching
 	public WebElement secondRowPrimaryContact;
 	
-//	@FindBy(id = "confirmModalBtn")
+//	@FindBy(id = "confirmModalBtn")               //sharewithagencypage.yesButtonConfirmation.click();  share checkbox
 //	public WebElement yesButtonShareCheckbox;
 	
 	@FindBy(id = "confirmModalBtn")
@@ -68,20 +68,6 @@ public class ShareWithTeamPage extends baseclass {
 		
 		AddTeamButton.click();
 	}
-	
-//	public void fillEmployerTeamDetails() {
-//		
-//		TeamName.sendKeys("Sayali Team 3");
-//		TeamEmail.sendKeys("sayaliteam3@gmail.com");
-//		TeamContactNumber.sendKeys("2542144154");
-//	}
-	
-//	public void fillAgencyTeamDetails() {
-//		
-//		TeamName.sendKeys("Say Agency 1 Team 1");
-//		TeamEmail.sendKeys("sayagency1team1@gmail.com");
-//		TeamContactNumber.sendKeys("2542144154");
-//	}
 	
 	public void selectAddToTeamMember() {
 		

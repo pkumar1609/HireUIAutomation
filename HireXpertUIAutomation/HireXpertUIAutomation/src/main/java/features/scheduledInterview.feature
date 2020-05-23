@@ -15,6 +15,7 @@ Feature: Interview Management
     And fill all interview details and click on Submit button
     And click on close button from Interview details page 
     And observe the interview date and time displayed on candidate card below Assign To field
+    And click on Reload Candidate button and observe
     And click on Edit Interview icon in front of interview details like date and time
     And make some changes in interview details and click on Submit button
     Then User should be able to update scheduled interview details and updated details should display properly
@@ -22,6 +23,7 @@ Feature: Interview Management
     And make some changes and click on Submit button
     Then updated details should display properly
     And click on close button from Interview details page
+    And click on Reload Candidate button and observe
     And click on Interviews tab
     And Select the filters for which you want candidate interview details and click on Search button
     Then Interview details should be reflect according to the filter applied
@@ -34,4 +36,5 @@ Examples:
 
     
 #TC ID: 30,105,108,110,224
+#Reg TC ID: 311
 

@@ -12,23 +12,139 @@ import utilPackage.baseclass;
 
 public class assignToAndAddedBy extends baseclass {
 	
+// @regression1_01
+	
+	@Then("^observe Added By field on candidate card$")
+	public void observe_Added_By_field_on_candidate_card() throws Throwable {
+	    
+		String addedbyname = candidatecardsectionpage.addedBy.getAttribute("title");
+		System.out.println("\nAdded By name:" + addedbyname);
+		
+		String user = addedbyname.substring(9);
+		System.out.println("Added By name after Added By:" + user);
+		
+		workbenchpage.userNameProfile();
+		
+		if(user.equals(workbenchpage.username)) {
+			
+			System.out.println("Current logged in user name displayed in Added By field on candidate card..");
+		}
+		else {
+			
+			System.out.println("Current logged in user name not displayed in Added By field");
+		}
+	}
+
 	@Then("^now move the candidate from New column to another column and and check the name for Added by field on candidate card$")
 	public void now_move_the_candidate_from_New_column_to_another_column_and_and_check_the_name_for_Added_by_field_on_candidate_card() throws Throwable {
 	    
+		candidatecardsectionpage.dragAndDropCardToSecondColumn();
 		
+		String addedbyname = candidatecardsectionpage.addedBy.getAttribute("title");
+		
+		String user = addedbyname.substring(9);
+		
+		workbenchpage.userNameProfile();
+		
+		if(user.equals(workbenchpage.username)) {
+			
+			System.out.println("Current logged in user name displayed in Added By field on candidate card for second column..");
+		}
+		else {
+			
+			System.out.println("Current logged in user name not displayed in Added By field for second column");
+		}
 	}
 
-	@Then("^again move the candidate  to the next column and check the name for Added by field$")
+	@Then("^again move the candidate to the next column and check the name for Added by field$")
 	public void again_move_the_candidate_to_the_next_column_and_check_the_name_for_Added_by_field() throws Throwable {
 	    
+		candidatecardsectionpage.dragAndDropCardToThirdColumn();
 		
+		String addedbyname = candidatecardsectionpage.addedBy.getAttribute("title");
+		
+		String user = addedbyname.substring(9);
+		
+		workbenchpage.userNameProfile();
+		
+		if(user.equals(workbenchpage.username)) {
+			
+			System.out.println("Current logged in user name displayed in Added By field on candidate card for third column..");
+		}
+		else {
+			
+			System.out.println("Current logged in user name not displayed in Added By field for third column");
+		}
 	}
 
 	@Then("^name for Added by should remain same on candidate card$")
 	public void name_for_Added_by_should_remain_same_on_candidate_card() throws Throwable {
 	    
-		
+		System.out.println("\nAdded By name is same on candidate card after drag and drop card..");
 	}
+
+	@Then("^click on Team tab and add one new team member by clicking on Add button$")
+	public void click_on_Team_tab_and_add_one_new_team_member_by_clicking_on_Add_button(DataTable dt) throws Throwable {
+	    
+		dashboardpage.openTeamPage();
+		Thread.sleep(3000);
+		teampage.clickOnAddBtnK();
+		Thread.sleep(4000);
+		
+		List<List<String>> data = dt.raw();
+		teampage.TeamMemberName.sendKeys(data.get(0).get(0)); 
+		teampage.TeamMemberEmail.sendKeys(data.get(0).get(1));
+		teampage.TeamMemberContactNumber.sendKeys(data.get(0).get(2));
+		
+		teampage.submitButton.click();
+		Thread.sleep(3000);
+	}
+
+	@Then("^click on Close button from Team Members window$")
+	public void click_on_Close_button_from_Team_Members_window() throws Throwable {
+	    
+		teampage.closeTeamPage();
+	}
+
+	@Then("^click on Share With Team button and select the Share checkbox present in front of the team member to share the job$")
+	public void click_on_Share_With_Team_button_and_select_the_Share_checkbox_present_in_front_of_the_team_member_to_share_the_job() throws Throwable {
+	    
+		workbenchpage.shareWithTeamButton.click();
+		Thread.sleep(3000);
+		sharewithteampage.searchEmployerTeam();
+		sharewithteampage.shareCheckbox.click();
+	}
+
+	@Then("^click on Yes button from confirmation popup and click on Close button from Share Job$")
+	public void click_on_Yes_button_from_confirmation_popup_and_click_on_Close_button_from_Share_Job() throws Throwable {
+	    
+		sharewithagencypage.yesButtonConfirmation.click();
+		System.out.println("\nNow job is shared with team member..");
+		Thread.sleep(3000);
+		sharewithteampage.closeButton.click();
+	}
+
+	@Then("^logout with logged in user and login with team member valid credentials for which you Shared the Job$")
+	public void logout_with_logged_in_user_and_login_with_team_member_valid_credentials_for_which_you_Shared_the_Job(DataTable dt) throws Throwable {
+	    
+		workbenchpage.ClickonLogout();
+		Thread.sleep(3000);
+		List<List<String>> data = dt.raw();
+		loginpage.emailaddress.sendKeys(data.get(0).get(0));
+		loginpage.password.sendKeys(data.get(0).get(1));
+		loginpage.signin.click();
+		Thread.sleep(5000);
+	}
+
+	@Then("^click on Workbench tab and select the shared job$")
+	public void click_on_Workbench_tab_and_select_the_shared_job() throws Throwable {
+	    
+		dashboardpage.openWorkbenchPage();
+		Thread.sleep(3000);
+		workbenchpage.selectJob();
+		Thread.sleep(3000);
+	}
+	
 
 	
 // @regression1_02	
@@ -118,7 +234,7 @@ public class assignToAndAddedBy extends baseclass {
 	public void observe_Added_By_and_Assign_To_fields_on_candidate_card() throws Throwable {
 	    
 		//verify updated added by name
-		String addedbyname = candidatecardpage.addedBy.getAttribute("title");
+		String addedbyname = candidatecardsectionpage.addedBy.getAttribute("title");
 		System.out.println("\nAdded By name:" + addedbyname);
 		
 		String lasttwochars = addedbyname.substring(addedbyname.length()-2);
@@ -132,7 +248,7 @@ public class assignToAndAddedBy extends baseclass {
 		}
 		
 		//verify updated assign to name
-		String assigntoname = candidatecardpage.assignTo.getAttribute("title");
+		String assigntoname = candidatecardsectionpage.assignTo.getAttribute("title");
 		System.out.println("\nAssign To name:" + assigntoname);
 		
 		String lasttwochars1 = assigntoname.substring(assigntoname.length()-2);
@@ -145,6 +261,89 @@ public class assignToAndAddedBy extends baseclass {
 			System.out.println("Update Assign To name not displayed on candidate card..");
 		}
 	}
+	
+	
+// @regression1_03	
+	
+	@When("^click on Share With Agency button and share job with agency owner$")
+	public void click_on_Share_With_Agency_button_and_share_job_with_agency_owner() throws Throwable {
+	    
+		
+	}
+
+	@When("^logout with employer and login with agency with whom job is shared$")
+	public void logout_with_employer_and_login_with_agency_with_whom_job_is_shared(DataTable arg1) throws Throwable {
+	    
+		
+	}
+
+	@Then("^observe Change Assign To icon in front of Assign To name$")
+	public void observe_Change_Assign_To_icon_in_front_of_Assign_To_name() throws Throwable {
+	    
+		
+	}
+
+	@Then("^now move the candidate from New column to another column and and check the name for Assign To field on candidate card$")
+	public void now_move_the_candidate_from_New_column_to_another_column_and_and_check_the_name_for_Assign_To_field_on_candidate_card() throws Throwable {
+	    
+		
+	}
+
+	@Then("^click on Change Assign To icon in front of Assign To name to verify it is clickable or not and user able to change the name$")
+	public void click_on_Change_Assign_To_icon_in_front_of_Assign_To_name_to_verify_it_is_clickable_or_not_and_user_able_to_change_the_name() throws Throwable {
+	    
+		
+	}
+
+	@Then("^click on Share With Team button and share that job with agency team member$")
+	public void click_on_Share_With_Team_button_and_share_that_job_with_agency_team_member() throws Throwable {
+	    
+		
+	}
+
+	@Then("^Login with agency team member$")
+	public void login_with_agency_team_member(DataTable arg1) throws Throwable {
+	    
+		
+	}
+
+	@Then("^Click on Reject Candidate icon from candidate card and reject that candidate$")
+	public void click_on_Reject_Candidate_icon_from_candidate_card_and_reject_that_candidate() throws Throwable {
+	    
+		
+	}
+
+	@Then("^Now login with Employer$")
+	public void now_login_with_Employer(DataTable arg1) throws Throwable {
+	    
+		
+	}
+
+	@Then("^Observe rejected candidate in Rejected column and observe name for Assign To on candidate card$")
+	public void observe_rejected_candidate_in_Rejected_column_and_observe_name_for_Assign_To_on_candidate_card() throws Throwable {
+	    
+		
+	}
+
+	@Then("^Rejected column card should be assigned to employer$")
+	public void rejected_column_card_should_be_assigned_to_employer() throws Throwable {
+	    
+		
+	}
+
+	@Then("^Click on Filter icon from right upper corner$")
+	public void click_on_Filter_icon_from_right_upper_corner() throws Throwable {
+	    
+		
+	}
+
+	@Then("^Observe Assign To filter list$")
+	public void observe_Assign_To_filter_list() throws Throwable {
+	    
+		
+	}
+
+
 
 
 }

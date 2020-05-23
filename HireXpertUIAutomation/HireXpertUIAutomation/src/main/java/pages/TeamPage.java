@@ -22,13 +22,13 @@ public class TeamPage extends baseclass {
 	@FindBy(xpath = "//h5[@class='modal-title w-100']")
 	public WebElement pagetitle;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-list-jobprovider/div[1]/h5/button[3]")
+	@FindBy(xpath = "//button[@title='Team Members']")
 	public WebElement AddTeamButton;
 	
-	@FindBy(xpath ="//input[@formcontrolname='Name']")
+	@FindBy(xpath ="//div[@class='col-md-12 text-left']//div[1]//input[1]")
 	public WebElement TeamMemberName;
 	
-	@FindBy(xpath = "//input[@formcontrolname='Email']")
+	@FindBy(xpath = "//div[@class='col-md-12 text-left']//div[2]//input[1]")
 	public WebElement TeamMemberEmail;
 	
 	@FindBy(xpath = "//input[@formcontrolname='ContactNumber']")
@@ -37,7 +37,7 @@ public class TeamPage extends baseclass {
 	@FindBy(xpath="//select[@formcontrolname='CountryId']")
 	public WebElement countryid;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")
+	@FindBy(xpath = "//button[@class='btn btn-primary Cbtn-primary']")
 	public WebElement submitButton;
 	
 	@FindBy(xpath="//button[@type='button'][text()='Close']")

@@ -63,6 +63,9 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//img[contains(@class,'profile')]")
 	public WebElement profile;
 	
+	@FindBy(xpath = "//a[@class='dropdown-item']")
+	public WebElement userName;
+	
 	@FindBy(xpath="//a[contains(text(),'Change Password')]")
 	public WebElement ChangePasswordTab;
 	
@@ -95,6 +98,7 @@ public class WorkbenchPage extends baseclass {
 	
 	public String jobname;
 	String nameOfCan;
+	public String username;
 	
 	public void addTaskBtn() throws InterruptedException
 	{
@@ -189,6 +193,15 @@ public class WorkbenchPage extends baseclass {
 		Actions action = new Actions(driver);
 		action.moveToElement(we).perform();
 		Logout.click();
+	}
+	
+	public void userNameProfile() {
+		
+		WebElement we = profile;
+		Actions action = new Actions(driver);
+		action.moveToElement(we).perform();
+		username = userName.getText();
+		System.out.println("\nLogged in user: " + username);
 	}
 	
 	public void clickOnAddCandidate() throws InterruptedException
