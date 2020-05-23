@@ -56,7 +56,7 @@ public class EditDeleteCandidateStepDefination extends baseclass {
 	public void click_on_Delete_Candidate_icon_on_Candidate_card() throws InterruptedException  {
 		
 		Thread.sleep(3000);
-		workbenchpage.candidateCardDeleteCandidateIcon.click();
+		candidatecardsectionpage.candidateCardDeleteCandidateIcon.click();
 		workbenchpage.yesConfirmDeleteCandidate.click();
 	}
 	

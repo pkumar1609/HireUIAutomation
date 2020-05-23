@@ -157,7 +157,7 @@ public class QuestionaryStepDefination extends baseclass {
 	public void click_on_ReloadCandidate_button() throws Throwable {
 	    
 		Thread.sleep(3000);
-		workbenchpage.reloadcandidatebtn.click();
+		workbenchpage.ReloadCandidateButton.click();
 
 	}
 }

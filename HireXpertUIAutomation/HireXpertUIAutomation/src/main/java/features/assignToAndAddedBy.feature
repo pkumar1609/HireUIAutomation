@@ -75,35 +75,39 @@ Feature: Job Management
     | sayali8@gmail.com | 12345 |
     And click on Workbench tab and select job from Jobs drop down
     And click on Share With Agency button and share job with agency owner
+    | sayagency1@gmail.com |
     And logout with employer and login with agency with whom job is shared
     | sayagency1@gmail.com | 12345 |
     And click on Workbench tab and select job from Jobs drop down
-    And click on Add Candidate button and one new candidate for the job and click on Find button
+    And click on Add Candidate button
+    And add one new candidate for the job and click on Find button
     | c01@gmail.com |
     And Fill mandatory details 
     And click on Save button
     Then new candidate should get added in New column
     And observe Change Assign To icon in front of Assign To name
     And now move the candidate from New column to another column and and check the name for Assign To field on candidate card
-	And observe Change Assign To icon in front of Assign To name
-    And click on Change Assign To icon in front of Assign To name to verify it is clickable or not and user able to change the name
     And click on Share With Team button and share that job with agency team member
+    | sayagency1team1@gmail.com |
     And Login with agency team member
     | sayagency1team1@gmail.com | 12345 |
     And click on Workbench tab and select job from Jobs drop down
-    And click on Add Candidate button and one new candidate for the job and click on Find button
+    And click on Add Candidate button
+    And add one new candidate for the job and click on Find button
     | c02@gmail.com |
     And Fill mandatory details 
     And click on Save button
     Then new candidate should get added in New column
     And Click on Reject Candidate icon from candidate card and reject that candidate
+    And logout with employer and login with agency with whom job is shared
+    | sayagency1@gmail.com | 12345 |
+    And click on Workbench tab and select job from Jobs drop down
+    And move the candidate from second column to first column and delete that candidate
     And Now login with Employer
     | sayali8@gmail.com | 12345 |
     And click on Workbench tab and select job from Jobs drop down
     And Observe rejected candidate in Rejected column and observe name for Assign To on candidate card
-    Then Rejected column card should be assigned to employer
-    And Click on Filter icon from right upper corner
-    And Observe Assign To filter list
+    And Observe Assign To filter list from Filters section
     And close the browser
     
 

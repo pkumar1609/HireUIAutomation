@@ -40,7 +40,7 @@ public class ShareWithTeamPage extends baseclass {
 	@FindBy(xpath = "//button[@class='btn btn-outline-dark']")
 	public WebElement closeButton;
 	
-	@FindBy(xpath = "//td[5]//label[1]//span[1]")   //2nd team member share checkbox after searching
+	@FindBy(xpath = "//td[5]//label[1]//input[1]")   //2nd team member share checkbox after searching
 	public WebElement shareCheckbox;
 	
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-share-job-with-team/div[2]/div[2]/div/div/table/tbody/tr/td[5]/label/input")

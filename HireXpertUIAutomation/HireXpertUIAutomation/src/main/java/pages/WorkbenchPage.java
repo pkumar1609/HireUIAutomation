@@ -42,9 +42,6 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(id="EditCandidate")
 	public WebElement candidateCardEditCandidateIcon;
 	
-	@FindBy(xpath="//button[@title='Delete Candidate']")
-	public WebElement candidateCardDeleteCandidateIcon;
-	
 	@FindBy(id = "confirmModalBtn")
 	public WebElement yesConfirmDeleteCandidate;
 	
@@ -95,6 +92,9 @@ public class WorkbenchPage extends baseclass {
 	
 	@FindBy(xpath = "//button[@title='Reload Candidate']")
 	public WebElement ReloadCandidateButton;
+	
+	@FindBy(xpath = "//select[@formcontrolname='AssignedToName']")
+	public WebElement filtersAssignToList;
 	
 	public String jobname;
 	String nameOfCan;

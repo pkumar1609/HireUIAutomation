@@ -11,7 +11,7 @@ public class ShareWithAgencyPage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	public WebElement searchField;
 	
-	@FindBy(xpath = "//span[@class='checkmark CheckBoxM']")
+	@FindBy(xpath = "//td[4]//label[1]//input[1]")
 	public WebElement shareCheckbox;
 	
 	@FindBy(xpath = "//button[@class='btn btn-outline-dark']")
