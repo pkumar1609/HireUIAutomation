@@ -42,10 +42,10 @@ public class scheduledInterview extends baseclass {
 					addcandidatepage.emailField.sendKeys(data.get(0).get(0));
 					addcandidatepage.FindButton.click();
 					Thread.sleep(3000);
-					addcandidatepage.OKButtonPopup.click();
+					common.clickOnOKBtn();
 					addcandidatepage.salaryOffered.sendKeys("300000");
 					Thread.sleep(1000);
-					addcandidatepage.saveButton.click();
+					common.clickOnSaveBtn();
 					driver.findElement(By.id("confirmModalBtn")).click();
 					Thread.sleep(3000);
 				}
@@ -60,10 +60,10 @@ public class scheduledInterview extends baseclass {
 					addcandidatepage.emailField.sendKeys(data.get(0).get(1));
 					addcandidatepage.FindButton.click();
 					Thread.sleep(3000);
-					addcandidatepage.OKButtonPopup.click();
+					common.clickOnOKBtn();
 					addcandidatepage.salaryOffered.sendKeys("250000");
 					Thread.sleep(1000);
-					addcandidatepage.saveButton.click();
+					common.clickOnSaveBtn();
 					driver.findElement(By.id("confirmModalBtn")).click();
 					Thread.sleep(3000);
 				}

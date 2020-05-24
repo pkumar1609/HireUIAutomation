@@ -70,8 +70,8 @@ public class AddCandidateStepDefination extends baseclass {
 	public void click_on_save_button() throws InterruptedException  {
 		
 		Thread.sleep(3000);
-		addcandidatepage.saveButton.click();
-		addcandidatepage.yesButtonPopup.click();
+		common.clickOnSaveBtn();
+		common.clickOnConfirmYes();
 	   
 	}
 	@When("^login with Agency credential Who already have a Job added$")
@@ -81,9 +81,9 @@ public class AddCandidateStepDefination extends baseclass {
 	}
 
 	@Then("^Click on OK button$")
-	public void click_on_OK_button()  {
+	public void click_on_OK_button() throws InterruptedException  {
 	   
-		addcandidatepage.OKButtonPopup.click();
+		common.clickOnOKBtn();
 	}
 	
 	@Then("^Quit the browser$")

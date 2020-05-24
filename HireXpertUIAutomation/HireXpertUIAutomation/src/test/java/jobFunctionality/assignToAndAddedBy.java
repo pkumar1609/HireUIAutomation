@@ -189,7 +189,7 @@ public class assignToAndAddedBy extends baseclass {
 		System.out.println("\nEmployer name: " + employername);
 		Thread.sleep(1000);
 		
-		addjobpage.closeButton.click();
+		common.closebtn.click();
 		Thread.sleep(1000);
 		workbenchpage.ClickonLogout();
 		

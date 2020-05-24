@@ -130,7 +130,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	public void fill_all_details_and_click_on_Save_button() throws Throwable {
 	    
 		addcandidatepage.salaryOffered.sendKeys("300000");
-		addcandidatepage.saveButton.click();
+		common.clickOnSaveBtn();
 	}
 
 	@Then("^click on Yes button if probability related fields are not filled and observe$")

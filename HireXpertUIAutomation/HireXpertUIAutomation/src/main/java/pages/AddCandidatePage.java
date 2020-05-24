@@ -29,9 +29,6 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//button[contains(text(),'Find')]")
 	public WebElement FindButton;
 	
-	@FindBy(id = "alertModalCloseBtn")
-	public WebElement OKButtonPopup;
-	
 	@FindBy(id = "Name")
 	public WebElement name;
 	
@@ -62,20 +59,8 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div[1]/form/div[2]/div[1]/div/div/div[3]/div[5]/select")
 	public WebElement communicationMode;
 	
-	@FindBy(xpath = "//button[@class='btn btn-primary Cbtn-primary']")
-	public WebElement saveButton;
-	
-	@FindBy(xpath = "//button[@class='btn btn-outline-dark']")
-	public WebElement closeButton;
-	
 	@FindBy(id = "salaryOffered")
 	public WebElement salaryOffered;
-	
-	@FindBy(id = "confirmModalBtn")
-	public WebElement yesButtonPopup;
-	
-	@FindBy(id = "confirmModalCloseBtn")
-	public WebElement noButtonPopup;
 	
 	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[2]/select")
 	public WebElement expertiseLevel;
@@ -125,7 +110,7 @@ public class AddCandidatePage extends baseclass {
 			
 			Thread.sleep(3000);
 			
-			OKButtonPopup.click();
+			common.clickOnOKBtn();
 		}
 		
 		else{

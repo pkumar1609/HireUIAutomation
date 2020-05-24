@@ -37,6 +37,9 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath = "//button[text()='Submit']")
 	public WebElement submitbtn ;
 	
+	@FindBy(id = "confirmModalCloseBtn")
+	public WebElement noButtonPopup;
+	
 
 	
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
@@ -74,5 +77,10 @@ public class Commonfunction extends baseclass {
 	{
 		Thread.sleep(3000);
 		submitbtn.click();
+	}
+	
+	public void clickNoButton() {
+		
+		noButtonPopup.click();
 	}
 }

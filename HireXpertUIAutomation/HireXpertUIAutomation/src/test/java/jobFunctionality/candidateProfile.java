@@ -107,13 +107,13 @@ public void fill_all_mandatory_details_and_click_on_Save_button(DataTable dt) th
 	se = new Select(addcandidatepage.expertiseLevel);
 	se.selectByVisibleText(data.get(0).get(7));
 	
-	addcandidatepage.saveButton.click();
+	common.clickOnSaveBtn();
 }
 
 @When("^click on Yes button if probability related fields are not filled and observe$")
 public void click_on_Yes_button_if_probability_related_fields_are_not_filled_and_observe() throws Throwable {
     
-	addcandidatepage.yesButtonPopup.click();
+	common.clickOnConfirmYes();
 	Thread.sleep(3000);
 }
 
@@ -465,7 +465,7 @@ public void click_on_Add_Candidate_button_and_one_new_candidate_for_the_job_and_
 		addcandidatepage.emailField.sendKeys(data.get(0).get(0));
 		addcandidatepage.FindButton.click();
 		Thread.sleep(3000);
-		addcandidatepage.OKButtonPopup.click();
+		common.clickOnOKBtn();
 	}
 	
 	else{
@@ -478,7 +478,7 @@ public void click_on_Add_Candidate_button_and_one_new_candidate_for_the_job_and_
 		addcandidatepage.emailField.sendKeys(data.get(0).get(1));
 		addcandidatepage.FindButton.click();
 		Thread.sleep(3000);
-		addcandidatepage.OKButtonPopup.click();
+		common.clickOnOKBtn();
 	}
 	
 	driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
@@ -502,8 +502,8 @@ public void click_on_Browse_button_and_Upload_file_with_any_format_like_document
 @Then("^click on Save button$")
 public void click_on_Save_button() throws Throwable {
     
-	addcandidatepage.saveButton.click();
-	addcandidatepage.yesButtonPopup.click();
+	common.clickOnSaveBtn();
+	common.clickOnConfirmYes();
 	Thread.sleep(5000);
 }
 
@@ -526,8 +526,8 @@ public void click_on_Browse_button_and_upload_another_file_with_different_format
 	addcandidatepage.clickUploadResumeField();
 	editcandidatepage.uploadResumeExecutableFile();
 	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-	addcandidatepage.saveButton.click();
-	addcandidatepage.yesButtonPopup.click();
+	common.clickOnSaveBtn();
+	common.clickOnConfirmYes();
 	Thread.sleep(16000);
 }
 
@@ -543,8 +543,8 @@ public void click_on_Browse_button_and_upload_another_file_with_different_format
 	addcandidatepage.clickUploadResumeField();
 	editcandidatepage.uploadResumeZipFile();
 	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-	addcandidatepage.saveButton.click();
-	addcandidatepage.yesButtonPopup.click();
+	common.clickOnSaveBtn();
+	common.clickOnConfirmYes();
 	Thread.sleep(7000);
 }
 
@@ -667,7 +667,7 @@ public void unchecked_the_On_Notice_Period_field_and_enter_zero_in_Notice_Period
 	addcandidatepage.noticePeriod.clear();
 	Thread.sleep(1000);
 	addcandidatepage.noticePeriod.sendKeys("0");
-	addcandidatepage.closeButton.click();
+	common.closebtn.click();
 	Thread.sleep(1000);
 }
 
@@ -675,7 +675,7 @@ public void unchecked_the_On_Notice_Period_field_and_enter_zero_in_Notice_Period
 public void confirmation_popup_message_should_display_with_Yes_and_No_buttons_and_click_on_No_button() throws Throwable {
     
 	System.out.println("\nConfirmation message displayed with Yes and No buttons");
-	addcandidatepage.noButtonPopup.click();
+	common.clickNoButton();
 	Thread.sleep(1000);
 }
 
@@ -691,7 +691,7 @@ public void set_another_value_in_Notice_Period_in_Edit_Candidate_page_and_click_
 	addcandidatepage.noticePeriod.clear();
 	Thread.sleep(1000);
 	addcandidatepage.noticePeriod.sendKeys("20");
-	addcandidatepage.closeButton.click();
+	common.closebtn.click();
 	Thread.sleep(1000);
 }
 
@@ -699,7 +699,7 @@ public void set_another_value_in_Notice_Period_in_Edit_Candidate_page_and_click_
 public void confirmation_popup_message_should_display_with_Yes_and_No_buttons_and_Click_on_Yes_button() throws Throwable {
     
 	System.out.println("\nConfirmation message displayed with Yes and No buttons");
-	addcandidatepage.yesButtonPopup.click();
+	common.clickOnConfirmYes();
 	Thread.sleep(1000);
 }
 

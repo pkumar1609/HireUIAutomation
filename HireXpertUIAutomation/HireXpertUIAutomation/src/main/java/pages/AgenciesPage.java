@@ -30,14 +30,8 @@ public class AgenciesPage extends baseclass {
 	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[3]/input")
 	public WebElement agencyContactNumber;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")
-	public WebElement submitButton;
-	
 	@FindBy(xpath="//button[@title='Delete']")
 	static WebElement deletebtn;
-	
-	@FindBy(xpath="//button[@id='confirmModalBtn']")
-	static WebElement confimYes;
 	
 	@FindBy(xpath="//input[@placeholder='Search']")
 	static WebElement search;
@@ -122,7 +116,7 @@ public class AgenciesPage extends baseclass {
 	{
 		Thread.sleep(2000);
 		deletebtn.click();
-		confimYes.click();	
+		common.clickOnConfirmYes();	
 	}
 	
 	public void AddedAgyencyDisplaying()

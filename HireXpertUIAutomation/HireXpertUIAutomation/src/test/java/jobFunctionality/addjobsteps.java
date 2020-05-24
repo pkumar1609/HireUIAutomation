@@ -225,7 +225,7 @@ public class addjobsteps extends baseclass{
 		addcandidatepage.emailField.sendKeys(data.get(0).get(0));
 		addcandidatepage.FindButton.click();
 		Thread.sleep(3000);
-		addcandidatepage.OKButtonPopup.click();
+		common.clickOnOKBtn();
 	}
 	
 	@Then("^Fill mandatory details$")

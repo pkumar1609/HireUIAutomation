@@ -135,15 +135,15 @@ public class a_blockFunctionalitySteps extends baseclass {
 	@Then("^click on OK button from error message popup$")
 	public void click_on_OK_button_from_error_message_popup() throws Throwable {
 	    
-		addcandidatepage.OKButtonPopup.click();
+		common.clickOnOKBtn();
 		Thread.sleep(1000);
 	}
 
 	@Then("^click on Close button from Add Candidate page and click on Yes button from confirmation popup$")
 	public void click_on_Close_button_from_Add_Candidate_page_and_click_on_Yes_button_from_confirmation_popup() throws Throwable {
 	    
-		addcandidatepage.closeButton.click();
-		addcandidatepage.yesButtonPopup.click();
+		common.closebtn.click();
+		common.clickOnConfirmYes();
 		Thread.sleep(2000);
 	}
 

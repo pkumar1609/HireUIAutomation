@@ -60,9 +60,9 @@ public class AddCandidateStepDefination extends baseclass {
    }
 	
 	@Then("^Click on OK button$")
-	public void click_on_OK_button()  {
+	public void click_on_OK_button() throws InterruptedException  {
 	   
-		addcandidatepage.OKButtonPopup.click();
+		common.clickOnOKBtn();
 	}
 	
 	@Then("^Quit the browser$")
