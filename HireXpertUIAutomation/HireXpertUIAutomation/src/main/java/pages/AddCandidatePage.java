@@ -107,36 +107,12 @@ public class AddCandidatePage extends baseclass {
 		location.sendKeys("Pune");
 	}
 	
-//	public void searchCandidateEmail() {
-//		
-//		emailField.click();
-//		emailField.sendKeys(prop.getProperty("candidateemail"));
-//	}
-	
 	public void EntercandidateemailT(String CandidateEmail) {
      	 
 		emailField.sendKeys(CandidateEmail);
 	}
 	
 	Select se;
-	
-	public void selectGender() {
-		
-		se = new Select(gender);
-		se.selectByVisibleText("Female");
-	}
-	
-	public void selectCommunicationMode() {
-		
-		se = new Select(communicationMode);
-		se.selectByIndex(3);
-	}
-	
-	public void selectExpertiseLevel() {
-		
-		se = new Select(expertiseLevel);
-		se.selectByIndex(3);
-	}
 	
 	public void EnterAllMandatoryfieldsT(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws InterruptedException {
     	 

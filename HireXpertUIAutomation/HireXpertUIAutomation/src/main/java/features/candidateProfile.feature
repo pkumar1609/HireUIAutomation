@@ -11,14 +11,14 @@ Feature: User Management
     And click on Workbench tab and select job from Jobs drop down
     And click on Add Candidate button
     And enter email id of candidate which is not registered previously and click on Find button
-    | c21@gmail.com |
+    | c34@gmail.com |
     And Fill all mandatory details and click on Save button
-    | c21 | 4316326201 | test engineer | 30 | Pune |
+    | c34 | 431632529 | test engineer| Female | 30 | Pune | Email | Expert |
     And click on Yes button if probability related fields are not filled and observe
     Then user should able to add new candidate and candidate should get added in New column
     And logout with employer and login with new candidate added by employer
-    | c21@gmail.com | 12345 |
-    Then Update profile pop up will appears 
+    | c34@gmail.com | 12345 |
+    Then Candidate should be able to login with email id added by user and Update profile pop up will appears 
     And observe the auto-populated fields on the update candidate profile popup
     Then all filled information should auto populate if candidate added through employer
     And observe email id field from candidate profile
@@ -31,11 +31,15 @@ Feature: User Management
     And go to Profile section and then Update Profile page
     And click on Add Skill button to add one skill
     And add skill, expertise level and certificate
-    | skill01 | yes |
+    | skill01 | Expert | yes |
+    And add same skill, expertise level and certificate
+    | skill01 | Expert |
     And fill other mandatory details and click on Save button
+    Then error message should display and click on OK button from popup
+    And delete duplicate skill and click on Not Looking For Job checkbox and click on Save button
     Then entered certificate should appear in skill section on candidate dashboard
     And again go to update profile and delete certificate value of the skill and click on save button
-    And again go to update profile and verify all changes are saved
+    And again go to update profile and verify Not Looking For Job checkbox
     Then all changes should be saved 
     And Click on Add Skill button to add more than ten skills and observe
     Then one job skill row should get added after clicking on Add Skill button and user should able to add only ten skills and error message should display
@@ -48,7 +52,7 @@ Feature: User Management
 	And close the browser
 	
 #TC ID: 36,37,38,39,92,228,229
-#regression TC ID: 25,104
+#reg TC ID: 25,64,104,129,296
     
 @regression1_02
 	Scenario Outline: To verify the functionality of Upload Resume on candidate profile
@@ -120,4 +124,33 @@ Examples:
 | sayagency1@gmail.com |   12345    |      
 
 #TC ID: 59,70,134,263
-   
+
+
+@regression1_04
+	Scenario Outline: Verify user is able to add comment for candidate
+	
+	Given User is on Home page of application
+    
+    When title of page is HireXpert
+    And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+	And click on Workbench tab and select job from Jobs drop down
+	And click on Add Candidate button and one new candidate for the job and click on Find button
+    | c01@gmail.com | c02@gmail.com |
+    And fill mandatory details
+    And click on Save button
+    Then new candidate should get added in New column
+    And Click on Comment icon from candidate card to add comment
+    And Add a comment greater than 512 characters and observe
+    Then error message should display and Save button should be disabled
+    And add comment with or below 512 characters and click on Save button
+    | This is comment for candidate.. |
+    Then comment should get added below Save button with Delete Comment icon
+    And click on Delete Comment icon to delete the comment and comment should get deleted
+    And close the browser
+
+Examples:
+|    email address     |  password  |
+|  sayali8@gmail.com   |   12345    |
+| sayagency1@gmail.com |   12345    |      
+
+#reg TC ID: 317  

@@ -67,6 +67,12 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//tr[2]//td[3]//input[1]")
 	public WebElement certificate2;
 	
+	@FindBy(xpath = "//tr[3]//td[1]//input[1]")
+	public WebElement skill3;
+	
+	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[2]/div[3]/table/tbody/tr[3]/td[2]/select")
+	public WebElement expertiseLevel3;
+	
 	@FindBy(xpath = "//tr[3]//td[4]//button[1]")
 	public WebElement skill3Delete;
 	
@@ -75,6 +81,9 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 	@FindBy(xpath = "//tr[2]//td[2]//button[1]")
 	public WebElement role3Delete;
+	
+	@FindBy(xpath = "//div[@class='col-md-4']//span[@class='checkmark']")
+	public WebElement notLookingForJobCheckbox;
 	
 	
 	
@@ -85,6 +94,8 @@ public class CandidateUpdateProfilePage extends baseclass {
 	}
 	
 	Select se;
+	public int beforecount;
+	public int aftercount;
 	
 	public void autoPopulatedData() throws InterruptedException, AWTException {
 		
@@ -151,12 +162,6 @@ public class CandidateUpdateProfilePage extends baseclass {
 			System.out.println("Email ID field is editable..");
 		}
 		
-	}
-	
-	public void selectExpertiseLevel2() {
-		
-		se = new Select(expertiseLevel2);
-		se.selectByIndex(4);
 	}
 	
 	public void addTenSkills() throws InterruptedException {

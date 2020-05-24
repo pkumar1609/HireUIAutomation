@@ -84,7 +84,7 @@ Feature: Job Management
     | c01@gmail.com |
     And Fill mandatory details 
     And click on Save button
-    Then new candidate should get added in New column
+    Then new candidate should get added in New column for the job which is shared by employer
     And observe Change Assign To icon in front of Assign To name
     And now move the candidate from New column to another column and and check the name for Assign To field on candidate card
     And click on Share With Team button and share that job with agency team member
@@ -111,5 +111,5 @@ Feature: Job Management
     And close the browser
     
 
-#Reg TC ID - 114,342
+#Reg TC ID - 114,249,342
     

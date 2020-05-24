@@ -6,10 +6,13 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.Commonfunction;
 import utilPackage.baseclass;
 import utilPackage.utilclass;
 
@@ -34,6 +37,24 @@ public void click_on_Workbench_tab_and_select_job_from_Jobs_drop_down() throws T
     Thread.sleep(3000);
     workbenchpage.selectJob();
     Thread.sleep(3000);
+    
+    //verify candidate card count before adding candidate to job
+    driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+	
+	List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+	
+	if(dynamicElement.size() != 0) {
+		
+		List<WebElement> element = driver.findElements(By.xpath("//div[@class='item-box cdk-drag']"));
+		candidateupdateprofilepage.beforecount = element.size();
+		System.out.println("\nCard count before adding new candidate: " + candidateupdateprofilepage.beforecount);
+		
+		if(candidateupdateprofilepage.beforecount == 0){
+			
+			System.out.println("Candidate card is not available..");
+		}
+
+	}
 }
 
 @When("^click on Add Candidate button$")
@@ -67,16 +88,24 @@ public void fill_all_mandatory_details_and_click_on_Save_button(DataTable dt) th
 	addcandidatepage.designation.sendKeys(data.get(0).get(2));
 	Thread.sleep(1000);
 	driver.findElement(By.xpath("//*[@id=\"style-5\"]/div/div[1]/form/div[2]/div[1]/div/div/div[2]")).click();  //click outside 
-	addcandidatepage.selectGender();
+	
+	Select se = new Select(addcandidatepage.gender);
+	se.selectByVisibleText(data.get(0).get(3));
+
 	Thread.sleep(1000);
-	addcandidatepage.noticePeriod.sendKeys(data.get(0).get(3));
+	addcandidatepage.noticePeriod.sendKeys(data.get(0).get(4));
 	Thread.sleep(1000);
-	addcandidatepage.location.sendKeys(data.get(0).get(4));
+	addcandidatepage.location.sendKeys(data.get(0).get(5));
 	Thread.sleep(1000);
-	addcandidatepage.selectCommunicationMode();
+	
+	se = new Select(addcandidatepage.communicationMode);
+	se.selectByVisibleText(data.get(0).get(6));
+
 	Thread.sleep(1000);
 	driver.findElement(By.xpath("//*[@id=\"style-5\"]/div/div[1]/form/div[2]/div[1]/div/div/div[2]")).click();  //click outside 
-	addcandidatepage.selectExpertiseLevel();
+	
+	se = new Select(addcandidatepage.expertiseLevel);
+	se.selectByVisibleText(data.get(0).get(7));
 	
 	addcandidatepage.saveButton.click();
 }
@@ -95,39 +124,46 @@ public void user_should_able_to_add_new_candidate_and_candidate_should_get_added
 	System.out.println("New candidate get added to the job in New column..");
 	workbenchpage.clickReloadCandidateButton();
 	
+	Thread.sleep(2000);
+	
 	driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 	
 	List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
 	
-	if(dynamicElement.size() != 0){
+	if(dynamicElement.size() != 0) {
 		
-		String candidateName = "c21";
-		
-		WebElement candidateName1 = driver.findElement(By.xpath("//span[contains(text(),'c21')]"));
+//		String candidateName = "c34";
+//		
+//		WebElement candidateName1 = driver.findElement(By.xpath("//h6[@class='CustomPointer']"));
 		
 		List<WebElement> element = driver.findElements(By.xpath("//div[@class='item-box cdk-drag']"));
-		int cardCount = element.size();
-		System.out.println("Card count: " + cardCount);
+		candidateupdateprofilepage.aftercount = element.size();
+		System.out.println("\nCard count after adding candidate: " + candidateupdateprofilepage.aftercount);
 		
-		if(cardCount != 0){
+		int beforecount1 = candidateupdateprofilepage.beforecount + 1;
+		
+		if(candidateupdateprofilepage.aftercount != 0){
 			
-			System.out.println("Candidate card is available..");
-			
-			String candidateNameOnCard = candidateName1.getText();
-			
-			for(int i = 1; i<=cardCount; i++) {
+			if(candidateupdateprofilepage.aftercount == beforecount1) {
 				
-				if(candidateName.equals(candidateNameOnCard)) {
-					
-					System.out.println("Candidate found at "+i+" position..");
-					Thread.sleep(3000);
-				}
-			}
+				System.out.println("Newly added candidate card is available..");
+				
+//				String candidateNameOnCard = candidateName1.getText();
+//				
+//				for(int i = 1; i<=candidateupdateprofilepage.aftercount; i++) {
+//					
+//					if(candidateName.equals(candidateNameOnCard)) {
+//						
+//						System.out.println("Candidate found at "+i+" position..");
+//						Thread.sleep(3000);
+//					}
+//				}
+			}	
 		}
 		
 		else {
 			
-			System.out.println("Candidate card is not available..");
+			System.out.println("Newly added candidate card is not available..");
 		}
 
 	}
@@ -147,9 +183,10 @@ public void logout_with_employer_and_login_with_new_candidate_added_by_employer(
 	Thread.sleep(5000);
 }
 
-@Then("^Update profile pop up will appears$")
-public void update_profile_pop_up_will_appears() throws Throwable {
+@Then("^Candidate should be able to login with email id added by user and Update profile pop up will appears$")
+public void Candidate_should_be_able_to_login_with_email_id_added_by_user_and_Update_profile_pop_up_will_appears() throws Throwable {
     
+	System.out.println("\nCandidate able to login with email id added by user..");
 	String title = driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/app-candidate-profile/div[1]/h5")).getText();
 	System.out.println("\nTitle of page: " + title);
 	Thread.sleep(2000);
@@ -239,9 +276,23 @@ public void add_skill_expertise_level_and_certificate(DataTable dt) throws Throw
 	List<List<String>> data = dt.raw();
 	candidateupdateprofilepage.skill2.sendKeys(data.get(0).get(0));
 	Thread.sleep(1000);
-	candidateupdateprofilepage.selectExpertiseLevel2();
+	Select se = new Select(candidateupdateprofilepage.expertiseLevel2);
+	se.selectByVisibleText(data.get(0).get(1));
 	Thread.sleep(1000);
-	candidateupdateprofilepage.certificate2.sendKeys(data.get(0).get(1));
+	candidateupdateprofilepage.certificate2.sendKeys(data.get(0).get(2));
+	Thread.sleep(1000);
+}
+
+@Then("^add same skill, expertise level and certificate$")
+public void add_same_skill_expertise_level_and_certificate(DataTable dt) throws Throwable {
+    
+	candidateupdateprofilepage.addSkillButton.click();
+	
+	List<List<String>> data = dt.raw();
+	candidateupdateprofilepage.skill3.sendKeys(data.get(0).get(0));
+	Thread.sleep(1000);
+	Select se = new Select(candidateupdateprofilepage.expertiseLevel3);
+	se.selectByVisibleText(data.get(0).get(1));
 	Thread.sleep(1000);
 }
 
@@ -249,7 +300,36 @@ public void add_skill_expertise_level_and_certificate(DataTable dt) throws Throw
 public void fill_other_mandatory_details_and_click_on_Save_button() throws Throwable {
     
 	candidateupdateprofilepage.saveButton.click();
-	Thread.sleep(2000);
+}
+
+@Then("^error message should display and click on OK button from popup$")
+public void error_message_should_display_and_click_on_OK_button_from_popup() throws Throwable {
+    
+	System.out.println("\nError message displayed like: Same skill entered more than one time");
+	common.clickOnOKBtn();
+}
+
+@Then("^delete duplicate skill and click on Not Looking For Job checkbox and click on Save button$")
+public void delete_duplicate_skill_and_click_on_Not_Looking_For_Job_checkbox_and_click_on_Save_button() throws Throwable {
+    
+	candidateupdateprofilepage.skill3Delete.click();
+	
+	boolean value = candidateupdateprofilepage.notLookingForJobCheckbox.isSelected();
+	
+	if(value = true) {
+		
+		System.out.println("\nNot Looking for job checkbox is selected..");
+		candidateupdateprofilepage.notLookingForJobCheckbox.click();
+		candidateupdateprofilepage.saveButton.click();
+		Thread.sleep(3000);
+	}
+	else {
+		
+		System.out.println("\nNot Looking for job checkbox is not selected..");
+		candidateupdateprofilepage.notLookingForJobCheckbox.click();
+		candidateupdateprofilepage.saveButton.click();
+		Thread.sleep(3000);
+	}
 }
 
 @Then("^entered certificate should appear in skill section on candidate dashboard$")
@@ -274,8 +354,8 @@ public void again_go_to_update_profile_and_delete_certificate_value_of_the_skill
 	Thread.sleep(3000);
 }
 
-@Then("^again go to update profile and verify all changes are saved$")
-public void again_go_to_update_profile_and_verify_all_changes_are_saved() throws Throwable {
+@Then("^again go to update profile and verify Not Looking For Job checkbox$")
+public void again_go_to_update_profile_and_verify_Not_Looking_For_Job_checkbox() throws Throwable {
 	
 	workbenchpage.openUpdateProfilePage();
 	Thread.sleep(2000);
@@ -287,12 +367,27 @@ public void again_go_to_update_profile_and_verify_all_changes_are_saved() throws
 	else{
 		System.out.println("\nCertificate not deleted..");
 	}
+	
+	boolean value = candidateupdateprofilepage.notLookingForJobCheckbox.isSelected();
+	
+	if(value = false) {
+		
+		System.out.println("\nNot Looking for job checkbox is not selected..");
+		candidateupdateprofilepage.notLookingForJobCheckbox.click();
+		Thread.sleep(3000);
+	}
+	else {
+		
+		System.out.println("\nNot Looking for job checkbox is selected..");
+		candidateupdateprofilepage.notLookingForJobCheckbox.click();
+		Thread.sleep(3000);
+	}
 }
 
 @Then("^all changes should be saved$")
 public void all_changes_should_be_saved() throws Throwable {
     
-//	System.out.println("");
+	System.out.println("\nAll changes displayed properly");
 }
 
 @Then("^Click on Add Skill button to add more than ten skills and observe$")
@@ -348,6 +443,7 @@ public void after_clicking_on_Delete_Role_button_present_in_front_of_role_then_t
     
 	System.out.println("Selected role get deleted");
 }
+
 
 // @regression1_02
 
@@ -614,5 +710,86 @@ public void Workbench_page_should_display() throws Throwable {
 }
 
 
+//@regression1_04
+
+
+@When("^Click on Comment icon from candidate card to add comment$")
+public void click_on_Comment_icon_from_candidate_card_to_add_comment() throws Throwable {
+    
+	candidatecardsectionpage.comments.click();
+	Thread.sleep(3000);
+}
+
+@When("^Add a comment greater than (\\d+) characters and observe$")
+public void add_a_comment_greater_than_characters_and_observe(int arg1) throws Throwable {
+    
+	candidatecardsectionpage.addCommentSection.sendKeys("111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+	
+	String error = candidatecardsectionpage.errorMessageComments.getText();
+	System.out.println("\nError message displayed like: " + error);
+}
+
+@Then("^error message should display and Save button should be disabled$")
+public void error_message_should_display_and_Save_button_should_be_disabled() throws Throwable {
+    
+	boolean value = common.savebtn.isEnabled();
+	
+	if(value == true) {
+		
+		System.out.println("\nSave button is enabled when error message displayed..");
+	}
+	else {
+		
+		System.out.println("\nSave button is disabled when error message displayed..");
+	}
+}
+
+@Then("^add comment with or below (\\d+) characters and click on Save button$")
+public void add_comment_with_or_below_characters_and_click_on_Save_button(int arg1, DataTable dt) throws Throwable {
+    
+	List<List<String>> data = dt.raw();
+	
+	Thread.sleep(2000);
+	candidatecardsectionpage.addCommentSection.clear();
+	candidatecardsectionpage.addCommentSection.sendKeys(data.get(0).get(0));
+	candidatecardsectionpage.newComment = candidatecardsectionpage.addCommentSection.getAttribute("value");
+	System.out.println("\nNew comment: " + candidatecardsectionpage.newComment);
+	common.clickOnSaveBtn();
+	Thread.sleep(3000);
+}
+
+@Then("^comment should get added below Save button with Delete Comment icon$")
+public void comment_should_get_added_below_Save_button_with_Delete_Comment_icon() throws Throwable {
+    
+	candidatecardsectionpage.addedNewComment = candidatecardsectionpage.addedComment.getText();
+	System.out.println("\nAdded comment: " + candidatecardsectionpage.addedNewComment);
+	
+	if(candidatecardsectionpage.addedNewComment.equals(candidatecardsectionpage.newComment)) {
+		
+		System.out.println("\nNew comment get added..");
+	}
+	else {
+		System.out.println("\nNew comment not getting added..");
+	}
+}
+
+@Then("^click on Delete Comment icon to delete the comment and comment should get deleted$")
+public void click_on_Delete_Comment_icon_to_delete_the_comment_and_comment_should_get_deleted() throws Throwable {
+    
+	candidatecardsectionpage.deleteCommentIcon.click();
+	Thread.sleep(3000);
+	WebElement spaceBelowSaveButton = driver.findElement(By.xpath("//div[@class='scroll-box']"));
+	String str = spaceBelowSaveButton.getText();
+	System.out.println("\nData below Save button: " + str);
+	
+	if(str.equals(candidatecardsectionpage.addedNewComment)) {
+		
+		System.out.println("\nComment not getting deleted..");
+	}
+	else {
+		
+		System.out.println("\nComment get deleted..");
+	}
+}
 
 }

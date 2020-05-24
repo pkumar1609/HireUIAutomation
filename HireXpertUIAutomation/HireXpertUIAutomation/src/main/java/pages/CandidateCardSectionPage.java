@@ -46,9 +46,26 @@ public class CandidateCardSectionPage extends baseclass {
 	@FindBy(id = "rejectReason")
 	WebElement rejectReason;
 	
+	@FindBy(xpath = "//button[@title='Comments']")
+	public WebElement comments;
+	
+	@FindBy(xpath = "//textarea[@placeholder='Add comment']")
+	public WebElement addCommentSection;
+	
+	@FindBy(xpath = "//div[@class='text-danger']")
+	public WebElement errorMessageComments;
+	
+	@FindBy(xpath = "//p[@class='mb-1 text-break']")
+	public WebElement addedComment;
+	
+	@FindBy(xpath = "//i[@title='Delete Comment']")
+	public WebElement deleteCommentIcon;
+	
 	
 	Actions action;
 	Select se;
+	public String newComment;
+	public String addedNewComment;
 	
 	public CandidateCardSectionPage() {
 		

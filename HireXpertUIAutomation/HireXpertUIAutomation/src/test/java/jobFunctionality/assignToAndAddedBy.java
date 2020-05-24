@@ -308,6 +308,12 @@ public class assignToAndAddedBy extends baseclass {
 		loginpage.signin.click();
 		Thread.sleep(5000);
 	}
+	
+	@When("^new candidate should get added in New column for the job which is shared by employer$")
+	public void new_candidate_should_get_added_in_New_column_for_the_job_which_is_shared_by_employer() throws Throwable {
+	    
+		System.out.println("\nAgency able to add candidate for the job which is shared by employer..");
+	}
 
 	@Then("^observe Change Assign To icon in front of Assign To name$")
 	public void observe_Change_Assign_To_icon_in_front_of_Assign_To_name() throws Throwable {
