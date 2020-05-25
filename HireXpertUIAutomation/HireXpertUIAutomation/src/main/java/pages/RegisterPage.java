@@ -16,10 +16,10 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	WebElement Registerlink;
 	
 	@FindBy(linkText="Employer-Agency Sign In")
-	public WebElement EmployerAgencySignInlink;
+	WebElement EmployerAgencySignInlink;
 	
 	@FindBy(linkText="Job Seeker(Candidate) Sign In")
-	public WebElement JobseekerCandidateSignInlink;
+	WebElement JobseekerCandidateSignInlink;
 	
 	
 	@FindBy(xpath="//input[@formcontrolname='Name']")
@@ -80,8 +80,17 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 		
 		Registerlink.click();
 	}
-
-
+	
+   public void clickEmployerAgencySignInlink() {
+		
+	   EmployerAgencySignInlink.click();
+	}
+   
+   public void clickJobseekerCandidateSignInlinklink() {
+		
+	   JobseekerCandidateSignInlink.click();
+	}
+   
 	public void enterName(String EmployerName) {
 		
 		Name.sendKeys(EmployerName);
@@ -366,5 +375,5 @@ public void verifythefieldsonregisterdialogbox () {
     	   Signinbtn.click();
        }
        
-       
+      
 }

@@ -71,5 +71,23 @@ public class DashboardPage extends baseclass {
 		wait.until(ExpectedConditions.elementToBeClickable(dashboard));
 		executor.executeScript("arguments[0].click();",dashboard);
 	} 
+	
+	public void VerifyUserIsOnCorrectPage() {
+	  	   
+	  	   if(agencies.isDisplayed() == true) {
+	  		   
+	  		   System.out.println("User is On Employer Dashboard");
+	  	   }
+	  	   
+	  	   else if(employers.isDisplayed() == true) {
+	  		   
+	  		 System.out.println("User is On Agency Dashboard");
+	  	   }
+	  	   
+	  	   else {
+	  		   
+	  		 System.out.println("User is On Candidate Dashboard");
+	  	   }
+    }
 
 }
