@@ -1,7 +1,6 @@
 package pages;
 
-import org.openqa.selenium.By;    
- 
+import org.openqa.selenium.By;   
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,8 +12,15 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	
 	//Page Factory / Object Repository 
 
-	@FindBy(linkText="Register")
+	@FindBy(linkText="Register-Its Free")
 	WebElement Registerlink;
+	
+	@FindBy(linkText="Employer-Agency Sign In")
+	public WebElement EmployerAgencySignInlink;
+	
+	@FindBy(linkText="Job Seeker(Candidate) Sign In")
+	public WebElement JobseekerCandidateSignInlink;
+	
 	
 	@FindBy(xpath="//input[@formcontrolname='Name']")
 	WebElement Name;
@@ -54,7 +60,7 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	@FindBy(xpath="//input[@placeholder='Email address']")
 	WebElement Emailaddress;
 	
-	@FindBy(xpath="//button[@class='btn w-100 Cbtn-primary mt-1 text-left CustomPointer']")
+	@FindBy(xpath="//button[contains(text(),'Sign in')]")
 	WebElement Signinbtn;
 	
 	
