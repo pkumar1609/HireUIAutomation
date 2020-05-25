@@ -12,13 +12,19 @@ import utilPackage.baseclass;
 
 public class LoginPage extends baseclass {
 	
+	@FindBy(linkText="Employer-Agency Sign In")
+	public WebElement EmployerAgencySignInlink;
+	
+	@FindBy(linkText="Job Seeker(Candidate) Sign In")
+	public WebElement JobseekerCandidateSignInlink;
+	
 	@FindBy(xpath="//input[@placeholder='Email address']")
 	public WebElement emailaddress;
 	
 	@FindBy(xpath="//input[@placeholder='Password']")
 	public WebElement password;
 	
-	@FindBy(xpath="//button[@class='btn w-100 Cbtn-primary mt-1 text-left CustomPointer']")
+	@FindBy(xpath="//button[contains(text(),'Sign in')]")
 	public WebElement signin;
 	
 	@FindBy(xpath= "//a[@title='Agency']")
