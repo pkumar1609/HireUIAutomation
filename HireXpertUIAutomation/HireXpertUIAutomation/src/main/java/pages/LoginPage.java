@@ -63,6 +63,12 @@ public class LoginPage extends baseclass {
 		Action = new Actions(driver);
 	    explicitwait=new WebDriverWait(driver,80);
 	}
+	public void  ClickOnEmployerAgencySigninLink() throws InterruptedException
+	{
+		Thread.sleep(3000);
+//		wait.until(ExpectedConditions.elementToBeClickable(EmployerAgencySignInlink));
+		EmployerAgencySignInlink.click();
+	}
 	
 	public String validateTitle() {
 		
@@ -70,6 +76,7 @@ public class LoginPage extends baseclass {
 	}
 	
 	public void signInEmployer() {
+		
 		emailaddress.sendKeys(prop.getProperty("employeremail"));
 		password.sendKeys(prop.getProperty("password"));
 		signin.click();

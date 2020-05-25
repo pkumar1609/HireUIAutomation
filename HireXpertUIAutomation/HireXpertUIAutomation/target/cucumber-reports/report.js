@@ -1,385 +1,371 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/main/java/features/assignToAndAddedBy.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("C:/Users/TLP33/Documents/GitHub/HireUIAutomation/HireXpertUIAutomation/HireXpertUIAutomation/src/main/java/features/TaskK.feature");
 formatter.feature({
   "line": 1,
-  "name": "Job Management",
+  "name": "Task Feature",
   "description": "",
-  "id": "job-management",
+  "id": "task-feature",
   "keyword": "Feature"
 });
+formatter.before({
+  "duration": 52672510001,
+  "status": "passed"
+});
 formatter.scenario({
-  "comments": [
-    {
-      "line": 65,
-      "value": "#Reg TC ID - 151"
-    }
-  ],
-  "line": 69,
-  "name": "Verify the Assign To field from candidate card",
+  "line": 4,
+  "name": "Verify functionality of adding general task and particular task from Employer login",
   "description": "",
-  "id": "job-management;verify-the-assign-to-field-from-candidate-card",
+  "id": "task-feature;verify-functionality-of-adding-general-task-and-particular-task-from-employer-login",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
     {
-      "line": 68,
-      "name": "@regression1_03"
+      "line": 3,
+      "name": "@TC264_266"
     }
   ]
 });
 formatter.step({
-  "line": 71,
-  "name": "User is on Home page of application",
+  "line": 6,
+  "name": "User must be registered as Employer profile",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 73,
-  "name": "title of page is HireXpert",
+  "line": 8,
+  "name": "title of login page is Home",
   "keyword": "When "
 });
 formatter.step({
-  "line": 74,
-  "name": "enter valid user email address and password for employer and click on Sign in button",
+  "line": 9,
+  "name": "Click on Employer-Agency Signin link",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 10,
+  "name": "Employer enters valid credentials",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 11,
+  "name": "Go to dashboard",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 12,
+  "name": "Click on Add task button and enter all details employer",
   "rows": [
     {
       "cells": [
-        "sayali8@gmail.com",
-        "12345"
+        "Title for emp",
+        "teamField",
+        "AssignTo",
+        "note",
+        "employer",
+        "team",
+        "teamid",
+        "Title for agy",
+        "agyteamField",
+        "agyAssignTo",
+        "agynote",
+        "agency",
+        "agyteam",
+        "agyteamid"
       ],
-      "line": 75
+      "line": 13
+    },
+    {
+      "cells": [
+        "genral task",
+        "pemp",
+        "pe1",
+        "Task should complete before time",
+        "pemp",
+        "pe1",
+        "pe1@gmail.com",
+        "particular task",
+        "pagy",
+        "pa1",
+        "Task should complete before time",
+        "pagy",
+        "pa1",
+        "pe1@gmail.com"
+      ],
+      "line": 14
     }
   ],
   "keyword": "And "
 });
 formatter.step({
-  "line": 76,
-  "name": "click on Workbench tab and select job from Jobs drop down",
+  "line": 15,
+  "name": "the task should display for employer",
   "keyword": "And "
 });
 formatter.step({
-  "line": 77,
-  "name": "click on Share With Agency button and share job with agency owner",
+  "line": 16,
+  "name": "Logout from App",
   "keyword": "And "
 });
 formatter.step({
-  "line": 78,
-  "name": "logout with employer and login with agency with whom job is shared",
+  "line": 17,
+  "name": "Click on Employer-Agency Signin link",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 18,
+  "name": "Login with employer team",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 19,
+  "name": "Task should also display for employer team member",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 20,
+  "name": "Logout from App",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 21,
+  "name": "Click on Employer-Agency Signin link",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 22,
+  "name": "Employer enters valid credentials",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 23,
+  "name": "Go to workbench",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 24,
+  "name": "Select a job",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 25,
+  "name": "Click on Add task button and enter all details employer",
   "rows": [
     {
       "cells": [
-        "sayagency1@gmail.com",
-        "12345"
+        "Title for emp",
+        "teamField",
+        "AssignTo",
+        "note",
+        "employer",
+        "team",
+        "teamid",
+        "Title for agy",
+        "agyteamField",
+        "agyAssignTo",
+        "agynote",
+        "agency",
+        "agyteam",
+        "agyteamid"
       ],
-      "line": 79
+      "line": 26
+    },
+    {
+      "cells": [
+        "particular task",
+        "pemp",
+        "pe1",
+        "Task should complete before time",
+        "pemp",
+        "pe1",
+        "pe1@gmail.com",
+        "particular task",
+        "pagy",
+        "pa1",
+        "Task should complete before time",
+        "pagy",
+        "pa1",
+        "pe1@gmail.com"
+      ],
+      "line": 27
     }
   ],
   "keyword": "And "
 });
 formatter.step({
-  "line": 80,
-  "name": "click on Workbench tab and select job from Jobs drop down",
+  "line": 28,
+  "name": "the task should display for employer",
   "keyword": "And "
 });
 formatter.step({
-  "line": 81,
-  "name": "click on Add Candidate button and one new candidate for the job and click on Find button",
-  "rows": [
-    {
-      "cells": [
-        "c01@gmail.com"
-      ],
-      "line": 82
-    }
-  ],
+  "line": 29,
+  "name": "Logout from App",
   "keyword": "And "
 });
 formatter.step({
-  "line": 83,
-  "name": "Fill mandatory details",
+  "line": 30,
+  "name": "Click on Employer-Agency Signin link",
   "keyword": "And "
 });
 formatter.step({
-  "line": 84,
-  "name": "click on Save button",
+  "line": 31,
+  "name": "Login with employer team",
   "keyword": "And "
 });
 formatter.step({
-  "line": 85,
-  "name": "new candidate should get added in New column",
+  "line": 32,
+  "name": "Task should also display for employer team member",
   "keyword": "Then "
 });
-formatter.step({
-  "line": 86,
-  "name": "observe Change Assign To icon in front of Assign To name",
-  "keyword": "And "
+formatter.match({
+  "location": "TC264_266.user_must_be_registered_as_Employer_profile()"
 });
-formatter.step({
-  "line": 87,
-  "name": "now move the candidate from New column to another column and and check the name for Assign To field on candidate card",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 88,
-  "name": "observe Change Assign To icon in front of Assign To name",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 89,
-  "name": "click on Change Assign To icon in front of Assign To name to verify it is clickable or not and user able to change the name",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 90,
-  "name": "click on Share With Team button and share that job with agency team member",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 91,
-  "name": "Login with agency team member",
-  "rows": [
-    {
-      "cells": [
-        "sayagency1team1@gmail.com",
-        "12345"
-      ],
-      "line": 92
-    }
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 93,
-  "name": "click on Workbench tab and select job from Jobs drop down",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 94,
-  "name": "click on Add Candidate button and one new candidate for the job and click on Find button",
-  "rows": [
-    {
-      "cells": [
-        "c02@gmail.com"
-      ],
-      "line": 95
-    }
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 96,
-  "name": "Fill mandatory details",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 97,
-  "name": "click on Save button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 98,
-  "name": "new candidate should get added in New column",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 99,
-  "name": "Click on Reject Candidate icon from candidate card and reject that candidate",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 100,
-  "name": "Now login with Employer",
-  "rows": [
-    {
-      "cells": [
-        "sayali8@gmail.com",
-        "12345"
-      ],
-      "line": 101
-    }
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 102,
-  "name": "click on Workbench tab and select job from Jobs drop down",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 103,
-  "name": "Observe rejected candidate in Rejected column and observe name for Assign To on candidate card",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 104,
-  "name": "Rejected column card should be assigned to employer",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 105,
-  "name": "Click on Filter icon from right upper corner",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 106,
-  "name": "Observe Assign To filter list",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 107,
-  "name": "close the browser",
-  "keyword": "And "
+formatter.result({
+  "duration": 45986314001,
+  "status": "passed"
 });
 formatter.match({
-  "location": "invaliddatasteps.user_is_on_Home_page_of_application()"
+  "location": "TC264_266.title_of_login_page_is_Home()"
 });
 formatter.result({
-  "duration": 15807755900,
-  "error_message": "org.openqa.selenium.SessionNotCreatedException: session not created\nfrom chrome not reachable\n  (Session info: chrome\u003d81.0.4044.138)\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027DESKTOP-VSLC9PE\u0027, ip: \u0027192.168.43.46\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002713.0.2\u0027\nDriver info: driver.version: ChromeDriver\nremote stacktrace: Backtrace:\n\tOrdinal0 [0x00F40C83+1707139]\n\tOrdinal0 [0x00EA68F1+1075441]\n\tOrdinal0 [0x00E1DE72+515698]\n\tOrdinal0 [0x00E17CA8+490664]\n\tOrdinal0 [0x00E1839B+492443]\n\tOrdinal0 [0x00E192F5+496373]\n\tOrdinal0 [0x00E14F05+478981]\n\tOrdinal0 [0x00E1ECA0+519328]\n\tOrdinal0 [0x00DCCA67+182887]\n\tOrdinal0 [0x00DCBDDD+179677]\n\tOrdinal0 [0x00DC9D4B+171339]\n\tOrdinal0 [0x00DB1D4A+73034]\n\tOrdinal0 [0x00DB2DC0+77248]\n\tOrdinal0 [0x00DB2D59+77145]\n\tOrdinal0 [0x00EBBB67+1162087]\n\tGetHandleVerifier [0x00FDA966+508998]\n\tGetHandleVerifier [0x00FDA6A4+508292]\n\tGetHandleVerifier [0x00FEF7B7+594583]\n\tGetHandleVerifier [0x00FDB1D6+511158]\n\tOrdinal0 [0x00EB402C+1130540]\n\tOrdinal0 [0x00EBD4CB+1168587]\n\tOrdinal0 [0x00EBD633+1168947]\n\tOrdinal0 [0x00ED5B35+1268533]\n\tBaseThreadInitThunk [0x759D6359+25]\n\tRtlGetAppContainerNamedObjectPath [0x773D7C24+228]\n\tRtlGetAppContainerNamedObjectPath [0x773D7BF4+180]\n\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\r\n\tat org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)\r\n\tat org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)\r\n\tat org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:126)\r\n\tat java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)\r\n\tat java.base/java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)\r\n\tat java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:127)\r\n\tat java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502)\r\n\tat java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488)\r\n\tat java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)\r\n\tat java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)\r\n\tat java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)\r\n\tat java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543)\r\n\tat org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)\r\n\tat org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.\u003cinit\u003e(RemoteWebDriver.java:131)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:181)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:168)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:123)\r\n\tat utilPackage.baseclass.initialization(baseclass.java:94)\r\n\tat jobFunctionality.invaliddatasteps.user_is_on_Home_page_of_application(invaliddatasteps.java:20)\r\n\tat ✽.Given User is on Home page of application(src/main/java/features/assignToAndAddedBy.feature:71)\r\n",
-  "status": "failed"
+  "duration": 11544101,
+  "status": "passed"
 });
 formatter.match({
-  "location": "invaliddatasteps.title_of_page_is_HireXpert()"
+  "location": "TC264_266.click_on_Employer_Agency_Signin_link()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 3124191100,
+  "status": "passed"
 });
 formatter.match({
-  "location": "candidateProfile.enter_valid_user_email_address_and_password_for_employer_and_click_on_Sign_in_button(DataTable)"
+  "location": "TC264_266.employer_enters_valid_credentials()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 3249192700,
+  "status": "passed"
 });
 formatter.match({
-  "location": "candidateProfile.click_on_Workbench_tab_and_select_job_from_Jobs_drop_down()"
+  "location": "TC264_266.go_to_dashboard()"
 });
 formatter.result({
-  "status": "skipped"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+  "duration": 1026957501,
+  "status": "passed"
 });
 formatter.match({
-  "location": "candidateProfile.click_on_Workbench_tab_and_select_job_from_Jobs_drop_down()"
+  "location": "TC264_266.in_add_task_popup_Fill_all_the_mandatory_details(DataTable)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 5732659301,
+  "status": "passed"
 });
 formatter.match({
-  "location": "candidateProfile.click_on_Add_Candidate_button_and_one_new_candidate_for_the_job_and_click_on_Find_button(DataTable)"
+  "location": "TC264_266.the_task_should_display_for_both_employer()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 7544670000,
+  "status": "passed"
 });
 formatter.match({
-  "location": "addjobsteps.fill_mandatory_details()"
+  "location": "TC275E.Logout_from_App()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 4293718300,
+  "status": "passed"
 });
 formatter.match({
-  "location": "candidateProfile.click_on_Save_button()"
+  "location": "TC264_266.click_on_Employer_Agency_Signin_link()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 3054997701,
+  "status": "passed"
 });
 formatter.match({
-  "location": "addjobsteps.new_candidate_should_get_added_in_New_column()"
+  "location": "TC264_266.login_as_employer_team()"
 });
 formatter.result({
-  "status": "skipped"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+  "duration": 4234744500,
+  "status": "passed"
 });
 formatter.match({
-  "location": "candidateProfile.click_on_Workbench_tab_and_select_job_from_Jobs_drop_down()"
+  "location": "TC264_266.task_should_also_display_for_team_member()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 3159128799,
+  "status": "passed"
 });
 formatter.match({
-  "location": "candidateProfile.click_on_Add_Candidate_button_and_one_new_candidate_for_the_job_and_click_on_Find_button(DataTable)"
+  "location": "TC275E.Logout_from_App()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 4281647100,
+  "status": "passed"
 });
 formatter.match({
-  "location": "addjobsteps.fill_mandatory_details()"
+  "location": "TC264_266.click_on_Employer_Agency_Signin_link()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 3093002700,
+  "status": "passed"
 });
 formatter.match({
-  "location": "candidateProfile.click_on_Save_button()"
+  "location": "TC264_266.employer_enters_valid_credentials()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 3254935500,
+  "status": "passed"
 });
 formatter.match({
-  "location": "addjobsteps.new_candidate_should_get_added_in_New_column()"
+  "location": "TC264_266.go_to_workbench()"
 });
 formatter.result({
-  "status": "skipped"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+  "duration": 2076482999,
+  "status": "passed"
 });
 formatter.match({
-  "location": "candidateProfile.click_on_Workbench_tab_and_select_job_from_Jobs_drop_down()"
+  "location": "TC264_266.select_a_job_and_click_on_add_task_button()"
 });
 formatter.result({
-  "status": "skipped"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+  "duration": 2119185901,
+  "status": "passed"
 });
 formatter.match({
-  "location": "invaliddatasteps.close_the_browser()"
+  "location": "TC264_266.in_add_task_popup_Fill_all_the_mandatory_details(DataTable)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 5679388601,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC264_266.the_task_should_display_for_both_employer()"
+});
+formatter.result({
+  "duration": 7499368700,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC275E.Logout_from_App()"
+});
+formatter.result({
+  "duration": 4367918199,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC264_266.click_on_Employer_Agency_Signin_link()"
+});
+formatter.result({
+  "duration": 3103537401,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC264_266.login_as_employer_team()"
+});
+formatter.result({
+  "duration": 4212669500,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TC264_266.task_should_also_display_for_team_member()"
+});
+formatter.result({
+  "duration": 3151462100,
+  "status": "passed"
 });
 });

@@ -26,59 +26,59 @@ public class TC302 extends baseclass {
 	
 boolean b;
 
-	@And("^edit the task$")
-	public void edit_the_task(DataTable credentials) throws Throwable {
-		this.b=loginpage.b;
-		if(b==true)
-		{
-			if(taskpage.assignto.contains("employer"))
-			{
-				taskpage.ClickOnMyTask();
-				taskpage.ClickOnEditTask();
-				taskpage.edittaskdetailsforemp(credentials);
-			}
-			else
-			{
-				
-				taskpage.ClickOnTeamTask();
-				taskpage.ClickOnEditTask();
-				taskpage.edittaskdetailsforemp(credentials);
-			}
-		}
-		else
-		{
-			if(taskpage.assignto.contains("agency"))
-			{
-				taskpage.ClickOnMyTask();
-				taskpage.ClickOnEditTask();
-				taskpage.editTaskDetailsForAgy(credentials);
-			}
-			else
-			{
-				taskpage.ClickOnTeamTask();
-				taskpage.ClickOnEditTask();
-				taskpage.editTaskDetailsForAgy(credentials);
-			}
-			
-		}
-		
-		
-		
-	}
-
-	@Then("^verify all the edited details$")
-	public void verify_all_the_edited_details(DataTable credentials) throws Throwable {
-	
-		taskpage.ClickOnEditTask();
-		
-		if(b==true)
-		{
-			taskpage.assertediteddetails(credentials);
-		}
-		else
-		{
-			taskpage.assertediteddetailsForAgy(credentials);
-		}
-	}
+//	@And("^edit the task$")
+//	public void edit_the_task(DataTable credentials) throws Throwable {
+//		this.b=loginpage.b;
+//		if(b==true)
+//		{
+//			if(taskpage.assignto.contains("employer"))
+//			{
+//				taskpage.ClickOnMyTask();
+//				taskpage.ClickOnEditTask();
+//				taskpage.edittaskdetailsforemp(credentials);
+//			}
+//			else
+//			{
+//				
+//				taskpage.ClickOnTeamTask();
+//				taskpage.ClickOnEditTask();
+//				taskpage.edittaskdetailsforemp(credentials);
+//			}
+//		}
+//		else
+//		{
+//			if(taskpage.assignto.contains("agency"))
+//			{
+//				taskpage.ClickOnMyTask();
+//				taskpage.ClickOnEditTask();
+//				taskpage.editTaskDetailsForAgy(credentials);
+//			}
+//			else
+//			{
+//				taskpage.ClickOnTeamTask();
+//				taskpage.ClickOnEditTask();
+//				taskpage.editTaskDetailsForAgy(credentials);
+//			}
+//			
+//		}
+//		
+//		
+//		
+//	}
+//
+//	@Then("^verify all the edited details$")
+//	public void verify_all_the_edited_details(DataTable credentials) throws Throwable {
+//	
+//		taskpage.ClickOnEditTask();
+//		
+//		if(b==true)
+//		{
+//			taskpage.assertediteddetails(credentials);
+//		}
+//		else
+//		{
+//			taskpage.assertediteddetailsForAgy(credentials);
+//		}
+//	}
 
 }

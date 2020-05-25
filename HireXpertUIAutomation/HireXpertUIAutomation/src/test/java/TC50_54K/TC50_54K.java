@@ -2,6 +2,7 @@ package TC50_54K;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import cucumber.api.DataTable;
 import cucumber.api.java.Before;
@@ -37,11 +38,11 @@ public class TC50_54K extends baseclass {
 
 	}
 
-	@And("^agency enters valid credentials$")
-	public void agency_enters_valid_credentials() throws Throwable {
-
-		loginpage.loginInAppWithAgyK();
-	}
+//	@And("^agency enters valid credentials$")
+//	public void agency_enters_valid_credentials() throws Throwable {
+//		
+//		loginpage.loginInAppWithAgyK();
+//	}
 
 	@And("^Click on team tab$")
 	public void click_on_team_tab() throws InterruptedException  {

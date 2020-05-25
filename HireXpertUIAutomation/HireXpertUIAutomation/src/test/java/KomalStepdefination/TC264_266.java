@@ -2,6 +2,7 @@ package KomalStepdefination;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import cucumber.api.DataTable;
 import cucumber.api.java.Before;
@@ -36,6 +37,11 @@ public class TC264_266 extends baseclass {
 		Assert.assertEquals(Title, "HireXpert");
 	}
 
+	@When("^Click on Employer-Agency Signin link$")
+	public void click_on_Employer_Agency_Signin_link() throws Throwable {
+	    loginpage.ClickOnEmployerAgencySigninLink();
+	}
+	
 	@And("^Employer enters valid credentials$")
 	public void employer_enters_valid_credentials() throws Throwable {
 		loginpage.loginInAppWithEmpK();
@@ -47,8 +53,6 @@ public class TC264_266 extends baseclass {
 		dashboardpage.openDashboardPage();
 	}
 
-
-
 	@And("^Click on Add task button and enter all details employer$")
 	public void in_add_task_popup_Fill_all_the_mandatory_details(DataTable credentials) throws Throwable {
 		taskpage.enterAlldetails(credentials);
@@ -56,22 +60,29 @@ public class TC264_266 extends baseclass {
 
 	@And("^the task should display for employer$")
 	public void the_task_should_display_for_both_employer() throws Throwable {
-	
 		taskpage.validateTaskDisplayingProperly();
+	}
+	
+//	@And("^Logout from App$")
+//	public void Logout_from_App() throws Throwable {
+//		Thread.sleep(2000);
+//		loginpage.logoutFromAppK();
+//	}
+	
+	@And("^Login with employer team$")
+	public void login_as_employer_team() throws Throwable {
+	   loginpage.loginInAppWithTeamK();
 	}
 
 	@And("^Task should also display for employer team member$")
 	public void task_should_also_display_for_team_member() throws Throwable {
-		loginpage.logoutFromAppK();
-		loginpage.loginInAppWithTeamK();
 		taskpage.ValidateTaskDisplayingForTeam();
 	}
-
+	
 
 	@And("^Go to workbench$")
 	public void go_to_workbench() throws Throwable {
-		Thread.sleep(1000);
-		loginpage.loginInAppWithEmpK();
+		
 		dashboardpage.openWorkbenchPage();
 		
 	}
@@ -86,20 +97,4 @@ public class TC264_266 extends baseclass {
 
 	
 
-//	@Then("^the task should display for employer$")
-//	public void the_task_added_should_display_on_employer() throws Throwable {
-//		Thread.sleep(2000);
-//		dashboardpage.openDashboardPage();
-//		taskpage.validateTaskDisplayingProperly();
-//		
-//	}
-//	
-//	@Then("^the task should also display on employer team member login$")
-//	public void the_task_should_also_display_on_team_member_login() throws InterruptedException
-//	{
-//		Thread.sleep(2000);
-//		loginpage.logoutFromAppK();
-//		loginpage.loginInAppWithTeamK();
-//		taskpage.ValidateTaskDisplayingForTeam();
-//	}
 }

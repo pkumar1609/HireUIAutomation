@@ -41,8 +41,8 @@ public class TC275E extends baseclass {
 	 
 	@Given("^team member should be added$")
 	public void team_member_should_be_added(DataTable credentials) throws Throwable {
-//		loginpage.loginInAppWithAgyK();
-		loginpage.loginInAppWithEmpK();
+////		loginpage.loginInAppWithAgyK();
+//		loginpage.loginInAppWithEmpK();
 		loginpage.identifyUserK();
 		this.b=loginpage.b;
 		System.out.println(b);
@@ -149,11 +149,11 @@ public class TC275E extends baseclass {
 //				Assert.assertEquals(b, true);
 	}
 
-	@And("^logout as team member$")
-	public void logout_as_team_member() throws Throwable {
-		
-		loginpage.logoutFromAppK();
-	}
+//	@And("^logout as team member$")
+//	public void logout_as_team_member() throws Throwable {
+//		
+//		loginpage.logoutFromAppK();
+//	}
 
 	@And("^login as agency/employer$")
 			public void login_as_agency_employer() throws Throwable {

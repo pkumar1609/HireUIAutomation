@@ -30,11 +30,11 @@ public class TC48 extends baseclass {
 		//create one registration method and apply logic
 	}
 
-	@When("^title of login page is Home$")
-	public void title_of_login_page_is_Home()  {
-		String Title = driver.getTitle();
-		Assert.assertEquals(Title, "HireXpert");
-	}
+//	@When("^title of login page is Home$")
+//	public void title_of_login_page_is_Home()  {
+//		String Title = driver.getTitle();
+//		Assert.assertEquals(Title, "HireXpert");
+//	}
 
 	@And("^user enters valid credentials$")
 	public void user_enters_valid_credentials() throws InterruptedException {

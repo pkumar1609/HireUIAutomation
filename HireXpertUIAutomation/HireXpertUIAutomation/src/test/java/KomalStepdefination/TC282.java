@@ -31,32 +31,32 @@ boolean b;
 boolean ispresent;
 	
 
-	@And("^go to workbench$")
-	public void go_to_workbench() throws InterruptedException  {
-		
-		dashboardpage.openWorkbenchPage();
-	}
- 
-	@And("^select job$")
-	public void select_job() throws Throwable {
-		workbenchpage.selectJobK();
-	}
-
-	@And("^Add a task and assign that task to the team member$")
-	public void add_a_task_and_assign_that_task_to_the_team_member(DataTable credentials) throws Throwable {
-		this.b=loginpage.b;
-		if (b==true)
-		{
-		taskpage.enterAlldetails(credentials);
-		}
-		else if(b==false)
-		{
-		taskpage.enterAlldetailsForAgy(credentials);
-		}
-		
-	}
-	
-
+//	@And("^go to workbench$")
+//	public void go_to_workbench() throws InterruptedException  {
+//		
+//		dashboardpage.openWorkbenchPage();
+//	}
+// 
+//	@And("^select job$")
+//	public void select_job() throws Throwable {
+//		workbenchpage.selectJobK();
+//	}
+//
+//	@And("^Add a task and assign that task to the team member$")
+//	public void add_a_task_and_assign_that_task_to_the_team_member(DataTable credentials) throws Throwable {
+//		this.b=loginpage.b;
+//		if (b==true)
+//		{
+//		taskpage.enterAlldetails(credentials);
+//		}
+//		else if(b==false)
+//		{
+//		taskpage.enterAlldetailsForAgy(credentials);
+//		}
+//		
+//	}
+//	
+//
 	@And("^login as the team member$")
 	public void login_as_the_team_member() throws Throwable {
 		if(b==true)
@@ -96,10 +96,7 @@ boolean ispresent;
 			
 	}
 
-	@And("^logout as a team member$")
-	public void logout_as_a_team_member() throws Throwable {
-		loginpage.logoutFromAppK();
-	}
+	
 
 	@And("^login as Employer/Agency$")
 	public void login_as_Employer_Agency() throws Throwable {
