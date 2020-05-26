@@ -12,8 +12,8 @@ public class TC273 extends baseclass{
 		super();
 	}
 	
-	@And("^Click on Mark Complete from team member login$")
-	public void click_on_Mark_Complete_from_team_member_login() throws Throwable {
+	@And("^Click on Mark Complete$")
+	public void click_on_Mark_Complete() throws Throwable {
 	   taskpage.MarkCompleted();
 	}
 

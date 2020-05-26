@@ -54,6 +54,7 @@ And Select a job
 And Click on Add task button and enter all details for agency
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |particular task    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com         |
+And Go to dashboard
 Then the task should display for agency
 And Logout from App
 And Login with agency team
@@ -213,7 +214,7 @@ And Click on Add task button and enter all details employer
 |task4              |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 And the task should display for employer
 And Task should also display for employer team member
-And Click on Mark Complete from team member login
+And Click on Mark Complete
 And Logout from App
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials
@@ -230,7 +231,7 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials
 And the task should display for employer
-And Click on Mark Complete from team member login
+And Click on Mark Complete
 And Logout from App
 And Click on Employer-Agency Signin link
 And login as employer team
@@ -283,7 +284,7 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And Login with agency team
 And Task should also display for agency team member
-And Click on Mark Complete from team member login
+And Click on Mark Complete
 And Logout from App
 And Click on Employer-Agency Signin link
 And agency enters valid credentials
@@ -300,7 +301,171 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And agency enters valid credentials
 And the task should display for agency
-And Click on Mark Complete from team member login
+And Click on Mark Complete
+And Logout from App
+And Click on Employer-Agency Signin link
+And Login with agency team
+And the task should not display on agency side
+
+
+@TC276_278
+Scenario: Verify particular job task status changed in employer if task assignee put task in (in-progress)
+Given User should be registered
+When title of login page is Home
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials
+And Go to workbench
+And Select a job 
+And Click on Add task button and enter all details employer
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task4              |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And the task should display for employer
+And Logout from App
+And Click on Employer-Agency Signin link
+And Login with employer team
+And Task should also display for employer team member
+And Click on mark in progress
+And Logout from App
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials
+And Go to dashboard
+And the task should display for employer
+And Logout from App
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials
+And Go to workbench
+And Select a job 
+And Click on Add task button and enter all details employer
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task5              |pemp      |pemp     |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pagy        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And the task should display for employer
+And Click on mark in progress
+And Logout from App
+And Click on Employer-Agency Signin link
+And login as employer team
+And Task should also display for employer team member
+
+
+@TC280
+Scenario: verify particular job task removed from employer and team member dashboard if task mark as done
+Given User should be registered
+When title of login page is Home
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials
+And Go to workbench
+And Select a job 
+And Click on Add task button and enter all details employer
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task4              |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And the task should display for employer
+And Logout from App
+And Click on Employer-Agency Signin link
+And login as employer team
+And Task should also display for employer team member
+And Click on Mark Complete
+And Logout from App
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials
+And the task should not display on employer side
+And Logout from App
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials
+And Go to workbench
+And Select a job 
+And Click on Add task button and enter all details employer
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task5              |pemp      |pemp     |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pagy        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And the task should display for employer
+And Logout from App
+And Click on Employer-Agency Signin link
+And login as employer team
+And Task should also display for employer team member
+And Logout from App
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials
+And the task should display for employer
+And Click on Mark Complete
+And Logout from App
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials
+And the task should not display on employer side
+
+@TC277_279
+Scenario: Verify particular job task status changed in Agency if task assignee put task in (in-progress)
+Given User must be registered as agency profile
+When title of login page is Home
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And Go to workbench
+And Select a job 
+And Click on Add task button and enter all details for agency
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task4              |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And Go to dashboard
+And the task should display for agency
+And Logout from App
+And Click on Employer-Agency Signin link
+And Login with agency team
+And Task should also display for agency team member
+And Click on mark in progress
+And Logout from App
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And the task should display for agency
+And Logout from App
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And Go to workbench
+And Select a job 
+And Click on Add task button and enter all details for agency
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task5              |pemp      |pemp     |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pagy        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And Go to dashboard
+And the task should display for agency
+And Click on mark in progress
+And Logout from App
+And Click on Employer-Agency Signin link
+And Login with agency team
+And Task should also display for agency team member
+
+@TC281
+Scenario: verify general task is removed from Agency and team member dashboard if task mark as done
+Given User should be registered
+When title of login page is Home
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And Go to workbench
+And Select a job 
+And Click on Add task button and enter all details for agency
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task8              |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |task8            |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And Go to dashboard
+And the task should display for agency
+And Logout from App
+And Click on Employer-Agency Signin link
+And Login with agency team
+And Task should also display for agency team member
+And Click on Mark Complete
+And Logout from App
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And the task should not display on agency side 
+And Logout from App
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And Go to workbench
+And Select a job 
+And Click on Add task button and enter all details for agency
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task9              |pemp      |pemp     |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |task9            |pagy         |pagy        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And Go to dashboard
+And the task should display for agency
+And Task should also display for employer team member
+And Logout from App
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And the task should display for agency
+And Click on Mark Complete
 And Logout from App
 And Click on Employer-Agency Signin link
 And Login with agency team

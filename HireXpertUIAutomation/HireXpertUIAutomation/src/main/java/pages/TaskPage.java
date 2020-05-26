@@ -157,7 +157,7 @@ public class TaskPage extends baseclass {
 		this.emp=loginpage.b;
 		if(assignto.equals(prop.getProperty("employer")))
 		{
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			mytask.click();
 			reloadtask();
 			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
@@ -355,11 +355,11 @@ public class TaskPage extends baseclass {
 			driver.findElement(By.xpath(MarkcompletedAgy)).click();
 			if(assignto.equals(prop.getProperty("agency")))
 			{
-				System.out.println("status changed to improgress for agency");
+				System.out.println("status changed to Completed for agency");
 			}
 			else if (assignto.equals(prop.getProperty("agyteam")))
 			{
-				System.out.println("status changed to improgress for agency team");
+				System.out.println("status changed to Completed for agency team");
 			}
 			
 		}
