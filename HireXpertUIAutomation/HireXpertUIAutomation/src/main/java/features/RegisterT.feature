@@ -1,5 +1,6 @@
 Feature: HireXpert Registration feature
 
+#TC :- 4, 5, 12, 433
 Scenario Outline: To verify the fields/button on Registration popup window and check functionality of Registration
 
 Given User open browser
@@ -69,11 +70,12 @@ And Verify that user has redirected to correct page or not after filling the inf
 And Verify the username by which user is login
 
 Examples: 
-| EmployerName   |   EmployerEmail      | EmployerContactNumber | EmployerUserType | timezone             | country | password | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName  | AgencyEmail      | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName  | CandidateEmail   | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
-| Tom12          |  tom12@gmail.com     | 211394644             | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Tom13       | tom13@gmail.com  |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Tom14          | tom14@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+| EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone             | country | password | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail       | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail    | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
+| Jade05         |  jade05@gmail.com     | 211394644             | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Jade06       | jade06@gmail.com  |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Jade07          | jade07@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
 
 
 
+#TC :- 6
 Scenario Outline: To verify the registration functionality of already registered user.
 
 Given User open browser
@@ -112,7 +114,7 @@ Examples:
     
 
      
-     
+#TC:- 289
 Scenario Outline: To verify user is not able to add one user with multiple roles.
      
 Given User open browser

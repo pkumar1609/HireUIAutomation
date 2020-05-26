@@ -24,19 +24,19 @@ public class ForgetPasswordStepDefination extends baseclass {
 		
 		forgetpasswordpage.EnterNonregisteredEmailid(emailid);
 		
-		forgetpasswordpage.SubmitBtn.click();
+		common.ClickSumbit();
 		
 	}
 
 	@Then("^Verify that user get an error message as \"([^\"]*)\" or not$")
 	public void verify_that_user_get_an_error_message_as_or_not(String ExpectedErrorMessage) throws Throwable {
 	   
-		String ActualErrorMessage = driver.findElement(By.xpath("//h6[@id='alertlineheight']")).getText();
+		String ActualErrorMessage = driver.findElement(By.cssSelector("p.error.mb-1.pl-1.pr-1")).getText();
 		Assert.assertEquals(ExpectedErrorMessage, ActualErrorMessage);	
 		
 		Thread.sleep(1000);
 		
-		forgetpasswordpage.OKBtn.click();
+		
 	}
 
 

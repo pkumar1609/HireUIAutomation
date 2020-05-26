@@ -1,5 +1,8 @@
 package pages;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -74,19 +77,38 @@ public class DashboardPage extends baseclass {
 	
 	public void VerifyUserIsOnCorrectPage() {
 	  	   
-	  	   if(agencies.isDisplayed() == true) {
-	  		   
-	  		   System.out.println("User is On Employer Dashboard");
-	  	   }
-	  	   
-	  	   else if(employers.isDisplayed() == true) {
-	  		   
-	  		 System.out.println("User is On Agency Dashboard");
-	  	   }
-	  	   
-	  	   else {
-	  		   
-	  		 System.out.println("User is On Candidate Dashboard");
+//	  	   if(agencies.isDisplayed() == true) {
+//	  		   
+//	  		   System.out.println("User is On Employer Dashboard");
+//	  	   }
+//	  	   
+//	  	   else if(employers.isDisplayed() == true) {
+//	  		   
+//	  		 System.out.println("User is On Agency Dashboard");
+//	  	   }
+//	  	   
+//	  	   else {
+//	  		   
+//	  		 System.out.println("User is On Candidate Dashboard");
+		
+		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+		List<WebElement> dynamicElement1 = driver.findElements(By.xpath("//a[contains(text(),'Employers')]"));
+		if(dynamicElement.size() != 0){
+			
+			System.out.println("User is On Employer Dashboard");
+
+		}
+		
+		else if(dynamicElement1.size() !=0) {
+			
+			System.out.println("User is On Agency Dashboard");
+			
+		}
+		
+		else {
+			
+			System.out.println("User is On Candidate Dashboard");
+			
 	  	   }
     }
 

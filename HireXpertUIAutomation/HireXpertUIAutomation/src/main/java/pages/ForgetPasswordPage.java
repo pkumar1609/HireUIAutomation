@@ -12,14 +12,14 @@ public class ForgetPasswordPage  extends baseclass {
 	@FindBy(linkText="Forgot Password")
 	 public WebElement ForgotPasswordLink;
 	
-	@FindBy(xpath="//input[@formcontrolname='Email']")
+	@FindBy(xpath="//input[@placeholder='Email address']")
 	 WebElement LoginEmailField;
 	
-	@FindBy(xpath="//button[text()='Submit']")
-	public WebElement SubmitBtn;
-	
-	@FindBy(xpath="//button[contains(text(),'OK')]")
-	 public WebElement OKBtn;
+//	@FindBy(xpath="//button[text()='Submit']")
+//	public WebElement SubmitBtn;
+//	
+//	@FindBy(xpath="//button[contains(text(),'OK')]")
+//	 public WebElement OKBtn;
 	
      public ForgetPasswordPage() {
 		

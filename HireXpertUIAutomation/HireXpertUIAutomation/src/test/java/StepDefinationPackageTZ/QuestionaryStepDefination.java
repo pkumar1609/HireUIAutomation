@@ -8,9 +8,17 @@ import pages.WorkbenchPage;
 import utilPackage.baseclass;
 
 public class QuestionaryStepDefination extends baseclass {
+	
+	@When("^click on Employer-Agency SignIn link$")
+	public void click_on_Employer_Agency_SignIn_link() throws Throwable {
+	    
+		Thread.sleep(4200);
+		registerpage.clickEmployerAgencySignInlink();
+	}
 
-	@When("^Login with Employer credential Who already have a Job added$")
-	public void login_with_Employer_credential_Who_already_have_a_Job_added() throws Throwable {
+
+	@When("^Login with Employer credential Who already have a Job added and a candidate added to that job$")
+	public void login_with_Employer_credential_Who_already_have_a_Job_added_and_a_candidate_added_to_that_job() throws Throwable {
 	    
 		Thread.sleep(4200);
 		registerpage.employerlogin();
@@ -159,5 +167,11 @@ public class QuestionaryStepDefination extends baseclass {
 		Thread.sleep(3000);
 		workbenchpage.ReloadCandidateButton.click();
 
+	}
+	
+	@When("^Verify Collect Answer icon when no questionary is added for that job$")
+	public void verify_Collect_Answer_icon_when_no_questionary_is_added_for_that_job() throws Throwable {
+	    
+		workbenchpage.verifyCollectAnswericonT();
 	}
 }

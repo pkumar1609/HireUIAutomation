@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -145,11 +147,22 @@ public class WorkbenchPage extends baseclass {
 	
 	public void verifyCollectAnswericonT() {
 		
-		if((candidateCardCollectAnswericon).isDisplayed()){
-			System.out.println("Collect Answer icon is displayed on candidates card for giving answers");
+//		if((candidateCardCollectAnswericon).isDisplayed()){
+//			System.out.println("Collect Answer icon is displayed on candidates card for giving answers.");
+//		}
+//		else{
+//			System.out.println("Collect Answer icon is not displayed on candidates card for giving answers as there is no questionary added.");
+		
+		List<WebElement> collectanswericon = driver.findElements(By.xpath("//button[@title='Collect Answer']"));
+		if(collectanswericon.size() != 0){
+			
+			System.out.println("Collect Answer icon is displayed on candidates card for giving answers.");
 		}
-		else{
-			System.out.println("Collect Answer icon is not displayed on candidates card for giving answers");
+		
+		else  {
+			
+			System.out.println("Collect Answer icon is not displayed on candidates card for giving answers as there is no questionary added.");
+			
 		}
 	}
 	
