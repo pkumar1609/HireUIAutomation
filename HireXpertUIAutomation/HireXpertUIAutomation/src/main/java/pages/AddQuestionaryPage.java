@@ -1,5 +1,8 @@
 package pages;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -85,22 +88,18 @@ public class AddQuestionaryPage extends baseclass {
 		TotalMarksofQuestion.sendKeys(Marks);
 	}
 	
-	public void AddAnswersT(String answer1, String answer2, String answer3, String answer4, String answer5) {
+	public void AddAnswersT(String answer1, String answer2) {
 		 
 		 Answer1.sendKeys(answer1); 
 		 Answer2.sendKeys(answer2);
-		 Answer3.sendKeys(answer3);
-		 Answer4.sendKeys(answer4);
-		 Answer5.sendKeys(answer5);
+		 
 	 }
 	
-	public void AddMarksT(String marks1, String marks2, String marks3, String marks4, String marks5) {
+	public void AddMarksT(String marks1, String marks2) {
 		 
 		 Marks1.sendKeys(marks1);
 		 Marks2.sendKeys(marks2); 
-		 Marks3.sendKeys(marks3); 
-		 Marks4.sendKeys(marks4); 
-		 Marks5.sendKeys(marks5);
+		 
 	 }
 	
 	public void AddQUESTION1(String QUESTION1) {
@@ -186,6 +185,54 @@ public class AddQuestionaryPage extends baseclass {
 		AddQuestiontextbox.clear();
 		AddQuestiontextbox.sendKeys(question); 
 	}
+	
+	public void answerthequestion() {
+		
+		driver.findElement(By.xpath("//span[contains(text(),'Yes')]")).click();
+			
+		}
+
+    public void verifypassfailicon() {
+		
+    	List<WebElement>PassIcon = driver.findElements(By.xpath("//button[@type='button' and @title='Pass']"));
+    	List<WebElement>FailIcon = driver.findElements(By.xpath("//button[@type='button' and @title='Fail']"));
+		if(PassIcon.size() != 0){
+			
+			System.out.println("Candidate is pass as Pass icon is displayed on candidate card in screened column.");
+
+		}
+		
+		else if(FailIcon.size() !=0) {
+			
+			System.out.println("Candidate is fail as Fail icon is displayed on candidate card in Rejected column.");
+			
+		}
+		
+		else {
+			
+			System.out.println("Pass Fail icons are not present.");
+			
+	  	   }
+			
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

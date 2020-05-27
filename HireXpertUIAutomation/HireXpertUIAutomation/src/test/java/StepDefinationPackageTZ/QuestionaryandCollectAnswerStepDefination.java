@@ -7,7 +7,7 @@ import cucumber.api.java.en.When;
 import pages.WorkbenchPage;
 import utilPackage.baseclass;
 
-public class QuestionaryStepDefination extends baseclass {
+public class QuestionaryandCollectAnswerStepDefination extends baseclass {
 	
 	@When("^click on Employer-Agency SignIn link$")
 	public void click_on_Employer_Agency_SignIn_link() throws Throwable {
@@ -47,14 +47,15 @@ public class QuestionaryStepDefination extends baseclass {
 		addquestionarypage.AddTotalMarksT(Marks);
 	}
 
-	@When("^Enter the answer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" and enter Marks \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" accordingly to the answer$")
-	public void enter_the_answer_and_enter_Marks_accordingly_to_the_answer(String answer1, String answer2, String answer3, String answer4, String answer5, String marks1, String marks2, String marks3, String marks4, String marks5) throws InterruptedException {
+	@When("^Enter the answer \"([^\"]*)\" \"([^\"]*)\" and enter Marks \"([^\"]*)\" \"([^\"]*)\" accordingly to the answer$")
+	public void enter_the_answer_and_enter_Marks_accordingly_to_the_answer(String answer1, String answer2, String marks1, String marks2) throws Throwable {
 	    
 		Thread.sleep(3000);
-		addquestionarypage.AddAnswersT(answer1, answer2, answer3, answer4, answer5);
-		addquestionarypage.AddMarksT(marks1, marks2, marks3, marks4, marks5);
+		addquestionarypage.AddAnswersT(answer1, answer2);
+		addquestionarypage.AddMarksT(marks1, marks2);
 	}
-
+	
+	
 	@When("^click on Save Changes button$")
 	public void click_on_Save_Changes_button() throws InterruptedException  {
 		
@@ -174,4 +175,63 @@ public class QuestionaryStepDefination extends baseclass {
 	    
 		workbenchpage.verifyCollectAnswericonT();
 	}
+	
+
+	@Then("^Click on  Collect Answers icon on candidate card$")
+	public void Click_on_Collect_Answers_icon_on__candidate_card() throws Throwable {
+	    
+		Thread.sleep(3000);
+		workbenchpage.candidateCardCollectAnswericon.click();
+		
+	}
+
+	@Then("^answer the question by selecting the provided options$")
+	public void answer_the_question_by_selecting_the_provided_options() throws Throwable {
+
+		Thread.sleep(3000);
+		addquestionarypage.answerthequestion();
+		common.ClickSumbit();
+	}
+
+	@Then("^verify if the answer is correct it should display pass icon on candidate card or it should display fail icon if the asnswer is wrong with the candidate card in screened column$")
+	public void verify_if_the_answer_is_correct_it_should_display_pass_icon_on_candidate_card_or_it_should_display_fail_icon_if_the_asnswer_is_wrong_with_the_candidate_card_in_screened_column() throws Throwable {
+
+		Thread.sleep(3000);
+		addquestionarypage.verifypassfailicon();
+	}
+
+	@Then("^click on logout tab$")
+	public void click_on_logout_tab() throws Throwable {
+	   
+		Thread.sleep(3000);
+		workbenchpage.ClickonLogout();
+	}
+
+	@Then("^click on Job Seeker\\(Candidate\\) Sign In link$")
+	public void click_on_Job_Seeker_Candidate_Sign_In_link() throws Throwable {
+
+		Thread.sleep(3000);
+		registerpage.clickJobseekerCandidateSignInlinklink();
+	}
+
+	@Then("^login as the same candidate \"([^\"]*)\" \"([^\"]*)\" and click on Sign in$")
+	public void login_as_the_same_candidate_and_click_on_Sign_in(String arg1, String arg2) throws Throwable {
+
+		Thread.sleep(3000);
+		registerpage.loginwithsamecandidate();
+	}
+
+	@Then("^verify on candidate dashboard that job is displayed with Questionnaire tab or not$")
+	public void verify_on_candidate_dashboard_that_job_is_displayed_with_Questionnaire_tab_or_not() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Then("^click on that Questionnaire tab and verify the answers given by employer$")
+	public void click_on_that_Questionnaire_tab_and_verify_the_answers_given_by_employer() throws Throwable {
+
+
+	}
+
+
 }
