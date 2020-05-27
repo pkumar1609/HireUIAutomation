@@ -358,6 +358,12 @@ public void verifythefieldsonregisterdialogbox () {
     	   Emailaddress.sendKeys(AgencyEmail);
     	   Password.sendKeys(password);
        }
+       
+       public void loginwithsamecandidate() {
+    	   Emailaddress.sendKeys("candidate01@gmail.com");
+    	   Password.sendKeys("12345");
+    	   Signinbtn.click();
+       }
      
        public void employerlogin() {
     	   Emailaddress.sendKeys(prop.getProperty("employerusername"));

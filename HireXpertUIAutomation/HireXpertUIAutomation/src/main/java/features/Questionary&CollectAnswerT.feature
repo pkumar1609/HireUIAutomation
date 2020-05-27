@@ -1,6 +1,6 @@
 Feature: HireXpert Questionary feature
 
-#TC :- 120, 122, 138, 234, 136
+#TC :- 120, 122, 138, 234, 136, 124
 Scenario Outline: Verify the functionality of Add Questionary and Edit question on questionary page. Verify the Collect Answer icon Functionality .
 
 Given Open browser
@@ -10,7 +10,7 @@ And Go to Workbench tab and select one job from job drop down
 And Verify Collect Answer icon when no questionary is added for that job
 And Click on Questionnaire tab
 And Enter a "<Question>" and enter "<Marks>" accordingly to that question
-And Enter the answer "<answer1>" "<answer2>" "<answer3>" "<answer4>" "<answer5>" and enter Marks "<marks1>" "<marks2>" "<marks3>" "<marks4>" "<marks5>" accordingly to the answer 
+And Enter the answer "<answer1>" "<answer2>" and enter Marks "<marks1>" "<marks2>" accordingly to the answer 
 And click on Save Changes button
 And Enter the cutoff & rejection percentage "<cuttoffpercentage>" "<rejectionpercentage>" 
 And click on submit
@@ -18,10 +18,18 @@ And Click on Questionnaire tab
 And Click on edit button of question to edit the following question "<question>" and save the changes by clicking on Save Changes button
 And click on submit
 Then Collect Answer icon should reflect on candidates card for giving answers 
+And Click on  Collect Answers icon on candidate card
+And answer the question by selecting the provided options 
+And verify if the answer is correct it should display pass icon on candidate card or it should display fail icon if the asnswer is wrong with the candidate card in screened column
+And click on logout tab
+And click on Job Seeker(Candidate) Sign In link
+And login as the same candidate "candidate01@gmail.com" "12345" and click on Sign in 
+And verify on candidate dashboard that job is displayed with Questionnaire tab or not
+Then click on that Questionnaire tab and verify the answers given by employer
 
 Examples:
-|  Question         | Marks |  answer1  |   answer2  |   answer3   |  answer4  |   answer5         |  marks1 |  marks2 |  marks3 |  marks4 |  marks5 | cuttoffpercentage |  rejectionpercentage | question       |
-| Total Experience  |   50  |  Fresher  |   0-1 Year |   1-2 Year  |  2-3 Year | more than 3 years |  5      |   5     |    10   |   10    | 20      |       70          |         30           | Work Experience|
+|  Question               | Marks  |  answer1  |   answer2  |  marks1   |  marks2 | cuttoffpercentage |  rejectionpercentage | question              |
+| Do you have Passport    |   100  |  Yes      |   No       |  100      |   0     |       70          |         30           | Do you have Passport ?|
 
 
 
