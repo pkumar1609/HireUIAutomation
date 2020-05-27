@@ -143,6 +143,24 @@ public class LoginPage extends baseclass {
 //		explicitwait.until(ExpectedConditions.elementToBeClickable(signin));
 		Thread.sleep(3000);
 		signin.click();
+		identifyUserK();
+	}
+    public void loginInAppWithTeamK() throws InterruptedException
+	{
+		emailaddress.sendKeys(prop.getProperty("teamid"));
+		password.sendKeys(prop.getProperty("pwd"));
+		Thread.sleep(4000);
+		signin.click();
+		identifyUserK();
+	}
+	
+	public void loginInAppWithTeam2() throws InterruptedException
+	{
+		emailaddress.sendKeys(prop.getProperty("teamid2"));
+		password.sendKeys(prop.getProperty("pwd"));
+		Thread.sleep(4000);
+		signin.click();
+		identifyUserK();
 	}
 	
 	public void loginInAppWithAgyK() throws InterruptedException
@@ -151,7 +169,7 @@ public class LoginPage extends baseclass {
 		password.sendKeys(prop.getProperty("pwd"));
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",signin);
-		
+		identifyUserK();
 	}
 	public void loginInAppWithAgy2K() throws InterruptedException
 	{
@@ -159,16 +177,18 @@ public class LoginPage extends baseclass {
 		password.sendKeys(prop.getProperty("pwd"));
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",signin);
-		
+		identifyUserK();
+	}
+	public void loginInAppWithAgyTeam2() throws InterruptedException
+	{
+		emailaddress.sendKeys(prop.getProperty("agyteamid2"));
+		password.sendKeys(prop.getProperty("pwd"));
+		Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();",signin);
+		identifyUserK();
 	}
 	
-	public void loginInAppWithTeamK() throws InterruptedException
-	{
-		emailaddress.sendKeys(prop.getProperty("teamid"));
-		password.sendKeys(prop.getProperty("pwd"));
-		Thread.sleep(4000);
-		signin.click();
-	}
+	
 	
 	public void loginInAppWithAgyTeamK() throws InterruptedException
 	{
@@ -176,6 +196,7 @@ public class LoginPage extends baseclass {
 		password.sendKeys(prop.getProperty("pwd"));
 		Thread.sleep(1000);
 		signin.click();
+		identifyUserK();
 	}
 	
 	public void logoutFromAppK() throws InterruptedException

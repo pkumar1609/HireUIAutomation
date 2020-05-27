@@ -22,14 +22,8 @@ public class TC275E extends baseclass {
 		super();
 	}
 	
-//	@Before()
-//	public void setup() throws IOException
-//	{
-//		baseclass.initialization();
-//	}
-	
 	 boolean b;
-	 int flag=0;
+	 
 
 	 @Given("^User should be registered$")
 	 public void user_should_be_registered() throws Throwable {
@@ -41,20 +35,9 @@ public class TC275E extends baseclass {
 	 
 	@Given("^team member should be added$")
 	public void team_member_should_be_added(DataTable credentials) throws Throwable {
-////		loginpage.loginInAppWithAgyK();
-//		loginpage.loginInAppWithEmpK();
-		loginpage.identifyUserK();
-		this.b=loginpage.b;
-		System.out.println(b);
-		if(b==true)
-		{
-		teampage.isTeamPresentForEmp(credentials);
-		}
-		else
-		{
-		teampage.isTeamPresentForAgy(credentials);
-		}
-		loginpage.logoutFromAppK();
+	
+		teampage.verifyTeamAdded(credentials);
+		
 	}
 
 	 @And("^user enters valid credentials$")
@@ -168,7 +151,8 @@ public class TC275E extends baseclass {
 	}
 
 	@Then("^Delete the task$")
-	public void delete_the_task() throws Throwable {
+	public void delete_the_task() throws Throwable 
+	{
 		if(b==true) {
 		if(taskpage.assignto.contains("employer"))
 		{
@@ -192,11 +176,8 @@ public class TC275E extends baseclass {
 			taskpage.ClickOnTeamTask();
 			taskpage.clickondeletetask();
 		}
-		}
+	}
 	}
 		
-
-	}
-
-
+}
 

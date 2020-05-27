@@ -60,7 +60,8 @@ public class TC265_267k extends baseclass {
 	
 	@Then("^Task should also display for agency team member$")
 	public void task_should_also_display_for_team_member() throws Throwable {
-		taskpage.TaskDisplayingForAgyTeam();
+//		taskpage.TaskDisplayingForAgyTeam();
+		taskpage.validateTaskDisplayingProperlyForAgy();
 
 	}
 

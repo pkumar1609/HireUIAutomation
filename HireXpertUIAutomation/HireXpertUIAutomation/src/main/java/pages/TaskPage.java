@@ -79,15 +79,27 @@ public class TaskPage extends baseclass {
 	public WebElement taskname;
 	
 	@FindBy(xpath="//button[@title='Refresh'][@class='btn Cbtn-primary mr-1 float-right optbtn']")
-	public WebElement reloadtaskbtn;
+	private WebElement reloadtaskbtn;
 	
+	@FindBy(xpath="//h5[text()=' Error']")
+	private WebElement error;
 	
+	@FindBy(xpath="//h6[text()=' You can not change status of this task as you are neither assignee, creator or team owner for this task.']")
+	private WebElement errormsg;
 	
-	
-	
-	
-	
-	
+	public void errordisplayed() throws InterruptedException
+	{
+		try
+		{
+		error.isDisplayed();
+		errormsg.isDisplayed();
+		common.clickOnOKBtn();
+		}
+		catch(NoSuchElementException e)
+		{
+		System.out.println("issue");
+		}
+	}
 	
 	public void reloadtask()
 	{
@@ -153,48 +165,29 @@ public class TaskPage extends baseclass {
 	
 	public void validateTaskDisplayingProperly() throws InterruptedException
 	{
-		loginpage.identifyUserK();
-		this.emp=loginpage.b;
-		if(assignto.equals(prop.getProperty("employer")))
-		{
+		System.out.println("loggediusername"+loginpage.logedinuser);
+		String user=loginpage.logedinuser;
+		System.out.println(assignto);
+		if(assignto.contentEquals(user))
+		{ 
 			Thread.sleep(3000);
 			mytask.click();
 			reloadtask();
 			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
 			Assert.assertEquals(b, true);
 		}
-		else if (assignto.equals(prop.getProperty("team")))
+		else
 		{
 			Thread.sleep(3000);
 			teamtask.click();
 			reloadtask();
-			System.out.println("added task is "+addedtask);
 			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
 			Assert.assertEquals(b, true);
 		}
 		StatusOfTask();
 	}
-	
-	public void ValidateTaskDisplayingForTeam() throws InterruptedException
-	{
-		if(assignto.equals(prop.getProperty("team")))
-		{
-			Thread.sleep(3000);
-			mytask.click();
-			reloadtask();
-			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
-			Assert.assertEquals(b, true);
-		}
-		else if(assignto.equals(prop.getProperty("employer")))
-		{
-			Thread.sleep(3000);
-			teamtask.click();
-			reloadtask();
-			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
-			Assert.assertEquals(b, true);
-		}
-		StatusOfTask();
-		}
+
+
 
 	public void clickondeletetask() throws InterruptedException
 	{
@@ -293,8 +286,7 @@ public class TaskPage extends baseclass {
 	public void StatusOfTask() throws InterruptedException 
 	{
 	
-//		addedtask="task1";
-		
+		this.emp=loginpage.b;
 		if(emp==true)
 		{
 			try
@@ -325,10 +317,11 @@ public class TaskPage extends baseclass {
 				driver.findElement(By.xpath(inprogressStatusAgy)).isDisplayed();
 				System.out.println("Status of added task for agency is inprogress");
 			}
-
 		}
 		
-}
+
+		
+	}
 	
 	public void MarkCompleted() throws InterruptedException
 	{
@@ -378,7 +371,7 @@ public class TaskPage extends baseclass {
 			}
 			catch(NoSuchElementException e)
 			{
-				System.out.println("task which is mark as progress not not displaying");
+				System.out.println("task which is mark as progress is not displaying");
 			}
 			
 		}
@@ -392,7 +385,7 @@ public class TaskPage extends baseclass {
 				}
 				catch(NoSuchElementException e)
 				{
-					System.out.println("task which is mark as progress not not displaying");
+					System.out.println("task which is mark as progress is not displaying");
 				}
 		}
 		
@@ -440,10 +433,8 @@ public class TaskPage extends baseclass {
 
 public void validateTaskDisplayingProperlyForAgy() throws InterruptedException
 {
-//	loginpage.identifyUserK();
-//	this.emp=loginpage.b;
-	System.out.println(addedtaskagy);
-	if(assignto.equals(prop.getProperty("agency")))
+	
+	if(assignto.contentEquals(loginpage.logedinuser))
 	{
 		Thread.sleep(2000);
 		mytask.click();
@@ -464,27 +455,31 @@ public void validateTaskDisplayingProperlyForAgy() throws InterruptedException
 }
 
 
+//	public void validateTaskDisplayingProperlyForAgy() throws InterruptedException
+//	{
+//		
+//		if(assignto.contentEquals(loginpage.logedinuser))
+//		{
+//			Thread.sleep(2000);
+//			mytask.click();
+//			reloadtask();
+//			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
+//			Assert.assertEquals(b, true);
+//		}
+//		else
+//		{
+//			Thread.sleep(3000);
+//			teamtask.click();
+//			reloadtask();
+//			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
+//			Assert.assertEquals(b, true);
+//		}
+//		StatusOfTask();
+//
+//	}
 
-public void TaskDisplayingForAgyTeam() throws InterruptedException
-{
-	if(assignto.equals(prop.getProperty("agency")))
-	{
-		Thread.sleep(3000);
-		teamtask.click();
-		reloadtask();
-		boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtaskagy+"']")).isDisplayed();
-		Assert.assertEquals(b, true);
-	}
-	else 
-	{
-		Thread.sleep(3000);
-		mytask.click();
-		reloadtask();
-		boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtaskagy+"']")).isDisplayed();
-		Assert.assertEquals(b, true);
-	}
-	StatusOfTask();
-	}
+
+
 
 
 public void enterAlldetailsForAgy(DataTable credentials) throws InterruptedException {
@@ -509,6 +504,8 @@ public void enterAlldetailsForAgy(DataTable credentials) throws InterruptedExcep
 	}
 
 }
+
+
 
 public void assertediteddetailsForAgy(DataTable credentials) throws InterruptedException
 {

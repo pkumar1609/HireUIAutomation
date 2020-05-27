@@ -76,7 +76,8 @@ public class TC264_266 extends baseclass {
 
 	@And("^Task should also display for employer team member$")
 	public void task_should_also_display_for_team_member() throws Throwable {
-		taskpage.ValidateTaskDisplayingForTeam();
+//		taskpage.ValidateTaskDisplayingForTeam();
+		taskpage.validateTaskDisplayingProperly();
 	}
 	
 

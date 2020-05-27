@@ -390,7 +390,9 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials
 And the task should not display on employer side
 
-@TC277_279
+
+
+@TC277_279 
 Scenario: Verify particular job task status changed in Agency if task assignee put task in (in-progress)
 Given User must be registered as agency profile
 When title of login page is Home
@@ -438,7 +440,7 @@ And Go to workbench
 And Select a job 
 And Click on Add task button and enter all details for agency
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|task8              |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |task8            |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+|task8              |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 And Go to dashboard
 And the task should display for agency
 And Logout from App
@@ -470,3 +472,54 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And Login with agency team
 And the task should not display on agency side
+
+
+@TC330
+Scenario: To verify third team member can make task in progress or in completed status
+Given User should be registered
+When title of login page is Home
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials
+And team member should be added
+|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+And Click on Add task button and enter all details employer
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task11             |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And the task should display for employer
+And Logout from App
+And Click on Employer-Agency Signin link
+And login as employer team
+And Task should also display for employer team member
+And Logout from App
+And Click on Employer-Agency Signin link
+And login as third employer team
+And Task should also display for employer team member
+And Click on mark in progress
+And third user should not able to put task in progress
+
+@TC330A
+Scenario: To verify third team member can make task in progress or in completed status
+Given User should be registered
+When title of login page is Home
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And team member should be added
+|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+And Click on Add task button and enter all details for agency
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task11             |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And the task should display for agency
+And Logout from App
+And Click on Employer-Agency Signin link
+And Login with agency team
+And Task should also display for agency team member
+And Logout from App
+And Click on Employer-Agency Signin link
+And login as third agency team
+And Task should also display for agency team member
+And Click on mark in progress
+Then third user should not able to put task in progress

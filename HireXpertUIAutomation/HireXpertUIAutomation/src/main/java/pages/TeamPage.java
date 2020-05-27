@@ -62,6 +62,7 @@ public class TeamPage extends baseclass {
 	public String teamMemberName;
 	public String teamMemberNameAgy;
 	public String ele;
+	boolean b;
 	
 	WebDriverWait explicitwait = new WebDriverWait(driver,20);
 	
@@ -241,7 +242,18 @@ public class TeamPage extends baseclass {
 		System.out.println(ele);
 		}
 	}
-	
+	public void verifyTeamAdded(DataTable credentials) throws InterruptedException
+	{
+		this.b=loginpage.b;
+		if(b==true)
+		{
+		teampage.isTeamPresentForEmp(credentials);
+		}
+		else
+		{
+		teampage.isTeamPresentForAgy(credentials);
+		}
+	}
 
 	
 	
