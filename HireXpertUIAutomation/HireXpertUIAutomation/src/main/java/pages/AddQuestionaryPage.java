@@ -188,7 +188,7 @@ public class AddQuestionaryPage extends baseclass {
 	
 	public void answerthequestion() {
 		
-		driver.findElement(By.xpath("//span[contains(text(),'Yes')]")).click();
+		driver.findElement(By.xpath("//input[@name='ans.No' and @type='checkbox']")).click();
 			
 		}
 

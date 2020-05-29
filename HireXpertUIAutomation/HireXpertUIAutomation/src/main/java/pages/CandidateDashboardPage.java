@@ -1,5 +1,6 @@
 package pages;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -20,6 +21,9 @@ public class CandidateDashboardPage extends baseclass {
 	
 	@FindBy(xpath = "/html/body/app-root/div/div/div/app-candidate-dashboard/div/div[3]/div/div[1]/div/div[1]/button")
 	public WebElement skillsRefreshButton;
+	
+	@FindBy(xpath = "//button[@title='Questionnaire']")
+	public WebElement QuestionnarieTab;
 	
 	
 	public CandidateDashboardPage() {
@@ -90,6 +94,27 @@ public class CandidateDashboardPage extends baseclass {
 			return true;
 	}
 	
+	public void verifyQuestionaryicononcandidatedashboard () {
+		
+		List<WebElement> Jobs = driver.findElements(By.xpath("//div[text()='Job-1 Test Engineer']"));
+		List<WebElement> Questionnarietab = driver.findElements(By.xpath("//button[@title='Questionnaire']"));
+		if(Jobs.size() != 0 && Questionnarietab.size() != 0 ){
+			
+			System.out.println("Job-1 Test Engineer, job is present on candidate dashboard and Questionnaire tab is present for that job.");
+
+		}
+		
+		
+		else {
+			
+			System.out.println("Questionnaire tab is not present for that job");
 	
-	
+		}
 }
+
+   public void ClickonQuestionnairetab() {
+	   
+	   QuestionnarieTab.click();
+   }
+}
+

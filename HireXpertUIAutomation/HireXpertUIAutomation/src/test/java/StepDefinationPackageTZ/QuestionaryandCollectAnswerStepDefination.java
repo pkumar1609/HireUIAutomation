@@ -188,7 +188,7 @@ public class QuestionaryandCollectAnswerStepDefination extends baseclass {
 	@Then("^answer the question by selecting the provided options$")
 	public void answer_the_question_by_selecting_the_provided_options() throws Throwable {
 
-		Thread.sleep(3000);
+		Thread.sleep(4200);
 		addquestionarypage.answerthequestion();
 		common.ClickSumbit();
 	}
@@ -223,14 +223,17 @@ public class QuestionaryandCollectAnswerStepDefination extends baseclass {
 
 	@Then("^verify on candidate dashboard that job is displayed with Questionnaire tab or not$")
 	public void verify_on_candidate_dashboard_that_job_is_displayed_with_Questionnaire_tab_or_not() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	    
+		Thread.sleep(3000);
+		candidatedashboardpage.verifyQuestionaryicononcandidatedashboard();
 	}
 
 	@Then("^click on that Questionnaire tab and verify the answers given by employer$")
 	public void click_on_that_Questionnaire_tab_and_verify_the_answers_given_by_employer() throws Throwable {
 
 
+		Thread.sleep(3000);
+		candidatedashboardpage.ClickonQuestionnairetab();
 	}
 
 
