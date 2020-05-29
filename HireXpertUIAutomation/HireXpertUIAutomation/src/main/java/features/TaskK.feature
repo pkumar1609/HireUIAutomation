@@ -523,3 +523,103 @@ And login as third agency team
 And Task should also display for agency team member
 And Click on mark in progress
 Then third user should not able to put task in progress
+
+
+@TC306
+Scenario: verify the functionality of edit for general task assign to team member
+Given User should be registered
+When title of login page is Home
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials
+And team member should be added
+|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+And Click on Add task button and enter all details employer
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task10             |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And the task should display for employer
+And Logout from App
+And Click on Employer-Agency Signin link
+And login as employer team
+And Task should also display for employer team member
+And Click on edit task
+And verify All previously added details of task
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task11             |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And edit the task 
+|Title for emp    |teamField |AssignTo |note                  |employer    |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |
+|task2            |pemp      |pe1      |complete before 1 pm  |pemp    	   |pe1       |pe1@gmail.com        |task1            |pagy         |pa1         |complete before 1 pm                |pagy   		     |pe1       |
+And Click on edit task
+Then verify all the edited details 
+|Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task1            |pemp      |pe1      |complete before 1 pm             |pemp    		    |pe1       |pe1@gmail.com        |task1            |pagy         |pa1         |complete before 1 pm                |pagy   		    |pe1       |pe1@gmail.com        |
+
+@TC336_350
+Scenario: Verify task added for agency owner by team member display in teamtask when owner mark in progres
+Given User should be registered
+When title of login page is Home
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And team member should be added
+|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+And Logout from App
+And Click on Employer-Agency Signin link
+And Login with agency team
+And Click on Add task button and enter all details for agency
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task11             |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And Task should also display for agency team member
+And Logout from App
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And the task should display for agency
+And Click on mark in progress
+And Logout from App
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And the task should display for agency
+And Logout from App
+And Click on Employer-Agency Signin link
+And Login with agency team
+And Go to workbench
+And Select a job 
+And Click on Add task button and enter all details for agency
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task9              |pemp      |pemp     |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |task9            |pagy         |pagy        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And Go to dashboard
+And Task should also display for agency team member
+And Logout from App
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And the task should display for agency
+And Click on mark in progress
+And Logout from App
+And Click on Employer-Agency Signin link
+And Login with agency team
+And Task should also display for agency team member
+
+
+@TC_300
+Scenario: Verify task added for agency owner by team member display in teamtask when owner mark in progres
+Given User should be registered
+When title of login page is Home
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials
+And team member should be added
+|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+And Go to workbench
+And Select a job 
+And Share job with team member
+|Team|Agyteam|
+|pe1 |pa1    |
+#|pe2 |pa2   |
+And Click on Add task button and enter all details employer
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task9              |pemp      |pemp     |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |task9            |pagy         |pagy        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And verify the options present in teamfeild
+And 

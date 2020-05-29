@@ -70,7 +70,7 @@ public class TeamPage extends baseclass {
 	public TeamPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
+//		this.b=loginpage.b;
 	}
 	
 	public void validatePageTitle() {
@@ -194,7 +194,7 @@ public class TeamPage extends baseclass {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
 			dashboardpage.openTeamPage();
-			teamMemberName=data.get("Name");
+			teamMemberName = data.get("Name");
 			String teammemberpresent= "//td[text()='" +teamMemberName+ "']";
 			try  
 			{
@@ -207,7 +207,7 @@ public class TeamPage extends baseclass {
 				teampage.closeTeamPage();
 			}	
 		}
-		}
+	}
 
 
 	public void isTeamPresentForAgy(DataTable credentials) throws InterruptedException
@@ -254,8 +254,4 @@ public class TeamPage extends baseclass {
 		teampage.isTeamPresentForAgy(credentials);
 		}
 	}
-
-	
-	
-
 }

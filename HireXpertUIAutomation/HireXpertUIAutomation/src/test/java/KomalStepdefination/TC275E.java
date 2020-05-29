@@ -27,7 +27,7 @@ public class TC275E extends baseclass {
 
 	 @Given("^User should be registered$")
 	 public void user_should_be_registered() throws Throwable {
-		baseclass.initialization();
+//		baseclass.initialization();
 		
 	 }
 
@@ -35,17 +35,20 @@ public class TC275E extends baseclass {
 	 
 	@Given("^team member should be added$")
 	public void team_member_should_be_added(DataTable credentials) throws Throwable {
-	
 		teampage.verifyTeamAdded(credentials);
-		
+	}
+	
+	@And("^Share job with team member$")
+	public void share_job_with_team_member(DataTable credentials) throws Throwable {
+	taskpage.shareWithTeam(credentials);
 	}
 
 	 @And("^user enters valid credentials$")
 		public void user_enters_valid_and_credentials() throws Throwable {
-//			loginpage.loginInAppWithAgyK();
-			loginpage.loginInAppWithEmpK();
-			loginpage.identifyUserK();
-			this.b=loginpage.b;
+//		loginpage.loginInAppWithAgyK();
+		loginpage.loginInAppWithEmpK();
+		loginpage.identifyUserK();
+		this.b=loginpage.b;
 
 		}
 	 

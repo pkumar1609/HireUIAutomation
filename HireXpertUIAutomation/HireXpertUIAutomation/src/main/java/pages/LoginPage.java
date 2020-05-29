@@ -10,7 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utilPackage.baseclass;
 
-public class LoginPage extends baseclass {
+public class LoginPage extends baseclass 
+{
 	
 	@FindBy(linkText="Employer-Agency Sign In")
 	public WebElement EmployerAgencySignInlink;
@@ -210,22 +211,24 @@ public class LoginPage extends baseclass {
 	
 	public void identifyUserK() throws InterruptedException
 	{
-		try {		
-			Action.moveToElement(loginpage.profile).perform();
-			Thread.sleep(2000);
-			b= loginpage.userbtnemp.isDisplayed();
-			Thread.sleep(2000);
-			executor.executeScript("arguments[0].click();",userbtnemp);
-			logedinuser= logedinusername.getText();
-			System.out.println(logedinuser);
+		    try {
+				Action.moveToElement(profile).perform();
+				Thread.sleep(2000);
+				b = userbtnemp.isDisplayed();		
+				System.out.println(b);
+//				Thread.sleep(2000);
+//				executor.executeScript("arguments[0].click();",userbtnemp);
+				logedinuser= logedinusername.getText();
+				System.out.println(logedinuser);
 			}
 			catch(NoSuchElementException e)
 			{
 				b=false;
 				logedinuser= logedinusername.getText();
 				System.out.println(logedinuser);
+				System.out.println(b);
 			}
 			 
-		}
-	
+	}
+
 }

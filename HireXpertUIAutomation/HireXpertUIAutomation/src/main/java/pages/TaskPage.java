@@ -1,7 +1,11 @@
 package pages;
 
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.testng.Assert;
@@ -24,7 +28,7 @@ public class TaskPage extends baseclass {
 	public TaskPage() throws IOException {
 	super();
 	PageFactory.initElements(driver, this);
-	explicitwait=new WebDriverWait(driver,80);
+	
 
 	}
 	
@@ -35,7 +39,7 @@ public class TaskPage extends baseclass {
 	boolean b;
 	String title;
 	String a;
-	
+	ArrayList lst[];
 	@FindBy(xpath="//button[@title='Add Task']")
 	WebElement addtaskbtn;
 	
@@ -69,8 +73,8 @@ public class TaskPage extends baseclass {
 	@FindBy(xpath="//button[@id='alertModalCloseBtn']")
 	public WebElement okbtn;
 	
-	@FindBy(xpath="//button[@title='Edit Task']")
-	public WebElement edittaskbtn;
+//	@FindBy(xpath="//button[@title='Edit Task']")
+//	public WebElement edittaskbtn;
 	
 	@FindBy(xpath="//strong[text()='Assign To: ']")
 	public WebElement taskcard;
@@ -86,6 +90,12 @@ public class TaskPage extends baseclass {
 	
 	@FindBy(xpath="//h6[text()=' You can not change status of this task as you are neither assignee, creator or team owner for this task.']")
 	private WebElement errormsg;
+	
+	
+	@FindBy(xpath="//button[@title='Share With Team']")	
+	private WebElement shareWithTeam;
+
+	
 	
 	public void errordisplayed() throws InterruptedException
 	{
@@ -130,11 +140,15 @@ public class TaskPage extends baseclass {
 			select= new Select(Assigntofield);
 			select.selectByVisibleText(data.get("AssignTo"));
 			assignto= data.get("AssignTo");
+			List<WebElement> list =select.getOptions();
+			for(WebElement item:list) 
+	           { 
+	             System.out.println(item.getText());          
+	           }
+
 			notefield.sendKeys(data.get("note"));
 			employerspage.ClickSubmitBtn();
-			
 		}
-		
 	}
 	
 	public void edittaskdetailsforemp(DataTable credentials) throws InterruptedException {
@@ -152,15 +166,15 @@ public class TaskPage extends baseclass {
 	}
 	
 	
-	public void assertediteddetails(DataTable credentials) throws InterruptedException
-	{
-		
-		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{
-			titlebtn.getText().contentEquals(data.get("Title for emp"));
-			
-		}
-	}
+//	public void assertediteddetails(DataTable credentials) throws InterruptedException
+//	{
+//		
+//		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+//		{
+//			titlebtn.getText().contentEquals(data.get("Title for emp"));
+//			
+//		}
+//	}
 	
 	
 	public void validateTaskDisplayingProperly() throws InterruptedException
@@ -222,16 +236,46 @@ public class TaskPage extends baseclass {
 	
 	public void ClickOnEditTask() throws InterruptedException
 	{
-//		explicitwait.until(ExpectedConditions.elementToBeClickable(edittaskbtn));
-		Thread.sleep(2000);
-		executor.executeScript("arguments[0].click();",edittaskbtn);
+		if(assignto.contentEquals(loginpage.logedinuser))
+		{ 
+			Thread.sleep(3000);
+			mytask.click();
+			reloadtask();
+			if(emp==true)
+			{
+			Thread.sleep(2000);
+			String edittaskbtn="//strong[text()='"+addedtask+"']//following::i[@class='fa fa-pencil']";
+			driver.findElement(By.xpath(edittaskbtn)).click();
+			}
+			else
+			{
+			 String edittaskbtnAgy="//strong[text()='"+addedtaskagy+"']//following::i[@class='fa fa-pencil']";
+			 driver.findElement(By.xpath(edittaskbtnAgy)).click();
+			}
+		}
+		else
+		{
+			Thread.sleep(3000);
+			teamtask.click();
+			reloadtask();
+			if(emp==true)
+			{
+			Thread.sleep(2000);
+			String edittaskbtn="//strong[text()='"+addedtask+"']//following::i[@class='fa fa-pencil']";
+			driver.findElement(By.xpath(edittaskbtn)).click();
+			}
+			else
+			{
+			 String edittaskbtnAgy="//strong[text()='"+addedtaskagy+"']//following::i[@class='fa fa-pencil']";
+			 driver.findElement(By.xpath(edittaskbtnAgy)).click();
+			}
+		}
 		
-
 	}
 	
 	public void searchTask(DataTable credentials) throws InterruptedException 
 	{
-				this.emp=loginpage.b;
+//				this.emp=loginpage.b;
 				System.out.println("emp "+emp);
 				taskpage.clickOnAddTaskBtn();
 				if(emp==true) 
@@ -285,8 +329,7 @@ public class TaskPage extends baseclass {
 	
 	public void StatusOfTask() throws InterruptedException 
 	{
-	
-		this.emp=loginpage.b;
+	   this.emp=loginpage.b;
 		if(emp==true)
 		{
 			try
@@ -478,10 +521,6 @@ public void validateTaskDisplayingProperlyForAgy() throws InterruptedException
 //
 //	}
 
-
-
-
-
 public void enterAlldetailsForAgy(DataTable credentials) throws InterruptedException {
 	
 	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
@@ -507,20 +546,29 @@ public void enterAlldetailsForAgy(DataTable credentials) throws InterruptedExcep
 
 
 
-public void assertediteddetailsForAgy(DataTable credentials) throws InterruptedException
+public void assertDeatailsOfTask(DataTable credentials) throws InterruptedException
 {
 	
 	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 	{
-		titlebtn.getText().contentEquals(data.get("Title for agy"));
-//		Assert.assertEquals(titlebtn.getText(), data.get("edited Title"));
-//		Assert.assertEquals(teamid.getText(), data.get("agency"));
-//		Assert.assertEquals(Assigntofield.getText(),data.get("agyAssignTo"));
-//		Assert.assertEquals(notefield.getText(), data.get("agynote"));
-		
+		if(emp==true)
+		{
+			titlebtn.getText().contentEquals(data.get("Title for emp"));
+//			teamid.getAttribute("value").contentEquals(data.get("employer"));
+//			Assigntofield.getAttribute("value").contentEquals(data.get("AssignTo"));
+			notefield.getText().contentEquals(data.get("note"));
+			
+		}
+		else
+		{
+			titlebtn.getText().contentEquals(data.get("Title for agy"));
+//			teamid.getAttribute("value").contentEquals(data.get("agency"));
+//			Assigntofield.getAttribute("value").contentEquals(data.get("agyAssignTo"));
+			notefield.getText().contentEquals(data.get("agynote"));
+		}
 	}
 }
-public void editTaskDetailsForAgy(DataTable credentials) throws InterruptedException {
+	public void editTaskDetailsForAgy(DataTable credentials) throws InterruptedException {
 	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 	{
 		Thread.sleep(2000);
@@ -533,7 +581,23 @@ public void editTaskDetailsForAgy(DataTable credentials) throws InterruptedExcep
 	}
 	employerspage.ClickCloseBtn();
 	System.out.println(addedtaskagy);
-}
+
+	}
+	public void shareWithTeam(DataTable credentials) throws InterruptedException
+	{
+		Thread.sleep(2000);
+		shareWithTeam.click();
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+		String team=data.get("Team");
+		String xpathforshare= "(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[1]";
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(xpathforshare)).click();
+		}
+		common.clickOnCloseBtn();
+	}
+	
+
 
 
 }

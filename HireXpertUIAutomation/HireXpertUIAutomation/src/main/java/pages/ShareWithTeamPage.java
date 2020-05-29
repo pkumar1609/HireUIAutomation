@@ -74,8 +74,8 @@ public class ShareWithTeamPage extends baseclass {
 		addToTeamMember.click();
 	}
 	
-	public void searchAgencyTeam() {
-		
+	public void searchAgencyTeam() 
+	{
 		String expectedEmail = prop.getProperty("agencyteamemail1");
 		searchField.click();
 		searchField.sendKeys(expectedEmail);

@@ -7,45 +7,45 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 19987655800,
+  "duration": 26990748200,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 503,
-  "name": "To verify third team member can make task in progress or in completed status",
+  "line": 606,
+  "name": "Verify task added for agency owner by team member display in teamtask when owner mark in progres",
   "description": "",
-  "id": "task-feature;to-verify-third-team-member-can-make-task-in-progress-or-in-completed-status",
+  "id": "task-feature;verify-task-added-for-agency-owner-by-team-member-display-in-teamtask-when-owner-mark-in-progres",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
     {
-      "line": 502,
-      "name": "@TC330A"
+      "line": 605,
+      "name": "@TC_300"
     }
   ]
 });
 formatter.step({
-  "line": 504,
+  "line": 607,
   "name": "User should be registered",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 505,
+  "line": 608,
   "name": "title of login page is Home",
   "keyword": "When "
 });
 formatter.step({
-  "line": 506,
+  "line": 609,
   "name": "Click on Employer-Agency Signin link",
   "keyword": "And "
 });
 formatter.step({
-  "line": 507,
-  "name": "agency enters valid credentials",
+  "line": 610,
+  "name": "Employer enters valid credentials",
   "keyword": "And "
 });
 formatter.step({
-  "line": 508,
+  "line": 611,
   "name": "team member should be added",
   "rows": [
     {
@@ -59,7 +59,7 @@ formatter.step({
         "team",
         "agyteam"
       ],
-      "line": 509
+      "line": 612
     },
     {
       "cells": [
@@ -72,7 +72,7 @@ formatter.step({
         "pe1",
         "pa1"
       ],
-      "line": 510
+      "line": 613
     },
     {
       "cells": [
@@ -85,14 +85,51 @@ formatter.step({
         "pe1",
         "pa1"
       ],
-      "line": 511
+      "line": 614
     }
   ],
   "keyword": "And "
 });
 formatter.step({
-  "line": 512,
-  "name": "Click on Add task button and enter all details for agency",
+  "line": 615,
+  "name": "Go to workbench",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 616,
+  "name": "Select a job",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 617,
+  "name": "Share job with team member",
+  "rows": [
+    {
+      "cells": [
+        "Team",
+        "Agyteam"
+      ],
+      "line": 618
+    },
+    {
+      "cells": [
+        "pe1",
+        "pa1"
+      ],
+      "line": 619
+    }
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "comments": [
+    {
+      "line": 620,
+      "value": "#|pe2 |pa2   |"
+    }
+  ],
+  "line": 621,
+  "name": "Click on Add task button and enter all details employer",
   "rows": [
     {
       "cells": [
@@ -111,202 +148,91 @@ formatter.step({
         "agyteam",
         "agyteamid"
       ],
-      "line": 513
+      "line": 622
     },
     {
       "cells": [
-        "task11",
+        "task9",
         "pemp",
-        "pe1",
+        "pemp",
         "Task should complete before time",
         "pemp",
         "pe1",
         "pe1@gmail.com",
-        "particular task",
+        "task9",
         "pagy",
-        "pa1",
+        "pagy",
         "Task should complete before time",
         "pagy",
         "pa1",
         "pe1@gmail.com"
       ],
-      "line": 514
+      "line": 623
     }
   ],
   "keyword": "And "
-});
-formatter.step({
-  "line": 515,
-  "name": "the task should display for agency",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 516,
-  "name": "Logout from App",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 517,
-  "name": "Click on Employer-Agency Signin link",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 518,
-  "name": "Login with agency team",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 519,
-  "name": "Task should also display for agency team member",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 520,
-  "name": "Logout from App",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 521,
-  "name": "Click on Employer-Agency Signin link",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 522,
-  "name": "login as third agency team",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 523,
-  "name": "Task should also display for agency team member",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 524,
-  "name": "Click on mark in progress",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 525,
-  "name": "third user should not able to put task in progress",
-  "keyword": "Then "
 });
 formatter.match({
   "location": "TC275E.user_should_be_registered()"
 });
 formatter.result({
-  "duration": 15141728800,
+  "duration": 109579200,
   "status": "passed"
 });
 formatter.match({
   "location": "TC264_266.title_of_login_page_is_Home()"
 });
 formatter.result({
-  "duration": 8838900,
+  "duration": 7647300,
   "status": "passed"
 });
 formatter.match({
   "location": "TC264_266.click_on_Employer_Agency_Signin_link()"
 });
 formatter.result({
-  "duration": 3097634700,
+  "duration": 3112767900,
   "status": "passed"
 });
 formatter.match({
-  "location": "TC265_267k.agency_enters_valid_credentials()"
+  "location": "TC264_266.employer_enters_valid_credentials()"
 });
 formatter.result({
-  "duration": 25133366000,
+  "duration": 6542095700,
   "status": "passed"
 });
 formatter.match({
   "location": "TC275E.team_member_should_be_added(DataTable)"
 });
 formatter.result({
-  "duration": 8735880400,
+  "duration": 81391887400,
   "status": "passed"
 });
 formatter.match({
-  "location": "TC265_267k.in_add_task_popup_Fill_all_the_mandatory_details(DataTable)"
+  "location": "TC264_266.go_to_workbench()"
 });
 formatter.result({
-  "duration": 7777150200,
+  "duration": 2091308700,
   "status": "passed"
 });
 formatter.match({
-  "location": "TC265_267k.the_task_should_display_for_both_agency()"
+  "location": "TC264_266.select_a_job_and_click_on_add_task_button()"
 });
 formatter.result({
-  "duration": 3212570300,
+  "duration": 2109819400,
   "status": "passed"
 });
 formatter.match({
-  "location": "TC275E.Logout_from_App()"
+  "location": "TC275E.share_job_with_team_member(DataTable)"
 });
 formatter.result({
-  "duration": 4314902800,
+  "duration": 8224485800,
   "status": "passed"
 });
 formatter.match({
-  "location": "TC264_266.click_on_Employer_Agency_Signin_link()"
+  "location": "TC264_266.in_add_task_popup_Fill_all_the_mandatory_details(DataTable)"
 });
 formatter.result({
-  "duration": 3127620800,
-  "status": "passed"
-});
-formatter.match({
-  "location": "TC265_267k.login_with_agency_team()"
-});
-formatter.result({
-  "duration": 24223139700,
-  "status": "passed"
-});
-formatter.match({
-  "location": "TC265_267k.task_should_also_display_for_team_member()"
-});
-formatter.result({
-  "duration": 23305386200,
-  "status": "passed"
-});
-formatter.match({
-  "location": "TC275E.Logout_from_App()"
-});
-formatter.result({
-  "duration": 4341595800,
-  "status": "passed"
-});
-formatter.match({
-  "location": "TC264_266.click_on_Employer_Agency_Signin_link()"
-});
-formatter.result({
-  "duration": 3082114800,
-  "status": "passed"
-});
-formatter.match({
-  "location": "TC330.login_as_third_agency_team()"
-});
-formatter.result({
-  "duration": 24808008500,
-  "status": "passed"
-});
-formatter.match({
-  "location": "TC265_267k.task_should_also_display_for_team_member()"
-});
-formatter.result({
-  "duration": 3250229400,
-  "status": "passed"
-});
-formatter.match({
-  "location": "TC269_271_273.click_on_mark_in_progress()"
-});
-formatter.result({
-  "duration": 2116674400,
-  "status": "passed"
-});
-formatter.match({
-  "location": "TC330.third_user_should_not_able_to_put_task_in_progress()"
-});
-formatter.result({
-  "duration": 2275950900,
+  "duration": 5668156000,
   "status": "passed"
 });
 });
