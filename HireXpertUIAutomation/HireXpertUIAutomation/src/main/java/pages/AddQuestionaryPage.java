@@ -217,24 +217,10 @@ public class AddQuestionaryPage extends baseclass {
 		}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void clickOnSaveChangesButton() {
+		
+		SaveChangesBtn.click();
+	}
 	
 	
 

@@ -1,5 +1,6 @@
 package pages;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -31,6 +32,9 @@ public class CandidateCardSectionPage extends baseclass {
 	
 	@FindBy(xpath = "//body//td[3]")
 	public WebElement thirdColumn;
+	
+	@FindBy(xpath = "//body//td[8]")
+	public WebElement rejected8thColumn;
 	
 	@FindBy(id = "assigntoedit")
 	public WebElement changeAssignTo;
@@ -198,6 +202,33 @@ public class CandidateCardSectionPage extends baseclass {
 		else
 			return true;
 	}
+	
+//	public void verifyRejectedColumnData() {
+//		
+//		List<WebElement> allHeadersOfTable = driver.findElements(By.xpath("//*[@id=\"style-5\"]/div/table/thead/tr/th/text()")); //retrieving all table headers
+//		
+//		System.out.println("\nTotal headers found: " + allHeadersOfTable.size());
+//		System.out.println("All headers of table are :");
+//		for(WebElement header:allHeadersOfTable) {
+//			
+//			System.out.print(header.getText());
+//		}
+//		
+//		for(WebElement header:allHeadersOfTable) {
+//			
+//			String HeaderName = header.getText();
+//			
+//			if(HeaderName.equals("Rejected ")) {
+//				
+//				System.out.println("\nRejected column found..");
+//			}
+//			else {
+//				
+//				System.out.println("\nRejected column not found..");
+//			}
+//		}
+//	}
+	
 	
 
 }

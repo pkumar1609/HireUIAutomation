@@ -154,3 +154,64 @@ Examples:
 | sayagency1@gmail.com |   12345    |      
 
 #reg TC ID: 317  
+
+
+@regression1_05
+	Scenario: Verify user able to move rejected candidate from Rejected column to any other column
+	
+	Given User is on Home page of application
+    
+    When title of page is HireXpert
+    And enter valid user email address and password for employer and click on Sign in button
+    |  sayali1@gmail.com  |  12345  |
+    And click on Workbench tab and select job from Jobs drop down
+    And observe candidate is added or not if not added then add new candidate
+    | c01@gmail.com | 300000 |
+    And Click on Reject Candidate icon from candidate card and reject that candidate
+    Then Observe candidate get moved in Rejected column automatically
+    And Now move that candidate from Rejected column to any other column and observe
+    And Click on Add Questionnaire button
+	And Enter a Question and enter Marks accordingly to that question
+	| Question 1 | 20 |
+	And Enter the answers and Marks accordingly to the answer 
+	| answer1 | 20 | answer2 | 0 |
+	And click on Save Changes button
+	And Enter the cutoff & rejection percentage
+	| 60 | 40 |
+	And click on submit button
+	Then Collect Answer icon should reflect on candidates card for giving answers
+	And Click on Reject Candidate icon from candidate card and reject that candidate
+	Then Observe candidate get moved in Rejected column automatically
+	And Now move that candidate from Rejected column to any other column and observe
+	And close the browser
+
+#reg TC ID: 292
+
+
+@regression1_06
+	Scenario Outline: Verify one after one rejected candidate listed in Rejected Column
+	
+	Given User is on Home page of application
+    
+    When title of page is HireXpert
+    And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+	And click on Workbench tab and select job from Jobs drop down
+	And click on Add Candidate button and add two new candidates for the job and click on Find button
+    | c01@gmail.com | c02@gmail.com | c03@gmail.com | c04@gmail.com |
+    And fill mandatory details
+    And click on Save button
+    Then new candidate should get added in New column
+    And move both candidates in Interview Pending 1 column
+    And Click on Reject Candidate icon from candidate card and reject that candidate
+    Then Observe candidate get moved in Rejected column automatically
+    And Click on Reject Candidate icon from candidate card for second candidate 
+    And click on No from confirmation popup and observe
+    Then both candidates should not display in same column
+    And close the browser
+
+Examples:
+|    email address     |  password  |
+|  sayali1@gmail.com   |   12345    |
+| sayagency1@gmail.com |   12345    |    
+
+#reg TC ID: 467

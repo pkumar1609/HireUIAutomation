@@ -144,12 +144,12 @@ public class WorkbenchPage extends baseclass {
 		List<WebElement> collectanswericon = driver.findElements(By.xpath("//button[@title='Collect Answer']"));
 		if(collectanswericon.size() != 0){
 			
-			System.out.println("Collect Answer icon is displayed on candidates card for giving answers.");
+			System.out.println("\nCollect Answer icon is displayed on candidates card for giving answers.");
 		}
 		
 		else  {
 			
-			System.out.println("Collect Answer icon is not displayed on candidates card for giving answers as there is no questionary added.");
+			System.out.println("\nCollect Answer icon is not displayed on candidates card for giving answers as there is no questionary added.");
 			
 		}
 	}
