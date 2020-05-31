@@ -15,9 +15,6 @@ public class EditJobPage extends baseclass {
 	@FindBy(id = "budget")
 	public WebElement budget;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/add-edit-job/div[3]/button[2]")
-	public WebElement submitButton;
-	
 	@FindBy(id = "totalInterviews")
 	public WebElement totalinterviews;
 	

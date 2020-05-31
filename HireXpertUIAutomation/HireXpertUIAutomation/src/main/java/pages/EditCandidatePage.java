@@ -5,23 +5,23 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilPackage.baseclass;
+import utilPackage.utilclass;
 
 public class EditCandidatePage extends baseclass {
 	
 	@FindBy(id = "ContactNumber")
 	public WebElement contactNumber;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/job-applicant-component/div[3]/button[2]")
+	@FindBy(xpath = "//div[@class='modal-footer']//button[@class='btn btn-primary Cbtn-primary']")
 	public WebElement saveButton;
-	
-	@FindBy(id = "confirmModalBtn")
-	public WebElement yesButtonProbabilityPopup;
 	
 	@FindBy(id = "NoticePeriod")
 	public WebElement noticePeriod;
@@ -140,5 +140,49 @@ public class EditCandidatePage extends baseclass {
 		rb.keyPress(KeyEvent.VK_ENTER);   
 		rb.setAutoDelay(3000);
 	}
+	
+	public void observeOneDeletedSkill() throws InterruptedException {
+		
+		String sk2Exp2 = addjobpage.skill2Exp2;
+		System.out.println("\nDeleted skill2: " + sk2Exp2);
+		Thread.sleep(1000);
+		
+		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		
+		String xpath_start_sk2Exp2 = "//*[@id=\"ng-invalidDiv\"]/tr[";
+		String xpath_end_sk2Exp2 = "]/td[1]/input[1]";
+		
+		int i = 1;
+		
+		while(isElementPresent(xpath_start_sk2Exp2+i+xpath_end_sk2Exp2)) {
+			
+			String s02 = driver.findElement(By.xpath(xpath_start_sk2Exp2+i+xpath_end_sk2Exp2)).getText();
+			
+			if(s02.equalsIgnoreCase(sk2Exp2)) {
+				
+				System.out.println("\nDeleted skill found..");
+			}
+			else {
+				
+				System.out.println("\nDeleted skill not found..");
+			}
+			
+			i++;
+		}
+		
+		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
+	}
+	
+	public boolean isElementPresent(String elementXpath) {
+		
+		int count = driver.findElements(By.xpath(elementXpath)).size();
+		
+		if(count==0)
+			return false;
+		else
+			return true;
+	}
+	
+	
 
 }

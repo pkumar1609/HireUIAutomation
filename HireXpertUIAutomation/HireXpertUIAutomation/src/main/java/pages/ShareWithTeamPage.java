@@ -28,17 +28,11 @@ public class ShareWithTeamPage extends baseclass {
 	@FindBy(xpath = "//span[contains(text(),'Add to Team Member')]")
 	public WebElement addToTeamMember;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")
-	public WebElement submitButton;
-	
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	public WebElement searchField;
 	
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-share-job-with-team/div[2]/div[2]/div/div/table/tbody/tr/td[4]/label/input")
 	public WebElement primaryContactRadioButton;
-	
-	@FindBy(xpath = "//button[@class='btn btn-outline-dark']")
-	public WebElement closeButton;
 	
 	@FindBy(xpath = "//td[5]//label[1]//input[1]")   //2nd team member share checkbox after searching
 	public WebElement shareCheckbox;
@@ -48,9 +42,6 @@ public class ShareWithTeamPage extends baseclass {
 	
 	@FindBy(xpath = "//td[4]//label[1]//span[1]") //2nd team member primary contact after searching
 	public WebElement secondRowPrimaryContact;
-	
-//	@FindBy(id = "confirmModalBtn")               //sharewithagencypage.yesButtonConfirmation.click();  share checkbox
-//	public WebElement yesButtonShareCheckbox;
 	
 	@FindBy(id = "confirmModalBtn")
 	public WebElement yesButtonRadioButton;
@@ -211,7 +202,7 @@ public class ShareWithTeamPage extends baseclass {
 				WebElement we = driver.findElement(By.xpath(xpath_start_sharecheckbox+i+xpath_end_sharecheckbox));		
 				we.click();
 				Thread.sleep(1000);
-				sharewithagencypage.yesButtonConfirmation.click();
+				common.clickOnConfirmYes();
 				System.out.println("\nNow job is shared with other team member..");
 				Thread.sleep(3000);
 				
@@ -288,7 +279,7 @@ public class ShareWithTeamPage extends baseclass {
 				WebElement we = driver.findElement(By.xpath(xpath_start_sharecheckbox+i+xpath_end_sharecheckbox));		
 				we.click();
 				Thread.sleep(1000);
-				sharewithagencypage.yesButtonConfirmation.click();
+				common.clickOnConfirmYes();
 				System.out.println("\nNow job is shared with other team member..");
 				Thread.sleep(3000);
 				

@@ -96,7 +96,7 @@ public class assignToAndAddedBy extends baseclass {
 		teampage.TeamMemberEmail.sendKeys(data.get(0).get(1));
 		teampage.TeamMemberContactNumber.sendKeys(data.get(0).get(2));
 		
-		teampage.submitButton.click();
+		common.submitbtn.click();
 		Thread.sleep(3000);
 	}
 
@@ -118,10 +118,10 @@ public class assignToAndAddedBy extends baseclass {
 	@Then("^click on Yes button from confirmation popup and click on Close button from Share Job$")
 	public void click_on_Yes_button_from_confirmation_popup_and_click_on_Close_button_from_Share_Job() throws Throwable {
 	    
-		sharewithagencypage.yesButtonConfirmation.click();
+		common.clickOnConfirmYes();
 		System.out.println("\nNow job is shared with team member..");
 		Thread.sleep(3000);
-		sharewithteampage.closeButton.click();
+		common.addClosebtn.click();
 	}
 
 	@Then("^logout with logged in user and login with team member valid credentials for which you Shared the Job$")
@@ -152,6 +152,9 @@ public class assignToAndAddedBy extends baseclass {
 	@When("^enter valid user email address and password for agency and click on Sign in button$")
 	public void enter_valid_user_email_address_and_password_for_agency_and_click_on_Sign_in_button(DataTable dt) throws Throwable {
 	    
+		registerpage.clickEmployerAgencySignInlink();
+		Thread.sleep(3000);
+		
 		List<List<String>> data = dt.raw();
 		loginpage.emailaddress.sendKeys(data.get(0).get(0));
 		loginpage.password.sendKeys(data.get(0).get(1));
@@ -280,17 +283,17 @@ public class assignToAndAddedBy extends baseclass {
 		if(value == true) {
 			
 			sharewithagencypage.shareCheckbox.click();
-			sharewithagencypage.yesButtonConfirmation.click();
+			common.clickOnConfirmYes();
 			Thread.sleep(3000);
 			System.out.println("\nJob shared with agency owner..");
-			sharewithagencypage.closeButton.click();
+			common.closebtn.click();
 			Thread.sleep(1000);
 		}
 		
 		else {
 			
 			System.out.println("\nJob is already shared with agency owner..");
-			sharewithagencypage.closeButton.click();
+			common.closebtn.click();
 			Thread.sleep(1000);
 		}
 		
@@ -381,16 +384,16 @@ public class assignToAndAddedBy extends baseclass {
 		if(value == true) {
 			
 			sharewithteampage.shareCheckbox.click();
-			sharewithagencypage.yesButtonConfirmation.click();
+			common.clickOnConfirmYes();
 			Thread.sleep(3000);
 			System.out.println("\nJob shared with agency team member..");
-			sharewithteampage.closeButton.click();
+			common.addClosebtn.click();
 		}
 		
 		else {
 			
 			System.out.println("\nJob is already shared with agency team member..");
-			sharewithteampage.closeButton.click();
+			common.addClosebtn.click();
 		}
 	}
 
@@ -411,7 +414,7 @@ public class assignToAndAddedBy extends baseclass {
 	public void click_on_Reject_Candidate_icon_from_candidate_card_and_reject_that_candidate() throws Throwable {
 	    
 		candidatecardsectionpage.candidateCardRejectCandidate.click();
-		sharewithagencypage.yesButtonConfirmation.click();
+		common.clickOnConfirmYes();
 		Thread.sleep(3000);
 		candidatecardsectionpage.selectRejectReason();
 	}
@@ -423,7 +426,7 @@ public class assignToAndAddedBy extends baseclass {
 		Thread.sleep(2000);
 		
 		candidatecardsectionpage.candidateCardDeleteCandidateIcon.click();
-		sharewithagencypage.yesButtonConfirmation.click();
+		common.clickOnConfirmYes();
 	}
 
 	@Then("^Now login with Employer$")

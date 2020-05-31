@@ -89,7 +89,7 @@ public class scheduledInterview extends baseclass {
 	    
 		scheduleinterviewpage.fillInterviewDetails();
 		Thread.sleep(2000);
-		scheduleinterviewpage.submitButton.click();
+		common.submitbtn.click();
 		Thread.sleep(3000);
 		System.out.println("\nNew interview scheduled..");
 	}
@@ -97,7 +97,7 @@ public class scheduledInterview extends baseclass {
 	@When("^click on close button from Interview details page$")
 	public void click_on_close_button_from_Interview_details_page() throws Throwable {
 	    
-		scheduleinterviewpage.closeButton.click();
+		common.closebtn.click();
 		Thread.sleep(2000);
 	}
 	
@@ -144,7 +144,7 @@ public class scheduledInterview extends baseclass {
 		Thread.sleep(1000);
 		Select se = new Select(scheduleinterviewpage.duration);
 		se.selectByIndex(3);
-		scheduleinterviewpage.submitButton.click();
+		common.submitbtn.click();
 		Thread.sleep(3000);
 	}
 
@@ -168,7 +168,7 @@ public class scheduledInterview extends baseclass {
 		Thread.sleep(1000);
 		scheduleinterviewpage.calendar.sendKeys("29/05/2020");
 		Thread.sleep(1000);
-		scheduleinterviewpage.submitButton.click();
+		common.submitbtn.click();
 		Thread.sleep(3000);
 	}
 

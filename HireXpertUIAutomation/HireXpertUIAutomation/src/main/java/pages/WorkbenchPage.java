@@ -41,12 +41,6 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "/html/body/app-root/div/div/div/workbench/div/div[2]/div/table/tbody/tr/td[1]/div/div/div/div/div[2]/div[3]/div/div[2]/button")
 	public WebElement candidateCardEditInterview;
 	
-	@FindBy(id="EditCandidate")
-	public WebElement candidateCardEditCandidateIcon;
-	
-	@FindBy(id = "confirmModalBtn")
-	public WebElement yesConfirmDeleteCandidate;
-	
 	@FindBy(xpath="//button[contains(text(),'Add Questionnaire')]")
 	public WebElement AddQuestionarybtn;
 	
@@ -122,12 +116,6 @@ public class WorkbenchPage extends baseclass {
 	public Select se;
 	
 	public void selectJob() throws InterruptedException {
-		Thread.sleep(2000);
-		se = new Select(jobDropDown);
-		se.selectByIndex(1);
-	}
-	
-	public void selectAgencyJob() throws InterruptedException {
 		Thread.sleep(2000);
 		se = new Select(jobDropDown);
 		se.selectByIndex(1);

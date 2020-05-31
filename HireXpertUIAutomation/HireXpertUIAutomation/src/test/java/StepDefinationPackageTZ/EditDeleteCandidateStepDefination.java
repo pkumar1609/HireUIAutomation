@@ -35,7 +35,7 @@ public class EditDeleteCandidateStepDefination extends baseclass {
 	public void click_on_Edit_Candidate_icon_on_candidate_card() throws InterruptedException {
 		
 		Thread.sleep(3000);
-		workbenchpage.candidateCardEditCandidateIcon.click();
+		candidatecardsectionpage.clickOnEditCandidateIcon();
 	}
 
 	@When("^Make the changes in \"([^\"]*)\" field$")
@@ -49,7 +49,7 @@ public class EditDeleteCandidateStepDefination extends baseclass {
 		
 		Thread.sleep(3000);
 		editcandidatepage.saveButton.click();
-		editcandidatepage.yesButtonProbabilityPopup.click();
+		common.clickOnConfirmYes();
 	}
 
 	@Then("^click on Delete Candidate icon on Candidate card$")
@@ -57,7 +57,7 @@ public class EditDeleteCandidateStepDefination extends baseclass {
 		
 		Thread.sleep(3000);
 		candidatecardsectionpage.candidateCardDeleteCandidateIcon.click();
-		workbenchpage.yesConfirmDeleteCandidate.click();
+		common.clickOnConfirmYes();
 	}
 	
 	@When("^login with Agency credential\\.$")

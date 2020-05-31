@@ -17,7 +17,7 @@ import utilPackage.utilclass;
 
 public class a_blockFunctionalitySteps extends baseclass {
 
-//scenario 1:
+//@agencyblock:
 
 	@When("^enter valid user email address and password for registered employer and click on Sign in button$")
 	public void enter_valid_user_email_address_and_password_for_registered_employer_and_click_on_Sign_in_button(DataTable dt) throws Throwable {
@@ -63,9 +63,9 @@ public class a_blockFunctionalitySteps extends baseclass {
 	@When("^click on Yes button from confirmation popup and click on Close button from Share Job window$")
 	public void click_on_Yes_button_from_confirmation_popup_and_click_on_Close_button_from_Share_Job_window() throws Throwable {
 	    
-		sharewithagencypage.yesButtonConfirmation.click();
+		common.clickOnConfirmYes();
 		Thread.sleep(4000);
-		sharewithagencypage.closeButton.click();
+		common.closebtn.click();
 		Thread.sleep(1000);
 	}
 
@@ -161,7 +161,7 @@ public class a_blockFunctionalitySteps extends baseclass {
 		sharewithteampage.TeamContactNumber.sendKeys(data.get(0).get(2));
 		
 		sharewithteampage.selectAddToTeamMember();
-		sharewithteampage.submitButton.click();
+		common.submitbtn.click();
 		Thread.sleep(3000);
 	}
 
@@ -176,7 +176,7 @@ public class a_blockFunctionalitySteps extends baseclass {
 	@Then("^click on Yes button from confirmation popup and observe$")
 	public void click_on_Yes_button_from_confirmation_popup_and_observe() throws Throwable {
 	    
-		sharewithagencypage.yesButtonConfirmation.click();
+		common.clickOnConfirmYes();
 	}
 
 	@Then("^user should able to search team member and blocked agency should not able to share job with any team members and error message should display$")
@@ -189,7 +189,7 @@ public class a_blockFunctionalitySteps extends baseclass {
 
 	
 	
-//scenario 2:
+//@teamblock:
 
 	@When("^click on Team tab and add one new team member by clicking on Add button$")
 	public void click_on_Team_tab_and_add_one_new_team_member_by_clicking_on_Add_button(DataTable dt) throws Throwable {
@@ -210,7 +210,7 @@ public class a_blockFunctionalitySteps extends baseclass {
 			teampage.TeamMemberName.sendKeys(data.get(0).get(0));
 			teampage.TeamMemberEmail.sendKeys(data.get(0).get(1));
 			teampage.TeamMemberContactNumber.sendKeys(data.get(0).get(2));
-			teampage.submitButton.click();
+			common.submitbtn.click();
 			System.out.println("\nNew team member get added by employer..");
 			Thread.sleep(3000);
 		}
@@ -227,7 +227,7 @@ public class a_blockFunctionalitySteps extends baseclass {
 			teampage.TeamMemberName.sendKeys(data.get(0).get(3));
 			teampage.TeamMemberEmail.sendKeys(data.get(0).get(4));
 			teampage.TeamMemberContactNumber.sendKeys(data.get(0).get(5));
-			teampage.submitButton.click();
+			common.submitbtn.click();
 			System.out.println("\nNew team member get added by agency..");
 			Thread.sleep(3000);
 		}
@@ -239,7 +239,7 @@ public class a_blockFunctionalitySteps extends baseclass {
 	@When("^click on Close button from Team Members window$")
 	public void click_on_Close_button_from_Team_Members_window() throws Throwable {
 	    
-		teampage.closeButton.click();
+		common.closebtn.click();
 	}
 
 	@When("^click on Share With Team button and select the Share checkbox present in front of the team member to share the job$")
@@ -277,7 +277,7 @@ public class a_blockFunctionalitySteps extends baseclass {
 	@When("^click on Yes button from confirmation popup and now select the Block/Unblock checkbox present in front of the team member$")
 	public void click_on_Yes_button_from_confirmation_popup_and_now_select_the_Block_Unblock_checkbox_present_in_front_of_the_team_member() throws Throwable {
 	    
-		sharewithagencypage.yesButtonConfirmation.click();
+		common.clickOnConfirmYes();
 		Thread.sleep(3000);
 		sharewithteampage.blockUnblockCheckbox.click();
 		Thread.sleep(2000);
@@ -286,9 +286,9 @@ public class a_blockFunctionalitySteps extends baseclass {
 	@When("^click on Yes button from confirmation popup and click on Close button from Share Job$")
 	public void click_on_Yes_button_from_confirmation_popup_and_click_on_Close_button_from_Share_Job() throws Throwable {
 	    
-		sharewithagencypage.yesButtonConfirmation.click();
+		common.clickOnConfirmYes();
 		Thread.sleep(4000);
-		sharewithteampage.closeButton.click();
+		common.addClosebtn.click();
 		Thread.sleep(1000);
 	}
 	

@@ -1,5 +1,8 @@
 package pages;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -7,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import utilPackage.baseclass;
+import utilPackage.utilclass;
 
 public class CandidateCardSectionPage extends baseclass {
 	
@@ -31,17 +35,20 @@ public class CandidateCardSectionPage extends baseclass {
 	@FindBy(id = "assigntoedit")
 	public WebElement changeAssignTo;
 	
+	@FindBy(id="EditCandidate")
+	WebElement candidateCardEditCandidateIcon;
+	
 	@FindBy(xpath="//button[@title='Delete Candidate']")
 	public WebElement candidateCardDeleteCandidateIcon;
 	
 	@FindBy(xpath = "//select[@formcontrolname='name']")
 	WebElement selectTeamAssignTo;
 	
-	@FindBy(xpath = "//button[@class='btn btn-primary Cbtn-primary']")
-	WebElement submitButton;
-	
 	@FindBy(xpath = "//button[@title='Reject Candidate']")
 	public WebElement candidateCardRejectCandidate;
+	
+	@FindBy(xpath = "//h6[@title='Candidate Details']")
+	WebElement candidateCardCandidateName;
 	
 	@FindBy(id = "rejectReason")
 	WebElement rejectReason;
@@ -71,6 +78,16 @@ public class CandidateCardSectionPage extends baseclass {
 		
 		PageFactory.initElements(driver, this);
 		this.driver = driver;
+	}
+	
+	public void clickOnEditCandidateIcon() {
+		
+		candidateCardEditCandidateIcon.click();
+	}
+	
+	public void clickOnCandidateNameFromCandidateCard() {
+		
+		candidateCardCandidateName.click();
 	}
 	
 	public void dragAndDropCardToSecondColumn() throws InterruptedException {
@@ -116,7 +133,7 @@ public class CandidateCardSectionPage extends baseclass {
 			
 			se = new Select(selectTeamAssignTo);
 			se.selectByIndex(0);
-			submitButton.click();
+			common.submitbtn.click();
 			Thread.sleep(3000);
 			System.out.println("\nUser able to edit Assign To name..");
 		}
@@ -131,9 +148,56 @@ public class CandidateCardSectionPage extends baseclass {
 		
 		se = new Select(rejectReason);
 		se.selectByIndex(3);
-		submitButton.click();
+		common.submitbtn.click();
 		Thread.sleep(3000);
 		System.out.println("\nCandidate get rejected and added in Rejected column..");
 	}
+	
+	public void observeAllPresentSkills() throws InterruptedException {
+		
+		String sk1 = addjobpage.skill1;
+		System.out.println("\nEntered skill1: " + sk1);
+
+		Thread.sleep(1000);
+		String sk2 = addjobpage.skill2;
+		System.out.println("Entered skill2: " +sk2);
+		
+		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		
+		String xpath_start_sk1 = "//*[@id=\"style-5\"]/div/div[7]/table/tbody/tr[";
+		String xpath_end_sk1 = "]/td[1]";
+		
+		int i = 1;
+		
+		while(isElementPresent(xpath_start_sk1+i+xpath_end_sk1)) {
+			
+			String s02 = driver.findElement(By.xpath(xpath_start_sk1+i+xpath_end_sk1)).getText();
+			
+			if(s02.equalsIgnoreCase(sk1) || s02.equalsIgnoreCase(sk2)) {
+				
+				System.out.println("\nSkill found..");
+			}
+			
+			else {
+				
+				System.out.println("\nSkill not found..");
+			}
+			
+			i++;
+		}
+				
+		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
+	}
+	
+	public boolean isElementPresent(String elementXpath) {
+		
+		int count = driver.findElements(By.xpath(elementXpath)).size();
+		
+		if(count==0)
+			return false;
+		else
+			return true;
+	}
+	
 
 }

@@ -49,12 +49,6 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//*[@id=\"fromDatePicker\"]/div/div/input")
 	public WebElement lastWorkingDay;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[3]/button[2]")
-	public WebElement saveButton;
-	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[3]/button[1]")
-	public WebElement closeButton;
-	
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[2]/div[1]/button")
 	public WebElement addSkillButton;
 	

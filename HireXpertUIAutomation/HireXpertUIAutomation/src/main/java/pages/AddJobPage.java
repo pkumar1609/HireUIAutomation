@@ -40,11 +40,14 @@ public class AddJobPage extends baseclass {
 	@FindBy(id = "totalInterviews")
 	public WebElement totalinterviews;
 	
-	@FindBy(xpath = "//button[@class='btn float-right Cbtn-primary']")
+	@FindBy(xpath = "//button[contains(text(),' Add Skill ')]")
 	public WebElement addskillbutton;
 	
-	@FindBy(xpath = "//tr[3]//td[6]//button[1]")
-	public WebElement deleteSkill3;
+	@FindBy(xpath = "//tr[2]//td[6]//button[1]")
+	WebElement deleteSkill2;
+	
+	@FindBy(xpath = "//tr[1]//td[6]//button[1]")
+	public WebElement deleteSkill1;
 	
 	@FindBy(xpath = "//*[@id=\"style-5\"]/form/div/div/div[1]/div[1]/div[5]/div/div[2]/button")
 	public WebElement employerplusicon;
@@ -103,8 +106,9 @@ public class AddJobPage extends baseclass {
 	@FindBy(id = "noticeperiod")
 	public WebElement noticePeriod;
 	
-	
-	
+	public String skill1 = "s1";
+	public String skill2 = "s2";
+	public String skill2Exp2 = "S2(Expert)";
 	Select se;
 	
 	public AddJobPage() {
@@ -151,7 +155,9 @@ public class AddJobPage extends baseclass {
 	
 	public void addNewSkill1() {
 		
-		jobskill1.sendKeys("s1");
+		addskillbutton.click();
+		
+		jobskill1.sendKeys(skill1);
 		se = new Select(expertiselevel1);
 		se.selectByVisibleText("Expert");
 		
@@ -161,7 +167,9 @@ public class AddJobPage extends baseclass {
 	
 	public void addNewSkill2() {
 		
-		jobskill2.sendKeys("s2");
+		addskillbutton.click();
+		
+		jobskill2.sendKeys(skill2);
 		se = new Select(expertiselevel2);
 		se.selectByVisibleText("Expert");
 		
@@ -171,20 +179,20 @@ public class AddJobPage extends baseclass {
 	
 	public void deleteSkills() {
 		
-		deleteSkill3.click();
+		deleteSkill2.click();
 	}
 	
 	public void fillEmployerDetailsPlusIcon() {
 		
-		employerName.sendKeys("Sayali");
-		employerEmail.sendKeys("sayali@gmail.com");
+		employerName.sendKeys("Sayali1");
+		employerEmail.sendKeys("sayali1@gmail.com");
 		employerContactNumber.sendKeys("215245554");
 	}
 	
 	public void employerDropDown() {
 		
 		se = new Select(employer);
-		se.selectByVisibleText("Sayali");
+		se.selectByVisibleText("Sayali1");
 	}
 	
 	public void clickOnSubmitButton() {
@@ -192,5 +200,5 @@ public class AddJobPage extends baseclass {
 		common.submitbtn.click();
 	}
 	
-
+	
 }

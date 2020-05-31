@@ -54,7 +54,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	@When("^click on Yes button from confirmation popup and select the Block/Unblock checkbox present in front of the agency with whom you shared the job$")
 	public void click_on_Yes_button_from_confirmation_popup_and_select_the_Block_Unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job() throws Throwable {
 	    
-		sharewithagencypage.yesButtonConfirmation.click();
+		common.clickOnConfirmYes();
 		Thread.sleep(3000);
 		sharewithagencypage.blockUnblockCheckbox.click();
 		Thread.sleep(2000);
@@ -63,7 +63,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	@When("^click on Yes button from confirmation popup$")
 	public void click_on_Yes_button_from_confirmation_popup() throws Throwable {
 	    
-		sharewithagencypage.yesButtonConfirmation.click();
+		common.clickOnConfirmYes();
 		Thread.sleep(3000);
 	}
 
@@ -78,7 +78,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	public void employer_should_be_able_to_unblock_the_agency() throws Throwable {
 	    
 		System.out.println("Employer able to unblock the agency..");
-		sharewithagencypage.closeButton.click();
+		common.closebtn.click();
 		Thread.sleep(1000);
 	}
 
@@ -199,7 +199,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	@When("^click on Yes button from confirmation popup and select the Block/Unblock checkbox present in front of the team member with whom you shared the job$")
 	public void click_on_Yes_button_from_confirmation_popup_and_select_the_Block_Unblock_checkbox_present_in_front_of_the_team_member_with_whom_you_shared_the_job() throws Throwable {
 	    
-		sharewithagencypage.yesButtonConfirmation.click();
+		common.clickOnConfirmYes();
 		Thread.sleep(3000);
 		sharewithteampage.blockUnblockCheckbox.click();
 		Thread.sleep(2000);
