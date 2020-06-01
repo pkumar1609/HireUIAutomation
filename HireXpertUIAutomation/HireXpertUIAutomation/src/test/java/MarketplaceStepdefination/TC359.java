@@ -52,7 +52,9 @@ public class TC359 extends baseclass {
 
 	@And("^logout with agency and Login with employer$")
 	public void login_with_employer_to_whom_job_proposal_is_send() throws Throwable {
+		
 		loginpage.logoutFromAppK();
+		 loginpage.ClickOnEmployerAgencySigninLink();
 		loginpage.loginInAppWithEmpK();
 	}
 

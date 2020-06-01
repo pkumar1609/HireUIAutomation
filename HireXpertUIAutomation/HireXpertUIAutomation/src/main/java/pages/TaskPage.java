@@ -145,7 +145,6 @@ public class TaskPage extends baseclass {
 	           { 
 	             System.out.println(item.getText());          
 	           }
-
 			notefield.sendKeys(data.get("note"));
 			employerspage.ClickSubmitBtn();
 		}

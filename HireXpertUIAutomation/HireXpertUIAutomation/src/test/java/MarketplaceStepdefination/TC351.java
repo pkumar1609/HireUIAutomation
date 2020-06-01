@@ -35,6 +35,10 @@ public class TC351 extends baseclass {
 		String Title = driver.getTitle();
 		Assert.assertEquals(Title, "HireXpert");
 	}
+	@And("^Click on Employer-Agency Signin link$")
+	public void click_on_Employer_Agency_Signin_link() throws Throwable {
+	    loginpage.ClickOnEmployerAgencySigninLink();
+	}
 
 	@When("^Login with employer$")
 	public void login_with_employer() throws Throwable {
@@ -62,7 +66,7 @@ public class TC351 extends baseclass {
 	@And("^change information and click on submit$")
 	public void change_information_and_click_on_submit(DataTable credentials) throws InterruptedException   {
 	    
-		marketplacepage.EnterdeatilsOfMarketplace(credentials);
+//		marketplacepage.EnterdeatilsOfMarketplace(credentials);
 	}
 
 	@And("^Click on Employer marketplace tab$")
@@ -85,7 +89,9 @@ public class TC351 extends baseclass {
 
 	@And("^logout with employer and Login with agency$")
 	public void logout_with_employer_and_Login_with_agency() throws InterruptedException  {
+		 
 		loginpage.logoutFromAppK();
+		loginpage.ClickOnEmployerAgencySigninLink();
 		loginpage.loginInAppWithAgyK();
 	}
 

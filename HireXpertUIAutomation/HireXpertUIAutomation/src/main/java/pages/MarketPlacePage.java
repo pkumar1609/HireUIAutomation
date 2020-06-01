@@ -216,7 +216,7 @@ public class MarketPlacePage extends baseclass {
 	{
 		Thread.sleep(2000);
 		select=new Select(jobdropdown);
-		select.selectByVisibleText("komaljob15 - Active");
+		select.selectByVisibleText("job2 - Active");
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", searchbtn);
 	}

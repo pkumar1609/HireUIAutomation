@@ -25,6 +25,7 @@ public class TC359 extends baseclass {
 	boolean b;
 	@Given("^Job must be share to market place$")
 	public void job_must_be_share_to_market_place(DataTable credentials) throws Throwable {
+	
 		loginpage.loginInAppWithEmpK();
 		dashboardpage.openWorkbenchPage();
 		workbenchpage.selectJobK();
@@ -85,6 +86,7 @@ public class TC359 extends baseclass {
 	}
 	@And("^logout with employer and Login with agency$")
 	public void logout_with_employer_and_Login_with_agency() throws Throwable {
+		 loginpage.ClickOnEmployerAgencySigninLink();
 		loginpage.logoutFromAppK();
 		loginpage.loginInAppWithAgyK();
 	}

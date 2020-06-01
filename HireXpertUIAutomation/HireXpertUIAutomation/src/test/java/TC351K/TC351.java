@@ -55,13 +55,13 @@ public class TC351 extends baseclass {
 	public void click_on_share_job_with_market_place() throws InterruptedException   {
 		System.out.println(driver);
 		Thread.sleep(2000);
-//		marketpage.ClickOnShareWithMarketPlace();
+//		marketplacepage.ClickOnShareWithMarketPlace();
 	}
 
 	@And("^change information and click on submit$")
 	public void change_information_and_click_on_submit(DataTable credentials) throws InterruptedException   {
 	    
-//		marketpage.EnterdeatilsOfMarketplace(credentials);
+//		marketplacepage.EnterdeatilsOfMarketplace(credentials);
 	}
 
 	@And("^Now go to marketplace tab$")

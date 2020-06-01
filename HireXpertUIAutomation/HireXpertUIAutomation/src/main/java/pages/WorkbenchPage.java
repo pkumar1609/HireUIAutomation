@@ -142,7 +142,7 @@ public class WorkbenchPage extends baseclass {
 		Thread.sleep(2000);
 		select = new Select(jobDropDown);
 		jobname=prop.getProperty("jobname");
-		select.selectByVisibleText("komaljob15 - Active");	
+		select.selectByVisibleText("job2 - Active");	
 	}
 	
 	public void verifyCollectAnswericonT() {

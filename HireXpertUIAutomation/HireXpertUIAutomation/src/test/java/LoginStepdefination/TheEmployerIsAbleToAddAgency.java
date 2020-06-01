@@ -36,6 +36,11 @@ public class TheEmployerIsAbleToAddAgency extends baseclass {
 		agenciespage.getTitle();
 	}
 
+	@And("^Click on Employer-Agency Signin link$")
+	public void click_on_Employer_Agency_Signin_link() throws Throwable {
+	    loginpage.ClickOnEmployerAgencySigninLink();
+	}
+	
 	@And("^Employer enters valid credentials$")
 	public void Employer_enters_valid_credentials() throws InterruptedException{
 		loginpage.loginInAppWithEmpK();

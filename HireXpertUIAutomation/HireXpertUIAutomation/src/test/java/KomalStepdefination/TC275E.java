@@ -47,8 +47,7 @@ public class TC275E extends baseclass {
 		public void user_enters_valid_and_credentials() throws Throwable {
 //		loginpage.loginInAppWithAgyK();
 		loginpage.loginInAppWithEmpK();
-		loginpage.identifyUserK();
-		this.b=loginpage.b;
+
 
 		}
 	 
@@ -63,7 +62,7 @@ public class TC275E extends baseclass {
 		}
 		else
 		{
-			taskpage.enterAlldetailsForAgy(credentials);
+		taskpage.enterAlldetailsForAgy(credentials);
 		}
 		
 		
