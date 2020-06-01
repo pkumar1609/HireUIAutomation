@@ -1,13 +1,13 @@
 Feature: Marketplace Feature
 
-@TC351
+@TC351 @BVT
 Scenario: To verify the functionality to share job with market place.
 Given user is registered 
 When title of login page is Home
 And Click on Employer-Agency Signin link
-And Login with employer
-And go to the workbench tab
-And Select job from jobs drop down
+And Employer enters valid credentials
+And Go to workbench
+And Select a job
 And Click on share job with market place
 And change information and click on submit
 |Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
@@ -19,7 +19,7 @@ And Go to agency marketplace tab
 Then All shared job by any employer should be show for all register agencies
 
 
-@TC359_357
+@TC359_357 @BVT
 Scenario: To check the functionality of Reject proposal and view button on Agency profile
 Given user is registered 
 And Click on Employer-Agency Signin link
@@ -43,7 +43,7 @@ Then Agreement popup should show request information in read only mode
 |8.33                 |30 Days       |60 Days      |90 Days           |
 
 
-@TC361
+@TC361 @BVT
 Scenario: To check the functionality of Review request
 Given user is registered 
 And Click on Employer-Agency Signin link
@@ -65,7 +65,7 @@ Then status should display as employer signed
 
 
 
-@TC363_375
+@TC363_375 @BVT
 Scenario: To check the functionality of Review request and add candidate
 Given user is registered 
 And Click on Employer-Agency Signin link
