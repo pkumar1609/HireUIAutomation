@@ -57,6 +57,7 @@ public class addjobsteps extends baseclass{
 			Thread.sleep(1000);
 			addjobpage.addNewSkill1();
 			addjobpage.addNewSkill2();
+			addjobpage.deleteSkill3.click();
 		}
 		
 		else{
@@ -72,6 +73,7 @@ public class addjobsteps extends baseclass{
 			Thread.sleep(1000);
 			addjobpage.addNewSkill1();
 			addjobpage.addNewSkill2();
+			addjobpage.deleteSkill3.click();
 			
 			Thread.sleep(2000);
 			addjobpage.employerplusicon.click();

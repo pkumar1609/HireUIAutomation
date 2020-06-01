@@ -73,13 +73,12 @@ public class EmployersPage extends baseclass {
 	
 	public void searchEmployer() {
 		
-//		String expectedEmail = prop.getProperty("employeremail");
-		String expectedEmail = "sayali@gmail.com";
+		String expectedEmail = "sayali1@gmail.com";
 		
 		searchfield.click();
 		searchfield.sendKeys(expectedEmail);
 		
-		String actualEmail = driver.findElement(By.xpath("//td[contains(text(),'sayali@gmail.com')]")).getText();
+		String actualEmail = driver.findElement(By.xpath("//*[@id=\"style-5\"]/table/tbody/tr/td[2]")).getText();
 		
 		if(actualEmail.equals(expectedEmail)) {
 			System.out.println("Employer found..");

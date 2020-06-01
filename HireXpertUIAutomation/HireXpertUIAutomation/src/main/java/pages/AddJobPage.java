@@ -46,6 +46,9 @@ public class AddJobPage extends baseclass {
 	@FindBy(xpath = "//tr[2]//td[6]//button[1]")
 	WebElement deleteSkill2;
 	
+	@FindBy(xpath = "//tr[3]//td[6]//button[1]")
+	public WebElement deleteSkill3;
+	
 	@FindBy(xpath = "//tr[1]//td[6]//button[1]")
 	public WebElement deleteSkill1;
 	
@@ -155,7 +158,7 @@ public class AddJobPage extends baseclass {
 	
 	public void addNewSkill1() {
 		
-		addskillbutton.click();
+//		addskillbutton.click();
 		
 		jobskill1.sendKeys(skill1);
 		se = new Select(expertiselevel1);
@@ -167,7 +170,7 @@ public class AddJobPage extends baseclass {
 	
 	public void addNewSkill2() {
 		
-		addskillbutton.click();
+//		addskillbutton.click();
 		
 		jobskill2.sendKeys(skill2);
 		se = new Select(expertiselevel2);
@@ -192,7 +195,7 @@ public class AddJobPage extends baseclass {
 	public void employerDropDown() {
 		
 		se = new Select(employer);
-		se.selectByVisibleText("Sayali1");
+		se.selectByVisibleText("Sayali 1");
 	}
 	
 	public void clickOnSubmitButton() {
