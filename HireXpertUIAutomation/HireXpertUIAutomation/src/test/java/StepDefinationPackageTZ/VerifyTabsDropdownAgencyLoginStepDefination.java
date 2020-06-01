@@ -67,7 +67,7 @@ public class VerifyTabsDropdownAgencyLoginStepDefination extends baseclass {
 	public void click_on_submit() throws Throwable {
 		
 		Thread.sleep(3000);
-		scheduleinterviewpage.submitButton.click();
+		common.submitbtn.click();
 		
 	}
 	

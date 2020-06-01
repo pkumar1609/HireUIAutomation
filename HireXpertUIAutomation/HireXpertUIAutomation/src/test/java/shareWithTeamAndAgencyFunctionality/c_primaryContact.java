@@ -38,7 +38,7 @@ public class c_primaryContact extends baseclass {
 					teampage.TeamMemberContactNumber.sendKeys(data.get(0).get(2));
 					sharewithteampage.selectAddToTeamMember();
 					Thread.sleep(2000);
-					sharewithteampage.submitButton.click();
+					common.submitbtn.click();
 					Thread.sleep(3000);	
 				}
 				
@@ -58,7 +58,7 @@ public class c_primaryContact extends baseclass {
 					teampage.TeamMemberContactNumber.sendKeys(data.get(0).get(5));
 					sharewithteampage.selectAddToTeamMember();
 					Thread.sleep(2000);
-					sharewithteampage.submitButton.click();
+					common.submitbtn.click();
 					Thread.sleep(3000);	
 				}
 				
@@ -68,7 +68,7 @@ public class c_primaryContact extends baseclass {
 	@Then("^user should not able to make multiple team members as primary contact$")
 	public void user_should_not_able_to_make_multiple_team_members_as_primary_contact() throws Throwable {
 	    
-		sharewithteampage.closeButton.click();
+		common.addClosebtn.click();
 		Thread.sleep(2000);
 		
 	}

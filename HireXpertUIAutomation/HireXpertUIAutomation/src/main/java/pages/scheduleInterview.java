@@ -34,14 +34,8 @@ public class scheduleInterview extends baseclass {
 	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div[2]/form/div/div[6]/select")
 	public WebElement timezone;
 	
-	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div[2]/button[1]")
-	public WebElement submitButton;
-	
 	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div[1]/div/div/div[1]/div/div/h6")
 	public WebElement scheduledInterviewLeftTitle;
-	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-interview-info/div[3]/button")
-	public WebElement closeButton;
 	
 	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div[1]/div/div/div[3]/div/button[1]")
 	public WebElement editInterviewIcon;

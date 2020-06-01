@@ -47,7 +47,7 @@ public class CandidateDashboardPage extends baseclass {
 		Thread.sleep(1000);
 		String c2 = candidateupdateprofilepage.certificate2.getAttribute("value");
 		System.out.println("Entered certificate: " +c2);
-		candidateupdateprofilepage.closeButton.click();
+		common.closebtn.click();
 		Thread.sleep(3000);
 		
 		verifyTableHeading();

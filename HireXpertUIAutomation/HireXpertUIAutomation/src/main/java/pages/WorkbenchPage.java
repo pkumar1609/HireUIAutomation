@@ -41,12 +41,6 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "/html/body/app-root/div/div/div/workbench/div/div[2]/div/table/tbody/tr/td[1]/div/div/div/div/div[2]/div[3]/div/div[2]/button")
 	public WebElement candidateCardEditInterview;
 	
-	@FindBy(id="EditCandidate")
-	public WebElement candidateCardEditCandidateIcon;
-	
-	@FindBy(id = "confirmModalBtn")
-	public WebElement yesConfirmDeleteCandidate;
-	
 	@FindBy(xpath="//button[contains(text(),'Add Questionnaire')]")
 	public WebElement AddQuestionarybtn;
 	
@@ -127,12 +121,6 @@ public class WorkbenchPage extends baseclass {
 		se.selectByIndex(1);
 	}
 	
-	public void selectAgencyJob() throws InterruptedException {
-		Thread.sleep(2000);
-		se = new Select(jobDropDown);
-		se.selectByIndex(1);
-	}
-	
 	public void selectjobT() {
 		se = new Select (jobDropDown);
   		se.selectByVisibleText("Job-1 Test Engineer - Active");
@@ -156,12 +144,12 @@ public class WorkbenchPage extends baseclass {
 		List<WebElement> collectanswericon = driver.findElements(By.xpath("//button[@title='Collect Answer']"));
 		if(collectanswericon.size() != 0){
 			
-			System.out.println("Collect Answer icon is displayed on candidates card for giving answers.");
+			System.out.println("\nCollect Answer icon is displayed on candidates card for giving answers.");
 		}
 		
 		else  {
 			
-			System.out.println("Collect Answer icon is not displayed on candidates card for giving answers as there is no questionary added.");
+			System.out.println("\nCollect Answer icon is not displayed on candidates card for giving answers as there is no questionary added.");
 			
 		}
 	}

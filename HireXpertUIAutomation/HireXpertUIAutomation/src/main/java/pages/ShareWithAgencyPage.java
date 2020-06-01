@@ -14,14 +14,8 @@ public class ShareWithAgencyPage extends baseclass {
 	@FindBy(xpath = "//td[4]//label[1]//input[1]")
 	public WebElement shareCheckbox;
 	
-	@FindBy(xpath = "//button[@class='btn btn-outline-dark']")
-	public WebElement closeButton;
-	
 	@FindBy(xpath = "//td[5]//label[1]//span[1]")
 	public WebElement blockUnblockCheckbox;
-	
-	@FindBy(xpath = "//button[@id = 'confirmModalBtn']")
-	public WebElement yesButtonConfirmation;
 	
 	public ShareWithAgencyPage() {
 		
