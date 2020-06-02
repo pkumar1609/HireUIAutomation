@@ -1,4 +1,4 @@
-package TC49_53K;
+package BVT_StepDefination;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,27 +21,17 @@ public class TC49_53K extends baseclass {
 		super();
 	}
 	
-	@Before()
-	public void setup() throws IOException
-	{
-		baseclass.initialization();
-	}
+//	@Before()
+//	public void setup() throws IOException
+//	{
+//		baseclass.initialization();
+//	}
 	
 	String deleteele;
 	String checkelement;
 	
 
-	@Given("^User must be registered as agency profile$")
-	public void user_must_be_registered_as_agency_profile() {
-		
-	}
-
-	@When("^title of login page is Home$")
-	public void title_of_login_page_is_Home()  {
-		String Title = driver.getTitle();
-		Assert.assertEquals(Title, "HireXpert");
-	}
-
+	
 	@And("^agency enters valid credentials$")
 	public void agency_enters_valid_credentials() throws InterruptedException {
 		loginpage.loginInAppWithAgyK();
@@ -49,17 +39,13 @@ public class TC49_53K extends baseclass {
 
 	@And("^Click on Employer tab$")
 	public void click_on_Employer_tab() throws InterruptedException  {
-		Thread.sleep(2000);
+	
 		dashboardpage.openEmployersPage();
 	}
 
-	@And("^Click on add Button to add the employer$")
-	public void click_on_add_Button_to_add_the_employer() throws InterruptedException  {
-		Thread.sleep(1000);
-		employerspage.ClickAddBtn();
-	}
 
-	@And("^Fill all the mandatory details$")
+
+	@And("^Click on add Button and Fill all the mandatory details for employer$")
 	public void fill_all_the_mandatory_details(DataTable credentials) throws InterruptedException   {
 		Thread.sleep(1000);
 		employerspage.enterValidCredentials(credentials);

@@ -586,17 +586,28 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 	{
 		Thread.sleep(2000);
 		shareWithTeam.click();
-		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		if(emp==true)
 		{
-		String team=data.get("Team");
-		String xpathforshare= "(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[1]";
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(xpathforshare)).click();
+			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+			{
+			String team=data.get("EmpTeam");
+			String xpathforshare= "(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[1]";
+			Thread.sleep(2000);
+			driver.findElement(By.xpath(xpathforshare)).click();
+			}
+		}
+		else 
+		{
+			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+			{
+			String team=data.get("AgyTeam");
+			String xpathforshare= "(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[1]";
+			Thread.sleep(2000);
+			driver.findElement(By.xpath(xpathforshare)).click();
+			}
 		}
 		common.clickOnCloseBtn();
 	}
 	
-
-
 
 }

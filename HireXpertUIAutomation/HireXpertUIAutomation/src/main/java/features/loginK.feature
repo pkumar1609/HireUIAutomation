@@ -1,13 +1,13 @@
 Feature: UserAccount Feature
 
-@TC47_51
+@TC47_51 @BVT @login
 Scenario: To verify whether the employer is able to add agency.
 
-Given User must be registered 
+Given User must be registered
 
-When title of login page is Home 
+When title of login page is Home
 And Click on Employer-Agency Signin link
-And Employer enters valid credentials 
+And Employer enters valid credentials
 And Click on Agencies tab
 And Click on add Button Fill all the mandatory details for agency
 |Name  |         Email     | contact  |
@@ -15,16 +15,18 @@ And Click on add Button Fill all the mandatory details for agency
 |pagy1 | pagy1@gmail.com   | 1234564  |
 Then Employer should be able to add Agency
 Then Newly added agency should be displayed in Agencies page
-And delete the added agency 
+And delete the added agency
 
-@TC48_52
+
+
+@TC48_52 @BVT @login
 Scenario: To verify whether the employer is able to add team
 
 Given User must be registered
 
-When title of login page is Home 
+When title of login page is Home
 And Click on Employer-Agency Signin link
-And Employer enters valid credentials 
+And Employer enters valid credentials
 And Click on team tab
 And Click on add Button and Fill all the mandatory details for employer team
 |Name|         Email   | contact  |
@@ -35,7 +37,7 @@ Then Newly added team member should be displayed in team page
 Then the employer with which you have logged in should display in team tab by default
 And delete the added team
 
-@TC49_53
+@TC49_53 @BVT @login
 Scenario: To verify whether the Agency is able to add and delete employer
 
 Given User must be registered
@@ -54,7 +56,7 @@ And  delete the added employer
 Then deleted employer should not be display in employer page
 
 
-@TC50_54
+@TC50_54 @BVT @login
 Scenario: To verify whether the Agency is able to add and delete team
 
 Given User must be registered
@@ -71,8 +73,6 @@ Then Agency should be able to add team
 Then Newly added team should be displayed in team page
 And delete the added team
 Then deleted employer should not be display in team page
-
-
 
 
 #Regression Test Cases
@@ -147,5 +147,4 @@ Then deleted employer should not be display in team page
 #Examples:
 #|Name                               |
 #|jfdjkvfhniduvnufdfjnvjkugfbigufnb  |
-#
-#
+
