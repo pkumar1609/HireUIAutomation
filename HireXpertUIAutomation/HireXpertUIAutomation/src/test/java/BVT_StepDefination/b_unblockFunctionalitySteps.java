@@ -155,14 +155,14 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	
 
 //scenario 2:
-	@When("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
-	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String arg1, String arg2) throws Throwable {
-	    
-		loginpage.emailaddress.sendKeys(arg1);
-		loginpage.password.sendKeys(arg2);
-		loginpage.signin.click();
-		Thread.sleep(5000);
-	}
+//	@When("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
+//	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String arg1, String arg2) throws Throwable {
+//	    
+//		loginpage.emailaddress.sendKeys(arg1);
+//		loginpage.password.sendKeys(arg2);
+//		loginpage.signin.click();
+//		Thread.sleep(5000);
+//	}
 
 	@When("^click on Share With Team button and select Share checkbox present in front of the team member to share the job$")
 	public void click_on_Share_With_Team_button_and_select_Share_checkbox_present_in_front_of_the_team_member_to_share_the_job() throws Throwable {

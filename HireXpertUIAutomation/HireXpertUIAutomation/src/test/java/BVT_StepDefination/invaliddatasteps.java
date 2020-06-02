@@ -20,12 +20,12 @@ public void user_is_on_Home_page_of_application() throws IOException  {
 	baseclass.initialization();
 }
 
-@When("^title of page is HireXpert$")
-public void title_of_page_is_HireXpert() throws Throwable {
-    
-	String title = loginpage.validateTitle();
-	System.out.println("Title of HireXpert application: " +title);
-}
+//@When("^title of page is HireXpert$")
+//public void title_of_page_is_HireXpert() throws Throwable {
+//    
+//	String title = loginpage.validateTitle();
+//	System.out.println("Title of HireXpert application: " +title);
+//}
 
 @When("^enter invalid user email address and invalid password which is not registered$")
 public void enter_invalid_user_email_address_and_invalid_password_which_is_not_registered(DataTable dt) throws Throwable {
