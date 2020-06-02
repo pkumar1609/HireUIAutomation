@@ -42,6 +42,12 @@ public class CandidateCardSectionPage extends baseclass {
 	@FindBy(id="EditCandidate")
 	WebElement candidateCardEditCandidateIcon;
 	
+	@FindBy(xpath = "//p[@title='Interview']")
+	public WebElement candidateCardInterviewDetails;
+	
+	@FindBy(xpath = "//button[@title='Edit Interview']")
+	public WebElement candidateCardEditInterview;
+	
 	@FindBy(xpath="//button[@title='Delete Candidate']")
 	public WebElement candidateCardDeleteCandidateIcon;
 	

@@ -38,12 +38,6 @@ public class InterviewsPage extends baseclass {
 		this.driver = driver;
 	}
 	
-	public void selectJob() {
-		
-		Select se = new Select(jobDropdown);
-		se.selectByVisibleText("Automation1");
-	}
-	
 	public void selectAgencyJob() {
 		
 		Select se = new Select(jobDropdown);
@@ -53,7 +47,6 @@ public class InterviewsPage extends baseclass {
 	
 	public void findInterviewDetails() throws InterruptedException {
 		
-		//Set implicit wait to 0
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		
 		Thread.sleep(1000);
@@ -77,7 +70,6 @@ public class InterviewsPage extends baseclass {
 			i++;
 		}
 		
-		//Revert back to default value of implicit wait
 		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 	}
 	

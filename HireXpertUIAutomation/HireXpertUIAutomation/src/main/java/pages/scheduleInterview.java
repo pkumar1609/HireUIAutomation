@@ -48,28 +48,6 @@ public class scheduleInterview extends baseclass {
 		this.driver = driver;
 	}
 	
-	public void fillInterviewDetails() throws InterruptedException {
-		
-		title.sendKeys("Interview1");
-		
-		interviewerDropDown.click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//*[@id=\"statusMultiselectDropdown\"]/div/div[2]/ul[2]/li[1]")).click();
-		
-		calendar.sendKeys("28/05/2020");
-		Thread.sleep(1000);
-		
-		hours.sendKeys("10");
-		
-		minutes.sendKeys("00");
-		
-		se = new Select(duration);
-		se.selectByIndex(2);
-		
-		se = new Select(timezone);
-		se.selectByVisibleText("Indian Standard Time");
-	}
-	
 	public void SelectinterviewerT(String interviewer) {
 		
 		interviewerDropDown.click();

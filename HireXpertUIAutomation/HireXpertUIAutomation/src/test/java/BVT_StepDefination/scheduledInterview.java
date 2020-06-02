@@ -46,7 +46,7 @@ public class scheduledInterview extends baseclass {
 					addcandidatepage.salaryOffered.sendKeys("300000");
 					Thread.sleep(1000);
 					common.clickOnSaveBtn();
-					driver.findElement(By.id("confirmModalBtn")).click();
+					common.clickOnConfirmYes();
 					Thread.sleep(3000);
 				}
 				
@@ -64,7 +64,7 @@ public class scheduledInterview extends baseclass {
 					addcandidatepage.salaryOffered.sendKeys("250000");
 					Thread.sleep(1000);
 					common.clickOnSaveBtn();
-					driver.findElement(By.id("confirmModalBtn")).click();
+					common.clickOnConfirmYes();
 					Thread.sleep(3000);
 				}
 				
@@ -85,9 +85,27 @@ public class scheduledInterview extends baseclass {
 	}
 
 	@When("^fill all interview details and click on Submit button$")
-	public void fill_all_interview_details_and_click_on_Submit_button() throws Throwable {
+	public void fill_all_interview_details_and_click_on_Submit_button(DataTable dt) throws Throwable {
 	    
-		scheduleinterviewpage.fillInterviewDetails();
+		List<List<String>> data = dt.raw();
+		
+		scheduleinterviewpage.title.sendKeys(data.get(0).get(0));
+		
+		scheduleinterviewpage.interviewerDropDown.click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//*[@id=\"statusMultiselectDropdown\"]/div/div[2]/ul[2]/li[1]")).click();
+		
+		scheduleinterviewpage.calendar.sendKeys(data.get(0).get(1));
+		Thread.sleep(1000);
+		scheduleinterviewpage.hours.sendKeys(data.get(0).get(2));
+		scheduleinterviewpage.minutes.sendKeys(data.get(0).get(3));
+		
+		Select se = new Select(scheduleinterviewpage.duration);
+		se.selectByVisibleText(data.get(0).get(4));
+		
+		se = new Select(scheduleinterviewpage.timezone);
+		se.selectByVisibleText(data.get(0).get(5));
+		
 		Thread.sleep(2000);
 		common.submitbtn.click();
 		Thread.sleep(3000);
@@ -104,7 +122,7 @@ public class scheduledInterview extends baseclass {
 	@When("^observe the interview date and time displayed on candidate card below Assign To field$")
 	public void observe_the_interview_date_and_time_displayed_on_candidate_card_below_Assign_To_field() throws Throwable {
 	    
-		String interview = workbenchpage.candidateCardInterviewDetails.getText();
+		String interview = candidatecardsectionpage.candidateCardInterviewDetails.getText();
 		System.out.println("Interview Details on candidate card: " + interview);
 	}
 	
@@ -113,20 +131,22 @@ public class scheduledInterview extends baseclass {
 	    
 		workbenchpage.clickReloadCandidateButton();
 		Thread.sleep(3000);
-		String interview = workbenchpage.candidateCardInterviewDetails.getText();
+		String interview = candidatecardsectionpage.candidateCardInterviewDetails.getText();
 		System.out.println("Interview Details on candidate card after reloading: " + interview);
 	}
 
 	@When("^click on Edit Interview icon in front of interview details like date and time$")
 	public void click_on_Edit_Interview_icon_in_front_of_interview_details_like_date_and_time() throws Throwable {
 	    
-		workbenchpage.candidateCardEditInterview.click();
+		candidatecardsectionpage.candidateCardEditInterview.click();
 		Thread.sleep(3000);
 	}
 
 	@When("^make some changes in interview details and click on Submit button$")
-	public void make_some_changes_in_interview_details_and_click_on_Submit_button() throws Throwable {
+	public void make_some_changes_in_interview_details_and_click_on_Submit_button(DataTable dt) throws Throwable {
 	    
+		List<List<String>> data = dt.raw();
+		
 		String interviewTitle =  scheduleinterviewpage.title.getAttribute("value");
 		
 		String interviewLeftTitle = scheduleinterviewpage.scheduledInterviewLeftTitle.getText();
@@ -140,10 +160,10 @@ public class scheduledInterview extends baseclass {
 		}
 		
 		scheduleinterviewpage.hours.clear();
-		scheduleinterviewpage.hours.sendKeys("11");
+		scheduleinterviewpage.hours.sendKeys(data.get(0).get(0));
 		Thread.sleep(1000);
 		Select se = new Select(scheduleinterviewpage.duration);
-		se.selectByIndex(3);
+		se.selectByVisibleText(data.get(0).get(1));
 		common.submitbtn.click();
 		Thread.sleep(3000);
 	}
@@ -162,11 +182,13 @@ public class scheduledInterview extends baseclass {
 	}
 
 	@Then("^make some changes and click on Submit button$")
-	public void make_some_changes_and_click_on_Submit_button() throws Throwable {
+	public void make_some_changes_and_click_on_Submit_button(DataTable dt) throws Throwable {
 	    
+		List<List<String>> data = dt.raw();
+		
 		scheduleinterviewpage.calendar.clear();
 		Thread.sleep(1000);
-		scheduleinterviewpage.calendar.sendKeys("29/05/2020");
+		scheduleinterviewpage.calendar.sendKeys(data.get(0).get(0));
 		Thread.sleep(1000);
 		common.submitbtn.click();
 		Thread.sleep(3000);
@@ -186,15 +208,18 @@ public class scheduledInterview extends baseclass {
 	}
 
 	@Then("^Select the filters for which you want candidate interview details and click on Search button$")
-	public void select_the_filters_for_which_you_want_candidate_interview_details_and_click_on_Search_button() throws Throwable {
+	public void select_the_filters_for_which_you_want_candidate_interview_details_and_click_on_Search_button(DataTable dt) throws Throwable {
 	    
-		interviewspage.selectJob();
+		List<List<String>> data = dt.raw();
+		
+		Select se = new Select(interviewspage.jobDropdown);
+		se.selectByVisibleText(data.get(0).get(0));
 		Thread.sleep(2000);
 		interviewspage.fromdate.clear();
-		interviewspage.fromdate.sendKeys("29/05/2020");
+		interviewspage.fromdate.sendKeys(data.get(0).get(1));
 		Thread.sleep(2000);
 		interviewspage.todate.clear();
-		interviewspage.todate.sendKeys("29/05/2020");
+		interviewspage.todate.sendKeys(data.get(0).get(1));
 		Thread.sleep(2000);
 		interviewspage.searchButton.click();
 	}

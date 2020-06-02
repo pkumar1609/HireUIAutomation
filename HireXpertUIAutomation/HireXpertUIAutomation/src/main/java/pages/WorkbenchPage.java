@@ -35,12 +35,6 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[@title=\"Schedule Interview\"]")
 	public WebElement scheduleInterview;
 	
-	@FindBy(xpath = "//p[contains(text(),'28')]")
-	public WebElement candidateCardInterviewDetails;
-	
-	@FindBy(xpath = "/html/body/app-root/div/div/div/workbench/div/div[2]/div/table/tbody/tr/td[1]/div/div/div/div/div[2]/div[3]/div/div[2]/button")
-	public WebElement candidateCardEditInterview;
-	
 	@FindBy(xpath="//button[contains(text(),'Add Questionnaire')]")
 	public WebElement AddQuestionarybtn;
 	
