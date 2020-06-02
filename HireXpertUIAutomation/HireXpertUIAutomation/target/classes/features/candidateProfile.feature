@@ -7,22 +7,23 @@ Feature: User Management
     
     When title of page is HireXpert
     And enter valid user email address and password for employer and click on Sign in button
-    |  sayali8@gmail.com  |  12345  |
+    |sayali1@gmail.com|12345|
     And click on Workbench tab and select job from Jobs drop down
     And click on Add Candidate button
     And enter email id of candidate which is not registered previously and click on Find button
-    | c34@gmail.com |
+    | c02@gmail.com |
     And Fill all mandatory details and click on Save button
-    | c34 | 431632529 | test engineer| Female | 30 | Pune | Email | Expert |
+    | c02 | 431631529 | test engineer| Female | 30 | Pune | Email | Expert |
     And click on Yes button if probability related fields are not filled and observe
     Then user should able to add new candidate and candidate should get added in New column
     And logout with employer and login with new candidate added by employer
-    | c34@gmail.com | 12345 |
+    | c02@gmail.com | 12345 |
     Then Candidate should be able to login with email id added by user and Update profile pop up will appears 
     And observe the auto-populated fields on the update candidate profile popup
     Then all filled information should auto populate if candidate added through employer
     And observe email id field from candidate profile
 	And Select the On Notice Period field and set last working day on Update Profile page
+	| 31/07/2020 |
 	And Click on Save button and again go to Update Profile page
 	And Observe the Last Working Day field
 	Then Last Working date should get updated properly

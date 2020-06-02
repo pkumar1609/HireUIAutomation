@@ -23,6 +23,7 @@ public class candidateProfile extends baseclass {
 	@When("^enter valid user email address and password for employer and click on Sign in button$")
 	public void enter_valid_user_email_address_and_password_for_employer_and_click_on_Sign_in_button(DataTable dt) throws Throwable {
 		
+		
 		registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(3000);
 		
@@ -179,6 +180,9 @@ public class candidateProfile extends baseclass {
 		workbenchpage.ClickonLogout();
 		Thread.sleep(3000);
 		
+		registerpage.clickJobseekerCandidateSignInlinklink();
+		Thread.sleep(3000);
+		
 		List<List<String>> data = dt.raw();
 		loginpage.emailaddress.sendKeys(data.get(0).get(0));
 		loginpage.password.sendKeys(data.get(0).get(1));
@@ -215,11 +219,13 @@ public class candidateProfile extends baseclass {
 	}
 	
 	@Then("^Select the On Notice Period field and set last working day on Update Profile page$")
-	public void select_the_On_Notice_Period_field_and_set_last_working_day_on_Update_Profile_page() throws Throwable {
+	public void select_the_On_Notice_Period_field_and_set_last_working_day_on_Update_Profile_page(DataTable dt) throws Throwable {
 	    
+		List<List<String>> data = dt.raw();
+		
 		candidateupdateprofilepage.noticePeriodCheckbox.click();
 		Thread.sleep(1000);
-		candidateupdateprofilepage.lastWorkingDay.sendKeys("31/05/2020");
+		candidateupdateprofilepage.lastWorkingDay.sendKeys(data.get(0).get(0));
 		Thread.sleep(2000);
 	}
 	
