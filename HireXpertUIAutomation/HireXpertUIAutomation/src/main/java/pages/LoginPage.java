@@ -49,6 +49,15 @@ public class LoginPage extends baseclass
 	@FindBy(xpath="//a[contains(text(),'Log Out')]")
 	public WebElement Logout;
 	
+	@FindBy(xpath = "//p[@class='error mb-1 pl-1 pr-1']") 
+	public WebElement errormsg1;
+	
+	@FindBy(xpath = "//div[contains(text(),'Email is required.')]")
+	public WebElement emailError;
+	
+	@FindBy(xpath = "//div[contains(text(),'Password is required.')]")
+	public WebElement pwdError;
+	
 	public String username;
 	public String user;
 	public boolean b;

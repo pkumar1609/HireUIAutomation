@@ -30,6 +30,9 @@ public void user_is_on_Home_page_of_application() throws IOException  {
 @When("^enter invalid user email address and invalid password which is not registered$")
 public void enter_invalid_user_email_address_and_invalid_password_which_is_not_registered(DataTable dt) throws Throwable {
     
+	registerpage.clickEmployerAgencySignInlink();
+	Thread.sleep(3000);
+	
 	List<List<String>> data = dt.raw();
 	loginpage.emailaddress.sendKeys(data.get(0).get(0));
 	loginpage.password.sendKeys(data.get(0).get(1));
@@ -41,14 +44,10 @@ public void enter_invalid_user_email_address_and_invalid_password_which_is_not_r
 public void user_should_not_be_able_to_login_to_application_and_error_message_should_display() throws Throwable {
     
 	System.out.println("\nUser not able to login with invalid email address and invalid password");
-	System.out.println("Error message should display like: User with 'asdfghj@gmail.com' doesn't exists in system");
-	Thread.sleep(2000);
-}
-
-@Then("^click on OK button from popup window$")
-public void click_on_OK_button_from_popup_window() throws Throwable {
-    
-	driver.findElement(By.id("alertModalCloseBtn")).click();
+	
+	String error = loginpage.errormsg1.getText();
+	
+	System.out.println("Error message should display like: " + error);
 	Thread.sleep(2000);
 }
 
@@ -68,7 +67,10 @@ public void enter_valid_user_email_address_and_invalid_password_which_is_registe
 public void error_message_should_display() throws Throwable {
     
 	System.out.println("\nUser not able to login with valid email address and invalid password");
-	System.out.println("Error message should display like: Wrong password. Please use forgot password link to reset your password.");
+	
+	String error = loginpage.errormsg1.getText();
+	
+	System.out.println("Error message should display like: " + error);
 	
 	Thread.sleep(2000);
 }
@@ -84,7 +86,8 @@ public void now_keep_Email_address_field_blank_and_tab() throws Throwable {
 @Then("^observe error message for Email address field$")
 public void observe_error_message_for_Email_address_field() throws Throwable {
     
-//	String emailerror = driver.findElement(By.xpath("//div[contains(text(),'Email is required.')]")).getText();
+//	String emailerror = loginpage.emailError.getText();
+//	System.out.println("\\nError message for Email address field: "+ emailerror);
 	System.out.println("\nError message for Email address field: Email is required");
 }
 
@@ -99,13 +102,27 @@ public void keep_password_field_blank_and_tab() throws Throwable {
 @Then("^observe error message for Password field$")
 public void observe_error_message_for_Password_field() throws Throwable {
     
-//	String pwderror = driver.findElement(By.xpath("//div[contains(text(),'Password is required.')]")).getText();
+//	String pwderror = loginpage.pwdError.getText();
+//	System.out.println("\nError message for Password field: " + pwderror);
 	System.out.println("\nError message for Password field: Password is required");
 }
 
 @Then("^Sign in button should not get enabled without entering email address or password and User should get error message for mandatory fields$")
 public void sign_in_button_should_not_get_enabled_without_entering_email_address_or_password_and_User_should_get_error_message_for_mandatory_fields() throws Throwable {
     
+//	boolean value = loginpage.signin.isEnabled();
+//	
+//	if(value == true) {
+//		
+//		System.out.println("\nSign in button is enabled when any one field or both Email address and Password fields are blank");
+//	}
+//	
+//	else {
+//		
+//		System.out.println("\nSign in button is disabled when any one field or both Email address and Password fields are blank");
+//	}
+	
+	
 	System.out.println("\nSign in button is disabled when any one field or both Email address and Password fields are blank");
 }
 
