@@ -163,7 +163,7 @@ public class ShareWithTeamPage extends baseclass {
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		
 		Thread.sleep(1000);
-		String s2 = prop.getProperty("teamemail2");
+		String s2 = "sayali1team1@gmail.com";
 		System.out.println("\nNew team member: " + s2);
 		
 		String xpath_start_email = "//*[@id=\"style-5\"]/table/tbody/tr[";
@@ -240,7 +240,7 @@ public class ShareWithTeamPage extends baseclass {
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		
 		Thread.sleep(1000);
-		String s2 = prop.getProperty("agencyteamemail2");
+		String s2 = "sayagency1team1@gmail.com";
 		System.out.println("\nNew team member: " + s2);
 		
 		String xpath_start_email = "//*[@id=\"style-5\"]/table/tbody/tr[";

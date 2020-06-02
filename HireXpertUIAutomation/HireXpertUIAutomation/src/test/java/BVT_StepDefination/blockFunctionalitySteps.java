@@ -15,7 +15,7 @@ import cucumber.api.java.en.When;
 import utilPackage.baseclass;
 import utilPackage.utilclass;
 
-public class a_blockFunctionalitySteps extends baseclass {
+public class blockFunctionalitySteps extends baseclass {
 
 //@agencyblock:
 
