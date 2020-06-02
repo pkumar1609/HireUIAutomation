@@ -71,7 +71,7 @@ And Verify the username by which user is login
 
 Examples: 
 | EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone             | country | password | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail       | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail    | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
-| Jade05         |  jade05@gmail.com     | 211394644             | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Jade06       | jade06@gmail.com  |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Jade07          | jade07@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+| Jade16         |  jade16@gmail.com     | 211394644             | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Jade17       | jade17@gmail.com  |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Jade18          | jade18@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
 
 
 
@@ -83,7 +83,7 @@ When click on Register link
 And enter details of already registered candidate "<candidatename>" "<candidateemail>" "<candidatecontactnumber>"
 And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 And click on Submit button
-Then User should get a error message as "User with 'mac31@gmail.com' already register with system as Candidate. Please use forgot password link to recover password."
+Then User should get a error message as "User with 'mac01@gmail.com' already register with system as Candidate. Please use forgot password link to recover password."
 And click on Close button
 And Click on Yes button of confirmation popup
 And Close the browser
@@ -92,7 +92,7 @@ When click on Register link
 And enter details of already registered agency "<agencyname>" "<agencyemail>" "<agencycontactnumber>"
 And Select value from dropdown of "<agencyusertype>" "<timezone>" "<country>"
 And click on Submit button
-Then User should get a error message as "User with 'mac32@gmail.com' already register with system as Agency. Please use forgot password link to recover password."
+Then User should get a error message as "User with 'mac02@gmail.com' already register with system as Agency. Please use forgot password link to recover password."
 And click on Close button
 And Click on Yes button of confirmation popup
 And Close the browser
@@ -101,15 +101,15 @@ When click on Register link
 And enter details of already registered employer "<employername>" "<employeremail>" "<employercontactnumber>"
 And Select value from dropdown of "<employerusertype>" "<timezone>" "<country>"
 And click on Submit button
-Then User should get a error message as "User with 'mac33@gmail.com' already register with system as Employer. Please use forgot password link to recover password."
+Then User should get a error message as "User with 'mac03@gmail.com' already register with system as Employer. Please use forgot password link to recover password."
 And click on Close button
 And Click on Yes button of confirmation popup
 And Close the browser
 
 
 Examples: 
-   | candidatename  |   candidateemail     | candidatecontactnumber  | candidateusertype  | timezone             | country |  agencyname  |   agencyemail     | agencycontactnumber  | agencyusertype  |   employername    |   employeremail   | employercontactnumber  | employerusertype  |
-   | Mac31          |  mac31@gmail.com     | 211394644               | Candidate          | Indian Standard Time | India   | Mac32        |  mac32@gmail.com  | 211314644            | Agency          | Mac33             |  mac33@gmail.com  | 123456456              | Employer          | 
+   | candidatename   |   candidateemail      | candidatecontactnumber  | candidateusertype  | timezone             | country |  agencyname   |   agencyemail      | agencycontactnumber  | agencyusertype  |   employername     |   employeremail    | employercontactnumber  | employerusertype  |
+   | Mac01           |  mac01@gmail.com      | 211394644               | Candidate          | Indian Standard Time | India   | Mac02         |  mac02@gmail.com   | 211314644            | Agency          | Mac03              |  mac03@gmail.com   | 123456456              | Employer          | 
    
     
 
@@ -128,8 +128,8 @@ And Click on Yes button of confirmation popup
 And Close the browser
      
  Examples:     
-  | EmployerName  |   EmployerEmail    | EmployerContactNumber  |  timezone              | country     | usertype  |
-  | Tom30         | tom30@gmail.com    | 4654644478             | Indian Standard Time   | India       | Candidate |
+  | EmployerName  |   EmployerEmail    | EmployerContactNumber    |  timezone              | country     | usertype  |
+  | Tom30         | tom30@gmail.com    | 4654644478               | Indian Standard Time   | India       | Candidate |
   
   
   

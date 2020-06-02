@@ -72,6 +72,12 @@ public class CandidateCardSectionPage extends baseclass {
 	@FindBy(xpath = "//i[@title='Delete Comment']")
 	public WebElement deleteCommentIcon;
 	
+	@FindBy(xpath = "//span[@title='Skill information is missing']")
+	public WebElement Skillinformationmissingicon;
+	
+	
+	//span[@title="Skill information is missing"]
+	
 	
 	Actions action;
 	Select se;
@@ -230,5 +236,35 @@ public class CandidateCardSectionPage extends baseclass {
 //	}
 	
 	
+	
+	public void verifyBellIconOnCandidateCard () {
+		
+		List<WebElement> bellicon = driver.findElements(By.xpath("//span[@title='Skill information is missing']"));
+         if(bellicon.size() != 0){
+			
+			System.out.println("Bell icon is present on candidate card as the expertise level for skills is not answered.");
+
+		}
+		
+		
+		else {
+			
+			System.out.println("Bell icon is present on candidate card as the expertise level for skills is answered.");
+			
+	  	   }
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
 
 }

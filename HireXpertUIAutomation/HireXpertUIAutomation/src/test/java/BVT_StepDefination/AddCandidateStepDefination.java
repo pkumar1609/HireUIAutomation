@@ -1,6 +1,5 @@
 package BVT_StepDefination;
 
-
 import java.io.IOException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -8,12 +7,27 @@ import utilPackage.baseclass;
 
 public class AddCandidateStepDefination extends baseclass {
 	
-	@When("^login with Employer credential Who already have a Job added$")
-	public void login_with_Employer_credential_Who_already_have_a_Job_added() throws InterruptedException  {
-		
-	Thread.sleep(3000);
-	registerpage.employerlogin();
-	    
+	@When("^login with Employer credential Who already have a Job added with skills$")
+	public void login_with_Employer_credential_Who_already_have_a_Job_added_with_skills() throws Throwable {
+
+		Thread.sleep(3000);
+		registerpage.employerlogin();
+
+	}
+
+	@When("^fill all the information and keep the expertise level for skills as not answered \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void fill_all_the_information_and_keep_the_expertise_level_for_skills_as_not_answered(String Name, String ContactNumber, String  Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
+
+		Thread.sleep(3000);
+		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
+	   
+	}
+
+	@When("^login with Agency credential Who already have a Job added with skills$")
+	public void login_with_Agency_credential_Who_already_have_a_Job_added_with_skills() throws Throwable {
+
+		Thread.sleep(3000);
+		registerpage.agencylogin();
 	}
 
 	

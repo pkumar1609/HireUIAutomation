@@ -370,6 +370,13 @@ public void verifythefieldsonregisterdialogbox () {
     	   Password.sendKeys(prop.getProperty("password"));
     	   Signinbtn.click();
        }
+       
+       public void employerloginforAddCandidate() {
+    	   Emailaddress.sendKeys(prop.getProperty("employerusername"));
+    	   Password.sendKeys(prop.getProperty("password"));
+    	   Signinbtn.click();
+       }
+ 
  
        public void agencylogin() {
     	   Emailaddress.sendKeys(prop.getProperty("agencyusername"));

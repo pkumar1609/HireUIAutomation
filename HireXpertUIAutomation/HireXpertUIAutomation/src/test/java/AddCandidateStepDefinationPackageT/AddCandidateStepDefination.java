@@ -2,7 +2,6 @@ package AddCandidateStepDefinationPackageT;
 
 
 import java.io.IOException;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -11,21 +10,44 @@ import utilPackage.baseclass;
 public class AddCandidateStepDefination extends baseclass {
 	
 	@Given("^Open browser$")
-	public void Open_browser() throws IOException {
-		
+	public void open_browser() throws Throwable {
+
 		baseclass.initialization();
-		
-	}
-	
-	@When("^login with Employer credential Who already have a Job added$")
-	public void login_with_Employer_credential_Who_already_have_a_Job_added() throws InterruptedException  {
-		
-	Thread.sleep(3000);
-	registerpage.employerlogin();
-	    
 	}
 
-	
+	@When("^click on Employer-Agency SignIn link$")
+	public void click_on_Employer_Agency_SignIn_link() throws Throwable {
+
+		Thread.sleep(3000);
+		registerpage.clickEmployerAgencySignInlink();
+		
+	}
+
+
+	@Given("^Again Open browser$")
+	public void again_Open_browser() throws Throwable {
+
+		Thread.sleep(3000);
+		baseclass.initialization();
+	}
+
+
+
+	@When("^login with Employer credential Who already have a Job added with skills$")
+	public void login_with_Employer_credential_Who_already_have_a_Job_added_with_skills() throws Throwable {
+
+		Thread.sleep(3000);
+		registerpage.employerlogin();
+	}
+
+	@When("^login with Agency credential Who already have a Job added with skills$")
+	public void login_with_Agency_credential_Who_already_have_a_Job_added_with_skills() throws Throwable {
+
+		Thread.sleep(3000);
+		registerpage.agencylogin();
+
+	}
+
 	@When("^Go to Workbench and select the job from drop down$")
 	public void go_to_Workbench_and_select_the_from_drop_down() throws InterruptedException {
 	   
@@ -74,11 +96,7 @@ public class AddCandidateStepDefination extends baseclass {
 		common.clickOnConfirmYes();
 	   
 	}
-	@When("^login with Agency credential Who already have a Job added$")
-	public void login_with_Agency_credential_Who_already_have_a_Job_added()  {
-	    
-		registerpage.agencylogin();
-	}
+	
 
 	@Then("^Click on OK button$")
 	public void click_on_OK_button() throws InterruptedException  {
@@ -92,10 +110,4 @@ public class AddCandidateStepDefination extends baseclass {
 		//driver.quit();
 	}
 	
-	@Then("^open browser$")
-	public void open_browser() throws IOException  {
-	    
-		baseclass.initialization();
-	}
-
 }

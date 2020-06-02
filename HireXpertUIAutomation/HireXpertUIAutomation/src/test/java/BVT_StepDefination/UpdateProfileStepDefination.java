@@ -1,7 +1,6 @@
 package BVT_StepDefination;
 
 import org.openqa.selenium.By;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -9,39 +8,39 @@ import utilPackage.baseclass;
 
 public class UpdateProfileStepDefination extends baseclass {
 
-	@Given("^User open browser$")
-	public void user_open_browser() throws Throwable {
-	    
-		baseclass.initialization();
-	}
+//	@Given("^User open browser$")
+//	public void user_open_browser() throws Throwable {
+//	    
+//		baseclass.initialization();
+//	}
 
-	@When("^click on Register link$")
-	public void click_on_Register_link() throws Throwable {
-		
-		Thread.sleep(3000);
-		registerpage.clickRegister();
-	}
+//	@When("^click on Register link$")
+//	public void click_on_Register_link() throws Throwable {
+//		
+//		Thread.sleep(3000);
+//		registerpage.clickRegister();
+//	}
 	
-	@When("^enter agency details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void enter_agency_details(String AgencyName, String AgencyEmail, String AgencyContactNumber) throws Throwable {
-	    
-		Thread.sleep(3000);
-		registerpage.registerAgencydetails(AgencyName, AgencyEmail, AgencyContactNumber);
-	}
+//	@When("^enter agency details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void enter_agency_details(String AgencyName, String AgencyEmail, String AgencyContactNumber) throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//		registerpage.registerAgencydetails(AgencyName, AgencyEmail, AgencyContactNumber);
+//	}
 
-	@When("^Select value from dropdown for agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void select_value_from_dropdown_for_agency(String AgencyUserType, String timezone, String country) throws Throwable {
-	    
-		Thread.sleep(3000);
-		registerpage.registerAgencydetails1(AgencyUserType, timezone, country);
-	}
+//	@When("^Select value from dropdown for agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void select_value_from_dropdown_for_agency(String AgencyUserType, String timezone, String country) throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//		registerpage.registerAgencydetails1(AgencyUserType, timezone, country);
+//	}
 
-	@When("^click on Submit button$")
-	public void click_on_Submit_button() throws Throwable {
-	    
-		Thread.sleep(3000);
-		registerpage.ClickSubmitbtn();
-	}
+//	@When("^click on Submit button$")
+//	public void click_on_Submit_button() throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//		registerpage.ClickSubmitbtn();
+//	}
 	
 	@When("^Login with that agency \"([^\"]*)\" \"([^\"]*)\"$")
 	public void login_with_that_agency(String AgencyEmail, String password) throws Throwable {
@@ -50,12 +49,12 @@ public class UpdateProfileStepDefination extends baseclass {
         registerpage.enterAgencyEmailandPassword(AgencyEmail, password);
 	}
 	
-	@When("^click on Signin button$")
-	public void click_on_Signin_button() throws Throwable {
-
-		Thread.sleep(3000);
-		registerpage.ClickSigninbtn();
-	}
+//	@When("^click on Signin button$")
+//	public void click_on_Signin_button() throws Throwable {
+//
+//		Thread.sleep(3000);
+//		registerpage.ClickSigninbtn();
+//	}
 
 	@When("^Click on Close button on Agency Update Profile popup$")
 	public void click_on_Close_button_on_Agency_Update_Profile_popup() throws Throwable {
@@ -99,12 +98,12 @@ public class UpdateProfileStepDefination extends baseclass {
 		updateprofilepopuppage.MakeChangesinAgencyUpdateProfile(organizationname);
 	}
 	
-	@When("^User should get confirmation message and click on OK button$")
-	public void user_should_get_confirmation_message_and_click_on_OK_button() throws Throwable {
-	    
-		Thread.sleep(3000);
-		registerpage.Clickokbtn();
-	}
+//	@When("^User should get confirmation message and click on OK button$")
+//	public void user_should_get_confirmation_message_and_click_on_OK_button() throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//		registerpage.Clickokbtn();
+//	}
 
 //	@When("^enter agency email and password \"([^\"]*)\" \"([^\"]*)\"$")
 //	public void enter_agency_email_and_password(String AgencyEmail, String password) throws Throwable {
@@ -209,19 +208,19 @@ public class UpdateProfileStepDefination extends baseclass {
 		updateprofilepopuppage.MakeChangesinCandidateUpdateProfile(noticeperiod);
 	}
 
-	@When("^enter candidate details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void enter_candidate_details(String CandidateName, String CandidateEmail, String CandidateContactNumber) throws Throwable {
-	    
-		Thread.sleep(3000);
-		registerpage.registerCandidatedetails(CandidateName, CandidateEmail, CandidateContactNumber);
-	}
+//	@When("^enter candidate details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void enter_candidate_details(String CandidateName, String CandidateEmail, String CandidateContactNumber) throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//		registerpage.registerCandidatedetails(CandidateName, CandidateEmail, CandidateContactNumber);
+//	}
 	
-	@When("^Select value from dropdown for candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void select_value_from_dropdown_for_candidate(String CandidateUserType, String timezone, String country) throws Throwable {
-	    
-		Thread.sleep(3000);
-		registerpage.registerCandidatedetails1(CandidateUserType, timezone, country);
-	}
+//	@When("^Select value from dropdown for candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void select_value_from_dropdown_for_candidate(String CandidateUserType, String timezone, String country) throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//		registerpage.registerCandidatedetails1(CandidateUserType, timezone, country);
+//	}
 	
 	
 	@When("^enter candidate email and password  \"([^\"]*)\" \"([^\"]*)\"$")

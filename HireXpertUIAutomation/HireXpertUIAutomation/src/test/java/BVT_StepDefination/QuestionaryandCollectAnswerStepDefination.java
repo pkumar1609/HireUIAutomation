@@ -9,12 +9,12 @@ import utilPackage.baseclass;
 
 public class QuestionaryandCollectAnswerStepDefination extends baseclass {
 	
-	@When("^click on Employer-Agency SignIn link$")
-	public void click_on_Employer_Agency_SignIn_link() throws Throwable {
-	    
-		Thread.sleep(4200);
-		registerpage.clickEmployerAgencySignInlink();
-	}
+//	@When("^click on Employer-Agency SignIn link$")
+//	public void click_on_Employer_Agency_SignIn_link() throws Throwable {
+//	    
+//		Thread.sleep(4200);
+//		registerpage.clickEmployerAgencySignInlink();
+//	}
 
 
 	@When("^Login with Employer credential Who already have a Job added and a candidate added to that job$")
@@ -55,13 +55,13 @@ public class QuestionaryandCollectAnswerStepDefination extends baseclass {
 		addquestionarypage.AddMarksT(marks1, marks2);
 	}
 	
-	
-	@When("^click on Save Changes button$")
-	public void click_on_Save_Changes_button() throws InterruptedException  {
-		
-		Thread.sleep(3000);
-		addquestionarypage.SaveChangesBtn.click();
-	}
+
+//	@When("^click on Save Changes button$")
+//	public void click_on_Save_Changes_button() throws InterruptedException  {
+//		
+//		Thread.sleep(3000);
+//		addquestionarypage.SaveChangesBtn.click();
+//	}
 
 	
 	@When("^Enter the cutoff & rejection percentage \"([^\"]*)\" \"([^\"]*)\"$")
@@ -89,11 +89,11 @@ public class QuestionaryandCollectAnswerStepDefination extends baseclass {
 	}
 	
 	
-	@Then("^Collect Answer icon should reflect on candidates card for giving answers$")
-	public void collect_Answer_icon_should_reflect_on_candidates_card_for_giving_answers()  {
-		
-		workbenchpage.verifyCollectAnswericonT();
-	}
+//	@Then("^Collect Answer icon should reflect on candidates card for giving answers$")
+//	public void collect_Answer_icon_should_reflect_on_candidates_card_for_giving_answers()  {
+//		
+//		workbenchpage.verifyCollectAnswericonT();
+//	}
 	
 	
 	@When("^Enter first question \"([^\"]*)\" and marks \"([^\"]*)\"$")
@@ -200,19 +200,19 @@ public class QuestionaryandCollectAnswerStepDefination extends baseclass {
 		addquestionarypage.verifypassfailicon();
 	}
 
-	@Then("^click on logout tab$")
-	public void click_on_logout_tab() throws Throwable {
-	   
-		Thread.sleep(3000);
-		workbenchpage.ClickonLogout();
-	}
+//	@Then("^click on logout tab$")
+//	public void click_on_logout_tab() throws Throwable {
+//	   
+//		Thread.sleep(3000);
+//		workbenchpage.ClickonLogout();
+//	}
 
-	@Then("^click on Job Seeker\\(Candidate\\) Sign In link$")
-	public void click_on_Job_Seeker_Candidate_Sign_In_link() throws Throwable {
-
-		Thread.sleep(3000);
-		registerpage.clickJobseekerCandidateSignInlinklink();
-	}
+//	@Then("^click on Job Seeker\\(Candidate\\) Sign In link$")
+//	public void click_on_Job_Seeker_Candidate_Sign_In_link() throws Throwable {
+//
+//		Thread.sleep(3000);
+//		registerpage.clickJobseekerCandidateSignInlinklink();
+//	}
 
 	@Then("^login as the same candidate \"([^\"]*)\" \"([^\"]*)\" and click on Sign in$")
 	public void login_as_the_same_candidate_and_click_on_Sign_in(String arg1, String arg2) throws Throwable {
