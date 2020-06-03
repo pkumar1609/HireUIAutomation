@@ -29,8 +29,6 @@ public class TaskPage extends baseclass {
 	public TaskPage() throws IOException {
 	super();
 	PageFactory.initElements(driver, this);
-	
-
 	}
 	
 	String addedtask;
@@ -586,9 +584,9 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 	}
 	public void shareWithTeam(DataTable credentials) throws InterruptedException
 	{
-		this.emp=loginpage.b;
 		Thread.sleep(2000);
 		shareWithTeam.click();
+		this.emp=loginpage.b;
 		if(emp==true)
 		{
 			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
@@ -610,7 +608,7 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 		{
 			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 			{
-			String team=data.get("AgyTeam");
+			String team=data.get("Agyteam");
 			String xpathforshare= "(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[1]";
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(xpathforshare)).click();

@@ -1,8 +1,10 @@
 package pages;
 
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
+import cucumber.api.DataTable;
 import utilPackage.baseclass;
 
 public class WorkbenchPage extends baseclass {
@@ -86,9 +89,22 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//select[@formcontrolname='AssignedToName']")
 	public WebElement filtersAssignToList;
 	
+	@FindBy(xpath = "//button[@title='Add Employee']")
+	public WebElement addEmployee;
+	
+	
+	@FindBy(xpath = "//select[@formcontrolname='EmployerId']")
+	public WebElement employerId;
+	
+	@FindBy(xpath = "//button[@title='Close Job']")
+	public WebElement closejobbtn;
+	
+	
+	
 	public String jobname;
 	String nameOfCan;
 	public String username;
+	public boolean emp;
 	
 	
 	public void addTaskBtn() throws InterruptedException
@@ -124,7 +140,7 @@ public class WorkbenchPage extends baseclass {
 	public void selectJobK() throws InterruptedException {
 		Thread.sleep(2000);
 		select = new Select(jobDropDown);
-		jobname=addjobpage.jobname;
+		jobname= addjobpage.jobname;
 		select.selectByVisibleText(jobname+" - Active" );
 	}
 	
@@ -227,6 +243,10 @@ public class WorkbenchPage extends baseclass {
 		ReloadCandidateButton.click();
 	}
 	
+	public void clickOnCloseJobButton() {
+		
+	     closejobbtn.click();
+		}
 	 
 
 }
