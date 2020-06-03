@@ -89,12 +89,7 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//select[@formcontrolname='AssignedToName']")
 	public WebElement filtersAssignToList;
 	
-	@FindBy(xpath = "//button[@title='Add Employee']")
-	public WebElement addEmployee;
 	
-	
-	@FindBy(xpath = "//select[@formcontrolname='EmployerId']")
-	public WebElement employerId;
 	
 	@FindBy(xpath = "//button[@title='Close Job']")
 	public WebElement closejobbtn;
@@ -244,7 +239,6 @@ public class WorkbenchPage extends baseclass {
 	}
 	
 	public void clickOnCloseJobButton() {
-		
 	     closejobbtn.click();
 		}
 	 

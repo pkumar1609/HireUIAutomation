@@ -113,15 +113,18 @@ public class AddJobPage extends baseclass {
 	@FindBy(id = "noticeperiod")
 	public WebElement noticePeriod;
 	
-//	@FindBy(xpath = "//i[@class='fa fa-trash']")
-//	public WebElement deletebtn;
+	@FindBy(xpath = "//button[@title='Add Employee']")
+	public WebElement addEmployee;
 	
+	@FindBy(xpath = "//select[@formcontrolname='EmployerId']")
+	public WebElement employerId;
 	
 	public String skill1 = "s1";
 	public String skill2 = "s2";
 	public String skill2Exp2 = "S2(Expert)";
 	Select se;
 	public String jobname;
+	public boolean emp;
 	
 	public AddJobPage() {
 		
@@ -237,9 +240,26 @@ public class AddJobPage extends baseclass {
 				WebElement btn = deletebtn.get(i);
 				btn.click();
 			}
-		    common.ClickSumbit();
-	
 		
+		if(emp==true)
+			{ 
+			select =new Select(employerId);
+			List<WebElement> options = select.getOptions();
+			if(options.size()>0)
+			{
+				select.selectByIndex(1);
+			}
+			else if (options.size()==0)
+			{
+				Thread.sleep(2000);
+				addEmployee.click();
+				teampage.AddAllDetailsK(credentials);
+			}
+			}
+		else
+		{
+			common.ClickSumbit();
+		} 
 		}
 	}
 	
