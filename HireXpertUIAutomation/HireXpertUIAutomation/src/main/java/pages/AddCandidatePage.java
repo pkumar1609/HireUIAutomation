@@ -145,6 +145,11 @@ public class AddCandidatePage extends baseclass {
 		uploadResumeField.click();
 	}
 	
+     public void clickonFindbtn() {
+		
+		FindButton.click();
+	}
+	
 	public void uploadResumeDocument() throws AWTException {
 		
 		rb = new Robot();

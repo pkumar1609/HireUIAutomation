@@ -15,7 +15,7 @@ import cucumber.api.java.en.When;
 import utilPackage.baseclass;
 import utilPackage.utilclass;
 
-public class unblockFunctionalitySteps extends baseclass {
+public class b_unblockFunctionalitySteps extends baseclass {
 
 //scenario 1:
 //	@Given("^User is on Home page of application$")
