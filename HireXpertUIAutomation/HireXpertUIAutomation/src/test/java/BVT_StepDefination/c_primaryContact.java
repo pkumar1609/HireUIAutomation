@@ -12,7 +12,7 @@ import cucumber.api.java.en.When;
 import utilPackage.baseclass;
 import utilPackage.utilclass;
 
-public class primaryContact extends baseclass {
+public class c_primaryContact extends baseclass {
 
 	@When("^click on Share With Team button and observe the primary contact then add new team member and try to make that team member as primary contact$")
 	public void click_on_Share_With_Team_button_and_observe_the_primary_contact_then_add_new_team_member_and_try_to_make_that_team_member_as_primary_contact(DataTable dt) throws Throwable {

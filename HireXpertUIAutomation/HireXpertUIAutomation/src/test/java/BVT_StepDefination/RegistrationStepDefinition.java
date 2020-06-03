@@ -192,7 +192,7 @@ public class RegistrationStepDefinition extends baseclass  {
 		registerpage.registerAgencydetails1(AgencyUserType, timezone, country);
 	}
 
-	@When("^enter candidate details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	@When("^enter candidate details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")	
 	public void enter_candidate_details(String CandidateName, String CandidateEmail, String CandidateContactNumber) throws Throwable {
 
 		Thread.sleep(3000);
