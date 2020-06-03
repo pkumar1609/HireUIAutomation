@@ -1,13 +1,17 @@
 package pages;
 
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import cucumber.api.DataTable;
 import utilPackage.baseclass;
 import utilPackage.utilclass;
 
@@ -109,10 +113,15 @@ public class AddJobPage extends baseclass {
 	@FindBy(id = "noticeperiod")
 	public WebElement noticePeriod;
 	
+//	@FindBy(xpath = "//i[@class='fa fa-trash']")
+//	public WebElement deletebtn;
+	
+	
 	public String skill1 = "s1";
 	public String skill2 = "s2";
 	public String skill2Exp2 = "S2(Expert)";
 	Select se;
+	public String jobname;
 	
 	public AddJobPage() {
 		
@@ -203,5 +212,35 @@ public class AddJobPage extends baseclass {
 		common.submitbtn.click();
 	}
 	
+	public void addjob(DataTable credentials) throws InterruptedException,NoSuchContextException
+	{
+
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+		workbenchpage.AddJob();
+		title.sendKeys(data.get("title"));
+		jobname=data.get("title");
+		designation.sendKeys(data.get("designation"));
+		industry.sendKeys(data.get("industry"));
+		jobrole.sendKeys(data.get("jobrole"));
+		location.sendKeys(data.get("location"));
+		budget.sendKeys(data.get("budget"));
+		minexp.sendKeys(data.get("minexp"));
+		maxexp.sendKeys(data.get("maxexp"));
+		noOfInterviews();
+		click.click();
+		Thread.sleep(2000);
+		List<WebElement> deletebtn = driver.findElements(By.xpath("//i[@class='fa fa-trash']"));
+		
+		for(int i=0;i<deletebtn.size();i++)
+			{
+				WebElement btn = deletebtn.get(i);
+				btn.click();
+			}
+		    common.ClickSumbit();
+	
+		
+		}
+	}
 	
 }

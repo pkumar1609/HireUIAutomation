@@ -13,6 +13,9 @@ Given team member should be added
 |pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
 |pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
+And Add job
+|title    |designation |industry   |jobrole        |location |budget |minexp|maxexp|
+|Komaljob1|developer   |IT software|java developer |pune     |400000 |1     |2     |
 And Select a job
 And Share job with team member
 |EmpTeam|Agyteam|

@@ -20,7 +20,7 @@ public class Commonfunction extends baseclass {
 	}
 	
 	@FindBy(xpath="//button[@id='confirmModalBtn']")
-	static WebElement confimYes;
+	public WebElement confimYes;
 	
 	@FindBy(xpath="//button[@id='alertModalCloseBtn']")
 	public WebElement okbtn;

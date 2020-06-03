@@ -223,12 +223,13 @@ public class LoginPage extends baseclass
 		    try {
 				Action.moveToElement(profile).perform();
 				Thread.sleep(2000);
-				b = userbtnemp.isDisplayed();		
-				System.out.println(b);
-//				Thread.sleep(2000);
-//				executor.executeScript("arguments[0].click();",userbtnemp);
+				userbtnemp.isDisplayed();		
+				Thread.sleep(2000);
+				executor.executeScript("arguments[0].click();",userbtnemp);
 				logedinuser= logedinusername.getText();
 				System.out.println(logedinuser);
+				b=true;
+				System.out.println(b);
 			}
 			catch(NoSuchElementException e)
 			{

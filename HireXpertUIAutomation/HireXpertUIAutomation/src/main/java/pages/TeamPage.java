@@ -56,7 +56,7 @@ public class TeamPage extends baseclass {
 	public String teamMemberName;
 	public String teamMemberNameAgy;
 	public String ele;
-	boolean b;
+	boolean emp;
 	
 	WebDriverWait explicitwait = new WebDriverWait(driver,20);
 	
@@ -64,7 +64,7 @@ public class TeamPage extends baseclass {
 	public TeamPage() {
 		
 		PageFactory.initElements(driver, this);
-//		this.b=loginpage.b;
+		
 	}
 	
 	public void validatePageTitle() {
@@ -187,6 +187,7 @@ public class TeamPage extends baseclass {
 	{
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
+	
 			dashboardpage.openTeamPage();
 			teamMemberName = data.get("Name");
 			String teammemberpresent= "//td[text()='" +teamMemberName+ "']";
@@ -199,7 +200,8 @@ public class TeamPage extends baseclass {
 			{
 				AddAllDetailsK(credentials);
 				teampage.closeTeamPage();
-			}	
+			
+			}
 		}
 	}
 
@@ -229,7 +231,6 @@ public class TeamPage extends baseclass {
 	{
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-		
 		wait.until(ExpectedConditions.elementToBeClickable(searchField));
 		searchField.sendKeys(data.get("Name"));
 		ele=data.get("Name");
@@ -238,8 +239,8 @@ public class TeamPage extends baseclass {
 	}
 	public void verifyTeamAdded(DataTable credentials) throws InterruptedException
 	{
-		this.b=loginpage.b;
-		if(b==true)
+		this.emp=loginpage.b;
+		if(emp==true)
 		{
 		teampage.isTeamPresentForEmp(credentials);
 		}

@@ -11,6 +11,7 @@ import java.util.Map;
 import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -333,6 +334,7 @@ public class TaskPage extends baseclass {
 		{
 			try
 			{ 
+				Thread.sleep(2000);
 				String openStatusEmp="//strong[text()='"+addedtask+"']//following::span[text()='Open']";
 				driver.findElement(By.xpath(openStatusEmp)).isDisplayed();
 				System.out.println("Status of added task for employer is open");
@@ -584,6 +586,7 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 	}
 	public void shareWithTeam(DataTable credentials) throws InterruptedException
 	{
+		this.emp=loginpage.b;
 		Thread.sleep(2000);
 		shareWithTeam.click();
 		if(emp==true)
@@ -594,6 +597,13 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 			String xpathforshare= "(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[1]";
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(xpathforshare)).click();
+			try
+			{
+				common.confimYes.isDisplayed();
+				common.clickOnConfirmYes();
+			}
+			catch(NoSuchElementException e)
+			{}
 			}
 		}
 		else 
@@ -604,6 +614,15 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 			String xpathforshare= "(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[1]";
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(xpathforshare)).click();
+			try
+			{
+				common.confimYes.isDisplayed();
+				common.clickOnConfirmYes();
+			}
+			catch(NoSuchElementException e)
+			{
+				
+			}
 			}
 		}
 		common.clickOnCloseBtn();

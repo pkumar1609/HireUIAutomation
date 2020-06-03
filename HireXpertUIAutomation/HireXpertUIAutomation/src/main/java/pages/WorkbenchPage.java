@@ -90,6 +90,7 @@ public class WorkbenchPage extends baseclass {
 	String nameOfCan;
 	public String username;
 	
+	
 	public void addTaskBtn() throws InterruptedException
 	{
 		Thread.sleep(2000);
@@ -102,8 +103,8 @@ public class WorkbenchPage extends baseclass {
 		this.driver = driver;
 	}
 	
-	public void AddJob() {
-		
+	public void AddJob() throws InterruptedException {
+		Thread.sleep(3000);
 		addjob.click();
 	}
 	
@@ -123,8 +124,8 @@ public class WorkbenchPage extends baseclass {
 	public void selectJobK() throws InterruptedException {
 		Thread.sleep(2000);
 		select = new Select(jobDropDown);
-		jobname=prop.getProperty("jobname");
-		select.selectByVisibleText("job2 - Active");	
+		jobname=addjobpage.jobname;
+		select.selectByVisibleText(jobname+" - Active" );
 	}
 	
 	public void verifyCollectAnswericonT() {
