@@ -7,7 +7,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utilPackage.baseclass;
 
-public class EditDeleteCandidateStepDefination extends baseclass {
+public class AddEditDeleteCandidateStepDefination extends baseclass {
 	
 	@Given("^Open the browser$")
 	public void open_the_browser() throws IOException  {
