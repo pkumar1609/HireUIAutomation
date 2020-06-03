@@ -22,22 +22,27 @@ public class TheEmployerIsAbleToAddAgency extends baseclass {
 	@Before()
 	public void setup() throws IOException
 	{
-		baseclass.initialization();
+//		baseclass.initialization();
 	}
 	
 	DataTable credentials;
-	@Given("^User must be registered as employer profile abc$")
-	public void user_must_be_registered_as_employer_profile() throws Throwable {    
-		
+	@Given("^User must be registered$")
+	public void user_must_be_registered() throws Throwable {    
+		baseclass.initialization();
 	}
 
-	@When("^title of login page is Home abc$")
+	@When("^title of login page is Home$")
 	public void title_of_login_page_is_Home()  {
 		agenciespage.getTitle();
 	}
 
-	@And("^user enters valid credentials abc$")
-	public void user_enters_valid_credentials() throws InterruptedException{
+	@And("^Click on Employer-Agency Signin link$")
+	public void click_on_Employer_Agency_Signin_link() throws Throwable {
+	    loginpage.ClickOnEmployerAgencySigninLink();
+	}
+	
+	@And("^Employer enters valid credentials$")
+	public void Employer_enters_valid_credentials() throws InterruptedException{
 		loginpage.loginInAppWithEmpK();
 	}
 
@@ -47,27 +52,15 @@ public class TheEmployerIsAbleToAddAgency extends baseclass {
 		agenciespage.Clickagencybtn();
 	}
 
-	@And("^Click on add Button to add the agency$")
-	public void click_on_Add_Button_to_add_the_agency() throws InterruptedException {
 	
-		agenciespage.clickOnAddButton();
+	
+
+	@And("^Click on add Button Fill all the mandatory details for agency$")
+		public void fill_all_the_mandatory_detail(DataTable credentials) throws InterruptedException  {
+		agenciespage.enterAllDetails(credentials);
 	}
 	
 
-	@And("^Fill all the mandatory details$")
-		public void fill_all_the_mandatory_detail(DataTable credentials) throws InterruptedException  {
-		Thread.sleep(1000);
-		
-		agenciespage.enterAllDetails(credentials);
-		this.credentials= credentials; 
-	}
-	
-	@And("^Click on Submit button$")
-	public void click_on_Submit_button() throws InterruptedException   
-	{
-		Thread.sleep(1000);
-		agenciespage.Submitbtn();
-	}
 
 	@Then("^Employer should be able to add Agency$")
 	public void employer_should_be_able_to_add_Agency() {
@@ -77,12 +70,8 @@ public class TheEmployerIsAbleToAddAgency extends baseclass {
 
 	@Then("^Newly added agency should be displayed in Agencies page$")
 	public void newly_added_agency_should_be_displayed_in_Agencies_page() throws InterruptedException {
-	Thread.sleep(1000);
-	if(driver.getPageSource().contains(agenciespage.namevalidate)){
-		System.out.println("Text is present");
-		}else{
-		System.out.println("Text is absent");
-		}
+		agenciespage.AddedAgyencyDisplaying();
+	
 	}
 	
 	@And("^delete the added agency$")
@@ -90,12 +79,12 @@ public class TheEmployerIsAbleToAddAgency extends baseclass {
 		agenciespage.deleteagy();
 	}
 	
-	@After()
-	public void teardown()
-	{
-		driver.quit();
-	}
-	
+//	@After()
+//	public void teardown()
+//	{
+//		driver.quit();
+//	}
+//	
 	
 	
 }

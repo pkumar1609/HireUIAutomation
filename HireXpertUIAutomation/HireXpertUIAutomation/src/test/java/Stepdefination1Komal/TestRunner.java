@@ -1,0 +1,31 @@
+
+package Stepdefination1Komal;
+
+import org.junit.runner.RunWith;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+
+
+import org.testng.annotations.Test;
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+import cucumber.api.testng.CucumberFeatureWrapper;
+import cucumber.api.testng.TestNGCucumberRunner;
+
+@RunWith(Cucumber.class)
+@CucumberOptions
+(
+features="C:\\Users\\TLP33\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\features",
+glue= {"BVT_StepDefination"},
+dryRun= false,
+monochrome = true,
+plugin = {"html:target/cucumber-reports"},
+tags=("@task")
+)
+public class TestRunner
+{
+	
+}
+
