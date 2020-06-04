@@ -24,6 +24,7 @@ And Fill all the Questions answers
 And Click on submit
 And Click on screening tab
 Then verify the status of candidate 
+And click on close button
 And click on close job button and delete the job
 
 Examples:

@@ -81,17 +81,17 @@ public class VerifyTabsDropdownAgencyLoginStepDefination extends baseclass {
 	@When("^Add Candidate to that job \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void add_Candidate_to_that_job(String CandidateEmail, String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
 	   
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		workbenchpage.addCandidateButton.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		addcandidatepage.EntercandidateemailT(CandidateEmail);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		addcandidatepage.FindButton.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		common.clickOnSaveBtn();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		common.clickOnConfirmYes();
 	}
 		
