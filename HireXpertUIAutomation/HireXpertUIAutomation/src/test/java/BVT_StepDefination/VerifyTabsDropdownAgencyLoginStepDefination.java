@@ -14,8 +14,8 @@ public class VerifyTabsDropdownAgencyLoginStepDefination extends baseclass {
 		baseclass.initialization(); 
 	}
 
-	@When("^login with Agency credential Who already have a Job added$")
-	public void login_with_Agency_credential_Who_already_have_a_Job_added() throws InterruptedException {
+	@When("^login with Agency credential$")
+	public void login_with_Agency_credential() throws InterruptedException {
 		
 		Thread.sleep(3000);
 		registerpage.agencylogin();
@@ -43,6 +43,13 @@ public class VerifyTabsDropdownAgencyLoginStepDefination extends baseclass {
 		
 		Thread.sleep(3000);
 		workbenchpage.scheduleInterview.click();
+	}
+	
+	@When("^click on close button$")
+	public void click_on_close_button() throws Throwable {
+		
+		Thread.sleep(3000);
+		common.clickOnCloseBtn();
 	}
 
 	@When("^Click interviewer from Interviewer drop down \"([^\"]*)\"$")

@@ -1,6 +1,6 @@
 Feature: HireXpert Change Password feature
 
-#TC:- 81, 10
+@BVT
 Scenario Outline: Verify user should not be able to Login with old password after creating the new password
 
 Given User open browser
@@ -56,12 +56,12 @@ And Close browser
 Examples:
 
 | EmployerName  | EmployerEmail            | EmployerContactNumber | EmployerUserType | timezone              | country | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | password | newpassword | confirmpassword |  AgencyName  | AgencyEmail           | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity |
-|CPemployer05   | cpemployer05@gmail.com   | 565566625             |   Employer       |  Indian Standard Time |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency05   | CPagency05@gmail.com  |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
+|CPemployer06   | cpemployer06@gmail.com   | 565566625             |   Employer       |  Indian Standard Time |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency06   | CPagency06@gmail.com  |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
 
 
+#TC:- 81, 10
 
-
-
+#Change name, email of agency & employer
 
 
 

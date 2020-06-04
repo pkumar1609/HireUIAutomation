@@ -1,6 +1,6 @@
 Feature: HireXpert Forget Password feature
 
-#TC:- 81, 10
+@Regression
 Scenario Outline: Forgot password functionality for not registered user
 
 Given User open browser
@@ -13,3 +13,7 @@ Examples:
 
 | emailid         |
 |aa11bb@gmail.com |
+
+#TC:- 83
+
+# No change is required. In email id there should be email on non registered user.

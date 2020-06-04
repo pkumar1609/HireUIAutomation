@@ -247,6 +247,12 @@ public class WorkbenchPage extends baseclass {
 		ReloadCandidateButton.click();
 	}
 	
+public void ClickonScreeningBtn() {
+		
+		screeningbtn.click();
+	}
+
+
 	public void clickOnCloseJobButton() {
 	     closejobbtn.click();
 		}

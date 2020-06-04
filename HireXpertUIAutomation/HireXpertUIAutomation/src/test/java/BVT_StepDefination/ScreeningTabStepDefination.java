@@ -1,5 +1,8 @@
 package BVT_StepDefination;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -8,11 +11,14 @@ import utilPackage.baseclass;
 public class ScreeningTabStepDefination extends baseclass {
 
 	
-	@When("^login with Employer credential Who already have a Job added and candidates are added for that job$")
-	public void login_with_Employer_credential_Who_already_have_a_Job_added_and_candidates_are_added_for_that_job()  {
-		
+	@When("^login with Employer credential$")
+	public void login_with_Employer_credential() throws Throwable {
+	    
+		Thread.sleep(3000);
 		registerpage.employerlogin();
 	}
+
+
 
 	@When("^Go to Workbench tab and select the job from job drop down$")
 	public void go_to_Workbench_tab_and_select_the_job_from_job_drop_down() throws InterruptedException {
@@ -51,6 +57,8 @@ public class ScreeningTabStepDefination extends baseclass {
 	@When("^Fill all the Questions answers$")
 	public void fill_all_the_Questions_answers() throws Throwable {
 
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-job-question-answer[1]/div[2]/div[1]/div[1]/label[1]/span[2]")).click();
 
 	}
 
@@ -58,19 +66,34 @@ public class ScreeningTabStepDefination extends baseclass {
 	public void click_on_submit() throws Throwable {
 		
 		Thread.sleep(3000);
-		workbenchpage.submitButtonCollectAnswer.click();
+		common.ClickSumbit();
 	}
 
 	@When("^Click on screening tab$")
 	public void click_on_screening_tab() throws Throwable {
 
-
+		Thread.sleep(3000);
+        workbenchpage.ClickonScreeningBtn();
 	}
 
 	@Then("^verify the status of candidate$")
 	public void verify_the_status_of_candidate() throws Throwable {
 	    
 		
-	}
+		{         
+			  try   
+			  {    
+			    if(driver.findElement(By.xpath("//td[contains(text(),'Failed')]")).isDisplayed())
+			     
+			    {      
+			       System.out.println("As Candidate gave wrong answer his status is displayed as Failed on Screening details page.");
+			    }    
+			  }      
+			  catch(NoSuchElementException e)     
+			  {       
+				  System.out.println("As Candidate gave correct answer his status is displayed as Passed on Screening details page.");
+			  }       
+			}
+		}
 
 }

@@ -60,7 +60,8 @@ Examples:
 #  55, 28, 233, 29
   
   
-  
+# If DB clear, register the employer first = employermain01@gmail.com and agency = agencymain01@gmail.com . 
+#otherwise no change required
   
   
   

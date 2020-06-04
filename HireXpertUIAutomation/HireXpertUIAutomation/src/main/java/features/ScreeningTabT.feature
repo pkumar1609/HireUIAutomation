@@ -1,10 +1,20 @@
 Feature: HireXpert Screening tab feature
 
+@BVT
 Scenario Outline: Verify the functionality of Screening tab 
 
 Given Open browser
-When login with Employer credential Who already have a Job added and candidates are added for that job
-And Go to Workbench tab and select the job from job drop down 
+When click on Employer-Agency SignIn link
+And login with Employer credential
+And Go to Workbench 
+And Add a new Job as employer
+And Select the same job from job drop down
+And Click on Add Candidate button.
+And Enter valid "<CandidateEmail>" 
+And click on find button 
+And fill all the information "<Name>" "<ContactNumber>" "<Designation>" "<Gender>" "<NoticePeriod>" "<Location>" "<Communicationmode>"
+And Click on save button 
+And Verify candidate is displayed on workbench
 And Click on Add Questionnaire 
 And Add question and click on save changes button "<QUESTION1>" "<QMARKS1>" "<ANSWER1>" "<ANSWER2>" "<MARKS1>" "<MARKS2>" 
 And Enter the cutoff & rejection percentage "<cuttoffpercentage>" "<rejectionpercentage>"
@@ -13,9 +23,18 @@ And Click on  Collect Answers icon on candidate card.
 And Fill all the Questions answers 
 And Click on submit
 And Click on screening tab
-Then  verify the status of candidate 
+Then verify the status of candidate 
+And click on close job button and delete the job
 
 Examples:
 
-| QUESTION1     | QMARKS1 | ANSWER1 | ANSWER2 | MARKS1 | MARKS2 | cuttoffpercentage | rejectionpercentage |
-| NP Negotiable |  50     |  Yes    |   No    |  30    |  20    |   80              |      20             |
+|    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode | QUESTION1     | QMARKS1  | ANSWER1 | ANSWER2 | MARKS1  | MARKS2 | cuttoffpercentage | rejectionpercentage |
+| candidate02@gmail.com   | Can02   |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         | NP Negotiable |  100     |  Yes    |   No    |  100    |  0     |   80              |      20             |
+
+# 125 
+
+
+
+
+
+# If DB clear, register the employer first = employermain01@gmail.com. otherwise no change required

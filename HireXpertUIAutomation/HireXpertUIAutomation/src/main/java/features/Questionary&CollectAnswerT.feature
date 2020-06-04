@@ -47,6 +47,17 @@ Examples:
 
 #TC :- 120, 122, 138, 234, 136, 
 
+# If DB clear, register the employer first = employermain01@gmail.com. otherwise no change required
+
+
+
+
+
+
+
+
+
+
 
 
 #Scenario Outline: Verify the functionality of Delete Questionnaire button and Delete icon.
