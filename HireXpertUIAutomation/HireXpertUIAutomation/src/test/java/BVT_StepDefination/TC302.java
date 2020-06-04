@@ -12,7 +12,7 @@ import cucumber.api.java.en.When;
 import utilPackage.baseclass;
 
 public class TC302 extends baseclass {
-	
+	boolean b;
 	public TC302() throws IOException 
 	{
 		super();

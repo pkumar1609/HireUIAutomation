@@ -45,7 +45,7 @@ public class TC275E extends baseclass {
 	@And("^Click on Add task button and enter all details$")
 	public void Click_on_Add_task_button_and_enter_all_details(DataTable credentials) throws InterruptedException  {
 		
-		
+		this.b=loginpage.b;
 		if(b==true) 
 		{
 		taskpage.enterAlldetails(credentials);
@@ -60,6 +60,7 @@ public class TC275E extends baseclass {
 
 	@And("^Login with team member$")
 	public void login_with_emp_team_member() throws Throwable {
+		this.b=loginpage.b;
 		if(b==true)
 		{
 		loginpage.loginInAppWithTeamK();
@@ -72,6 +73,7 @@ public class TC275E extends baseclass {
 
 	@And("^Click on Delete task$")
 	public void click_on_Delete_task() throws InterruptedException  {
+		this.b=loginpage.b;
 		if(b==true) 
 		{
 		if(taskpage.assignto.contains("employer"))
@@ -119,6 +121,7 @@ public class TC275E extends baseclass {
 
 	@And("^login as agency/employer$")
 			public void login_as_agency_employer() throws Throwable {
+		this.b=loginpage.b;
 		if(b==true) 
 		{
 			loginpage.loginInAppWithEmpK();
@@ -133,6 +136,7 @@ public class TC275E extends baseclass {
 	@Then("^Delete the task$")
 	public void delete_the_task() throws Throwable 
 	{
+		this.b=loginpage.b;
 		if(b==true) {
 		if(taskpage.assignto.contains("employer"))
 		{

@@ -123,7 +123,8 @@ public class AddJobPage extends baseclass {
 	public String skill2 = "s2";
 	public String skill2Exp2 = "S2(Expert)";
 	Select se;
-	public String jobname;
+	public  String jobname;
+	public  String jobname2;
 	public boolean emp;
 	
 	public AddJobPage() {
@@ -217,12 +218,22 @@ public class AddJobPage extends baseclass {
 	
 	public void addjob(DataTable credentials) throws InterruptedException,NoSuchContextException
 	{
-
+		
+			
+		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
 		workbenchpage.AddJob();
-		title.sendKeys(data.get("title"));
-		jobname=data.get("title");
+		if(emp==true)
+		{
+			title.sendKeys(data.get("title"));
+			jobname=data.get("title");
+		}
+		else
+		{
+			title.sendKeys(data.get("agytitle"));
+			jobname2=data.get("agytitle");
+		}
 		designation.sendKeys(data.get("designation"));
 		industry.sendKeys(data.get("industry"));
 		jobrole.sendKeys(data.get("jobrole"));
@@ -233,14 +244,12 @@ public class AddJobPage extends baseclass {
 		noOfInterviews();
 		click.click();
 		Thread.sleep(2000);
-		List<WebElement> deletebtn = driver.findElements(By.xpath("//i[@class='fa fa-trash']"));
-		
+		List<WebElement> deletebtn = driver.findElements(By.xpath("//i[@class='fa fa-trash']"));	
 		for(int i=0;i<deletebtn.size();i++)
 			{
 				WebElement btn = deletebtn.get(i);
 				btn.click();
 			}
-		
 		if(emp==true)
 			{ 
 			select =new Select(employerId);

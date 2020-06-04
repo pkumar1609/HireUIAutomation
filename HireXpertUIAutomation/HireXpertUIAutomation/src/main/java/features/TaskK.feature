@@ -15,7 +15,7 @@ Given team member should be added
 And Go to workbench
 And Add job
 |title    |designation |industry   |jobrole        |location |budget |minexp|maxexp|
-|Komaljob1|developer   |IT software|java developer |pune     |400000 |1     |2     |
+|Komaljob1|developer   |IT software|java developer |pune     |400000 |1     |2     |	
 And Select a job
 And Share job with team member
 |EmpTeam|Agyteam|
@@ -58,6 +58,9 @@ Given team member should be added
 |pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
 |pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
+And Add job
+|agytitle     |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |
+|agencyjob1   |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |
 And Select a job
 And Share job with team member
 |EmpTeam|Agyteam|
@@ -95,10 +98,10 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And user enters valid credentials
-Given team member should be added
-|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+#Given team member should be added
+#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Select a job
 And Share job with team member

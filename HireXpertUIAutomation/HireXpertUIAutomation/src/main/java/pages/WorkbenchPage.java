@@ -97,6 +97,7 @@ public class WorkbenchPage extends baseclass {
 	
 	
 	public String jobname;
+	public String jobname2;
 	String nameOfCan;
 	public String username;
 	public boolean emp;
@@ -135,8 +136,17 @@ public class WorkbenchPage extends baseclass {
 	public void selectJobK() throws InterruptedException {
 		Thread.sleep(2000);
 		select = new Select(jobDropDown);
+		this.emp=loginpage.b;
+		if(emp==true)
+		{
 		jobname= addjobpage.jobname;
 		select.selectByVisibleText(jobname+" - Active" );
+		}
+		else
+		{
+		jobname2= addjobpage.jobname2;
+		select.selectByVisibleText(jobname+" - Active" );
+		}
 	}
 	
 	public void verifyCollectAnswericonT() {

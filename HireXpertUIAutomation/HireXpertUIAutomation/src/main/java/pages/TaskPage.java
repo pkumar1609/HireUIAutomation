@@ -203,8 +203,8 @@ public class TaskPage extends baseclass {
 
 	public void clickondeletetask() throws InterruptedException
 	{
-//		Thread.sleep(3000);
-		explicitwait.until(ExpectedConditions.elementToBeClickable(deletetaskbtn));
+		Thread.sleep(3000);
+//		explicitwait.until(ExpectedConditions.elementToBeClickable(deletetaskbtn));
 		executor.executeScript("arguments[0].click();", deletetaskbtn);
 		executor.executeScript("arguments[0].click();", confirmbtn);
 		
@@ -552,7 +552,10 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 	{
 		if(emp==true)
 		{
+			
 			titlebtn.getText().contentEquals(data.get("Title for emp"));
+			String task= data.get("Title for emp");
+			executor.executeScript("arguments[0].scrollIntoView();", task);
 //			teamid.getAttribute("value").contentEquals(data.get("employer"));
 //			Assigntofield.getAttribute("value").contentEquals(data.get("AssignTo"));
 			notefield.getText().contentEquals(data.get("note"));

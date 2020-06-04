@@ -74,7 +74,7 @@ public class TC264_266 extends baseclass {
 	@And("^Select a job$")
 	public void select_a_job_and_click_on_add_task_button() throws Throwable {
 	
-		workbenchpage.selectJobK();
+		workbenchpage.selectJob();
 		
 		
 	}
