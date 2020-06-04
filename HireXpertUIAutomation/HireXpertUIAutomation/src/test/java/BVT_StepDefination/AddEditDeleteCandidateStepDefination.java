@@ -157,10 +157,10 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 	}
 
 	@When("^Make the changes in \"([^\"]*)\" field$")
-	public void make_the_changes_in_field(String ContactNumber) throws InterruptedException  {
+	public void make_the_changes_in_field(String contactnumber) throws InterruptedException  {
 	    
 		Thread.sleep(3000);
-		editcandidatepage.EnterContactNumberT(ContactNumber);
+		editcandidatepage.EnterContactNumberT(contactnumber);
 	}
 	
 	@When("^Click on save button$")
@@ -189,10 +189,10 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 	}
 	
 	@When("^Do changes in \"([^\"]*)\" field$")
-	public void Do_changes_in_field(String NoticePeriod) throws InterruptedException  {
+	public void Do_changes_in_field(String noticeperiod) throws InterruptedException  {
 	    
 		Thread.sleep(3000);
-		editcandidatepage.EnterNoticePeriodT(NoticePeriod);
+		editcandidatepage.EnterNoticePeriodT(noticeperiod);
 	}
 
 
@@ -206,8 +206,8 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 		common.clickOnConfirmYes();
 
 	}
-
-
+	
+	
 	@Then("^click on employer tab and delete the employer$")
 	public void click_on_employer_tab_and_delete_the_employer() throws Throwable {
 
@@ -222,5 +222,19 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 
 	}
 
+	@When("^Verify candidate is displayed on workbench$")
+	public void verify_candidate_is_displayed_on_workbench() throws Throwable {
+
+		Thread.sleep(3000);
+		workbenchpage.verifyCandidateAddedDisplayedOnWorkbenchOrNot();
+		
+	}
+
+	@Then("^Verify candidate is displayed on workbench after deleting$")
+	public void verify_candidate_is_displayed_on_workbench_after_deleting() throws Throwable {
+
+		Thread.sleep(3000);
+		workbenchpage.verifyDeletedCandidateNotDisplayedOnWorkbench();
+	}
 
 }

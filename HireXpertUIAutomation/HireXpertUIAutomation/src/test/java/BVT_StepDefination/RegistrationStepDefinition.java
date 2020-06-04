@@ -21,7 +21,7 @@ public class RegistrationStepDefinition extends baseclass  {
 	@When("^click on Register link$")
 	public void click_on_Register_link() throws Throwable {
 
-		Thread.sleep(3000);
+		Thread.sleep(4200);
 		registerpage.clickRegister();
 
 	}
@@ -54,12 +54,6 @@ public class RegistrationStepDefinition extends baseclass  {
 		
 		Thread.sleep(3000);
 		updateprofilepopuppage.UpdateProfileEmployer(EmployerAddress, EmployerOrganizationName, EmployerWebsite, EmployerCity);
-	}
-
-
-	@Then("^Verify the login user$")
-	public void verify_the_login_user() throws Throwable {
-	   
 	}
 
 

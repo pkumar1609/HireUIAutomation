@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchContextException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -252,5 +253,44 @@ public class WorkbenchPage extends baseclass {
 	     closejobbtn.click();
 		}
 	 
-
+public void verifyCandidateAddedDisplayedOnWorkbenchOrNot () {
+	
+	
+	{         
+	  try   
+	  {    
+	    if(driver.findElement(By.xpath("//h6[@title='Candidate Details']")).isDisplayed())
+	     
+	    {      
+	       System.out.println("Candidate added to job is displayed on workbench");
+	    }    
+	  }      
+	  catch(NoSuchElementException e)     
+	  {       
+		  System.out.println("Candidate added to job is not displayed on workbench");
+	  }       
+	}
 }
+
+	
+
+public void verifyDeletedCandidateNotDisplayedOnWorkbench () {
+	
+	
+	{         
+	  try   
+	  {    
+	    if(driver.findElement(By.xpath("//h6[@title='Candidate Details']")).isDisplayed())
+	     
+	    {      
+	       System.out.println("Deleted Candidate is displayed on workbench");
+	    }    
+	  }      
+	  catch(NoSuchElementException e)     
+	  {       
+		  System.out.println("Candidate is deleted and not displayed on workbench");
+	  }       
+	} 
+}
+}
+	

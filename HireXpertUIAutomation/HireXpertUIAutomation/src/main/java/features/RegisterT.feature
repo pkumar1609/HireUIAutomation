@@ -1,6 +1,6 @@
 Feature: HireXpert Registration feature
 
-#TC :- 4, 5, 12, 433
+@BVT @Regression
 Scenario Outline: To verify the fields/button on Registration popup window and check functionality of Registration
 
 Given User open browser
@@ -71,50 +71,51 @@ And Verify the username by which user is login
 
 Examples: 
 | EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone             | country | password | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail       | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail    | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
-| Jade16         |  jade16@gmail.com     | 211394644             | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Jade17       | jade17@gmail.com  |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Jade18          | jade18@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+|Mike12          |  mike12@gmail.com     | 211394644             | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | mike13       | mike13@gmail.com  |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike14          | mike14@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+
+#TC :- 4, 5, 12, 433
 
 
-
-#TC :- 6
+@BVT
 Scenario Outline: To verify the registration functionality of already registered user.
 
 Given User open browser
 When click on Register link       
-And enter details of already registered candidate "<candidatename>" "<candidateemail>" "<candidatecontactnumber>"
+And enter details of already registered user "<employername>" "<employeremail>" "<employercontactnumber>"
 And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 And click on Submit button
-Then User should get a error message as "User with 'mac01@gmail.com' already register with system as Candidate. Please use forgot password link to recover password."
+Then User should get a error message as "User with 'employermain01@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
 And click on Close button
 And Click on Yes button of confirmation popup
 And Close the browser
 Given User open browser
 When click on Register link       
 And enter details of already registered agency "<agencyname>" "<agencyemail>" "<agencycontactnumber>"
-And Select value from dropdown of "<agencyusertype>" "<timezone>" "<country>"
+And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 And click on Submit button
-Then User should get a error message as "User with 'mac02@gmail.com' already register with system as Agency. Please use forgot password link to recover password."
+Then User should get a error message as "User with 'agencymain01@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
 And click on Close button
 And Click on Yes button of confirmation popup
 And Close the browser
 Given User open browser
 When click on Register link  
-And enter details of already registered employer "<employername>" "<employeremail>" "<employercontactnumber>"
+And enter details of already registered employer "<candidatename>" "<candidateemail>" "<candidatecontactnumber>"
 And Select value from dropdown of "<employerusertype>" "<timezone>" "<country>"
 And click on Submit button
-Then User should get a error message as "User with 'mac03@gmail.com' already register with system as Employer. Please use forgot password link to recover password."
+Then User should get a error message as "User with 'candidatemain01@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
 And click on Close button
 And Click on Yes button of confirmation popup
 And Close the browser
 
 
 Examples: 
-   | candidatename   |   candidateemail      | candidatecontactnumber  | candidateusertype  | timezone             | country |  agencyname   |   agencyemail      | agencycontactnumber  | agencyusertype  |   employername     |   employeremail    | employercontactnumber  | employerusertype  |
-   | Mac01           |  mac01@gmail.com      | 211394644               | Candidate          | Indian Standard Time | India   | Mac02         |  mac02@gmail.com   | 211314644            | Agency          | Mac03              |  mac03@gmail.com   | 123456456              | Employer          | 
+   | employername    |   employeremail              | employercontactnumber   | candidateusertype  | timezone             | country |  agencyname   |   agencyemail             | agencycontactnumber  |   candidatename   |   candidateemail             | candidatecontactnumber  | employerusertype  |
+   | employermain01  |  employermain01@gmail.com    | 211394644               | Candidate          | Indian Standard Time | India   | agencymain01  |  agencymain01@gmail.com   | 211314644            | candidatemain01   |  candidatemain01@gmail.com   | 123456456               | Employer          | 
    
-    
+#TC :- 6    
 
      
-#TC:- 289
+@Regression
 Scenario Outline: To verify user is not able to add one user with multiple roles.
      
 Given User open browser
@@ -122,20 +123,21 @@ When click on Register link
 And enter all details and email id of a previously registered employer "<EmployerName>" "<EmployerEmail>" "<EmployerContactNumber>"  
 And enter user type as the candidate "<usertype>" "<timezone>" "<country>"
 And click on Submit button
-Then Verify User should get error message as "User with 'tom30@gmail.com' already register with system as Candidate. Please use forgot password link to recover password." 
+Then Verify User should get error message as "User with 'employermain01@gmail.com' already register with system as Employer. You can not register same email Id as Candidate." 
 And click on Close button
 And Click on Yes button of confirmation popup
 And Close the browser
      
  Examples:     
-  | EmployerName  |   EmployerEmail    | EmployerContactNumber    |  timezone              | country     | usertype  |
-  | Tom30         | tom30@gmail.com    | 4654644478               | Indian Standard Time   | India       | Candidate |
+  | EmployerName    |   EmployerEmail            | EmployerContactNumber    |  timezone              | country     | usertype  |
+  | employermain01  | employermain01@gmail.com   | 4654644478               | Indian Standard Time   | India       | Candidate |
+  
+ 
+ #TC:- 289
   
   
   
-  
-  
-  
+ 
   
   
   

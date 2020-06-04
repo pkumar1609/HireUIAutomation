@@ -34,16 +34,16 @@ public class EditCandidatePage extends baseclass {
 		this.driver = driver;
 	}
 	
-	public void EnterContactNumberT(String ContactNumber) {
+	public void EnterContactNumberT(String contactnumber) {
 		 
 		contactNumber.clear();
-		contactNumber.sendKeys(ContactNumber); 
+		contactNumber.sendKeys(contactnumber); 
 	 }
 	
-	public void EnterNoticePeriodT(String NoticePeriod) {
+	public void EnterNoticePeriodT(String noticeperiod) {
 		 
 		noticePeriod.clear();
-		noticePeriod.sendKeys(NoticePeriod); 
+		noticePeriod.sendKeys(noticeperiod); 
 	 }
 	
 	public void uploadResumeExecutableFile() throws AWTException {

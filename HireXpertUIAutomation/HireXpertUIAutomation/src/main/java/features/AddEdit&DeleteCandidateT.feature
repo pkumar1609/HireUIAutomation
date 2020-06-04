@@ -14,19 +14,23 @@ And Enter valid "<CandidateEmail>"
 And click on find button 
 And fill all the information "<Name>" "<ContactNumber>" "<Designation>" "<Gender>" "<NoticePeriod>" "<Location>" "<Communicationmode>"
 And Click on save button 
+And Verify candidate is displayed on workbench
 And Click on Edit Candidate icon on candidate card.
-And Make the changes in "<ContactNumber>" field
+And Make the changes in "<contactnumber>" field
 And Click on save button
 Then click on Delete Candidate icon on Candidate card
+And Verify candidate is displayed on workbench after deleting
 And click on close job button and delete the job
 
 Examples:
-  |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode |   ContactNumber   | 
-  | candidate01@gmail.com   | Can01   |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |   123456789       |
+  |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode |   contactnumber   | 
+  | candidate02@gmail.com   | Can02   |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |   123456789       |
   
  # 232, 62,  24,  29 
  
  
+ 
+ @BVT
 Scenario Outline: Verify the functionality of Add, Edit & Delete Candidate with Agency login
 
 Given Open browser
@@ -40,16 +44,18 @@ And Enter valid "<CandidateEmail>"
 And click on find button 
 And fill all the information "<Name>" "<ContactNumber>" "<Designation>" "<Gender>" "<NoticePeriod>" "<Location>" "<Communicationmode>"
 And Click on save button 
+And Verify candidate is displayed on workbench
 And Click on Edit Candidate icon on candidate card.
-And Do changes in "<NoticePeriod>" field
+And Do changes in "<noticeperiod>" field
 And Click on save button
 Then click on Delete Candidate icon on Candidate card
+And Verify candidate is displayed on workbench after deleting
 And click on close job button and delete the job
 And click on employer tab and delete the employer
 
 Examples:
-  |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode |   NoticePeriod  | 
-  | candidate01@gmail.com   | Can01   |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |   60            |
+  |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode |   noticeperiod  | 
+  | candidate02@gmail.com   | Can02   |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |   60            |
   
 #  55, 28, 233, 29
   
