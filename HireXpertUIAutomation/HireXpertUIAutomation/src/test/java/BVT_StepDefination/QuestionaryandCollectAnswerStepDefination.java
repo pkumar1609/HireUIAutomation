@@ -35,7 +35,7 @@ public class QuestionaryandCollectAnswerStepDefination extends baseclass {
 	@When("^Click on Questionnaire tab$")
 	public void click_on_Questionnaire_tab() throws InterruptedException {
 		
-		Thread.sleep(3000);
+		Thread.sleep(4200);
 		workbenchpage.AddQuestionarybtn.click();
 	}
 	
