@@ -188,7 +188,7 @@ public class AddQuestionaryPage extends baseclass {
 	
 	public void answerthequestion() {
 		
-		driver.findElement(By.xpath("//input[@name='ans.No' and @type='checkbox']")).click();
+		driver.findElement(By.xpath("/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-job-question-answer[1]/div[2]/div[1]/div[1]/label[2]/span[2]")).click();
 			
 		}
 
