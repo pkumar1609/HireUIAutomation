@@ -90,8 +90,6 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//select[@formcontrolname='AssignedToName']")
 	public WebElement filtersAssignToList;
 	
-	
-	
 	@FindBy(xpath = "//button[@title='Close Job']")
 	public WebElement closejobbtn;
 	

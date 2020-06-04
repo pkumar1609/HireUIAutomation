@@ -81,6 +81,20 @@ public class TC351 extends baseclass {
 	    	System.out.println("selected job is not displaying on employer side");
 	    }
 	}
+	
+	@And("^login as a support user$")
+	public void login_as_a_support_user() throws Throwable {
+	  loginpage.loginInAppWithSupport();
+	}
+
+	@And("^verify shared job is displaying on support login$")
+	public void verify_shared_job_is_displaying_on_support_login() throws Throwable {
+	   jobreviewpage.verifyJobDisplay();
+	}
+	@And("^Click on approve$")
+	public void click_on_approve() throws Throwable {
+		jobreviewpage.clickOnApproveButton();
+	}
 
 	@And("^Login with that agency$")
 	public void login_with_that_agency() throws InterruptedException  {
@@ -92,11 +106,12 @@ public class TC351 extends baseclass {
 	public void go_to_marketplace_tab() throws Throwable {
 		marketplacepage.ClickOnAgyMarketPlaceTab();
 	}
+	
 
 	@Then("^All shared job by any employer should be show for all register agencies$")
 	public void all_shared_job_by_any_employer_should_be_show_for_all_register_agencies() throws Throwable {
 		marketplacepage.marketPlaceJobAtAgy();
 	}
 
-
+	
 }

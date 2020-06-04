@@ -33,15 +33,14 @@ public class TC351 extends baseclass {
 
 	@And("^Click on share job with market place$")
 	public void click_on_share_job_with_market_place() throws InterruptedException   {
-		System.out.println(driver);
-		Thread.sleep(2000);
-		marketplacepage.ClickOnShareWithMarketPlace();
+	
+//		marketplacepage.ClickOnShareWithMarketPlace();
 	}
 
 	@And("^change information and click on submit$")
 	public void change_information_and_click_on_submit(DataTable credentials) throws InterruptedException   {
 	    
-		marketplacepage.EnterdeatilsOfMarketplace(credentials);
+//		marketplacepage.EnterdeatilsOfMarketplace(credentials);
 	}
 
 	@And("^Click on Employer marketplace tab$")
@@ -65,8 +64,23 @@ public class TC351 extends baseclass {
 	
 
 	@And("^Go to agency marketplace tab$")
-	public void go_to_marketplace_tab() throws Throwable {
+	public void go_to_agency_marketplace_tab() throws Throwable {
 		marketplacepage.ClickOnAgyMarketPlaceTab();
+		
+	}
+
+	@And("^login as a support user$")
+	public void login_as_a_support_user() throws Throwable {
+	  loginpage.loginInAppWithSupport();
+	}
+
+	@And("^verify shared job is displaying on support login$")
+	public void verify_shared_job_is_displaying_on_support_login() throws Throwable {
+	   jobreviewpage.verifyJobDisplay();
+	}
+	@And("^Click on approve$")
+	public void click_on_approve() throws Throwable {
+		jobreviewpage.clickOnApproveButton();
 	}
 
 	@Then("^All shared job by any employer should be show for all register agencies$")

@@ -9,7 +9,7 @@ And Employer enters valid credentials
 And Go to workbench
 And Add job
 |title     |designation |industry   |jobrole        |location |budget |minexp|maxexp|
-|marketjob2|developer   |IT software|java developer |pune     |400000 |1     |2     |
+|marketjob3|developer   |IT software|java developer |pune     |400000 |1     |2     |
 And Select a added job
 And Click on share job with market place
 And change information and click on submit
@@ -21,7 +21,7 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And login as a support user
 And verify shared job is displaying on support login
-And Click on approve 
+And Click on approve
 And Logout from App
 And agency enters valid credentials
 And Go to agency marketplace tab

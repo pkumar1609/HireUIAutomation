@@ -197,7 +197,14 @@ public class LoginPage extends baseclass
 		executor.executeScript("arguments[0].click();",signin);
 		identifyUserK();
 	}
-	
+	public void loginInAppWithSupport() throws InterruptedException
+	{
+		emailaddress.sendKeys(prop.getProperty("supportId"));
+		password.sendKeys(prop.getProperty("pwd"));
+		Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();",signin);
+		
+	}
 	
 	
 	public void loginInAppWithAgyTeamK() throws InterruptedException

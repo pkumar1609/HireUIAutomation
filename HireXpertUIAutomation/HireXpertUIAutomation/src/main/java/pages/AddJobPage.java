@@ -123,9 +123,10 @@ public class AddJobPage extends baseclass {
 	public String skill2 = "s2";
 	public String skill2Exp2 = "S2(Expert)";
 	Select se;
-	public  String jobname;
-	public  String jobname2;
+	public String jobname;
+	public String jobname2;
 	public boolean emp;
+	public String jobname3;
 	
 	public AddJobPage() {
 		
@@ -223,54 +224,54 @@ public class AddJobPage extends baseclass {
 		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-		workbenchpage.AddJob();
-		this.emp=loginpage.b;
-		if(emp==true)
-		{
-			title.sendKeys(data.get("title"));
+//		workbenchpage.AddJob();
+//		this.emp=loginpage.b;
+//		if(emp==true)
+//		{
+//			title.sendKeys(data.get("title"));
 			jobname=data.get("title");
-		}
-		else
-		{
-			title.sendKeys(data.get("agytitle"));
-			jobname2=data.get("agytitle");
-		}
-		designation.sendKeys(data.get("designation"));
-		industry.sendKeys(data.get("industry"));
-		jobrole.sendKeys(data.get("jobrole"));
-		location.sendKeys(data.get("location"));
-		budget.sendKeys(data.get("budget"));
-		minexp.sendKeys(data.get("minexp"));
-		maxexp.sendKeys(data.get("maxexp"));
-		noOfInterviews();
-		List<WebElement> deletebtn = driver.findElements(By.xpath("//i[@class='fa fa-trash']"));	
-		for(int i=0;i<deletebtn.size();i++)
-			{
-				WebElement btn = deletebtn.get(i);
-				Thread.sleep(2000);
-				btn.click();
-			}
-		this.emp=loginpage.b;
-		if(emp==false)
-			{ 
-			select =new Select(employerId);
-			List<WebElement> options = select.getOptions();
-			if(options.size()>0)
-			{
-				select.selectByIndex(1);
-			}
-			else if (options.size()==0)
-			{
-				Thread.sleep(2000);
-				addEmployee.click();
-				teampage.AddAllDetailsK(credentials);
-			}
-			}
-		else
-		{
-			
-		} 
-		common.ClickSumbit();
+//		}
+//		else
+//		{
+//			title.sendKeys(data.get("agytitle"));
+//			jobname2=data.get("agytitle");
+//		}
+//		designation.sendKeys(data.get("designation"));
+//		industry.sendKeys(data.get("industry"));
+//		jobrole.sendKeys(data.get("jobrole"));
+//		location.sendKeys(data.get("location"));
+//		budget.sendKeys(data.get("budget"));
+//		minexp.sendKeys(data.get("minexp"));
+//		maxexp.sendKeys(data.get("maxexp"));
+//		noOfInterviews();
+//		List<WebElement> deletebtn = driver.findElements(By.xpath("//i[@class='fa fa-trash']"));	
+//		for(int i=0;i<deletebtn.size();i++)
+//			{
+//				WebElement btn = deletebtn.get(i);
+//				Thread.sleep(2000);
+//				btn.click();
+//			}
+//		this.emp=loginpage.b;
+//		if(emp==false)
+//			{ 
+//			select =new Select(employerId);
+//			List<WebElement> options = select.getOptions();
+//			if(options.size()>0)
+//			{
+//				select.selectByIndex(1);
+//			}
+//			else if (options.size()==0)
+//			{
+//				Thread.sleep(2000);
+//				addEmployee.click();
+//				teampage.AddAllDetailsK(credentials);
+//			}
+//			}
+//		else
+//		{
+//			
+//		} 
+//		common.ClickSumbit();
 		}
 	}
 	

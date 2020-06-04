@@ -312,19 +312,14 @@ public class MarketPlacePage extends baseclass {
 	 
 	public void marketPlaceJobAtAgy()
 	 {
-		
-		try
-			 {
-				 driver.findElement(By.xpath(x)).isDisplayed();
-				 System.out.println("job is displaying on agency side");
-			 }
-			 catch(NoSuchElementException e)
-			 {
-				 System.out.println("job is not displaying");
-			 }
-		 }
-	
-	 
+		System.out.println("agency : "+job);
+		if(jobreviewpage.flag==1)
+		{
+			driver.findElement(By.xpath(x)).isDisplayed();
+			System.out.println("job is displaying on agency side");
+		}
+		jobreviewpage.flag=0;
+	 }
 	public void ValidatetheRequestDetails(DataTable credentials) throws InterruptedException
 	{
 		 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
