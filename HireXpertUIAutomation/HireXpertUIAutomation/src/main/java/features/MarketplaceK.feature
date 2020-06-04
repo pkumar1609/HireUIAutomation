@@ -2,26 +2,35 @@ Feature: Marketplace Feature
 
 @TC351 @BVT
 Scenario: To verify the functionality to share job with market place.
-Given user is registered 
+Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials
 And Go to workbench
-And Select a job
+And Add job
+|title     |designation |industry   |jobrole        |location |budget |minexp|maxexp|
+|marketjob2|developer   |IT software|java developer |pune     |400000 |1     |2     |
+And Select a added job
 And Click on share job with market place
 And change information and click on submit
 |Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
 |8.33                 |30 Days       |60 Days      |90 Days           |
 And Click on Employer marketplace tab 
 Then Job should be list out in market place page on employer side.
-And logout with employer and Login with agency
+And Logout from App
+And Click on Employer-Agency Signin link
+And login as a support user
+And verify shared job is displaying on support login
+And Click on approve 
+And Logout from App
+And agency enters valid credentials
 And Go to agency marketplace tab
 Then All shared job by any employer should be show for all register agencies
 
 
 @TC359_357 @BVT
 Scenario: To check the functionality of Reject proposal and view button on Agency profile
-Given user is registered 
+Given User must be registered
 And Click on Employer-Agency Signin link
 Given Job must be share to market place
 |Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
@@ -45,7 +54,7 @@ Then Agreement popup should show request information in read only mode
 
 @TC361 @BVT
 Scenario: To check the functionality of Review request
-Given user is registered 
+Given User must be registered
 And Click on Employer-Agency Signin link
 Given Job must be share to market place
 |Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
@@ -67,7 +76,7 @@ Then status should display as employer signed
 
 @TC363_375 @BVT
 Scenario: To check the functionality of Review request and add candidate
-Given user is registered 
+Given User must be registered
 And Click on Employer-Agency Signin link
 Given Job must be share to market place
 |Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|

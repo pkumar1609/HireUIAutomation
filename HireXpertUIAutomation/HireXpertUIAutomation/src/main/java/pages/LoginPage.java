@@ -235,6 +235,8 @@ public class LoginPage extends baseclass
 			{
 				b=false;
 				logedinuser= logedinusername.getText();
+				Thread.sleep(2000);
+				logedinusername.click();
 				System.out.println(logedinuser);
 				System.out.println(b);
 			}

@@ -80,7 +80,7 @@ public class MarketPlacePage extends baseclass {
 	public WebElement viewagreement;
 	
 	//change the job according to selected
-	public String job=prop.getProperty("isshared");
+	public String job ="marketjob2";
 
 	//Applybtn
 	String x="//a[contains(text(),'" + job + "')]//following::button[text()='Apply']";
@@ -315,8 +315,8 @@ public class MarketPlacePage extends baseclass {
 		
 		try
 			 {
-				driver.findElement(By.xpath(x)).isDisplayed();
-				 System.out.println("job is displaying");
+				 driver.findElement(By.xpath(x)).isDisplayed();
+				 System.out.println("job is displaying on agency side");
 			 }
 			 catch(NoSuchElementException e)
 			 {

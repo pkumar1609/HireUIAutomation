@@ -216,7 +216,7 @@ public class AddJobPage extends baseclass {
 		common.submitbtn.click();
 	}
 	
-	public void addjob(DataTable credentials) throws InterruptedException,NoSuchContextException
+	public void addjob(DataTable credentials) throws InterruptedException
 	{
 		
 			
@@ -224,6 +224,7 @@ public class AddJobPage extends baseclass {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
 		workbenchpage.AddJob();
+		this.emp=loginpage.b;
 		if(emp==true)
 		{
 			title.sendKeys(data.get("title"));
@@ -242,15 +243,15 @@ public class AddJobPage extends baseclass {
 		minexp.sendKeys(data.get("minexp"));
 		maxexp.sendKeys(data.get("maxexp"));
 		noOfInterviews();
-		click.click();
-		Thread.sleep(2000);
 		List<WebElement> deletebtn = driver.findElements(By.xpath("//i[@class='fa fa-trash']"));	
 		for(int i=0;i<deletebtn.size();i++)
 			{
 				WebElement btn = deletebtn.get(i);
+				Thread.sleep(2000);
 				btn.click();
 			}
-		if(emp==true)
+		this.emp=loginpage.b;
+		if(emp==false)
 			{ 
 			select =new Select(employerId);
 			List<WebElement> options = select.getOptions();
@@ -267,8 +268,9 @@ public class AddJobPage extends baseclass {
 			}
 		else
 		{
-			common.ClickSumbit();
+			
 		} 
+		common.ClickSumbit();
 		}
 	}
 	

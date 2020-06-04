@@ -64,7 +64,23 @@ public class TC302 extends baseclass {
 	@Then("^verify all the edited details$")
 	public void verify_all_the_edited_details(DataTable credentials) throws Throwable {
 	
-		taskpage.assertDeatailsOfTask(credentials);
+		if(taskpage.assignto.contentEquals(loginpage.logedinuser))
+		{
+			taskpage.ClickOnMyTask();
+			taskpage.ClickOnEditTask();
+			taskpage.assertDeatailsOfTask(credentials);
+			
+				
+		}
+		else
+		{
+			taskpage.ClickOnTeamTask();
+			taskpage.ClickOnEditTask();
+			taskpage.assertDeatailsOfTask(credentials);	
+				
+		}
+		
+		
 	}
 
 }

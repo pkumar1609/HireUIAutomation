@@ -478,7 +478,7 @@ public void validateTaskDisplayingProperlyForAgy() throws InterruptedException
 	
 	if(assignto.contentEquals(loginpage.logedinuser))
 	{
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		mytask.click();
 		reloadtask();
 		boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtaskagy+"']")).isDisplayed();
@@ -552,10 +552,9 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 	{
 		if(emp==true)
 		{
-			
-			titlebtn.getText().contentEquals(data.get("Title for emp"));
-			String task= data.get("Title for emp");
-			executor.executeScript("arguments[0].scrollIntoView();", task);
+			addedtask.contentEquals(data.get("Title for emp"));
+//			String task= data.get("Title for emp");
+//			executor.executeScript("arguments[0].scrollIntoView();", task);
 //			teamid.getAttribute("value").contentEquals(data.get("employer"));
 //			Assigntofield.getAttribute("value").contentEquals(data.get("AssignTo"));
 			notefield.getText().contentEquals(data.get("note"));
@@ -563,7 +562,7 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 		}
 		else
 		{
-			titlebtn.getText().contentEquals(data.get("Title for agy"));
+			addedtaskagy.contentEquals(data.get("Title for agy"));
 //			teamid.getAttribute("value").contentEquals(data.get("agency"));
 //			Assigntofield.getAttribute("value").contentEquals(data.get("agyAssignTo"));
 			notefield.getText().contentEquals(data.get("agynote"));
@@ -587,7 +586,7 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 	}
 	public void shareWithTeam(DataTable credentials) throws InterruptedException
 	{
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		shareWithTeam.click();
 		this.emp=loginpage.b;
 		if(emp==true)
@@ -621,11 +620,10 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 				common.clickOnConfirmYes();
 			}
 			catch(NoSuchElementException e)
-			{
-				
-			}
-			}
+			{}
 		}
+		
+	}
 		common.clickOnCloseBtn();
 	}
 	
