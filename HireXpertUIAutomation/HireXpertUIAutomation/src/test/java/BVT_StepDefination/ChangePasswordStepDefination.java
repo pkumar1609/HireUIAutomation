@@ -146,7 +146,7 @@ public class ChangePasswordStepDefination extends baseclass{
 	@Then("^User should get error message as \"([^\"]*)\" when he try to login with old password$")
 	public void user_should_get_error_message_as_when_he_try_to_login_with_old_password(String ExpectedErrorMessage) throws Throwable {
 		
-		String ActualErrorMessage = driver.findElement(By.xpath("//h6[@id='alertlineheight']")).getText();
+		String ActualErrorMessage = driver.findElement(By.cssSelector("p.error.mb-1.pl-1.pr-1")).getText();
 		Assert.assertEquals(ExpectedErrorMessage, ActualErrorMessage);	
 	}
 

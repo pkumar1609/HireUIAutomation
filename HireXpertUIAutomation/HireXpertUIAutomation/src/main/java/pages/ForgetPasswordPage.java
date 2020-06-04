@@ -10,7 +10,7 @@ public class ForgetPasswordPage  extends baseclass {
 	
 
 	@FindBy(linkText="Forgot Password")
-	 public WebElement ForgotPasswordLink;
+	  WebElement ForgotPasswordLink;
 	
 	@FindBy(xpath="//input[@placeholder='Email address']")
 	 WebElement LoginEmailField;
@@ -32,5 +32,9 @@ public class ForgetPasswordPage  extends baseclass {
 		LoginEmailField.sendKeys(emailid);
 	}
 	
+	public void ClickonForgetPasswordLink () {
+		
+		ForgotPasswordLink.click();
+	}
 	
 }

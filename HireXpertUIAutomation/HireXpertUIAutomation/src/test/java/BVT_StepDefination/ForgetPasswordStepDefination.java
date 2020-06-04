@@ -14,7 +14,7 @@ public class ForgetPasswordStepDefination extends baseclass {
 		
 		Thread.sleep(3000);
 	  
-		forgetpasswordpage.ForgotPasswordLink.click();
+		forgetpasswordpage.ClickonForgetPasswordLink();
 	}
 	
 	@When("^Enter an email id which is not registered and click on submit button \"([^\"]*)\"$")
