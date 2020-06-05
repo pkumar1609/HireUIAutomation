@@ -8,8 +8,8 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials
 And Go to workbench
 And Add job
-|title     |designation |industry   |jobrole        |location |budget |minexp|maxexp|
-|marketjob3|developer   |IT software|java developer |pune     |400000 |1     |2     |
+|title              |designation |industry   |jobrole        |location |budget |minexp|maxexp|
+|marketjob9         |developer   |IT software|java developer |pune     |400000 |1     |2     |
 And Select a added job
 And Click on share job with market place
 And change information and click on submit
@@ -21,35 +21,62 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And login as a support user
 And verify shared job is displaying on support login
+|title      |job   |
+|marketjob9 |job1  |
 And Click on approve
 And Logout from App
+And Click on Employer-Agency Signin link
 And agency enters valid credentials
 And Go to agency marketplace tab
 Then All shared job by any employer should be show for all register agencies
-
-
-@TC359_357 @BVT
-Scenario: To check the functionality of Reject proposal and view button on Agency profile
-Given User must be registered
-And Click on Employer-Agency Signin link
-Given Job must be share to market place
-|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
-|8.33                 |30 Days       |60 Days      |90 Days           |
-And logout with employer and Login with agency
-And Go to agency marketplace tab
 And Click on Apply button of job
-And logout with agency and Login with employer
+And Logout from App
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials
 And click on Employer marketplace tab
 And Select that job in filter on job proposal section
 And Click on reject button of that proposal
 And Job proposal area should show rejected status
-And logout with employer and Login with agency
+And Logout from App
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
 And Go to agency marketplace tab
 Then status of that request should show as rejected
 And Click on Review button
 Then Agreement popup should show request information in read only mode
 |Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
 |8.33                 |30 Days       |60 Days      |90 Days           |
+
+
+
+#@TC359_357 @BVT
+#Scenario: To check the functionality of Reject proposal and view button on Agency profile
+#Given User must be registered
+#And Click on Employer-Agency Signin link
+#Given Job must be share to market place
+#|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
+#|8.33                 |30 Days       |60 Days      |90 Days           |
+#And Logout from App
+#And Click on Employer-Agency Signin link
+#And agency enters valid credentials
+#And Go to agency marketplace tab
+#And Click on Apply button of job
+#And Logout from App
+#And Click on Employer-Agency Signin link
+#And Employer enters valid credentials
+#And click on Employer marketplace tab
+#And Select that job in filter on job proposal section
+#And Click on reject button of that proposal
+#And Job proposal area should show rejected status
+#And Logout from App
+#And Click on Employer-Agency Signin link
+#And agency enters valid credentials
+#And Go to agency marketplace tab
+#Then status of that request should show as rejected
+#And Click on Review button
+#Then Agreement popup should show request information in read only mode
+#|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
+#|8.33                 |30 Days       |60 Days      |90 Days           |
 
 
 @TC361 @BVT

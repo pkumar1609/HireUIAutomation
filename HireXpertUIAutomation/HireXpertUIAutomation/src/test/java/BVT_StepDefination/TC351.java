@@ -10,6 +10,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.JobReviewPage;
 import utilPackage.baseclass;
 
 public class TC351 extends baseclass {
@@ -22,25 +23,25 @@ public class TC351 extends baseclass {
 	public void setup() throws IOException
 	{
 //		baseclass.initialization();
+//		jobreviewpage = new JobReviewPage();
 	}
-//	
+
 	boolean emp;
 	
 	@And("^Select a added job$")
 	public void select_a_added_job() throws Throwable {
-	    workbenchpage.selectJobK();
-	}
+		workbenchpage.selectJobK();	}
 
 	@And("^Click on share job with market place$")
 	public void click_on_share_job_with_market_place() throws InterruptedException   {
 	
-//		marketplacepage.ClickOnShareWithMarketPlace();
+		marketplacepage.ClickOnShareWithMarketPlace();
 	}
 
 	@And("^change information and click on submit$")
 	public void change_information_and_click_on_submit(DataTable credentials) throws InterruptedException   {
 	    
-//		marketplacepage.EnterdeatilsOfMarketplace(credentials);
+		marketplacepage.EnterdeatilsOfMarketplace(credentials);
 	}
 
 	@And("^Click on Employer marketplace tab$")
@@ -75,8 +76,8 @@ public class TC351 extends baseclass {
 	}
 
 	@And("^verify shared job is displaying on support login$")
-	public void verify_shared_job_is_displaying_on_support_login() throws Throwable {
-	   jobreviewpage.verifyJobDisplay();
+		public void verify_shared_job_is_displaying_on_support_login(DataTable credentials) throws Throwable {
+		jobreviewpage.verifyJobDisplay(credentials);
 	}
 	@And("^Click on approve$")
 	public void click_on_approve() throws Throwable {

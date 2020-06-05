@@ -1,12 +1,14 @@
 package pages;
 
 import java.awt.Desktop.Action;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.JobReviewPage;
+import cucumber.api.DataTable;
 
 import utilPackage.baseclass;
 
@@ -18,30 +20,41 @@ public class JobReviewPage extends baseclass{
 		super();
 		PageFactory.initElements(driver, this);
 	}
-	int flag=0;
-	String jobname =addjobpage.jobname;
 	
 	@FindBy(xpath = "//a[contains(text(), 'Job Review')]")
 	public WebElement jobReview;
 	
-	String approvebtn="//a[contains(text(),'"+jobname+"')]//following::button[text()='Approve']";
+	int flag=0;
+	String jobname="marketjob9";
 	
-	public void verifyJobDisplay() throws InterruptedException
+	public void verifyJobDisplay(DataTable credentials) throws InterruptedException
 	{
-		System.out.println(jobname);
+		Map<String, String> data = credentials.asMap(String.class, String.class);
+		
+		String approvebtn="//a[contains(text(),'marketjob9')]//following::button[text()='Approve']";		
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();",jobReview);
-		driver.findElement(By.xpath(approvebtn)).isDisplayed();
+		WebElement ele = driver.findElement(By.xpath(approvebtn));
+		executor.executeScript("arguments[0].scrollIntoView();", ele);
+		ele.isDisplayed();
+		
+		executor.executeScript("arguments[0].click();",ele);
+		common.clickOnOKBtn();
+		common.clickOnCloseBtn();
+		flag=1;
 	}
 	
 	public void clickOnApproveButton() throws InterruptedException
 	{
-		Thread.sleep(2000);
-		action.moveToElement(jobReview).click().perform();
-		WebElement ele = driver.findElement(By.xpath(approvebtn));
-		executor.executeScript("arguments[0].scrollIntoView();", ele);
-		ele.click();
-		common.clickOnOKBtn();
-		flag=1;
+//		String approvebtn="//a[contains(text(),'"+jobname+"')]//following::button[text()='Approve']";
+//		Thread.sleep(2000);
+//		action.moveToElement(jobReview).click().perform();
+//		WebElement ele = driver.findElement(By.xpath(approvebtn));
+//		Thread.sleep(4000);
+//		executor.executeScript("arguments[0].scrollIntoView();", ele);
+//		executor.executeScript("arguments[0].click();",ele);
+//		common.clickOnOKBtn();
+//		common.clickOnCloseBtn();
+//		flag=1;
 	}
 }

@@ -80,7 +80,7 @@ public class MarketPlacePage extends baseclass {
 	public WebElement viewagreement;
 	
 	//change the job according to selected
-	public String job ="marketjob2";
+	public String job ="marketjob8";
 
 	//Applybtn
 	String x="//a[contains(text(),'" + job + "')]//following::button[text()='Apply']";
@@ -216,7 +216,7 @@ public class MarketPlacePage extends baseclass {
 	{
 		Thread.sleep(2000);
 		select=new Select(jobdropdown);
-		select.selectByVisibleText("job2 - Active");
+		select.selectByVisibleText("marketjob9 - Active");
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", searchbtn);
 	}
@@ -315,7 +315,9 @@ public class MarketPlacePage extends baseclass {
 		System.out.println("agency : "+job);
 		if(jobreviewpage.flag==1)
 		{
-			driver.findElement(By.xpath(x)).isDisplayed();
+			WebElement ele = driver.findElement(By.xpath(x));
+			executor.executeScript("arguments[0].scrollIntoView();", ele);
+			ele.isDisplayed();
 			System.out.println("job is displaying on agency side");
 		}
 		jobreviewpage.flag=0;
@@ -357,6 +359,8 @@ public class MarketPlacePage extends baseclass {
 	 Thread.sleep(2000);
 	 viewagreement.click();
  }
+ 
+ 
  
 }
 

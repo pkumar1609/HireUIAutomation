@@ -88,8 +88,8 @@ public class TC351 extends baseclass {
 	}
 
 	@And("^verify shared job is displaying on support login$")
-	public void verify_shared_job_is_displaying_on_support_login() throws Throwable {
-	   jobreviewpage.verifyJobDisplay();
+	public void verify_shared_job_is_displaying_on_support_login(DataTable credentials) throws Throwable {
+	   jobreviewpage.verifyJobDisplay(credentials);
 	}
 	@And("^Click on approve$")
 	public void click_on_approve() throws Throwable {
