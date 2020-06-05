@@ -11,7 +11,7 @@ public class ShareWithAgencyPage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	public WebElement searchField;
 	
-	@FindBy(xpath = "//td[4]//label[1]//input[1]")
+	@FindBy(xpath = "//td[4]//label[1]//span[1]")
 	public WebElement shareCheckbox;
 	
 	@FindBy(xpath = "//td[5]//label[1]//span[1]")
@@ -23,12 +23,12 @@ public class ShareWithAgencyPage extends baseclass {
 		this.driver = driver;
 	}
 	
-	public void searchAgency() {
-		
-		String expectedEmail = prop.getProperty("agencyemail1");
-		searchField.click();
-		searchField.sendKeys(expectedEmail);
-	}
+//	public void searchAgency() {
+//		
+//		String expectedEmail = prop.getProperty("agencyemail");
+//		searchField.click();
+//		searchField.sendKeys(expectedEmail);
+//	}
 	
 	public void searchAgencyOwner() {
 		

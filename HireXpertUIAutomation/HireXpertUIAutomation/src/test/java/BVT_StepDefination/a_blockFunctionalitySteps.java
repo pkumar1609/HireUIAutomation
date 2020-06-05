@@ -17,11 +17,14 @@ import utilPackage.utilclass;
 
 public class a_blockFunctionalitySteps extends baseclass {
 
-//@agencyblock:
+//@bvt_agencyblock:
 
 	@When("^enter valid user email address and password for registered employer and click on Sign in button$")
 	public void enter_valid_user_email_address_and_password_for_registered_employer_and_click_on_Sign_in_button(DataTable dt) throws Throwable {
 	    
+		registerpage.clickEmployerAgencySignInlink();
+		Thread.sleep(3000);
+		
 		List<List<String>> data = dt.raw();
 		loginpage.emailaddress.sendKeys(data.get(0).get(0));
 		loginpage.password.sendKeys(data.get(0).get(1));
@@ -29,33 +32,22 @@ public class a_blockFunctionalitySteps extends baseclass {
 		Thread.sleep(5000);
 	}
 
-	@When("^click on Agencies tab and add one new agency by clicking on Add button if agencies are not present$")
-	public void click_on_Agencies_tab_and_add_one_new_agency_by_clicking_on_Add_button_if_agencies_are_not_present() throws Throwable {
+	@When("^Agency should be added previously \"([^\"]*)\"$")
+	public void agency_should_be_added_previously(String arg1) throws Throwable {
 	    
-//		dashboardpage.openAgenciesPage();
-//		Thread.sleep(3000);
-//		agenciespage.clickOnAddButton();
-//		Thread.sleep(3000);
-//		agenciespage.fillAgencyDetailsAddButton();
-//		agenciespage.submitButton.click();
-//		Thread.sleep(2000);
 	}
-
-	@When("^click on Close button from Agencies window$")
-	public void click_on_Close_button_from_Agencies_window() throws Throwable {
-	    
-//		driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/app-list-jobprovider/div[3]/button")).click();
-//		Thread.sleep(2000);
-	}
-
 
 	@When("^click on Share With Agency button and select the Share checkbox present in front of the agency to share the job$")
-	public void click_on_Share_With_Agency_button_and_select_the_Share_checkbox_present_in_front_of_the_agency_to_share_the_job() throws Throwable {
+	public void click_on_Share_With_Agency_button_and_select_the_Share_checkbox_present_in_front_of_the_agency_to_share_the_job(DataTable dt) throws Throwable {
 	    
 		workbenchpage.shareWithAgencyButton.click();
 		Thread.sleep(3000);
-		sharewithagencypage.searchAgency();
-		Thread.sleep(1000);
+		
+		List<List<String>> data = dt.raw();
+		sharewithteampage.searchField.click();
+		sharewithteampage.searchField.sendKeys(data.get(0).get(0));
+		Thread.sleep(2000);
+		
 		sharewithagencypage.shareCheckbox.click();
 		Thread.sleep(1000);
 	}
@@ -70,37 +62,34 @@ public class a_blockFunctionalitySteps extends baseclass {
 	}
 
 	@When("^again click on Share With Agency button and select the Block/Unblock checkbox present in front of the agency with whom you shared the job$")
-	public void again_click_on_Share_With_Agency_button_and_select_the_Block_Unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job() throws Throwable {
+	public void again_click_on_Share_With_Agency_button_and_select_the_Block_Unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job(DataTable dt) throws Throwable {
 	    
 		workbenchpage.shareWithAgencyButton.click();
 		Thread.sleep(3000);
-		sharewithagencypage.searchAgency();
+		
+		List<List<String>> data = dt.raw();
+		sharewithteampage.searchField.click();
+		sharewithteampage.searchField.sendKeys(data.get(0).get(0));
+
 		Thread.sleep(2000);
 		sharewithagencypage.blockUnblockCheckbox.click();
 		Thread.sleep(2000);
 	}
 	
 	@When("^logout with employer and login with Agency valid credentials which you blocked on Share Job page$")
-	public void logout_with_employer_and_login_with_Agency_valid_credentials_which_you_blocked_on_Share_Job_page() throws Throwable {
+	public void logout_with_employer_and_login_with_Agency_valid_credentials_which_you_blocked_on_Share_Job_page(DataTable dt) throws Throwable {
 	    
 		workbenchpage.ClickonLogout();
 		Thread.sleep(3000);
-		loginpage.signInAgency1();
+		
+		registerpage.clickEmployerAgencySignInlink();
+		Thread.sleep(3000);
+		
+		List<List<String>> data = dt.raw();
+		loginpage.emailaddress.sendKeys(data.get(0).get(0));
+		loginpage.password.sendKeys(data.get(0).get(1));
+		loginpage.signin.click();
 		Thread.sleep(5000);
-	}
-	
-	@When("^update profile window get opened if new agency added for job$")
-	public void update_profile_window_get_opened_if_new_agency_added_for_job() throws Throwable {
-	    
-//		String title = driver.findElement(By.xpath("//h5[@class='modal-title']")).getText();
-//		System.out.println("Page title: "+title);
-//		driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/app-profile/div[2]/form/div/div[8]/input")).sendKeys("Pune");  //city	
-//		driver.findElement(By.xpath("//*[@id=\"typeahead-config\"]")).sendKeys("abcd");  //organization
-//		driver.findElement(By.id("agencyaddress")).sendKeys("ahsbfsfbhs hsbj");  //agency address
-//		driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/app-profile/div[3]")).click();  //blank space
-//		driver.findElement(By.xpath("//div[contains(@class,'checkmark')]")).click();  //is agency owner checkbox
-//		driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/app-profile/div[3]/button[2]")).click();
-//		Thread.sleep(5000);
 	}
 
 	@When("^click on Workbench tab and select the job for which agency is blocked$")
@@ -147,8 +136,8 @@ public class a_blockFunctionalitySteps extends baseclass {
 		Thread.sleep(2000);
 	}
 
-	@Then("^click on Share With Team button and observe team is added and if not then add new team by clicking on Add button on Share Job page$")
-	public void click_on_Share_With_Team_button_and_observe_team_is_added_and_if_not_then_add_new_team_by_clicking_on_Add_button_on_Share_Job_page(DataTable dt) throws Throwable {
+	@Then("^click on Share With Team button and add new team by clicking on Add button on Share Job page$")
+	public void click_on_Share_With_Team_button_add_new_team_by_clicking_on_Add_button_on_Share_Job_page(DataTable dt) throws Throwable {
 	    
 		workbenchpage.shareWithTeamButton.click();
 		Thread.sleep(3000);
@@ -166,9 +155,12 @@ public class a_blockFunctionalitySteps extends baseclass {
 	}
 
 	@Then("^search for team member and select the Share checkbox present in front of the agency team member to share the job with team member$")
-	public void search_for_team_member_and_select_the_Share_checkbox_present_in_front_of_the_agency_team_member_to_share_the_job_with_team_member() throws Throwable {
+	public void search_for_team_member_and_select_the_Share_checkbox_present_in_front_of_the_agency_team_member_to_share_the_job_with_team_member(DataTable dt) throws Throwable {
 	    
-		sharewithteampage.searchAgencyTeam11();
+		List<List<String>> data = dt.raw();
+		
+		sharewithteampage.searchField.click();
+		sharewithteampage.searchField.sendKeys(data.get(0).get(0));
 		Thread.sleep(1000);
 		sharewithagencypage.shareCheckbox.click();
 	}
@@ -190,6 +182,11 @@ public class a_blockFunctionalitySteps extends baseclass {
 	
 	
 //@teamblock:
+	
+	@When("^Team member should be added previously \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void team_member_should_be_added_previously_and(String arg1, String arg2) throws Throwable {
+	    
+	}
 
 //	@When("^click on Team tab and add one new team member by clicking on Add button$")
 //	public void click_on_Team_tab_and_add_one_new_team_member_by_clicking_on_Add_button(DataTable dt) throws Throwable {
