@@ -28,6 +28,8 @@ public class addjobsteps extends baseclass{
 	@When("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
 	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String arg1, String arg2) throws Throwable {
 	    
+		Thread.sleep(2000);
+		
 		registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(3000);
 		

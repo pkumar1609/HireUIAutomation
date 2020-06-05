@@ -43,7 +43,11 @@ public class scheduledInterview extends baseclass {
 					addcandidatepage.FindButton.click();
 					Thread.sleep(3000);
 					common.clickOnOKBtn();
-					addcandidatepage.salaryOffered.sendKeys("300000");
+					
+					addcandidatepage.clickUploadResumeField();
+					addcandidatepage.uploadResumeDocument();
+					driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
 					Thread.sleep(1000);
 					common.clickOnSaveBtn();
 					common.clickOnConfirmYes();
@@ -61,7 +65,11 @@ public class scheduledInterview extends baseclass {
 					addcandidatepage.FindButton.click();
 					Thread.sleep(3000);
 					common.clickOnOKBtn();
-					addcandidatepage.salaryOffered.sendKeys("250000");
+					
+					addcandidatepage.clickUploadResumeField();
+					addcandidatepage.uploadResumeDocument();
+					driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+					
 					Thread.sleep(1000);
 					common.clickOnSaveBtn();
 					common.clickOnConfirmYes();

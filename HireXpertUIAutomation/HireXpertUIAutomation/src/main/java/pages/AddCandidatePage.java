@@ -65,7 +65,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[2]/select")
 	public WebElement expertiseLevel;
 	
-	@FindBy(xpath = "//div[@class='custom-file']")
+	@FindBy(xpath = "//div[@class='custom-file custom-file-invalid']")
 	public WebElement uploadResumeField;
 	
 	String nameOfCan;
