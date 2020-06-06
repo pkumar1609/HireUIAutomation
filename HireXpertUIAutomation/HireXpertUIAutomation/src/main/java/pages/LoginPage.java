@@ -92,29 +92,11 @@ public class LoginPage extends baseclass
 		signin.click();
 	}
 	
-//	public void signInTeam() {
-//		emailaddress.sendKeys(prop.getProperty("teamemail"));
-//		password.sendKeys(prop.getProperty("password"));
-//		signin.click();
-//	}
-	
-//	public void signInTeam3() {
-//		emailaddress.sendKeys(prop.getProperty("teamemail3"));
-//		password.sendKeys(prop.getProperty("password"));
-//		signin.click();
-//	}
-	
 	public void signInAgency() {
 		emailaddress.sendKeys(prop.getProperty("agencyemail"));
 		password.sendKeys(prop.getProperty("password"));
 		signin.click();
 	}
-	
-//	public void signInAgencyTeam1() {
-//		emailaddress.sendKeys(prop.getProperty("agencyteamemail1"));
-//		password.sendKeys(prop.getProperty("password"));
-//		signin.click();
-//	}
 	
 	public void signInAgency1() {
 		emailaddress.sendKeys(prop.getProperty("agencyemail1"));
@@ -133,12 +115,6 @@ public class LoginPage extends baseclass
 		password.sendKeys(prop.getProperty("password"));
 		signin.click();
 	}
-	
-//	public void signInAgencyTeam3() {
-//		emailaddress.sendKeys(prop.getProperty("agencyteamemail3"));
-//		password.sendKeys(prop.getProperty("password"));
-//		signin.click();
-//	}
 	
 	public void signInCandidate() {
 		emailaddress.sendKeys(prop.getProperty("candidateemail"));
