@@ -11,13 +11,13 @@ Feature: User Management
     And click on Workbench tab and select job from Jobs drop down
     And click on Add Candidate button
     And enter email id of candidate which is not registered previously and click on Find button
-    | c02@gmail.com |
+    | c04@gmail.com |
     And Fill all mandatory details and click on Save button
-    | c02 | 431631529 | test engineer| Female | 30 | Pune | Email | Expert |
+    | c04 | 431631429 | test engineer| Female | 30 | Pune | Email | Expert |
     And click on Yes button if probability related fields are not filled and observe
     Then user should able to add new candidate and candidate should get added in New column
     And logout with employer and login with new candidate added by employer
-    | c02@gmail.com | 12345 |
+    | c04@gmail.com | 12345 |
     Then Candidate should be able to login with email id added by user and Update profile pop up will appears 
     And observe the auto-populated fields on the update candidate profile popup
     Then all filled information should auto populate if candidate added through employer

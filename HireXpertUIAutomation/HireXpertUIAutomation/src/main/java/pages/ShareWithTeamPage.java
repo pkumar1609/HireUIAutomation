@@ -65,19 +65,19 @@ public class ShareWithTeamPage extends baseclass {
 		addToTeamMember.click();
 	}
 	
-	public void searchAgencyTeam() 
-	{
-		String expectedEmail = prop.getProperty("agencyteamemail1");
-		searchField.click();
-		searchField.sendKeys(expectedEmail);
-	}
-	
-	public void searchEmployerTeam() {
-		
-		String expectedEmail = prop.getProperty("teamemail");
-		searchField.click();
-		searchField.sendKeys(expectedEmail);
-	}
+//	public void searchAgencyTeam() 
+//	{
+//		String expectedEmail = prop.getProperty("agencyteamemail1");
+//		searchField.click();
+//		searchField.sendKeys(expectedEmail);
+//	}
+//	
+//	public void searchEmployerTeam() {
+//		
+//		String expectedEmail = prop.getProperty("teamemail");
+//		searchField.click();
+//		searchField.sendKeys(expectedEmail);
+//	}
 	
 	public void searchAgencyTeam11() {
 		
@@ -86,19 +86,19 @@ public class ShareWithTeamPage extends baseclass {
 		searchField.sendKeys(expectedEmail);
 	}
 	
-	public void searchAgencyTeam3() {
-		
-		String expectedEmail = prop.getProperty("agencyteamemail3");
-		searchField.click();
-		searchField.sendKeys(expectedEmail);
-	}
+//	public void searchAgencyTeam3() {
+//		
+//		String expectedEmail = prop.getProperty("agencyteamemail3");
+//		searchField.click();
+//		searchField.sendKeys(expectedEmail);
+//	}
 	
-	public void searchEmployerTeam3() {
-		
-		String expectedEmail = prop.getProperty("teamemail3");
-		searchField.click();
-		searchField.sendKeys(expectedEmail);
-	}
+//	public void searchEmployerTeam3() {
+//		
+//		String expectedEmail = prop.getProperty("teamemail3");
+//		searchField.click();
+//		searchField.sendKeys(expectedEmail);
+//	}
 	
 	public void searchEmployerPrimaryContact() {
 		

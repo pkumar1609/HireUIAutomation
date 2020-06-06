@@ -43,24 +43,23 @@ Feature: Job Management
     When title of page is HireXpert
     And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
     And Team member should be added previously "sayali1team1@gmail.com" and "sayagency1team1@gmail.com"
-#    And click on Team tab and add one new team member by clicking on Add button
-#    | sayali 1 team 1 | sayali1team1@gmail.com | 2451565965 | say Agency 1 team 1 | sayagency1team1@gmail.com | 2451565965 |
-#    And click on Close button from Team Members window
     And click on Workbench tab and select job from Jobs drop down
-    And click on Share With Team button and select the Share checkbox present in front of the team member to share the job
+    And click on Share With Team button and select the Share checkbox present in front of the team member
+    | sayali1team1@gmail.com | sayagency1team1@gmail.com |
 	And click on Yes button from confirmation popup and now select the Block/Unblock checkbox present in front of the team member 
     And click on Yes button from confirmation popup and click on Close button from Share Job
 	And logout with logged in user and login with team member valid credentials which you blocked on Share Job page
+	| sayali1team1@gmail.com | 12345 |sayagency1team1@gmail.com | 12345 |
     And click on Workbench tab and select the job for which team member is blocked
     And click on Add Candidate button
     And enter email id of candidate and click on Find button and observe
-    | can03@gmail.com |
+    | c01@gmail.com |
     Then Blocked team member should not be able to add candidate for the job and error message should display and he should be able to see all candidate status which are added by himself into that job
     And close the browser
     
 Examples:
 |   email address    |   password   |
-| sayali8@gmail.com  |    12345     |
+| sayali1@gmail.com  |    12345     |
 |sayagency1@gmail.com|    12345     |
 
 

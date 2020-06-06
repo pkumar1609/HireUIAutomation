@@ -181,95 +181,51 @@ public class a_blockFunctionalitySteps extends baseclass {
 
 	
 	
-//@teamblock:
+//@bvt_teamblock:
 	
 	@When("^Team member should be added previously \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void team_member_should_be_added_previously_and(String arg1, String arg2) throws Throwable {
 	    
 	}
 
-//	@When("^click on Team tab and add one new team member by clicking on Add button$")
-//	public void click_on_Team_tab_and_add_one_new_team_member_by_clicking_on_Add_button(DataTable dt) throws Throwable {
-//	    
-//		List<List<String>> data = dt.raw();
-//		
-//		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-//		
-//		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
-//		if(dynamicElement.size() != 0){
-//			
-//			System.out.println("\nUser logged in as Employer..");
-//			
-//			dashboardpage.openTeamPage();
-//			Thread.sleep(3000);
-//			teampage.AddTeamButton.click();
-//			Thread.sleep(3000);
-//			teampage.TeamMemberName.sendKeys(data.get(0).get(0));
-//			teampage.TeamMemberEmail.sendKeys(data.get(0).get(1));
-//			teampage.TeamMemberContactNumber.sendKeys(data.get(0).get(2));
-//			common.submitbtn.click();
-//			System.out.println("\nNew team member get added by employer..");
-//			Thread.sleep(3000);
-//		}
-//		
-//		else{
-//			
-//			System.out.println("\nUser logged in as Agency..");
-//			
-//			dashboardpage.openTeamPage();
-//			Thread.sleep(3000);
-//
-//			teampage.AddTeamButton.click();
-//			Thread.sleep(3000);
-//			teampage.TeamMemberName.sendKeys(data.get(0).get(3));
-//			teampage.TeamMemberEmail.sendKeys(data.get(0).get(4));
-//			teampage.TeamMemberContactNumber.sendKeys(data.get(0).get(5));
-//			common.submitbtn.click();
-//			System.out.println("\nNew team member get added by agency..");
-//			Thread.sleep(3000);
-//		}
-//		
-//		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
-//		
-//	}
+	@When("^click on Share With Team button and select the Share checkbox present in front of the team member$")
+	public void click_on_Share_With_Team_button_and_select_the_Share_checkbox_present_in_front_of_the_team_member(DataTable dt) throws Throwable {
+	    
+		List<List<String>> data = dt.raw();
+		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		
+		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+		if(dynamicElement.size() != 0){
+			
+			System.out.println("\nSearching team member with Employer..");
+			
+			workbenchpage.shareWithTeamButton.click();
+			Thread.sleep(3000);
+			
+			sharewithteampage.searchField.click();
+			sharewithteampage.searchField.sendKeys(data.get(0).get(0));
+			
+			sharewithteampage.shareCheckbox.click();
+			Thread.sleep(2000);
+		}
+		
+		else{
+			
+			System.out.println("\nSearching team member with Agency..");
+			
+			workbenchpage.shareWithTeamButton.click();
+			Thread.sleep(3000);
+			
+			sharewithteampage.searchField.click();
+			sharewithteampage.searchField.sendKeys(data.get(0).get(1));
+			
+			sharewithteampage.shareCheckbox.click();
+			Thread.sleep(2000);
+		}
+		
+		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 
-//	@When("^click on Close button from Team Members window$")
-//	public void click_on_Close_button_from_Team_Members_window() throws Throwable {
-//	    
-//		common.closebtn.click();
-//	}
-
-//	@When("^click on Share With Team button and select the Share checkbox present in front of the team member to share the job$")
-//	public void click_on_Share_With_Team_button_and_select_the_Share_checkbox_present_in_front_of_the_team_member_to_share_the_job() throws Throwable {
-//	    
-//		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-//		
-//		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
-//		if(dynamicElement.size() != 0){
-//			
-//			System.out.println("\nSearching team member with Employer..");
-//			
-//			workbenchpage.shareWithTeamButton.click();
-//			Thread.sleep(3000);
-//			sharewithteampage.searchEmployerTeam();
-//			sharewithteampage.shareCheckbox.click();
-//			Thread.sleep(2000);
-//		}
-//		
-//		else{
-//			
-//			System.out.println("\nSearching team member with Agency..");
-//			
-//			workbenchpage.shareWithTeamButton.click();
-//			Thread.sleep(3000);
-//			sharewithteampage.searchAgencyTeam();
-//			sharewithteampage.shareCheckbox.click();
-//			Thread.sleep(2000);
-//		}
-//		
-//		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
-//
-//	}
+	}
 	
 	@When("^click on Yes button from confirmation popup and now select the Block/Unblock checkbox present in front of the team member$")
 	public void click_on_Yes_button_from_confirmation_popup_and_now_select_the_Block_Unblock_checkbox_present_in_front_of_the_team_member() throws Throwable {
@@ -290,8 +246,9 @@ public class a_blockFunctionalitySteps extends baseclass {
 //	}
 	
 	@When("^logout with logged in user and login with team member valid credentials which you blocked on Share Job page$")
-	public void logout_with_logged_in_user_and_login_with_team_member_valid_credentials_which_you_blocked_on_Share_Job_page() throws Throwable {
+	public void logout_with_logged_in_user_and_login_with_team_member_valid_credentials_which_you_blocked_on_Share_Job_page(DataTable dt) throws Throwable {
 	    
+		List<List<String>> data = dt.raw();
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
@@ -301,7 +258,13 @@ public class a_blockFunctionalitySteps extends baseclass {
 			
 			workbenchpage.ClickonLogout();
 			Thread.sleep(3000);
-			loginpage.signInTeam();
+			
+			registerpage.clickEmployerAgencySignInlink();
+			Thread.sleep(3000);
+			
+			loginpage.emailaddress.sendKeys(data.get(0).get(0));
+			loginpage.password.sendKeys(data.get(0).get(1));
+			loginpage.signin.click();
 			Thread.sleep(5000);
 		}
 		
@@ -311,7 +274,13 @@ public class a_blockFunctionalitySteps extends baseclass {
 			
 			workbenchpage.ClickonLogout();
 			Thread.sleep(3000);
-			loginpage.signInAgencyTeam1();
+			
+			registerpage.clickEmployerAgencySignInlink();
+			Thread.sleep(3000);
+			
+			loginpage.emailaddress.sendKeys(data.get(0).get(2));
+			loginpage.password.sendKeys(data.get(0).get(3));
+			loginpage.signin.click();
 			Thread.sleep(5000);
 		}
 		

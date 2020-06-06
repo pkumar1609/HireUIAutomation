@@ -17,7 +17,8 @@ import utilPackage.utilclass;
 
 public class b_unblockFunctionalitySteps extends baseclass {
 
-//scenario 1:
+//@bvt_agencyunblock:
+	
 //	@Given("^User is on Home page of application$")
 //	public void user_is_on_Home_page_of_application() throws Throwable {
 //	    
@@ -40,16 +41,20 @@ public class b_unblockFunctionalitySteps extends baseclass {
 //		Thread.sleep(3000);
 //	}
 
-	@When("^click on Share With Agency button and select the Share checkbox present in front of agency to share the job$")
-	public void click_on_Share_With_Agency_button_and_select_the_Share_checkbox_present_in_front_of_agency_to_share_the_job() throws Throwable {
-	    
-		workbenchpage.shareWithAgencyButton.click();
-		Thread.sleep(3000);
-		sharewithagencypage.searchAgencyOwner();
-		Thread.sleep(1000);
-		sharewithagencypage.shareCheckbox.click();
-		Thread.sleep(1000);
-	}
+//	@When("^click on Share With Agency button and select the Share checkbox present in front of the agency to share the job$")
+//	public void click_on_Share_With_Agency_button_and_select_the_Share_checkbox_present_in_front_of_the_agency_to_share_the_job(DataTable dt) throws Throwable {
+//	    
+//		workbenchpage.shareWithAgencyButton.click();
+//		Thread.sleep(3000);
+//		
+//		List<List<String>> data = dt.raw();
+//		sharewithteampage.searchField.click();
+//		sharewithteampage.searchField.sendKeys(data.get(0).get(0));
+//		Thread.sleep(2000);
+//		
+//		sharewithagencypage.shareCheckbox.click();
+//		Thread.sleep(1000);
+//	}
 
 	@When("^click on Yes button from confirmation popup and select the Block/Unblock checkbox present in front of the agency with whom you shared the job$")
 	public void click_on_Yes_button_from_confirmation_popup_and_select_the_Block_Unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job() throws Throwable {
@@ -83,11 +88,18 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	}
 
 	@Then("^logout with employer and login with Agency valid credentials which you unblocked$")
-	public void logout_with_employer_and_login_with_Agency_valid_credentials_which_you_unblocked() throws Throwable {
+	public void logout_with_employer_and_login_with_Agency_valid_credentials_which_you_unblocked(DataTable dt) throws Throwable {
 	    
 		workbenchpage.ClickonLogout();
 		Thread.sleep(3000);
-		loginpage.signInAgency2();
+		
+		registerpage.clickEmployerAgencySignInlink();
+		Thread.sleep(3000);
+		
+		List<List<String>> data = dt.raw();
+		loginpage.emailaddress.sendKeys(data.get(0).get(0));
+		loginpage.password.sendKeys(data.get(0).get(1));
+		loginpage.signin.click();
 		Thread.sleep(5000);
 	}
 
@@ -153,8 +165,9 @@ public class b_unblockFunctionalitySteps extends baseclass {
 //		driver.close();
 //	}
 	
+	
 
-//scenario 2:
+//@bvt_teamunblock:
 //	@When("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
 //	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String arg1, String arg2) throws Throwable {
 //	    
@@ -164,37 +177,44 @@ public class b_unblockFunctionalitySteps extends baseclass {
 //		Thread.sleep(5000);
 //	}
 
-	@When("^click on Share With Team button and select Share checkbox present in front of the team member to share the job$")
-	public void click_on_Share_With_Team_button_and_select_Share_checkbox_present_in_front_of_the_team_member_to_share_the_job() throws Throwable {
-	    
-		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-		
-		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
-		if(dynamicElement.size() != 0){
-			
-			System.out.println("\nSearching team member with Employer..");
-			
-			workbenchpage.shareWithTeamButton.click();
-			Thread.sleep(3000);
-			sharewithteampage.searchEmployerTeam3();
-			sharewithteampage.shareCheckbox.click();
-			Thread.sleep(2000);
-		}
-		
-		else{
-			
-			System.out.println("\nSearching team member with Agency..");
-			
-			workbenchpage.shareWithTeamButton.click();
-			Thread.sleep(3000);
-			sharewithteampage.searchAgencyTeam3();
-			sharewithteampage.shareCheckbox.click();
-			Thread.sleep(2000);
-		}
-		
-		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
-		
-	}
+//	@When("^click on Share With Team button and select the Share checkbox present in front of the team member$")
+//	public void click_on_Share_With_Team_button_and_select_the_Share_checkbox_present_in_front_of_the_team_member(DataTable dt) throws Throwable {
+//	    
+//		List<List<String>> data = dt.raw();
+//		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+//		
+//		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+//		if(dynamicElement.size() != 0){
+//			
+//			System.out.println("\nSearching team member with Employer..");
+//			
+//			workbenchpage.shareWithTeamButton.click();
+//			Thread.sleep(3000);
+//			
+//			sharewithteampage.searchField.click();
+//			sharewithteampage.searchField.sendKeys(data.get(0).get(0));
+//			
+//			sharewithteampage.shareCheckbox.click();
+//			Thread.sleep(2000);
+//		}
+//		
+//		else{
+//			
+//			System.out.println("\nSearching team member with Agency..");
+//			
+//			workbenchpage.shareWithTeamButton.click();
+//			Thread.sleep(3000);
+//			
+//			sharewithteampage.searchField.click();
+//			sharewithteampage.searchField.sendKeys(data.get(0).get(1));
+//			
+//			sharewithteampage.shareCheckbox.click();
+//			Thread.sleep(2000);
+//		}
+//		
+//		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
+//		
+//	}
 
 	@When("^click on Yes button from confirmation popup and select the Block/Unblock checkbox present in front of the team member with whom you shared the job$")
 	public void click_on_Yes_button_from_confirmation_popup_and_select_the_Block_Unblock_checkbox_present_in_front_of_the_team_member_with_whom_you_shared_the_job() throws Throwable {
@@ -219,8 +239,9 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	}
 
 	@Then("^logout with logged in user and login with team member valid credentials which you unblocked$")
-	public void logout_with_logged_in_user_and_login_with_team_member_valid_credentials_which_you_unblocked() throws Throwable {
+	public void logout_with_logged_in_user_and_login_with_team_member_valid_credentials_which_you_unblocked(DataTable dt) throws Throwable {
 	    
+		List<List<String>> data = dt.raw();
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
@@ -230,7 +251,13 @@ public class b_unblockFunctionalitySteps extends baseclass {
 			
 			workbenchpage.ClickonLogout();
 			Thread.sleep(3000);
-			loginpage.signInTeam3();
+			
+			registerpage.clickEmployerAgencySignInlink();
+			Thread.sleep(3000);
+			
+			loginpage.emailaddress.sendKeys(data.get(0).get(0));
+			loginpage.password.sendKeys(data.get(0).get(0));
+			loginpage.signin.click();
 			Thread.sleep(5000);
 		}
 		
@@ -240,7 +267,13 @@ public class b_unblockFunctionalitySteps extends baseclass {
 			
 			workbenchpage.ClickonLogout();
 			Thread.sleep(3000);
-			loginpage.signInAgencyTeam3();
+			
+			registerpage.clickEmployerAgencySignInlink();
+			Thread.sleep(3000);
+			
+			loginpage.emailaddress.sendKeys(data.get(0).get(0));
+			loginpage.password.sendKeys(data.get(0).get(1));
+			loginpage.signin.click();
 			Thread.sleep(5000);
 		}
 		
