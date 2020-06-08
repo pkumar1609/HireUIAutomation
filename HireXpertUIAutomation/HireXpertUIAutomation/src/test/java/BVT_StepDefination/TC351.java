@@ -30,6 +30,8 @@ public class TC351 extends baseclass {
 	
 	@And("^Select a added job$")
 	public void select_a_added_job() throws Throwable {
+		String 	jobname=addjobpage.jobname1;
+		System.out.println(jobname);
 		workbenchpage.selectJobK();	}
 
 	@And("^Click on share job with market place$")
@@ -51,18 +53,12 @@ public class TC351 extends baseclass {
 
 	@Then("^Job should be list out in market place page on employer side\\.$")
 	public void job_should_be_list_out_in_market_place_page_on_employer_side() throws Throwable {
-		String s= prop.getProperty("isshared");
+		String s= addjobpage.jobname1;
 		if(driver.getPageSource().contains(s))
 	    {
 	    	System.out.println("selected job is displaying on employer side");
 	    }
-	    else
-	    {
-	    	System.out.println("selected job is not displaying on employer side");
-	    }
 	}
-
-	
 
 	@And("^Go to agency marketplace tab$")
 	public void go_to_agency_marketplace_tab() throws Throwable {
@@ -79,6 +75,7 @@ public class TC351 extends baseclass {
 		public void verify_shared_job_is_displaying_on_support_login(DataTable credentials) throws Throwable {
 		jobreviewpage.verifyJobDisplay(credentials);
 	}
+	
 	@And("^Click on approve$")
 	public void click_on_approve() throws Throwable {
 		jobreviewpage.clickOnApproveButton();

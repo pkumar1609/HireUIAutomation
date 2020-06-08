@@ -65,7 +65,7 @@ public class TC359 extends baseclass {
 
 	@And("^Select that job in filter on job proposal section$")
 	public void select_that_job_in_filter_on_job_proposal_section() throws Throwable {
-		workbenchpage.selectJobK();
+		marketplacepage.selectjob();
 	}
 
 	@And("^Click on reject button of that proposal$")

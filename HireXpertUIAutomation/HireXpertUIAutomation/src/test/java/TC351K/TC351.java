@@ -55,13 +55,13 @@ public class TC351 extends baseclass {
 	public void click_on_share_job_with_market_place() throws InterruptedException   {
 		System.out.println(driver);
 		Thread.sleep(2000);
-//		marketplacepage.ClickOnShareWithMarketPlace();
+		marketplacepage.ClickOnShareWithMarketPlace();
 	}
 
 	@And("^change information and click on submit$")
 	public void change_information_and_click_on_submit(DataTable credentials) throws InterruptedException   {
 	    
-//		marketplacepage.EnterdeatilsOfMarketplace(credentials);
+		marketplacepage.EnterdeatilsOfMarketplace(credentials);
 	}
 
 	@And("^Now go to marketplace tab$")
@@ -88,8 +88,8 @@ public class TC351 extends baseclass {
 	}
 
 	@And("^verify shared job is displaying on support login$")
-	public void verify_shared_job_is_displaying_on_support_login(DataTable credentials) throws Throwable {
-	   jobreviewpage.verifyJobDisplay(credentials);
+	public void verify_shared_job_is_displaying_on_support_login(DataTable credential) throws Throwable {
+	   jobreviewpage.verifyJobDisplay(credential);
 	}
 	@And("^Click on approve$")
 	public void click_on_approve() throws Throwable {

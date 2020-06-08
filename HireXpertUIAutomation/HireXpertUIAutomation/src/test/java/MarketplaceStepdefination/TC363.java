@@ -1,5 +1,9 @@
 package MarketplaceStepdefination;
 
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 import org.openqa.selenium.NoSuchElementException;
@@ -50,6 +54,21 @@ public class TC363 extends baseclass {
 	@And("^Enter All details of candidate$")
 	public void enter_All_details_of_candidate() throws Throwable {
 		workbenchpage.enterEmailId();
+		rb = new Robot();
+		rb.setAutoDelay(2000);
+		
+		StringSelection ss = new StringSelection("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+		
+		rb.setAutoDelay(3000);
+		rb.keyPress(KeyEvent.VK_CONTROL);
+		rb.keyPress(KeyEvent.VK_V);   
+		rb.keyRelease(KeyEvent.VK_CONTROL);
+		rb.keyRelease(KeyEvent.VK_V);
+		
+		rb.setAutoDelay(2000);
+		rb.keyPress(KeyEvent.VK_ENTER);   
+		rb.setAutoDelay(3000);
 		common.clickOnSaveBtn();
 		common.clickOnConfirmYes();
 	}
@@ -57,6 +76,8 @@ public class TC363 extends baseclass {
 	@Then("^User should be able to add candidate$")
 	public void user_should_be_able_to_add_candidate() throws Throwable {
 	  driver.getPageSource().contains("can11");
+	  
+	  
 	}
 	
 	@And("^logout with employer and Login with another agency$")

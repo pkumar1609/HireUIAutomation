@@ -92,6 +92,9 @@ public class WorkbenchPage extends baseclass {
 	
 	public String jobname;
 	String nameOfCan;
+	boolean emp;
+	public String jobname1;
+	public String jobname2;
 	
 	public void addTaskBtn() throws InterruptedException
 	{
@@ -133,7 +136,14 @@ public class WorkbenchPage extends baseclass {
 		Thread.sleep(2000);
 		select = new Select(jobDropDown);
 		jobname=prop.getProperty("jobname");
-		select.selectByVisibleText("komaljob15 - Active");	
+		if(emp==true)
+		{ 
+			select.selectByVisibleText(jobname1);
+		}
+		else
+		{
+			select.selectByVisibleText(jobname2);
+		}
 	}
 	
 	public void verifyCollectAnswericonT() {

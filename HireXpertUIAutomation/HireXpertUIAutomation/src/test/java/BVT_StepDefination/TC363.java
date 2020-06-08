@@ -1,8 +1,14 @@
 package BVT_StepDefination;
 
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import cucumber.api.DataTable;
 import cucumber.api.java.Before;
@@ -50,6 +56,8 @@ public class TC363 extends baseclass {
 	@And("^Enter All details of candidate$")
 	public void enter_All_details_of_candidate() throws Throwable {
 		workbenchpage.enterEmailId();
+		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
+		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
 		common.clickOnSaveBtn();
 		common.clickOnConfirmYes();
 	}
@@ -59,11 +67,12 @@ public class TC363 extends baseclass {
 	  driver.getPageSource().contains("can11");
 	}
 	
-	@And("^logout with employer and Login with another agency$")
-	public void logout_with_employer_and_Login_with_another_agency() throws Throwable {
-		loginpage.logoutFromAppK();
-		loginpage.loginInAppWithAgy2K();
+	@And("^Login with another agency$")
+	public void login_with_another_agency() throws Throwable {
+		loginpage.loginInAppWithAgy2K(); 
 	}
+
+	
 	@And("^Click on Apply button from new agency$")
 	public void click_on_Apply_button_from_new_agency() throws Throwable {
 		marketplacepage.clickApplybtnOfParticularJob();

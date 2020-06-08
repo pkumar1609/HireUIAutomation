@@ -1,6 +1,7 @@
 package pages;
 
 import java.awt.Desktop.Action;
+import java.io.IOException;
 import java.util.Map;
 
 import org.openqa.selenium.By;
@@ -14,30 +15,29 @@ import utilPackage.baseclass;
 
 public class JobReviewPage extends baseclass{
 	
-	
-	public JobReviewPage()
+	public JobReviewPage() 
 	{
-		super();
-		PageFactory.initElements(driver, this);
+	  super();
+      PageFactory.initElements(driver, this);
 	}
 	
 	@FindBy(xpath = "//a[contains(text(), 'Job Review')]")
 	public WebElement jobReview;
 	
 	int flag=0;
-	String jobname="marketjob9";
+	String jobname;
 	
-	public void verifyJobDisplay(DataTable credentials) throws InterruptedException
+	public void verifyJobDisplay(DataTable credential) throws InterruptedException
 	{
-		Map<String, String> data = credentials.asMap(String.class, String.class);
-		
-		String approvebtn="//a[contains(text(),'marketjob9')]//following::button[text()='Approve']";		
+		Map<String, String> data = credential.asMap(String.class, String.class);
+//		jobname=data.get("title");
+		String approvebtn="(//a[contains(text(),'"+addjobpage.jobname1+"')]//following::button[text()='Approve'])[1]";		
+		System.out.println(approvebtn);
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();",jobReview);
 		WebElement ele = driver.findElement(By.xpath(approvebtn));
 		executor.executeScript("arguments[0].scrollIntoView();", ele);
 		ele.isDisplayed();
-		
 		executor.executeScript("arguments[0].click();",ele);
 		common.clickOnOKBtn();
 		common.clickOnCloseBtn();

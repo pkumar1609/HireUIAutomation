@@ -93,14 +93,11 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Close Job']")
 	public WebElement closejobbtn;
 	
-	
-	
-	public String jobname;
+	public String jobname1;
 	public String jobname2;
 	String nameOfCan;
 	public String username;
 	public boolean emp;
-	
 	
 	public void addTaskBtn() throws InterruptedException
 	{
@@ -133,19 +130,13 @@ public class WorkbenchPage extends baseclass {
 	}
 	
 	public void selectJobK() throws InterruptedException {
+	
 		Thread.sleep(2000);
 		select = new Select(jobDropDown);
 		this.emp=loginpage.b;
-		if(emp==true)
-		{
-		jobname= addjobpage.jobname;
-		select.selectByVisibleText(jobname+" - Active" );
-		}
-		else
-		{
-		jobname2= addjobpage.jobname2;
-		select.selectByVisibleText(jobname+" - Active" );
-		}
+		jobname1= addjobpage.jobname1;
+		select.selectByVisibleText(jobname1+" - Active" );
+		
 	}
 	
 	public void verifyCollectAnswericonT() {
