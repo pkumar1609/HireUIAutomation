@@ -90,6 +90,9 @@ public class VerifyTabsDropdownAgencyLoginStepDefination extends baseclass {
 		Thread.sleep(3000);
 		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
 		Thread.sleep(3000);
+		addcandidatepage.clickUploadResumeField();
+		Thread.sleep(3000);
+		addcandidatepage.uploadResumeDocumentT();
 		common.clickOnSaveBtn();
 		Thread.sleep(3000);
 		common.clickOnConfirmYes();

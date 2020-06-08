@@ -23,8 +23,10 @@ And click on employer tab and delete the employer
 Examples:
 
 | interviewer | title     | scheduleon  | hour | minute | interviewduration | timezone             |   CandidateEmail        |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode |
-| emp         | Interview |  05/06/2020 | 11   | 30     |  1 hour           | Indian Standard Time | candidate0008@gmail.com | Can0008 |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |
+| emp         | Interview |  10/06/2020 | 11   | 30     |  1 hour           | Indian Standard Time | candidate0008@gmail.com | Can0008 |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |
 
 # 109, 137
 
+
+#Change interview date and time
 # If DB clear, register the agency first = agencymain01@gmail.com. otherwise no change required

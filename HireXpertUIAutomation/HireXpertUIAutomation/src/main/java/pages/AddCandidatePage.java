@@ -169,5 +169,24 @@ public class AddCandidatePage extends baseclass {
 		rb.setAutoDelay(3000);
 	}
 	
+public void uploadResumeDocumentT() throws AWTException {
+		
+		rb = new Robot();
+		rb.setAutoDelay(2000);
+		
+		StringSelection ss = new StringSelection("C:\\Users\\TLP32\\Downloads\\Resume of candidate.docx");
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+		
+		rb.setAutoDelay(3000);
+		rb.keyPress(KeyEvent.VK_CONTROL);
+		rb.keyPress(KeyEvent.VK_V);   
+		rb.keyRelease(KeyEvent.VK_CONTROL);
+		rb.keyRelease(KeyEvent.VK_V);
+		
+		rb.setAutoDelay(2000);
+		rb.keyPress(KeyEvent.VK_ENTER);   
+		rb.setAutoDelay(3000);
+	}
+	
 
 }

@@ -105,6 +105,13 @@ public class RegistrationStepDefinition extends baseclass  {
 		Thread.sleep(3000);
 		driver.close();
 	}
+	
+	@When("^click on Yes button$")
+	public void click_on_Yes_button() throws Throwable {
+	    
+		Thread.sleep(3000);
+		common.clickOnConfirmYes();
+	}
 
 	@When("^click on save button$")
 	public void click_on_save_button() throws Throwable {
@@ -160,6 +167,8 @@ public class RegistrationStepDefinition extends baseclass  {
 	@When("^User should get confirmation message and click on OK button$")
 	public void user_should_get_confirmation_message_and_click_on_OK_button() throws Throwable {
 
+		Thread.sleep(3000);
+		common.clickOnConfirmYes();
 		Thread.sleep(3000);
 		common.clickOnOKBtn();
 	}

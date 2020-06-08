@@ -71,7 +71,7 @@ And Verify the username by which user is login
 
 Examples: 
 | EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone             | country | password | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail       | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail    | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
-|Mike21          |  mike21@gmail.com     | 211394644             | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | mike22       | mike22@gmail.com  |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike23          | mike23@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+|Mike27          |  mike27@gmail.com     | 211394644             | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | mike28       | mike28@gmail.com  |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike29          | mike29@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
 
 #TC :- 4, 5, 12, 433
 
@@ -87,6 +87,7 @@ When click on Register link
 And enter details of already registered user "<employername>" "<employeremail>" "<employercontactnumber>"
 And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 And click on Submit button
+And click on Yes button
 Then User should get a error message as "User with 'employermain01@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
 And click on Close button
 And Click on Yes button of confirmation popup
@@ -96,6 +97,7 @@ When click on Register link
 And enter details of already registered agency "<agencyname>" "<agencyemail>" "<agencycontactnumber>"
 And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 And click on Submit button
+And click on Yes button
 Then User should get a error message as "User with 'agencymain01@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
 And click on Close button
 And Click on Yes button of confirmation popup
@@ -105,6 +107,7 @@ When click on Register link
 And enter details of already registered employer "<candidatename>" "<candidateemail>" "<candidatecontactnumber>"
 And Select value from dropdown of "<employerusertype>" "<timezone>" "<country>"
 And click on Submit button
+And click on Yes button
 Then User should get a error message as "User with 'candidatemain01@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
 And click on Close button
 And Click on Yes button of confirmation popup
