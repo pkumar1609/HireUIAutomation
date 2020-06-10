@@ -16,68 +16,68 @@ import utilPackage.utilclass;
 
 public class scheduledInterview extends baseclass {
 
-	@When("^select job from jobs drop down$")
-	public void select_job_from_jobs_drop_down() throws Throwable {
-	    
-		workbenchpage.selectJob();
-		Thread.sleep(3000);
-	}
+//	@When("^select job from jobs drop down$")
+//	public void select_job_from_jobs_drop_down() throws Throwable {
+//	    
+//		workbenchpage.selectJob();
+//		Thread.sleep(3000);
+//	}
 
-	@When("^click on Add Candidate button and one new candidate for the job$")
-	public void click_on_Add_Candidate_button_and_one_new_candidate_for_the_job(DataTable dt) throws Throwable {
-	    
-		List<List<String>> data = dt.raw();
-		
-				driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-				
-				List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
-				if(dynamicElement.size() != 0){
-					
-				 //If list size is non-zero, element is present
-					System.out.println("\nUser logged in as Employer..");
-					
-					workbenchpage.addCandidateButton.click();
-					Thread.sleep(1000);
-					addcandidatepage.validatePageTitle();
-					addcandidatepage.emailField.sendKeys(data.get(0).get(0));
-					addcandidatepage.FindButton.click();
-					Thread.sleep(3000);
-					common.clickOnOKBtn();
-					
-					addcandidatepage.clickUploadResumeField();
-					addcandidatepage.uploadResumeDocument();
-					driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-
-					Thread.sleep(1000);
-					common.clickOnSaveBtn();
-					common.clickOnConfirmYes();
-					Thread.sleep(3000);
-				}
-				
-				else{
-					
-					System.out.println("\nUser logged in as Agency..");
-					
-					workbenchpage.addCandidateButton.click();
-					Thread.sleep(1000);
-					addcandidatepage.validatePageTitle();
-					addcandidatepage.emailField.sendKeys(data.get(0).get(1));
-					addcandidatepage.FindButton.click();
-					Thread.sleep(3000);
-					common.clickOnOKBtn();
-					
-					addcandidatepage.clickUploadResumeField();
-					addcandidatepage.uploadResumeDocument();
-					driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-					
-					Thread.sleep(1000);
-					common.clickOnSaveBtn();
-					common.clickOnConfirmYes();
-					Thread.sleep(3000);
-				}
-				
-				driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
-	}
+//	@When("^click on Add Candidate button and one new candidate for the job$")
+//	public void click_on_Add_Candidate_button_and_one_new_candidate_for_the_job(DataTable dt) throws Throwable {
+//	    
+//		List<List<String>> data = dt.raw();
+//		
+//				driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+//				
+//				List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+//				if(dynamicElement.size() != 0){
+//					
+//				 //If list size is non-zero, element is present
+//					System.out.println("\nUser logged in as Employer..");
+//					
+//					workbenchpage.addCandidateButton.click();
+//					Thread.sleep(1000);
+//					addcandidatepage.validatePageTitle();
+//					addcandidatepage.emailField.sendKeys(data.get(0).get(0));
+//					addcandidatepage.FindButton.click();
+//					Thread.sleep(3000);
+//					common.clickOnOKBtn();
+//					
+//					addcandidatepage.clickUploadResumeField();
+//					addcandidatepage.uploadResumeDocument();
+//					driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+//
+//					Thread.sleep(1000);
+//					common.clickOnSaveBtn();
+//					common.clickOnConfirmYes();
+//					Thread.sleep(3000);
+//				}
+//				
+//				else{
+//					
+//					System.out.println("\nUser logged in as Agency..");
+//					
+//					workbenchpage.addCandidateButton.click();
+//					Thread.sleep(1000);
+//					addcandidatepage.validatePageTitle();
+//					addcandidatepage.emailField.sendKeys(data.get(0).get(1));
+//					addcandidatepage.FindButton.click();
+//					Thread.sleep(3000);
+//					common.clickOnOKBtn();
+//					
+//					addcandidatepage.clickUploadResumeField();
+//					addcandidatepage.uploadResumeDocument();
+//					driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+//					
+//					Thread.sleep(1000);
+//					common.clickOnSaveBtn();
+//					common.clickOnConfirmYes();
+//					Thread.sleep(3000);
+//				}
+//				
+//				driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
+//	}
 
 	@When("^observe candidate is getting added in New column$")
 	public void observe_candidate_is_getting_added_in_New_column() throws Throwable {
@@ -88,48 +88,84 @@ public class scheduledInterview extends baseclass {
 	@When("^click on Schedule Interview icon from candidate card$")
 	public void click_on_Schedule_Interview_icon_from_candidate_card() throws Throwable {
 	    
-		workbenchpage.scheduleInterview.click();
 		Thread.sleep(3000);
+		workbenchpage.scheduleInterview.click();
+		
 	}
 
-	@When("^fill all interview details and click on Submit button$")
-	public void fill_all_interview_details_and_click_on_Submit_button(DataTable dt) throws Throwable {
+//	@When("^fill all interview details and click on Submit button$")
+//	public void fill_all_interview_details_and_click_on_Submit_button(DataTable dt) throws Throwable {
+//	    
+//		List<List<String>> data = dt.raw();
+//		
+//		scheduleinterviewpage.title.sendKeys(data.get(0).get(0));
+//		
+//		scheduleinterviewpage.interviewerDropDown.click();
+//		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//*[@id=\"statusMultiselectDropdown\"]/div/div[2]/ul[2]/li[1]")).click();
+//		
+//		scheduleinterviewpage.calendar.sendKeys(data.get(0).get(1));
+//		Thread.sleep(1000);
+//		scheduleinterviewpage.hours.sendKeys(data.get(0).get(2));
+//		scheduleinterviewpage.minutes.sendKeys(data.get(0).get(3));
+//		
+//		Select se = new Select(scheduleinterviewpage.duration);
+//		se.selectByVisibleText(data.get(0).get(4));
+//		
+//		se = new Select(scheduleinterviewpage.timezone);
+//		se.selectByVisibleText(data.get(0).get(5));
+//		
+//		Thread.sleep(2000);
+//		common.submitbtn.click();
+//		Thread.sleep(3000);
+//		System.out.println("\nNew interview scheduled..");
+//	}
+
+	
+	
+	@When("^fill all interview details and click on Submit button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void fill_all_interview_details_and_click_on_Submit_button(String Title, String ScheduleOn, String Hour, String Minute, String Duration, String TimeZone) throws Throwable {
 	    
-		List<List<String>> data = dt.raw();
-		
-		scheduleinterviewpage.title.sendKeys(data.get(0).get(0));
-		
-		scheduleinterviewpage.interviewerDropDown.click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//*[@id=\"statusMultiselectDropdown\"]/div/div[2]/ul[2]/li[1]")).click();
-		
-		scheduleinterviewpage.calendar.sendKeys(data.get(0).get(1));
+		scheduleinterviewpage.title.sendKeys(Title);
 		Thread.sleep(1000);
-		scheduleinterviewpage.hours.sendKeys(data.get(0).get(2));
-		scheduleinterviewpage.minutes.sendKeys(data.get(0).get(3));
+		scheduleinterviewpage.calendar.sendKeys(ScheduleOn);
+		Thread.sleep(1000);
+		scheduleinterviewpage.hours.sendKeys(Hour);
+		Thread.sleep(1000);
+		scheduleinterviewpage.minutes.sendKeys(Minute);
+		Thread.sleep(1000);
 		
 		Select se = new Select(scheduleinterviewpage.duration);
-		se.selectByVisibleText(data.get(0).get(4));
+		se.selectByVisibleText(Duration);
 		
+		Thread.sleep(1000);
 		se = new Select(scheduleinterviewpage.timezone);
-		se.selectByVisibleText(data.get(0).get(5));
+		se.selectByVisibleText(TimeZone);
 		
-		Thread.sleep(2000);
-		common.submitbtn.click();
-		Thread.sleep(3000);
-		System.out.println("\nNew interview scheduled..");
+		Thread.sleep(1000);
+		scheduleinterviewpage.interviewerDropDown.click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//div[contains(text(),'Select All')]")).click();
+		Thread.sleep(1000);
+		scheduleinterviewpage.interviewerDropDown.click();
+		
+		Thread.sleep(1000);
+		common.ClickSumbit();
 	}
-
+	
 	@When("^click on close button from Interview details page$")
 	public void click_on_close_button_from_Interview_details_page() throws Throwable {
 	    
-		common.closebtn.click();
 		Thread.sleep(2000);
+		common.closebtn.click();
+		
 	}
 	
 	@When("^observe the interview date and time displayed on candidate card below Assign To field$")
 	public void observe_the_interview_date_and_time_displayed_on_candidate_card_below_Assign_To_field() throws Throwable {
 	    
+		Thread.sleep(3000);
 		String interview = candidatecardsectionpage.candidateCardInterviewDetails.getText();
 		System.out.println("Interview Details on candidate card: " + interview);
 	}
@@ -150,32 +186,45 @@ public class scheduledInterview extends baseclass {
 		Thread.sleep(3000);
 	}
 
-	@When("^make some changes in interview details and click on Submit button$")
-	public void make_some_changes_in_interview_details_and_click_on_Submit_button(DataTable dt) throws Throwable {
-	    
-		List<List<String>> data = dt.raw();
-		
-		String interviewTitle =  scheduleinterviewpage.title.getAttribute("value");
-		
-		String interviewLeftTitle = scheduleinterviewpage.scheduledInterviewLeftTitle.getText();
-		
-		if(interviewTitle.equals(interviewLeftTitle)) {
-			
-			System.out.println("\nScheduled interviews get added at left side on schedule interview page");
-		}
-		else {
-			System.out.println("\nScheduled interviews not get added at left side on schedule interview page");
-		}
-		
+//	@When("^make some changes in interview details and click on Submit button$")
+//	public void make_some_changes_in_interview_details_and_click_on_Submit_button(DataTable dt) throws Throwable {
+//	    
+//		List<List<String>> data = dt.raw();
+//		
+//		String interviewTitle =  scheduleinterviewpage.title.getAttribute("value");
+//		
+//		String interviewLeftTitle = scheduleinterviewpage.scheduledInterviewLeftTitle.getText();
+//		
+//		if(interviewTitle.equals(interviewLeftTitle)) {
+//			
+//			System.out.println("\nScheduled interviews get added at left side on schedule interview page");
+//		}
+//		else {
+//			System.out.println("\nScheduled interviews not get added at left side on schedule interview page");
+//		}
+//		
+//		scheduleinterviewpage.hours.clear();
+//		scheduleinterviewpage.hours.sendKeys(data.get(0).get(0));
+//		Thread.sleep(1000);
+//		Select se = new Select(scheduleinterviewpage.duration);
+//		se.selectByVisibleText(data.get(0).get(1));
+//		common.submitbtn.click();
+//		Thread.sleep(3000);
+//	}
+
+	@When("^make some changes in interview details and click on Submit button \"([^\"]*)\" \"([^\"]*)\"$")
+	public void make_some_changes_in_interview_details_and_click_on_Submit_button(String hour, String duration) throws Throwable {
+
 		scheduleinterviewpage.hours.clear();
-		scheduleinterviewpage.hours.sendKeys(data.get(0).get(0));
+		scheduleinterviewpage.hours.sendKeys(hour);
 		Thread.sleep(1000);
 		Select se = new Select(scheduleinterviewpage.duration);
-		se.selectByVisibleText(data.get(0).get(1));
+		se.selectByVisibleText(duration);
 		common.submitbtn.click();
 		Thread.sleep(3000);
 	}
-
+	
+	
 	@Then("^User should be able to update scheduled interview details and updated details should display properly$")
 	public void user_should_be_able_to_update_scheduled_interview_details_and_updated_details_should_display_properly() throws Throwable {
 		
@@ -189,18 +238,30 @@ public class scheduledInterview extends baseclass {
 		Thread.sleep(2000);
 	}
 
-	@Then("^make some changes and click on Submit button$")
-	public void make_some_changes_and_click_on_Submit_button(DataTable dt) throws Throwable {
+//	@Then("^make some changes and click on Submit button$")
+//	public void make_some_changes_and_click_on_Submit_button(DataTable dt) throws Throwable {
+//	    
+//		List<List<String>> data = dt.raw();
+//		
+//		scheduleinterviewpage.calendar.clear();
+//		Thread.sleep(1000);
+//		scheduleinterviewpage.calendar.sendKeys(data.get(0).get(0));
+//		Thread.sleep(1000);
+//		common.submitbtn.click();
+//		Thread.sleep(3000);
+//	}
+	
+	@Then("^make some changes and click on Submit button \"([^\"]*)\"$")
+	public void make_some_changes_and_click_on_Submit_button(String scheduleon) throws Throwable {
 	    
-		List<List<String>> data = dt.raw();
-		
 		scheduleinterviewpage.calendar.clear();
 		Thread.sleep(1000);
-		scheduleinterviewpage.calendar.sendKeys(data.get(0).get(0));
+		scheduleinterviewpage.calendar.sendKeys(scheduleon);
 		Thread.sleep(1000);
 		common.submitbtn.click();
 		Thread.sleep(3000);
 	}
+	
 
 	@Then("^updated details should display properly$")
 	public void updated_details_should_display_properly() throws Throwable {
@@ -235,7 +296,17 @@ public class scheduledInterview extends baseclass {
 	@Then("^Interview details should be reflect according to the filter applied$")
 	public void interview_details_should_be_reflect_according_to_the_filter_applied() throws Throwable {
 	    
+		Thread.sleep(1000);
 		interviewspage.findInterviewDetails();
+		Thread.sleep(1000);
+		common.clickOnCloseBtn();
 	}
+
+	
+
+	
+
+	
+
 
 }

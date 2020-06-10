@@ -96,7 +96,7 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 		
 		driver.findElement(By.xpath("/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")).click();
 		
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		
 		addjobpage.employerDropDown();
 		
@@ -146,13 +146,6 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 		Thread.sleep(3000);
 		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
 	   
-		Thread.sleep(3000);
-		
-		addcandidatepage.clickUploadResumeField();
-		
-		Thread.sleep(3000);
-		
-		addcandidatepage.uploadResumeDocumentT();
 	}
 
 

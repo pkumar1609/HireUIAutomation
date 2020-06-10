@@ -28,10 +28,10 @@ public class scheduleInterview extends baseclass {
 	@FindBy(id = "estimateTimeInMinute")
 	public WebElement minutes;
 	
-	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div[2]/form/div/div[5]/div/div[1]/select")
+	@FindBy(xpath = "//select[@formcontrolname='Duration']")
 	public WebElement duration;
 	
-	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div[2]/form/div/div[6]/select")
+	@FindBy(xpath = "//select[@formcontrolname='Timezone']")
 	public WebElement timezone;
 	
 	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div[1]/div/div/div[1]/div/div/h6")

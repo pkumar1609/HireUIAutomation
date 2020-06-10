@@ -203,7 +203,7 @@ public AddJobPage()
 	
 	public void fillEmployerDetailsPlusIcon() {
 		
-		employerName.sendKeys("Sayali1");
+		employerName.sendKeys("sayali1");
 		employerEmail.sendKeys("sayali1@gmail.com");
 		employerContactNumber.sendKeys("215245554");
 	}
@@ -211,7 +211,7 @@ public AddJobPage()
 	public void employerDropDown() {
 		
 		se = new Select(employer);
-		se.selectByVisibleText("Sayali 1");
+		se.selectByVisibleText("sayali1");
 	}
 	
 	public void clickOnSubmitButton() {
