@@ -2,7 +2,9 @@ package BVT_StepDefination;
 
 import java.io.IOException;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -32,16 +34,16 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 
 	}
 	
-	@When("^Add a new Job as employer$")
-	public void add_a_new_Job_as_employer() throws Throwable {
-
+	@When("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void add_a_new_Job_as_employer(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
+	    
 		Thread.sleep(3000);
 
 		workbenchpage.AddJob();
 		
 		Thread.sleep(3000);
 		
-		addjobpage.fillDetails();
+		addjobpage.fillJobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
 		
 		Thread.sleep(3000);
 		
@@ -61,16 +63,16 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 
 	}
 	
-	@When("^Add a new Job as agency$")
-	public void add_a_new_Job_as_agency() throws Throwable {
-
+	@When("^Add a new Job as agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void add_a_new_Job_as_agency(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
+	    
 		Thread.sleep(3000);
 
 		workbenchpage.AddJob();
 		
 		Thread.sleep(3000);
 		
-		addjobpage.fillDetails();
+		addjobpage.fillJobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
 		
 		Thread.sleep(3000);
 		
@@ -104,7 +106,37 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 		
 		common.submitbtn.click();
 
+
 	}
+	
+	
+	
+	@When("^Verify that job is added or not$")
+	public void verify_that_job_is_added_or_not() throws Throwable {
+
+		Thread.sleep(3000);
+		
+		driver.findElement(By.id("jobDropdown")).click();
+		boolean jobdisplayed = driver.findElement(By.xpath("//option[contains(text(),'Engineer - Active')]")).isDisplayed();
+		
+		Assert.assertEquals(true, jobdisplayed);
+		
+		{         
+			  try   
+			  {    
+			    if(driver.findElement(By.xpath("//option[contains(text(),'Engineer - Active')]")).isDisplayed())
+			     
+			    {      
+			       System.out.println("Job got added Successfully");
+			    }    
+			  }      
+			  catch(NoSuchElementException e)     
+			  {       
+				  System.out.println("Job not got added");
+			  }       
+			}
+		}
+	
 
 	@When("^Select the same job from job drop down$")
 	public void select_the_same_job_from_job_drop_down() throws Throwable {

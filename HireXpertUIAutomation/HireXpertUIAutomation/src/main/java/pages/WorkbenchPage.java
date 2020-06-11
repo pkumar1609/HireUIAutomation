@@ -12,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import cucumber.api.DataTable;
 import utilPackage.baseclass;
@@ -250,7 +251,6 @@ public void ClickonScreeningBtn() {
 	 
 public void verifyCandidateAddedDisplayedOnWorkbenchOrNot () {
 	
-	
 	{         
 	  try   
 	  {    
@@ -283,6 +283,7 @@ public void verifyDeletedCandidateNotDisplayedOnWorkbench () {
 	  }      
 	  catch(NoSuchElementException e)     
 	  {       
+		 
 		  System.out.println("Candidate is deleted and not displayed on workbench");
 	  }       
 	} 
