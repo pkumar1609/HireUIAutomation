@@ -56,7 +56,7 @@ And Close browser
 Examples:
 
 | EmployerName  | EmployerEmail            | EmployerContactNumber | EmployerUserType | timezone              | country | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | password | newpassword | confirmpassword |  AgencyName  | AgencyEmail           | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity |
-|CPemployer10   | cpemployer10@gmail.com   | 565566625             |   Employer       |  Indian Standard Time |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency10   | CPagency10@gmail.com  |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
+|CPemployer12   | cpemployer12@gmail.com   | 565566625             |   Employer       |  Indian Standard Time |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency12   | CPagency12@gmail.com  |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
 
 
 #TC:- 81, 10

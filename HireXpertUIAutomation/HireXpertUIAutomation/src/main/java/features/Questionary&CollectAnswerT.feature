@@ -7,7 +7,7 @@ Given Open browser
 When click on Employer-Agency SignIn link
 And login with Employer credential.
 And Go to Workbench 
-And Add a new Job as employer
+And Add a new Job as employer "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
 And Select the same job from job drop down
 And Click on Add Candidate button.
 And Enter valid "<CandidateEmail>" 
@@ -42,8 +42,8 @@ Then Collect Answer icon should reflect on candidates card for giving answers
 And click on close job button and delete the job
 
 Examples:
-| CandidateEmail | Name  | ContactNumber | Designation | Gender | NoticePeriod | Location | Communicationmode | QUESTION1     | QMARKS1 | ANSWER1 | ANSWER2 | MARKS1 | MARKS2 | QUESTION2    | QMARKS2 | ANSWER3 | ANSWER4 | MARKS3 | MARKS4 |QUESTION3  | QMARKS3 | ANSWER5 | ANSWER6     | MARKS5 | MARKS6 | cuttoffpercentage | rejectionpercentage | question      |
-|rahul@gmail.com | Rahul |   918635241   | Tester      | Male   | 60           | Pune     | Call              | NP Negotiable |  50     |  Yes    |   No    |  30    |  20    |Can Relocate? | 50      |  Yes    |  No     |  50    |   0    | Work Exp  |  100    | Fresher | Experienced | 50     |  50    |   80              |      20             | NP Negotiable |  
+| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews | CandidateEmail | Name  | ContactNumber | Designation | Gender | NoticePeriod | Location | Communicationmode | QUESTION1     | QMARKS1 | ANSWER1 | ANSWER2 | MARKS1 | MARKS2 | QUESTION2    | QMARKS2 | ANSWER3 | ANSWER4 | MARKS3 | MARKS4 |QUESTION3  | QMARKS3 | ANSWER5 | ANSWER6     | MARKS5 | MARKS6 | cuttoffpercentage | rejectionpercentage | question      |
+| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |rahul@gmail.com | Rahul |   918635241   | Tester      | Male   | 60           | Pune     | Call              | NP Negotiable |  50     |  Yes    |   No    |  30    |  20    |Can Relocate? | 50      |  Yes    |  No     |  50    |   0    | Work Exp  |  100    | Fresher | Experienced | 50     |  50    |   80              |      20             | NP Negotiable |  
 
 #TC :- 120, 122, 138, 234, 136, 
 

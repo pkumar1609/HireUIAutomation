@@ -52,7 +52,7 @@ public class RegistrationStepDefinition extends baseclass  {
 	@Then("^Update employer profile \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void update_employer_profile(String EmployerAddress, String EmployerOrganizationName, String EmployerWebsite, String EmployerCity) throws Throwable {
 		
-		Thread.sleep(3000);
+		Thread.sleep(4200);
 		updateprofilepopuppage.UpdateProfileEmployer(EmployerAddress, EmployerOrganizationName, EmployerWebsite, EmployerCity);
 	}
 

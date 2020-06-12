@@ -71,7 +71,7 @@ And Verify the username by which user is login
 
 Examples: 
 | EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone             | country | password | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail       | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail    | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
-|Mike27          |  mike27@gmail.com     | 211394644             | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | mike28       | mike28@gmail.com  |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike29          | mike29@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+| ago21          |  ago21@gmail.com      | 2465468688            | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | mike38       | mike38@gmail.com  |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike39          | mike39@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
 
 #TC :- 4, 5, 12, 433
 
@@ -98,7 +98,7 @@ And enter details of already registered agency "<agencyname>" "<agencyemail>" "<
 And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 And click on Submit button
 And click on Yes button
-Then User should get a error message as "User with 'agencymain01@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
+Then User should get a error message as "User with 'agencymain02@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
 And click on Close button
 And Click on Yes button of confirmation popup
 And Close the browser
@@ -108,15 +108,15 @@ And enter details of already registered employer "<candidatename>" "<candidateem
 And Select value from dropdown of "<employerusertype>" "<timezone>" "<country>"
 And click on Submit button
 And click on Yes button
-Then User should get a error message as "User with 'candidatemain01@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
+Then User should get a error message as "User with 'abc@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
 And click on Close button
 And Click on Yes button of confirmation popup
 And Close the browser
 
 
 Examples: 
-   | employername    |   employeremail              | employercontactnumber   | candidateusertype  | timezone             | country |  agencyname   |   agencyemail             | agencycontactnumber  |   candidatename   |   candidateemail             | candidatecontactnumber  | employerusertype  |
-   | employermain01  |  employermain01@gmail.com    | 211394644               | Candidate          | Indian Standard Time | India   | agencymain01  |  agencymain01@gmail.com   | 211314644            | candidatemain01   |  candidatemain01@gmail.com   | 123456456               | Employer          | 
+   | employername    |   employeremail              | employercontactnumber   | candidateusertype  | timezone             | country |  agencyname   |   agencyemail             | agencycontactnumber  |   candidatename   |   candidateemail | candidatecontactnumber  | employerusertype  |
+   | employermain01  |  employermain01@gmail.com    | 211394644               | Candidate          | Indian Standard Time | India   | agencymain02  |  agencymain02@gmail.com   | 211314644            | abc               |  abc@gmail.com   | 123456456               | Employer          | 
    
 #TC :- 6, 289
 

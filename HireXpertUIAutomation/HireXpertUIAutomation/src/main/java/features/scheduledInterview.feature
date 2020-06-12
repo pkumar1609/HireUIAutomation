@@ -8,7 +8,7 @@ Feature: Interview Management
     And click on Employer-Agency SignIn link
     And login with Employer credential.
     And Go to Workbench 
-    And Add a new Job as employer
+    And Add a new Job as employer "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
     And Select the same job from job drop down
     And Click on Add Candidate button.
     And Enter valid "<CandidateEmail>" 
@@ -41,7 +41,7 @@ Feature: Interview Management
     And click on Employer-Agency SignIn link
     And login with Agency credential.
     And Go to Workbench 
-    And Add a new Job as agency
+    And Add a new Job as agency "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
     And Select the same job from job drop down
     And Click on Add Candidate button.
     And Enter valid "<CandidateEmail>" 
@@ -72,8 +72,8 @@ Feature: Interview Management
     
     
    Examples: 
-     |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode |   contactnumber   | Title      |ScheduleOn  | Hour | Minute |  Duration  | TimeZone             | hour | duration   | scheduleon | 
-     | candidate02@gmail.com   | Can02   |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |   123456789       | Interview1 | 29/06/2020 | 10   | 00     | 30 Minutes | Indian Standard Time |  11  | 45 Minutes | 30/06/2020 |
+     | Title       | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode |   contactnumber   | Title      |ScheduleOn  | Hour | Minute |  Duration  | TimeZone             | hour | duration   | scheduleon | 
+     | Automation1 | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              | candidate02@gmail.com   | Can02   |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |   123456789       | Interview1 | 29/06/2020 | 10   | 00     | 30 Minutes | Indian Standard Time |  11  | 45 Minutes | 30/06/2020 |
 
 
 

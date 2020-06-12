@@ -8,9 +8,10 @@ Given Open browser
 And click on Employer-Agency SignIn link
 When login with Agency credential
 And Go to Workbench 
-And Add a new Job as agency
+And Add a new Job as agency "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
 And Select the same job from job drop down
 And Add Candidate to that job "<CandidateEmail>" "<Name>" "<ContactNumber>" "<Designation>" "<Gender>" "<NoticePeriod>" "<Location>" "<Communicationmode>"
+And Click on save button
 And Verify that Questionnarie and Screening tab is not displayed when login with Agency
 And Click on Schedule interview icon 
 And Click interviewer from Interviewer drop down "<interviewer>"
@@ -21,9 +22,8 @@ And click on close job button and delete the job
 And click on employer tab and delete the employer
 
 Examples:
-
-| interviewer | title     | scheduleon  | hour | minute | interviewduration | timezone             |   CandidateEmail        |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode |
-| emp         | Interview |  10/06/2020 | 11   | 30     |  1 hour           | Indian Standard Time | candidate0008@gmail.com | Can0008 |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |
+| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews | interviewer | title     | scheduleon  | hour | minute | interviewduration | timezone             |   CandidateEmail        |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode |
+| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              | emp         | Interview |  10/06/2020 | 11   | 30     |  1 hour           | Indian Standard Time | candidate0008@gmail.com | Can0008 |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |
 
 # 109, 137
 

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -225,7 +226,36 @@ public class addjobsteps extends baseclass{
 	public void after_clicking_on_Delete_Skill_button_present_in_front_of_skill_then_that_skill_row_should_get_deleted() throws Throwable {
 	    
 		System.out.println("\nSelected skill get deleted");
+		
+		common.clickOnCloseBtn();
+		common.clickOnConfirmYes();
 	}
+	
+	@Then("^click on employer tab and delete the employer if login as agency\\.$")
+	public void click_on_employer_tab_and_delete_the_employer_if_login_as_agency() throws Throwable {
+
+		{         
+			  try   
+			  {    
+			    if(driver.findElement(By.xpath("//a[contains(text(),'Employers')]")).isDisplayed())
+			     
+			    {      
+			    	dashboardpage.openEmployersPage();
+					Thread.sleep(3000);
+					employerspage.searchEmployer();	
+					Thread.sleep(2000);
+					employerspage.deleteSearchedEmployer();
+					Thread.sleep(2000);
+					common.clickOnConfirmYes();
+			    }    
+			  }      
+			  catch(NoSuchElementException e)     
+			  {       
+				  System.out.println("We are login as employer so there is no employer tab.");
+			  }       
+			}
+		}
+	
 	
 
 // @regression1_01	
