@@ -199,7 +199,7 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 	public void click_on_save_button() throws InterruptedException  {
 		
 		Thread.sleep(3000);
-		editcandidatepage.saveButton.click();
+       common.clickOnSaveBtn();
 		Thread.sleep(3000);
 		common.clickOnConfirmYes();
 	}

@@ -71,7 +71,7 @@ And Verify the username by which user is login
 
 Examples: 
 | EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone             | country | password | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail       | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail    | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
-| ago21          |  ago21@gmail.com      | 2465468688            | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | mike38       | mike38@gmail.com  |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike39          | mike39@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+| ago22          |  ago22@gmail.com      | 2465468688            | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | mike38       | mike38@gmail.com  |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike39          | mike39@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
 
 #TC :- 4, 5, 12, 433
 
