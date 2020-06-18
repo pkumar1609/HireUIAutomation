@@ -81,8 +81,8 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 		Registerlink.click();
 	}
 	
-   public void clickEmployerAgencySignInlink() {
-		
+   public void clickEmployerAgencySignInlink() throws InterruptedException {
+		Thread.sleep(2000);
 	   EmployerAgencySignInlink.click();
 	}
    
@@ -97,10 +97,9 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 		
 	}
 		
-    public void enterEmail(String EmployerEmail) {
-		
+    public void enterEmail(String EmployerEmail) 
+    {
 		Email.sendKeys(EmployerEmail);
-		
     }
 		
 		public void enterContactNumber(String EmployerContactNumber) {
@@ -151,12 +150,12 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 			 
 	}
 			
-		public void selectCountry(String country) {
+		public void selectCountry(String country)
+		{
 			
 			Select select = new Select (Country);
-			 select.selectByVisibleText(country);
-			
-	}
+			select.selectByVisibleText(country);
+		}
 		
 public void registeremployerdetails1(String EmployerUserType, String timezone, String country ) {
 			
@@ -170,9 +169,9 @@ public void registeremployerdetails1(String EmployerUserType, String timezone, S
 	 select3.selectByVisibleText(country);
 	}
 
-public void registerAgencydetails1(String AgencyUserType, String timezone, String country ) { 
+	public void registerAgencydetails1(String AgencyUserType, String timezone, String country ) { 
 	
-	Select select4 = new Select (UserType);
+	 Select select4 = new Select (UserType);
 	 select4.selectByVisibleText(AgencyUserType);
 			
 	 Select select5 = new Select (TimeZone);
@@ -181,11 +180,11 @@ public void registerAgencydetails1(String AgencyUserType, String timezone, Strin
 	 Select select6 = new Select (Country);
 	 select6.selectByVisibleText(country);
 	
-}
+	}
 	
-public void registerCandidatedetails1(String CandidateUserType, String timezone, String country ) { 
+	public void registerCandidatedetails1(String CandidateUserType, String timezone, String country ) { 
 	
-	Select select7 = new Select (UserType);
+	 Select select7 = new Select (UserType);
 	 select7.selectByVisibleText(CandidateUserType);
 			
 	 Select select8 = new Select (TimeZone);
@@ -320,7 +319,8 @@ public void verifythefieldsonregisterdialogbox () {
 		}
 }
 
-       public void ClickYesbtn () {
+       public void ClickYesbtn () 
+       {
     	   
     	   //WebDriverWait Wait = new WebDriverWait(driver,30);
    		//Wait.until(ExpectedConditions.elementToBeClickable(Yesbtn));

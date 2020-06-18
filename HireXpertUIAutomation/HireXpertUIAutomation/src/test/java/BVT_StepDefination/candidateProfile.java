@@ -35,37 +35,38 @@ public class candidateProfile extends baseclass {
 	}
 	
 	@When("^click on Workbench tab and select job from Jobs drop down$")
-	public void click_on_Workbench_tab_and_select_job_from_Jobs_drop_down() throws Throwable {
-	    
+	public void click_on_Workbench_tab_and_select_job_from_Jobs_drop_down(DataTable credentials) throws Throwable {
 		dashboardpage.openWorkbenchPage();
+		addjobpage.addjob(credentials);
 	    Thread.sleep(3000);
-	    workbenchpage.selectJob();
-	    Thread.sleep(3000);
+	    workbenchpage.selectJobK();
 	    
-	    //verify candidate card count before adding candidate to job
-	    driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-		
-		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
-		
-		if(dynamicElement.size() != 0) {
-			
-			List<WebElement> element = driver.findElements(By.xpath("//div[@class='item-box cdk-drag']"));
-			candidateupdateprofilepage.beforecount = element.size();
-			System.out.println("\nCard count before adding new candidate: " + candidateupdateprofilepage.beforecount);
-			
-			if(candidateupdateprofilepage.beforecount == 0){
-				
-				System.out.println("Candidate card is not available..");
-			}
-	
-		}
+//	    Thread.sleep(3000);
+//	    
+//	    //verify candidate card count before adding candidate to job
+//	    driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+//		
+//		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+//		
+//		if(dynamicElement.size() != 0) {
+//			
+//			List<WebElement> element = driver.findElements(By.xpath("//div[@class='item-box cdk-drag']"));
+//			candidateupdateprofilepage.beforecount = element.size();
+//			System.out.println("\nCard count before adding new candidate: " + candidateupdateprofilepage.beforecount);
+//			
+//			if(candidateupdateprofilepage.beforecount == 0){
+//				
+//				System.out.println("Candidate card is not available..");
+//			}
+//	
+//		}
 	}
 	
 	@When("^click on Add Candidate button$")
 	public void click_on_Add_Candidate_button() throws Throwable {
-	    
-		workbenchpage.addCandidateButton.click();
 		Thread.sleep(3000);
+		workbenchpage.addCandidateButton.click();
+		
 	}
 	
 	@When("^enter email id of candidate which is not registered previously and click on Find button$")

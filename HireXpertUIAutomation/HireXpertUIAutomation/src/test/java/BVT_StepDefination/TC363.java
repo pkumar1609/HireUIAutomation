@@ -10,6 +10,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+
 import cucumber.api.DataTable;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
@@ -83,5 +85,11 @@ public class TC363 extends baseclass {
 		marketplacepage.ValidatetheRequestDetails(credentials);
 	}
 
+	@Then("^Select a added job which is from martketplace$")
+	public void select_a_added_job_which_is_from_martketplace() throws Throwable {
+		select = new Select(workbenchpage.jobDropDown);
+		select.selectByVisibleText(addjobpage.jobname1+" - Active" );
+	
+	}
 	
 }

@@ -44,8 +44,9 @@ public class Commonfunction extends baseclass {
 	
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
 	
-	public void clickOnSaveBtn()
+	public void clickOnSaveBtn() throws InterruptedException
 	{
+		Thread.sleep(2000);
 		savebtn.click();
 	}
 	
@@ -60,15 +61,15 @@ public class Commonfunction extends baseclass {
 		Thread.sleep(2000);
 		addClosebtn.click();
 	}
-	public void clickOnConfirmYes()
+	public void clickOnConfirmYes() throws InterruptedException
 	{
-		explicitwait.until(ExpectedConditions.elementToBeClickable(confimYes));
+		Thread.sleep(3000);
 		confimYes.click();
 	}
 	
 	public void clickOnOKBtn() throws InterruptedException
 	{
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 //		explicitwait.until(ExpectedConditions.elementToBeClickable(okbtn));
 		okbtn.click();
 	}

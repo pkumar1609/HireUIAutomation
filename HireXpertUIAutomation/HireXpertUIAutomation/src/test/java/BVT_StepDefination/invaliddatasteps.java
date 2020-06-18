@@ -1,5 +1,6 @@
 package BVT_StepDefination;
 
+import java.awt.AWTException;
 import java.io.IOException;
 import java.util.List;
 
@@ -16,23 +17,19 @@ public class invaliddatasteps extends baseclass{
 //@bvt	
 
 @Given("^User is on Home page of application$")
-public void user_is_on_Home_page_of_application() throws IOException  {
+public void user_is_on_Home_page_of_application() throws IOException, AWTException  {
     
 	baseclass.initialization();
 }
 
-@When("^enter invalid user email address and invalid password which is not registered$")
-public void enter_invalid_user_email_address_and_invalid_password_which_is_not_registered(DataTable dt) throws Throwable {
-    
+@When("^enter invalid user email address and invalid password which is not registered \"([^\"]*)\" and \"([^\"]*)\"$")
+public void enter_invalid_user_email_address_and_invalid_password_which_is_not_registered_and(String username, String password) throws Throwable {
 	registerpage.clickEmployerAgencySignInlink();
 	Thread.sleep(3000);
-	
-	List<List<String>> data = dt.raw();
-	loginpage.emailaddress.sendKeys(data.get(0).get(0));
-	loginpage.password.sendKeys(data.get(0).get(1));
+	loginpage.emailaddress.sendKeys(username);
+	loginpage.password.sendKeys(password);
 	loginpage.signin.click();
 }
-
 
 @Then("^User should not be able to login to application and error message should display$")
 public void user_should_not_be_able_to_login_to_application_and_error_message_should_display() throws Throwable {
@@ -44,18 +41,15 @@ public void user_should_not_be_able_to_login_to_application_and_error_message_sh
 	System.out.println("Error message should display like: " + error);
 	Thread.sleep(2000);
 }
-
-@Then("^enter valid user email address and invalid password which is registered to application$")
-public void enter_valid_user_email_address_and_invalid_password_which_is_registered_to_application(DataTable dt) throws Throwable {
-    
+@Then("^enter valid user email address and invalid password which is registered to application \"([^\"]*)\" and \"([^\"]*)\"$")
+public void enter_valid_user_email_address_and_invalid_password_which_is_registered_to_application_and(String username, String password) throws Throwable {
 	loginpage.emailaddress.clear();
 	loginpage.password.clear();
-	
-	List<List<String>> data = dt.raw();
-	loginpage.emailaddress.sendKeys(data.get(0).get(0));
-	loginpage.password.sendKeys(data.get(0).get(1));
+	loginpage.emailaddress.sendKeys(username);
+	loginpage.password.sendKeys(password);
 	loginpage.signin.click();
 }
+
 
 @Then("^error message should display$")
 public void error_message_should_display() throws Throwable {

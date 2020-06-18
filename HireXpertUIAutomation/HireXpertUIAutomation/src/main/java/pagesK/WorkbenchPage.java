@@ -1,6 +1,11 @@
 package pagesK;
 
+import java.util.List;
+import java.util.Map;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchContextException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
+import cucumber.api.DataTable;
 import utilPackage.baseclass;
 
 public class WorkbenchPage extends baseclass {
@@ -24,7 +30,7 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[contains(text(),'Add Candidate')]")
 	public WebElement addCandidateButton; 
 	
-	@FindBy(xpath = "//button[contains(text(),'Share With Team')]")
+	@FindBy(xpath = "//button[@title='Share With Team']")
 	public WebElement shareWithTeamButton;
 	
 	@FindBy(xpath = "//button[contains(text(),'Edit Job')]")
@@ -32,21 +38,6 @@ public class WorkbenchPage extends baseclass {
 	
 	@FindBy(xpath = "//button[@title=\"Schedule Interview\"]")
 	public WebElement scheduleInterview;
-	
-	@FindBy(xpath = "//p[contains(text(),'28')]")
-	public WebElement candidateCardInterviewDetails;
-	
-	@FindBy(xpath = "/html/body/app-root/div/div/div/workbench/div/div[2]/div/table/tbody/tr/td[1]/div/div/div/div/div[2]/div[3]/div/div[2]/button")
-	public WebElement candidateCardEditInterview;
-	
-	@FindBy(id="EditCandidate")
-	public WebElement candidateCardEditCandidateIcon;
-	
-	@FindBy(xpath="//button[@title='Delete Candidate']")
-	public WebElement candidateCardDeleteCandidateIcon;
-	
-	@FindBy(id = "confirmModalBtn")
-	public WebElement yesConfirmDeleteCandidate;
 	
 	@FindBy(xpath="//button[contains(text(),'Add Questionnaire')]")
 	public WebElement AddQuestionarybtn;
@@ -62,6 +53,9 @@ public class WorkbenchPage extends baseclass {
 	
 	@FindBy(xpath = "//img[contains(@class,'profile')]")
 	public WebElement profile;
+	
+	@FindBy(xpath = "//a[@class='dropdown-item']")
+	public WebElement userName;
 	
 	@FindBy(xpath="//a[contains(text(),'Change Password')]")
 	public WebElement ChangePasswordTab;
@@ -90,11 +84,21 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//input[@formcontrolname='Name']")
 	public WebElement name;
 	
-	public String jobname;
-	String nameOfCan;
-	boolean emp;
+	@FindBy(xpath = "//button[@title='Reload Candidate']")
+	public WebElement ReloadCandidateButton;
+	
+	@FindBy(xpath = "//select[@formcontrolname='AssignedToName']")
+	public WebElement filtersAssignToList;
+	
+	@FindBy(xpath = "//button[@title='Close Job']")
+	public WebElement closejobbtn;
+	
 	public String jobname1;
 	public String jobname2;
+	String nameOfCan;
+	public String username;
+	public boolean emp;
+	public String job;
 	
 	public void addTaskBtn() throws InterruptedException
 	{
@@ -108,8 +112,8 @@ public class WorkbenchPage extends baseclass {
 		this.driver = driver;
 	}
 	
-	public void AddJob() {
-		
+	public void AddJob() throws InterruptedException {
+		Thread.sleep(3000);
 		addjob.click();
 	}
 	
@@ -119,12 +123,20 @@ public class WorkbenchPage extends baseclass {
 		Thread.sleep(2000);
 		se = new Select(jobDropDown);
 		se.selectByIndex(1);
-	}
-	
-	public void selectAgencyJob() throws InterruptedException {
 		Thread.sleep(2000);
-		se = new Select(jobDropDown);
-		se.selectByIndex(1);
+		if(emp==true)
+		{
+		editJobButton.click();
+		Thread.sleep(2000);
+		job= addjobpage.title.getAttribute("value");
+		common.clickOnCloseBtn();
+		System.out.println(job);
+		}
+		else
+		{
+			
+		}
+		
 	}
 	
 	public void selectjobT() {
@@ -133,26 +145,38 @@ public class WorkbenchPage extends baseclass {
 	}
 	
 	public void selectJobK() throws InterruptedException {
+	
 		Thread.sleep(2000);
 		select = new Select(jobDropDown);
-		jobname=prop.getProperty("jobname");
+		this.emp=loginpage.b;
 		if(emp==true)
-		{ 
-			select.selectByVisibleText(jobname1);
+		{
+		select.selectByVisibleText(addjobpage.jobname1+" - Active" );
 		}
 		else
 		{
-			select.selectByVisibleText(jobname2);
+		select.selectByVisibleText(addjobpage.jobname2+" - Active" );
 		}
 	}
 	
 	public void verifyCollectAnswericonT() {
 		
-		if((candidateCardCollectAnswericon).isDisplayed()){
-			System.out.println("Collect Answer icon is displayed on candidates card for giving answers");
+//		if((candidateCardCollectAnswericon).isDisplayed()){
+//			System.out.println("Collect Answer icon is displayed on candidates card for giving answers.");
+//		}
+//		else{
+//			System.out.println("Collect Answer icon is not displayed on candidates card for giving answers as there is no questionary added.");
+		
+		List<WebElement> collectanswericon = driver.findElements(By.xpath("//button[@title='Collect Answer']"));
+		if(collectanswericon.size() != 0){
+			
+			System.out.println("\nCollect Answer icon is displayed on candidates card for giving answers.");
 		}
-		else{
-			System.out.println("Collect Answer icon is not displayed on candidates card for giving answers");
+		
+		else  {
+			
+			System.out.println("\nCollect Answer icon is not displayed on candidates card for giving answers as there is no questionary added.");
+			
 		}
 	}
 	
@@ -181,11 +205,12 @@ public class WorkbenchPage extends baseclass {
 		ChangePasswordTab.click();
 	}
 	
-	public void openUpdateProfilePage() {
+	public void openUpdateProfilePage() throws InterruptedException {
 		
 		WebElement we = profile;
 		Actions action = new Actions(driver);
 		action.moveToElement(we).perform();
+		Thread.sleep(2000);
 		updateProfile.click();
 	}
 	
@@ -195,6 +220,15 @@ public class WorkbenchPage extends baseclass {
 		Actions action = new Actions(driver);
 		action.moveToElement(we).perform();
 		Logout.click();
+	}
+	
+	public void userNameProfile() {
+		
+		WebElement we = profile;
+		Actions action = new Actions(driver);
+		action.moveToElement(we).perform();
+		username = userName.getText();
+		System.out.println("\nLogged in user: " + username);
 	}
 	
 	public void clickOnAddCandidate() throws InterruptedException
@@ -208,6 +242,7 @@ public class WorkbenchPage extends baseclass {
 		Thread.sleep(2000);
 		agreementbtn.click();
 	}
+	
 	public void enterEmailId() throws InterruptedException           //added on add candidate page
 	{
 		emailfield.sendKeys(prop.getProperty("canid"));
@@ -218,7 +253,61 @@ public class WorkbenchPage extends baseclass {
 		nameOfCan= name.getText();
 	}
 	
+	public void clickReloadCandidateButton() {
+		
+		ReloadCandidateButton.click();
+	}
 	
+public void ClickonScreeningBtn() {
+		
+		screeningbtn.click();
+	}
+
+
+	public void clickOnCloseJobButton() throws InterruptedException {
+//	
+//	     closejobbtn.click();
+//	     common.clickOnConfirmYes();
+		}
+	 
+public void verifyCandidateAddedDisplayedOnWorkbenchOrNot () {
+	
+	
+	{         
+	  try   
+	  {    
+	    if(driver.findElement(By.xpath("//h6[@title='Candidate Details']")).isDisplayed())
+	     
+	    {      
+	       System.out.println("Candidate added to job is displayed on workbench");
+	    }    
+	  }      
+	  catch(NoSuchElementException e)     
+	  {       
+		  System.out.println("Candidate added to job is not displayed on workbench");
+	  }       
+	}
+}
+
 	
 
+public void verifyDeletedCandidateNotDisplayedOnWorkbench () {
+	
+	
+	{         
+	  try   
+	  {    
+	    if(driver.findElement(By.xpath("//h6[@title='Candidate Details']")).isDisplayed())
+	     
+	    {      
+	       System.out.println("Deleted Candidate is displayed on workbench");
+	    }    
+	  }      
+	  catch(NoSuchElementException e)     
+	  {       
+		  System.out.println("Candidate is deleted and not displayed on workbench");
+	  }       
+	} 
 }
+}
+	

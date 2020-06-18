@@ -38,6 +38,7 @@ public class JobReviewPage extends baseclass{
 		WebElement ele = driver.findElement(By.xpath(approvebtn));
 		executor.executeScript("arguments[0].scrollIntoView();", ele);
 		ele.isDisplayed();
+		executor.executeScript("arguments[0].scrollIntoView();", ele);
 		executor.executeScript("arguments[0].click();",ele);
 		common.clickOnOKBtn();
 		common.clickOnCloseBtn();

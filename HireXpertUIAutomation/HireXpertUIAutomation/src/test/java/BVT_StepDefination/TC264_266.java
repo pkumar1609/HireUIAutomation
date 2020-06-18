@@ -69,7 +69,7 @@ public class TC264_266 extends baseclass {
 	@And("^Add job$")
 	public void add_job(DataTable credentials) throws Throwable {
 		addjobpage.addjob(credentials);
-	    	}
+	    }
 
 	@And("^Select a job$")
 	public void select_a_job_and_click_on_add_task_button() throws Throwable {

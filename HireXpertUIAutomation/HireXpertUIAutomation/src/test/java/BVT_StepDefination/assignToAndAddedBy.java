@@ -121,7 +121,7 @@ public class assignToAndAddedBy extends baseclass {
 		common.clickOnConfirmYes();
 		System.out.println("\nNow job is shared with team member..");
 		Thread.sleep(3000);
-		common.addClosebtn.click();
+		common.clickOnCloseBtn();
 	}
 
 	@Then("^logout with logged in user and login with team member valid credentials for which you Shared the Job$")

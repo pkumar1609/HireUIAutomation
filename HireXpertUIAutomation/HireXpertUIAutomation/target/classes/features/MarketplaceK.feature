@@ -1,6 +1,6 @@
 Feature: Marketplace Feature
 
-@TC351 @BVT
+@TC351 @BVT @market
 Scenario: To verify the functionality to share job with market place.
 Given User must be registered
 When title of login page is Home
@@ -9,19 +9,19 @@ And Employer enters valid credentials
 And Go to workbench
 And Add job
 |title              |designation |industry   |jobrole        |location |budget |minexp|maxexp|
-|marketjob11        |developer   |IT software|java developer |pune     |400000 |1     |2     |
+|marketjob1        |developer   |IT software|java developer |pune     |400000 |1     |2     |
 And Select a added job
-And Click on share job with market place
-And change information and click on submit
-|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
-|8.33                 |30 Days       |60 Days      |90 Days           |
+#And Click on share job with market place
+#And change information and click on submit
+#|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
+#|8.33                 |30 Days       |60 Days      |90 Days           |
 And Click on Employer marketplace tab 
 Then Job should be list out in market place page on employer side.
 And Logout from App
 And Click on Employer-Agency Signin link
 And login as a support user
 And verify shared job is displaying on support login
-|title      |marketjob11 |
+|title      |marketjob1 |
 And Click on approve
 And Logout from App
 And Click on Employer-Agency Signin link
@@ -118,67 +118,67 @@ Then status should display as employer signed
 
 
 
-@TC363_375 @BVT
+@TC363_375 @BVT @market
 Scenario: To check the functionality of Review request and add candidate
 Given User must be registered
 And Click on Employer-Agency Signin link
-#And Employer enters valid credentials
-#And Go to workbench
+And Employer enters valid credentials
+And Go to workbench
 And Add job
 |title              |designation |industry   |jobrole        |location |budget |minexp|maxexp|
-|marketjob12       |developer   |IT software|java developer |pune     |400000 |1     |2     |
-#And Select a added job
-#And Click on share job with market place
-#And change information and click on submit
-#|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
-#|8.33                 |30 Days       |60 Days      |90 Days           |
-#And Click on Employer marketplace tab 
-#Then Job should be list out in market place page on employer side.
-#And Logout from App
-#And Click on Employer-Agency Signin link
-#And login as a support user
-#And verify shared job is displaying on support login
-#|title      |marketjob11 |
-#And Click on approve
-#And Logout from App
-#And Click on Employer-Agency Signin link
-#And agency enters valid credentials
-#And Go to agency marketplace tab
-#And Click on Apply button of job
-#And Logout from App
-#And Click on Employer-Agency Signin link
-#And Employer enters valid credentials
-#And click on Employer marketplace tab
-#And Select that job in filter on job proposal section
-#And Click on Review button
-#And Now click on accept and sign button
-#And Logout from App
-#And Click on Employer-Agency Signin link
-#And agency enters valid credentials
-#And Go to agency marketplace tab
-#And Click on Review button
-#And Now click on accept and sign button
-#And Logout from App
-#And Click on Employer-Agency Signin link
-#And Employer enters valid credentials
-#And click on Employer marketplace tab
-#And Edit the job from marketplace job section 
-#|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
-#|9.0                  |30 Days       |60 Days      |90 Days           |
-#And Logout from App
-#And Click on Employer-Agency Signin link
-#And agency enters valid credentials
-#And Go to workbench
-#And Select a added job
-#And Go to agreement and click on view button
-#Then all terms and condition remain same for agency one
-#|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|Employer|Agency|
-#|8.33                 |30 Days       |60 Days      |90 Days           |pemp    |pagy  |
-#And Click on add candidate
-#And Enter All details of candidate
-#Then User should be able to add candidate
-#And Logout from App
-#And Click on Employer-Agency Signin link
+|marketjob12        |developer   |IT software|java developer |pune     |400000 |1     |2     |
+And Select a added job
+And Click on share job with market place
+And change information and click on submit
+|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
+|8.33                 |30 Days       |60 Days      |90 Days           |
+And Click on Employer marketplace tab 
+Then Job should be list out in market place page on employer side.
+And Logout from App
+And Click on Employer-Agency Signin link
+And login as a support user
+And verify shared job is displaying on support login
+|title      |marketjob11 |
+And Click on approve
+And Logout from App
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And Go to agency marketplace tab
+And Click on Apply button of job
+And Logout from App
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials
+And click on Employer marketplace tab
+And Select that job in filter on job proposal section
+And Click on Review button
+And Now click on accept and sign button
+And Logout from App
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And Go to agency marketplace tab
+And Click on Review button
+And Now click on accept and sign button
+And Logout from App
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials
+And click on Employer marketplace tab
+And Edit the job from marketplace job section 
+|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
+|9.0                  |30 Days       |60 Days      |90 Days           |
+And Logout from App
+And Click on Employer-Agency Signin link
+And agency enters valid credentials
+And Go to workbench
+And Select a added job which is from martketplace
+And Go to agreement and click on view button
+Then all terms and condition remain same for agency one
+|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|Employer|Agency|
+|8.33                 |30 Days       |60 Days      |90 Days           |pemp    |pagy  |
+And Click on add candidate
+And Enter All details of candidate
+Then User should be able to add candidate
+And Logout from App
+And Click on Employer-Agency Signin link
 And Login with another agency 
 And Go to agency marketplace tab
 And Click on Apply button of job

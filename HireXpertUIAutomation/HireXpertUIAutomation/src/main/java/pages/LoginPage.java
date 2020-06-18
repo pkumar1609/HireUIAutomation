@@ -75,8 +75,8 @@ public class LoginPage extends baseclass
 	}
 	public void  ClickOnEmployerAgencySigninLink() throws InterruptedException
 	{
-		Thread.sleep(3000);
 //		wait.until(ExpectedConditions.elementToBeClickable(EmployerAgencySignInlink));
+		Thread.sleep(4000);
 		EmployerAgencySignInlink.click();
 	}
 	
@@ -131,6 +131,16 @@ public class LoginPage extends baseclass
 		signin.click();
 		identifyUserK();
 	}
+    
+    public void loginIn(String Username, String Password) throws InterruptedException {
+		
+		emailaddress.sendKeys(Username);
+		password.sendKeys(Password);
+		Thread.sleep(4000);
+		signin.click();
+		identifyUserK();
+	}
+    
     public void loginInAppWithTeamK() throws InterruptedException
 	{
 		emailaddress.sendKeys(prop.getProperty("teamid"));
@@ -208,20 +218,17 @@ public class LoginPage extends baseclass
 				Thread.sleep(2000);
 				userbtnemp.isDisplayed();		
 				Thread.sleep(2000);
-				executor.executeScript("arguments[0].click();",userbtnemp);
 				logedinuser= logedinusername.getText();
-				System.out.println(logedinuser);
+				logedinusername.click();
 				b=true;
-				System.out.println(b);
+		
 			}
 			catch(NoSuchElementException e)
 			{
 				b=false;
 				logedinuser= logedinusername.getText();
 				Thread.sleep(2000);
-				logedinusername.click();
-				System.out.println(logedinuser);
-				System.out.println(b);
+				logedinusername.click();	
 			}
 			 
 	}

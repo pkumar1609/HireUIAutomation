@@ -34,7 +34,7 @@ public class ShareWithTeamPage extends baseclass {
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-share-job-with-team/div[2]/div[2]/div/div/table/tbody/tr/td[4]/label/input")
 	public WebElement primaryContactRadioButton;
 	
-	@FindBy(xpath = "//td[5]//label[1]//input[1]")   //2nd team member share checkbox after searching
+	@FindBy(xpath = "//span[@class='checkmark CheckBoxM']")   //2nd team member share checkbox after searching
 	public WebElement shareCheckbox;
 	
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-share-job-with-team/div[2]/div[2]/div/div/table/tbody/tr/td[5]/label/input")
@@ -79,11 +79,13 @@ public class ShareWithTeamPage extends baseclass {
 		searchField.sendKeys(expectedEmail);
 	}
 	
-	public void searchEmployerPrimaryContact() {
-		
-		String expectedEmployerEmail = prop.getProperty("employeremail");
+	
+	public void searchEmployerPrimaryContact(String team,String teamid) throws InterruptedException {
+	
+		String expectedEmployerEmail = teamid;
+		Thread.sleep(2000);
 		searchField.click();
-		searchField.sendKeys(expectedEmployerEmail);
+		searchField.sendKeys(teamid);
 		String actualEmployerEmail= driver.findElement(By.xpath("//*[@id=\"style-5\"]/table/tbody/tr/td[2]")).getText();
 			
 		if(expectedEmployerEmail.equals(actualEmployerEmail)) {
@@ -108,9 +110,9 @@ public class ShareWithTeamPage extends baseclass {
 		}
 	}
 	
-	public void searchAgencyPrimaryContact() {
+	public void searchAgencyPrimaryContact(String team,String teamid) {
 		
-		String expectedAgencyEmail = prop.getProperty("agencyemail");
+		String expectedAgencyEmail = teamid;
 		searchField.click();
 		searchField.sendKeys(expectedAgencyEmail);
 		String actualAgencyEmail= driver.findElement(By.xpath("//*[@id=\"style-5\"]/table/tbody/tr/td[2]")).getText();
@@ -286,6 +288,8 @@ public class ShareWithTeamPage extends baseclass {
 		}
 			
 	}
+	
+	 
 	
 
 }

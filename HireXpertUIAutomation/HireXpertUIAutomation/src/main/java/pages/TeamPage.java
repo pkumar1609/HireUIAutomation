@@ -187,7 +187,6 @@ public class TeamPage extends baseclass {
 	{
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-	
 			dashboardpage.openTeamPage();
 			teamMemberName = data.get("Name");
 			String teammemberpresent= "//td[text()='" +teamMemberName+ "']";

@@ -11,10 +11,10 @@ public class ShareWithAgencyPage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	public WebElement searchField;
 	
-	@FindBy(xpath = "//td[4]//label[1]//span[1]")
+	@FindBy(xpath = "//span[@class='checkmark CheckBoxM']")
 	public WebElement shareCheckbox;
 	
-	@FindBy(xpath = "//td[5]//label[1]//span[1]")
+	@FindBy(xpath = "(//span[@Class='checkmark CheckBoxM'])[2]")
 	public WebElement blockUnblockCheckbox;
 	
 	public ShareWithAgencyPage() {

@@ -478,7 +478,7 @@ public void validateTaskDisplayingProperlyForAgy() throws InterruptedException
 	
 	if(assignto.contentEquals(loginpage.logedinuser))
 	{
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		mytask.click();
 		reloadtask();
 		boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtaskagy+"']")).isDisplayed();
@@ -486,7 +486,7 @@ public void validateTaskDisplayingProperlyForAgy() throws InterruptedException
 	}
 	else
 	{
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		teamtask.click();
 		reloadtask();
 		boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtaskagy+"']")).isDisplayed();
