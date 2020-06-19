@@ -35,6 +35,14 @@ Examples:
 #TC ID - 15,21,22,46,74,76,94
 
 
+# If DB clear, register the employer first = employermain01@gmail.com and agency = agencymain02@gmail.com . 
+#otherwise no change required
+
+
+
+
+
+
 #@regression1_01
 #  Scenario: To verify user is able to update skills and No. of Interviews for the job with Employer login
 #  

@@ -81,3 +81,5 @@ Feature: Interview Management
 #TC ID: 30,105,108,110,224
 #Reg TC ID: 311
 
+# If DB clear, register the employer first = employermain01@gmail.com and agency = agencymain02@gmail.com . 
+# otherwise no change required

@@ -66,6 +66,13 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[2]/select")
 	public WebElement expertiseLevel;
 	
+	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/job-applicant-component/div[2]/div/div[1]/form/div[2]/div[2]/div/table/tbody/tr[1]/td[2]/select")
+	public WebElement expertiseLevel1;
+	
+	
+	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[2]/select")
+	public WebElement expertiseLevel2;
+	
 	@FindBy(xpath = "//div[@class='custom-file custom-file-invalid']")
 	public WebElement uploadResumeField;
 	
@@ -99,6 +106,10 @@ public class AddCandidatePage extends baseclass {
 	}
 	
 	Select se;
+
+	private String ExpertiseLevel1;
+
+	private String ExpertiseLevel2;
 	
 	public void EnterAllMandatoryfieldsT(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws InterruptedException {
     	 
@@ -145,6 +156,17 @@ public class AddCandidatePage extends baseclass {
 		}
 	}
 		
+        public void Enterexpertilevel (String ExpertiseLevel1, String ExpertiseLevel2 ) {
+        		
+        	se = new Select (expertiseLevel1);
+		  	se.selectByVisibleText(ExpertiseLevel1);
+		  	
+		  	se = new Select (expertiseLevel2);
+		  	se.selectByVisibleText(ExpertiseLevel2);
+	}
+	
+	
+	
 	public void clickUploadResumeField() {
 		
 		uploadResumeField.click();
