@@ -2,7 +2,6 @@ package pages;
 
 
 import java.awt.AWTException;
-
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
@@ -104,7 +103,7 @@ public class AddCandidatePage extends baseclass {
     	 
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		
-		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),'Congratulation, We got candidate information which')]"));
+		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),' Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
 		if(dynamicElement.size() != 0){
 			
 			System.out.println("Candidate is already present in system");
@@ -137,10 +136,9 @@ public class AddCandidatePage extends baseclass {
 		      
 		  	communicationMode.sendKeys(Keys.ENTER);
 		  	se = new Select (communicationMode);
-		  	se.selectByVisibleText(Communicationmode);
+		  	se.selectByIndex(2);
 		  	
 		  	
-		  	driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']")).sendKeys("C:\\Users\\TLP32\\Downloads\\CV.doc");
 		  	
 		}
 	}
@@ -174,9 +172,23 @@ public class AddCandidatePage extends baseclass {
 		rb.setAutoDelay(3000);
 	}
 	
-public void uploadResumeDocumentT() {
+public void uploadResumeDocumentT() throws AWTException {
 		
-		driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']")).sendKeys("C:\\Users\\TLP32\\Downloads\\CV.doc");
+		rb = new Robot();
+		rb.setAutoDelay(2000);
+		
+		StringSelection ss = new StringSelection("C:\\Users\\TLP32\\Downloads\\Resume of candidate.docx");
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+		
+		rb.setAutoDelay(3000);
+		rb.keyPress(KeyEvent.VK_CONTROL);
+		rb.keyPress(KeyEvent.VK_V);   
+		rb.keyRelease(KeyEvent.VK_CONTROL);
+		rb.keyRelease(KeyEvent.VK_V);
+		
+		rb.setAutoDelay(2000);
+		rb.keyPress(KeyEvent.VK_ENTER);   
+		rb.setAutoDelay(3000);
 	}
 	
 

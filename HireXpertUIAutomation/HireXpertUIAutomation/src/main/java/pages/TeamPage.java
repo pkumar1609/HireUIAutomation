@@ -49,6 +49,10 @@ public class TeamPage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	public WebElement searchField;
 	
+	@FindBy(xpath = "//button[@title='Agencies']")
+	public WebElement addAgencies;
+	
+	
 //	public String ele;
 //	public String searchele= "//td[contains(text(),'"+ ele +"')]";
 	
@@ -94,18 +98,21 @@ public class TeamPage extends baseclass {
 		searchField.sendKeys(expectedEmail);
 	}
 	
-	public void clickOnAddBtnK()
+	public void clickOnAddBtnK() throws InterruptedException
 	{
-		explicitwait.until(ExpectedConditions.elementToBeClickable(AddTeamButton));
-		executor.executeScript("arguments[0].click();",AddTeamButton);
-		
+		Thread.sleep(3000);
+		AddTeamButton.click();
 	}
 	
-	
-	
+	public void clickOnAddAgencies() throws InterruptedException
+	{
+		Thread.sleep(3000);
+		addAgencies.click();
+	}
+
 	public void AddAllDetailsK(DataTable credentials) throws InterruptedException
 	{
-		
+		this.emp=loginpage.b;
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
 			teampage.clickOnAddBtnK();
@@ -137,7 +144,7 @@ public class TeamPage extends baseclass {
 		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-			clickOnAddBtnK();
+			teampage.clickOnAddBtnK();
 			TeamMemberName.sendKeys(data.get("Nameagy"));
 			namevalidate= data.get("Nameagy");
 			TeamMemberEmail.sendKeys(data.get("Emailagy"));
@@ -248,4 +255,41 @@ public class TeamPage extends baseclass {
 		teampage.isTeamPresentForAgy(credentials);
 		}
 	}
+	
+//	public void fillDetais()
+//	{
+//		this.emp=loginpage.b;
+//		if(emp==true)
+//		{
+//			TeamMemberName.sendKeys(data.get("Name"));
+//			namevalidate = data.get("Name");
+//			TeamMemberEmail.sendKeys(data.get("Email"));
+//		}
+//		else
+//		{
+//			TeamMemberName.sendKeys(data.get("Nameagy"));
+//			namevalidate= data.get("Nameagy");
+//			TeamMemberEmail.sendKeys(data.get("Emailagy"));
+//		}
+//		TeamMemberContactNumber.sendKeys(data.get("contact"));
+//		select = new Select(countryid);
+//		select.selectByVisibleText("India");
+//		common.ClickSumbit();
+//		try
+//		{ 
+//			common.okbtn.isDisplayed();
+//			common.clickOnOKBtn();
+//			common.clickOnAddClosebtn();
+//			System.out.println("these Agency team member are already added");
+//		}
+//		catch(NoSuchElementException e)
+//		{
+//			System.out.println("Agency team added succesfully");
+//		}
+//		
+//	}
+//		
+//	}
+	
+	
 }

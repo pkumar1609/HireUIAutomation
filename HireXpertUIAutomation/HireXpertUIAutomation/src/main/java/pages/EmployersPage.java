@@ -112,7 +112,7 @@ public class EmployersPage extends baseclass {
 	public void enterValidCredentials(DataTable credentials) throws InterruptedException {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-			ClickAddBtn();
+			employerspage.ClickAddBtn();
 			Thread.sleep(1000);
 			namefield.sendKeys(data.get("Name"));
 			namevalidate=data.get("Name");

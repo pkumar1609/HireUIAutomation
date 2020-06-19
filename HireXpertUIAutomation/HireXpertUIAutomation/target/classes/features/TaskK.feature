@@ -281,14 +281,6 @@ Examples:
 |pagy@gmail.com|12345   |
 
 
-
-
-
-
-
-
-
-
 #@TC273
 #Scenario: to verify Mark Completed task functionality from employer and employers team login
 #Given User should be registered
@@ -296,8 +288,8 @@ Examples:
 #And Click on Employer-Agency Signin link
 #And Employer enters valid credentials
 #And Click on Add task button and enter all details employer
-#|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-#|task4              |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+#|Title for emp      |teamField |AssignTo |note                             |employer   |team    |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+#|task4              |pemp      |pe1      |Task should complete before time |pemp       |pe1     |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 #And the task should display for employer
 #And Task should also display for employer team member
 #And Click on Mark Complete
@@ -309,8 +301,8 @@ Examples:
 #And Click on Employer-Agency Signin link
 #And Employer enters valid credentials
 #And Click on Add task button and enter all details employer
-#|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-#|task5              |pemp      |pemp     |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pagy        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+#|Title for emp      |teamField |AssignTo |note                             |employer   |team  |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+#|task5              |pemp      |pemp     |Task should complete before time |pemp    	|pe1   |pe1@gmail.com        |particular task  |pagy         |pagy        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 #And the task should display for employer
 #And Task should also display for employer team member
 #And Logout from App

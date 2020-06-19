@@ -24,7 +24,7 @@ public AddJobPage()
 		this.driver = driver;
 	}
 
-	@FindBy(id = "title")
+	@FindBy(xpath ="//input[@id='title']")
 	public WebElement title;
 	
 	@FindBy(id = "typeahead-config")
@@ -163,24 +163,6 @@ public AddJobPage()
 		Thread.sleep(2000);
 	}
 	
-public void fillJobDetails(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws InterruptedException {
-		
-	Thread.sleep(2000);
-		title.sendKeys(Title);
-		designation.sendKeys(Designation);
-		industry.sendKeys(Industry);
-		jobrole.sendKeys(JobRole);
-		location.sendKeys(Location);
-		budget.sendKeys(Budget);
-		minexp.sendKeys(MinExp);
-		maxexp.sendKeys(MaxExp);
-		se = new Select(totalinterviews);
-		se.selectByVisibleText(NoOfInterviews);
-		click.click();
-		
-	
-}
-	
 	public void addSkillButton() throws InterruptedException {
 		
 		for(int i=4;i<=12;i++) {
@@ -221,7 +203,7 @@ public void fillJobDetails(String Title, String Designation, String Industry, St
 	
 	public void fillEmployerDetailsPlusIcon() {
 		
-		employerName.sendKeys("sayali1");
+		employerName.sendKeys("Sayali1");
 		employerEmail.sendKeys("sayali1@gmail.com");
 		employerContactNumber.sendKeys("215245554");
 	}
@@ -229,7 +211,7 @@ public void fillJobDetails(String Title, String Designation, String Industry, St
 	public void employerDropDown() {
 		
 		se = new Select(employer);
-		se.selectByVisibleText("sayali1");
+		se.selectByVisibleText("Sayali 1");
 	}
 	
 	public void clickOnSubmitButton() {
@@ -242,43 +224,54 @@ public void fillJobDetails(String Title, String Designation, String Industry, St
 		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-//		Thread.sleep(2000);
-//		workbenchpage.AddJob();
-//		title.sendKeys(data.get("title"));
-		jobname1=data.get("title");
-//		System.out.println("Select job: "+jobname1);
-//		designation.sendKeys(data.get("designation"));
-//		industry.sendKeys(data.get("industry"));
-//		jobrole.sendKeys(data.get("jobrole"));
-//		location.sendKeys(data.get("location"));
-//		budget.sendKeys(data.get("budget"));
-//		minexp.sendKeys(data.get("minexp"));
-//		maxexp.sendKeys(data.get("maxexp"));
-//		noOfInterviews();
-//		List<WebElement> deletebtn = driver.findElements(By.xpath("//i[@class='fa fa-trash']"));	
-//		for(int i=0;i<deletebtn.size();i++)
-//			{
-//				WebElement btn = deletebtn.get(i);
-//				Thread.sleep(2000);
-//				btn.click();
-//			}
-//		this.emp=loginpage.b;
-//		if(emp==false)
-//			{ 
-//			select =new Select(employerId);
-//			List<WebElement> options = select.getOptions();
-//			if(options.size()>0)
-//			{
-//				select.selectByIndex(1);
-//			}
-//			else if (options.size()==0)
-//			{
-//				Thread.sleep(2000);
-//				addEmployee.click();
-//				teampage.AddAllDetailsK(credentials);
-//			}
-//			}
-//		common.ClickSumbit();
+		Thread.sleep(3000);
+		workbenchpage.AddJob();
+		this.emp=loginpage.b;
+		if(emp==true)
+		{
+			jobname1=data.get("title");
+			System.out.println("Selected job: "+jobname1);
+			title.sendKeys(jobname1);
+		}
+		else
+		{
+			jobname2=data.get("agytitle");
+			System.out.println("Selected job: "+jobname2);
+			title.sendKeys(jobname2);
+		}
+		
+		designation.sendKeys(data.get("designation"));
+		industry.sendKeys(data.get("industry"));
+		jobrole.sendKeys(data.get("jobrole"));
+		location.sendKeys(data.get("location"));
+		budget.sendKeys(data.get("budget"));
+		minexp.sendKeys(data.get("minexp"));
+		maxexp.sendKeys(data.get("maxexp"));
+		noOfInterviews();
+		List<WebElement> deletebtn = driver.findElements(By.xpath("//i[@class='fa fa-trash']"));	
+		for(int i=0;i<deletebtn.size();i++)
+			{
+				WebElement btn = deletebtn.get(i);
+				Thread.sleep(2000);
+				btn.click();
+			}
+		this.emp=loginpage.b;
+		if(emp==false)
+			{ 
+			select =new Select(employerId);
+			List<WebElement> options = select.getOptions();
+			if(options.size()>0)
+			{
+				select.selectByIndex(1);
+			}
+			else if (options.size()==0)
+			{
+				Thread.sleep(2000);
+				addEmployee.click();
+				teampage.AddAllDetailsK(credentials);
+			}
+			}
+		common.ClickSumbit();
 	}
 		
 }

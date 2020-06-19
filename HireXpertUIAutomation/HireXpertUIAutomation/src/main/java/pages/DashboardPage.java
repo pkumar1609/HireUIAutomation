@@ -54,7 +54,7 @@ public class DashboardPage extends baseclass {
 	public void openAgenciesPage() throws InterruptedException {
 		
 //		wait.until(ExpectedConditions.elementToBeClickable(agencies));
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		agencies.click();
 	}
 	
@@ -64,8 +64,8 @@ public class DashboardPage extends baseclass {
 		executor.executeScript("arguments[0].click();",team);
 	}
 	
-	public void openInterviewsPage() {
-		
+	public void openInterviewsPage() 
+	{
 		interviews.click();
 	}
 	

@@ -12,7 +12,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 
 import cucumber.api.DataTable;
 import utilPackage.baseclass;
@@ -31,7 +30,7 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[contains(text(),'Add Candidate')]")
 	public WebElement addCandidateButton; 
 	
-	@FindBy(xpath = "//button[contains(text(),'Share With Team')]")
+	@FindBy(xpath = "//button[@title='Share With Team']")
 	public WebElement shareWithTeamButton;
 	
 	@FindBy(xpath = "//button[contains(text(),'Edit Job')]")
@@ -99,6 +98,7 @@ public class WorkbenchPage extends baseclass {
 	String nameOfCan;
 	public String username;
 	public boolean emp;
+	public String job;
 	
 	public void addTaskBtn() throws InterruptedException
 	{
@@ -123,6 +123,20 @@ public class WorkbenchPage extends baseclass {
 		Thread.sleep(2000);
 		se = new Select(jobDropDown);
 		se.selectByIndex(1);
+		Thread.sleep(2000);
+		if(emp==true)
+		{
+		editJobButton.click();
+		Thread.sleep(2000);
+		job= addjobpage.title.getAttribute("value");
+		common.clickOnCloseBtn();
+		System.out.println(job);
+		}
+		else
+		{
+			
+		}
+		
 	}
 	
 	public void selectjobT() {
@@ -135,9 +149,14 @@ public class WorkbenchPage extends baseclass {
 		Thread.sleep(2000);
 		select = new Select(jobDropDown);
 		this.emp=loginpage.b;
-		jobname1= addjobpage.jobname1;
-		select.selectByVisibleText(jobname1+" - Active" );
-		
+		if(emp==true)
+		{
+		select.selectByVisibleText(addjobpage.jobname1+" - Active" );
+		}
+		else
+		{
+		select.selectByVisibleText(addjobpage.jobname2+" - Active" );
+		}
 	}
 	
 	public void verifyCollectAnswericonT() {
@@ -245,11 +264,14 @@ public void ClickonScreeningBtn() {
 	}
 
 
-	public void clickOnCloseJobButton() {
-	     closejobbtn.click();
+	public void clickOnCloseJobButton() throws InterruptedException {
+//	
+//	     closejobbtn.click();
+//	     common.clickOnConfirmYes();
 		}
 	 
 public void verifyCandidateAddedDisplayedOnWorkbenchOrNot () {
+	
 	
 	{         
 	  try   
@@ -283,7 +305,6 @@ public void verifyDeletedCandidateNotDisplayedOnWorkbench () {
 	  }      
 	  catch(NoSuchElementException e)     
 	  {       
-		 
 		  System.out.println("Candidate is deleted and not displayed on workbench");
 	  }       
 	} 
