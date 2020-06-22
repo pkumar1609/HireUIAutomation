@@ -1,6 +1,7 @@
 package BVT_StepDefination;
 
 import java.util.List;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -69,12 +70,45 @@ public class candidateProfile extends baseclass {
 		
 	}
 	
+	@When("^enter email id of candidate which is not registered previously \"([^\"]*)\"$")
+	public void enter_email_id_of_candidate_which_is_not_registered_previously(String CandidateEmail) throws Throwable {
+
+         Thread.sleep(3000);
+		
+		addcandidatepage.EntercandidateemailT(CandidateEmail);
+	}
+
+	@Then("^logout with employer and login with new candidate added by employer \"([^\"]*)\" \"([^\"]*)\"$")
+	public void logout_with_employer_and_login_with_new_candidate_added_by_employer(String CandidateEmail, String Password) throws Throwable {
+
+		workbenchpage.ClickonLogout();
+		Thread.sleep(3000);
+		
+		registerpage.clickJobseekerCandidateSignInlinklink();
+		Thread.sleep(3000);
+		
+		registerpage.enterCandidateEmailandPassword(CandidateEmail, Password);
+		
+		Thread.sleep(3000);
+		registerpage.ClickSigninbtn();
+	}
+
+
+		@When("^Select expertise level for skills \"([^\"]*)\" \"([^\"]*)\"$")
+	public void select_expertise_level_for_skills(String ExpertiseLevel1, String ExpertiseLevel2) throws Throwable {
+
+		Thread.sleep(3000);
+		addcandidatepage.Enterexpertilevel(ExpertiseLevel1, ExpertiseLevel2);
+	}
+
+	
 	@When("^enter email id of candidate which is not registered previously and click on Find button$")
 	public void enter_email_id_of_candidate_which_is_not_registered_previously_and_click_on_Find_button(DataTable dt) throws Throwable {
 	    
 		List<List<String>> data = dt.raw();
 		
 		addcandidatepage.emailField.sendKeys(data.get(0).get(0));
+		Thread.sleep(3000);
 		addcandidatepage.FindButton.click();
 		Thread.sleep(3000);
 	}
@@ -111,6 +145,8 @@ public class candidateProfile extends baseclass {
 		
 		se = new Select(addcandidatepage.expertiseLevel);
 		se.selectByVisibleText(data.get(0).get(7));
+		
+		addcandidatepage.uploadResumeDocumentT();
 		
 		common.clickOnSaveBtn();
 	}
@@ -190,6 +226,39 @@ public class candidateProfile extends baseclass {
 		loginpage.signin.click();
 		Thread.sleep(5000);
 	}
+	
+	@Then("^logout as candidate and login as same employer$")
+	public void logout_as_candidate_and_login_as_same_employer() throws Throwable {
+		Thread.sleep(3000);
+		workbenchpage.ClickonLogout();
+		Thread.sleep(3000);
+		registerpage.clickEmployerAgencySignInlink();
+		Thread.sleep(3000);
+		registerpage.employerlogin();
+
+	}
+
+	@Then("^go to workbench and select the same job$")
+	public void go_to_workbench_and_select_the_same_job() throws Throwable {
+	    
+		Thread.sleep(3000);
+		dashboardpage.openWorkbenchPage();
+		
+		 Thread.sleep(3000);
+
+         workbenchpage.selectJob();
+		
+	}
+	
+	@Then("^click on close and Yes btn$")
+	public void click_on_close_and_Yes_btn() throws Throwable {
+
+		Thread.sleep(3000);
+		common.clickOnCloseBtn();
+		Thread.sleep(1000);
+		common.clickOnConfirmYes();
+	}
+
 	
 	@Then("^Candidate should be able to login with email id added by user and Update profile pop up will appears$")
 	public void Candidate_should_be_able_to_login_with_email_id_added_by_user_and_Update_profile_pop_up_will_appears() throws Throwable {
@@ -427,7 +496,9 @@ public class candidateProfile extends baseclass {
 	@Then("^Click on Add Role button and observe$")
 	public void click_on_Add_Role_button_and_observe() throws Throwable {
 	    
-		Thread.sleep(2000);
+		Thread.sleep(3000);
+		workbenchpage.openUpdateProfilePage();
+		Thread.sleep(3000);
 		candidateupdateprofilepage.addThreeRoles();
 		System.out.println("\nNew role rows get added..");
 	}
@@ -446,6 +517,7 @@ public class candidateProfile extends baseclass {
 	public void click_on_Delete_Role_button_in_front_of_any_role() throws Throwable {
 	    
 		candidateupdateprofilepage.role3Delete.click();
+	
 	}
 	
 	@Then("^after clicking on Delete Role button present in front of role then that role should get deleted$")

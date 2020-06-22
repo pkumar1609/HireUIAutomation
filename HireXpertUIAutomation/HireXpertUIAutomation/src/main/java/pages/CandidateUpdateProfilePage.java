@@ -78,8 +78,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 	@FindBy(xpath = "//div[@class='col-md-4']//span[@class='checkmark']")
 	public WebElement notLookingForJobCheckbox;
-	
-	
+		
 	
 	public CandidateUpdateProfilePage() {
 		
