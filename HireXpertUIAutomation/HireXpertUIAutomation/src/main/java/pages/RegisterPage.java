@@ -388,5 +388,26 @@ public void verifythefieldsonregisterdialogbox () {
     	   Signinbtn.click();
        }
        
+       public void loginwithEmployerTeamMember () {
+    		
+    	   Emailaddress.sendKeys("teamemployermain01@gmail.com");
+    	   Password.sendKeys("12345");
+    	   Signinbtn.click();
+    		
+       }
+       
+       public void loginwithAgencyTeamMember () {
+   		
+    	   Emailaddress.sendKeys("agencymain02@gmail.com");
+    	   Password.sendKeys("12345");
+    	   Signinbtn.click();
+    		
+       }
+       
+       
+       
+       
+
+       
       
 }

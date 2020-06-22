@@ -79,16 +79,16 @@ public class TeamPage extends baseclass {
 	
 	public void fillTeamMemberDetails() {
 		
-		TeamMemberName.sendKeys("sayali team 2");
-		TeamMemberEmail.sendKeys(prop.getProperty("teamemail"));
+		TeamMemberName.sendKeys("Employermain01 Team");
+		TeamMemberEmail.sendKeys(prop.getProperty("teamemployermain01@gmail.com"));
 		TeamMemberContactNumber.sendKeys("2451565965");
 	}
 	
 	public void fillAgencyTeamMemberDetails() {
 		
-		TeamMemberName.sendKeys("say Agency team 2");
-		TeamMemberEmail.sendKeys(prop.getProperty("agencyteamemail"));
-		TeamMemberContactNumber.sendKeys("2451565965");
+		TeamMemberName.sendKeys("Agencymain02 Team");
+		TeamMemberEmail.sendKeys(prop.getProperty("agencymain02@gmail.com"));
+		TeamMemberContactNumber.sendKeys("2455599965");
 	}
 	
 	public void searchTeamMember() {
