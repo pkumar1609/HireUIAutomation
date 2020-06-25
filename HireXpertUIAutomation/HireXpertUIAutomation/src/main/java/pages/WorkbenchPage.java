@@ -24,6 +24,7 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(id = "jobDropdown")
 	public WebElement jobDropDown;
 	
+	
 	@FindBy(xpath = "//button[contains(text(),'Share With Agency')]")
 	public WebElement shareWithAgencyButton;
 	
@@ -93,10 +94,6 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Close Job']")
 	public WebElement closejobbtn;
 	
-	@FindBy(id = "rejectReason")
-	public WebElement rejectcandidatereason;
-	
-	
 	public String jobname1;
 	public String jobname2;
 	String nameOfCan;
@@ -135,10 +132,6 @@ public class WorkbenchPage extends baseclass {
 		job= addjobpage.title.getAttribute("value");
 		common.clickOnCloseBtn();
 		System.out.println(job);
-		}
-		else
-		{
-			
 		}
 		
 	}
@@ -294,6 +287,7 @@ public void verifyCandidateAddedDisplayedOnWorkbenchOrNot () {
 }
 
 	
+
 public void verifyDeletedCandidateNotDisplayedOnWorkbench () {
 	
 	
@@ -312,43 +306,5 @@ public void verifyDeletedCandidateNotDisplayedOnWorkbench () {
 	  }       
 	} 
 }
-
-public void dragCandidateCardtoRejectColumn () {
-	
-	Actions action = new Actions(driver);
-
-	action.clickAndHold(driver.findElement(By.cssSelector("div.item-box.cdk-drag"))).moveToElement(driver.findElement(By.xpath("//td[@id='jobStatusColumn' and @class='TableCard'] [12]"))).release().build().perform();
-	
-}
-
-public void dragCandidateCardfromRejectColumntoJoinedColumn () {
-	
-	Actions action = new Actions(driver);
-
-	action.clickAndHold(driver.findElement(By.cssSelector("div.item-box.cdk-drag"))).moveToElement(driver.findElement(By.xpath("//td[@id='jobStatusColumn' and @class='TableCard'] [10]"))).release().build().perform();
-	
-}
-
-public void selectCandidateRejectionReason () {
-	
-	Select select = new Select (rejectcandidatereason);
-	select.selectByVisibleText("Communication Is Not Good");
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 	

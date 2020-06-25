@@ -79,16 +79,16 @@ public class TeamPage extends baseclass {
 	
 	public void fillTeamMemberDetails() {
 		
-		TeamMemberName.sendKeys("Employermain01 Team");
-		TeamMemberEmail.sendKeys(prop.getProperty("teamemployermain01@gmail.com"));
+		TeamMemberName.sendKeys("sayali team 2");
+		TeamMemberEmail.sendKeys(prop.getProperty("teamemail"));
 		TeamMemberContactNumber.sendKeys("2451565965");
 	}
 	
 	public void fillAgencyTeamMemberDetails() {
 		
-		TeamMemberName.sendKeys("Agencymain02 Team");
-		TeamMemberEmail.sendKeys(prop.getProperty("agencymain02@gmail.com"));
-		TeamMemberContactNumber.sendKeys("2455599965");
+		TeamMemberName.sendKeys("say Agency team 2");
+		TeamMemberEmail.sendKeys(prop.getProperty("agencyteamemail"));
+		TeamMemberContactNumber.sendKeys("2451565965");
 	}
 	
 	public void searchTeamMember() {
@@ -197,7 +197,7 @@ public class TeamPage extends baseclass {
 			dashboardpage.openTeamPage();
 			teamMemberName = data.get("Name");
 			String teammemberpresent= "//td[text()='" +teamMemberName+ "']";
-			try  
+			try 
 			{
 				driver.findElement(By.xpath(teammemberpresent)).isDisplayed();
 				teampage.closeTeamPage();
@@ -206,7 +206,6 @@ public class TeamPage extends baseclass {
 			{
 				AddAllDetailsK(credentials);
 				teampage.closeTeamPage();
-			
 			}
 		}
 	}
@@ -255,6 +254,7 @@ public class TeamPage extends baseclass {
 		teampage.isTeamPresentForAgy(credentials);
 		}
 	}
+	
 	
 //	public void fillDetais()
 //	{

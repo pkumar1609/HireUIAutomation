@@ -123,32 +123,6 @@ Examples:
 # no change for this scenario 
 # if db clear then register candidatemain01@gmail.com as candidate
 
-
-
-
-
-
-     
-#@Regression
-#Scenario Outline: To verify user is not able to add one user with multiple roles.
-#     
-#Given User open browser
-#When click on Register link    
-#And enter all details and email id of a previously registered employer "<EmployerName>" "<EmployerEmail>" "<EmployerContactNumber>"  
-#And enter user type as the candidate "<usertype>" "<timezone>" "<country>"
-#And click on Submit button
-#Then Verify User should get error message as "User with 'employermain01@gmail.com' already register with system as Employer. You can not register same email Id as Candidate." 
-#And click on Close button
-#And Click on Yes button of confirmation popup
-#And Close the browser
-#     
-# Examples:     
-#  | EmployerName    |   EmployerEmail            | EmployerContactNumber    |  timezone              | country     | usertype  |
-#  | employermain01  | employermain01@gmail.com   | 4654644478               | Indian Standard Time   | India       | Candidate |
-#  
- 
- #TC:- 289
-  
   
   
  
