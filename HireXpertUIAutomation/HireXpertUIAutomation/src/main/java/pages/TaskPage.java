@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -30,15 +29,18 @@ public class TaskPage extends baseclass {
 	super();
 	PageFactory.initElements(driver, this);
 	}
-	
+
 	String addedtask;
-	String addedtaskagy;
 	public String assignto;
 	boolean emp;
 	boolean b;
 	String title;
 	String a;
 	ArrayList lst[];
+	String Sharedteam;
+	public List<WebElement> list;
+	public int sizeOfShareWithTeam=0;
+	
 	@FindBy(xpath="//button[@title='Add Task']")
 	WebElement addtaskbtn;
 	
@@ -129,7 +131,7 @@ public class TaskPage extends baseclass {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
 			clickOnAddTaskBtn();
-			Thread.sleep(2000);
+			Thread.sleep(2000); 
 			titlebtn.sendKeys(data.get("Title for emp"));
 			addedtask= titlebtn.getAttribute("value");
 			System.out.println(addedtask);
@@ -139,11 +141,11 @@ public class TaskPage extends baseclass {
 			select= new Select(Assigntofield);
 			select.selectByVisibleText(data.get("AssignTo"));
 			assignto= data.get("AssignTo");
-			List<WebElement> list =select.getOptions();
-			for(WebElement item:list) 
-	           { 
-	             System.out.println(item.getText());          
-	           }
+			list =select.getOptions();
+//			for(WebElement item:list) 
+//	        { 
+//	          System.out.println(item.getText());          
+//	        }
 			notefield.sendKeys(data.get("note"));
 			employerspage.ClickSubmitBtn();
 		}
@@ -151,16 +153,16 @@ public class TaskPage extends baseclass {
 	
 	public void edittaskdetailsforemp(DataTable credentials) throws InterruptedException {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{		
-			Thread.sleep(2000);
+		{	Thread.sleep(2000);	
 			titlebtn.clear();
+			Thread.sleep(2000);
 			titlebtn.sendKeys(data.get("Title for emp"));
+			addedtask=titlebtn.getAttribute("value");
+			System.out.println(addedtask);
 			notefield.clear();
 			notefield.sendKeys(data.get("note"));
-			employerspage.ClickSubmitBtn();
-			clickOnAddTaskBtn();
 		}
-		employerspage.ClickCloseBtn();
+		employerspage.ClickSubmitBtn();
 	}
 	
 	
@@ -182,7 +184,7 @@ public class TaskPage extends baseclass {
 		System.out.println(assignto);
 		if(assignto.contentEquals(user))
 		{ 
-			Thread.sleep(3000);
+			Thread.sleep(4000);
 			mytask.click();
 			reloadtask();
 			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
@@ -190,24 +192,23 @@ public class TaskPage extends baseclass {
 		}
 		else
 		{
-			Thread.sleep(3000);
+			Thread.sleep(4000);
 			teamtask.click();
 			reloadtask();
 			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
 			Assert.assertEquals(b, true);
 		}
-		StatusOfTask();
+//		System.out.println("//strong[text()='"+addedtask+"']");
+//		StatusOfTask();
 	}
-
-
-
+	
+	
 	public void clickondeletetask() throws InterruptedException
 	{
 		Thread.sleep(3000);
 //		explicitwait.until(ExpectedConditions.elementToBeClickable(deletetaskbtn));
 		executor.executeScript("arguments[0].click();", deletetaskbtn);
 		executor.executeScript("arguments[0].click();", confirmbtn);
-		
 	}
 	
 	
@@ -220,7 +221,6 @@ public class TaskPage extends baseclass {
 	
 	public void ClickOnMyTask() throws InterruptedException
 	{
-
 		explicitwait.until(ExpectedConditions.elementToBeClickable(mytask));
 		executor.executeScript("arguments[0].click();",mytask);
 	}
@@ -236,39 +236,38 @@ public class TaskPage extends baseclass {
 	{
 		if(assignto.contentEquals(loginpage.logedinuser))
 		{ 
-			Thread.sleep(3000);
+			Thread.sleep(4000);
 			mytask.click();
 			reloadtask();
-			if(emp==true)
-			{
-			Thread.sleep(2000);
-			String edittaskbtn="//strong[text()='"+addedtask+"']//following::i[@class='fa fa-pencil']";
-			driver.findElement(By.xpath(edittaskbtn)).click();
-			}
-			else
-			{
-			 String edittaskbtnAgy="//strong[text()='"+addedtaskagy+"']//following::i[@class='fa fa-pencil']";
-			 driver.findElement(By.xpath(edittaskbtnAgy)).click();
-			}
+			Thread.sleep(4000);
+			driver.findElement(By.xpath("//strong[text()='"+addedtask+"']//following::i[@class='fa fa-pencil']")).click();
 		}
 		else
 		{
 			Thread.sleep(3000);
 			teamtask.click();
 			reloadtask();
-			if(emp==true)
-			{
-			Thread.sleep(2000);
-			String edittaskbtn="//strong[text()='"+addedtask+"']//following::i[@class='fa fa-pencil']";
-			driver.findElement(By.xpath(edittaskbtn)).click();
-			}
-			else
-			{
-			 String edittaskbtnAgy="//strong[text()='"+addedtaskagy+"']//following::i[@class='fa fa-pencil']";
-			 driver.findElement(By.xpath(edittaskbtnAgy)).click();
-			}
+			Thread.sleep(4000);
+			driver.findElement(By.xpath("//strong[text()='"+addedtask+"']//following::i[@class='fa fa-pencil']")).click();
 		}
-		
+	}
+	
+	
+	public void edittask(DataTable credentials) throws InterruptedException
+	{
+	if(assignto.contentEquals(loginpage.logedinuser))
+	{
+//		taskpage.ClickOnMyTask();
+//		taskpage.ClickOnEditTask();
+		taskpage.edittaskdetailsforemp(credentials);
+	}
+	else
+	{
+//		taskpage.ClickOnTeamTask();
+//		taskpage.ClickOnEditTask();
+		taskpage.editTaskDetailsForAgy(credentials);
+	}	
+
 	}
 	
 	public void searchTask(DataTable credentials) throws InterruptedException 
@@ -309,7 +308,7 @@ public class TaskPage extends baseclass {
 		}
 		else if(emp==false)
 		{
-			String inprogreebtnAgy="//strong[text()='"+addedtaskagy+"']//following::button[text()='Mark In Progress']";
+			String inprogreebtnAgy="//strong[text()='"+addedtask+"']//following::button[text()='Mark In Progress']";
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(inprogreebtnAgy)).click();
 			if(assignto.equals(prop.getProperty("agency")))
@@ -325,44 +324,26 @@ public class TaskPage extends baseclass {
 	}
 	
 	
-	public void StatusOfTask() throws InterruptedException 
+	public void StatusOfTask(String status) throws InterruptedException 
 	{
-	   this.emp=loginpage.b;
-		if(emp==true)
-		{
-			try
-			{ 
-				Thread.sleep(2000);
-				String openStatusEmp="//strong[text()='"+addedtask+"']//following::span[text()='Open']";
-				driver.findElement(By.xpath(openStatusEmp)).isDisplayed();
-				System.out.println("Status of added task for employer is open");
-			}
-			catch(NoSuchElementException e)
-			{
-				String inprogressStatusEmp="//strong[text()='"+addedtask+"']//following::span[text()='Inprogress']";
-				driver.findElement(By.xpath(inprogressStatusEmp)).isDisplayed();
-				System.out.println("Status of added task for employer is inprogress");
-			}
-			
+		System.out.println("assignto value is "+assignto);
+		if(assignto.contentEquals(loginpage.logedinuser))
+		{ 
+			Thread.sleep(4000);
+			mytask.click();
+			reloadtask();
+			String inprogressStatusEmp="//strong[text()='"+addedtask+"']//following::span[text()='"+status+"']";
+			driver.findElement(By.xpath(inprogressStatusEmp)).isDisplayed();
 		}
-		else if(emp==false)
+		else
 		{
-			try
-			{ 
-				String openStatusAgy="//strong[text()='"+addedtaskagy+"']//following::span[text()='Open']";
-				driver.findElement(By.xpath(openStatusAgy)).isDisplayed();
-				System.out.println("Status of added task for agency is open");
-			}
-			catch(NoSuchElementException e)
-			{
-				String inprogressStatusAgy="//strong[text()='"+addedtaskagy+"']//following::span[text()='Inprogress']";
-				driver.findElement(By.xpath(inprogressStatusAgy)).isDisplayed();
-				System.out.println("Status of added task for agency is inprogress");
-			}
+			Thread.sleep(3000);
+			teamtask.click();
+			reloadtask();
+			String inprogressStatusEmp="//strong[text()='"+addedtask+"']//following::span[text()='"+status+"']";
+			driver.findElement(By.xpath(inprogressStatusEmp)).isDisplayed();
 		}
-		
 
-		
 	}
 	
 	public void MarkCompleted() throws InterruptedException
@@ -385,7 +366,7 @@ public class TaskPage extends baseclass {
 		}
 		else if(emp==false)
 		{
-			String MarkcompletedAgy="//strong[text()='"+addedtaskagy+"']//following::button[text()='Mark Complete']";			
+			String MarkcompletedAgy="//strong[text()='"+addedtask+"']//following::button[text()='Mark Complete']";			
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(MarkcompletedAgy)).click();
 			if(assignto.equals(prop.getProperty("agency")))
@@ -403,35 +384,29 @@ public class TaskPage extends baseclass {
 	
 	public void validateTaskAfterMarkCompletedEmp() throws InterruptedException
 	{
-	
 		if(assignto.equals(prop.getProperty("employer")))
 		{
 			Thread.sleep(2000);
 			mytask.click();
-			try {
-			driver.findElement(By.xpath("//strong[text()='task1']")).isDisplayed();
-			}
-			catch(NoSuchElementException e)
-			{
-				System.out.println("task which is mark as progress is not displaying");
-			}
-			
 		}
 		else if (assignto.equals(prop.getProperty("team")))
 		{
 			Thread.sleep(3000);
 			teamtask.click();
 			reloadtask();
-			try {
-				driver.findElement(By.xpath("//strong[text()='task1']")).isDisplayed();
-				}
-				catch(NoSuchElementException e)
-				{
-					System.out.println("task which is mark as progress is not displaying");
-				}
 		}
-		
+		try
+		{
+		b=driver.findElement(By.xpath("//strong[text()='"+taskpage.addedtask+"']")).isDisplayed();
+		}
+		catch(NoSuchElementException e)
+		{
+			b=false;
+		}
+		Assert.assertEquals(b, false);
 	}
+
+	
 	
 //------------------------------------------------------------------------------------------------------------------
 	//For Agency
@@ -446,7 +421,7 @@ public class TaskPage extends baseclass {
 			mytask.click();
 			reloadtask();
 			try {
-			driver.findElement(By.xpath("//strong[text()='"+addedtaskagy+"']")).isDisplayed();
+			driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
 			
 			}
 			catch(NoSuchElementException e)
@@ -461,7 +436,7 @@ public class TaskPage extends baseclass {
 			teamtask.click();
 			reloadtask();
 			try {
-				driver.findElement(By.xpath("//strong[text()='"+addedtaskagy+"']")).isDisplayed();
+				driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
 				}
 				catch(NoSuchElementException e)
 				{
@@ -481,7 +456,7 @@ public void validateTaskDisplayingProperlyForAgy() throws InterruptedException
 		Thread.sleep(4000);
 		mytask.click();
 		reloadtask();
-		boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtaskagy+"']")).isDisplayed();
+		boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
 		Assert.assertEquals(b, true);
 	}
 	else
@@ -489,36 +464,13 @@ public void validateTaskDisplayingProperlyForAgy() throws InterruptedException
 		Thread.sleep(4000);
 		teamtask.click();
 		reloadtask();
-		boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtaskagy+"']")).isDisplayed();
+		boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
 		Assert.assertEquals(b, true);
 	}
 	StatusOfTask();
 
 }
 
-
-//	public void validateTaskDisplayingProperlyForAgy() throws InterruptedException
-//	{
-//		
-//		if(assignto.contentEquals(loginpage.logedinuser))
-//		{
-//			Thread.sleep(2000);
-//			mytask.click();
-//			reloadtask();
-//			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
-//			Assert.assertEquals(b, true);
-//		}
-//		else
-//		{
-//			Thread.sleep(3000);
-//			teamtask.click();
-//			reloadtask();
-//			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
-//			Assert.assertEquals(b, true);
-//		}
-//		StatusOfTask();
-//
-//	}
 
 public void enterAlldetailsForAgy(DataTable credentials) throws InterruptedException {
 	
@@ -528,13 +480,14 @@ public void enterAlldetailsForAgy(DataTable credentials) throws InterruptedExcep
 		clickOnAddTaskBtn();
 		Thread.sleep(2000);
 		titlebtn.sendKeys(data.get("Title for agy"));
-		addedtaskagy = titlebtn.getAttribute("value");
-		System.out.println(addedtaskagy);
+		addedtask = titlebtn.getAttribute("value");
+		System.out.println(addedtask);
 		select = new Select(teamid);
 	    explicitwait.until(ExpectedConditions.elementToBeClickable(teamid));
 	    select.selectByVisibleText(data.get("agency"));
 	    select= new Select(Assigntofield);
 	    select.selectByVisibleText(data.get("agyAssignTo"));
+		list =select.getOptions();
 		assignto= data.get("agyAssignTo");
 		notefield.sendKeys(data.get("agynote"));
 		Thread.sleep(2000);
@@ -562,11 +515,12 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 		}
 		else
 		{
-			addedtaskagy.contentEquals(data.get("Title for agy"));
+			addedtask.contentEquals(data.get("Title for agy"));
 //			teamid.getAttribute("value").contentEquals(data.get("agency"));
 //			Assigntofield.getAttribute("value").contentEquals(data.get("agyAssignTo"));
 			notefield.getText().contentEquals(data.get("agynote"));
 		}
+		
 	}
 }
 	public void editTaskDetailsForAgy(DataTable credentials) throws InterruptedException {
@@ -575,13 +529,12 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 		Thread.sleep(2000);
 		titlebtn.clear();
 		titlebtn.sendKeys(data.get("Title for emp"));
+		addedtask=data.get("Title for emp");
 		notefield.clear();
 		notefield.sendKeys(data.get("agynote"));
-		employerspage.ClickSubmitBtn();
-		clickOnAddTaskBtn();
+	
 	}
-	employerspage.ClickCloseBtn();
-	System.out.println(addedtaskagy);
+	employerspage.ClickSubmitBtn();	
 
 	}
 	public void shareWithTeam(DataTable credentials) throws InterruptedException
@@ -593,8 +546,9 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 		{
 			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 			{
-			String team=data.get("EmpTeam");
-			String xpathforshare= "(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[1]";
+			sizeOfShareWithTeam++;
+			Sharedteam=data.get("EmpTeam");
+			String xpathforshare= "(//td[text()='"+Sharedteam+"']//following::span[@class='checkmark CheckBoxM'])[1]";
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(xpathforshare)).click();
 			try
@@ -610,6 +564,7 @@ public void assertDeatailsOfTask(DataTable credentials) throws InterruptedExcept
 		{
 			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 			{
+			sizeOfShareWithTeam++;
 			String team=data.get("Agyteam");
 			String xpathforshare= "(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[1]";
 			Thread.sleep(2000);

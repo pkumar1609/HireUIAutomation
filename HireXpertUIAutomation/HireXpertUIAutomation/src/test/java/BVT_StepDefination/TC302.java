@@ -24,63 +24,63 @@ public class TC302 extends baseclass {
 //		baseclass.initialization();
 	}
 
-	@And("^edit the task$")
-	public void edit_the_task(DataTable credentials) throws Throwable {
-		this.b=loginpage.b;
-		if(b==true)
-		{
-			if(taskpage.assignto.contains("employer"))
-			{
-				taskpage.ClickOnMyTask();
-				taskpage.ClickOnEditTask();
-				taskpage.edittaskdetailsforemp(credentials);
-			}
-			else
-			{
-				
-				taskpage.ClickOnTeamTask();
-				taskpage.ClickOnEditTask();
-				taskpage.edittaskdetailsforemp(credentials);
-			}
-		}
-		else
-		{
-			if(taskpage.assignto.contains("agency"))
-			{
-				taskpage.ClickOnMyTask();
-				taskpage.ClickOnEditTask();
-				taskpage.editTaskDetailsForAgy(credentials);
-			}
-			else
-			{
-				taskpage.ClickOnTeamTask();
-				taskpage.ClickOnEditTask();
-				taskpage.editTaskDetailsForAgy(credentials);
-			}
-			
-		}
-	}
-
-	@Then("^verify all the edited details$")
-	public void verify_all_the_edited_details(DataTable credentials) throws Throwable {
-	
-		if(taskpage.assignto.contentEquals(loginpage.logedinuser))
-		{
-			taskpage.ClickOnMyTask();
-			taskpage.ClickOnEditTask();
-			taskpage.assertDeatailsOfTask(credentials);
-			
-				
-		}
-		else
-		{
-			taskpage.ClickOnTeamTask();
-			taskpage.ClickOnEditTask();
-			taskpage.assertDeatailsOfTask(credentials);	
-				
-		}
-		
-		
-	}
+//	@And("^edit the task$")
+//	public void edit_the_task(DataTable credentials) throws Throwable {
+//		this.b=loginpage.b;
+//		if(b==true)
+//		{
+//			if(taskpage.assignto.contains("employer"))
+//			{
+//				taskpage.ClickOnMyTask();
+//				taskpage.ClickOnEditTask();
+//				taskpage.edittaskdetailsforemp(credentials);
+//			}
+//			else
+//			{
+//				
+//				taskpage.ClickOnTeamTask();
+//				taskpage.ClickOnEditTask();
+//				taskpage.edittaskdetailsforemp(credentials);
+//			}
+//		}
+//		else
+//		{
+//			if(taskpage.assignto.contains("agency"))
+//			{
+//				taskpage.ClickOnMyTask();
+//				taskpage.ClickOnEditTask();
+//				taskpage.editTaskDetailsForAgy(credentials);
+//			}
+//			else
+//			{
+//				taskpage.ClickOnTeamTask();
+//				taskpage.ClickOnEditTask();
+//				taskpage.editTaskDetailsForAgy(credentials);
+//			}
+//			
+//		} 
+//	}
+//
+//	@Then("^verify all the edited details$")
+//	public void verify_all_the_edited_details(DataTable credentials) throws Throwable {
+//	
+//		if(taskpage.assignto.contentEquals(loginpage.logedinuser))
+//		{
+//			taskpage.ClickOnMyTask();
+//			taskpage.ClickOnEditTask();
+//			taskpage.assertDeatailsOfTask(credentials);
+//			
+//				
+//		}
+//		else
+//		{
+//			taskpage.ClickOnTeamTask();
+//			taskpage.ClickOnEditTask();
+//			taskpage.assertDeatailsOfTask(credentials);	
+//				
+//		}
+//		
+//		
+//	}
 
 }

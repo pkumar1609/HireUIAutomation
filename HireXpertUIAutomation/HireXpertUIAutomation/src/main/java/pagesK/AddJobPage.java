@@ -227,7 +227,7 @@ public AddJobPage()
 		Thread.sleep(3000);
 		workbenchpage.AddJob();
 		this.emp=loginpage.b;
-		if(emp==true)
+		if(emp==true) 
 		{
 			jobname1=data.get("title");
 			System.out.println("Selected job: "+jobname1);

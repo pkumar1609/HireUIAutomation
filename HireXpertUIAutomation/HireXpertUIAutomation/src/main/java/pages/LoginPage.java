@@ -150,10 +150,10 @@ public class LoginPage extends baseclass
 		identifyUserK();
 	}
 	
-	public void loginInAppWithTeam2() throws InterruptedException
+	public void loginInAppWithTeam2(String teamid2) throws InterruptedException
 	{
-		emailaddress.sendKeys(prop.getProperty("teamid2"));
-		password.sendKeys(prop.getProperty("pwd"));
+		emailaddress.sendKeys(teamid2);
+		password.sendKeys("12345");
 		Thread.sleep(4000);
 		signin.click();
 		identifyUserK();
@@ -167,6 +167,7 @@ public class LoginPage extends baseclass
 		executor.executeScript("arguments[0].click();",signin);
 		identifyUserK();
 	}
+	
 	public void loginInAppWithAgy2K() throws InterruptedException
 	{
 		emailaddress.sendKeys(prop.getProperty("agyid2"));
@@ -175,14 +176,16 @@ public class LoginPage extends baseclass
 		executor.executeScript("arguments[0].click();",signin);
 		identifyUserK();
 	}
-	public void loginInAppWithAgyTeam2() throws InterruptedException
-	{
-		emailaddress.sendKeys(prop.getProperty("agyteamid2"));
-		password.sendKeys(prop.getProperty("pwd"));
-		Thread.sleep(2000);
-		executor.executeScript("arguments[0].click();",signin);
-		identifyUserK();
-	}
+	
+//	public void loginInAppWithAgyTeam2() throws InterruptedException
+//	{
+//		emailaddress.sendKeys(prop.getProperty("agyteamid2"));
+//		password.sendKeys(prop.getProperty("pwd"));
+//		Thread.sleep(2000);
+//		executor.executeScript("arguments[0].click();",signin);
+//		identifyUserK();
+//	}
+	
 	public void loginInAppWithSupport() throws InterruptedException
 	{
 		emailaddress.sendKeys(prop.getProperty("supportId"));
@@ -201,7 +204,7 @@ public class LoginPage extends baseclass
 		signin.click();
 		identifyUserK();
 	}
-	
+	 
 	public void logoutFromAppK() throws InterruptedException
 	{
 		Thread.sleep(2000);
@@ -230,7 +233,7 @@ public class LoginPage extends baseclass
 				Thread.sleep(2000);
 				logedinusername.click();	
 			}
-			 
+			  
 	}
 
 }

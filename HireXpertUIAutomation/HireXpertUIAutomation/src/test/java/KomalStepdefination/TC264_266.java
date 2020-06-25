@@ -63,11 +63,11 @@ public class TC264_266 extends baseclass {
 		taskpage.validateTaskDisplayingProperly();
 	}
 	
-//	@And("^Logout from App$")
-//	public void Logout_from_App() throws Throwable {
-//		Thread.sleep(2000);
-//		loginpage.logoutFromAppK();
-//	}
+	@And("^Logout from App$")
+	public void Logout_from_App() throws Throwable {
+		Thread.sleep(2000);
+		loginpage.logoutFromAppK();
+	}
 	
 	@And("^Login with employer team$")
 	public void login_as_employer_team() throws Throwable {

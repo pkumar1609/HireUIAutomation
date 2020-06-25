@@ -69,9 +69,10 @@ public class DashboardPage extends baseclass {
 		interviews.click();
 	}
 	
-	public void openDashboardPage()
+	public void openDashboardPage() throws InterruptedException
 	{
-		wait.until(ExpectedConditions.elementToBeClickable(dashboard));
+		Thread.sleep(2000);
+//		wait.until(ExpectedConditions.elementToBeClickable(dashboard));
 		executor.executeScript("arguments[0].click();",dashboard);
 	} 
 	

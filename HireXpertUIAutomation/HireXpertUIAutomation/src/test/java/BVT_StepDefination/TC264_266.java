@@ -19,6 +19,7 @@ public class TC264_266 extends baseclass {
 		super();
 	}
 	
+	boolean emp;
 	@Before()
 	public void setup() throws IOException
 	{
@@ -33,8 +34,17 @@ public class TC264_266 extends baseclass {
 
 	@And("^Click on Add task button and enter all details employer$")
 	public void in_add_task_popup_Fill_all_the_mandatory_details(DataTable credentials) throws Throwable {
-		taskpage.enterAlldetails(credentials);
-	}
+		this.emp=loginpage.b;
+		if(emp==true)
+		{ 
+			taskpage.enterAlldetails(credentials);
+		}
+		else
+		{
+			taskpage.enterAlldetailsForAgy(credentials);
+		}
+		
+	} 
 
 	@And("^the task should display for employer$")
 	public void the_task_should_display_for_both_employer() throws Throwable {
@@ -67,14 +77,15 @@ public class TC264_266 extends baseclass {
 	}
 	
 	@And("^Add job$")
-	public void add_job(DataTable credentials) throws Throwable {
+	public void add_job(DataTable credentials) throws Throwable 
+	{
 		addjobpage.addjob(credentials);
-	    }
+	}
 
 	@And("^Select a job$")
 	public void select_a_job_and_click_on_add_task_button() throws Throwable {
-	
-		workbenchpage.selectJob();
+		
+		workbenchpage.selectJobK();
 		
 		
 	}

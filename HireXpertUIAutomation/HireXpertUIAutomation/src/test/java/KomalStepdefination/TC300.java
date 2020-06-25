@@ -11,9 +11,9 @@ public class TC300 extends baseclass{
 	{
 		super();
 	}
-	
-	@And("^verify the options present in teamfeild$")
-	public void verify_the_options_present_in_teamfeild() throws Throwable {
-	    
-	}
+//	
+//	@And("^verify the options present in teamfeild$")
+//	public void verify_the_options_present_in_teamfeild() throws Throwable {
+//	    
+//	}
 }

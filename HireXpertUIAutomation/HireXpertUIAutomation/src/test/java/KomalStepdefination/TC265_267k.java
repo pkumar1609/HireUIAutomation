@@ -1,5 +1,6 @@
 package KomalStepdefination;
 
+import java.awt.AWTException;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
@@ -19,11 +20,11 @@ public class TC265_267k extends baseclass {
 		super();
 	}
 	
-	@Before()
-	public void setup() throws IOException
-	{
-		baseclass.initialization();
-	}
+//	@Before()
+//	public void setup() throws IOException, AWTException
+//	{
+//		baseclass.initialization();
+//	}
 	
 	@Given("^User must be registered as agency profile$")
 	public void user_must_be_registered_as_agency_profile() throws Throwable {

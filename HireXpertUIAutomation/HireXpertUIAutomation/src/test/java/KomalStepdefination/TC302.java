@@ -33,49 +33,50 @@ public class TC302 extends baseclass {
 	@And("^verify All previously added details of task$")
 	public void verify_All_previously_added_details_of_task(DataTable credentials) throws Throwable {
 	   taskpage.assertDeatailsOfTask(credentials);
+	   
 	}
 
 
 
-	@And("^edit the task$")
-	public void edit_the_task(DataTable credentials) throws Throwable {
-		this.b=loginpage.b;
-		if(b==true)
-		{
-			if(taskpage.assignto.contains("employer"))
-			{
-				taskpage.ClickOnMyTask();
-				taskpage.ClickOnEditTask();
-				taskpage.edittaskdetailsforemp(credentials);
-			}
-			else
-			{
-				
-				taskpage.ClickOnTeamTask();
-				taskpage.ClickOnEditTask();
-				taskpage.edittaskdetailsforemp(credentials);
-			}
-		}
-		else
-		{
-			if(taskpage.assignto.contains("agency"))
-			{
-				taskpage.ClickOnMyTask();
-				taskpage.ClickOnEditTask();
-				taskpage.editTaskDetailsForAgy(credentials);
-			}
-			else
-			{
-				taskpage.ClickOnTeamTask();
-				taskpage.ClickOnEditTask();
-				taskpage.editTaskDetailsForAgy(credentials);
-			}
-			
-		}
-		
-		
-		
-	}
+//	@And("^edit the task$")
+//	public void edit_the_task(DataTable credentials) throws Throwable {
+//		this.b=loginpage.b;
+//		if(b==true)
+//		{
+//			if(taskpage.assignto.contains("employer"))
+//			{
+//				taskpage.ClickOnMyTask();
+//				taskpage.ClickOnEditTask();
+//				taskpage.edittaskdetailsforemp(credentials);
+//			}
+//			else
+//			{
+//				
+//				taskpage.ClickOnTeamTask();
+//				taskpage.ClickOnEditTask();
+//				taskpage.edittaskdetailsforemp(credentials);
+//			}
+//		}
+//		else
+//		{
+//			if(taskpage.assignto.contains("agency"))
+//			{
+//				taskpage.ClickOnMyTask();
+//				taskpage.ClickOnEditTask();
+//				taskpage.editTaskDetailsForAgy(credentials);
+//			}
+//			else
+//			{
+//				taskpage.ClickOnTeamTask();
+//				taskpage.ClickOnEditTask();
+//				taskpage.editTaskDetailsForAgy(credentials);
+//			}
+//			
+//		}
+//		
+//		
+//		
+//	}
 
 	@Then("^verify all the edited details$")
 	public void verify_all_the_edited_details(DataTable credentials) throws Throwable {

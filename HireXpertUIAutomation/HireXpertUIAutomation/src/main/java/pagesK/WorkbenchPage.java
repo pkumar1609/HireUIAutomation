@@ -24,6 +24,7 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(id = "jobDropdown")
 	public WebElement jobDropDown;
 	
+	
 	@FindBy(xpath = "//button[contains(text(),'Share With Agency')]")
 	public WebElement shareWithAgencyButton;
 	
@@ -131,10 +132,6 @@ public class WorkbenchPage extends baseclass {
 		job= addjobpage.title.getAttribute("value");
 		common.clickOnCloseBtn();
 		System.out.println(job);
-		}
-		else
-		{
-			
 		}
 		
 	}
