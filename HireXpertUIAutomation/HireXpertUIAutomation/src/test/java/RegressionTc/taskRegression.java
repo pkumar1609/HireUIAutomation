@@ -2,6 +2,8 @@ package RegressionTc;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
@@ -9,12 +11,12 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import utilPackage.baseclass;
 
-public class TC269_271_273 extends baseclass{
+public class taskRegression extends baseclass{
 	
 	boolean b;
 	private boolean emp;
 
-	public TC269_271_273() throws IOException 
+	public taskRegression() throws IOException 
 	{
 		super();
 	}
@@ -148,21 +150,19 @@ public class TC269_271_273 extends baseclass{
 	   taskpage.ClickOnEditTask();
 	}
 
-	@And("^verify All previously added details of task$")
-	public void verify_All_previously_added_details_of_task(DataTable credentials) throws Throwable {
-		taskpage.assertDeatailsOfTask(credentials);
+	@And("^verify All previously added details of task\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+	public void verify_All_previously_added_details_of_task_and(String task, String team, String Assignto, String note) throws Throwable {
+		taskpage.assertDeatailsOfTask(task, team, Assignto, note);
 	}
 
-	@And("^edit the task$")
-	public void edit_the_task(DataTable credentials) throws Throwable {
-		taskpage.edittask(credentials);
-		
+	@And("^edit the task \"([^\"]*)\"and \"([^\"]*)\"$")
+	public void edit_the_task_and(String editedtask, String editednote) throws Throwable {
+		taskpage.edittaskdetails(editedtask, editednote);
 	}
-	
-	@And("^verify all the edited details$")
-	public void verify_all_the_edited_details(DataTable credentials) throws Throwable {
-	
-		taskpage.assertDeatailsOfTask(credentials);
+
+	@Then("^verify all the edited details \"([^\"]*)\"and \"([^\"]*)\"$")
+	public void verify_all_the_edited_details_and(String editedtask, String editednote) throws Throwable {
+	   taskpage.asserteditedDeatail(editedtask, editednote);
 	}
 	
 	@And("^Click on Add task button and enter all details for agency$")
@@ -176,7 +176,29 @@ public class TC269_271_273 extends baseclass{
 	    Assert.assertEquals(optionListsize, (taskpage.sizeOfShareWithTeam)+2 );
 	}
 	
+//	TC268
 	
+	@And("^Click on add candidate$")
+	public void click_on_add_candidate() throws Throwable {
+		workbenchpage.clickOnAddCandidate();
+	}
+
+	
+	
+	@And("^Enter All details of \"([^\"]*)\" ,\"([^\"]*)\", \"([^\"]*)\" ,\"([^\"]*)\", <\"([^\"]*)\">,\"([^\"]*)\" and \"([^\"]*)\"$")
+	public void enter_All_details_of_and(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
+		workbenchpage.enterEmailId();
+		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
+		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
+		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
+		common.clickOnSaveBtn();
+		common.clickOnConfirmYes();
+	}
+	
+	@And("^verify candidate card is displaying or not in New column$")
+	public void verify_candidate_card_is_displaying_or_not_in_New_column() throws Throwable {
+	    
+	}
 }
 
 

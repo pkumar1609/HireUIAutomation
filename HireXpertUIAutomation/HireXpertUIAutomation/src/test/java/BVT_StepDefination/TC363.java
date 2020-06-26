@@ -58,6 +58,7 @@ public class TC363 extends baseclass {
 	@And("^Enter All details of candidate$")
 	public void enter_All_details_of_candidate() throws Throwable {
 		workbenchpage.enterEmailId();
+		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
 		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
 		common.clickOnSaveBtn();

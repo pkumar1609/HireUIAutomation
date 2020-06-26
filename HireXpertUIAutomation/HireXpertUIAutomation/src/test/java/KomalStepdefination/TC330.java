@@ -14,19 +14,19 @@ public class TC330 extends baseclass{
 	}
 	 
 	@And("^login as third employer team$")
-	public void login_as_third_employer_team() throws Throwable {
-	  loginpage.loginInAppWithTeam2();
-	}
-
-	@Then("^third user should not able to put task in progress$")
-	public void third_user_should_not_able_to_put_task_in_progress() throws Throwable {
-	   taskpage.errordisplayed();
-	}
-	
-	@And("^login as third agency team$")
-	public void login_as_third_agency_team() throws Throwable {
-		loginpage.loginInAppWithAgyTeam2();
-	}
+//	public void login_as_third_employer_team() throws Throwable {
+//	  loginpage.loginInAppWithTeam2();
+//	}
+//
+//	@Then("^third user should not able to put task in progress$")
+//	public void third_user_should_not_able_to_put_task_in_progress() throws Throwable {
+//	   taskpage.errordisplayed();
+//	}
+//	
+//	@And("^login as third agency team$")
+//	public void login_as_third_agency_team() throws Throwable {
+//		loginpage.loginInAppWithAgyTeam2();
+//	}
 	
 	 
 	

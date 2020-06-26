@@ -148,7 +148,7 @@ public AddJobPage()
 		se.selectByIndex(4);
 	}
 	
-	public void fillDetails(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws InterruptedException {
+	public void fillDetails() throws InterruptedException {
 		
 		title.sendKeys("Automation1");
 		designation.sendKeys("Automation engineer");
@@ -162,25 +162,6 @@ public AddJobPage()
 		click.click();
 		Thread.sleep(2000);
 	}
-	
-public void filljobDetails(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws InterruptedException {
-		
-		title.sendKeys(Title);
-		designation.sendKeys(Designation);
-		industry.sendKeys(Industry);
-		jobrole.sendKeys(JobRole);
-		location.sendKeys(Location);
-		budget.sendKeys(Budget);
-		minexp.sendKeys(MinExp);
-		maxexp.sendKeys(MaxExp);
-		se = new Select(totalinterviews);
-		se.selectByIndex(3);
-		click.click();
-		Thread.sleep(2000);
-	}
-	
-	
-	
 	
 	public void addSkillButton() throws InterruptedException {
 		
@@ -246,7 +227,7 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 		Thread.sleep(3000);
 		workbenchpage.AddJob();
 		this.emp=loginpage.b;
-		if(emp==true)
+		if(emp==true) 
 		{
 			jobname1=data.get("title");
 			System.out.println("Selected job: "+jobname1);

@@ -245,9 +245,9 @@ public class WorkbenchPage extends baseclass {
 		agreementbtn.click();
 	}
 	
-	public void enterEmailId() throws InterruptedException           //added on add candidate page
+	public void enterEmailId(String CandidateEmail) throws InterruptedException           //added on add candidate page
 	{
-		emailfield.sendKeys(prop.getProperty("canid"));
+		emailfield.sendKeys(CandidateEmail);
 		Thread.sleep(1000);
 		findbtn.click();
 		Thread.sleep(1000);

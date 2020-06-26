@@ -151,18 +151,17 @@ public class TaskPage extends baseclass {
 		}
 	}
 	
-	public void edittaskdetailsforemp(DataTable credentials) throws InterruptedException {
-		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{	Thread.sleep(2000);	
+	public void edittaskdetails(String task,String note) throws InterruptedException {
+	
+			Thread.sleep(2000);	
 			titlebtn.clear();
 			Thread.sleep(2000);
-			titlebtn.sendKeys(data.get("Title for emp"));
+			titlebtn.sendKeys(task);
 			addedtask=titlebtn.getAttribute("value");
 			System.out.println(addedtask);
 			notefield.clear();
-			notefield.sendKeys(data.get("note"));
-		}
-		employerspage.ClickSubmitBtn();
+			notefield.sendKeys(note);
+			employerspage.ClickSubmitBtn();
 	}
 	
 	
@@ -467,7 +466,6 @@ public void validateTaskDisplayingProperlyForAgy() throws InterruptedException
 		boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
 		Assert.assertEquals(b, true);
 	}
-	StatusOfTask();
 
 }
 
@@ -498,45 +496,26 @@ public void enterAlldetailsForAgy(DataTable credentials) throws InterruptedExcep
 
 
 
-public void assertDeatailsOfTask(DataTable credentials) throws InterruptedException
+public void assertDeatailsOfTask(String task, String team, String Assignto, String note) throws InterruptedException
 {
-	
-	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-	{
-		if(emp==true)
-		{
-			addedtask.contentEquals(data.get("Title for emp"));
+			addedtask.contentEquals(task);
 //			String task= data.get("Title for emp");
-//			executor.executeScript("arguments[0].scrollIntoView();", task);
-//			teamid.getAttribute("value").contentEquals(data.get("employer"));
-//			Assigntofield.getAttribute("value").contentEquals(data.get("AssignTo"));
-			notefield.getText().contentEquals(data.get("note"));
-			
-		}
-		else
-		{
-			addedtask.contentEquals(data.get("Title for agy"));
-//			teamid.getAttribute("value").contentEquals(data.get("agency"));
-//			Assigntofield.getAttribute("value").contentEquals(data.get("agyAssignTo"));
-			notefield.getText().contentEquals(data.get("agynote"));
-		}
-		
-	}
+			select=new Select(teamid);
+			WebElement teamidValue = select.getFirstSelectedOption();
+			teamidValue.equals(team);
+			select=new Select(Assigntofield);
+			teamidValue = select.getFirstSelectedOption();
+			teamidValue.equals(Assignto);
+			notefield.getText().contentEquals(Assignto);	
 }
-	public void editTaskDetailsForAgy(DataTable credentials) throws InterruptedException {
-	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-	{
-		Thread.sleep(2000);
-		titlebtn.clear();
-		titlebtn.sendKeys(data.get("Title for emp"));
-		addedtask=data.get("Title for emp");
-		notefield.clear();
-		notefield.sendKeys(data.get("agynote"));
-	
-	}
-	employerspage.ClickSubmitBtn();	
 
-	}
+public void asserteditedDeatail(String task,String note) throws InterruptedException
+{
+			addedtask.contentEquals(task);
+			notefield.getText().contentEquals(note);	
+}
+
+
 	public void shareWithTeam(DataTable credentials) throws InterruptedException
 	{
 		Thread.sleep(3000);
