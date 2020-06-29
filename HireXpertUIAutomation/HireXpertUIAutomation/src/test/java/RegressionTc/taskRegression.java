@@ -35,6 +35,12 @@ public class taskRegression extends baseclass{
 		workbenchpage.selectJob();
 	}
 	
+	
+	@And("^Select a added job$")
+	public void select_a_added_job() throws Throwable {
+	    workbenchpage.selectJobK();
+	}
+	
 	@And("^Share job with team member$")
 	public void share_job_with_team_member(DataTable credentials) throws Throwable {
 	taskpage.shareWithTeam(credentials);
@@ -185,9 +191,21 @@ public class taskRegression extends baseclass{
 
 	
 	
-	@And("^Enter All details of \"([^\"]*)\" ,\"([^\"]*)\", \"([^\"]*)\" ,\"([^\"]*)\", <\"([^\"]*)\">,\"([^\"]*)\" and \"([^\"]*)\"$")
-	public void enter_All_details_of_and(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
-		workbenchpage.enterEmailId();
+	
+//	@And("^Enter All details of \"([^\"]*)\",\"([^\"]*)\" ,\"([^\"]*)\", \"([^\"]*)\" ,\"([^\"]*)\", <\"([^\"]*)\">,\"([^\"]*)\" and \"([^\"]*)\"$")
+//	public void enter_All_details_of_and(String CandidateEmail,String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
+//		workbenchpage.enterEmailId(CandidateEmail);
+//		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
+//		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
+//		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
+//		common.clickOnSaveBtn();
+//		common.clickOnConfirmYes();
+//	}
+	
+	
+	@And("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" ,\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+	public void enter_All_details_of_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
+		workbenchpage.enterEmailId(CandidateEmail);
 		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
 		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
@@ -195,6 +213,7 @@ public class taskRegression extends baseclass{
 		common.clickOnConfirmYes();
 	}
 	
+//	"<CandidateEmail>","<Name>","<ContactNumber>","<Designation>" ,"<Gender>", "<NoticePeriod>","<Location>" and "<Communicationmode>"
 	@And("^verify candidate card is displaying or not in New column$")
 	public void verify_candidate_card_is_displaying_or_not_in_New_column() throws Throwable {
 	    

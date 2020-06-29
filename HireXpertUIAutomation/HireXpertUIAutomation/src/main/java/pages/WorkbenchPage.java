@@ -250,9 +250,7 @@ public class WorkbenchPage extends baseclass {
 		emailfield.sendKeys(CandidateEmail);
 		Thread.sleep(1000);
 		findbtn.click();
-		Thread.sleep(1000);
-		common.clickOnOKBtn();
-		nameOfCan= name.getText();
+//		nameOfCan= name.getText();
 	}
 	
 	public void clickReloadCandidateButton() {

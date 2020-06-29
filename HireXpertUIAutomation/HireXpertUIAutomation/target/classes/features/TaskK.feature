@@ -608,7 +608,7 @@ And Add job
 |title        |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |agytitle|
 |sharejob     |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |Agyjobtask|
 And Go to workbench
-And Select a job
+And Select a added job
 And Share job with team member
 |EmpTeam|Agyteam|
 |pe1    |pa1    |
@@ -636,18 +636,14 @@ And team member should be added
 And Go to workbench
 And Add job
 |title        |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |agytitle|
-|sharejob     |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |Agyjobtask|
-And Go to workbench
-And Add job
-|title        |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |agytitle|
 |candidatejob |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |Agyjobtask|
-And Select a job
+And Select a added job
 And Click on add candidate
-And Enter All details of "<candidateName>" ,"<ContactNumber>", "<Designation>" ,"<Gender>", <"NoticePeriod">,"<Location>" and "<Communicationmode>"
+And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>" ,"<Gender>", "<NoticePeriod>","<Location>" and "<Communicationmode>"
 And verify candidate card is displaying or not in New column
 
 
 Examples:
-|Username      |Password|Name   |CandidateEmail   |ContactNumber| Designation  |Gender| NoticePeriod| Location|Communicationmode|
+|Username      |Password|Name   |CandidateEmail   |ContactNumber|Designation   |Gender|NoticePeriod | Location|Communicationmode|
 |pemp@gmail.com|12345   |Pratik |pratik@gmail.com |4564668596   |developer     |Male  |30           |pune     |Email            |
 #|pagy@gmail.com|12345  |Abhijit|Abhijit@gmail.com|9856558555   |Java developer|Male  |30           |pune     |Email            |
