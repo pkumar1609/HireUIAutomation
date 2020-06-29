@@ -48,7 +48,7 @@ public class ManuallyrRejectCandidateCardStepSefination extends baseclass{
 		
 		Thread.sleep(3000);
 		
-		addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+		addjobpage.fillJobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
 		
 		Thread.sleep(3000);
 		
@@ -180,7 +180,7 @@ Thread.sleep(3000);
 		
 		Thread.sleep(3000);
 		
-		addjobpage.fillDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+		addjobpage.fillJobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
 		
 		Thread.sleep(3000);
 		
