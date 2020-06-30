@@ -160,8 +160,26 @@ public class AddCandidatePage extends baseclass {
 		  	
 		  	se = new Select (expertiseLevel2);
 		  	se.selectByVisibleText(ExpertiseLevel2);
+		  
 	}
-	
+        
+       public void EnterexpertilevelofskillasNotanswered (String ExpertiseLevel1, String ExpertiseLevel2) {
+    		
+        	se = new Select (expertiseLevel1);
+		  	se.selectByVisibleText(ExpertiseLevel1);
+		  	
+		  	se = new Select (expertiseLevel2);
+		  	se.selectByVisibleText(ExpertiseLevel2);
+	}
+        
+        public void Enterexpertilevelofskills (String expertiselevel1, String expertiselevel2) {
+    		
+        	se = new Select (expertiseLevel1);
+		  	se.selectByVisibleText(expertiselevel1);
+		  	
+		  	se = new Select (expertiseLevel2);
+		  	se.selectByVisibleText(expertiselevel2);
+	}
 	
 	
 	public void clickUploadResumeField() {
