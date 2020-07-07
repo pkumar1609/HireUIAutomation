@@ -25,10 +25,10 @@ public class TeamPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Team Members']")
 	public WebElement AddTeamButton;
 	
-	@FindBy(xpath ="//div[@class='col-md-12 text-left']//div[1]//input[1]")
+	@FindBy(xpath ="//input[@placeholder='Enter Name']")
 	public WebElement TeamMemberName;
 	
-	@FindBy(xpath = "//div[@class='col-md-12 text-left']//div[2]//input[1]")
+	@FindBy(xpath = "//input[@placeholder='Enter Email']")
 	public WebElement TeamMemberEmail;
 	
 	@FindBy(xpath = "//input[@formcontrolname='ContactNumber']")
@@ -139,35 +139,35 @@ public class TeamPage extends baseclass {
 		}
 	 }
 	
-	public void AddAllDetailsagyK(DataTable credentials) throws InterruptedException
-	{
-		
-		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{
-			teampage.clickOnAddBtnK();
-			TeamMemberName.sendKeys(data.get("Nameagy"));
-			namevalidate= data.get("Nameagy");
-			TeamMemberEmail.sendKeys(data.get("Emailagy"));
-			TeamMemberContactNumber.sendKeys(data.get("contactagy"));
-			select = new Select(countryid);
-			select.selectByVisibleText("India");
-			common.ClickSumbit();
-			try
-			{ 
-				common.okbtn.isDisplayed();
-				common.clickOnOKBtn();
-				common.clickOnAddClosebtn();
-				System.out.println("these Agency team member are already added");
-			}
-			catch(NoSuchElementException e)
-			{
-				System.out.println("Agency team added succesfully");
-			}
-			
-		}
-			
-			
-	}
+//	public void AddAllDetailsagyK(DataTable credentials) throws InterruptedException
+//	{
+//		
+//		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+//		{
+//			teampage.clickOnAddBtnK();
+//			TeamMemberName.sendKeys(data.get("Nameagy"));
+//			namevalidate= data.get("Nameagy");
+//			TeamMemberEmail.sendKeys(data.get("Emailagy"));
+//			TeamMemberContactNumber.sendKeys(data.get("contactagy"));
+//			select = new Select(countryid);
+//			select.selectByVisibleText("India");
+//			common.ClickSumbit();
+//			try
+//			{ 
+//				common.okbtn.isDisplayed();
+//				common.clickOnOKBtn();
+//				common.clickOnAddClosebtn();
+//				System.out.println("these Agency team member are already added");
+//			}
+//			catch(NoSuchElementException e)
+//			{
+//				System.out.println("Agency team added succesfully");
+//			}
+//			
+//		}
+//			
+//			
+//	}
 	
 	public void deleteteamK()
 	{

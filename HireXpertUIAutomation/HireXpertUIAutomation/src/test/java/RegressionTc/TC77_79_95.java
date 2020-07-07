@@ -55,8 +55,8 @@ public class TC77_79_95 extends baseclass{
 		dashboardpage.openTeamPage();
 	}
 
-	@When("^Click on add Button and Fill all the mandatory details for employer team$")
-	public void click_on_add_Button_and_Fill_all_the_mandatory_details_for_employer_team(DataTable credentials) throws Throwable {
+	@When("^Click on add Button and Fill all the mandatory details for team$")
+	public void click_on_add_Button_and_Fill_all_the_mandatory_details_for_team(DataTable credentials) throws Throwable {
 		employerspage.enterValidCredentials(credentials);
 	}
 	

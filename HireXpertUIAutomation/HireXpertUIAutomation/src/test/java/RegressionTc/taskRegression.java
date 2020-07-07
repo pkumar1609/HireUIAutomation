@@ -1,20 +1,24 @@
 package RegressionTc;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import pages.CandidateCardSectionPage;
 import utilPackage.baseclass;
 
 public class taskRegression extends baseclass{
 	
 	boolean b;
 	private boolean emp;
+	int flag=0;
 
 	public taskRegression() throws IOException 
 	{
@@ -35,7 +39,6 @@ public class taskRegression extends baseclass{
 		workbenchpage.selectJob();
 	}
 	
-	
 	@And("^Select a added job$")
 	public void select_a_added_job() throws Throwable {
 	    workbenchpage.selectJobK();
@@ -48,8 +51,9 @@ public class taskRegression extends baseclass{
 	
 	@And("^Click on Add task button and enter all details$")
 	public void click_on_Add_task_button_and_enter_all_details(DataTable credentials) throws Throwable {
+		
 		this.emp=loginpage.b;
-		if(emp==true) 
+		if(emp==true)
 		{
 		taskpage.enterAlldetails(credentials);
 		}
@@ -58,6 +62,7 @@ public class taskRegression extends baseclass{
 		taskpage.enterAlldetailsForAgy(credentials);
 		}
 	}
+	
 	
 	@And("^Employer enters valid credentials \"([^\"]*)\",\"([^\"]*)\"$")
 	public void employer_enters_valid_credentials(String Username, String Password) throws Throwable {
@@ -189,37 +194,70 @@ public class taskRegression extends baseclass{
 		workbenchpage.clickOnAddCandidate();
 	}
 
-	
-	
-	
-//	@And("^Enter All details of \"([^\"]*)\",\"([^\"]*)\" ,\"([^\"]*)\", \"([^\"]*)\" ,\"([^\"]*)\", <\"([^\"]*)\">,\"([^\"]*)\" and \"([^\"]*)\"$")
-//	public void enter_All_details_of_and(String CandidateEmail,String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
-//		workbenchpage.enterEmailId(CandidateEmail);
-//		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
-//		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-//		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
-//		common.clickOnSaveBtn();
-//		common.clickOnConfirmYes();
-//	}
-	
+
 	
 	@And("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" ,\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
 	public void enter_All_details_of_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
 		workbenchpage.enterEmailId(CandidateEmail);
 		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
-		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
-		common.clickOnSaveBtn();
-		common.clickOnConfirmYes();
 	}
 	
-//	"<CandidateEmail>","<Name>","<ContactNumber>","<Designation>" ,"<Gender>", "<NoticePeriod>","<Location>" and "<Communicationmode>"
 	@And("^verify candidate card is displaying or not in New column$")
 	public void verify_candidate_card_is_displaying_or_not_in_New_column() throws Throwable {
+	    driver.findElement(By.xpath("//th[text()='New ']//following::div[@class='item-box cdk-drag']")).isDisplayed();
+	}
+	
+	@And("^drag the candidate from new column to Schedule interview column$")
+	public void drag_the_candidate_from_new_column_to_Schedule_interview_column()throws Throwable {
+//		action.clickAndHold(driver.findElement(By.cssSelector("div.item-box.cdk-drag"))).moveToElement(driver.findElement(By.xpath("//td[@class='TableCard' and @id='jobStatusColumn'][4]"))).release();
+//		action.build().perform();
+		WebElement drag=driver.findElement(By.cssSelector("div.item-box.cdk-drag"));
+		WebElement drop=driver.findElement(By.xpath("//td[@class='TableCard' and @id='jobStatusColumn'][2]"));
+		action.clickAndHold(drag).moveToElement(drop).release(drop);
+		action.build().perform();
+	}
+	
+	@And("^the Auto generated task should get created for the schedule interview$")
+	public void the_Automatic_task_should_get_created_for_the_schedule_interview() throws Throwable {
+		
+	 driver.findElement(By.xpath("//strong[text()='Please schedule interview of "+addcandidatepage.nameOfCan+" for job "+addjobpage.jobname+"']")).isDisplayed();
+	
+			
+	 
+	}
+	
+	@And("^again move the card to next column$")
+	public void again_move_the_card_to_next_column() throws Throwable {
+		Thread.sleep(4000);
+		 action.clickAndHold(driver.findElement(By.cssSelector("div.item-box.cdk-drag"))).moveToElement(driver.findElement(By.xpath("//td[@id='jobStatusColumn' and @class='TableCard'] [3]"))).release().build().perform();
+
+	}
+
+	@And("^verify the Auto generated task is getting deleted or not$")
+	public void verify_the_Auto_generated_task_is_getting_deleted_or_not() throws Throwable {
+	taskpage.reloadtask();
+	int size = driver.findElements(By.xpath("//strong[text()='Please schedule interview of Pratik for job candidatejob']")).size();
+	System.out.println(size);
+	Assert.assertEquals(size, 0);
+	}
+	
+	@And("^click on reject icon on candidate card$")
+	public void click_on_reject_icon_on_candidate_card() throws Throwable {
+	    candidatecardsectionpage.clickOnrejecticonOfCandidateCard();
+	    common.clickOnConfirmYes();
+	    candidatecardsectionpage.selectRejectReason();
 	    
 	}
+
+	@And("^verify the candidate card it should display in reject column$")
+	public void verify_the_candidate_card_it_should_display_in_reject_column() throws Throwable {
+//		executor.executeScript("arguments[0].scrollLeft();",driver.findElement(By.cssSelector("div.item-box.cdk-drag")) );
+		WebElement ele = driver.findElement(By.xpath("//th[text()='Rejected ']//following::div[@class='item-box cdk-drag']"));
+		executor.executeScript("window.scrollBy(-500000, 0)");
+//		executor.executeScript("arguments[0].scrollRight = arguments[0].offsetWidth",ele );
+		ele.isDisplayed();
+	}
+
 }
-
-
 
 

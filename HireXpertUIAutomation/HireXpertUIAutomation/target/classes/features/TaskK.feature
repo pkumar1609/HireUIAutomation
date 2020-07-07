@@ -629,19 +629,58 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-And team member should be added
-|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+#And team member should be added
+#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Add job
 |title        |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |agytitle|
 |candidatejob |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |Agyjobtask|
 And Select a added job
-And Click on add candidate
-And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>" ,"<Gender>", "<NoticePeriod>","<Location>" and "<Communicationmode>"
-And verify candidate card is displaying or not in New column
+#And Click on add candidate
+#And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>" ,"<Gender>", "<NoticePeriod>","<Location>" and "<Communicationmode>"
+#And verify candidate card is displaying or not in New column
+And drag the candidate from new column to Schedule interview column
+And Go to dashboard
+And the Auto generated task should get created for the schedule interview 
+And Go to workbench
+And Select a added job
+And again move the card to next column
+And Go to dashboard
+And verify the Auto generated task is getting deleted or not
 
+Examples:
+|Username      |Password|Name   |CandidateEmail   |ContactNumber|Designation   |Gender|NoticePeriod | Location|Communicationmode|
+|pemp@gmail.com|12345   |Pratik |pratik@gmail.com |4564668596   |developer     |Male  |30           |pune     |Email            |
+#|pagy@gmail.com|12345  |Abhijit|Abhijit@gmail.com|9856558555   |Java developer|Male  |30           |pune     |Email            |
+
+
+@TC321
+Scenario Outline: verify auto generated popup get closed when candidate got rejected
+Given User must be registered
+When title of login page is Home
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials "<Username>","<Password>"
+#And team member should be added
+#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+And Go to workbench
+And Add job
+|title         |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |agytitle|
+|candidatejob2 |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |Agyjobtask|
+And Select a added job
+#And Click on add candidate
+#And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>" ,"<Gender>", "<NoticePeriod>","<Location>" and "<Communicationmode>"
+#And verify candidate card is displaying or not in New column
+#And drag the candidate from new column to Schedule interview column
+#And Go to dashboard
+#And the Auto generated task should get created for the schedule interview 
+#And Go to workbench
+#And Select a adjeded job
+#And click on rect icon on candidate card
+And verify the candidate card it should display in reject column
 
 Examples:
 |Username      |Password|Name   |CandidateEmail   |ContactNumber|Designation   |Gender|NoticePeriod | Location|Communicationmode|

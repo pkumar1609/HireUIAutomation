@@ -28,7 +28,7 @@ When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials
 And Click on team tab
-And Click on add Button and Fill all the mandatory details for employer team
+And Click on add Button and Fill all the mandatory details for team
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
@@ -53,7 +53,7 @@ And Click on add Button and Fill all the mandatory details for employer
 Then Agency should be able to add Employer
 Then Newly added employer should be displayed in employer page
 And  delete the added employer
-Then deleted employer should not be display in employer page
+Then deleted employer should not be display on page
 
 
 @TC50_54 @BVT @login
@@ -65,14 +65,14 @@ When title of login page is Home
 And Click on Employer-Agency Signin link
 And agency enters valid credentials
 And Click on team tab
-And Click on add Button and Fill all the mandatory details for agency team
-|Nameagy|         Emailagy  | contactagy  |
+And Click on add Button and Fill all the mandatory details for team
+|Name   |         Email     | contact     |
 |pa1    | pa1@gmail.com     | 1234564     |
 |pa2    | pa2@gmail.com     | 1234564     |
 Then Agency should be able to add team
-Then Newly added team should be displayed in team page
+Then Newly added team member should be displayed in team page
 And delete the added team
-Then deleted employer should not be display in team page
+Then deleted user should not be display on page
 
 
 #Regression Test Cases

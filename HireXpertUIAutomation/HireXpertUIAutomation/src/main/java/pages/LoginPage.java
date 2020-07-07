@@ -37,7 +37,7 @@ public class LoginPage extends baseclass
 	@FindBy(xpath= "//a[@href='#']")
 	private WebElement logedinusername;
 	
-	@FindBy(xpath = "//img[contains(@class,'profile')]")
+	@FindBy(xpath = "//div[contains(@class,'tx-profile')]")
 	public WebElement profile;
 	
 	@FindBy(xpath="//a[contains(text(),'Change Password')]")
@@ -58,6 +58,10 @@ public class LoginPage extends baseclass
 	@FindBy(xpath = "//div[contains(text(),'Password is required.')]")
 	public WebElement pwdError;
 	
+	@FindBy(xpath = "//li[@id='login']")
+	public WebElement login;
+	
+	
 	public String username;
 	public String user;
 	public boolean b;
@@ -75,7 +79,7 @@ public class LoginPage extends baseclass
 	}
 	public void  ClickOnEmployerAgencySigninLink() throws InterruptedException
 	{
-//		wait.until(ExpectedConditions.elementToBeClickable(EmployerAgencySignInlink));
+		action.moveToElement(login).click().perform();
 		Thread.sleep(4000);
 		EmployerAgencySignInlink.click();
 	}

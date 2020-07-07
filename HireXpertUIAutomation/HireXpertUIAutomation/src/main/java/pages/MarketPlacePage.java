@@ -24,7 +24,7 @@ public class MarketPlacePage extends baseclass {
 	  super();
       PageFactory.initElements(driver, this);
       this.driver = driver;
-      job =addjobpage.jobname1;
+      job =addjobpage.jobname;
       System.out.println("construtor of marketplace job "+job);
 	}
 	
@@ -279,7 +279,7 @@ public class MarketPlacePage extends baseclass {
 	 {
 		if(jobreviewpage.flag==1)
 		{
-			String x="//a[contains(text(),'" +addjobpage.jobname1+ "')]//following::button[text()='Apply']";
+			String x="//a[contains(text(),'" +addjobpage.jobname+ "')]//following::button[text()='Apply']";
 			WebElement ele = driver.findElement(By.xpath(x));
 			executor.executeScript("arguments[0].scrollIntoView();", ele);
 			ele.isDisplayed();

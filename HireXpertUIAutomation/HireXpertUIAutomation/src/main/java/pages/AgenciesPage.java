@@ -21,13 +21,13 @@ public class AgenciesPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Agencies']")
 	public WebElement addAgencyButton;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[1]/input")
+	@FindBy(xpath = "//input[@placeholder='Enter Name']")
 	public WebElement agencyName;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[2]/input")
+	@FindBy(xpath = "//input[@placeholder='Enter Email']")
 	public WebElement agencyEmail;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[3]/input")
+	@FindBy(xpath = "//input[@placeholder='Enter Contact Number']")
 	public WebElement agencyContactNumber;
 	
 	@FindBy(xpath="//button[@title='Delete']")

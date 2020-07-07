@@ -153,11 +153,11 @@ public class WorkbenchPage extends baseclass {
 		this.emp=loginpage.b;
 		if(emp==true)
 		{
-		select.selectByVisibleText(addjobpage.jobname1+" - Active" );
+		select.selectByVisibleText(addjobpage.jobname+" - Active" );
 		}
 		else
 		{
-		select.selectByVisibleText(addjobpage.jobname2+" - Active" );
+		select.selectByVisibleText(addjobpage.jobname+" - Active" );
 		}
 	}
 	
@@ -235,7 +235,7 @@ public class WorkbenchPage extends baseclass {
 	
 	public void clickOnAddCandidate() throws InterruptedException
 	{
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		addCandidateButton.click();
 	}
 	
@@ -248,7 +248,7 @@ public class WorkbenchPage extends baseclass {
 	public void enterEmailId(String CandidateEmail) throws InterruptedException           //added on add candidate page
 	{
 		emailfield.sendKeys(CandidateEmail);
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		findbtn.click();
 //		nameOfCan= name.getText();
 	}
@@ -314,7 +314,7 @@ public void dragCandidateCardtoRejectColumn () {
 	
 	Actions action = new Actions(driver);
 
- action.clickAndHold(driver.findElement(By.cssSelector("div.item-box.cdk-drag"))).moveToElement(driver.findElement(By.xpath("//td[@id='jobStatusColumn' and @class='TableCard'] [12]"))).release().build().perform();
+ action.clickAndHold(driver.findElement(By.cssSelector("div.item-box.cdk-drag"))).moveToElement(driver.findElement(By.cssSelector("body.nimbus-is-editor:nth-child(2) div.container-fluid.pl-10.pr-10.pt-2:nth-child(2) div.row div.col-md-12 div.card div.card-body.mb-0.p-0.CardBodyHeight table.table.table-bordered.mb-1 tbody:nth-child(2) tr:nth-child(1) td.TableCard:nth-child(2) > div.drag-container"))).release().build().perform();
 	
 }
 

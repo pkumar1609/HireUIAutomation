@@ -10,6 +10,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.EmployersPage;
 import utilPackage.baseclass;
 
 public class loginstepdefination extends baseclass {
@@ -82,11 +83,12 @@ public class loginstepdefination extends baseclass {
 		dashboardpage.openTeamPage();
 	}
 
-	@And("^Click on add Button and Fill all the mandatory details for employer team$")
-	public void fill_all_the_mandatory_details(DataTable credentials) throws Throwable {
+
+	@When("^Click on add Button and Fill all the mandatory details for team$")
+	public void click_on_add_Button_and_Fill_all_the_mandatory_details_for_team(DataTable credentials) throws Throwable {
 		teampage.AddAllDetailsK(credentials);
 	}
-
+	
 	@Then("^Employer should be able to add team member$")
 	public void employer_should_be_able_to_add_team_member()  {
 		
@@ -117,7 +119,7 @@ public class loginstepdefination extends baseclass {
 	}
 	
 	@And("^delete the added team$")
-	public void delete_the_added_agency() throws InterruptedException  {
+	public void delete_the_added_team() throws InterruptedException  {
 		teampage.deleteteamK();
 	}
 	
@@ -131,15 +133,14 @@ public class loginstepdefination extends baseclass {
 	
 		dashboardpage.openEmployersPage();
 	}
+	@When("^Click on add Button and Fill all the mandatory details for employer$")
+	public void click_on_add_Button_and_Fill_all_the_mandatory_details_for_employer(DataTable credentials) throws Throwable {
+		employerspage.enterValidCredentials(credentials);
+	}
 
+	
 
-
-//	@And("^Click on add Button and Fill all the mandatory details for employer$")
-//	public void fill_all_the_mandatory_details(DataTable credentials) throws InterruptedException   {
-//		Thread.sleep(1000);
-//		employerspage.enterValidCredentials(credentials);
-//	}
-
+	
 	@Then("^Agency should be able to add Employer$")
 	public void Agency_should_be_able_to_add_Employer()  {
 		//Sucessful message
@@ -168,33 +169,39 @@ public class loginstepdefination extends baseclass {
 		employerspage.deleteemp();
 
         }
+
+	@Then("^deleted employer should not be display on page$")
+	public void deleted_employer_should_not_be_display_on_page() throws Throwable {
+		if(driver.getPageSource().contains(employerspage.namevalidate))
+		{
+		System.out.println("Team get added sucesfully");
+		}else{
+		System.out.println("Team not get added");
+		}	
+	}
 	
-	@Then("^deleted employer should not be display in employer page$")
-	public void deleted_employer_should_not_be_display_in_team_page()  {
-		
-			System.out.println("element got deleted");
-	
-}
-	
+
+	@Then("^delete the added agency$")
+	public void delete_the_added_agency() throws Throwable {
+		Thread.sleep(1000);	
+		employerspage.deleteemp();
+	}
 	
 
 	@Then("^Agency should be able to add team$")
 	public void agency_should_be_able_to_add_team() throws Throwable {
 		
-
 	}
 
-	@Then("^Newly added team should be displayed in team page$")
-	public void newly_added_team_should_be_displayed_in_team_page() throws Throwable {
-		if(driver.getPageSource().contains(teampage.namevalidate)){
-			System.out.println("Team get added sucesfully");
-			}else{
-			System.out.println("Team not get added");
-			}	 
-
+	@Then("^deleted user should not be display on page$")
+	public void deleted_user_should_not_be_display_on_page() throws Throwable {
+		if(driver.getPageSource().contains(teampage.namevalidate))
+		{
+		System.out.println("Team get added sucesfully");
+		}else{
+		System.out.println("Team not get added");
+		}	 
 	}
-
-	
 }
 
 
