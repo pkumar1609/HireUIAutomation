@@ -77,8 +77,9 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//div[@class='custom-file custom-file-invalid']")
 	public WebElement uploadResumeField;
 	
-	String nameOfCan;
+	public String nameOfCan;
 	Robot rb;
+	
 	
 	public AddCandidatePage() {
 		
@@ -112,45 +113,50 @@ public class AddCandidatePage extends baseclass {
 
 	private String ExpertiseLevel2;
 	
-	public void EnterAllMandatoryfieldsT(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws InterruptedException {
+	public void EnterAllMandatoryfieldsT(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws InterruptedException, AWTException {
     	 
-//		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),' Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
 		if(dynamicElement.size() != 0)
 		{
 			System.out.println("Candidate is present in system");
 			common.clickOnOKBtn();
+			nameOfCan=name.getAttribute("value");
+			System.out.println("nameOfCan "+nameOfCan);
 		}	
 		else
 		{
-			
 			System.out.println("Candidate is not present in system and you need to enter candidate details");
 			Thread.sleep(2000);
-			name.sendKeys(Name);
-		      
+			name.sendKeys(Name); 
+			Thread.sleep(2000);
+			nameOfCan=name.getAttribute("value");
+			System.out.println("nameOfCan "+nameOfCan);
 			contactNumber.sendKeys(ContactNumber);
-		      
 			designation.sendKeys(Designation);
-//			designation.sendKeys(Keys.ENTER);
-		      
-		      
-//			gender.sendKeys(Keys.ENTER);
+			gender.sendKeys(Keys.ENTER);
 			se = new Select (gender);
-			se.selectByVisibleText(Gender);
-		      
+			se.selectByVisibleText(Gender); 
 		  	noticePeriod.sendKeys(NoticePeriod);
-		      
 		  	location.sendKeys(Location);
-//		  	location.sendKeys(Keys.ENTER);
-		      
-//		  	communicationMode.sendKeys(Keys.ENTER);
 		  	se = new Select (communicationMode);
 		  	se.selectByIndex(2);
-		  	
-		  	
-		  	
+		  	uploadResumeDocument();
+			
 		}
+		common.clickOnSaveBtn();
+		common.clickOnConfirmYes();
+try {
+				
+			driver.findElement(By.xpath("//h6[contains(text(),' This candidate is already added to this job either by you or somebody else.')]")).isDisplayed();
+			System.out.println("This candidate is already added to this job either by you or somebody else");
+			common.clickOnOKBtn();
+			Thread.sleep(2000);
+			common.clickOnCloseBtn();
+			common.clickOnConfirmYes();
+		}
+catch(NoSuchElementException e )
+{}
 	}
 		
         public void Enterexpertilevel (String ExpertiseLevel1, String ExpertiseLevel2 ) {
@@ -160,26 +166,8 @@ public class AddCandidatePage extends baseclass {
 		  	
 		  	se = new Select (expertiseLevel2);
 		  	se.selectByVisibleText(ExpertiseLevel2);
-		  
 	}
-        
-       public void EnterexpertilevelofskillasNotanswered (String ExpertiseLevel1, String ExpertiseLevel2) {
-    		
-        	se = new Select (expertiseLevel1);
-		  	se.selectByVisibleText(ExpertiseLevel1);
-		  	
-		  	se = new Select (expertiseLevel2);
-		  	se.selectByVisibleText(ExpertiseLevel2);
-	}
-        
-        public void Enterexpertilevelofskills (String expertiselevel1, String expertiselevel2) {
-    		
-        	se = new Select (expertiseLevel1);
-		  	se.selectByVisibleText(expertiselevel1);
-		  	
-		  	se = new Select (expertiseLevel2);
-		  	se.selectByVisibleText(expertiselevel2);
-	}
+	
 	
 	
 	public void clickUploadResumeField() {
@@ -193,42 +181,10 @@ public class AddCandidatePage extends baseclass {
 	}
 	
 	public void uploadResumeDocument() throws AWTException {
-		
-		rb = new Robot();
-		rb.setAutoDelay(2000);
-		
-		StringSelection ss = new StringSelection("C:\\Users\\Admin\\Downloads\\New Microsoft Word Document.docx");
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-		
-		rb.setAutoDelay(3000);
-		rb.keyPress(KeyEvent.VK_CONTROL);
-		rb.keyPress(KeyEvent.VK_V);   
-		rb.keyRelease(KeyEvent.VK_CONTROL);
-		rb.keyRelease(KeyEvent.VK_V);
-		
-		rb.setAutoDelay(2000);
-		rb.keyPress(KeyEvent.VK_ENTER);   
-		rb.setAutoDelay(3000);
+		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
+		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
 	}
 	
-public void uploadResumeDocumentT() throws AWTException {
-		
-		rb = new Robot();
-		rb.setAutoDelay(2000);
-		
-		StringSelection ss = new StringSelection("C:\\Users\\TLP32\\Downloads\\Resume of candidate.docx");
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-		
-		rb.setAutoDelay(3000);
-		rb.keyPress(KeyEvent.VK_CONTROL);
-		rb.keyPress(KeyEvent.VK_V);   
-		rb.keyRelease(KeyEvent.VK_CONTROL);
-		rb.keyRelease(KeyEvent.VK_V);
-		
-		rb.setAutoDelay(2000);
-		rb.keyPress(KeyEvent.VK_ENTER);   
-		rb.setAutoDelay(3000);
-	}
 	
 
 }

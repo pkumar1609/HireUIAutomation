@@ -130,8 +130,7 @@ public AddJobPage()
 	public String skill2 = "s2";
 	public String skill2Exp2 = "S2(Expert)";
 	Select se;
-	public String jobname1;
-	public String jobname2;
+	public String jobname;
 	public boolean emp;
 	public String selectJob;
 	
@@ -142,10 +141,10 @@ public AddJobPage()
 		System.out.println("Add Job page Title: " + jobpagetitle);
 	}
 	
-	public void noOfInterviews() {
-		
+	public void noOfInterviews() throws InterruptedException {
+		Thread.sleep(2000);
 		se = new Select(totalinterviews);
-		se.selectByIndex(4);
+		se.selectByIndex(2);
 	}
 	
 	public void fillDetails() throws InterruptedException {
@@ -161,24 +160,6 @@ public AddJobPage()
 		noOfInterviews();
 		click.click();
 		Thread.sleep(2000);
-	}
-	
-	public void fillJobDetails(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws InterruptedException {
-		
-		Thread.sleep(2000);
-			title.sendKeys(Title);
-			designation.sendKeys(Designation);
-			industry.sendKeys(Industry);
-			jobrole.sendKeys(JobRole);
-			location.sendKeys(Location);
-			budget.sendKeys(Budget);
-			minexp.sendKeys(MinExp);
-			maxexp.sendKeys(MaxExp);
-			se = new Select(totalinterviews);
-			se.selectByVisibleText(NoOfInterviews);
-			click.click();
-			
-		
 	}
 	
 	public void addSkillButton() throws InterruptedException {
@@ -247,15 +228,15 @@ public AddJobPage()
 		this.emp=loginpage.b;
 		if(emp==true) 
 		{
-			jobname1=data.get("title");
-			System.out.println("Selected job: "+jobname1);
-//			title.sendKeys(jobname1);
+			jobname=data.get("title");
+			System.out.println("Selected job: "+jobname);
+//			title.sendKeys(jobname);
 		}
 		else
 		{
-			jobname2=data.get("agytitle");
-			System.out.println("Selected job: "+jobname2);
-//			title.sendKeys(jobname2);
+			jobname=data.get("agytitle");
+			System.out.println("Selected job: "+jobname);
+//			title.sendKeys(jobname);
 		}
 		
 //		designation.sendKeys(data.get("designation"));
@@ -270,7 +251,7 @@ public AddJobPage()
 //		for(int i=0;i<deletebtn.size();i++)
 //			{
 //				WebElement btn = deletebtn.get(i);
-//				Thread.sleep(2000);
+//				Thread.sleep(4000);
 //				btn.click();
 //			}
 //		this.emp=loginpage.b;
