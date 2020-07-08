@@ -55,7 +55,7 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//img[contains(@class,'profile')]")
 	public WebElement profile;
 	
-	@FindBy(xpath = "//a[@class='dropdown-item']")
+	@FindBy(xpath = "//a[@class='dropdown-item']")   
 	public WebElement userName;
 	
 	@FindBy(xpath="//a[contains(text(),'Change Password')]")

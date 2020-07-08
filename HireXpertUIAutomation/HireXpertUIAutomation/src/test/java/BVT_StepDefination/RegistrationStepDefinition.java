@@ -26,6 +26,15 @@ public class RegistrationStepDefinition extends baseclass  {
 
 	}
 	
+	@When("^click on Login link$")
+	public void click_on_Login_link() throws Throwable {
+	   
+		Thread.sleep(3000);
+		registerpage.clickLogin();
+	}
+
+
+	
 	@Then("^verify the fields and buttons present on the register dialog box$")
 	public void verify_the_fields_and_buttons_present_on_the_register_dialog_box() throws Throwable {
 		
@@ -154,6 +163,20 @@ public class RegistrationStepDefinition extends baseclass  {
 	    
 		Thread.sleep(3000);
 		common.clickOnOKBtn();
+	}
+
+	@When("^click on ok button of confirmation popup\\.$")
+	public void click_on_ok_button_of_confirmation_popup() throws Throwable {
+
+		Thread.sleep(3000);
+		common.clickOnOKBtn();
+	}
+
+	@When("^click on update profile link$")
+	public void click_on_update_profile_link() throws Throwable {
+	   
+		Thread.sleep(3000);
+	    workbenchpage.openUpdateProfilePage();
 	}
 
 

@@ -12,8 +12,11 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	
 	//Page Factory / Object Repository 
 
-	@FindBy(linkText="Register-Its Free")
+	@FindBy(linkText="Register")
 	WebElement Registerlink;
+	
+	@FindBy(xpath = "//li[@id='login']")
+	public WebElement loginlink;
 	
 	@FindBy(linkText="Employer-Agency Sign In")
 	WebElement EmployerAgencySignInlink;
@@ -79,6 +82,11 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	public void clickRegister() {
 		
 		Registerlink.click();
+	}
+	
+   public void clickLogin() {
+		
+		loginlink.click();
 	}
 	
    public void clickEmployerAgencySignInlink() throws InterruptedException {

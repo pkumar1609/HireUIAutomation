@@ -17,13 +17,14 @@ And enter employer details "<EmployerName>" "<EmployerEmail>" "<EmployerContactN
 And Select value from dropdown for employer "<EmployerUserType>" "<timezone>" "<country>"
 And click on Submit button
 And User should get confirmation message and click on OK button
+And click on Login link
 And click on Employer-Agency SignIn link
 And enter employer email and password "<EmployerEmail>" "<password>" 
 And click on Signin button
 And Update employer profile "<EmployerAddress>" "<EmployerOrganizationName>" "<EmployerWebsite>" "<EmployerCity>" 
 And click on Submit button
 And Verify that user has redirected to correct page or not after filling the information in update profile 
-And Verify the username by which user is login
+#And Verify the username by which user is login
 
 And User open browser
 And click on Register link       
@@ -39,13 +40,14 @@ And enter agency details "<AgencyName>" "<AgencyEmail>" "<AgencyContactNumber>"
 And Select value from dropdown for agency "<AgencyUserType>" "<timezone>" "<country>"
 And click on Submit button
 And User should get confirmation message and click on OK button
+And click on Login link
 And click on Employer-Agency SignIn link
 And enter agency email and password "<AgencyEmail>" "<password>" 
 And click on Signin button
 And Update agency profile"<AgencyAddress>" "<AgencyOrganizationName>" "<AgencyWebsite>" "<AgencyCity>" 
 And click on Submit button
 And Verify that user has redirected to correct page or not after filling the information in update profile
-And Verify the username by which user is login
+#And Verify the username by which user is login
 
 And User open browser
 And click on Register link       
@@ -61,17 +63,17 @@ And enter candidate details "<CandidateName>" "<CandidateEmail>" "<CandidateCont
 And Select value from dropdown for candidate "<CandidateUserType>" "<timezone>" "<country>"
 And click on Submit button
 And User should get confirmation message and click on OK button
+And click on Login link
 And click on Job Seeker(Candidate) Sign In link
 And enter candidate email and password "<CandidateEmail>" "<password>" 
 And click on Signin button
-And Update candidate profile "<title>" "<designation>" "<noticeperiod>" "<industry>" "<CandidateCity>" "<gender>" "<expertiselevel>"
-And click on save button
+And click on ok button of confirmation popup.
 And Verify that user has redirected to correct page or not after filling the information in update profile
-And Verify the username by which user is login
+#And Verify the username by which user is login
 
 Examples: 
-| EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone             | country | password | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail       | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail    | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
-| ago22          |  ago22@gmail.com      | 2465468688            | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | mike38       | mike38@gmail.com  |  123654789          | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike39          | mike39@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+| EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone             | country | password | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail      | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail    | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
+| TXE07          |  txe07@gmail.com      | 2463548688            | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age05        | age05@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike05          | mike05@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
 
 #TC :- 4, 5, 12, 433
 
@@ -86,7 +88,7 @@ Given User open browser
 When click on Register link       
 And enter details of already registered user "<employername>" "<employeremail>" "<employercontactnumber>"
 And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
-And click on Submit button
+And click on Submit button              
 And click on Yes button
 Then User should get a error message as "User with 'employermain01@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
 And click on Close button
@@ -98,7 +100,7 @@ And enter details of already registered agency "<agencyname>" "<agencyemail>" "<
 And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 And click on Submit button
 And click on Yes button
-Then User should get a error message as "User with 'agencymain02@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
+Then User should get a error message as "User with 'agencymain01@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
 And click on Close button
 And Click on Yes button of confirmation popup
 And Close the browser
@@ -116,7 +118,7 @@ And Close the browser
 
 Examples: 
    | employername    |   employeremail              | employercontactnumber   | candidateusertype  | timezone             | country |  agencyname   |   agencyemail             | agencycontactnumber  |   candidatename   |   candidateemail | candidatecontactnumber  | employerusertype  |
-   | employermain01  |  employermain01@gmail.com    | 211394644               | Candidate          | Indian Standard Time | India   | agencymain02  |  agencymain02@gmail.com   | 211314644            | abc               |  abc@gmail.com   | 123456456               | Employer          | 
+   | employermain01  |  employermain01@gmail.com    | 211394644               | Candidate          | Indian Standard Time | India   | agencymain01  |  agencymain01@gmail.com   | 211314644            | abc               |  abc@gmail.com   | 123456456               | Employer          | 
    
 #TC :- 6, 289
 
