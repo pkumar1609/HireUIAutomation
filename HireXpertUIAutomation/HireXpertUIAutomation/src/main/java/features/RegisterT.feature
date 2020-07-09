@@ -24,7 +24,7 @@ And click on Signin button
 And Update employer profile "<EmployerAddress>" "<EmployerOrganizationName>" "<EmployerWebsite>" "<EmployerCity>" 
 And click on Submit button
 And Verify that user has redirected to correct page or not after filling the information in update profile 
-#And Verify the username by which user is login
+And Verify the username by which user is login
 
 And User open browser
 And click on Register link       
@@ -47,7 +47,7 @@ And click on Signin button
 And Update agency profile"<AgencyAddress>" "<AgencyOrganizationName>" "<AgencyWebsite>" "<AgencyCity>" 
 And click on Submit button
 And Verify that user has redirected to correct page or not after filling the information in update profile
-#And Verify the username by which user is login
+And Verify the username by which user is login
 
 And User open browser
 And click on Register link       
@@ -69,11 +69,11 @@ And enter candidate email and password "<CandidateEmail>" "<password>"
 And click on Signin button
 And click on ok button of confirmation popup.
 And Verify that user has redirected to correct page or not after filling the information in update profile
-#And Verify the username by which user is login
+And Verify the username by which user is login
 
 Examples: 
 | EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone             | country | password | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail      | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail    | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
-| TXE07          |  txe07@gmail.com      | 2463548688            | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age05        | age05@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike05          | mike05@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+| TXE08          |  txe08@gmail.com      | 2463548688            | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age06        | age06@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike06          | mike06@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
 
 #TC :- 4, 5, 12, 433
 

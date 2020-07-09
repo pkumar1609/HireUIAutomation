@@ -52,13 +52,13 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath="//button[contains(text(),'Screening')]")
 	public WebElement screeningbtn;
 	
-	@FindBy(xpath = "//img[contains(@class,'profile')]")
+	@FindBy(xpath = "//div[@class='tx-profile']")
 	public WebElement profile;
 	
 	@FindBy(xpath = "//a[@class='dropdown-item']")   
 	public WebElement userName;
 	
-	@FindBy(xpath="//a[contains(text(),'Change Password')]")
+	@FindBy(xpath="//a[contains(text(),'Change Password')]")     
 	public WebElement ChangePasswordTab;
 	
 	@FindBy(xpath = "//a[contains(text(),'Update Profile')]")
