@@ -12,7 +12,7 @@ public class ForgetPasswordStepDefination extends baseclass {
 	@When("^Click on forgot password link$")
 	public void click_on_forgot_password_link() throws Throwable {
 		
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 	  
 		forgetpasswordpage.ClickonForgetPasswordLink();
 	}

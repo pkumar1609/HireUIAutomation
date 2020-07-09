@@ -9,6 +9,7 @@ And enter agency details "<AgencyName>" "<AgencyEmail>" "<AgencyContactNumber>"
 And Select value from dropdown for agency "<AgencyUserType>" "<timezone>" "<country>"
 And click on Submit button
 And User should get confirmation message and click on OK button
+And click on Login link
 And click on Employer-Agency SignIn link
 And enter agency email and password "<AgencyEmail>" "<password>" 
 And click on Signin button
@@ -16,6 +17,7 @@ And Click on Close button on Agency Update Profile popup
 And Click on Yes button on the confirmation message
 And Click on Close button on Agency Update Profile popup
 And Click on No button on the confirmation message
+And click on Login link
 And click on Employer-Agency SignIn link
 And Login with that agency "<AgencyEmail>" "<password>"
 And click on Signin button
@@ -34,6 +36,7 @@ And enter employer details "<EmployerName>" "<EmployerEmail>" "<EmployerContactN
 And Select value from dropdown for employer "<EmployerUserType>" "<timezone>" "<country>"
 And click on Submit button
 And User should get confirmation message and click on OK button
+And click on Login link
 And click on Employer-Agency SignIn link
 And enter employer email and password "<EmployerEmail>" "<password>" 
 And click on Signin button
@@ -41,6 +44,7 @@ And Click on Close button on Employer Update Profile popup
 And Click on Yes button on the confirmation message
 And Click on Close button on Employer Update Profile popup
 And Click on No button on the confirmation message
+And click on Login link
 And click on Employer-Agency SignIn link
 And Login with that employer "<EmployerEmail>" "<password>"
 And click on Signin button
@@ -59,29 +63,26 @@ And enter candidate details "<CandidateName>" "<CandidateEmail>" "<CandidateCont
 And Select value from dropdown for candidate "<CandidateUserType>" "<timezone>" "<country>"
 And click on Submit button
 And User should get confirmation message and click on OK button
+And click on Login link
 And click on Job Seeker(Candidate) Sign In link
 And enter candidate email and password  "<CandidateEmail>" "<password>" 
 And click on Signin button
-And Click on Close button on Employer Update Profile popup
-And Click on Yes button on the confirmation message
-And Click on Close button on Employer Update Profile popup
-And Click on No button on the confirmation message
-And click on Job Seeker(Candidate) Sign In link
-And Login with that candidate "<CandidateEmail>" "<password>"
-And click on Signin button
+And click on ok button of confirmation popup.
+And Click on Update Profile tab
 And verify user login as Candidate has redirect on correct candidate update profile or not
 Then verify the Auto Populated fields on candidate update profile popup window
 And Update Candidate Profile "<title>" "<designation>" "<noticeperiod>" "<industry>" "<CandidateCity>" "<gender>" "<expertiselevel>"
 And click on save button
-And Click on Update Profile tab
+And click on ok button of confirmation popup
 And Make changes in candidate profile "<noticeperiod>"
 And click on save button
+And click on ok button of confirmation popup
 
 
 Examples:
 
 | AgencyName   | AgencyEmail            | AgencyContactNumber | AgencyUserType | timezone              | country | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity | organizationname | password |EmployerName  | EmployerEmail            | EmployerContactNumber | EmployerUserType | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | organizationname | CandidateName  | CandidateEmail           | CandidateContactNumber | CandidateUserType     | country |title         | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel | 
-| UPAgency10   | upagency10@gmail.com   | 565566625           |   Agency       | Indian Standard Time  |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |UPEmployer10  | upemployer10@gmail.com   | 565566625             |   Employer       | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      |UPCandidate10   | upcandidate10@gmail.com  | 9564783126             | Candidate             | India   |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate   |
+| UPAgency11   | upagency11@gmail.com   | 565563125           |   Agency       | Indian Standard Time  |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |UPEmployer11  | upemployer11@gmail.com   | 565566625             |   Employer       | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      |UPCandidate11   | upcandidate11@gmail.com  | 9564783126             | Candidate             | India   |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate   |
 
 
 #TC ID :- 84,85,31,35,17,87,57,19,86,34,91,60

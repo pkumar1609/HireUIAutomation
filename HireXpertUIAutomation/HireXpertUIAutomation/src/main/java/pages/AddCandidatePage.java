@@ -185,6 +185,10 @@ catch(NoSuchElementException e )
 		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
 	}
 	
+	public void uploadResumeDocumentT() throws AWTException {  //Method for Trupti
+		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
+		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.doc"); // CV Path of Trupti's system
+	}
 	
 
 }

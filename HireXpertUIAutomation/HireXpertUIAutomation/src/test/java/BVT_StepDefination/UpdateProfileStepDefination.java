@@ -195,10 +195,18 @@ public class UpdateProfileStepDefination extends baseclass {
 	    
         Thread.sleep(3000);
         updateprofilepopuppage.UpdateProfileCandidate(title, designation, noticeperiod, industry, CandidateCity, gender);
+//        Thread.sleep(3000);
+//        addcandidatepage.clickUploadResumeField();
         Thread.sleep(3000);
-		updateprofilepopuppage.DeleteCandidateSkillsandRoles();
+        addcandidatepage.uploadResumeDocumentT();
+	}
+	
+	@Then("^click on ok button of confirmation popup$")
+	public void click_on_ok_button_of_confirmation_popup() throws Throwable {
+
 		Thread.sleep(3000);
-		updateprofilepopuppage.AddCandidateSkillandRole(expertiselevel);
+		common.clickOnOKBtn();
+
 	}
 
 	@Then("^Make changes in candidate profile \"([^\"]*)\"$")

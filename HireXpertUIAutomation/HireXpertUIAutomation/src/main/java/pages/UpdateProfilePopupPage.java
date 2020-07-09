@@ -128,7 +128,7 @@ public class UpdateProfilePopupPage extends baseclass {
 	
 	public void ToVerifyAgencyisonAgencyUpdateProfilePopupOrNot() {
 		
-    if (driver.findElement(By.xpath("//label[contains(text(),'Agency Name')]")).isDisplayed()==true) {
+    if (driver.findElement(By.xpath("//span[contains(text(),'Agency Name')]")).isDisplayed()==true) {            //label[contains(text(),'Agency Name')]
 			
 			System.out.println("Agency has redirected to correct update profile popup window");
 		}
@@ -141,7 +141,7 @@ public class UpdateProfilePopupPage extends baseclass {
 	
 	public void ToVerifyEmployerisonEmployerUpdateProfilePopupOrNot() {
 		
-	    if (driver.findElement(By.xpath("//label[contains(text(),'Employer Name')]")).isDisplayed()==true) {
+	    if (driver.findElement(By.xpath("//span[contains(text(),'Employer Name')]")).isDisplayed()==true) {
 				
 				System.out.println("Employer has redirected to correct update profile popup window");
 			}
@@ -154,7 +154,7 @@ public class UpdateProfilePopupPage extends baseclass {
 	
     public void ToVerifyCandidateisonCandidateUpdateProfilePopupOrNot() {
 		
-	    if (driver.findElement(By.xpath("//label[contains(text(),'Name')]")).isDisplayed()==true){
+	    if (driver.findElement(By.xpath("//span[contains(text(),'Name')]")).isDisplayed()==true){
 				
 				System.out.println("Candidate has redirected to correct update profile popup window");
 			}
