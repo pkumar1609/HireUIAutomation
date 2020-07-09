@@ -103,10 +103,9 @@ public class EmployersPage extends baseclass {
 //	}
 	
 	public void ClickAddBtn() throws InterruptedException {
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		addbtn.click();
 	}
-	
 	
 	
 	public void enterValidCredentials(DataTable credentials) throws InterruptedException {
@@ -137,24 +136,25 @@ public class EmployersPage extends baseclass {
 		}
 		
 	}
-
-	public void ClickSubmitBtn() throws InterruptedException
-	{
-//		submitbtn.click();
-		Thread.sleep(2000);
-		executor.executeScript("arguments[0].click();",submitbtn);
-	}
 	
-	public void ClickCloseBtn() throws InterruptedException
-	{
-		Thread.sleep(4000);
-		closebtn.click();
 
-//		explicitwait.until(ExpectedConditions.elementToBeClickable(closebtn));
-//		executor.executeScript("arguments[0].click();",closebtn);
-	}
-
-	public void deleteemp()
+//	public void ClickSubmitBtn() throws InterruptedException
+//	{
+////		submitbtn.click();
+//		Thread.sleep(2000);
+//		executor.executeScript("arguments[0].click();",submitbtn);
+//	}
+//	
+//	public void ClickCloseBtn() throws InterruptedException
+//	{
+//		Thread.sleep(4000);
+//		closebtn.click();
+//
+////		explicitwait.until(ExpectedConditions.elementToBeClickable(closebtn));
+////		executor.executeScript("arguments[0].click();",closebtn);
+//	}
+//
+	public void deleteUser()
 	{
 		deletebtn.click();
 		confimYes.click();	

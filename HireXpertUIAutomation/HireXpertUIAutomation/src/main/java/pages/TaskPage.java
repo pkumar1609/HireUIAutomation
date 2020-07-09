@@ -41,7 +41,7 @@ public class TaskPage extends baseclass {
 	public List<WebElement> list;
 	public int sizeOfShareWithTeam=0;
 	
-	@FindBy(xpath="//button[@title='Add Task']")
+	@FindBy(xpath="//button[contains(text(),'Add Task')]")
 	WebElement addtaskbtn;
 	
 	@FindBy(xpath="//input[@formcontrolname='Title']")
@@ -95,7 +95,7 @@ public class TaskPage extends baseclass {
 	
 	@FindBy(xpath="//button[@title='Share With Team']")	
 	private WebElement shareWithTeam;
-
+	
 	
 	
 	public void errordisplayed() throws InterruptedException
@@ -119,9 +119,8 @@ public class TaskPage extends baseclass {
 	}
 	
 	public void clickOnAddTaskBtn() throws InterruptedException
-	{
-
-		explicitwait.until(ExpectedConditions.elementToBeClickable(addtaskbtn));
+	{	
+		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", addtaskbtn);
 		
 	}
@@ -147,7 +146,7 @@ public class TaskPage extends baseclass {
 //	          System.out.println(item.getText());          
 //	        }
 			notefield.sendKeys(data.get("note"));
-			employerspage.ClickSubmitBtn();
+			common.ClickSumbit();
 		}
 	}
 	
@@ -161,7 +160,7 @@ public class TaskPage extends baseclass {
 			System.out.println(addedtask);
 			notefield.clear();
 			notefield.sendKeys(note);
-			employerspage.ClickSubmitBtn();
+			common.ClickSumbit();
 	}
 	
 	
@@ -178,15 +177,12 @@ public class TaskPage extends baseclass {
 	
 	public void validateTaskDisplayingProperly() throws InterruptedException
 	{
-		System.out.println("loggediusername"+loginpage.logedinuser);
-		String user=loginpage.logedinuser;
-		System.out.println(assignto);
-		if(assignto.contentEquals(user))
+		if(assignto.contentEquals(loginpage.logedinuser))
 		{ 
 			Thread.sleep(4000);
 			mytask.click();
 			reloadtask();
-			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
+			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")) != null;
 			Assert.assertEquals(b, true);
 		}
 		else
@@ -194,7 +190,7 @@ public class TaskPage extends baseclass {
 			Thread.sleep(4000);
 			teamtask.click();
 			reloadtask();
-			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
+			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")) != null;
 			Assert.assertEquals(b, true);
 		}
 //		System.out.println("//strong[text()='"+addedtask+"']");
@@ -213,7 +209,6 @@ public class TaskPage extends baseclass {
 	
 	public void ClickOnTeamTask() throws InterruptedException
 	{
-//		Thread.sleep(2000);
 		explicitwait.until(ExpectedConditions.elementToBeClickable(teamtask));
 		executor.executeScript("arguments[0].click();",teamtask);
 	}
@@ -224,12 +219,11 @@ public class TaskPage extends baseclass {
 		executor.executeScript("arguments[0].click();",mytask);
 	}
 	
-	
-	public void clickOKBtn()
-	{
-		explicitwait.until(ExpectedConditions.elementToBeClickable(okbtn));
-		executor.executeScript("arguments[0].click();",okbtn);
-	}
+//	public void clickOKBtn()
+//	{
+//		explicitwait.until(ExpectedConditions.elementToBeClickable(okbtn));
+//		executor.executeScript("arguments[0].click();",okbtn);
+//	}
 	
 	public void ClickOnEditTask() throws InterruptedException
 	{
@@ -264,7 +258,7 @@ public class TaskPage extends baseclass {
 	{
 //		taskpage.ClickOnTeamTask();
 //		taskpage.ClickOnEditTask();
-		taskpage.editTaskDetailsForAgy(credentials);
+		taskpage.edittaskdetailsforemp(credentials);
 	}	
 
 	}
@@ -282,7 +276,7 @@ public class TaskPage extends baseclass {
 				else
 				{
 					taskpage.enterAlldetailsForAgy(credentials);
-					validateTaskDisplayingProperlyForAgy();
+					validateTaskDisplayingProperly();
 				}
 			}
 			
@@ -383,25 +377,18 @@ public class TaskPage extends baseclass {
 	
 	public void validateTaskAfterMarkCompletedEmp() throws InterruptedException
 	{
-		if(assignto.equals(prop.getProperty("employer")))
+		if(assignto.contentEquals(loginpage.logedinuser))
 		{
 			Thread.sleep(2000);
 			mytask.click();
 		}
-		else if (assignto.equals(prop.getProperty("team")))
+		else 
 		{
 			Thread.sleep(3000);
 			teamtask.click();
 			reloadtask();
 		}
-		try
-		{
-		b=driver.findElement(By.xpath("//strong[text()='"+taskpage.addedtask+"']")).isDisplayed();
-		}
-		catch(NoSuchElementException e)
-		{
-			b=false;
-		}
+		b=driver.findElement(By.xpath("//strong[text()='"+taskpage.addedtask+"']")) != null;
 		Assert.assertEquals(b, false);
 	}
 
@@ -411,66 +398,66 @@ public class TaskPage extends baseclass {
 	//For Agency
 
 
-	public void validateTaskAfterMarkCompletedAgy() throws InterruptedException
-	{
-	
-		if(assignto.equals(prop.getProperty("agency")))
-		{
-			Thread.sleep(2000);
-			mytask.click();
-			reloadtask();
-			try {
-			driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
-			
-			}
-			catch(NoSuchElementException e)
-			{
-				System.out.println("task which is mark completed not displaying at agency side");
-			}
-			
-		}
-		else if (assignto.equals(prop.getProperty("agyteam")))
-		{
-			Thread.sleep(3000);
-			teamtask.click();
-			reloadtask();
-			try {
-				driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
-				}
-				catch(NoSuchElementException e)
-				{
-					System.out.println("task which is mark completed not displaying at agency team side");
-				}
-		}
-		
-	}
+//	public void validateTaskAfterMarkCompletedAgy() throws InterruptedException
+//	{
+//	
+//		if(assignto.equals(prop.getProperty("agency")))
+//		{
+//			Thread.sleep(2000);
+//			mytask.click();
+//			reloadtask();
+//			try {
+//			driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
+//			
+//			}
+//			catch(NoSuchElementException e)
+//			{
+//				System.out.println("task which is mark completed not displaying at agency side");
+//			}
+//			
+//		}
+//		else if (assignto.equals(prop.getProperty("agyteam")))
+//		{
+//			Thread.sleep(3000);
+//			teamtask.click();
+//			reloadtask();
+//			try {
+//				driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
+//				}
+//				catch(NoSuchElementException e)
+//				{
+//					System.out.println("task which is mark completed not displaying at agency team side");
+//				}
+//		}
+//		
+//	}
+//
+//
+//
+//public void validateTaskDisplayingProperlyForAgy() throws InterruptedException
+//{
+//	
+//	if(assignto.contentEquals(loginpage.logedinuser))
+//	{
+//		Thread.sleep(4000);
+//		mytask.click();
+//		reloadtask();
+//		boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
+//		Assert.assertEquals(b, true);
+//	}
+//	else
+//	{
+//		Thread.sleep(4000);
+//		teamtask.click();
+//		reloadtask();
+//		boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
+//		Assert.assertEquals(b, true);
+//	}
+//
+//}
 
 
-
-public void validateTaskDisplayingProperlyForAgy() throws InterruptedException
-{
-	
-	if(assignto.contentEquals(loginpage.logedinuser))
-	{
-		Thread.sleep(4000);
-		mytask.click();
-		reloadtask();
-		boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
-		Assert.assertEquals(b, true);
-	}
-	else
-	{
-		Thread.sleep(4000);
-		teamtask.click();
-		reloadtask();
-		boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")).isDisplayed();
-		Assert.assertEquals(b, true);
-	}
-
-}
-
-
-public void enterAlldetailsForAgy(DataTable credentials) throws InterruptedException {
+	public void enterAlldetailsForAgy(DataTable credentials) throws InterruptedException {
 	
 	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 	{
@@ -489,36 +476,35 @@ public void enterAlldetailsForAgy(DataTable credentials) throws InterruptedExcep
 		assignto= data.get("agyAssignTo");
 		notefield.sendKeys(data.get("agynote"));
 		Thread.sleep(2000);
-		employerspage.ClickSubmitBtn();
+		common.ClickSumbit();
 	}
 
 }
 
+	public void assertDeatailsOfTask(String task, String team, String Assignto, String note) throws InterruptedException
+	{
+				addedtask.contentEquals(task);
+	//			String task= data.get("Title for emp");
+				select=new Select(teamid);
+				WebElement teamidValue = select.getFirstSelectedOption();
+				teamidValue.equals(team);
+				select=new Select(Assigntofield);
+				teamidValue = select.getFirstSelectedOption();
+				teamidValue.equals(Assignto);
+				notefield.getText().contentEquals(Assignto);	
+	}
 
-
-public void assertDeatailsOfTask(String task, String team, String Assignto, String note) throws InterruptedException
-{
-			addedtask.contentEquals(task);
-//			String task= data.get("Title for emp");
-			select=new Select(teamid);
-			WebElement teamidValue = select.getFirstSelectedOption();
-			teamidValue.equals(team);
-			select=new Select(Assigntofield);
-			teamidValue = select.getFirstSelectedOption();
-			teamidValue.equals(Assignto);
-			notefield.getText().contentEquals(Assignto);	
-}
-
-public void asserteditedDeatail(String task,String note) throws InterruptedException
-{
-			addedtask.contentEquals(task);
-			notefield.getText().contentEquals(note);	
-}
+	public void asserteditedDeatail(String task,String note) throws InterruptedException
+	{
+				addedtask.contentEquals(task);
+				notefield.getText().contentEquals(note);	
+	}
 
 
 	public void shareWithTeam(DataTable credentials) throws InterruptedException
 	{
 		Thread.sleep(3000);
+		workbenchpage.threeDot.click();
 		shareWithTeam.click();
 		this.emp=loginpage.b;
 		if(emp==true)

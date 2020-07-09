@@ -29,6 +29,7 @@ public class loginstepdefination extends baseclass {
 	DataTable credentials;
 	String deleteele;
 	String checkelement;
+	boolean ele;
 	
 	@Given("^User must be registered$")
 	public void user_must_be_registered() throws Throwable {    
@@ -52,7 +53,6 @@ public class loginstepdefination extends baseclass {
 
 	@And("^Click on Agencies tab$")
 	public void click_on_Agencies_tab() throws InterruptedException  {
-		Thread.sleep(1000);
 		agenciespage.Clickagencybtn();
 	}
 
@@ -62,27 +62,21 @@ public class loginstepdefination extends baseclass {
 	}
 	
 
-
 	@Then("^Employer should be able to add Agency$")
 	public void employer_should_be_able_to_add_Agency() {
-	boolean b=  driver.findElement(By.xpath("//h5[@class='modal-title w-100']")).isDisplayed();
-	Assert.assertEquals(b, true);
+	ele=  driver.findElement(By.xpath("//h5[@class='modal-title w-100']")).isDisplayed();
+	Assert.assertEquals(ele, true);
 	}
 
 	@Then("^Newly added agency should be displayed in Agencies page$")
 	public void newly_added_agency_should_be_displayed_in_Agencies_page() throws InterruptedException {
 		agenciespage.AddedAgyencyDisplaying();
-	
 	}
-	
-	
 	
 	@And("^Click on team tab$")
 	public void click_on_team_tab() throws InterruptedException  {
-		
 		dashboardpage.openTeamPage();
 	}
-
 
 	@When("^Click on add Button and Fill all the mandatory details for team$")
 	public void click_on_add_Button_and_Fill_all_the_mandatory_details_for_team(DataTable credentials) throws Throwable {
@@ -91,31 +85,19 @@ public class loginstepdefination extends baseclass {
 	
 	@Then("^Employer should be able to add team member$")
 	public void employer_should_be_able_to_add_team_member()  {
-		
 	}
 	
-
 	@Then("^Newly added team member should be displayed in team page$")
 	public void newly_added_team_member_should_be_displayed_in_team_page()  {
-		
-		if(driver.getPageSource().contains(teampage.namevalidate))
-		{
-			System.out.println("Team get added sucesfully");
-			}else{
-			System.out.println("Team not get added");
-			}	 
+		ele = driver.getPageSource().contains(teampage.namevalidate);
+		Assert.assertEquals(ele, true);
 	}
 
 	@Then("^the employer with which you have logged in should display in team tab by default$")
 	public void the_employer_with_which_you_have_logged_in_should_display_in_team_tab_by_default()  
 	{
-		if(driver.getPageSource().contains(prop.getProperty("name"))){
-			System.out.println("the employer with which you have logged is displaying");
-			}else{
-			System.out.println("the employer with which you have logged is displaying");
-			}	 
-		
-	
+		ele = driver.getPageSource().contains(prop.getProperty("name"));
+		Assert.assertEquals(ele, true);
 	}
 	
 	@And("^delete the added team$")
@@ -133,58 +115,44 @@ public class loginstepdefination extends baseclass {
 	
 		dashboardpage.openEmployersPage();
 	}
+	
 	@When("^Click on add Button and Fill all the mandatory details for employer$")
 	public void click_on_add_Button_and_Fill_all_the_mandatory_details_for_employer(DataTable credentials) throws Throwable {
 		employerspage.enterValidCredentials(credentials);
 	}
 
-	
-
-	
 	@Then("^Agency should be able to add Employer$")
 	public void Agency_should_be_able_to_add_Employer()  {
-		//Sucessful message
 	 
 	}
 
 	@Then("^Newly added employer should be displayed in employer page$")
 	public void newly_added_employer_should_be_displayed_in_Employer_page() {
 		System.out.println(size);
-	for(int i=0; i<size; i++) 
+		for(int i=0; i<size; i++) 
 		{
-			if(driver.getPageSource().contains(ar.get(i)))
-			{
-			     System.out.println(ar.get(i)+" is present");
-			}
-		    else{
-			     System.out.println("some element is absent");
-			} 
+			ele = driver.getPageSource().contains(ar.get(i));
+			Assert.assertEquals(ele, true);	
 		}
 }
-	
 	
 	@And("^delete the added employer$")
 	public void delete_the_added_employer() throws InterruptedException {
 		Thread.sleep(1000);	
-		employerspage.deleteemp();
-
+		employerspage.deleteUser();
         }
 
 	@Then("^deleted employer should not be display on page$")
 	public void deleted_employer_should_not_be_display_on_page() throws Throwable {
-		if(driver.getPageSource().contains(employerspage.namevalidate))
-		{
-		System.out.println("Team get added sucesfully");
-		}else{
-		System.out.println("Team not get added");
-		}	
+		ele=driver.getPageSource().contains(employerspage.namevalidate);
+		Assert.assertEquals(ele, false);
 	}
 	
 
 	@Then("^delete the added agency$")
 	public void delete_the_added_agency() throws Throwable {
 		Thread.sleep(1000);	
-		employerspage.deleteemp();
+		employerspage.deleteUser();
 	}
 	
 
@@ -195,12 +163,9 @@ public class loginstepdefination extends baseclass {
 
 	@Then("^deleted user should not be display on page$")
 	public void deleted_user_should_not_be_display_on_page() throws Throwable {
-		if(driver.getPageSource().contains(teampage.namevalidate))
-		{
-		System.out.println("Team get added sucesfully");
-		}else{
-		System.out.println("Team not get added");
-		}	 
+		ele = driver.getPageSource().contains(teampage.namevalidate);
+		Assert.assertEquals(ele, false);
+		 
 	}
 }
 

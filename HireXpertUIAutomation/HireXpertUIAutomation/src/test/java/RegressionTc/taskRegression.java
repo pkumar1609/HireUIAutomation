@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import pages.CandidateCardSectionPage;
@@ -19,7 +21,9 @@ public class taskRegression extends baseclass{
 	boolean b;
 	private boolean emp;
 	int flag=0;
-
+	
+	
+	
 	public taskRegression() throws IOException 
 	{
 		super();
@@ -258,6 +262,7 @@ public class taskRegression extends baseclass{
 		ele.isDisplayed();
 	}
 
+	
 }
 
 

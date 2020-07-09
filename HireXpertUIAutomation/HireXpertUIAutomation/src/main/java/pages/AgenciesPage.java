@@ -35,8 +35,6 @@ public class AgenciesPage extends baseclass {
 	
 	@FindBy(xpath="//input[@placeholder='Search']")
 	static WebElement search;
-	
-//	public String searchele= "//td[contains(text(),'"+ ele1 +"')]";
 
 	public String namevalidate;
 	String empname;
@@ -76,7 +74,7 @@ public class AgenciesPage extends baseclass {
 	
 	public void ClickAddbtn() throws InterruptedException
 	{
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		addAgencyButton.click();
 	}
 	
@@ -95,7 +93,7 @@ public class AgenciesPage extends baseclass {
 		select.selectByVisibleText("India");
 		common.ClickSumbit();
 		try
-		{ 
+		{
 			common.okbtn.isDisplayed();
 			common.clickOnOKBtn();
 			common.clickOnAddClosebtn();
@@ -105,28 +103,24 @@ public class AgenciesPage extends baseclass {
 		{
 			System.out.println("team added succesfully");
 		}
-		
 	}
 	}
 	
 
 
 	
-	public void deleteagy() throws InterruptedException
-	{
-		Thread.sleep(2000);
-		deletebtn.click();
-		common.clickOnConfirmYes();	
-	}
+//	public void deleteagy() throws InterruptedException
+//	{
+//		Thread.sleep(2000);
+//		deletebtn.click();
+//		common.clickOnConfirmYes();	
+//	}
 	
 	public void AddedAgyencyDisplaying()
 	{
-		if(driver.getPageSource().contains(empname))
-		{
-			System.out.println("Text is present");
-			}else{
-			System.out.println("Text is absent");
-			}
+		boolean ele=driver.getPageSource().contains(empname);
+		Assert.assertEquals(true, true);
+			
 	}
 	
 	public void enterAgyNameInSearchSection(DataTable credentials)

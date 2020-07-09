@@ -33,7 +33,8 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to workbench
-And Select a added job
+And Select a job
+And Click on hamburger menu
 And Click on Add task button and enter all details employer
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |particular task    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
@@ -80,6 +81,7 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to workbench
 And Select a added job
+And Click on hamburger menu
 And Click on Add task button and enter all details for agency
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |particular task 1   |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com         |
@@ -110,6 +112,7 @@ And Share job with team member
 |EmpTeam|Agyteam|
 |pe1    |pa1    |
 And Go to dashboard
+And Click on hamburger menu
 And Click on Add task button and enter all details
 |Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |task1            |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |Genral task      |pagy         |pa1         |Task should complete before time    |pagy   		    |pe1       |pe1@gmail.com        |
@@ -145,6 +148,7 @@ And Share job with team member
 |pe1    |pa1    |
 And Go to workbench
 And Select a job 
+And Click on hamburger menu
 And Click on Add task button and enter all details 
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |task2    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
@@ -211,6 +215,7 @@ And Share job with team member
 |pe1    |pa1    |
 And Go to workbench
 And Select a job 
+And Click on hamburger menu
 And Click on Add task button and enter all details
 |Title for emp      |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |particular task    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |Genral task      |pagy         |pa1         |Task should complete before time    |pagy   		    |pe1       |pe1@gmail.com        |
@@ -367,7 +372,8 @@ And Share job with team member
 |EmpTeam|Agyteam|
 |pe1    |pa1    |
 And Go to workbench
-And Select a job
+And Select a added job
+And Click on hamburger menu
 And Click on Add task button and enter all details
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |task2    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
@@ -418,7 +424,8 @@ And Share job with team member
 |EmpTeam|Agyteam|
 |pe1    |pa1    |
 And Go to workbench
-And Select a job 
+And Select a added job
+And Click on hamburger menu 
 And Click on Add task button and enter all details employer
 |Title for emp      |Title for agy    |teamField |AssignTo |note                             |employer            |team      |teamid               |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |task6              |task6            |pemp      |pe1     |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |pagy         |pa1    |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
@@ -437,7 +444,8 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to workbench
-And Select a job 
+And Select a added job
+And Click on hamburger menu 
 And Click on Add task button and enter all details employer
 |Title for emp      |Title for agy    |teamField |AssignTo |note                             |employer            |team      |teamid               |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |task7              |task7            |pemp      |pe1     |Task should complete before time |pemp    		      |pe1       |pe1@gmail.com        |pagy         |pa1        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
@@ -521,6 +529,7 @@ And Click on edit task
 Then verify all the edited details "<editedtask>"and "<editednote>"
 And Go to workbench
 And Select a job 
+And Click on hamburger menu
 And Click on Add task button and enter all details employer
 |Title for emp      |Title for agy    |teamField |AssignTo |note                             |employer            |team      |teamid               |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |task7              |task7            |pemp      |pe1     |Task should complete before time |pemp    		      |pe1       |pe1@gmail.com        |pagy         |pa1        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
@@ -574,6 +583,7 @@ And Click on Employer-Agency Signin link
 And Login with team member
 And Go to workbench
 And Select a job 
+And Click on hamburger menu
 And Click on Add task button and enter all details for agency
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |task9              |pemp      |pemp     |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |task9            |pagy         |pagy        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |

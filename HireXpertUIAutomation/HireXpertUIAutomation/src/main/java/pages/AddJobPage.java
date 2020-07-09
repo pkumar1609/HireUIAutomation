@@ -223,54 +223,54 @@ public AddJobPage()
 		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-//		Thread.sleep(3000);
-//		workbenchpage.AddJob();
+		Thread.sleep(3000);
+		workbenchpage.AddJob();
 		this.emp=loginpage.b;
 		if(emp==true) 
 		{
 			jobname=data.get("title");
 			System.out.println("Selected job: "+jobname);
-//			title.sendKeys(jobname);
+			title.sendKeys(jobname);
 		}
 		else
 		{
 			jobname=data.get("agytitle");
 			System.out.println("Selected job: "+jobname);
-//			title.sendKeys(jobname);
+			title.sendKeys(jobname);
 		}
 		
-//		designation.sendKeys(data.get("designation"));
-//		industry.sendKeys(data.get("industry"));
-//		jobrole.sendKeys(data.get("jobrole"));
-//		location.sendKeys(data.get("location"));
-//		budget.sendKeys(data.get("budget"));
-//		minexp.sendKeys(data.get("minexp"));
-//		maxexp.sendKeys(data.get("maxexp"));
-//		noOfInterviews();
-//		List<WebElement> deletebtn = driver.findElements(By.xpath("//i[@class='fa fa-trash']"));	
-//		for(int i=0;i<deletebtn.size();i++)
-//			{
-//				WebElement btn = deletebtn.get(i);
-//				Thread.sleep(4000);
-//				btn.click();
-//			}
-//		this.emp=loginpage.b;
-//		if(emp==false)
-//			{ 
-//			select =new Select(employerId);
-//			List<WebElement> options = select.getOptions();
-//			if(options.size()>0)
-//			{
-//				select.selectByIndex(1);
-//			}
-//			else if (options.size()==0)
-//			{
-//				Thread.sleep(2000);
-//				addEmployee.click();
-//				teampage.AddAllDetailsK(credentials);
-//			}
-//			}
-//		common.ClickSumbit();
+		designation.sendKeys(data.get("designation"));
+		industry.sendKeys(data.get("industry"));
+		jobrole.sendKeys(data.get("jobrole"));
+		location.sendKeys(data.get("location"));
+		budget.sendKeys(data.get("budget"));
+		minexp.sendKeys(data.get("minexp"));
+		maxexp.sendKeys(data.get("maxexp"));
+		noOfInterviews();
+		List<WebElement> deletebtn = driver.findElements(By.xpath("//i[@class='fa fa-trash']"));	
+		for(int i=0;i<deletebtn.size();i++)
+			{
+				WebElement btn = deletebtn.get(i);
+				Thread.sleep(4000);
+				btn.click();
+			}
+		this.emp=loginpage.b;
+		if(emp==false)
+			{ 
+			select =new Select(employerId);
+			List<WebElement> options = select.getOptions();
+			if(options.size()>0)
+			{
+				select.selectByIndex(1);
+			}
+			else if (options.size()==0)
+			{
+				Thread.sleep(2000);
+				addEmployee.click();
+				teampage.AddAllDetailsK(credentials);
+			}
+			}
+		common.ClickSumbit();
 	}
 		
 }

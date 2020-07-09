@@ -86,15 +86,15 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials
 And Click on Agencies tab
 And Click on add Button Fill all the mandatory details for agency 
-|Nameagy  |      Emailagy     | contactagy |
-|pagy     | pagy@gmail.com    | 1234564    |
-|pagy1    | pagy1@gmail.com   | 1234564    |
+|Name  |      Email    | contact    |
+|pagy  |pagy@gmail.com | 1234564    |
+|pagy1 |pagy1@gmail.com| 1234564    |
 And Click on Search section and enter already existing agency
 |Name|
 |pagy|
 And User should able to search agency
 And Click on team tab
-And Click on add Button and Fill all the mandatory details for employer team
+And Click on add Button and Fill all the mandatory details for team
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
@@ -123,10 +123,10 @@ And Click on Search section and enter already existing employer
 |pe1 |
 And User should able to search employer
 And Click on team tab
-And Click on add Button and Fill all the mandatory details for agency team
-|Nameagy|       Emailagy    | contactagy |
-|pa1    | pa1@gmail.com     | 1234564    |
-|pa2    | pa2@gmail.com     | 1234564    |
+And Click on add Button and Fill all the mandatory details for team
+|Name  |       Email    | contact    |
+|pa1   | pa1@gmail.com  | 1234564    |
+|pa2   | pa2@gmail.com  | 1234564    |
 And Click on Search section and enter already existing agency team
 |Name|
 |pa1 |

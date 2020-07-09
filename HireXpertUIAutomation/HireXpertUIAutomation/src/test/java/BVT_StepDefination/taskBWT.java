@@ -1,10 +1,13 @@
 package BVT_StepDefination;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import cucumber.api.DataTable;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -19,15 +22,10 @@ public class taskBWT extends baseclass {
 		super();
 	}
 	
+	
 	boolean emp;
 	boolean b;
 	
-	@Before()
-	public void setup() throws IOException
-	{
-//		baseclass.initialization();
-	}
-
 	@And("^Employer enters valid credentials \"([^\"]*)\",\"([^\"]*)\"$")
 	public void employer_enters_valid_credentials(String Username, String Password) throws Throwable {
 	  loginpage.loginIn(Username, Password);
@@ -36,6 +34,12 @@ public class taskBWT extends baseclass {
 	@And("^Go to dashboard$")
 	public void go_to_dashboard() throws Throwable {
 		dashboardpage.openDashboardPage();
+	}
+	
+	@Given("^Click on hamburger menu$")
+	public void click_on_hamburger_menu() throws Throwable {
+		Thread.sleep(3000);
+	    workbenchpage.threeDot.click();
 	}
 
 	@And("^Click on Add task button and enter all details employer$")
@@ -104,7 +108,7 @@ public class taskBWT extends baseclass {
 	@Then("^the task should display for agency$")
 	public void the_task_should_display_for_both_agency() throws Throwable {
 
-		taskpage.validateTaskDisplayingProperlyForAgy();
+		taskpage.validateTaskDisplayingProperly();
 	}
 	
 	@Then("^Login with agency team$")
@@ -116,7 +120,7 @@ public class taskBWT extends baseclass {
 	
 	@Then("^Task should also display for agency team member$")
 	public void task_should_also_display_for_agency_team_member() throws Throwable {
-		taskpage.validateTaskDisplayingProperlyForAgy();
+		taskpage.validateTaskDisplayingProperly();
 	}
 	
 	
@@ -261,63 +265,26 @@ else
 	}
 }
 }
-	
-//@And("^Select a added job$")
-//public void select_a_added_job() throws Throwable {
-//	
-//	workbenchpage.selectJobK();	}
-
-//@And("^Click on share job with market place$")
-//public void click_on_share_job_with_market_place() throws InterruptedException   {
-//
-//	marketplacepage.ClickOnShareWithMarketPlace();
-//}
-//
-//@And("^change information and click on submit$")
-//public void change_information_and_click_on_submit(DataTable credentials) throws InterruptedException   {
-//    
-//	marketplacepage.EnterdeatilsOfMarketplace(credentials);
-//}
-//
-//@And("^Click on Employer marketplace tab$")
-//public void Click_on_Employer_marketplace_tab() throws Throwable {
-//	marketplacepage.ClickOnMarketPlaceTab();
-//}
-//
-////@Then("^Job should be list out in market place page on employer side\\.$")
-////public void job_should_be_list_out_in_market_place_page_on_employer_side() throws Throwable {
-////	String s= addjobpage.jobname1;
-////	if(driver.getPageSource().contains(s))
-////    {
-////    	System.out.println("selected job is displaying on employer side");
-////    }
-////}
-//
-//@And("^Go to agency marketplace tab$")
-//public void go_to_agency_marketplace_tab() throws Throwable {
-//	marketplacepage.ClickOnAgyMarketPlaceTab();
-//	
-//}
-//
-//@And("^login as a support user$")
-//public void login_as_a_support_user() throws Throwable {
-//  loginpage.loginInAppWithSupport();
-//}
-//
-//@And("^verify shared job is displaying on support login$")
-//	public void verify_shared_job_is_displaying_on_support_login(DataTable credentials) throws Throwable {
-//	jobreviewpage.verifyJobDisplay(credentials);
-//}
-//
-//@And("^Click on approve$")
-//public void click_on_approve() throws Throwable {
-//	jobreviewpage.clickOnApproveButton();
-//}
-//
-////@Then("^All shared job by any employer should be show for all register agencies$")
-////public void all_shared_job_by_any_employer_should_be_show_for_all_register_agencies() throws Throwable {
-////	marketplacepage.marketPlaceJobAtAgy();
-////}
-//
+	@After("@task")
+	public void Endtest() throws InterruptedException
+	{
+		dashboardpage.openDashboardPage();
+		taskpage.ClickOnMyTask();
+		List<WebElement> markCompleteButton = driver.findElements(By.xpath("//button[text()='Mark Complete']"));
+		int size= driver.findElements(By.xpath("//button[text()='Mark Complete']")).size();
+		for(int i=0;i<size;i++)
+		{
+			Thread.sleep(2000);
+			markCompleteButton.get(i).click();
+		}
+		taskpage.ClickOnTeamTask();
+		List<WebElement> markCompleteButton1 = driver.findElements(By.xpath("//button[text()='Mark Complete']"));
+		int size1= driver.findElements(By.xpath("//button[text()='Mark Complete']")).size();
+		for(int i=0;i<size1;i++)
+		{
+			Thread.sleep(2000);
+			markCompleteButton1.get(i).click();
+		}
+	}
 
 }

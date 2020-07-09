@@ -226,22 +226,24 @@ public class TeamPage extends baseclass {
 			}
 			catch(NoSuchElementException e)
 			{
-				AddAllDetailsagyK(credentials);
+				AddAllDetailsK(credentials);
 				teampage.closeTeamPage();
 			}	
 		}
 		}
 	
-	public void searchExistingTeam(DataTable credentials)
+	public void searchExistingTeam(DataTable credentials) throws InterruptedException
 	{
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-		wait.until(ExpectedConditions.elementToBeClickable(searchField));
+		Thread.sleep(4000);
 		searchField.sendKeys(data.get("Name"));
 		ele=data.get("Name");
 		System.out.println(ele);
+		
 		}
 	}
+	
 	public void verifyTeamAdded(DataTable credentials) throws InterruptedException
 	{
 		this.emp=loginpage.b;
@@ -254,7 +256,7 @@ public class TeamPage extends baseclass {
 		teampage.isTeamPresentForAgy(credentials);
 		}
 	}
-	
+
 	
 //	public void fillDetais()
 //	{
