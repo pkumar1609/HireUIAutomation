@@ -43,7 +43,7 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 		
 		Thread.sleep(3000);
 		
-		addjobpage.fillJobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+		addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
 		
 		Thread.sleep(3000);
 		
@@ -72,7 +72,7 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 		
 		Thread.sleep(3000);
 		
-		addjobpage.fillJobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+		addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
 		
 		Thread.sleep(3000);
 		
@@ -163,6 +163,23 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 		addcandidatepage.EntercandidateemailT(CandidateEmail);
 
 	}
+	
+	@When("^upload candidate resume$")
+    public void upload_candidate_resume() throws Throwable {
+  
+	Thread.sleep(3000);
+   addcandidatepage.uploadResumeDocumentT();
+  }
+
+	@When("^Click on save button to save the update details$")
+	public void click_on_save_button_to_save_the_update_details() throws Throwable {
+		
+		Thread.sleep(3000);
+		editcandidatepage.ClickOnSaveBtntoSavetheupdatedDetails();
+		Thread.sleep(3000);
+		common.clickOnConfirmYes();
+	}
+
 
 	@When("^click on find button$")
 	public void click_on_find_button() throws Throwable {

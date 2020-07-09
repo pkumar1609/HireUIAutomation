@@ -162,6 +162,23 @@ public AddJobPage()
 		Thread.sleep(2000);
 	}
 	
+public void filljobDetails(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws InterruptedException {
+		
+		title.sendKeys(Title);
+		designation.sendKeys(Designation);
+		industry.sendKeys(Industry);
+		jobrole.sendKeys(JobRole);
+		location.sendKeys(Location);
+		budget.sendKeys(Budget);
+		minexp.sendKeys(MinExp);
+		maxexp.sendKeys(MaxExp);
+		se = new Select(totalinterviews);
+		se.selectByIndex(3);
+		click.click();
+		Thread.sleep(2000);
+	}
+
+	
 	public void addSkillButton() throws InterruptedException {
 		
 		for(int i=4;i<=12;i++) {

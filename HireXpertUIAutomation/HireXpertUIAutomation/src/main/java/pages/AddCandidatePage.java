@@ -37,8 +37,11 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(id = "ContactNumber")
 	public WebElement contactNumber;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/job-applicant-component/div[2]/div/div[1]/form/div[2]/div[1]/div/div/div[1]/div[4]/input")
+	@FindBy(xpath = "//input[@formcontrolname='Designation']")
 	public WebElement designation;
+	
+	@FindBy(xpath = "//input[@formcontrolname='ZipCode']")
+	public WebElement ZipCode;
 	
 	@FindBy(xpath = "//select[@formcontrolname='Gender']")
 	public WebElement gender;
@@ -58,7 +61,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "ECTC")
 	public WebElement expectedCTC;
 	
-	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div[1]/form/div[2]/div[1]/div/div/div[3]/div[5]/select")
+	@FindBy(xpath = "//Select[@formcontrolname='PreferredModeOfCommunication']")
 	public WebElement communicationMode;
 	
 	@FindBy(id = "salaryOffered")
@@ -141,11 +144,12 @@ public class AddCandidatePage extends baseclass {
 		  	location.sendKeys(Location);
 		  	se = new Select (communicationMode);
 		  	se.selectByIndex(2);
-		  	uploadResumeDocument();
+		  	ZipCode.sendKeys("111165");
+//		  	uploadResumeDocument();
 			
 		}
-		common.clickOnSaveBtn();
-		common.clickOnConfirmYes();
+//		common.clickOnSaveBtn();
+//		common.clickOnConfirmYes();
 try {
 				
 			driver.findElement(By.xpath("//h6[contains(text(),' This candidate is already added to this job either by you or somebody else.')]")).isDisplayed();
@@ -182,7 +186,7 @@ catch(NoSuchElementException e )
 	
 	public void uploadResumeDocument() throws AWTException {
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
+		upload.sendKeys("Documents\\CV.doc");
 	}
 	
 	public void uploadResumeDocumentT() throws AWTException {  //Method for Trupti

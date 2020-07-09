@@ -1,6 +1,7 @@
 package pages;
 
 import java.util.List;
+
 import java.util.Map;
 
 import org.openqa.selenium.By;
@@ -18,7 +19,7 @@ import utilPackage.baseclass;
 
 public class WorkbenchPage extends baseclass {
 	
-	@FindBy(xpath = "/html/body/app-root/div/div/div/workbench/div/div[1]/div/div[1]/div[3]/div[1]/button[1]")
+	@FindBy(xpath = "//button[contains(text(),'Add Job')]")
 	public WebElement addjob;
 	
 	@FindBy(id = "jobDropdown")
@@ -267,11 +268,19 @@ public void ClickonScreeningBtn() {
 	}
 
 
-	public void clickOnCloseJobButton() throws InterruptedException {
-//	
-//	     closejobbtn.click();
-//	     common.clickOnConfirmYes();
-		}
+		public void clickOnCloseJobButton() throws InterruptedException {
+		//	
+//			     closejobbtn.click();
+//			     common.clickOnConfirmYes();
+
+				threeDot.click();
+				
+				Thread.sleep(2000);
+				
+				closejobbtn.click();
+				
+				}
+
 	 
 public void verifyCandidateAddedDisplayedOnWorkbenchOrNot () {
 	

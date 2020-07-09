@@ -1,6 +1,7 @@
 package pages;
 
 import java.awt.AWTException;
+
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
@@ -26,6 +27,11 @@ public class EditCandidatePage extends baseclass {
 	@FindBy(id = "NoticePeriod")
 	public WebElement noticePeriod;
 	
+	@FindBy(xpath = "//button[contains(@class,'btn Cbtn-primary w-5')][contains(text(),'Save')]")
+	public WebElement SavebtntoSaveUpdatedDetailsOnUpdateCandidatePopup;
+	
+	
+	
 	Robot rb;
 	
 	public EditCandidatePage() {
@@ -38,6 +44,12 @@ public class EditCandidatePage extends baseclass {
 		 
 		contactNumber.clear();
 		contactNumber.sendKeys(contactnumber); 
+	 }
+	
+	public void ClickOnSaveBtntoSavetheupdatedDetails() {
+		 
+		SavebtntoSaveUpdatedDetailsOnUpdateCandidatePopup.click();
+
 	 }
 	
 	public void EnterNoticePeriodT(String noticeperiod) {

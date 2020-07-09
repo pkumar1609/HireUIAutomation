@@ -4,6 +4,7 @@ Feature: Hirexpert Add, Edit & Delete Candidate feature
 Scenario Outline: Verify the functionality of Add, Edit & Delete Candidate with Employer login
 
 Given Open browser
+And click on Login link
 When click on Employer-Agency SignIn link
 And login with Employer credential.
 And Go to Workbench 
@@ -14,11 +15,12 @@ And Click on Add Candidate button.
 And Enter valid "<CandidateEmail>" 
 And click on find button 
 And fill all the information "<Name>" "<ContactNumber>" "<Designation>" "<Gender>" "<NoticePeriod>" "<Location>" "<Communicationmode>" 
+And upload candidate resume
 And Click on save button 
 And Verify candidate is displayed on workbench
 And Click on Edit Candidate icon on candidate card.
 And Make the changes in "<contactnumber>" field
-And Click on save button
+And Click on save button to save the update details
 Then click on Delete Candidate icon on Candidate card
 And Verify candidate is displayed on workbench after deleting
 And click on close job button and delete the job
@@ -35,6 +37,7 @@ Examples:
 Scenario Outline: Verify the functionality of Add, Edit & Delete Candidate with Agency login
 
 Given Open browser
+And click on Login link
 When click on Employer-Agency SignIn link
 And login with Agency credential.
 And Go to Workbench 
@@ -49,7 +52,7 @@ And Click on save button
 And Verify candidate is displayed on workbench
 And Click on Edit Candidate icon on candidate card.
 And Do changes in "<noticeperiod>" field
-And Click on save button
+And Click on save button to save the update details
 Then click on Delete Candidate icon on Candidate card
 And Verify candidate is displayed on workbench after deleting
 And click on close job button and delete the job
@@ -62,7 +65,7 @@ Examples:
 #  55, 28, 233, 29
   
   
-# If DB clear, register the employer first = employermain01@gmail.com and agency = agencymain02@gmail.com . 
+# If DB clear, register the employer first = employermain01@gmail.com and agency = agencymain01@gmail.com . 
 #otherwise no change required
   
   
