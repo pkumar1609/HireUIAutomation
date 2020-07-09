@@ -52,16 +52,16 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath="//button[contains(text(),'Screening')]")
 	public WebElement screeningbtn;
 	
-	@FindBy(xpath = "//div[@class='tx-profile']")
+	@FindBy(xpath = "//div[contains(@class,'tx-profile')]")
 	public WebElement profile;
 	
-	@FindBy(xpath = "//a[@class='dropdown-item']")   
+	@FindBy(xpath = "//a[@class='dropdown-item']")
 	public WebElement userName;
 	
-	@FindBy(xpath="//a[contains(text(),'Change Password')]")     
+	@FindBy(xpath="//a[contains(text(),'Change Password')]")
 	public WebElement ChangePasswordTab;
 	
-	@FindBy(xpath = "//a[contains(text(),'Update Profile')]")
+	@FindBy(xpath = "(//a[@class='dropdown-item CustomPointer'])[3]")
 	public WebElement updateProfile;
 	
 	@FindBy(xpath="//a[contains(text(),'Log Out')]")
@@ -97,7 +97,8 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(id = "rejectReason")
 	public WebElement rejectcandidatereason;
 	
-	
+	@FindBy(xpath="//i[@id='dropdownBasic1']") 
+	public WebElement threeDot;
 	
 	public String jobname1;
 	public String jobname2;
@@ -132,6 +133,8 @@ public class WorkbenchPage extends baseclass {
 		Thread.sleep(2000);
 		if(emp==true)
 		{
+		Thread.sleep(2000);
+		workbenchpage.threeDot.click();
 		editJobButton.click();
 		Thread.sleep(2000);
 		job= addjobpage.title.getAttribute("value");
