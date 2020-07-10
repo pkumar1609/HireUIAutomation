@@ -63,16 +63,16 @@ public AddJobPage()
 	@FindBy(xpath = "//tr[1]//td[6]//button[1]")
 	public WebElement deleteSkill1;
 	
-	@FindBy(xpath = "//*[@id=\"style-5\"]/form/div/div/div[1]/div[1]/div[5]/div/div[2]/button")
+	@FindBy(xpath = "//button[@title='Add Employee']")
 	public WebElement employerplusicon;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[1]/input")
+	@FindBy(xpath = "//input[@placeholder='Enter Name']")
 	public WebElement employerName;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[2]/input")
+	@FindBy(xpath = "//input[@placeholder='Enter Email']")
 	public WebElement employerEmail;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[3]/input")
+	@FindBy(xpath = "//input[@placeholder='Enter Contact Number']")
 	public WebElement employerContactNumber;
 	
 	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")
@@ -147,6 +147,11 @@ public AddJobPage()
 		se.selectByIndex(2);
 	}
 	
+	public void clickaddemployericon() throws InterruptedException {
+		
+		employerplusicon.click();
+	}
+	
 	public void fillDetails() throws InterruptedException {
 		
 		title.sendKeys("Automation1");
@@ -219,15 +224,15 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 	
 	public void fillEmployerDetailsPlusIcon() {
 		
-		employerName.sendKeys("Sayali1");
-		employerEmail.sendKeys("sayali1@gmail.com");
+		employerName.sendKeys("Trupti1");
+		employerEmail.sendKeys("trupti1@gmail.com");
 		employerContactNumber.sendKeys("215245554");
 	}
 	
 	public void employerDropDown() {
 		
 		se = new Select(employer);
-		se.selectByVisibleText("Sayali 1");
+		se.selectByVisibleText("Trupti1");
 	}
 	
 	public void clickOnSubmitButton() {

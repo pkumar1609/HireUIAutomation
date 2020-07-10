@@ -73,7 +73,7 @@ public class EmployersPage extends baseclass {
 	
 	public void searchEmployer() {
 		
-		String expectedEmail = "sayali1@gmail.com";
+		String expectedEmail = "trupti1@gmail.com";
 		
 		searchfield.click();
 		searchfield.sendKeys(expectedEmail);

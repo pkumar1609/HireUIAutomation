@@ -88,7 +88,7 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 		
 		Thread.sleep(2000);
 		
-		addjobpage.employerplusicon.click();
+		addjobpage.clickaddemployericon();
 		
 		Thread.sleep(3000);
 		
@@ -96,7 +96,7 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 		
 		Thread.sleep(3000);
 		
-		driver.findElement(By.xpath("/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")).click();
+		driver.findElement(By.xpath("//button[@class='btn Cbtn-primary w-20'][contains(text(),'Submit')]")).click();
 		
 		Thread.sleep(1000);
 		
