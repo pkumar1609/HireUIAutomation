@@ -77,6 +77,7 @@ public class LoginPage extends baseclass
 		Action = new Actions(driver);
 	    explicitwait=new WebDriverWait(driver,80);
 	}
+	
 	public void  ClickOnEmployerAgencySigninLink() throws InterruptedException
 	{
 		action.moveToElement(login).click().perform();

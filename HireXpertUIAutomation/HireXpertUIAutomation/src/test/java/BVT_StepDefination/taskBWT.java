@@ -269,20 +269,23 @@ else
 	public void Endtest() throws InterruptedException
 	{
 		dashboardpage.openDashboardPage();
-		taskpage.ClickOnMyTask();
+//		taskpage.ClickOnMyTask();
+//		taskpage.reloadtask();
 		List<WebElement> markCompleteButton = driver.findElements(By.xpath("//button[text()='Mark Complete']"));
-		int size= driver.findElements(By.xpath("//button[text()='Mark Complete']")).size();
+		int size= markCompleteButton.size();
 		for(int i=0;i<size;i++)
 		{
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 			markCompleteButton.get(i).click();
 		}
 		taskpage.ClickOnTeamTask();
+//		taskpage.reloadtask();
 		List<WebElement> markCompleteButton1 = driver.findElements(By.xpath("//button[text()='Mark Complete']"));
-		int size1= driver.findElements(By.xpath("//button[text()='Mark Complete']")).size();
+		int size1= markCompleteButton1.size();
+		System.out.println(size1);
 		for(int i=0;i<size1;i++)
 		{
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 			markCompleteButton1.get(i).click();
 		}
 	}
