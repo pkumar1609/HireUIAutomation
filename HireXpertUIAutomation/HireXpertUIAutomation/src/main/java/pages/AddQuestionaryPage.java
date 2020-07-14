@@ -50,10 +50,10 @@ public class AddQuestionaryPage extends baseclass {
 	@FindBy(xpath="//button[contains(text(),'Save Changes')]")
 	public WebElement SaveChangesBtn;
 	
-	@FindBy(xpath="//*[@id=\"style-5\"]/div/div[3]/div/div/div[2]/input")
+	@FindBy(xpath="//div[@class='col-md-3 pr-0']//input[@placeholder='Cutt-Off Percentage']")
 	public WebElement CuttoffPercentage;
 	
-	@FindBy(xpath="//*[@id=\"style-5\"]/div/div[3]/div/div/div[4]/input")
+	@FindBy(xpath="//input[@placeholder='Rejection Percentage']")
 	public WebElement RejectionPercentage;
 	
 	@FindBy(xpath="//button[contains(text(),'Submit')]")

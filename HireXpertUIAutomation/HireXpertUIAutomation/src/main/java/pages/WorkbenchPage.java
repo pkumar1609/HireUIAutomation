@@ -41,7 +41,7 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[@title=\"Schedule Interview\"]")
 	public WebElement scheduleInterview;
 	
-	@FindBy(xpath="//button[contains(text(),'Add Questionnaire')]")
+	@FindBy(xpath="//button[contains(text(),'Add Questionary')]")   
 	public WebElement AddQuestionarybtn;
 	
 	@FindBy(xpath="//button[@title='Collect Answer']")
@@ -163,6 +163,16 @@ public class WorkbenchPage extends baseclass {
 		{
 		select.selectByVisibleText(addjobpage.jobname+" - Active" );
 		}
+	}
+	
+	public void clickonthreedot() {
+		
+		threeDot.click();
+	}
+	
+	public void clickonAddQuestionarybtn() {
+		
+		AddQuestionarybtn.click();
 	}
 	
 	public void verifyCollectAnswericonT() {

@@ -1,7 +1,6 @@
 package BVT_StepDefination;
 
 import java.io.IOException;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -36,8 +35,10 @@ public class QuestionaryandCollectAnswerStepDefination extends baseclass {
 	@When("^Click on Questionnaire tab$")
 	public void click_on_Questionnaire_tab() throws InterruptedException {
 		
+		Thread.sleep(3000);
+		workbenchpage.clickonthreedot();
 		Thread.sleep(4200);
-		workbenchpage.AddQuestionarybtn.click();
+		workbenchpage.clickonAddQuestionarybtn();
 	}
 	
 	@When("^Enter a \"([^\"]*)\" and enter \"([^\"]*)\" accordingly to that question$")
@@ -70,6 +71,7 @@ public class QuestionaryandCollectAnswerStepDefination extends baseclass {
 	    
 		Thread.sleep(3000);
         addquestionarypage.EntercuttoffPercentageT(cuttoffpercentage);
+        Thread.sleep(3000);
         addquestionarypage.EnterRejectionPercentageT(rejectionpercentage);
 	}
 	   
