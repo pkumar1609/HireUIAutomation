@@ -15,6 +15,7 @@ And Click on Add Candidate button.
 And Enter valid "<CandidateEmail>" 
 And click on find button 
 And fill all the information "<Name>" "<ContactNumber>" "<Designation>" "<Gender>" "<NoticePeriod>" "<Location>" "<Communicationmode>" 
+And upload candidate resume
 And Click on save button 
 And Verify candidate is displayed on workbench
 And Click on Edit Candidate icon on candidate card.
