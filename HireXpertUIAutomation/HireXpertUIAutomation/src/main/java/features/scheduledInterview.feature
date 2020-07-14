@@ -5,6 +5,7 @@ Feature: Interview Management
 	
 	Given User is on Home page of application
     When title of page is HireXpert
+    And click on Login link
     And click on Employer-Agency SignIn link
     And login with Employer credential.
     And Go to Workbench 
@@ -14,6 +15,7 @@ Feature: Interview Management
     And Enter valid "<CandidateEmail>" 
     And click on find button 
     And fill all the information "<Name>" "<ContactNumber>" "<Designation>" "<Gender>" "<NoticePeriod>" "<Location>" "<Communicationmode>"
+    And upload candidate resume
     And Click on save button 
     And observe candidate is getting added in New column
     And click on Schedule Interview icon from candidate card
@@ -31,13 +33,14 @@ Feature: Interview Management
     And click on Reload Candidate button and observe
     And click on Interviews tab
     And Select the filters for which you want candidate interview details and click on Search button
-    | Automation1 | 30/06/2020 |
+    | Automation1 | 25/10/2020 |
     Then Interview details should be reflect according to the filter applied
     And click on close job button and delete the job
     And close the browser
     
     Given User is on Home page of application
     When title of page is HireXpert
+    And click on Login link
     And click on Employer-Agency SignIn link
     And login with Agency credential.
     And Go to Workbench 
@@ -64,7 +67,7 @@ Feature: Interview Management
     And click on Reload Candidate button and observe
     And click on Interviews tab
     And Select the filters for which you want candidate interview details and click on Search button
-    | Automation1 | 30/06/2020 |
+    | Automation1 | 25/10/2020 |
     Then Interview details should be reflect according to the filter applied
     And click on close job button and delete the job
     And click on employer tab and delete the employer
@@ -73,7 +76,7 @@ Feature: Interview Management
     
    Examples: 
      | Title       | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode |   contactnumber   | Title      |ScheduleOn  | Hour | Minute |  Duration  | TimeZone             | hour | duration   | scheduleon | 
-     | Automation1 | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              | candidate02@gmail.com   | Can02   |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |   123456789       | Interview1 | 29/06/2020 | 10   | 00     | 30 Minutes | Indian Standard Time |  11  | 45 Minutes | 30/06/2020 |
+     | Automation1 | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              | candidate02@gmail.com   | Can02   |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |   123456789       | Interview1 | 25/10/2020 | 10   | 00     | 30 Minutes | Indian Standard Time |  11  | 45 Minutes | 30/06/2020 |
 
 
 

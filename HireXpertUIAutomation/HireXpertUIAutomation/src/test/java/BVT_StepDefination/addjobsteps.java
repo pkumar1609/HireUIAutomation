@@ -1,6 +1,7 @@
 package BVT_StepDefination;
 
 import java.util.List;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -116,10 +117,15 @@ public class addjobsteps extends baseclass{
 		System.out.println("\nNew job get added..");
 	}
 	
+	@Then("^click on employer tab and delete the employer if login as agency\\.$")
+	public void click_on_employer_tab_and_delete_the_employer_if_login_as_agency() throws Throwable {
+	    
+		
+	}
+	
 	@Then("^click on Employers tab at the top and verify user able to delete the employer or not when agency is logged in$")
 	public void click_on_Employers_tab_at_the_top_and_verify_user_able_to_delete_the_employer_or_not_when_agency_is_logged_in() throws Throwable {
 	    
-		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
 		if(dynamicElement.size() != 0){
@@ -142,8 +148,7 @@ public class addjobsteps extends baseclass{
 			dashboardpage.openWorkbenchPage();
 			Thread.sleep(5000);
 		}
-		
-		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);	
+			
 	}
 	
 	@Then("^click on Job drop down and select recently added job$")
@@ -156,7 +161,9 @@ public class addjobsteps extends baseclass{
 
 	@Then("^click on Edit Job button to make changes in job$")
 	public void click_on_Edit_Job_button_to_make_changes_in_job() throws Throwable {
-	    
+		Thread.sleep(3000);
+		workbenchpage.clickonthreedot();
+		Thread.sleep(3000);
 		workbenchpage.editJobButton.click();
 		Thread.sleep(3000);
 		String title1 = driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/add-edit-job/div[1]/h5")).getText();
@@ -178,7 +185,8 @@ public class addjobsteps extends baseclass{
 
 	@Then("^again click on Edit Job button and observe the changes$")
 	public void again_click_on_Edit_Job_button_and_observe_the_changes() throws Throwable {
-	    
+		Thread.sleep(3000);
+		workbenchpage.clickonthreedot();
 		workbenchpage.editJobButton.click();
 		Thread.sleep(3000);
 		String expectedBudget = editjobpage.budget.getText();
@@ -221,6 +229,8 @@ public class addjobsteps extends baseclass{
 	    
 		addjobpage.deleteSkills();
 	}
+
+	
 
 	@Then("^after clicking on Delete Skill button present in front of skill then that skill row should get deleted$")
 	public void after_clicking_on_Delete_Skill_button_present_in_front_of_skill_then_that_skill_row_should_get_deleted() throws Throwable {

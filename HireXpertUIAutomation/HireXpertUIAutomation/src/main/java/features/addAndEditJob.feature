@@ -6,6 +6,7 @@ Feature: Job Management
     Given User is on Home page of application
     
     When title of page is HireXpert
+    And click on Login link
     And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
     And click on Workbench tab
     And click on Add Job button and fill all mandatory details on Add Job popup window
@@ -30,7 +31,7 @@ Feature: Job Management
 Examples:
 |    email address            |  password  |
 |  employermain01@gmail.com   |   12345    |
-|  agencymain02@gmail.com     |   12345    |
+|  agencymain01@gmail.com     |   12345    |
 
 #TC ID - 15,21,22,46,74,76,94
 
