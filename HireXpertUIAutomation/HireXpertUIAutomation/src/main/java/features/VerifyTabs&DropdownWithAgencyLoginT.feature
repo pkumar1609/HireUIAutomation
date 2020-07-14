@@ -5,12 +5,14 @@ Scenario Outline: To verify that Questionnarie and Screening tab not displayed w
 on Schedule interview popup when login with Agency
 
 Given Open browser
+And click on Login link
 And click on Employer-Agency SignIn link
 When login with Agency credential
 And Go to Workbench 
 And Add a new Job as agency "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
 And Select the same job from job drop down
 And Add Candidate to that job "<CandidateEmail>" "<Name>" "<ContactNumber>" "<Designation>" "<Gender>" "<NoticePeriod>" "<Location>" "<Communicationmode>"
+And upload candidate resume
 And Click on save button
 And Verify that Questionnarie and Screening tab is not displayed when login with Agency
 And Click on Schedule interview icon 
