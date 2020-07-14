@@ -4,6 +4,7 @@ Feature: HireXpert Screening tab feature
 Scenario Outline: Verify the functionality of Screening tab 
 
 Given Open browser
+And click on Login link
 When click on Employer-Agency SignIn link
 And login with Employer credential
 And Go to Workbench 
@@ -13,6 +14,7 @@ And Click on Add Candidate button.
 And Enter valid "<CandidateEmail>" 
 And click on find button 
 And fill all the information "<Name>" "<ContactNumber>" "<Designation>" "<Gender>" "<NoticePeriod>" "<Location>" "<Communicationmode>"
+And upload candidate resume
 And Click on save button 
 And Verify candidate is displayed on workbench
 And Click on Add Questionnaire 

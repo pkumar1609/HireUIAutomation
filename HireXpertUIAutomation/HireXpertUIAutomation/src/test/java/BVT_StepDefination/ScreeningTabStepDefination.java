@@ -32,6 +32,8 @@ public class ScreeningTabStepDefination extends baseclass {
 	public void click_on_Add_Questionnaire() throws InterruptedException {
 		
 		Thread.sleep(3000);
+		workbenchpage.clickonthreedot();
+		Thread.sleep(3000);
 		workbenchpage.AddQuestionarybtn.click();
 	}
 	
@@ -72,6 +74,8 @@ public class ScreeningTabStepDefination extends baseclass {
 	@When("^Click on screening tab$")
 	public void click_on_screening_tab() throws Throwable {
 
+		Thread.sleep(3000);
+		workbenchpage.clickonthreedot();
 		Thread.sleep(3000);
         workbenchpage.ClickonScreeningBtn();
 	}
