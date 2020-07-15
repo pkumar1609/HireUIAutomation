@@ -8,14 +8,14 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials
 And Go to workbench
 And Add job
-|title              |designation |industry   |jobrole        |location |budget |minexp|maxexp|
-|marketjob1        |developer   |IT software|java developer |pune     |400000 |1     |2     |
+|title                  |designation |industry   |jobrole        |location |budget |minexp|maxexp|
+|software Developer(I)  |developer   |IT software|java developer |pune     |400000 |1     |2     |
 And Select a added job
-#And Click on share job with market place
-#And change information and click on submit
-#|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
-#|8.33                 |30 Days       |60 Days      |90 Days           |
-And Click on Employer marketplace tab 
+And Click on share job with market place
+And change information and click on submit
+|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
+|8.33                 |30 Days       |60 Days      |90 Days           |
+And Click on Employer marketplace tab
 Then Job should be list out in market place page on employer side.
 And Logout from App
 And Click on Employer-Agency Signin link

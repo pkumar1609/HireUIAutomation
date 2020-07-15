@@ -29,19 +29,21 @@ public class JobReviewPage extends baseclass{
 	
 	public void verifyJobDisplay(DataTable credential) throws InterruptedException
 	{
+		
 		Map<String, String> data = credential.asMap(String.class, String.class);
 //		jobname=data.get("title");
-		String approvebtn="(//a[contains(text(),'"+addjobpage.jobname1+"')]//following::button[text()='Approve'])[1]";		
+		String approvebtn="(//a[contains(text(),'"+addjobpage.jobname+"')]//following::button[text()='Approve'])[1]";		
 		System.out.println(approvebtn);
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();",jobReview);
+		common.clickOnSearchBtn();
 		WebElement ele = driver.findElement(By.xpath(approvebtn));
 		executor.executeScript("arguments[0].scrollIntoView();", ele);
 		ele.isDisplayed();
 		executor.executeScript("arguments[0].scrollIntoView();", ele);
 		executor.executeScript("arguments[0].click();",ele);
 		common.clickOnOKBtn();
-		common.clickOnCloseBtn();
+//		common.clickOnCloseBtn();
 		flag=1;
 	}
 	

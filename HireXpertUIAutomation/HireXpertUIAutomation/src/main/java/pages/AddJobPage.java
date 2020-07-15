@@ -294,7 +294,6 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 			}
 		common.ClickSumbit();
 	}
-		
 }
 	
 

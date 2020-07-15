@@ -72,7 +72,7 @@ public class LoginPage extends baseclass
 	public LoginPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
+//		this.driver = driver;
 		
 		Action = new Actions(driver);
 	    explicitwait=new WebDriverWait(driver,80);
@@ -80,6 +80,7 @@ public class LoginPage extends baseclass
 	
 	public void  ClickOnEmployerAgencySigninLink() throws InterruptedException
 	{
+		
 		action.moveToElement(login).click().perform();
 		Thread.sleep(4000);
 		EmployerAgencySignInlink.click();
@@ -193,8 +194,8 @@ public class LoginPage extends baseclass
 	
 	public void loginInAppWithSupport() throws InterruptedException
 	{
-		emailaddress.sendKeys(prop.getProperty("supportId"));
-		password.sendKeys(prop.getProperty("pwd"));
+		emailaddress.sendKeys("support@gmail.com");
+		password.sendKeys("12345");
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",signin);
 		

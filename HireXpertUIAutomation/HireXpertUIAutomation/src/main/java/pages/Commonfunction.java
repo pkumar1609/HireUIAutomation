@@ -40,7 +40,8 @@ public class Commonfunction extends baseclass {
 	@FindBy(id = "confirmModalCloseBtn")
 	public WebElement noButtonPopup;
 	
-
+	@FindBy(xpath = "//button[contains(text(), 'Search')]")
+	public WebElement Search;
 	
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
 	
@@ -48,6 +49,12 @@ public class Commonfunction extends baseclass {
 	{
 		Thread.sleep(4000);
 		savebtn.click();
+	}
+	
+	public void clickOnSearchBtn() throws InterruptedException
+	{
+		Thread.sleep(4000);
+		Search.click();
 	}
 	
 	public void clickOnCloseBtn() throws InterruptedException

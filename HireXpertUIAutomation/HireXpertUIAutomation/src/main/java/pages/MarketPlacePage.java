@@ -115,7 +115,7 @@ public class MarketPlacePage extends baseclass {
 	
 	public void clickOnEditJobProposalBtn() throws InterruptedException
 	{
-		String editjobproposalbtn = "//a[contains(text(),'" +addjobpage.jobname1+ "')]//following::button[text()='Edit']" ;
+		String editjobproposalbtn = "//a[contains(text(),'" +addjobpage.jobname+ "')]//following::button[text()='Edit']" ;
 //	    explicitwait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(editjobproposalbtn))));
 	    Thread.sleep(2000);
 		driver.findElement(By.xpath(editjobproposalbtn)).click();
@@ -124,20 +124,20 @@ public class MarketPlacePage extends baseclass {
 	
 	public void statusOfRequestEmp()
 	{
-		String StatusAtEmp="//td[contains(text(),'"+ addjobpage.jobname1 +"')]//following::td[text()='Rejected']";
+		String StatusAtEmp="//td[contains(text(),'"+ addjobpage.jobname +"')]//following::td[text()='Rejected']";
 		driver.findElement(By.xpath(StatusAtEmp)).isDisplayed();
 		System.out.println("Status of request is rejected at employer side");
 	}
 	public void employerSignedstatus()
 	{
-		String employerSignedStatus="//td[contains(text(),'" + addjobpage.jobname1 + "')]//following::td[text()='Employer Signed']";
+		String employerSignedStatus="//td[contains(text(),'" + addjobpage.jobname + "')]//following::td[text()='Employer Signed']";
 		driver.findElement(By.xpath(employerSignedStatus)).isDisplayed(); 
 		System.out.println("Status of request is Employer Signed at employer side");	
 	}
 	
 	public void employerSignedstatusAgy()
 	{
-		String employerSignedStatusAgy="//a[contains(text(),'"+ addjobpage.jobname1 +"')]//following::td[text()='Employer Signed']";
+		String employerSignedStatusAgy="//a[contains(text(),'"+ addjobpage.jobname +"')]//following::td[text()='Employer Signed']";
 		driver.findElement(By.xpath(employerSignedStatusAgy)).isDisplayed(); 
 		System.out.println("Status of request is Employer Signed at agency side");
 	
@@ -145,7 +145,7 @@ public class MarketPlacePage extends baseclass {
 
 		public void statusOfRequestAtAgy()
 		{
-			String StatusAtAgy="//a[contains(text(),'"+ addjobpage.jobname1 +"')]//following::td[text()='Rejected']";
+			String StatusAtAgy="//a[contains(text(),'"+ addjobpage.jobname +"')]//following::td[text()='Rejected']";
 			try
 			{
 				driver.findElement(By.xpath(StatusAtAgy)).isDisplayed(); 
@@ -160,7 +160,7 @@ public class MarketPlacePage extends baseclass {
 	public void clickApplybtnOfParticularJob() throws InterruptedException
 	{
 	try{
-			String x="//a[contains(text(),'" +addjobpage.jobname1+ "')]//following::button[text()='Apply']";
+			String x="//a[contains(text(),'" +addjobpage.jobname+ "')]//following::button[text()='Apply']";
 			driver.findElement(By.xpath(x)).isDisplayed();
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			WebElement ele =driver.findElement(By.xpath(x));
@@ -181,14 +181,14 @@ public class MarketPlacePage extends baseclass {
 	{
 		Thread.sleep(2000);
 		select=new Select(jobdropdown);
-		select.selectByVisibleText(addjobpage.jobname1+" - Active");
-		executor.executeScript("arguments[0].click();", searchbtn);
+		select.selectByVisibleText(addjobpage.jobname+" - Active");
+		common.clickOnSearchBtn();
 	}
 	
 	public void ClickOnRejectBtn() throws InterruptedException
 	{
 //		job =addjobpage.jobname1;
-		String rejectbtn="//td[contains(text(),'" + addjobpage.jobname1 + "')]//following::button[text()='Reject']";
+		String rejectbtn="//td[contains(text(),'" + addjobpage.jobname + "')]//following::button[text()='Reject']";
 		System.out.println(rejectbtn);
 		Thread.sleep(2000);
 		if(driver.findElement(By.xpath(rejectbtn)).isEnabled())
@@ -205,14 +205,14 @@ public class MarketPlacePage extends baseclass {
 	
 	public void ClickOnReviewBtn() throws InterruptedException
 	{
-		String reviewbtn= "//p[contains(text(),'" + addjobpage.jobname1 + "')]//following::button[text()='Review']";
+		String reviewbtn= "//p[contains(text(),'" + addjobpage.jobname + "')]//following::button[text()='Review']";
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(reviewbtn)).click();	
 	}
 
 	public void ClickOnReviewBtnAgy() throws InterruptedException
 	{
-		String reviewbtnAgy= "//a[contains(text(),'" + addjobpage.jobname1 + "')]//following::button[text()='Review']";
+		String reviewbtnAgy= "//a[contains(text(),'" + addjobpage.jobname + "')]//following::button[text()='Review']";
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(reviewbtnAgy)).click();	
 	}
@@ -237,9 +237,12 @@ public class MarketPlacePage extends baseclass {
 	
 	
 	public void ClickOnShareWithMarketPlace() throws InterruptedException
+	
 	{
+		workbenchpage.clickonthreedot();
 		executor.executeScript("arguments[0].click();", sharewithmarketplacebtn);
 	}
+	
 	 public void EnterdeatilsOfMarketplace(DataTable credentials) throws InterruptedException
 	 {
 		 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
@@ -252,7 +255,7 @@ public class MarketPlacePage extends baseclass {
 			 select1.selectByVisibleText(data.get("Payment Cycle"));
 			 Select select2= new Select(replacementPeriod);
 			 select2.selectByVisibleText(data.get("Replacement Period"));
-			 employerspage.ClickSubmitBtn();
+			 common.ClickSumbit();;
 			 try
 			 {
 			 common.confimYes.isDisplayed();

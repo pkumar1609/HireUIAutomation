@@ -165,8 +165,9 @@ public class WorkbenchPage extends baseclass {
 		}
 	}
 	
-	public void clickonthreedot() {
+	public void clickonthreedot() throws InterruptedException {
 		
+		Thread.sleep(2000);
 		threeDot.click();
 	}
 	
