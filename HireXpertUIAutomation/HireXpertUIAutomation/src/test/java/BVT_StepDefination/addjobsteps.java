@@ -227,7 +227,12 @@ public class addjobsteps extends baseclass{
 	@When("^click on Delete Skill button in front of any skill$")
 	public void click_on_Delete_Skill_button_in_front_of_any_skill() throws Throwable {
 	    
+		Thread.sleep(2000);
 		addjobpage.deleteSkills();
+		Thread.sleep(2000);
+		common.clickOnCloseBtn();
+		Thread.sleep(2000);
+		common.clickOnConfirmYes();
 	}
 
 	
