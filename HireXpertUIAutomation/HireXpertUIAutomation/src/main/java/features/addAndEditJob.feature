@@ -30,7 +30,7 @@ Feature: Job Management
     
 Examples:
 |    email address            |  password  |
-#|  employermain01@gmail.com   |   12345    |
+|  employermain01@gmail.com   |   12345    |
 |  agencymain01@gmail.com     |   12345    |
 
 #TC ID - 15,21,22,46,74,76,94
