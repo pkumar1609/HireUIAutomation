@@ -68,7 +68,7 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath="//a[contains(text(),'Log Out')]")
 	public WebElement Logout;
 	
-	@FindBy(xpath = "//button[@title='Agreement']")
+	@FindBy(xpath = "//button[text()=' Agreement']")
 	public WebElement agreementbtn;
 	
 	@FindBy(xpath = "//button[@title='Add Task']")
@@ -121,7 +121,7 @@ public class WorkbenchPage extends baseclass {
 	}
 	
 	public void AddJob() throws InterruptedException {
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		addjob.click();
 	}
 	
@@ -167,7 +167,7 @@ public class WorkbenchPage extends baseclass {
 	
 	public void clickonthreedot() throws InterruptedException {
 		
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		threeDot.click();
 	}
 	
@@ -256,6 +256,7 @@ public class WorkbenchPage extends baseclass {
 	
 	public void clickOnAgreementbtn() throws InterruptedException
 	{
+		workbenchpage.clickonthreedot();
 		Thread.sleep(2000);
 		agreementbtn.click();
 	}

@@ -90,8 +90,9 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	}
 	
    public void clickEmployerAgencySignInlink() throws InterruptedException {
+		action.moveToElement(loginlink).click().perform();
 		Thread.sleep(2000);
-	   EmployerAgencySignInlink.click();
+		EmployerAgencySignInlink.click();
 	}
    
    public void clickJobseekerCandidateSignInlinklink() {

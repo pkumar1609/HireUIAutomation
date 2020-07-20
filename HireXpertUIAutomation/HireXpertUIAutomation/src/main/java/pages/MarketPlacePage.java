@@ -213,7 +213,7 @@ public class MarketPlacePage extends baseclass {
 	public void ClickOnReviewBtnAgy() throws InterruptedException
 	{
 		String reviewbtnAgy= "//a[contains(text(),'" + addjobpage.jobname + "')]//following::button[text()='Review']";
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(reviewbtnAgy)).click();	
 	}
 

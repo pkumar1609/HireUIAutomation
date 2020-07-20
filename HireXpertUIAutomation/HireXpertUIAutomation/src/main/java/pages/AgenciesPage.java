@@ -103,7 +103,9 @@ public class AgenciesPage extends baseclass {
 		{
 			System.out.println("team added succesfully");
 		}
+		
 	}
+	common.clickOnCloseBtn();
 	}
 	
 

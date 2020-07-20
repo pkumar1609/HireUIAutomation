@@ -200,17 +200,17 @@ public class MarketplaceBvt extends baseclass {
 	public void click_on_add_candidate() throws Throwable {
 		workbenchpage.clickOnAddCandidate();
 	}
-
-//	@And("^Enter All details of candidate$")
-//	public void enter_All_details_of_candidate() throws Throwable {
-//		workbenchpage.enterEmailId();
-//		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
-//		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-//		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
-//		common.clickOnSaveBtn();
-//		common.clickOnConfirmYes();
-//	}
-
+	
+	@Then("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" ,\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+	public void enter_All_details_of_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
+		workbenchpage.enterEmailId(CandidateEmail);
+		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
+		addcandidatepage.uploadResumeDocument();
+		common.clickOnSaveBtn();
+		common.clickOnConfirmYes();
+		addcandidatepage.checkCandidateALreadyPresent();
+	}
+	
 	@Then("^User should be able to add candidate$")
 	public void user_should_be_able_to_add_candidate() throws Throwable {
 	  driver.getPageSource().contains("can11");

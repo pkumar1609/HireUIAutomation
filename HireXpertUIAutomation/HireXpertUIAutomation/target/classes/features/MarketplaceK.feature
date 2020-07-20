@@ -119,14 +119,14 @@ Then status should display as employer signed
 
 
 @TC363_375 @BVT @market
-Scenario: To check the functionality of Review request and add candidate
+Scenario Outline: To check the functionality of Review request and add candidate
 Given User must be registered
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials
 And Go to workbench
 And Add job
-|title              |designation |industry   |jobrole        |location |budget |minexp|maxexp|
-|marketjob12        |developer   |IT software|java developer |pune     |400000 |1     |2     |
+|title                 |designation |industry   |jobrole        |location |budget |minexp|maxexp|
+|Software Tester(I)    |developer   |IT software|java developer |pune     |400000 |1     |2     |
 And Select a added job
 And Click on share job with market place
 And change information and click on submit
@@ -175,11 +175,11 @@ Then all terms and condition remain same for agency one
 |Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|Employer|Agency|
 |8.33                 |30 Days       |60 Days      |90 Days           |pemp    |pagy  |
 And Click on add candidate
-And Enter All details of candidate
+And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>" ,"<Gender>", "<NoticePeriod>","<Location>" and "<Communicationmode>"
 Then User should be able to add candidate
 And Logout from App
 And Click on Employer-Agency Signin link
-And Login with another agency 
+And Login with another agency
 And Go to agency marketplace tab
 And Click on Apply button of job
 And Click on Review button
@@ -187,6 +187,9 @@ Then All updated terms and condition should show for new agency
 |Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|Employer|Agency|
 |9                    |30 Days       |60 Days      |90 Days           |pemp    |pagy1 |
 
+Examples:
+|Name   |CandidateEmail   |ContactNumber|Designation   |Gender|NoticePeriod |Location|Communicationmode|
+|Pratik |pratik@gmail.com |4564668596   |developer     |Male  |30           |pune     |Email            |
 
 
 #@TC375

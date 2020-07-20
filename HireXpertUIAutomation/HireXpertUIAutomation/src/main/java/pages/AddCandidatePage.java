@@ -30,7 +30,6 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//button[contains(text(),'Find')]")
 	public WebElement FindButton;
 	
-//	@FindBy(id = "Name")
 	@FindBy(xpath = "//input[@id='Name']")
 	public WebElement name;
 	
@@ -117,7 +116,6 @@ public class AddCandidatePage extends baseclass {
 	private String ExpertiseLevel2;
 	
 	public void EnterAllMandatoryfieldsT(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws InterruptedException, AWTException {
-    	 
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),' Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
 		if(dynamicElement.size() != 0)
@@ -150,8 +148,11 @@ public class AddCandidatePage extends baseclass {
 		}
 //		common.clickOnSaveBtn();
 //		common.clickOnConfirmYes();
-try {
-				
+	}
+	public void checkCandidateALreadyPresent() throws InterruptedException
+	{
+		try {
+			
 			driver.findElement(By.xpath("//h6[contains(text(),' This candidate is already added to this job either by you or somebody else.')]")).isDisplayed();
 			System.out.println("This candidate is already added to this job either by you or somebody else");
 			common.clickOnOKBtn();
@@ -159,9 +160,11 @@ try {
 			common.clickOnCloseBtn();
 			common.clickOnConfirmYes();
 		}
-catch(NoSuchElementException e )
-{}
+		catch(NoSuchElementException e )
+		{}
 	}
+
+	
 		
         public void Enterexpertilevel (String ExpertiseLevel1, String ExpertiseLevel2 ) {
         		
@@ -185,8 +188,11 @@ catch(NoSuchElementException e )
 	}
 	
 	public void uploadResumeDocument() throws AWTException {
+		
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("Documents\\CV.doc");
+		upload.sendKeys("C:\\Users\\TLP33\\Documents\\CV.docx");
+		
+
 	}
 	
 	public void uploadResumeDocumentT() throws AWTException {  //Method for Trupti

@@ -55,8 +55,8 @@ public class ShareWithTeamPage extends baseclass {
 		this.driver = driver;
 	}
 	
-	public void clickOnAddButton() {
-		
+	public void clickOnAddButton() throws InterruptedException {
+		Thread.sleep(4000);
 		AddTeamButton.click();
 	}
 	

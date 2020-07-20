@@ -245,7 +245,6 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-		Thread.sleep(3000);
 		workbenchpage.AddJob();
 		this.emp=loginpage.b;
 		if(emp==true) 

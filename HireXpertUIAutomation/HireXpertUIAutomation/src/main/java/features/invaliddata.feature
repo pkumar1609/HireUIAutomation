@@ -6,6 +6,7 @@ Feature: User Management
     Given User is on Home page of application
     
     When title of page is HireXpert
+   	And Click on Employer-Agency Signin link
     And enter invalid user email address and invalid password which is not registered "<username>" and "<password>"
     Then User should not be able to login to application and error message should display 
     And enter valid user email address and invalid password which is registered to application "<username>" and "<password>"
@@ -19,7 +20,7 @@ Feature: User Management
     
 #TC ID - 7,8,9  
 Examples:
-|username             |password |  
-|  asdfghj@gmail.com  | asdfghj |
-|  pemp@gmail.com     | asdfghj |
+|username           |password |  
+|asdfghj@gmail.com  | asdfghj |
+|pemp@gmail.com     | asdfghj |
 	

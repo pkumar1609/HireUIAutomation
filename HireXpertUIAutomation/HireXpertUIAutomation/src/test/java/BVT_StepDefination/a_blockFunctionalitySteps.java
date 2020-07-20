@@ -8,6 +8,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.After;
@@ -16,6 +17,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
 import utilPackage.baseclass;
 import utilPackage.utilclass;
 
@@ -31,73 +33,48 @@ boolean emp;
 	
 	@When("^enter valid \"([^\"]*)\" and \"([^\"]*)\" for registered employer and click on Sign in button$")
 	public void enter_valid_and_for_registered_employer_and_click_on_Sign_in_button(String username, String Password) throws Throwable {
-		registerpage.clickEmployerAgencySignInlink();
-		Thread.sleep(3000);
-		loginpage.emailaddress.sendKeys(username);
-		loginpage.password.sendKeys("12345");
-		loginpage.signin.click();
-		loginpage.identifyUserK();
+		loginpage.loginIn(username, Password);
 	}
 	
 
-	@When("^Agency should be added previously \"([^\"]*)\"$")
-	public void agency_should_be_added_previously(String arg1) throws Throwable {
-	    
-	}
-	@When("^click on Share With Agency button and select the Share checkbox present in front of the \"([^\"]*)\" to share the job$")
-	public void click_on_Share_With_Agency_button_and_select_the_Share_checkbox_present_in_front_of_the_to_share_the_job(String username) throws Throwable {
-		
-		
-		Thread.sleep(2000);
-		workbenchpage.shareWithAgencyButton.click();
-		Thread.sleep(3000);
-		sharewithteampage.searchField.click();
-		sharewithteampage.searchField.sendKeys(username);
-		Thread.sleep(2000);
-		
-		sharewithagencypage.shareCheckbox.click();
-		Thread.sleep(1000);
-		try
-		 {
-			common.confimYes.isDisplayed();
-			common.clickOnConfirmYes();
-		}
-			catch(NoSuchElementException e )
-		{
-			
-		}
-		
+	@When("^Agency should be added previously$")
+	public void agency_should_be_added_previously(DataTable credentials) throws Throwable {
+
+		agenciespage.enterAllDetails(credentials);
+	 
 	}
 	
+	@When("^click on Share With Agency button and select the Share checkbox present in front of the \"([^\"]*)\" to share the job$")
+	public void click_on_Share_With_Agency_button_and_select_the_Share_checkbox_present_in_front_of_the_to_share_the_job(String agency) throws Throwable {	
+	sharewithagencypage.shareWithAgency(agency);	
+	}
 	
 	@When("^click on Yes button from confirmation popup and click on Close button from Share Job window$")
 	public void click_on_Yes_button_from_confirmation_popup_and_click_on_Close_button_from_Share_Job_window() throws Throwable {
 
 		
-		Thread.sleep(4000);
-		common.closebtn.click();
+//		Thread.sleep(4000);
+//		common.closebtn.click();
 }
 
 	@When("^again click on Share With Agency button and select the Block/Unblock checkbox present in front of the agency \"([^\"]*)\" with whom you shared the job$")
 	public void again_click_on_Share_With_Agency_button_and_select_the_Block_Unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job(String agyEmailId) throws Throwable {
-		Thread.sleep(3000); 
+		Thread.sleep(4000);
+		workbenchpage.clickonthreedot();
 		workbenchpage.shareWithAgencyButton.click();
 		Thread.sleep(3000);
-		
 		sharewithteampage.searchField.click();
 		sharewithteampage.searchField.sendKeys(agyEmailId);
-		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected())
+		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
 		{
-			
 		}
 		else
 		{
-			Thread.sleep(2000);
-			sharewithagencypage.blockUnblockCheckbox.click();
 			Thread.sleep(4000);
+			sharewithagencypage.blockUnblockCheckbox.click();
 			common.clickOnConfirmYes();
 		}
-		
+		common.clickOnCloseBtn();
 		
 	}
 	
@@ -119,45 +96,44 @@ boolean emp;
 	public void click_on_Workbench_tab_and_select_the_job_for_which_agency_is_blocked() throws Throwable {
 	    this.emp=loginpage.b;
 		dashboardpage.openWorkbenchPage();
-		Thread.sleep(3000);
-		workbenchpage.se = new Select(workbenchpage.jobDropDown);
-		if(emp==true)
-		{
-			workbenchpage.se.selectByVisibleText(addjobpage.jobname1+" - Active");
-		}
-		else
-		{
-			workbenchpage.se.selectByVisibleText(addjobpage.jobname2+" - Active");
-		}
+		workbenchpage.selectJobK();
+//		Thread.sleep(3000);
+//		workbenchpage.se = new Select(workbenchpage.jobDropDown);
+//		if(emp==true)
+//		{
+//			workbenchpage.se.selectByVisibleText(addjobpage.jobname+" - Active");
+//		}
+//		else
+//		{
+//			workbenchpage.se.selectByVisibleText(addjobpage.jobname+" - Active");
+//		}
 		
 		
 	}
 	@When("^enter \"([^\"]*)\"of candidate and click on Find button and observe$")
 	public void enter_of_candidate_and_click_on_Find_button_and_observe(String CandEmailId) throws Throwable {
-		addcandidatepage.validatePageTitle();
 		Thread.sleep(2000);
 		addcandidatepage.emailField.click();
 		addcandidatepage.emailField.sendKeys(CandEmailId);
 		addcandidatepage.FindButton.click();
-		Thread.sleep(3000);
 	}
 	
 	@Then("^Blocked agency should not be able to add candidate for the job and error message message should display and he should be able to see all candidate status which are added for that job$")
 	public void blocked_agency_should_not_be_able_to_add_candidate_for_the_job_and_error_message_message_should_display_and_he_should_be_able_to_see_all_candidate_status_which_are_added_for_that_job() throws Throwable {
-		common.okbtn.isDisplayed();
-    	common.clickOnOKBtn();
-		System.out.println("\nBlocked agency not able to add candidate for the job");
-		System.out.println("Error message should display like - You are blocked by employer so you can not add more candidate now");
-	}
-	@And("^Fill All details \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void click_on_OK_button_from_error_message_popup(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
 		
-		addcandidatepage.EnterAllMandatoryfieldsT(Name,ContactNumber,Designation, Gender, NoticePeriod, Location, Communicationmode);
-		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
-		common.clickOnSaveBtn();
-		common.clickOnConfirmYes();   
+		boolean ele = driver.findElement(By.xpath("//h6[contains(text(),' You are blocked by employer so you can not add more candidate now.')]")) != null;
+    	common.clickOnOKBtn();
+		Assert.assertEquals(ele, true);
 	}
+//	@And("^Fill All details \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+//	public void click_on_OK_button_from_error_message_popup(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
+//		
+//		addcandidatepage.EnterAllMandatoryfieldsT(Name,ContactNumber,Designation, Gender, NoticePeriod, Location, Communicationmode);
+//		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
+//		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
+//		common.clickOnSaveBtn();
+//		common.clickOnConfirmYes();   
+//	}
 	
 	
 
@@ -166,33 +142,51 @@ boolean emp;
 	public void click_on_Close_button_from_Add_Candidate_page_and_click_on_Yes_button_from_confirmation_popup() throws Throwable {
 	  
 		common.clickOnCloseBtn();
-		common.clickOnConfirmYes();
+		common.clickOnConfirmYes(); 
 	}
 
-	
 	
 	@Then("^click on Share With Team button and add new team by clicking on Add button on Share Job page \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void click_on_Share_With_Team_button_and_add_new_team_by_clicking_on_Add_button_on_Share_Job_page(String team, String teamId, String ContactNumber) throws Throwable {
-		  		Thread.sleep(3000);
-				workbenchpage.shareWithTeamButton.click();
+	public void click_on_Share_With_Team_button_and_add_new_team_by_clicking_on_Add_button_on_Share_Job_page(String team,String teamId,String ContactNumber) throws Throwable {
+		  		workbenchpage.clickonthreedot();
 				Thread.sleep(3000);
+				workbenchpage.shareWithTeamButton.click();
+		
 				sharewithteampage.clickOnAddButton();
 				Thread.sleep(3000);
-			
-				sharewithteampage.TeamName.sendKeys(team);
-				sharewithteampage.TeamEmail.sendKeys(teamId);
-				sharewithteampage.TeamContactNumber.sendKeys(ContactNumber);
 				
+				teampage.TeamMemberName.sendKeys(team);
+				teampage.TeamMemberEmail.sendKeys(teamId);
+				teampage.TeamMemberContactNumber.sendKeys(ContactNumber);
 				sharewithteampage.selectAddToTeamMember();
-				common.submitbtn.click();
-				Thread.sleep(3000);
+				common.ClickSumbit();
+				
+				try
+				{
+					common.clickOnOKBtn();
+					common.clickOnAddClosebtn();
+				}
+				catch(NoSuchElementException e)
+				{}
+				
+		
 	}
-
+	
+	
+//	@Then("^click on Share With Team button and add new team by clicking on Add button on Share Job page$")
+//	public void click_on_Share_With_Team_button_and_add_new_team_by_clicking_on_Add_button_on_Share_Job_page(DataTable credentials) throws Throwable {
+//		workbenchpage.clickonthreedot();
+//		Thread.sleep(3000);
+//		workbenchpage.shareWithTeamButton.click();
+//		teampage.AddAllDetailsK(credentials);
+//	}
+//	
+	
 	@Then("^search for \\\"([^\\\"]*)\\\" team member and select the Share checkbox present in front of the agency team member to share the job with team member$")
 	public void search_for_team_member_and_select_the_Share_checkbox_present_in_front_of_the_agency_team_member_to_share_the_job_with_team_member(String teamId) throws Throwable {
 	    
 	
-		
+		Thread.sleep(4000);
 		sharewithteampage.searchField.click();
 		sharewithteampage.searchField.sendKeys(teamId);
 		Thread.sleep(1000);
@@ -201,8 +195,13 @@ boolean emp;
 
 	@Then("^click on Yes button from confirmation popup and observe$")
 	public void click_on_Yes_button_from_confirmation_popup_and_observe() throws Throwable {
-	    
-		common.clickOnConfirmYes();
+	    try
+	    {
+	    	common.clickOnConfirmYes();
+	    	}
+	    catch(NoSuchElementException e)
+	    {}
+		
 	}
 
 	@Then("^user should able to search team member and blocked agency should not able to share job with any team members and error message should display$")
@@ -232,7 +231,7 @@ boolean emp;
 		if(dynamicElement.size() != 0){
 			
 			System.out.println("\nSearching team member with Employer..");
-			
+			workbenchpage.clickonthreedot();
 			workbenchpage.shareWithTeamButton.click();
 			Thread.sleep(3000);
 			
@@ -246,7 +245,7 @@ boolean emp;
 		else{
 			
 			System.out.println("\nSearching team member with Agency..");
-			
+			workbenchpage.clickonthreedot();
 			workbenchpage.shareWithTeamButton.click();
 			Thread.sleep(3000);
 			
@@ -341,15 +340,7 @@ boolean emp;
 		dashboardpage.openWorkbenchPage();
 		Thread.sleep(3000);
 		workbenchpage.se = new Select(workbenchpage.jobDropDown);
-		this.emp=loginpage.b;
-		if(emp==true)
-		{
-			workbenchpage.se.selectByVisibleText(addjobpage.jobname1+" - Active");
-		}
-		else
-		{
-			workbenchpage.se.selectByVisibleText(addjobpage.jobname2+" - Active");
-		}
+		workbenchpage.selectJobK();
 	}
 
 	@Then("^Blocked team member should not be able to add candidate for the job and error message should display and he should be able to see all candidate status which are added by himself into that job$")
@@ -358,12 +349,14 @@ boolean emp;
 		System.out.println("\nBlocked team member should not be able to add candidate for the job");
 		System.out.println("Error message should display like - You are blocked by your team owner for this job so you can not add more candidate now");
 	}
-@After("@bvt_agencyblock,@bvt_teamblock,@bvt_agencyunblock,@bvt_teamunblock")
-public void teardowm() throws InterruptedException
-{
-	dashboardpage.openWorkbenchPage();
-	workbenchpage.selectJobK();
-	workbenchpage.clickOnCloseJobButton();
-}
+	
+	
+//	@After("@bvt_agencyblock,@bvt_teamblock,@bvt_agencyunblock,@bvt_teamunblock")
+//	public void teardowm() throws InterruptedException
+//	{
+//		dashboardpage.openWorkbenchPage();
+//		workbenchpage.selectJobK();
+//		workbenchpage.clickOnCloseJobButton();
+//	}
 
 }

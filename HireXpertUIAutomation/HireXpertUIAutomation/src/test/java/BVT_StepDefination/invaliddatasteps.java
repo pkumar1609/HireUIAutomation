@@ -24,10 +24,10 @@ public void user_is_on_Home_page_of_application() throws IOException, AWTExcepti
 
 @When("^enter invalid user email address and invalid password which is not registered \"([^\"]*)\" and \"([^\"]*)\"$")
 public void enter_invalid_user_email_address_and_invalid_password_which_is_not_registered_and(String username, String password) throws Throwable {
-	registerpage.clickEmployerAgencySignInlink();
-	Thread.sleep(3000);
+
 	loginpage.emailaddress.sendKeys(username);
 	loginpage.password.sendKeys(password);
+	Thread.sleep(3000);
 	loginpage.signin.click();
 }
 
@@ -41,6 +41,7 @@ public void user_should_not_be_able_to_login_to_application_and_error_message_sh
 	System.out.println("Error message should display like: " + error);
 	Thread.sleep(2000);
 }
+
 @Then("^enter valid user email address and invalid password which is registered to application \"([^\"]*)\" and \"([^\"]*)\"$")
 public void enter_valid_user_email_address_and_invalid_password_which_is_registered_to_application_and(String username, String password) throws Throwable {
 	loginpage.emailaddress.clear();
