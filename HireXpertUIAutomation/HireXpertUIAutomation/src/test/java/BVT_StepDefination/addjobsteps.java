@@ -120,6 +120,22 @@ public class addjobsteps extends baseclass{
 	@Then("^click on employer tab and delete the employer if login as agency\\.$")
 	public void click_on_employer_tab_and_delete_the_employer_if_login_as_agency() throws Throwable {
 	    
+		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+		if(dynamicElement.size() != 0){
+
+			System.out.println("\nEmployer tab not present for Employer user..");
+		}
+		
+		else{
+		
+			dashboardpage.openEmployersPage();
+			Thread.sleep(3000);
+			employerspage.searchEmployer();	
+			Thread.sleep(2000);
+			employerspage.deleteSearchedEmployer();
+			Thread.sleep(2000);
+			common.clickOnConfirmYes();
+		}
 		
 	}
 	
@@ -144,7 +160,8 @@ public class addjobsteps extends baseclass{
 			System.out.println("\nError message should display like: Job is added for this employer. to delete it first you need to close the jos for this employer and then delete.");
 			driver.findElement(By.id("alertModalCloseBtn")).click();
 			Thread.sleep(1000);
-			employerspage.clickEmployersCloseButton();
+            common.clickOnCloseBtn();
+            Thread.sleep(2000);
 			dashboardpage.openWorkbenchPage();
 			Thread.sleep(5000);
 		}
@@ -227,7 +244,12 @@ public class addjobsteps extends baseclass{
 	@When("^click on Delete Skill button in front of any skill$")
 	public void click_on_Delete_Skill_button_in_front_of_any_skill() throws Throwable {
 	    
+		Thread.sleep(2000);
 		addjobpage.deleteSkills();
+		Thread.sleep(2000);
+		common.clickOnCloseBtn();
+		Thread.sleep(2000);
+		common.clickOnConfirmYes();
 	}
 
 	
