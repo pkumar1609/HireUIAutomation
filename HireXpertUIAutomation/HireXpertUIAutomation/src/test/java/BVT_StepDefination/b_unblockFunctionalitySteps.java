@@ -11,6 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.DataTable;
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -64,36 +65,36 @@ public class b_unblockFunctionalitySteps extends baseclass {
 ////		Thread.sleep(2000);
 //	}
 	
-	@When("^click on the Block/Unblock to unblock checkbox present in front of the agency with whom you shared the job \\\"([^\\\"]*)\\\"$")
+	@When("^click on the Block/Unblock to unblock checkbox present in front of whom you shared the job \\\"([^\\\"]*)\\\"$")
 	public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job(String agyEmailId) throws Throwable {
-		workbenchpage.clickonthreedot();
-		Thread.sleep(2000);
-		sharewithagencypage.shareWithAgency.click();
-//		sharewithagencypage.searchField.click();
+//		workbenchpage.clickonthreedot();
+//		Thread.sleep(2000);
+//		sharewithagencypage.shareWithAgency.click();
+		sharewithagencypage.searchField.clear();
 		sharewithagencypage.searchField.sendKeys(agyEmailId);
-		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
-		{
-		}
-		else
-		{
+//		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
+//		{
+//		}
+//		else
+//		{
 			Thread.sleep(2000);
 			sharewithagencypage.blockUnblockCheckbox.click();
-			Thread.sleep(2000);
 			common.clickOnConfirmYes();
-		}
+//		}
 		
-		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
-		{
+//		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
+//		{
 			Thread.sleep(2000);
 			sharewithagencypage.blockUnblockCheckbox.click();
-			Thread.sleep(2000);
 			common.clickOnConfirmYes();
-		}
-		else
-		{
-			
-		}
+//		}
+//		else
+//		{
+//			
+//		}
 	}
+	
+
 
 	@Then("^Employer should be able to unblock the agency$")
 	public void employer_should_be_able_to_unblock_the_agency() throws Throwable {
@@ -236,14 +237,14 @@ public class b_unblockFunctionalitySteps extends baseclass {
 //		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 //		
 //	}
-
-//	@When("^click on Yes button from confirmation popup and select the Block/Unblock checkbox present in front of the team member with whom you shared the job$")
+//
+//	@When("^click on Block/Unblock checkbox present in front of the team member with whom you shared the job$")
 //	public void click_on_Yes_button_from_confirmation_popup_and_select_the_Block_Unblock_checkbox_present_in_front_of_the_team_member_with_whom_you_shared_the_job() throws Throwable {
 //	    
 ////		common.clickOnConfirmYes();
-////		Thread.sleep(3000);
-////		sharewithteampage.blockUnblockCheckbox.click();
-////		Thread.sleep(2000);
+////		
+//		sharewithteampage.blockUnblockCheckbox.click();
+//
 //	}
 
 //	@When("^now again click on Block/Unblock checkbox present in front of the team member which is blocked previously to unblock that team member$")
@@ -260,12 +261,14 @@ public class b_unblockFunctionalitySteps extends baseclass {
 //		}
 //		
 //	}
-//
-//	@Then("^User should be able to unblock the team member$")
-//	public void User_should_be_able_to_unblock_the_team_member() throws Throwable {
-//	    
-//		System.out.println("User able to unblock team member");
-//	}
+
+	
+	@Then("^User should be able to unblock the team member$")
+	public void User_should_be_able_to_unblock_the_team_member() throws Throwable {
+	    
+		boolean isblock = driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected();
+		Assert.assertEquals(false, isblock);
+	}
 //
 //	@Then("^logout with logged in user and login with team member valid credentials which you unblocked$")
 //	public void logout_with_logged_in_user_and_login_with_team_member_valid_credentials_which_you_unblocked(DataTable dt) throws Throwable {
@@ -352,11 +355,20 @@ public class b_unblockFunctionalitySteps extends baseclass {
 //		
 //		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 //	}
-//
-//	@Then("^Unblocked team member should be able add candidate$")
-//	public void unblocked_team_member_should_be_able_add_candidate() throws Throwable {
-//	    
-//		System.out.println("Unblocked team member able to add candidate..");
-//	}
-//
+
+	
+	@Then("^Unblocked team member should be able add candidate \"([^\"]*)\"$")
+	public void unblocked_team_member_should_be_able_add_candidate(String Name) throws Throwable {
+		boolean candidateDisplay = driver.findElement(By.xpath("//span[text()=' "+Name+"']")) != null;
+		Assert.assertEquals(true, candidateDisplay);
+	}
+	
+	@After("@bvt_agencyunblock, @bvt_teamunblock")
+	public void tearDown() throws InterruptedException
+	{
+		dashboardpage.openWorkbenchPage();
+		workbenchpage.selectJobK();
+		workbenchpage.clickOnCloseJobButton();
+	}
+
 }

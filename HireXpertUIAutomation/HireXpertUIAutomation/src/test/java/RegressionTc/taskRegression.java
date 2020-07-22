@@ -204,7 +204,7 @@ public class taskRegression extends baseclass{
 	public void enter_All_details_of_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
 		workbenchpage.enterEmailId(CandidateEmail);
 		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
-		
+		addcandidatepage.checkCandidateALreadyPresent();
 	}
 	
 	@And("^verify candidate card is displaying or not in New column$")

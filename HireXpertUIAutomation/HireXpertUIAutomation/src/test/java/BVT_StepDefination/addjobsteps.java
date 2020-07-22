@@ -26,20 +26,20 @@ public class addjobsteps extends baseclass{
 		System.out.println("Title of HireXpert application: " +title);
 	}
 	
-	@When("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
-	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String arg1, String arg2) throws Throwable {
-	    
-		Thread.sleep(4000);
-		
-		registerpage.clickEmployerAgencySignInlink();
-		Thread.sleep(3000);
-		
-		loginpage.emailaddress.sendKeys(arg1);
-		loginpage.password.sendKeys(arg2);
-		loginpage.signin.click();
-		Thread.sleep(5000);
-		loginpage.identifyUserK();
-	}
+//	@When("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
+//	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String arg1, String arg2) throws Throwable {
+//	    
+//		Thread.sleep(4000);
+//		
+//		registerpage.clickEmployerAgencySignInlink();
+//		Thread.sleep(3000);
+//		
+//		loginpage.emailaddress.sendKeys(arg1);
+//		loginpage.password.sendKeys(arg2);
+//		loginpage.signin.click();
+//		Thread.sleep(5000);
+//		loginpage.identifyUserK();
+//	}
 
 	@When("^click on Workbench tab$")
 	public void click_on_Workbench_tab() throws Throwable {

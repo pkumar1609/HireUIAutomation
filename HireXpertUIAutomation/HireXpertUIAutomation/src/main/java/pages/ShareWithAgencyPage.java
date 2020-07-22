@@ -51,46 +51,18 @@ public class ShareWithAgencyPage extends baseclass {
 //		searchField.sendKeys(expectedEmail);
 //	}
 	
-	public void shareWithAgency(String agyEmailId,String empEmailId) throws InterruptedException
+	public void shareWithAgency(String agyEmailId) throws InterruptedException
 	{
 		workbenchpage.clickonthreedot();
-		shareWithAgency.click();
-//		sharewithagencypage.searchField.click();
-		this.emp=loginpage.b;
-		if(emp==true)
-		{
-//			sizeOfShareWithTeam++;
-//			Sharedteam=agency;
-//			String xpathforshare= "(//td[text()='"+Sharedteam+"']//following::";
-			sharewithagencypage.searchField.sendKeys(agyEmailId);
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("(//span[@class='checkmark CheckBoxM'])[1]")).click();
-			try
-			{
-				common.confimYes.isDisplayed();
-				common.clickOnConfirmYes();
-			}
-			catch(NoSuchElementException e)
-			{}
-			}
-		
-		else 
-		{
-			sharewithagencypage.searchField.sendKeys(empEmailId);
-//			sizeOfShareWithTeam++;
-//			Sharedteam=agency;
-//			String xpathforshare= "(//td[text()='"+Sharedteam+"']//following::span[@class='checkmark CheckBoxM'])[1]";
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("(//span[@class='checkmark CheckBoxM'])[1]")).click();
-			try
-			{
-				common.confimYes.isDisplayed();
-				common.clickOnConfirmYes();
-			}
-			catch(NoSuchElementException e)
-			{}
+		Thread.sleep(3000);
+		workbenchpage.shareWithAgencyButton.click();
+		sharewithteampage.searchField.sendKeys(agyEmailId);
+		Thread.sleep(2000);
+		sharewithteampage.shareCheckbox.click();
+		common.clickOnConfirmYes();
+
 	}
-		common.clickOnCloseBtn();
+
 }
 //	public void isAgencyPresent(DataTable credentials) throws InterruptedException
 //	{
@@ -112,7 +84,7 @@ public class ShareWithAgencyPage extends baseclass {
 //		}
 //		}
 //	}
- }
+// }
 
 
 

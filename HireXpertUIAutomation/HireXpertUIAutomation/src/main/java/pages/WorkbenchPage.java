@@ -284,13 +284,10 @@ public void ClickonScreeningBtn() {
 		//	
 //			     closejobbtn.click();
 //			     common.clickOnConfirmYes();
-
-				threeDot.click();
-				
+				clickonthreedot();
 				Thread.sleep(2000);
-				
 				closejobbtn.click();
-				
+				common.clickOnConfirmYes();
 				}
 
 	 
