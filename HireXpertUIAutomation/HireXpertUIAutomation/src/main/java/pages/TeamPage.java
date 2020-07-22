@@ -122,6 +122,7 @@ public class TeamPage extends baseclass {
 			TeamMemberContactNumber.sendKeys(data.get("contact"));
 			Select dropdown = new Select(countryid);
 			dropdown.selectByVisibleText("India");
+			
 			Thread.sleep(1000);
 			common.ClickSumbit();
 			try
@@ -139,35 +140,35 @@ public class TeamPage extends baseclass {
 		}
 	 }
 	
-//	public void AddAllDetailsagyK(DataTable credentials) throws InterruptedException
-//	{
-//		
-//		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-//		{
-//			teampage.clickOnAddBtnK();
-//			TeamMemberName.sendKeys(data.get("Nameagy"));
-//			namevalidate= data.get("Nameagy");
-//			TeamMemberEmail.sendKeys(data.get("Emailagy"));
-//			TeamMemberContactNumber.sendKeys(data.get("contactagy"));
+	public void AddAllDetailsagyK(DataTable credentials) throws InterruptedException
+	{
+		
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+			teampage.clickOnAddBtnK();
+			TeamMemberName.sendKeys(data.get("Nameagy"));
+			namevalidate= data.get("Nameagy");
+			TeamMemberEmail.sendKeys(data.get("Emailagy"));
+			TeamMemberContactNumber.sendKeys(data.get("contact"));
 //			select = new Select(countryid);
 //			select.selectByVisibleText("India");
-//			common.ClickSumbit();
-//			try
-//			{ 
-//				common.okbtn.isDisplayed();
-//				common.clickOnOKBtn();
-//				common.clickOnAddClosebtn();
-//				System.out.println("these Agency team member are already added");
-//			}
-//			catch(NoSuchElementException e)
-//			{
-//				System.out.println("Agency team added succesfully");
-//			}
-//			
-//		}
-//			
-//			
-//	}
+			common.ClickSumbit();
+			try
+			{ 
+				common.okbtn.isDisplayed();
+				common.clickOnOKBtn();
+				common.clickOnAddClosebtn();
+				System.out.println("these Agency team member are already added");
+			}
+			catch(NoSuchElementException e)
+			{
+				System.out.println("Agency team added succesfully");
+			}
+			
+		}
+			
+			
+	}
 	
 	public void deleteteamK()
 	{
@@ -195,18 +196,18 @@ public class TeamPage extends baseclass {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
 			dashboardpage.openTeamPage();
-			teamMemberName = data.get("Name");
-			String teammemberpresent= "//td[text()='" +teamMemberName+ "']";
-			try 
-			{
-				driver.findElement(By.xpath(teammemberpresent)).isDisplayed();
-				teampage.closeTeamPage();
-			}
-			catch(NoSuchElementException e)
-			{
+//			teamMemberName = data.get("Name");
+//			String teammemberpresent= "//td[text()='" +teamMemberName+ "']";
+//			try 
+//			{
+//				driver.findElement(By.xpath(teammemberpresent)).isDisplayed();
+//				teampage.closeTeamPage();
+//			}
+//			catch(NoSuchElementException e)
+//			{
 				AddAllDetailsK(credentials);
 				teampage.closeTeamPage();
-			}
+//			}
 		}
 	}
 
@@ -217,18 +218,18 @@ public class TeamPage extends baseclass {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
 			dashboardpage.openTeamPage();
-			teamMemberNameAgy=data.get("agyteam");
-			String teammemberpresent= "//td[text()='" +teamMemberNameAgy+ "']";
-			try
-			{
-				driver.findElement(By.xpath(teammemberpresent)).isDisplayed();
+//			teamMemberNameAgy=data.get("agyteam");
+//			String teammemberpresent= "//td[text()='" +teamMemberNameAgy+ "']";
+//			try
+//			{
+//				driver.findElement(By.xpath(teammemberpresent)).isDisplayed();
+//				teampage.closeTeamPage();
+//			}
+//			catch(NoSuchElementException e)
+//			{
+				AddAllDetailsagyK(credentials);
 				teampage.closeTeamPage();
-			}
-			catch(NoSuchElementException e)
-			{
-				AddAllDetailsK(credentials);
-				teampage.closeTeamPage();
-			}	
+//			}	
 		}
 		}
 	
@@ -247,7 +248,7 @@ public class TeamPage extends baseclass {
 	public void verifyTeamAdded(DataTable credentials) throws InterruptedException
 	{
 		this.emp=loginpage.b;
-		if(emp==true)
+		if(emp==true) 
 		{
 		teampage.isTeamPresentForEmp(credentials);
 		}

@@ -3,6 +3,7 @@ package BVT_StepDefination;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -63,11 +64,15 @@ public class b_unblockFunctionalitySteps extends baseclass {
 ////		Thread.sleep(2000);
 //	}
 	
-	@When("^click on the Block/Unblock to unblock checkbox present in front of the agency with whom you shared the job$")
-	public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job() throws Throwable {
-		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected())
+	@When("^click on the Block/Unblock to unblock checkbox present in front of the agency with whom you shared the job \\\"([^\\\"]*)\\\"$")
+	public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job(String agyEmailId) throws Throwable {
+		workbenchpage.clickonthreedot();
+		Thread.sleep(2000);
+		sharewithagencypage.shareWithAgency.click();
+//		sharewithagencypage.searchField.click();
+		sharewithagencypage.searchField.sendKeys(agyEmailId);
+		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
 		{
-			
 		}
 		else
 		{
@@ -77,8 +82,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 			common.clickOnConfirmYes();
 		}
 		
-		
-		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected())
+		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
 		{
 			Thread.sleep(2000);
 			sharewithagencypage.blockUnblockCheckbox.click();
@@ -94,18 +98,16 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	@Then("^Employer should be able to unblock the agency$")
 	public void employer_should_be_able_to_unblock_the_agency() throws Throwable {
 		
-		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected())
-		{
-			System.out.println("agency is blocked");
-		}
-		else
-		{
-			System.out.println("Employer able to unblock the agency..");
-		}
-		Thread.sleep(3000);
-		common.closebtn.click();
+		boolean isUnblock = driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected();
+		Assert.assertEquals(false, isUnblock);
 		
 	}
+	
+	@Then("^Click on close button$")
+	public void click_on_close_button() throws Throwable {
+		common.clickOnCloseBtn();
+	}
+
 
 //	@Then("^logout with employer and login with Agency valid credentials which you unblocked$")
 //	public void logout_with_employer_and_login_with_Agency_valid_credentials_which_you_unblocked(DataTable dt) throws Throwable {
@@ -128,15 +130,8 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	    this.emp=loginpage.b;
 		dashboardpage.openWorkbenchPage();
 		Thread.sleep(3000);
-		workbenchpage.se = new Select(workbenchpage.jobDropDown);
-		if(emp==true)
-		{
-			workbenchpage.se.selectByVisibleText(addjobpage.jobname1+" - Active");
-		}
-		else
-		{
-			workbenchpage.se.selectByVisibleText(addjobpage.jobname2+" - Active");
-		}
+		workbenchpage.selectJobK();
+		
 	}
 
 //	@Then("^click on Add Candidate button$")

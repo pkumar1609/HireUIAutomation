@@ -76,7 +76,7 @@ public class taskRegression extends baseclass{
 	@And("^team member should be added$")
 	public void team_member_should_be_added(DataTable credentials) throws Throwable {
 		teampage.verifyTeamAdded(credentials);
-	}
+	}  
 	
 	@And("^Click on mark in progress$")
 	public void click_on_mark_in_progress() throws Throwable 

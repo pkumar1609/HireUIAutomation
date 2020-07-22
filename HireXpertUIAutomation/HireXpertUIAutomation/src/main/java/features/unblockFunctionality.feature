@@ -6,24 +6,29 @@ Feature: Job Management
   	Given User is on Home page of application
     
     When title of page is HireXpert
-    And enter valid "<username>" and "<passward>" for registered employer and click on Sign in button
-    And Agency should be added previously "pagy@gmail.com"
+    And Click on Employer-Agency Signin link
+    And enter valid "<username>" and "<Password>" for registered employer and click on Sign in button
+#    And Click on Agencies tab
+#    And Agency should be added previously
+#    |Name  |Email             | contact  |
+#	|pagy  |pagy@gmail.com    | 1234564  |
     And click on Workbench tab and select job from Jobs drop down
-    |title               |designation |industry   |jobrole        |location |budget |minexp|maxexp|agytitle  |
-    |Software developer  |developer   |IT software|java developer |pune     |400000 |1     |2     |agencyjob1|
-    And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 
-    And click on the Block/Unblock to unblock checkbox present in front of the agency with whom you shared the job
+    |title                       |designation |industry   |jobrole        |location |budget |minexp|maxexp|agytitle  |
+    |Software developer(unblock) |developer   |IT software|java developer |pune     |400000 |1     |2     |agencyjob1|
+    And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" "<empEmailId>" to share the job 
+    And click on the Block/Unblock to unblock checkbox present in front of the agency with whom you shared the job "<agyEmailId>"
     Then Employer should be able to unblock the agency
+    And Click on close button
     And logout with employer and login with Agency "<agyEmailId>" and "<passward>" valid credentials which you blocked on Share Job page 
     And click on Workbench tab and select job from Jobs drop down for which agency is unblocked
     And click on Add Candidate button
     And enter "<CandEmailId>"of candidate and click on Find button and observe
-    And Fill All details "<Name>","<ContactNumber>","<Designation>","<Gender>","<NoticePeriod>","<Location>","<Communicationmode>"
+	And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>" ,"<Gender>", "<NoticePeriod>","<Location>" and "<Communicationmode>"
     Then Unblocked agency should be able to add candidate
 #    And close the browser
  Examples:
- |username           |Password  |CandEmailId    |team|teamId       |ContactNumber  |agyEmailId     |Name |Designation|Gender|NoticePeriod|Location|Communicationmode|
- |pemp@gmail.com     | 12345    |can11@gmail.com|pa1 |pa1@gmail.com|689498595      |pagy@gmail.com |can11|developer  |Male  |20          |pune    |Email            |      
+ |username           |Password  |CandEmailId    |team|teamId       |ContactNumber  |agyEmailId     |empEmailId       |Name |Designation|Gender|NoticePeriod|Location|Communicationmode|
+ |pemp@gmail.com     |12345     |can11@gmail.com|pa1 |pa1@gmail.com|689498595      |pagy@gmail.com |pemp@gmail.com   |can11|developer  |Male  |20          |pune    |Email            |      
 
 @bvt_teamunblock
   Scenario Outline: Verify the Unblock functionality for team member with Employer and Agency login
@@ -31,8 +36,10 @@ Feature: Job Management
   	Given User is on Home page of application
     
     When title of page is HireXpert
+    And Click on Employer-Agency Signin link
     And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
-    And Team member should be added previously "sayali1team2@gmail.com" and "sayagency1team2@gmail.com"
+    And Click on team tab
+    And Team member should be added previously "pe1@gmail.com" and "pa1@gmail.com"
     And click on Workbench tab and select job from Jobs drop down
     And click on Share With Team button and select the Share checkbox present in front of the team member
     | sayali1team2@gmail.com | sayagency1team2@gmail.com |

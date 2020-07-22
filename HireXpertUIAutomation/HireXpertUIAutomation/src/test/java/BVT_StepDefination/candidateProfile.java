@@ -42,25 +42,6 @@ public class candidateProfile extends baseclass {
 	    Thread.sleep(3000);
 	    workbenchpage.selectJobK();
 	    
-//	    Thread.sleep(3000);
-//	    
-//	    //verify candidate card count before adding candidate to job
-//	    driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-//		
-//		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
-//		
-//		if(dynamicElement.size() != 0) {
-//			
-//			List<WebElement> element = driver.findElements(By.xpath("//div[@class='item-box cdk-drag']"));
-//			candidateupdateprofilepage.beforecount = element.size();
-//			System.out.println("\nCard count before adding new candidate: " + candidateupdateprofilepage.beforecount);
-//			
-//			if(candidateupdateprofilepage.beforecount == 0){
-//				
-//				System.out.println("Candidate card is not available..");
-//			}
-//	
-//		}
 	}
 	
 	@When("^click on Add Candidate button$")

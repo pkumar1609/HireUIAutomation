@@ -24,7 +24,7 @@ public class ShareWithAgencyPage extends baseclass {
 	@FindBy(xpath = "//span[@class='checkmark CheckBoxM']")
 	public WebElement shareCheckbox;
 	
-	@FindBy(xpath = "(//span[@class=\"checkmark CheckBoxM\"])[2]")
+	@FindBy(xpath = "(//span[@class='checkmark CheckBoxM'])[2]")
 	public WebElement blockUnblockCheckbox;
 	
 	@FindBy(xpath = "//button[@title='Share With Agency']")
@@ -51,18 +51,20 @@ public class ShareWithAgencyPage extends baseclass {
 //		searchField.sendKeys(expectedEmail);
 //	}
 	
-	public void shareWithAgency(String agency) throws InterruptedException
+	public void shareWithAgency(String agyEmailId,String empEmailId) throws InterruptedException
 	{
 		workbenchpage.clickonthreedot();
 		shareWithAgency.click();
+//		sharewithagencypage.searchField.click();
 		this.emp=loginpage.b;
 		if(emp==true)
 		{
 //			sizeOfShareWithTeam++;
-			Sharedteam=agency;
-			String xpathforshare= "(//td[text()='"+Sharedteam+"']//following::span[@class='checkmark CheckBoxM'])[1]";
+//			Sharedteam=agency;
+//			String xpathforshare= "(//td[text()='"+Sharedteam+"']//following::";
+			sharewithagencypage.searchField.sendKeys(agyEmailId);
 			Thread.sleep(2000);
-			driver.findElement(By.xpath(xpathforshare)).click();
+			driver.findElement(By.xpath("(//span[@class='checkmark CheckBoxM'])[1]")).click();
 			try
 			{
 				common.confimYes.isDisplayed();
@@ -74,11 +76,12 @@ public class ShareWithAgencyPage extends baseclass {
 		
 		else 
 		{
+			sharewithagencypage.searchField.sendKeys(empEmailId);
 //			sizeOfShareWithTeam++;
-			Sharedteam=agency;
-			String xpathforshare= "(//td[text()='"+Sharedteam+"']//following::span[@class='checkmark CheckBoxM'])[1]";
+//			Sharedteam=agency;
+//			String xpathforshare= "(//td[text()='"+Sharedteam+"']//following::span[@class='checkmark CheckBoxM'])[1]";
 			Thread.sleep(2000);
-			driver.findElement(By.xpath(xpathforshare)).click();
+			driver.findElement(By.xpath("(//span[@class='checkmark CheckBoxM'])[1]")).click();
 			try
 			{
 				common.confimYes.isDisplayed();
