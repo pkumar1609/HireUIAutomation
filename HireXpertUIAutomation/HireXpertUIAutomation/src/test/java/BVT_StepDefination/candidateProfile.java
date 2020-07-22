@@ -50,32 +50,46 @@ public class candidateProfile extends baseclass {
 		workbenchpage.addCandidateButton.click();
 		
 	}
-	
-	@When("^enter email id of candidate which is not registered previously \"([^\"]*)\"$")
-	public void enter_email_id_of_candidate_which_is_not_registered_previously(String CandidateEmail) throws Throwable {
 
-         Thread.sleep(3000);
+	
+	@When("^enter email id of candidate which is not registered previously and click on Find button \"([^\"]*)\"$")
+	public void enter_email_id_of_candidate_which_is_not_registered_previously_and_click_on_Find_button(String CandidateEmail) throws Throwable {
+	    
+        Thread.sleep(2000);
 		
 		addcandidatepage.EntercandidateemailT(CandidateEmail);
+		Thread.sleep(2000);
+		addcandidatepage.clickonFindbtn();
 	}
 
-	@Then("^logout with employer and login with new candidate added by employer \"([^\"]*)\" \"([^\"]*)\"$")
-	public void logout_with_employer_and_login_with_new_candidate_added_by_employer(String CandidateEmail, String Password) throws Throwable {
-
+	@When("^Fill all mandatory details and click on Save button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void fill_all_mandatory_details_and_click_on_Save_button(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
+	    
+		Thread.sleep(3000);
+		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
+	}
+	
+	@Then("^logout as employer and login as new candidate added by employer \"([^\"]*)\" \"([^\"]*)\"$")
+	public void logout_as_employer_and_login_as_new_candidate_added_by_employer(String CandidateEmail, String Password) throws Throwable {
+	    
+		Thread.sleep(3000);
 		workbenchpage.ClickonLogout();
-		Thread.sleep(3000);
 		
+		Thread.sleep(3000);
+		registerpage.clickLogin();
+		
+		Thread.sleep(3000);
 		registerpage.clickJobseekerCandidateSignInlinklink();
-		Thread.sleep(3000);
 		
+		Thread.sleep(3000);
 		registerpage.enterCandidateEmailandPassword(CandidateEmail, Password);
 		
 		Thread.sleep(3000);
 		registerpage.ClickSigninbtn();
 	}
 
-
-		@When("^Select expertise level for skills \"([^\"]*)\" \"([^\"]*)\"$")
+	
+	@When("^Select expertise level for skills \"([^\"]*)\" \"([^\"]*)\"$")
 	public void select_expertise_level_for_skills(String ExpertiseLevel1, String ExpertiseLevel2) throws Throwable {
 
 		Thread.sleep(3000);
@@ -83,54 +97,64 @@ public class candidateProfile extends baseclass {
 	}
 
 	
-	@When("^enter email id of candidate which is not registered previously and click on Find button$")
-	public void enter_email_id_of_candidate_which_is_not_registered_previously_and_click_on_Find_button(DataTable dt) throws Throwable {
-	    
-		List<List<String>> data = dt.raw();
+//	@When("^enter email id of candidate which is not registered previously and click on Find button$")
+//	public void enter_email_id_of_candidate_which_is_not_registered_previously_and_click_on_Find_button(DataTable dt) throws Throwable {
+//	    
+//		List<List<String>> data = dt.raw();
+//		
+//		addcandidatepage.emailField.sendKeys(data.get(0).get(0));
+//		Thread.sleep(3000);
+//		addcandidatepage.FindButton.click();
+//		Thread.sleep(3000);
+//	}
+	
+//	@When("^Fill all mandatory details and click on Save button$")
+//	public void fill_all_mandatory_details_and_click_on_Save_button(DataTable dt) throws Throwable {
+//	    
+////		addcandidatepage.validatePageTitle();
+//		
+//		List<List<String>> data = dt.raw();
+//		
+//		addcandidatepage.name.sendKeys(data.get(0).get(0));
+//		Thread.sleep(1000);
+//		addcandidatepage.contactNumber.sendKeys(data.get(0).get(1));
+//		Thread.sleep(1000);
+//		addcandidatepage.designation.sendKeys(data.get(0).get(2));
+//		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//*[@id=\"style-5\"]/div/div[1]/form/div[2]/div[1]/div/div/div[2]")).click();  //click outside 
+//		
+//		Select se = new Select(addcandidatepage.gender);
+//		se.selectByVisibleText(data.get(0).get(3));
+//	
+//		Thread.sleep(1000);
+//		addcandidatepage.noticePeriod.sendKeys(data.get(0).get(4));
+//		Thread.sleep(1000);
+//		addcandidatepage.location.sendKeys(data.get(0).get(5));
+//		Thread.sleep(1000);
+//		
+//		se = new Select(addcandidatepage.communicationMode);
+//		se.selectByVisibleText(data.get(0).get(6));
+//	
+//		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//*[@id=\"style-5\"]/div/div[1]/form/div[2]/div[1]/div/div/div[2]")).click();  //click outside 
+//		
+//		se = new Select(addcandidatepage.expertiseLevel);
+//		se.selectByVisibleText(data.get(0).get(7));
+//		
+//		addcandidatepage.uploadResumeDocumentT();
+//		
+//		common.clickOnSaveBtn();
+//	}
+	
+	@When("^upload candidate resume and click on save button$")
+	public void upload_candidate_resume_and_click_on_save_button() throws Throwable {
 		
-		addcandidatepage.emailField.sendKeys(data.get(0).get(0));
 		Thread.sleep(3000);
-		addcandidatepage.FindButton.click();
-		Thread.sleep(3000);
-	}
-	
-	@When("^Fill all mandatory details and click on Save button$")
-	public void fill_all_mandatory_details_and_click_on_Save_button(DataTable dt) throws Throwable {
-	    
-		addcandidatepage.validatePageTitle();
-		
-		List<List<String>> data = dt.raw();
-		
-		addcandidatepage.name.sendKeys(data.get(0).get(0));
-		Thread.sleep(1000);
-		addcandidatepage.contactNumber.sendKeys(data.get(0).get(1));
-		Thread.sleep(1000);
-		addcandidatepage.designation.sendKeys(data.get(0).get(2));
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//*[@id=\"style-5\"]/div/div[1]/form/div[2]/div[1]/div/div/div[2]")).click();  //click outside 
-		
-		Select se = new Select(addcandidatepage.gender);
-		se.selectByVisibleText(data.get(0).get(3));
-	
-		Thread.sleep(1000);
-		addcandidatepage.noticePeriod.sendKeys(data.get(0).get(4));
-		Thread.sleep(1000);
-		addcandidatepage.location.sendKeys(data.get(0).get(5));
-		Thread.sleep(1000);
-		
-		se = new Select(addcandidatepage.communicationMode);
-		se.selectByVisibleText(data.get(0).get(6));
-	
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//*[@id=\"style-5\"]/div/div[1]/form/div[2]/div[1]/div/div/div[2]")).click();  //click outside 
-		
-		se = new Select(addcandidatepage.expertiseLevel);
-		se.selectByVisibleText(data.get(0).get(7));
-		
-		addcandidatepage.uploadResumeDocumentT();
-		
+		 addcandidatepage.uploadResumeDocumentT();
+		 Thread.sleep(3000);
 		common.clickOnSaveBtn();
 	}
+
 	
 	@When("^click on Yes button if probability related fields are not filled and observe$")
 	public void click_on_Yes_button_if_probability_related_fields_are_not_filled_and_observe() throws Throwable {
@@ -192,20 +216,32 @@ public class candidateProfile extends baseclass {
 		
 	}
 	
+//	@Then("^logout with employer and login with new candidate added by employer$")
+//	public void logout_with_employer_and_login_with_new_candidate_added_by_employer(DataTable dt) throws Throwable {
+//	    
+//		workbenchpage.ClickonLogout();
+//		Thread.sleep(3000);
+//		
+//		registerpage.clickJobseekerCandidateSignInlinklink();
+//		Thread.sleep(3000);
+//		
+//		List<List<String>> data = dt.raw();
+//		loginpage.emailaddress.sendKeys(data.get(0).get(0));
+//		loginpage.password.sendKeys(data.get(0).get(1));
+//		loginpage.signin.click();
+//		Thread.sleep(5000);
+//	}
+	
 	@Then("^logout with employer and login with new candidate added by employer$")
-	public void logout_with_employer_and_login_with_new_candidate_added_by_employer(DataTable dt) throws Throwable {
-	    
+	public void logout_with_employer_and_login_with_new_candidate_added_by_employer(String CandidateEmail, String password) throws Throwable {
+		
 		workbenchpage.ClickonLogout();
 		Thread.sleep(3000);
-		
-		registerpage.clickJobseekerCandidateSignInlinklink();
+		registerpage.clickLogin();
 		Thread.sleep(3000);
-		
-		List<List<String>> data = dt.raw();
-		loginpage.emailaddress.sendKeys(data.get(0).get(0));
-		loginpage.password.sendKeys(data.get(0).get(1));
-		loginpage.signin.click();
-		Thread.sleep(5000);
+		registerpage.clickJobseekerCandidateSignInlinklink();
+    	Thread.sleep(3000);
+    	registerpage.loginwithnewcandidate(CandidateEmail, password);
 	}
 	
 	@Then("^logout as candidate and login as same employer$")
@@ -280,10 +316,23 @@ public class candidateProfile extends baseclass {
 		Thread.sleep(2000);
 	}
 	
+	@Then("^Select the On Notice Period field and set Last working day on Update Profile page \"([^\"]*)\"$")
+	public void select_the_On_Notice_Period_field_and_set_Last_working_day_on_Update_Profile_page(String LastWorkingDay) throws Throwable {
+		
+		Thread.sleep(3000);
+		candidateupdateprofilepage.noticePeriodCheckbox.click();
+		Thread.sleep(3000);
+		candidateupdateprofilepage.enterLastWorkingDay(LastWorkingDay);
+	}
+
+	
 	@Then("^Click on Save button and again go to Update Profile page$")
 	public void click_on_Save_button_and_again_go_to_Update_Profile_page() throws Throwable {
-	    
+		
+		Thread.sleep(3000);
 		common.clickOnSaveBtn();
+		Thread.sleep(3000);
+		common.clickOnOKBtn();
 		Thread.sleep(3000);
 		workbenchpage.openUpdateProfilePage();
 		Thread.sleep(3000);
@@ -330,35 +379,73 @@ public class candidateProfile extends baseclass {
 		candidateupdateprofilepage.addSkillButton.click();
 	}
 	
-	@Then("^add skill, expertise level and certificate$")
-	public void add_skill_expertise_level_and_certificate(DataTable dt) throws Throwable {
+	@Then("^click on Skills Information link$")
+	public void click_on_Skills_Information_link() throws Throwable {
 	    
-		List<List<String>> data = dt.raw();
-		candidateupdateprofilepage.skill2.sendKeys(data.get(0).get(0));
-		Thread.sleep(1000);
-		Select se = new Select(candidateupdateprofilepage.expertiseLevel2);
-		se.selectByVisibleText(data.get(0).get(1));
-		Thread.sleep(1000);
-		candidateupdateprofilepage.certificate2.sendKeys(data.get(0).get(2));
-		Thread.sleep(1000);
+		candidateupdateprofilepage.clickonskillsInformation();
 	}
+
+
 	
-	@Then("^add same skill, expertise level and certificate$")
-	public void add_same_skill_expertise_level_and_certificate(DataTable dt) throws Throwable {
-	    
-		candidateupdateprofilepage.addSkillButton.click();
+	@Then("^add skill, expertise level and certificate \"([^\"]*)\" \"([^\"]*)\"$")
+	public void add_skill_expertise_level_and_certificate(String Skill1, String ExpertiseLevel) throws Throwable {
 		
-		List<List<String>> data = dt.raw();
-		candidateupdateprofilepage.skill3.sendKeys(data.get(0).get(0));
-		Thread.sleep(1000);
-		Select se = new Select(candidateupdateprofilepage.expertiseLevel3);
-		se.selectByVisibleText(data.get(0).get(1));
-		Thread.sleep(1000);
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[@class='col-md-8 mt-2']//tr[1]//td[1]//input[1]")).sendKeys(Skill1); // enter 1st skill
+		Thread.sleep(3000);
+		WebElement expertiselevel = driver.findElement(By.xpath("//tr[1]//td[2]//label[1]//select[1]"));
+		Select select = new Select (expertiselevel);
+		select.selectByVisibleText(ExpertiseLevel);    // set expertise level
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//tr[1]//td[3]//input[1]")).sendKeys("ISTQB"); //Enter certification
+		
 	}
+
+	@Then("^add same skill, expertise level and certificate \"([^\"]*)\" \"([^\"]*)\"$")
+	public void add_same_skill_expertise_level_and_certificate(String Skill2, String ExpertiseLevel) throws Throwable {
+	    
+		Thread.sleep(3000);
+        driver.findElement(By.xpath("//tr[2]//td[1]//input[1]")).sendKeys(Skill2); // enter 2nd skill
+        Thread.sleep(3000);
+		WebElement expertiselevel = driver.findElement(By.xpath("//tr[2]//td[2]//label[1]//select[1]"));
+		Select select = new Select (expertiselevel);
+		select.selectByVisibleText(ExpertiseLevel);    // set expertise level
+		
+		driver.findElement(By.xpath("//tr[3]//td[4]//button[1]//i[1]")).click(); // delete 3rd skill
+		
+	}
+
+
+	
+//	@Then("^add skill, expertise level and certificate$")
+//	public void add_skill_expertise_level_and_certificate(DataTable dt) throws Throwable {
+//	    
+//		List<List<String>> data = dt.raw();
+//		candidateupdateprofilepage.skill2.sendKeys(data.get(0).get(0));
+//		Thread.sleep(1000);
+//		Select se = new Select(candidateupdateprofilepage.expertiseLevel2);
+//		se.selectByVisibleText(data.get(0).get(1));
+//		Thread.sleep(1000);
+//		candidateupdateprofilepage.certificate2.sendKeys(data.get(0).get(2));
+//		Thread.sleep(1000);
+//	}
+//	
+//	@Then("^add same skill, expertise level and certificate$")
+//	public void add_same_skill_expertise_level_and_certificate(DataTable dt) throws Throwable {
+//	    
+//		candidateupdateprofilepage.addSkillButton.click();
+//		
+//		List<List<String>> data = dt.raw();
+//		candidateupdateprofilepage.skill3.sendKeys(data.get(0).get(0));
+//		Thread.sleep(1000);
+//		Select se = new Select(candidateupdateprofilepage.expertiseLevel3);
+//		se.selectByVisibleText(data.get(0).get(1));
+//		Thread.sleep(1000);
+//	}
 	
 	@Then("^fill other mandatory details and click on Save button$")
 	public void fill_other_mandatory_details_and_click_on_Save_button() throws Throwable {
-	    
+		Thread.sleep(1000);
 		common.clickOnSaveBtn();
 	}
 	
@@ -372,22 +459,36 @@ public class candidateProfile extends baseclass {
 	@Then("^delete duplicate skill and click on Not Looking For Job checkbox and click on Save button$")
 	public void delete_duplicate_skill_and_click_on_Not_Looking_For_Job_checkbox_and_click_on_Save_button() throws Throwable {
 	    
-		candidateupdateprofilepage.skill3Delete.click();
+//		candidateupdateprofilepage.skill3Delete.click();
 		
+	driver.findElement(By.xpath("//tr[2]//td[4]//button[1]")).click();  // delete 1 duplicate skill
+	common.clickOnSaveBtn();
+	common.clickOnOKBtn();
+	
+	Thread.sleep(3000);
+
+	candidateupdateprofilepage.clickonpersonalprofessionalInformation();
+		
+	Thread.sleep(3000);
+	
 		boolean value = candidateupdateprofilepage.notLookingForJobCheckbox.isSelected();
 		
 		if(value = true) {
 			
 			System.out.println("\nNot Looking for job checkbox is selected..");
+			Thread.sleep(2000);
 			candidateupdateprofilepage.notLookingForJobCheckbox.click();
 			common.clickOnSaveBtn();
+			common.clickOnOKBtn();
 			Thread.sleep(3000);
 		}
 		else {
 			
 			System.out.println("\nNot Looking for job checkbox is not selected..");
+			Thread.sleep(2000);
 			candidateupdateprofilepage.notLookingForJobCheckbox.click();
 			common.clickOnSaveBtn();
+			common.clickOnOKBtn();
 			Thread.sleep(3000);
 		}
 	}

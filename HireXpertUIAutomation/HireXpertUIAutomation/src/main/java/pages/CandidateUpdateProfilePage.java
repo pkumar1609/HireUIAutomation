@@ -43,10 +43,10 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[2]/select")
 	public WebElement expertiseLevel;
 	
-	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div/form/div[1]/div[2]/div[1]/div/div[1]/label/span[2]")
+	@FindBy(xpath = "//label[@class='check']//span[@class='checkmark']")
 	public WebElement noticePeriodCheckbox;
 	
-	@FindBy(xpath = "//*[@id=\"fromDatePicker\"]/div/div/input")
+	@FindBy(xpath="//div[@class='col-md-6 pl-0']//div//input[@placeholder='Select Date']")
 	public WebElement lastWorkingDay;
 	
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[2]/div[1]/button")
@@ -76,9 +76,16 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//tr[2]//td[2]//button[1]")
 	public WebElement role3Delete;
 	
-	@FindBy(xpath = "//div[@class='col-md-4']//span[@class='checkmark']")
+	@FindBy(xpath = "//div[@class='col-md-4']//div[@class='row']//div[1]//label[1]//span[2]")
 	public WebElement notLookingForJobCheckbox;
+	
+	@FindBy(linkText = "Skills Information")
+	public WebElement SkillsInformation;
+	
+	@FindBy(linkText = "Personal & Professsional Information")
+	public WebElement personalprofessionalInformation;
 		
+	
 	
 	public CandidateUpdateProfilePage() {
 		
@@ -89,6 +96,12 @@ public class CandidateUpdateProfilePage extends baseclass {
 	Select se;
 	public int beforecount;
 	public int aftercount;
+	
+	
+	public void enterLastWorkingDay(String LastWorkingDay) {
+		
+		lastWorkingDay.sendKeys(LastWorkingDay);
+	}
 	
 	public void autoPopulatedData() throws InterruptedException, AWTException {
 		
@@ -164,6 +177,18 @@ public class CandidateUpdateProfilePage extends baseclass {
 			addSkillButton.click();
 			Thread.sleep(1000);
 		}
+	}
+	
+public void clickonskillsInformation() throws InterruptedException {
+		
+		Thread.sleep(3000);
+		SkillsInformation.click();
+		}
+
+public void clickonpersonalprofessionalInformation() throws InterruptedException {
+	
+	Thread.sleep(3000);
+	personalprofessionalInformation.click();
 	}
 	
 	public void addThreeRoles() throws InterruptedException {
