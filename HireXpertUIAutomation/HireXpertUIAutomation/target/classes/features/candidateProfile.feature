@@ -4,37 +4,38 @@ Feature: User Management
 	Scenario Outline: To verify the functionality of Update Profile page of candidate
 	
 	Given Open browser
+	And click on Login link
     When click on Employer-Agency SignIn link
     And login with Employer credential.
     And Go to Workbench 
     And Add a new Job as employer "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
     And Select the same job from job drop down
     And click on Add Candidate button
-    And enter email id of candidate which is not registered previously and click on Find button
-    | c18@gmail.com |
-    And Fill all mandatory details and click on Save button
-    | c18 | 9995523400 | test engineer| Female | 30 | Pune | Email | Expert |
+    And enter email id of candidate which is not registered previously and click on Find button "<CandidateEmail>" 
+    And Fill all mandatory details and click on Save button "<Name>" "<ContactNumber>" "<Designation>" "<Gender>" "<NoticePeriod>" "<Location>" "<Communicationmode>"
+    And upload candidate resume and click on save button
     And click on Yes button if probability related fields are not filled and observe
     Then user should able to add new candidate and candidate should get added in New column
-    And logout with employer and login with new candidate added by employer
-    | c18@gmail.com | 12345 |
-    Then Candidate should be able to login with email id added by user and Update profile pop up will appears 
-    And observe the auto-populated fields on the update candidate profile popup
-    Then all filled information should auto populate if candidate added through employer
+    And logout as employer and login as new candidate added by employer "<CandidateEmail>" "<password>"
+    And click on ok button of confirmation popup. 
+    And Click on Update Profile tab
+    Then verify the Auto Populated fields on candidate update profile popup window
+#   Then Candidate should be able to login with email id added by user and Update profile pop up will appears 
+#   And observe the auto-populated fields on the update candidate profile popup
+#   Then all filled information should auto populate if candidate added through employer
     And observe email id field from candidate profile
-	And Select the On Notice Period field and set last working day on Update Profile page
-	| 31/07/2020 |
+	And Select the On Notice Period field and set Last working day on Update Profile page "<LastWorkingDay>"
 	And Click on Save button and again go to Update Profile page
 	And Observe the Last Working Day field
 	Then Last Working date should get updated properly
-	And do not make any changes on Update Profile page and click on Close button
-    Then update profile page should get closed and candidate dashboard should display
-    And go to Profile section and then Update Profile page
-    And click on Add Skill button to add one skill
-    And add skill, expertise level and certificate
-    | skill01 | Expert | yes |
-    And add same skill, expertise level and certificate
-    | skill01 | Expert |
+#	And do not make any changes on Update Profile page and click on Close button
+#   Then update profile page should get closed and candidate dashboard should display
+    And click on Skills Information link
+#    And go to Profile section and then Update Profile page
+#    And click on Add Skill button to add one skill
+    And add skill, expertise level and certificate "<Skill1>" "<ExpertiseLevel>"
+    And add same skill, expertise level and certificate "<Skill2>" "<ExpertiseLevel>"
+    
     And fill other mandatory details and click on Save button
     Then error message should display and click on OK button from popup
     And delete duplicate skill and click on Not Looking For Job checkbox and click on Save button
@@ -57,8 +58,9 @@ Feature: User Management
 	And close the browser
 	
 	Examples:
-	| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |
-	| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |
+	| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail   |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode | password | LastWorkingDay | Skill1 | Skill2 | ExpertiseLevel |
+	| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  c09@gmail.com    | c09     | 9995523400       | test engineer     | Female | 30           | Pune        | Email              | 12345    | 1/9/2020       | Java   | Java   |  Expert        |
+	
 	
 	
 #TC ID: 36,37,38,39,92,228,229

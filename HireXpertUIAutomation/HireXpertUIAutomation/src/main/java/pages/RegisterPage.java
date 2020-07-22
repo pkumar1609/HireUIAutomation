@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;   
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -23,7 +24,6 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	
 	@FindBy(linkText="Job Seeker(Candidate) Sign In")
 	WebElement JobseekerCandidateSignInlink;
-	
 	
 	@FindBy(xpath="//input[@formcontrolname='Name']")
 	WebElement Name;
@@ -90,6 +90,7 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	}
 	
    public void clickEmployerAgencySignInlink() throws InterruptedException {
+	    Actions action = new Actions(driver);
 		action.moveToElement(loginlink).click().perform();
 		Thread.sleep(2000);
 		EmployerAgencySignInlink.click();
@@ -371,6 +372,12 @@ public void verifythefieldsonregisterdialogbox () {
        public void loginwithsamecandidate() {
     	   Emailaddress.sendKeys("candidate01@gmail.com");
     	   Password.sendKeys("12345");
+    	   Signinbtn.click();
+       }
+       
+       public void loginwithnewcandidate(String CandidateEmail, String password) {
+    	   Emailaddress.sendKeys(CandidateEmail);
+    	   Password.sendKeys(password);
     	   Signinbtn.click();
        }
      

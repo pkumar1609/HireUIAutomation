@@ -62,7 +62,7 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath="//a[contains(text(),'Change Password')]")
 	public WebElement ChangePasswordTab;
 	
-	@FindBy(xpath = "(//a[@class='dropdown-item CustomPointer'])[3]")
+	@FindBy(xpath = "//a[contains(text(),'Update Profile')]")
 	public WebElement updateProfile;
 	
 	@FindBy(xpath="//a[contains(text(),'Log Out')]")
