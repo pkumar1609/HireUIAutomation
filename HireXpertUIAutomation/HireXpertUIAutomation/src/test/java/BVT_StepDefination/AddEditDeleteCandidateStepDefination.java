@@ -251,8 +251,8 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 		Thread.sleep(3000);
 		workbenchpage.clickOnCloseJobButton();
 		
-		Thread.sleep(3000);
-		common.clickOnConfirmYes();
+//		Thread.sleep(3000);
+//		common.clickOnConfirmYes();
 
 	}
 	

@@ -49,7 +49,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath="//div[@class='col-md-6 pl-0']//div//input[@placeholder='Select Date']")
 	public WebElement lastWorkingDay;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[2]/div[1]/button")
+	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
 	public WebElement addSkillButton;
 	
 	@FindBy(xpath = "//tr[2]//td[1]//input[1]")
@@ -172,7 +172,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 	public void addTenSkills() throws InterruptedException {
 		
-		for(int i=3;i<=11;i++) {
+		for(int i=3;i<=12;i++) {
 			
 			addSkillButton.click();
 			Thread.sleep(1000);

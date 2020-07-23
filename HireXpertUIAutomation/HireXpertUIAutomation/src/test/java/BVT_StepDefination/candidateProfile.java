@@ -249,6 +249,8 @@ public class candidateProfile extends baseclass {
 		Thread.sleep(3000);
 		workbenchpage.ClickonLogout();
 		Thread.sleep(3000);
+		registerpage.clickLogin();
+		Thread.sleep(3000);
 		registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(3000);
 		registerpage.employerlogin();
@@ -578,8 +580,8 @@ public class candidateProfile extends baseclass {
 	@Then("^Click on Add Role button and observe$")
 	public void click_on_Add_Role_button_and_observe() throws Throwable {
 	    
-		Thread.sleep(3000);
-		workbenchpage.openUpdateProfilePage();
+//		Thread.sleep(3000);
+//		workbenchpage.openUpdateProfilePage();
 		Thread.sleep(3000);
 		candidateupdateprofilepage.addThreeRoles();
 		System.out.println("\nNew role rows get added..");
