@@ -97,8 +97,8 @@ public class CandidateCardSectionPage extends baseclass {
 		this.driver = driver;
 	}
 	
-	public void clickOnEditCandidateIcon() {
-		
+	public void clickOnEditCandidateIcon() throws InterruptedException {
+		Thread.sleep(3000);
 		candidateCardEditCandidateIcon.click();
 	}
 	

@@ -1,5 +1,7 @@
 package pages;
 
+import org.testng.Assert;
+
 import java.awt.AWTException;
 
 import java.awt.Robot;
@@ -13,6 +15,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+//import junit.framework.Assert;
 import utilPackage.baseclass;
 import utilPackage.utilclass;
 
@@ -195,6 +198,26 @@ public class EditCandidatePage extends baseclass {
 			return true;
 	}
 	
+	public void AssertCandidatedetails(String CandidateEmail, String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable 
+	{
+//		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"), CandidateEmail);
+//		Assert.assertEquals(addcandidatepage.name.getAttribute("value"), Name);
+//		Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), ContactNumber);
+//		Assert.assertEquals(addcandidatepage.designation.getAttribute("value"), Designation);
+//		Assert.assertEquals(addcandidatepage.gender.getAttribute("value"), Gender);
+//		Assert.assertEquals(addcandidatepage.noticePeriod.getAttribute("value"), NoticePeriod);
+//		Assert.assertEquals(addcandidatepage.location.getAttribute("value"), Location);
+//		Assert.assertEquals(addcandidatepage.communicationMode.getAttribute("value"), Communicationmode);
+
+		addcandidatepage.emailField.getAttribute("value").equals(CandidateEmail);
+		addcandidatepage.name.getAttribute("value").equals(Name);
+		addcandidatepage.contactNumber.getAttribute("value").equals(ContactNumber);
+		addcandidatepage.designation.getAttribute("value").equals(Designation);
+		addcandidatepage.gender.getAttribute("value").equals(Gender);
+		addcandidatepage.noticePeriod.getAttribute("value").equals(NoticePeriod);
+		addcandidatepage.location.getAttribute("value").equals(Location);
+		addcandidatepage.communicationMode.getAttribute("value").equals(Communicationmode);
+	}
 	
 
 }
