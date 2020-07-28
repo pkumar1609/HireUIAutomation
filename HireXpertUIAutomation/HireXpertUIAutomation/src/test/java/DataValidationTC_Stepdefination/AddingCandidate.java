@@ -51,9 +51,9 @@ public class AddingCandidate extends baseclass{
 	}
 
 	@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" ,\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-	public void enter_All_details_of_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
+	public void enter_All_details_of_and(String CandidateEmail,String Date, String Name, String ContactNumber,String OnNoticePeriod, String experience, String CTC,String expectedCTC, String Country, String City, String Salaryoffered, String distance, String permanentAddress, String relocate, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
 		workbenchpage.enterEmailId(CandidateEmail);
-		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
+		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Date, OnNoticePeriod,experience,CTC,expectedCTC,Country,City,Salaryoffered,distance,permanentAddress,relocate, Designation, Gender, NoticePeriod, Location, Communicationmode);
 		addcandidatepage.uploadResumeDocument();
 		common.clickOnSaveBtn();
 		common.clickOnConfirmYes();
@@ -74,7 +74,7 @@ public class AddingCandidate extends baseclass{
 	public void assert_the_details_of_candidate_and(String CandidateEmail,String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
 		editcandidatepage.AssertCandidatedetails(CandidateEmail, Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
 	}
-
+	
 	@When("^Click Candidate details eye icon on candidate card$")
 	public void click_Candidate_details_eye_icon_on_candidate_card() throws Throwable {
 		

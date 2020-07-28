@@ -27,6 +27,42 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(id = "Email")
 	public WebElement emailField;
 	
+	@FindBy(id = "Title")
+	public WebElement title;
+	
+	@FindBy(xpath = "(//span[@class='mydpicon icon-mydpcalendar'])[2]")
+	public WebElement calenderIcon;
+	
+	@FindBy(xpath = "//span[text()='Today']")
+	public WebElement todayDate;
+	
+	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
+	public WebElement onNoticePeriod;
+	
+	@FindBy(id = "ExperienceInYears")
+	public WebElement experienceInYears;
+	
+	@FindBy(id = "CTC")
+	public WebElement ctc;
+	
+	@FindBy(xpath = "//select[@formcontrolname='CountryId']")
+	public WebElement countryId;
+	
+	@FindBy(xpath = "//input[@formcontrolname='City']")
+	public WebElement city;
+	
+//	@FindBy(xpath = "//input[@formcontrolname='SalaryOffered']")
+//	public WebElement salaryOffered;
+	
+	@FindBy(id = "distance")
+	public WebElement distance;
+	
+	@FindBy(xpath = "//select[@formcontrolname='IsPermanentAddress']")
+	public WebElement isPermanentAddress;
+	
+	@FindBy(xpath = "//select[@formcontrolname='IsReadyToRelocateToJobLocation']")
+	public WebElement isReadyToRelocateToJobLocation;
+	
 	@FindBy(xpath = "//button[contains(text(),'Find')]")
 	public WebElement FindButton;
 	
@@ -115,7 +151,7 @@ public class AddCandidatePage extends baseclass {
 
 	private String ExpertiseLevel2;
 	
-	public void EnterAllMandatoryfieldsT(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws InterruptedException, AWTException {
+	public void EnterAllMandatoryfieldsT(String CandidateEmail,String Date, String Name, String ContactNumber,String OnNoticePeriod, String experience, String CTC,String expectedCTC, String Country, String City, String Salaryoffered, String distance, String permanentAddress, String relocate, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws InterruptedException, AWTException {
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),' Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
 		if(dynamicElement.size() != 0)
@@ -132,10 +168,27 @@ public class AddCandidatePage extends baseclass {
 			name.sendKeys(Name); 
 			Thread.sleep(2000);
 			nameOfCan=name.getAttribute("value");
-			System.out.println("nameOfCan "+nameOfCan);
+			Thread.sleep(2000);
+			calenderIcon.click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//span[text()='"+Date+"']")).click();
+			se = new Select (onNoticePeriod);
+			se.selectByVisibleText(OnNoticePeriod);
+			experienceInYears.sendKeys(experience);
+			ctc.sendKeys(CTC);
+			this.expectedCTC.sendKeys(expectedCTC);
+			se = new Select (countryId);
+			se.selectByVisibleText(Country);
+			se = new Select (city);
+			se.selectByVisibleText(City);
+			salaryOffered.sendKeys(Salaryoffered);
+			this.distance.sendKeys(distance);
+			se = new Select (isPermanentAddress);
+			se.selectByVisibleText(permanentAddress);
+			se = new Select (isReadyToRelocateToJobLocation);
+			se.selectByVisibleText(relocate);
 			contactNumber.sendKeys(ContactNumber);
 			designation.sendKeys(Designation);
-			gender.sendKeys(Keys.ENTER);
 			se = new Select (gender);
 			se.selectByVisibleText(Gender); 
 		  	noticePeriod.sendKeys(NoticePeriod);
