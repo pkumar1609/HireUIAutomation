@@ -193,8 +193,6 @@ public class TaskPage extends baseclass {
 			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")) != null;
 			Assert.assertEquals(b, true);
 		}
-//		System.out.println("//strong[text()='"+addedtask+"']");
-//		StatusOfTask();
 	}
 	
 	
@@ -513,16 +511,9 @@ public class TaskPage extends baseclass {
 			{
 			sizeOfShareWithTeam++;
 			Sharedteam=data.get("EmpTeam");
-			String xpathforshare= "(//td[text()='"+Sharedteam+"']//following::span[@class='checkmark CheckBoxM'])[1]";
+			String xpathforshare= "(//td[text()='"+data.get("EmpTeam")+"']//following::span[@class='checkmark CheckBoxM'])[1]";
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(xpathforshare)).click();
-			try
-			{
-				common.confimYes.isDisplayed();
-				common.clickOnConfirmYes();
-			}
-			catch(NoSuchElementException e)
-			{}
 			}
 		}
 		else 
@@ -534,6 +525,9 @@ public class TaskPage extends baseclass {
 			String xpathforshare= "(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[1]";
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(xpathforshare)).click();
+			}
+			
+		}
 			try
 			{
 				common.confimYes.isDisplayed();
@@ -541,10 +535,7 @@ public class TaskPage extends baseclass {
 			}
 			catch(NoSuchElementException e)
 			{}
-		}
-		
-	}
-		common.clickOnCloseBtn();
+	common.clickOnCloseBtn();
 	}
 	
 

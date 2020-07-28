@@ -33,7 +33,7 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to workbench
-And Select a job
+And Select a added job
 And Click on hamburger menu
 And Click on Add task button and enter all details employer
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
@@ -62,7 +62,7 @@ Given team member should be added
 And Go to workbench
 And Add job
 |agytitle        |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |
-|agencyjobtask1  |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |
+|agencyjobtask2  |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |
 And Select a added job
 And Share job with team member
 |EmpTeam|Agyteam|
@@ -127,7 +127,7 @@ Then Delete the task
 Examples:
 |Username      |Password|
 |pemp@gmail.com|12345   |
-#|pagy@gmail.com|12345   |
+|pagy@gmail.com|12345   |
 
 
 @TC282 @BVT @task

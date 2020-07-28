@@ -80,7 +80,7 @@ public class LoginPage extends baseclass
 	
 	public void  ClickOnEmployerAgencySigninLink() throws InterruptedException
 	{
-		
+		Thread.sleep(2000);
 		Action.moveToElement(login).click().perform();
 		Thread.sleep(4000);
 		EmployerAgencySignInlink.click();

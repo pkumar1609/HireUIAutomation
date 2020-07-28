@@ -63,8 +63,6 @@ public class EmployersPage extends baseclass {
 	static WebElement tableele;
 
 	
-	
-	
 	public EmployersPage() {
 		
 		PageFactory.initElements(driver, this);
@@ -156,7 +154,7 @@ public class EmployersPage extends baseclass {
 //
 	public void deleteUser()
 	{
-		deletebtn.click();
+		driver.findElement(By.xpath("//td[text()='"+namevalidate+"']//following::button[@title='Delete']")).click();
 		confimYes.click();	
 	}
 	

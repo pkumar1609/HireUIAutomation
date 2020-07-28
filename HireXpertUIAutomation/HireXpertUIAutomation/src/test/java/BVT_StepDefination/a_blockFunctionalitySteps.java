@@ -27,7 +27,6 @@ public void setup()
 {
 }
 
-
 //@bvt_agencyblock:
 boolean emp;
 	
@@ -232,8 +231,6 @@ boolean emp;
 		}
 	}
 	
-
-	
 	@When("^logout with logged in user and login with team member \\\"([^\\\"]*)\\\",\\\"([^\\\"]*)\\\"valid credentials which you blocked on Share Job page$")
 	public void logout_with_logged_in_user_and_login_with_team_member_valid_credentials_which_you_blocked_on_Share_Job_page(String teamId, String password) throws Throwable {
 	    
@@ -244,16 +241,8 @@ boolean emp;
 			loginpage.emailaddress.sendKeys(teamId);
 			loginpage.password.sendKeys(password);
 			loginpage.signin.click();
-			
-		
-		
-	
-		
-		
 		
 	}
-
-
 
 	@Then("^Blocked team member should not be able to add candidate for the job and error message should display and he should be able to see all candidate status which are added by himself into that job$")
 	public void blocked_team_member_should_not_be_able_to_add_candidate_for_the_job_and_error_message_should_display_and_he_should_be_able_to_see_all_candidate_status_which_are_added_by_himself_into_that_job() throws Throwable {
@@ -261,8 +250,6 @@ boolean emp;
 		System.out.println("\nBlocked team member should not be able to add candidate for the job");
 		System.out.println("Error message should display like - You are blocked by your team owner for this job so you can not add more candidate now");
 	}
-	
-	
 
 	
 //	@After("@bvt_teamblock, @bvt_agencyblock")

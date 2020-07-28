@@ -1,5 +1,6 @@
 package pages;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.openqa.selenium.By;
@@ -17,6 +18,7 @@ import utilPackage.baseclass;
 public class AgenciesPage extends baseclass {
 	
 	public String ele ;
+//	public static ArrayList<String> agencies= new ArrayList<String>();
 	
 	@FindBy(xpath = "//button[@title='Agencies']")
 	public WebElement addAgencyButton;
@@ -37,7 +39,7 @@ public class AgenciesPage extends baseclass {
 	static WebElement search;
 
 	public String namevalidate;
-	String empname;
+	public String empname;
 	String empAdded= "//td[contains(text(),'" +empname+ "')]";
 	
 	public AgenciesPage() 
@@ -85,6 +87,8 @@ public class AgenciesPage extends baseclass {
 		ClickAddbtn();
 		agencyName.sendKeys(data.get("Name"));
 		empname=data.get("Name");
+//		Adding element to array list
+//		agencies.add(data.get("Name"));
 		agencyEmail.sendKeys(data.get("Email"));
 		agencyContactNumber.sendKeys(data.get("contact"));
 		namevalidate= data.get("Name");
@@ -103,14 +107,10 @@ public class AgenciesPage extends baseclass {
 		{
 			System.out.println("team added succesfully");
 		}
-		
 	}
-	common.clickOnCloseBtn();
+//	common.clickOnCloseBtn();
 	}
-	
 
-
-	
 //	public void deleteagy() throws InterruptedException
 //	{
 //		Thread.sleep(2000);

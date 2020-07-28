@@ -100,7 +100,7 @@ public class TeamPage extends baseclass {
 	
 	public void clickOnAddBtnK() throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		AddTeamButton.click();
 	}
 	
@@ -172,17 +172,9 @@ public class TeamPage extends baseclass {
 	
 	public void deleteteamK()
 	{
-		List<WebElement> ele= driver.findElements(By.xpath("//button[@title='Delete']"));
-		if(ele.get(0).isEnabled())
-		{
-			ele.get(0).click();
-			confimYesDelete.click();
-		}
-		else
-		{	
-			ele.get(1).click();
-			confimYesDelete.click();
-		}
+		driver.findElement(By.xpath("//td[text()='"+teampage.namevalidate+"']//following::button[@title='Delete']")).click();
+		confimYesDelete.click();
+		
 	}
 	
 	public void closeTeamPage()
