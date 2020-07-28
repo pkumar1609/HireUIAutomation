@@ -48,7 +48,7 @@ Feature: User Management
 	
 	Examples:
 	| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail   |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode | password | LastWorkingDay | Skill1 | Skill2 | ExpertiseLevel |
-	| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  c21@gmail.com    | c21     | 9995523400       | test engineer     | Female | 30           | Pune        | Email              | 12345    | 1/9/2020       | Java   | Java   |  Expert        |
+	| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  c22@gmail.com    | c22     | 9912343400       | test engineer     | Female | 30           | Pune        | Email              | 12345    | 1/9/2020       | Java   | Java   |  Expert        |
 	
 	
 	

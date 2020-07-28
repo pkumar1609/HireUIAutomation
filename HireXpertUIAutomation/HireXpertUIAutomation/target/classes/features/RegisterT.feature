@@ -73,7 +73,7 @@ And Verify the username by which user is login
 
 Examples: 
 | EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone             | country | password | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail      | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail    | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
-| TXE09          |  txe09@gmail.com      | 2463548688            | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age07        | age07@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike07          | mike07@gmail.com  | 325497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+| TXE10          |  txe10@gmail.com      | 285248688             | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age08        | age08@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike08          | mike08@gmail.com  | 369497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
 
 #TC :- 4, 5, 12, 433
 
