@@ -93,7 +93,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//div[3]//div[3]//input[1]")
 	public WebElement location;
 	
-	@FindBy(xpath = "ECTC")
+	@FindBy(id = "ECTC")
 	public WebElement expectedCTC;
 	
 	@FindBy(xpath = "//Select[@formcontrolname='PreferredModeOfCommunication']")

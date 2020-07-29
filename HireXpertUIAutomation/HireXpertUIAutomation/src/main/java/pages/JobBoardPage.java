@@ -170,7 +170,7 @@ public void ApplycandidateWithoutLoginforaJobOnJobBoard(String CandidateEmail, S
 	addcandidatepage.gender.sendKeys(Gender);
 	addcandidatepage.noticePeriod.sendKeys(NoticePeriod);
 	addcandidatepage.communicationMode.sendKeys(CommunicationMode);
-	addcandidatepage.expertiseLevel.sendKeys(Experience);
+	addcandidatepage.experienceInYears.sendKeys(Experience);
 	addcandidatepage.ctc.sendKeys(CTC);
 	addcandidatepage.expectedCTC.sendKeys(ExpectedCTC);
 	addcandidatepage.city.sendKeys(City);
