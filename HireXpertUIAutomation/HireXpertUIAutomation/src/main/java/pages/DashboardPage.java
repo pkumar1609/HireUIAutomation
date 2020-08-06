@@ -31,7 +31,8 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath= "//a[@href='#/jobdashboard']")
 	public WebElement dashboard ;
 	
-	
+	@FindBy(xpath= "//a[contains(text(),'Job Applications')]")
+	public WebElement JobApplication ;
 	
 	public DashboardPage() {
 		
@@ -111,5 +112,13 @@ public class DashboardPage extends baseclass {
 			
 	  	   }
     }
+	
+	public void clickonJobApplicationLInk() {
+		
+		JobApplication.click();
+		
+		
+		
+	}
 
 }

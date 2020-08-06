@@ -20,10 +20,10 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	public WebElement loginlink;
 	
 	@FindBy(linkText="Employer-Agency Sign In")
-	WebElement EmployerAgencySignInlink;
+	public WebElement EmployerAgencySignInlink;
 	
 	@FindBy(linkText="Job Seeker(Candidate) Sign In")
-	WebElement JobseekerCandidateSignInlink;
+	public WebElement JobseekerCandidateSignInlink;
 	
 	@FindBy(xpath="//input[@formcontrolname='Name']")
 	WebElement Name;
@@ -58,13 +58,13 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	WebElement Yesbtn;
 	
 	@FindBy(xpath="//input[@placeholder='Password']")
-	WebElement Password;
+	public WebElement Password;
 	
 	@FindBy(xpath="//input[@placeholder='Email address']")
-	WebElement Emailaddress;
+	public WebElement Emailaddress;
 	
 	@FindBy(xpath="//button[contains(text(),'Sign in')]")
-	WebElement Signinbtn;
+	public WebElement Signinbtn;
 	
 	
 	

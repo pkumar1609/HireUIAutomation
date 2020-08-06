@@ -26,6 +26,23 @@ public class addjobsteps extends baseclass{
 		System.out.println("Title of HireXpert application: " +title);
 	}
 	
+	@When("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
+	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String emailaddress, String password) throws Throwable {
+	   
+		Thread.sleep(4000);
+	
+	registerpage.clickEmployerAgencySignInlink();
+	Thread.sleep(3000);
+
+	loginpage.emailaddress.sendKeys(emailaddress);
+		loginpage.password.sendKeys(password);		
+		loginpage.signin.click();
+		
+		
+	}
+
+
+	
 //	@When("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
 //	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String arg1, String arg2) throws Throwable {
 //	    
@@ -172,7 +189,7 @@ public class addjobsteps extends baseclass{
 	public void click_on_Job_drop_down_and_select_recently_added_job() throws Throwable {
 	    
 		Select se = new Select(workbenchpage.jobDropDown);
-		se.selectByVisibleText("Automation1 - Active");
+		se.selectByVisibleText("Automation1 - EmpOrg - Active");
 		Thread.sleep(3000);
 	}
 

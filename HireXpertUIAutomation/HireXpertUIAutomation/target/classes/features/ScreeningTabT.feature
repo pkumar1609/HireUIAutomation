@@ -32,7 +32,7 @@ And click on close job button and delete the job
 Examples:
 
 | Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode | QUESTION1     | QMARKS1  | ANSWER1 | ANSWER2 | MARKS1  | MARKS2 | cuttoffpercentage | rejectionpercentage |
-| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              | candidate02@gmail.com   | Can02   |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         | NP Negotiable |  100     |  Yes    |   No    |  100    |  0     |   80              |      20             |
+| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              | candidate03@gmail.com   | Can03   |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         | NP Negotiable |  100     |  Yes    |   No    |  100    |  0     |   80              |      20             |
 
 # 125 
 

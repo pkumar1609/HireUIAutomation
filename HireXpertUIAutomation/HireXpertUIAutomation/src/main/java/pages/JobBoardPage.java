@@ -48,13 +48,16 @@ public class JobBoardPage extends baseclass {
 	@FindBy(xpath = "//button[text()='Apply without Login']")
 	public WebElement ApplyWithoutLoginBtnOnApplyJobPopup;
 	
+	@FindBy(xpath = "//a[contains(text(),'Login')]")
+	public WebElement LoginBtnOnJobBoard;
+	
+	@FindBy(linkText="Employer-Agency Sign In")
+	WebElement EmployerAgencySignInlinkOnJobBoard;
+	
+	@FindBy(linkText="Job Seeker(Candidate) Sign In")
+	WebElement JobseekerCandidateSignInlinkOnJobBoard;
 	
 	
-	
-	
-	
-
-
 public JobBoardPage() {
 		
 		PageFactory.initElements(driver, this);
@@ -161,27 +164,61 @@ public void clickonApplyWithoutLoginBtn() {
 	ApplyWithoutLoginBtnOnApplyJobPopup.click();
 }
 	
-public void ApplycandidateWithoutLoginforaJobOnJobBoard(String CandidateEmail, String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String CommunicationMode, String Experience, String CTC, String ExpectedCTC, String City, String ZipCode, String CityArea, String DateOfBirth) {
+public void ApplycandidateWithoutLoginforaJobOnJobBoard(String CandidateEmail, String Name, String ContactNumber, String Designation, String DateOfBirth, String Gender, String NoticePeriod, String Experience, String CTC, String ExpectedCTC, String City, String CityArea, String ZipCode, String CommunicationMode ) throws InterruptedException {
 	
 	addcandidatepage.emailField.sendKeys(CandidateEmail);
 	addcandidatepage.name.sendKeys(Name);
 	addcandidatepage.contactNumber.sendKeys(ContactNumber);
-	addcandidatepage.designation.sendKeys(Designation);
-	addcandidatepage.gender.sendKeys(Gender);
+	
+	Thread.sleep(3000);
+	
+	driver.findElement(By.xpath("//body[contains(@class,'bodyBackground modal-open')]//div[contains(@class,'row')]//div[contains(@class,'row')]//div[contains(@class,'row')]//div[1]//div[3]//input[1]")).sendKeys(Designation);
+	addcandidatepage.contactNumber.click();
+	driver.findElement(By.xpath("//input[@placeholder='Select Date']")).sendKeys(DateOfBirth);
+	
+  	
+	Thread.sleep(3000);
+	
+	Select se = new Select (driver.findElement(By.xpath("/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-apply-job[1]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[5]/label[1]/select[1]")));
+  	se.selectByVisibleText(Gender);
 	addcandidatepage.noticePeriod.sendKeys(NoticePeriod);
-	addcandidatepage.communicationMode.sendKeys(CommunicationMode);
 	addcandidatepage.experienceInYears.sendKeys(Experience);
+	
+	
+	Thread.sleep(3000);
+	
 	addcandidatepage.ctc.sendKeys(CTC);
 	addcandidatepage.expectedCTC.sendKeys(ExpectedCTC);
 	addcandidatepage.city.sendKeys(City);
-	addcandidatepage.ZipCode.sendKeys(ZipCode);
+	
+	Thread.sleep(3000);
+	
 	addcandidatepage.location.sendKeys(CityArea);     // CityArea
-	driver.findElement(By.xpath("//input[@placeholder='Select Date']")).sendKeys(DateOfBirth);
+	addcandidatepage.expectedCTC.click();
+	driver.findElement(By.xpath("//input[@id='ZipCode']")).sendKeys(ZipCode);
+	Select se1 = new Select (addcandidatepage.communicationMode);
+  	se1.selectByVisibleText(CommunicationMode);
 	
 }
+
+public void clickOnLoginBtn() {
 	
+	LoginBtnOnJobBoard.click();
+}
 	
+public void clickOnEmployerAgencySignInlinkOnJobBoard() {
 	
+	EmployerAgencySignInlinkOnJobBoard.click();
+}
+	
+public void loginWithsameemployerofJob(String EmployerEmailAddress, String Password) {
+	
+	registerpage.Emailaddress.sendKeys(EmployerEmailAddress);
+	
+	registerpage.Password.sendKeys(Password);
+	
+	registerpage.Signinbtn.click();
+}
 	
 	
 	

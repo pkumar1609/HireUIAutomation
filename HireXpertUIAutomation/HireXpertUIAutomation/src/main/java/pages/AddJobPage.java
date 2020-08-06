@@ -65,13 +65,13 @@ public AddJobPage()
 	@FindBy(xpath = "//tr[1]//td[6]//button[1]")
 	public WebElement deleteSkill1;
 	
-	@FindBy(xpath = "//button[@title='Add Employee']")
+	@FindBy(xpath = "//button[@title='Add Employer']")
 	public WebElement employerplusicon;
 	
 	@FindBy(xpath = "//input[@placeholder='Enter Name']")
 	public WebElement employerName;
 	
-	@FindBy(xpath = "//input[@placeholder='Enter Email']")
+	@FindBy(xpath = "(//input[@placeholder='Enter Email'])[2]")
 	public WebElement employerEmail;
 	
 	@FindBy(xpath = "//input[@placeholder='Enter Contact Number']")
@@ -216,7 +216,7 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 		se.selectByVisibleText("Expert");
 		
 		se = new Select(weightage2);
-		se.selectByVisibleText("Preffered");
+		se.selectByVisibleText("Preferred");
 	}
 	
 	public void deleteSkills() {

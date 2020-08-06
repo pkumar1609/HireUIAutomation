@@ -1,7 +1,6 @@
 package BVT_StepDefination;
 
 import org.junit.Assert;
-
 import org.openqa.selenium.By;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

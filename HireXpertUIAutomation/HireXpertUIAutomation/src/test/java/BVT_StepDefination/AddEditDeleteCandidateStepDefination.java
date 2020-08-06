@@ -117,14 +117,14 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 		Thread.sleep(3000);
 		
 		driver.findElement(By.id("jobDropdown")).click();
-		boolean jobdisplayed = driver.findElement(By.xpath("//option[contains(text(),'Engineer - Active')]")).isDisplayed();
+		boolean jobdisplayed = driver.findElement(By.xpath("//option[contains(text(),'Engineer - EmpOrg - Active')]")).isDisplayed();
 		
 		Assert.assertEquals(true, jobdisplayed);
 		
 		{         
 			  try   
 			  {    
-			    if(driver.findElement(By.xpath("//option[contains(text(),'Engineer - Active')]")).isDisplayed())
+			    if(driver.findElement(By.xpath("//option[contains(text(),'Engineer - EmpOrg - Active')]")).isDisplayed())
 			     
 			    {      
 			       System.out.println("Job got added Successfully");

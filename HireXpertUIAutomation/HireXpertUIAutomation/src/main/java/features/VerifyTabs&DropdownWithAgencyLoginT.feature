@@ -25,7 +25,7 @@ And click on employer tab and delete the employer
 
 Examples:
 | Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews | interviewer | title     | scheduleon  | hour | minute | interviewduration | timezone             |   CandidateEmail        |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode |
-| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              | emp         | Interview |  30/08/2020 | 11   | 30     |  1 hour           | Indian Standard Time | candidate0008@gmail.com | Can0008 |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |
+| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              | emp         | Interview |  25/12/2020 | 11   | 30     |  1 hour           | Indian Standard Time | candidate01@gmail.com   | Can01   |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |
 
 # 109, 137
 

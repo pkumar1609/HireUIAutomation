@@ -76,7 +76,7 @@ Feature: Interview Management
     
    Examples: 
      | Title       | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode |   contactnumber   | Title      |ScheduleOn  | Hour | Minute |  Duration  | TimeZone             | hour | duration   | scheduleon | 
-     | Automation1 | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              | candidate02@gmail.com   | Can02   |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |   123456789       | Interview1 | 25/10/2020 | 10   | 00     | 30 Minutes | Indian Standard Time |  11  | 45 Minutes | 30/06/2020 |
+     | Automation1 | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              | candidate07@gmail.com   | Can07   |   912349699666   |   Software Tester | Male   |      30      | pune        |        SMS         |   123456789       | Interview1 | 25/10/2020 | 10   | 00     | 30 Minutes | Indian Standard Time |  11  | 45 Minutes | 30/06/2020 |
 
 
 
@@ -84,5 +84,5 @@ Feature: Interview Management
 #TC ID: 30,105,108,110,224
 #Reg TC ID: 311
 
-# If DB clear, register the employer first = employermain01@gmail.com and agency = agencymain02@gmail.com . 
+# If DB clear, register the employer first = employermain01@gmail.com and agency = agencymain01@gmail.com . 
 # otherwise no change required
