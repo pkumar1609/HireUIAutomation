@@ -16,7 +16,7 @@ Feature: User Management
    	And keep password field blank and tab
    	And observe error message for Password field
    	Then Sign in button should not get enabled without entering email address or password and User should get error message for mandatory fields
-#   	And close the browser
+#   And close the browser
     
 #TC ID - 7,8,9  
 Examples:

@@ -59,8 +59,15 @@ public class ShareWithAgencyPage extends baseclass {
 		sharewithteampage.searchField.sendKeys(agyEmailId);
 		Thread.sleep(2000);
 		sharewithteampage.shareCheckbox.click();
+		try
+		{
 		common.clickOnConfirmYes();
-
+		}
+		catch(NoSuchElementException e)
+		{
+			
+		}
+	
 	}
 
 }

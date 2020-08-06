@@ -19,6 +19,9 @@ import utilPackage.baseclass;
 
 public class WorkbenchPage extends baseclass {
 	
+	
+	public String organisation;
+	
 	@FindBy(xpath = "//button[contains(text(),'Add Job')]")
 	public WebElement addjob;
 	
@@ -152,17 +155,26 @@ public class WorkbenchPage extends baseclass {
 	
 	public void selectJobK() throws InterruptedException {
 	
-		Thread.sleep(2000);
-		select = new Select(jobDropDown);
-		this.emp=loginpage.b;
-		if(emp==true)
-		{
-		select.selectByVisibleText(addjobpage.jobname+" - Active" );
-		}
-		else
-		{
-		select.selectByVisibleText(addjobpage.jobname+" - Active" );
-		}
+		
+//		select = new Select(jobDropDown);
+//		select.selectByIndex(1);
+//		select.selectByVisibleText();
+		Thread.sleep(4000);
+		jobDropDown.click();
+		driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).click();
+// 		updateprofilepopuppage.getDetails();
+//		this.emp=loginpage.b;
+//		if(emp==true)
+//		{
+//		organisation=updateprofilepopuppage.Organization;
+//		select.selectByVisibleText(" "+addjobpage.jobname+"  - "+organisation+" -  Active ");
+//		select.selectByValue(addjobpage.jobname);
+//		} 
+//		else
+//		{
+//		select.selectByValue(addjobpage.jobname);
+//		select.selectByVisibleText(" "+addjobpage.jobname+"  - "+organisation+" -  Active " );
+//		}
 	}
 	
 	public void clickonthreedot() throws InterruptedException {

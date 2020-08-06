@@ -38,7 +38,7 @@ public class taskBWT extends baseclass {
 	
 	@Given("^Click on hamburger menu$")
 	public void click_on_hamburger_menu() throws Throwable {
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 	    workbenchpage.threeDot.click();
 	}
 
@@ -211,7 +211,7 @@ public void click_on_Delete_task() throws InterruptedException  {
 	{
 		taskpage.clickondeletetask();
 		Thread.sleep(1000);
-		taskpage.okbtn.click();
+		common.clickOnOKBtn();
 	}
 	else
 		{

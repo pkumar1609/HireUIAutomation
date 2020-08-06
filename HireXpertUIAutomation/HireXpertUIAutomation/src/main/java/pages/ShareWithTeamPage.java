@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -31,10 +32,10 @@ public class ShareWithTeamPage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	public WebElement searchField;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-share-job-with-team/div[2]/div[2]/div/div/table/tbody/tr/td[4]/label/input")
+	@FindBy(xpath = "//span[@class='checkround']")
 	public WebElement primaryContactRadioButton;
 	
-	@FindBy(xpath = "//span[@class='checkmark CheckBoxM']")   //2nd team member share checkbox after searching
+	@FindBy(xpath = "(//span[@class='checkmark CheckBoxM'])[1]")  
 	public WebElement shareCheckbox;
 	
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-share-job-with-team/div[2]/div[2]/div/div/table/tbody/tr/td[5]/label/input")
@@ -49,11 +50,36 @@ public class ShareWithTeamPage extends baseclass {
 	@FindBy(xpath = "//td[8]//label[1]//span[1]")
 	public WebElement blockUnblockCheckbox;
 	
+
+	
 	public ShareWithTeamPage() {
 		
 		PageFactory.initElements(driver, this);
 		this.driver = driver;
 	}
+	
+	public void canSeeAllCandidate(String Teamid) throws InterruptedException {
+		String canSeeAllCandidates= "(//td[text()='"+Teamid+"']//following::div[@class='checkmark CheckBoxM'])[2]";
+		
+		if(driver.findElement(By.xpath("(//td[text()='"+Teamid+"']//following::input[@type='checkbox'])[3]")).isSelected())
+		{
+			
+		} 
+		else
+		{
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(canSeeAllCandidates)).click();
+		try
+		{
+			common.clickOnConfirmYes();
+		}
+		catch(NoSuchElementException e)
+		{
+			
+		}
+		}
+	}
+	
 	
 	public void clickOnAddButton() throws InterruptedException {
 		Thread.sleep(4000);

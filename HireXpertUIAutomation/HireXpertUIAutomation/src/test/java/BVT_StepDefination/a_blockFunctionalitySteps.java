@@ -89,8 +89,9 @@ boolean emp;
 		Thread.sleep(3000);
 		loginpage.emailaddress.sendKeys(agyEmailId);
 		loginpage.password.sendKeys("12345");
-		loginpage.signin.click();
 		Thread.sleep(5000);
+		loginpage.signin.click();
+		
 	}
 
 	@When("^click on Workbench tab and select the job for which agency is blocked$")
@@ -188,9 +189,7 @@ boolean emp;
 	@Then("^user should able to search team member and blocked agency should not able to share job with any team members and error message should display$")
 	public void user_should_able_to_search_team_member_and_blocked_agency_should_not_able_to_share_job_with_any_team_members_and_error_message_should_display() throws Throwable {
 	    
-		System.out.println("\nUser able to search the team member..");
-		System.out.println("Blocked agency not able to share job with team member");
-		System.out.println("Error message displayed like - You are blocked by employer so you can not share this job anymore");
+		Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' You are blocked by employer so you can not share this job anymore.']")).isDisplayed(), true);
 	}
 
 	
@@ -213,8 +212,12 @@ boolean emp;
 		sharewithteampage.searchField.sendKeys(team);
 		Thread.sleep(2000);
 		sharewithteampage.shareCheckbox.click();
+		try
+		{
 		common.clickOnConfirmYes();
-			
+		}
+		catch(NoSuchElementException e)
+	    {}
 	}
 	
 	@When("^click on Yes button from confirmation popup and now select the Block/Unblock checkbox present in front of the team member$")
@@ -246,9 +249,7 @@ boolean emp;
 
 	@Then("^Blocked team member should not be able to add candidate for the job and error message should display and he should be able to see all candidate status which are added by himself into that job$")
 	public void blocked_team_member_should_not_be_able_to_add_candidate_for_the_job_and_error_message_should_display_and_he_should_be_able_to_see_all_candidate_status_which_are_added_by_himself_into_that_job() throws Throwable {
-	    
-		System.out.println("\nBlocked team member should not be able to add candidate for the job");
-		System.out.println("Error message should display like - You are blocked by your team owner for this job so you can not add more candidate now");
+		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),' You are blocked by your team owner for this job so you can not add more candidate now.')]")).isDisplayed(), true);
 	}
 
 	

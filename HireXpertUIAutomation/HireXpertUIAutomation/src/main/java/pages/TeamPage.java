@@ -122,7 +122,6 @@ public class TeamPage extends baseclass {
 			TeamMemberContactNumber.sendKeys(data.get("contact"));
 			Select dropdown = new Select(countryid);
 			dropdown.selectByVisibleText("India");
-			
 			Thread.sleep(1000);
 			common.ClickSumbit();
 			try
@@ -188,18 +187,8 @@ public class TeamPage extends baseclass {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
 			dashboardpage.openTeamPage();
-//			teamMemberName = data.get("Name");
-//			String teammemberpresent= "//td[text()='" +teamMemberName+ "']";
-//			try 
-//			{
-//				driver.findElement(By.xpath(teammemberpresent)).isDisplayed();
-//				teampage.closeTeamPage();
-//			}
-//			catch(NoSuchElementException e)
-//			{
-				AddAllDetailsK(credentials);
-				teampage.closeTeamPage();
-//			}
+			AddAllDetailsK(credentials);
+			teampage.closeTeamPage();
 		}
 	}
 

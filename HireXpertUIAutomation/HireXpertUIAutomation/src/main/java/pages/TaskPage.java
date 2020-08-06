@@ -53,7 +53,7 @@ public class TaskPage extends baseclass {
 	@FindBy(xpath="//select[@formcontrolname='AssignTo']")
 	WebElement Assigntofield;
 	
-	@FindBy(xpath="//input[@formcontrolname='Status']")
+	@FindBy(xpath="//p[@title='Status']")
 	WebElement status;
 	
 	@FindBy(xpath="//textarea[@formcontrolname='Description']")
@@ -65,14 +65,14 @@ public class TaskPage extends baseclass {
 	@FindBy(xpath="//label[@for='test2']")
 	public WebElement teamtask;
 	
-	@FindBy(xpath="//i[@class='fa fa-trash']")
+	@FindBy(xpath="//a[text()='Delete Task']")
 	WebElement deletetaskbtn;
 	
-	@FindBy(xpath="//button[@id='confirmModalBtn']")
-	WebElement confirmbtn;
-	
-	@FindBy(xpath="//button[@id='alertModalCloseBtn']")
-	public WebElement okbtn;
+//	@FindBy(xpath="//button[@id='confirmModalBtn']")
+//	WebElement confirmbtn;
+//	
+//	@FindBy(xpath="//button[@id='alertModalCloseBtn']")
+//	public WebElement okbtn;
 	
 //	@FindBy(xpath="//button[@title='Edit Task']")
 //	public WebElement edittaskbtn;
@@ -201,8 +201,8 @@ public class TaskPage extends baseclass {
 		Thread.sleep(3000);
 //		explicitwait.until(ExpectedConditions.elementToBeClickable(deletetaskbtn));
 		executor.executeScript("arguments[0].click();", deletetaskbtn);
-		executor.executeScript("arguments[0].click();", confirmbtn);
-	}
+		common.clickOnConfirmYes();
+		}
 	
 	
 	public void ClickOnTeamTask() throws InterruptedException
@@ -231,7 +231,7 @@ public class TaskPage extends baseclass {
 			mytask.click();
 			reloadtask();
 			Thread.sleep(4000);
-			driver.findElement(By.xpath("//strong[text()='"+addedtask+"']//following::i[@class='fa fa-pencil']")).click();
+			driver.findElement(By.xpath("//strong[text()='"+addedtask+"']//following::a[@title='Edit Task']")).click();
 		}
 		else
 		{
@@ -239,7 +239,7 @@ public class TaskPage extends baseclass {
 			teamtask.click();
 			reloadtask();
 			Thread.sleep(4000);
-			driver.findElement(By.xpath("//strong[text()='"+addedtask+"']//following::i[@class='fa fa-pencil']")).click();
+			driver.findElement(By.xpath("//strong[text()='"+addedtask+"']//following::a[@title='Edit Task']")).click();
 		}
 	}
 	
@@ -504,7 +504,7 @@ public class TaskPage extends baseclass {
 		Thread.sleep(3000);
 		workbenchpage.threeDot.click();
 		shareWithTeam.click();
-		this.emp=loginpage.b;
+		this.emp=loginpage.b; 
 		if(emp==true)
 		{
 			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
@@ -535,7 +535,7 @@ public class TaskPage extends baseclass {
 			}
 			catch(NoSuchElementException e)
 			{}
-	common.clickOnCloseBtn();
+//	common.clickOnCloseBtn();
 	}
 	
 

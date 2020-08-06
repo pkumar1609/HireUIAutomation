@@ -32,6 +32,7 @@ And Click on add Button and Fill all the mandatory details for team
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
+#And click on close button
 Then Employer should be able to add team member
 Then Newly added team member should be displayed in team page
 Then the employer with which you have logged in should display in team tab by default
@@ -50,6 +51,7 @@ And Click on add Button and Fill all the mandatory details for employer
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
+#And click on close button
 Then Agency should be able to add Employer
 Then Newly added employer should be displayed in employer page
 And  delete the added employer
@@ -69,6 +71,7 @@ And Click on add Button and Fill all the mandatory details for team
 |Name   |         Email     | contact     |
 |pa1    | pa1@gmail.com     | 1234564     |
 |pa2    | pa2@gmail.com     | 1234564     |
+#And click on close button
 Then Agency should be able to add team
 Then Newly added team member should be displayed in team page
 And delete the added team
@@ -91,6 +94,7 @@ And Click on add Button Fill all the mandatory details for agency
 |Name  |      Email    | contact    |
 |pagy  |pagy@gmail.com | 1234564    |
 |pagy1 |pagy1@gmail.com| 1234564    |
+#And click on close button
 And Click on Search section and enter already existing agency
 |Name|
 |pagy|
@@ -100,6 +104,7 @@ And Click on add Button and Fill all the mandatory details for team
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
+#And click on close button
 And Click on Search section and enter already existing employer team
 |Name|
 |pe1 |
@@ -120,6 +125,7 @@ And Click on add Button and Fill all the mandatory details for employer
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
+#And click on close button
 And Click on Search section and enter already existing employer
 |Name|
 |pe1 |
@@ -129,6 +135,7 @@ And Click on add Button and Fill all the mandatory details for team
 |Name  |       Email    | contact    |
 |pa1   | pa1@gmail.com  | 1234564    |
 |pa2   | pa2@gmail.com  | 1234564    |
+#And click on close button
 And Click on Search section and enter already existing agency team
 |Name|
 |pa1 |

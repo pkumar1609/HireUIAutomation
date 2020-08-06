@@ -32,6 +32,8 @@ public class JobReviewPage extends baseclass{
 		
 		Map<String, String> data = credential.asMap(String.class, String.class);
 //		jobname=data.get("title");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//button[@title='Search']")).click();
 		String approvebtn="(//a[contains(text(),'"+addjobpage.jobname+"')]//following::button[text()='Approve'])[1]";		
 		System.out.println(approvebtn);
 		Thread.sleep(3000);
@@ -46,7 +48,7 @@ public class JobReviewPage extends baseclass{
 //		common.clickOnCloseBtn();
 		flag=1;
 	}
-	
+//	
 	public void clickOnApproveButton() throws InterruptedException
 	{
 //		String approvebtn="//a[contains(text(),'"+jobname+"')]//following::button[text()='Approve']";

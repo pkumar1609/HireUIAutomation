@@ -11,6 +11,8 @@ import utilPackage.baseclass;
 
 public class UpdateProfilePopupPage extends baseclass {
 	
+	public String Contact;
+	public String Organization;
 	@FindBy(xpath="//input[@id='Name']")
 	public WebElement Name;
 	
@@ -26,7 +28,7 @@ public class UpdateProfilePopupPage extends baseclass {
 	@FindBy(xpath="//input[@formcontrolname='email']")
 	public WebElement AgencyEmployerEmail;
 	
-	@FindBy(xpath="//input[@id='ContactNumber']")
+	@FindBy(xpath="//input[@id='agencycontactNumber']")
 	public WebElement ContactNumber;
 	
 	@FindBy(xpath="//input[@formcontrolname='contactNumber']")
@@ -132,7 +134,7 @@ public class UpdateProfilePopupPage extends baseclass {
 			
 			System.out.println("Agency has redirected to correct update profile popup window");
 		}
-		
+		 
 		else {
 			
 			System.out.println("Agency has not redirected to correct update profile popup window");
@@ -517,6 +519,16 @@ public class UpdateProfilePopupPage extends baseclass {
 	       }
     
  }
+    
+    public void getDetails() throws InterruptedException
+    {
+    	Action.moveToElement(loginpage.profile).perform();
+		Thread.sleep(2000);
+		loginpage.updateProfile.click();
+    	Contact= this.ContactNumber.getAttribute("value");
+    	Organization=OrganizationName.getText();
+    	common.clickOnCloseBtn();
+    }
 }
 
 

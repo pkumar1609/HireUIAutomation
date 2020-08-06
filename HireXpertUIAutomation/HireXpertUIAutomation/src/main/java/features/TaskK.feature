@@ -1,6 +1,6 @@
 Feature: Task Feature
 
-@TC264_266 @BVT @task
+@TC264_266 @BVT 
 Scenario Outline: Verify functionality of adding general task and particular task from Employer login
 
 Given User must be registered
@@ -8,18 +8,19 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-Given team member should be added
-|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+#Given team member should be added
+#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Add job
 |title    |designation |industry   |jobrole        |location |budget |minexp|maxexp|
-|taskjob1 |developer   |IT software|java developer |pune     |400000 |1     |2     |	
+|abc      |developer   |IT software|java developer |pune     |400000 |1     |2     |	
 And Select a added job
 And Share job with team member
 |EmpTeam|Agyteam|
 |pe1    |pa1    |
+And Click on close button
 And Go to dashboard
 And Click on Add task button and enter all details employer
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
@@ -55,10 +56,10 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-Given team member should be added
-|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+#Given team member should be added
+#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Add job
 |agytitle        |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |
@@ -67,6 +68,7 @@ And Select a added job
 And Share job with team member
 |EmpTeam|Agyteam|
 |pe1    |pa1    |
+And Click on close button
 And Go to dashboard
 And Click on Add task button and enter all details for agency
 |Title for emp  |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
@@ -111,6 +113,7 @@ And Select a job
 And Share job with team member
 |EmpTeam|Agyteam|
 |pe1    |pa1    |
+And Click on close button
 And Go to dashboard
 And Click on Add task button and enter all details
 |Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
@@ -127,7 +130,7 @@ Then Delete the task
 Examples:
 |Username      |Password|
 |pemp@gmail.com|12345   |
-|pagy@gmail.com|12345   |
+#|pagy@gmail.com|12345   |
 
 
 @TC282 @BVT @task
@@ -136,15 +139,16 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-And team member should be added
-|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+#And team member should be added
+#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Select a job
 And Share job with team member
 |EmpTeam|Agyteam|
 |pe1    |pa1    |
+And Click on close button
 And Go to workbench
 And Select a job 
 And Click on hamburger menu
@@ -172,15 +176,16 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-And team member should be added
-|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+#And team member should be added
+#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Select a job
-And Share job with team member
-|EmpTeam|Agyteam|
-|pe1    |pa1    |
+#And Share job with team member
+#|EmpTeam|Agyteam|
+#|pe1    |pa1    |
+#And Click on close button
 And Go to dashboard
 And Click on Add task button and enter all details
 |Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
@@ -212,6 +217,7 @@ And Select a job
 And Share job with team member
 |EmpTeam|Agyteam|
 |pe1    |pa1    |
+And Click on close button
 And Go to workbench
 And Select a job 
 And Click on hamburger menu
@@ -240,25 +246,26 @@ And Employer enters valid credentials "<Username>","<Password>"
 #|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
 #|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
 #|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
-#And Go to workbench
-#And Select a job
+And Go to workbench
+And Select a job
 #And Share job with team member
 #|EmpTeam|Agyteam|
 #|pe1    |pa1    |
-#And Go to dashboard
-#And Click on Add task button and enter all details
-#|Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-#|Genral task      |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |Genral task      |pagy         |pa1         |Task should complete before time    |pagy   		    |pe1       |pe1@gmail.com        |
-#|task1            |pemp      |pemp     |note1                            |pemp    		    |pe1       |pe1@gmail.com        |task             |pagy         |pagy        |Task                                |pagy   		    |pe1       |pe1@gmail.com        |
-#And Click on My Task
-#Then Click on Reload Task button
-#And Click on Team Task
-#Then Click on Reload Task button
+#And Click on close button
+And Go to dashboard
+And Click on Add task button and enter all details
+|Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|Genral task      |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |Genral task      |pagy         |pa1         |Task should complete before time    |pagy   		    |pe1       |pe1@gmail.com        |
+|task1            |pemp      |pemp     |note1                            |pemp    		    |pe1       |pe1@gmail.com        |task             |pagy         |pagy        |Task                                |pagy   		    |pe1       |pe1@gmail.com        |
+And Click on My Task
+Then Click on Reload Task button
+And Click on Team Task
+Then Click on Reload Task button
 
 Examples:
 |Username      |Password|
 |pemp@gmail.com|12345   |
-#|pagy@gmail.com|12345   |
+|pagy@gmail.com|12345   |
 
 
 

@@ -167,7 +167,7 @@ public class EditCandidatePage extends baseclass {
 		String xpath_start_sk2Exp2 = "//*[@id=\"ng-invalidDiv\"]/tr[";
 		String xpath_end_sk2Exp2 = "]/td[1]/input[1]";
 		
-		int i = 1;
+		int i = 1; 
 		
 		while(isElementPresent(xpath_start_sk2Exp2+i+xpath_end_sk2Exp2)) {
 			
@@ -198,25 +198,38 @@ public class EditCandidatePage extends baseclass {
 			return true;
 	}
 	
-	public void AssertCandidatedetails(String CandidateEmail, String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable 
+	public void AssertCandidatedetails(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable 
 	{
-//		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"), CandidateEmail);
-//		Assert.assertEquals(addcandidatepage.name.getAttribute("value"), Name);
-//		Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), ContactNumber);
-//		Assert.assertEquals(addcandidatepage.designation.getAttribute("value"), Designation);
-//		Assert.assertEquals(addcandidatepage.gender.getAttribute("value"), Gender);
-//		Assert.assertEquals(addcandidatepage.noticePeriod.getAttribute("value"), NoticePeriod);
-//		Assert.assertEquals(addcandidatepage.location.getAttribute("value"), Location);
-//		Assert.assertEquals(addcandidatepage.communicationMode.getAttribute("value"), Communicationmode);
-
 		addcandidatepage.emailField.getAttribute("value").equals(CandidateEmail);
 		addcandidatepage.name.getAttribute("value").equals(Name);
 		addcandidatepage.contactNumber.getAttribute("value").equals(ContactNumber);
 		addcandidatepage.designation.getAttribute("value").equals(Designation);
 		addcandidatepage.gender.getAttribute("value").equals(Gender);
 		addcandidatepage.noticePeriod.getAttribute("value").equals(NoticePeriod);
-		addcandidatepage.location.getAttribute("value").equals(Location);
 		addcandidatepage.communicationMode.getAttribute("value").equals(Communicationmode);
+		addcandidatepage.title.getAttribute("value").equals(addjobpage.jobname);
+		addcandidatepage.date.getAttribute("value").equals(Date);
+		addcandidatepage.onNoticePeriod.getAttribute("value").equals(OnNoticePeriod);
+		addcandidatepage.noticePeriod.getAttribute("value").equals(NoticePeriod);
+		addcandidatepage.experienceInYears.getAttribute("value").equals(experience);
+		addcandidatepage.ctc.getAttribute("value").equals(CTC);
+		addcandidatepage.expectedCTC.getAttribute("value").equals(expectedCTC);
+		addcandidatepage.countryId.getAttribute("value").equals(Country);
+		addcandidatepage.city.getAttribute("value").equals(City);
+		addcandidatepage.cityArea.getAttribute("value").equals(CityArea);
+		addcandidatepage.countryId.getAttribute("value").equals(Country);
+		addcandidatepage.city.getAttribute("value").equals(City);
+		addcandidatepage.cityArea.getAttribute("value").equals(CityArea);
+		addcandidatepage.zipCode.getAttribute("value").equals(ZipCode);
+		addcandidatepage.communicationMode.getAttribute("value").equals(Communicationmode);
+		addcandidatepage.salaryOffered.getAttribute("value").equals(Salaryoffered);
+		addcandidatepage.distance.getAttribute("value").equals(distance);
+		addcandidatepage.isPermanentAddress.getAttribute("value").equals(permanentAddress);
+		addcandidatepage.isReadyToRelocateToJobLocation.getAttribute("value").equals(relocate);
+
+		
+
+
 	}
 	
 

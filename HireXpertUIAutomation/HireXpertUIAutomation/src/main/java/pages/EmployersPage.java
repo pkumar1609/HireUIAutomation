@@ -154,7 +154,8 @@ public class EmployersPage extends baseclass {
 //
 	public void deleteUser()
 	{
-		driver.findElement(By.xpath("//td[text()='"+namevalidate+"']//following::button[@title='Delete']")).click();
+		deleteEmployer.click();
+//		driver.findElement(By.xpath("//td[text()='"+namevalidate+"']//following::button[@title='Delete']")).click();
 		confimYes.click();	
 	}
 	

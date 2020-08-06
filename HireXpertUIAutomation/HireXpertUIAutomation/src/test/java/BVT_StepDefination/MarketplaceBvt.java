@@ -48,7 +48,7 @@ public class MarketplaceBvt extends baseclass {
 	    
 		marketplacepage.EnterdeatilsOfMarketplace(credentials);
 	}
-
+ 
 	@And("^Click on Employer marketplace tab$")
 	public void Click_on_Employer_marketplace_tab() throws Throwable {
 		marketplacepage.ClickOnMarketPlaceTab();

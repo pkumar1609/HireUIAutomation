@@ -95,7 +95,7 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 		Thread.sleep(2000);
 		EmployerAgencySignInlink.click();
 	}
-   
+    
    public void clickJobseekerCandidateSignInlinklink() {
 		
 	   JobseekerCandidateSignInlink.click();

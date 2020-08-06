@@ -64,7 +64,6 @@ public class loginstepdefination extends baseclass {
 	public void employer_should_be_able_to_add_Agency() {
 	ele=  driver.findElement(By.xpath("//td[text()='"+agenciespage.empname+"']")).isDisplayed();
 	Assert.assertEquals(ele, true);
-	
 	}
 
 	@Then("^Newly added agency should be displayed in Agencies page$")

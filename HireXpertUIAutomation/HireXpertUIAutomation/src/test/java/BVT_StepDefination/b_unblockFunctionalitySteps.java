@@ -24,76 +24,65 @@ public class b_unblockFunctionalitySteps extends baseclass {
 
 //@bvt_agencyunblock:
 	
-
-//	@When("^click on Yes button from confirmation popup and select the Block/Unblock checkbox present in front of the agency with whom you shared the job$")
-//	public void click_on_Yes_button_from_confirmation_popup_and_select_the_Block_Unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job() throws Throwable {
-//	    try
-//	    {
-//		common.clickOnConfirmYes();
-//		Thread.sleep(3000);
-//	    }
-//	    catch(NoSuchElementException e)
-//	    {
-//	    	
-//	    }
-//	    if(driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected())
-//		{
-//	    	Thread.sleep(2000);
-//			sharewithagencypage.blockUnblockCheckbox.click();
-//			Thread.sleep(3000);
-//			common.clickOnConfirmYes();
-//			
-//		}
-//		else
-//		{
-//			
-//		}
-//	
-//	}
-//
-//	@When("^click on Yes button from confirmation popup$")
-//	public void click_on_Yes_button_from_confirmation_popup() throws Throwable {
-//	    
-////		common.clickOnConfirmYes();
-////		Thread.sleep(3000);
-//	}
-//
-//	@When("^now again click on Block/Unblock checkbox present in front of the agency which is blocked previously to unblock that agency$")
-//	public void now_again_click_on_Block_Unblock_checkbox_present_in_front_of_the_agency_which_is_blocked_previously_to_unblock_that_agency() throws Throwable {
-//	    
-////		sharewithagencypage.blockUnblockCheckbox.click();
-////		Thread.sleep(2000);
-//	}
-	
-	@When("^click on the Block/Unblock to unblock checkbox present in front of whom you shared the job \\\"([^\\\"]*)\\\"$")
-	public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job(String agyEmailId) throws Throwable {
-//		workbenchpage.clickonthreedot();
-//		Thread.sleep(2000);
-//		sharewithagencypage.shareWithAgency.click();
-		sharewithagencypage.searchField.clear();
-		sharewithagencypage.searchField.sendKeys(agyEmailId);
-//		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
-//		{
-//		}
-//		else
-//		{
-			Thread.sleep(2000);
-			sharewithagencypage.blockUnblockCheckbox.click();
-			common.clickOnConfirmYes();
-//		}
-		
-//		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
-//		{
-			Thread.sleep(2000);
-			sharewithagencypage.blockUnblockCheckbox.click();
-			common.clickOnConfirmYes();
-//		}
-//		else
-//		{
-//			
-//		}
+	@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+	public void enter_All_details_of_and(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
+		workbenchpage.enterEmailId(CandidateEmail);
+		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
+		addcandidatepage.uploadResumeDocument();
+		common.clickOnSaveBtn();
+		try
+		{
+		common.clickOnConfirmYes();
+		}
+		catch(NoSuchElementException e)	
+		{}
+		addcandidatepage.checkCandidateALreadyPresent();
 	}
 	
+
+	
+	@When("^click on the Block/Unblock to unblock checkbox present in front of agency whom you shared the job \\\"([^\\\"]*)\\\"$")
+	public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job(String agyEmailId) throws Throwable {
+		sharewithagencypage.searchField.clear();
+		sharewithagencypage.searchField.sendKeys(agyEmailId);
+		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
+		{
+		}
+		else
+		{
+			Thread.sleep(2000);
+			sharewithagencypage.blockUnblockCheckbox.click();
+			common.clickOnConfirmYes();
+		}
+		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
+		{
+			Thread.sleep(2000);
+			sharewithagencypage.blockUnblockCheckbox.click();
+			common.clickOnConfirmYes();
+		}
+	}
+	
+		@When("^click on the Block/Unblock to unblock checkbox present in front of team with whom you shared the job \\\"([^\\\"]*)\\\"$")
+		public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_team_with_the_agency_with_whom_you_shared_the_job(String team) throws Throwable {
+			sharewithagencypage.searchField.clear();
+			sharewithagencypage.searchField.sendKeys(team);
+			if(driver.findElement(By.xpath("(//label[@class='check'])[4]")).isSelected())
+			{
+			}
+			else
+			{
+				Thread.sleep(3000);
+				sharewithagencypage.blockUnblockCheckbox.click();
+				common.clickOnConfirmYes();
+			}
+			
+			if(driver.findElement(By.xpath("(//input[@type='checkbox'])[4]")).isSelected())
+			{
+				Thread.sleep(3000);
+				sharewithagencypage.blockUnblockCheckbox.click();
+				common.clickOnConfirmYes();
+			}
+		}
 
 
 	@Then("^Employer should be able to unblock the agency$")
@@ -266,7 +255,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	@Then("^User should be able to unblock the team member$")
 	public void User_should_be_able_to_unblock_the_team_member() throws Throwable {
 	    
-		boolean isblock = driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected();
+		boolean isblock = driver.findElement(By.xpath("(//label[@class='check'])[4]")).isSelected();
 		Assert.assertEquals(false, isblock);
 	}
 //
@@ -363,12 +352,12 @@ public class b_unblockFunctionalitySteps extends baseclass {
 		Assert.assertEquals(true, candidateDisplay);
 	}
 	
-	@After("@bvt_agencyunblock, @bvt_teamunblock")
-	public void tearDown() throws InterruptedException
-	{
-		dashboardpage.openWorkbenchPage();
-		workbenchpage.selectJobK();
-		workbenchpage.clickOnCloseJobButton();
-	}
+//	@After("@bvt_agencyunblock, @bvt_teamunblock")
+//	public void tearDown() throws InterruptedException
+//	{
+//		dashboardpage.openWorkbenchPage();
+//		workbenchpage.selectJobK();
+//		workbenchpage.clickOnCloseJobButton();
+//	}
 
 }
