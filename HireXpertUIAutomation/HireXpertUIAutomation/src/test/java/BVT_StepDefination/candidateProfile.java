@@ -322,9 +322,15 @@ public class candidateProfile extends baseclass {
 	public void select_the_On_Notice_Period_field_and_set_Last_working_day_on_Update_Profile_page(String LastWorkingDay) throws Throwable {
 		
 		Thread.sleep(3000);
-		candidateupdateprofilepage.noticePeriodCheckbox.click();
+		Select se = new Select (candidateupdateprofilepage.noticePeriodCheckbox);
+		se.selectByVisibleText("Yes");
+//		candidateupdateprofilepage.noticePeriodCheckbox.click();
 		Thread.sleep(3000);
 		candidateupdateprofilepage.enterLastWorkingDay(LastWorkingDay);
+		Thread.sleep(3000);
+		common.clickOnSaveBtn();
+		Thread.sleep(3000);
+		common.clickOnOKBtn();
 	}
 
 	
@@ -393,9 +399,9 @@ public class candidateProfile extends baseclass {
 	public void add_skill_expertise_level_and_certificate(String Skill1, String ExpertiseLevel) throws Throwable {
 		
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("//div[@class='col-md-8 mt-2']//tr[1]//td[1]//input[1]")).sendKeys(Skill1); // enter 1st skill
+		driver.findElement(By.xpath("(//input[@formcontrolname='Skill'])[1]")).sendKeys(Skill1); // enter 1st skill
 		Thread.sleep(3000);
-		WebElement expertiselevel = driver.findElement(By.xpath("//tr[1]//td[2]//label[1]//select[1]"));
+		WebElement expertiselevel = driver.findElement(By.xpath("(//select[@formcontrolname='ExpertiseLevel'])[1]"));
 		Select select = new Select (expertiselevel);
 		select.selectByVisibleText(ExpertiseLevel);    // set expertise level
 		Thread.sleep(3000);
@@ -407,9 +413,9 @@ public class candidateProfile extends baseclass {
 	public void add_same_skill_expertise_level_and_certificate(String Skill2, String ExpertiseLevel) throws Throwable {
 	    
 		Thread.sleep(3000);
-        driver.findElement(By.xpath("//tr[2]//td[1]//input[1]")).sendKeys(Skill2); // enter 2nd skill
+        driver.findElement(By.xpath("(//input[@formcontrolname='Skill'])[2]")).sendKeys(Skill2); // enter 2nd skill
         Thread.sleep(3000);
-		WebElement expertiselevel = driver.findElement(By.xpath("//tr[2]//td[2]//label[1]//select[1]"));
+		WebElement expertiselevel = driver.findElement(By.xpath("(//select[@formcontrolname='ExpertiseLevel'])[2]"));
 		Select select = new Select (expertiselevel);
 		select.selectByVisibleText(ExpertiseLevel);    // set expertise level
 		
@@ -473,27 +479,33 @@ public class candidateProfile extends baseclass {
 		
 	Thread.sleep(3000);
 	
-		boolean value = candidateupdateprofilepage.notLookingForJobCheckbox.isSelected();
-		
-		if(value = true) {
-			
-			System.out.println("\nNot Looking for job checkbox is selected..");
-			Thread.sleep(2000);
-			candidateupdateprofilepage.notLookingForJobCheckbox.click();
-			common.clickOnSaveBtn();
-			common.clickOnOKBtn();
-			Thread.sleep(3000);
+	Select se = new Select(candidateupdateprofilepage.LookingforJobfield);
+	se.selectByVisibleText("No");
+	Thread.sleep(2000);
+	common.clickOnSaveBtn();
+	Thread.sleep(2000);
+	common.clickOnOKBtn();
+	
+//		boolean value = candidateupdateprofilepage.notLookingForJobCheckbox.isSelected();
+//		
+//		if(value = true) {
+//			
+//			System.out.println("\nNot Looking for job checkbox is selected..");
+//			Thread.sleep(2000);
+//			candidateupdateprofilepage.notLookingForJobCheckbox.click();
+//			common.clickOnSaveBtn();
+//			common.clickOnOKBtn();
+//			Thread.sleep(3000);
+//		}
+//		else {
+//			
+//			System.out.println("\nNot Looking for job checkbox is not selected..");
+//			Thread.sleep(2000);
+//			candidateupdateprofilepage.notLookingForJobCheckbox.click();
+//			common.clickOnSaveBtn();
+//			common.clickOnOKBtn();
+//			Thread.sleep(3000);
 		}
-		else {
-			
-			System.out.println("\nNot Looking for job checkbox is not selected..");
-			Thread.sleep(2000);
-			candidateupdateprofilepage.notLookingForJobCheckbox.click();
-			common.clickOnSaveBtn();
-			common.clickOnOKBtn();
-			Thread.sleep(3000);
-		}
-	}
 	
 	@Then("^entered certificate should appear in skill section on candidate dashboard$")
 	public void entered_certificate_should_appear_in_skill_section_on_candidate_dashboard() throws Throwable {
@@ -517,35 +529,35 @@ public class candidateProfile extends baseclass {
 		Thread.sleep(3000);
 	}
 	
-	@Then("^again go to update profile and verify Not Looking For Job checkbox$")
-	public void again_go_to_update_profile_and_verify_Not_Looking_For_Job_checkbox() throws Throwable {
-		
-		workbenchpage.openUpdateProfilePage();
-		Thread.sleep(2000);
-		String certificatevalue = candidateupdateprofilepage.certificate2.getText();
-		
-		if(certificatevalue.equals("")) {
-			System.out.println("\nCertificate deleted successfully..");
-		}
-		else{
-			System.out.println("\nCertificate not deleted..");
-		}
-		
-		boolean value = candidateupdateprofilepage.notLookingForJobCheckbox.isSelected();
-		
-		if(value = false) {
-			
-			System.out.println("\nNot Looking for job checkbox is not selected..");
-			candidateupdateprofilepage.notLookingForJobCheckbox.click();
-			Thread.sleep(3000);
-		}
-		else {
-			
-			System.out.println("\nNot Looking for job checkbox is selected..");
-			candidateupdateprofilepage.notLookingForJobCheckbox.click();
-			Thread.sleep(3000);
-		}
-	}
+//	@Then("^again go to update profile and verify Not Looking For Job checkbox$")
+//	public void again_go_to_update_profile_and_verify_Not_Looking_For_Job_checkbox() throws Throwable {
+//		
+//		workbenchpage.openUpdateProfilePage();
+//		Thread.sleep(2000);
+//		String certificatevalue = candidateupdateprofilepage.certificate2.getText();
+//		
+//		if(certificatevalue.equals("")) {
+//			System.out.println("\nCertificate deleted successfully..");
+//		}
+//		else{
+//			System.out.println("\nCertificate not deleted..");
+//		}
+//		
+//		boolean value = candidateupdateprofilepage.notLookingForJobCheckbox.isSelected();
+//		
+//		if(value = false) {
+//			
+//			System.out.println("\nNot Looking for job checkbox is not selected..");
+//			candidateupdateprofilepage.notLookingForJobCheckbox.click();
+//			Thread.sleep(3000);
+//		}
+//		else {
+//			
+//			System.out.println("\nNot Looking for job checkbox is selected..");
+//			candidateupdateprofilepage.notLookingForJobCheckbox.click();
+//			Thread.sleep(3000);
+//		}
+//	}
 	
 	@Then("^all changes should be saved$")
 	public void all_changes_should_be_saved() throws Throwable {
@@ -583,18 +595,21 @@ public class candidateProfile extends baseclass {
 //		Thread.sleep(3000);
 //		workbenchpage.openUpdateProfilePage();
 		Thread.sleep(3000);
-		candidateupdateprofilepage.addThreeRoles();
-		System.out.println("\nNew role rows get added..");
+		candidateupdateprofilepage.addTenRoles();
+//		System.out.println("\nNew role rows get added..");
+		
 	}
 	
-	@Then("^one row should get added after clicking on Add Role button and user should able to add only three roles$")
-	public void one_row_should_get_added_after_clicking_on_Add_Role_button_and_user_should_able_to_add_only_three_roles() throws Throwable {
+	@Then("^one row should get added after clicking on Add Role button and user should able to add only ten roles$")
+	public void one_row_should_get_added_after_clicking_on_Add_Role_button_and_user_should_able_to_add_only_ten_roles() throws Throwable {
 	    
-		System.out.println("User not able to add more than 3 roles");
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[@id='alertModalCloseBtn']")).click();
+		System.out.println("User not able to add more than 10 roles");
 	    System.out.println("Error message displayed like: Candidate should not add more than 3 roles");
 	    Thread.sleep(2000);
-	    driver.findElement(By.id("alertModalCloseBtn")).click();
-	    Thread.sleep(2000);
+//	    driver.findElement(By.id("alertModalCloseBtn")).click();
+//	    Thread.sleep(2000);
 	}
 	
 	@Then("^click on Delete Role button in front of any role$")

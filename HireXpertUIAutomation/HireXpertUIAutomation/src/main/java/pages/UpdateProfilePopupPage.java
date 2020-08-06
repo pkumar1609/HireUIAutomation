@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -13,6 +15,7 @@ public class UpdateProfilePopupPage extends baseclass {
 	
 	public String Contact;
 	public String Organization;
+	
 	@FindBy(xpath="//input[@id='Name']")
 	public WebElement Name;
 	
@@ -28,7 +31,7 @@ public class UpdateProfilePopupPage extends baseclass {
 	@FindBy(xpath="//input[@formcontrolname='email']")
 	public WebElement AgencyEmployerEmail;
 	
-	@FindBy(xpath="//input[@id='agencycontactNumber']")
+	@FindBy(xpath="//input[@id='ContactNumber']")
 	public WebElement ContactNumber;
 	
 	@FindBy(xpath="//input[@formcontrolname='contactNumber']")
@@ -522,7 +525,7 @@ public class UpdateProfilePopupPage extends baseclass {
     
     public void getDetails() throws InterruptedException
     {
-    	Action.moveToElement(loginpage.profile).perform();
+    	action.moveToElement(loginpage.profile).perform();
 		Thread.sleep(2000);
 		loginpage.updateProfile.click();
     	Contact= this.ContactNumber.getAttribute("value");

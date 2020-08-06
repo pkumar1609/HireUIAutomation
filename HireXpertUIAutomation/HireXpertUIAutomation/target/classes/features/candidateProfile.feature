@@ -38,7 +38,7 @@ Feature: User Management
     And click on Delete Skill button in front of any skill for candidate
     Then after clicking on Delete Skill button present in front of skill then that skill row should get deleted
     And Click on Add Role button and observe
-    Then one row should get added after clicking on Add Role button and user should able to add only three roles
+    Then one row should get added after clicking on Add Role button and user should able to add only ten roles
     And click on Delete Role button in front of any role
     Then after clicking on Delete Role button present in front of role then that role should get deleted
     And logout as candidate and login as same employer 
@@ -48,7 +48,7 @@ Feature: User Management
 	
 	Examples:
 	| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail   |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode | password | LastWorkingDay | Skill1 | Skill2 | ExpertiseLevel |
-	| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  c22@gmail.com    | c22     | 9912343400       | test engineer     | Female | 30           | Pune        | Email              | 12345    | 1/9/2020       | Java   | Java   |  Expert        |
+	| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  c15@gmail.com    | c15     | 9917895340       | test engineer     | Female | 30           | Pune        | Email              | 12345    | 1/9/2020       | Java   | Java   |  Expert        |
 	
 	
 	

@@ -43,10 +43,10 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[2]/select")
 	public WebElement expertiseLevel;
 	
-	@FindBy(xpath = "//label[@class='check']//span[@class='checkmark']")
+	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
 	public WebElement noticePeriodCheckbox;
 	
-	@FindBy(xpath="//div[@class='col-md-6 pl-0']//div//input[@placeholder='Select Date']")
+	@FindBy(xpath="(//input[@placeholder='Select Date'])[2]")
 	public WebElement lastWorkingDay;
 	
 	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
@@ -70,22 +70,24 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//tr[3]//td[4]//button[1]")
 	public WebElement skill3Delete;
 	
-	@FindBy(xpath = "//button[contains(text(),'Add Roles')]")
+	@FindBy(xpath = "//button[contains(text(),'Add Role')]")
 	public WebElement addRolesButton;
 	
 	@FindBy(xpath = "//tr[2]//td[2]//button[1]")
 	public WebElement role3Delete;
 	
-	@FindBy(xpath = "//div[@class='col-md-4']//div[@class='row']//div[1]//label[1]//span[2]")
-	public WebElement notLookingForJobCheckbox;
+//	@FindBy(xpath = "//div[@class='col-md-4']//div[@class='row']//div[1]//label[1]//span[2]")
+//	public WebElement notLookingForJobCheckbox;
 	
-	@FindBy(linkText = "Skills Information")
+	@FindBy(xpath = "//select[@formcontrolname='NotLookingForJob']")
+	public WebElement LookingforJobfield;
+	
+	@FindBy(linkText = "Skills & Roles")
 	public WebElement SkillsInformation;
 	
-	@FindBy(linkText = "Personal & Professsional Information")
+	@FindBy(xpath = "//a[@title='Personal & Professional Details']")
 	public WebElement personalprofessionalInformation;
-		
-	
+
 	
 	public CandidateUpdateProfilePage() {
 		
@@ -191,9 +193,9 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 	personalprofessionalInformation.click();
 	}
 	
-	public void addThreeRoles() throws InterruptedException {
+	public void addTenRoles() throws InterruptedException {
 		
-		for(int i=2;i<=4;i++) {
+		for(int i=1;i<=10;i++) {
 			
 			addRolesButton.click();
 			Thread.sleep(1000);
