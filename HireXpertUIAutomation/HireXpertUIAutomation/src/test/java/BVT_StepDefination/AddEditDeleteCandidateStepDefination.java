@@ -103,40 +103,60 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 		addjobpage.employerDropDown();
 		
         Thread.sleep(3000);
+        
+        addjobpage.enteremployerorganizationname();
+		
+		Thread.sleep(3000);
 		
 		common.submitbtn.click();
 
 
 	}
 	
-	
-	
-	@When("^Verify that job is added or not$")
-	public void verify_that_job_is_added_or_not() throws Throwable {
-
+	@When("^Click on Edit Candidate icon on candidate card \"([^\"]*)\"$")
+	public void click_on_Edit_Candidate_icon_on_candidate_card(String Name) throws Throwable {
+	    
 		Thread.sleep(3000);
-		
-		driver.findElement(By.id("jobDropdown")).click();
-		boolean jobdisplayed = driver.findElement(By.xpath("//option[contains(text(),'Engineer - EmpOrg - Active')]")).isDisplayed();
-		
-		Assert.assertEquals(true, jobdisplayed);
-		
-		{         
-			  try   
-			  {    
-			    if(driver.findElement(By.xpath("//option[contains(text(),'Engineer - EmpOrg - Active')]")).isDisplayed())
-			     
-			    {      
-			       System.out.println("Job got added Successfully");
-			    }    
-			  }      
-			  catch(NoSuchElementException e)     
-			  {       
-				  System.out.println("Job not got added");
-			  }       
-			}
-		}
-	
+		candidatecardsectionpage.clickOnEditCandidateIcon(Name);
+	}
+
+	@Then("^click on Delete Candidate icon on Candidate card \"([^\"]*)\"$")
+	public void click_on_Delete_Candidate_icon_on_Candidate_card(String Name) throws Throwable {
+	    
+		Thread.sleep(3000);
+		candidatecardsectionpage.clickOnDeleteCandidateIcon(Name);
+		Thread.sleep(3000);
+		common.clickOnConfirmYes();
+	}
+
+	@When("^Verify that job is added or not \"([^\"]*)\"$")
+		public void verify_that_job_is_added_or_not(String JobName) throws Throwable {
+
+			Thread.sleep(3000);
+			
+			driver.findElement(By.id("jobDropdown")).click();
+			boolean jobdisplayed = driver.findElement(By.xpath("//select[@id='jobDropdown']//following::option[text()='"+JobName+"')]")).isDisplayed();
+			
+			
+			
+//			"//option[contains(text(),'Engineer - EmpOrg - Active')]"
+			Assert.assertEquals(true, jobdisplayed);
+			
+			{         
+				  try   
+				  {    
+				    if(driver.findElement(By.xpath("//select[@id='jobDropdown']//following::option[text()='"+JobName+"')]")).isDisplayed())
+				     
+				    {      
+				       System.out.println("Job got added Successfully");
+				    }    
+				  }      
+				  catch(NoSuchElementException e)     
+				  {       
+					  System.out.println("Job not got added");
+				  }       
+				}
+	}
 
 	@When("^Select the same job from job drop down$")
 	public void select_the_same_job_from_job_drop_down() throws Throwable {
@@ -197,14 +217,6 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 	   
 	}
 
-
-	@When("^Click on Edit Candidate icon on candidate card\\.$")
-	public void click_on_Edit_Candidate_icon_on_candidate_card() throws InterruptedException {
-		
-		Thread.sleep(3000);
-		candidatecardsectionpage.clickOnEditCandidateIcon();
-	}
-
 	@When("^Make the changes in \"([^\"]*)\" field$")
 	public void make_the_changes_in_field(String contactnumber) throws InterruptedException  {
 	    
@@ -217,15 +229,6 @@ public class AddEditDeleteCandidateStepDefination extends baseclass {
 		
 		Thread.sleep(3000);
        common.clickOnSaveBtn();
-		Thread.sleep(3000);
-		common.clickOnConfirmYes();
-	}
-
-	@Then("^click on Delete Candidate icon on Candidate card$")
-	public void click_on_Delete_Candidate_icon_on_Candidate_card() throws InterruptedException  {
-		
-		Thread.sleep(3000);
-		candidatecardsectionpage.candidateCardDeleteCandidateIcon.click();
 		Thread.sleep(3000);
 		common.clickOnConfirmYes();
 	}

@@ -106,6 +106,12 @@ public class CandidateCardSectionPage extends baseclass {
 		driver.findElement(By.xpath(editCandidateIcon)).click();
 	}
 	
+	public void clickOnDeleteCandidateIcon(String Name) throws InterruptedException {
+		Thread.sleep(3000);
+	    String deleteCandidateIcon = "//span[text()=' "+Name+"']//following::button[@title='Delete Candidate']";
+		driver.findElement(By.xpath(deleteCandidateIcon)).click();
+	}
+	
 	public void clickOnCandidateNameFromCandidateCard() {
 		
 		candidateCardCandidateName.click();
@@ -135,7 +141,7 @@ public class CandidateCardSectionPage extends baseclass {
 		Thread.sleep(3000);
 	}
 	
-	public void dragAndDropCardToFirstColumn() throws InterruptedException {
+   public void dragAndDropCardToFirstColumn() throws InterruptedException {
 		
 		WebElement drag = candidateCard;
 		WebElement drop = firstColumn;

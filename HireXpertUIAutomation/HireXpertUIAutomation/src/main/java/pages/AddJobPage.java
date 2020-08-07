@@ -77,6 +77,9 @@ public AddJobPage()
 	@FindBy(xpath = "//input[@placeholder='Enter Contact Number']")
 	public WebElement employerContactNumber;
 	
+	@FindBy(xpath = "//input[@placeholder='Enter Organization']")
+	public WebElement employerOrganizationName;
+	
 	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")
 	public WebElement employerPlusIconSubmit;
 	
@@ -153,6 +156,12 @@ public AddJobPage()
 		
 		employerplusicon.click();
 	}
+	
+ public void enteremployerorganizationname() throws InterruptedException {
+		
+		employerOrganizationName.sendKeys("EmployerOrg");
+	}
+	
 	
 	public void fillDetails() throws InterruptedException {
 		
