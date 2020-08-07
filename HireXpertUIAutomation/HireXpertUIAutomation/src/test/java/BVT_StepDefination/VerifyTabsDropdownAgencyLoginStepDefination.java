@@ -9,7 +9,7 @@ import utilPackage.baseclass;
 public class VerifyTabsDropdownAgencyLoginStepDefination extends baseclass {
 	
 	@Given("^Open browser$")
-	public void open_browser() throws IOException  {
+	public void open_browser() throws IOException {
 		
 		baseclass.initialization(); 
 	}
@@ -78,9 +78,9 @@ public class VerifyTabsDropdownAgencyLoginStepDefination extends baseclass {
 		
 	}
 	
-	@When("^Add Candidate to that job \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void add_Candidate_to_that_job(String CandidateEmail, String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
-	   
+	@When("^Add Candidate to that job \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+	public void add_Candidate_to_that_job_and(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
+	    
 		Thread.sleep(3000);
 		workbenchpage.addCandidateButton.click();
 		Thread.sleep(3000);
@@ -88,7 +88,7 @@ public class VerifyTabsDropdownAgencyLoginStepDefination extends baseclass {
 		Thread.sleep(3000);
 		addcandidatepage.FindButton.click();
 		Thread.sleep(3000);
-		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
+		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
 		Thread.sleep(3000);
 //		addcandidatepage.clickUploadResumeField();
 //		Thread.sleep(3000);
@@ -97,5 +97,4 @@ public class VerifyTabsDropdownAgencyLoginStepDefination extends baseclass {
 //		Thread.sleep(3000);
 //		common.clickOnConfirmYes();
 	}
-		
 }

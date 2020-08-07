@@ -146,7 +146,7 @@ public class AddCandidatePage extends baseclass {
 		contactNumber.sendKeys("2559825845");
 		designation.sendKeys("software tester");
 		noticePeriod.sendKeys("30");
-		location.sendKeys("Pune");
+		cityArea.sendKeys("Pune");
 	}
 	
 	public void EntercandidateemailT(String CandidateEmail) {

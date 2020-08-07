@@ -62,12 +62,6 @@ public class candidateProfile extends baseclass {
 		addcandidatepage.clickonFindbtn();
 	}
 
-	@When("^Fill all mandatory details and click on Save button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void fill_all_mandatory_details_and_click_on_Save_button(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
-	    
-		Thread.sleep(3000);
-		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
-	}
 	
 	@Then("^logout as employer and login as new candidate added by employer \"([^\"]*)\" \"([^\"]*)\"$")
 	public void logout_as_employer_and_login_as_new_candidate_added_by_employer(String CandidateEmail, String Password) throws Throwable {
@@ -161,6 +155,7 @@ public class candidateProfile extends baseclass {
 	    
 		common.clickOnConfirmYes();
 		Thread.sleep(3000);
+		
 	}
 	
 	@Then("^user should able to add new candidate and candidate should get added in New column$")
@@ -695,7 +690,7 @@ public class candidateProfile extends baseclass {
 	}
 	
 	@Then("^click on Edit Candidate icon from candidate card$")
-	public void click_on_Edit_Candidate_icon_from_candidate_card() throws Throwable {
+	public void click_on_Edit_Candidate_icon_from_candidate_card(String Name) throws Throwable {
 	    
 		candidatecardsectionpage.clickOnEditCandidateIcon();
 		Thread.sleep(3000);

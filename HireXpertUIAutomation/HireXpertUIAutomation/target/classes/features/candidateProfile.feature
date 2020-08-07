@@ -1,5 +1,4 @@
 Feature: User Management
-
 @bvt @regression1_01
 	Scenario Outline: To verify the functionality of Update Profile page of candidate
 	
@@ -12,7 +11,7 @@ Feature: User Management
     And Select the same job from job drop down
     And click on Add Candidate button
     And enter email id of candidate which is not registered previously and click on Find button "<CandidateEmail>" 
-    And Fill all mandatory details and click on Save button "<Name>" "<ContactNumber>" "<Designation>" "<Gender>" "<NoticePeriod>" "<Location>" "<Communicationmode>"
+    And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
     And upload candidate resume and click on save button
     And click on Yes button if probability related fields are not filled and observe
     Then user should able to add new candidate and candidate should get added in New column
@@ -47,8 +46,8 @@ Feature: User Management
 	And close the browser
 	
 	Examples:
-	| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail   |  Name   |   ContactNumber  |   Designation     | Gender | NoticePeriod | Location    |  Communicationmode | password | LastWorkingDay | Skill1 | Skill2 | ExpertiseLevel |
-	| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  c15@gmail.com    | c15     | 9917895340       | test engineer     | Female | 30           | Pune        | Email              | 12345    | 1/9/2020       | Java   | Java   |  Expert        |
+	| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate| password | LastWorkingDay | Skill1 | Skill2 | ExpertiseLevel |
+	| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  c16@gmail.com  | c16     |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 12345    | 1/9/2020       | Java   | Java   |  Expert        |
 	
 	
 	
