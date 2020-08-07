@@ -36,6 +36,9 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//span[text()='Today']")
 	public WebElement todayDate;
 	
+	@FindBy(xpath = "//input[@placeholder='Select Date']")
+	public WebElement date;
+	
 	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
 	public WebElement onNoticePeriod;
 	
@@ -51,8 +54,14 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//input[@formcontrolname='City']")
 	public WebElement city;
 	
+	@FindBy(xpath = "//input[@placeholder='Enter City Area']")
+	public WebElement cityArea;
+	
 //	@FindBy(xpath = "//input[@formcontrolname='SalaryOffered']")
 //	public WebElement salaryOffered;
+	
+	@FindBy(id = "ZipCode")
+	public WebElement zipCode;
 	
 	@FindBy(id = "distance")
 	public WebElement distance;
@@ -81,7 +90,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//select[@formcontrolname='Gender']")
 	public WebElement gender;
 	
-	@FindBy(xpath = "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/job-applicant-component[1]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/label[1]/input[1]")
+	@FindBy(id = "NoticePeriod")
 	public WebElement noticePeriod;
 	
 	@FindBy(xpath = "//label[@class='check mt-4']//span[@class='checkmark']")
@@ -90,8 +99,8 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//*[@id=\"fromDatePicker\"]/div/div/input")
 	public WebElement lastWorkingDay;
 	
-	@FindBy(xpath = "//div[3]//div[3]//input[1]")
-	public WebElement location;
+//	@FindBy(xpath = "//div[3]//div[3]//input[1]")
+//	public WebElement location;
 	
 	@FindBy(id = "ECTC")
 	public WebElement expectedCTC;
@@ -102,7 +111,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(id = "salaryOffered")
 	public WebElement salaryOffered;
 	
-	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[2]/select")
+	@FindBy(xpath = "//*[@id='ng-invalidDiv']/td[2]/select")
 	public WebElement expertiseLevel;
 	
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/job-applicant-component/div[2]/div/div[1]/form/div[2]/div[2]/div/table/tbody/tr[1]/td[2]/select")
@@ -151,74 +160,7 @@ public class AddCandidatePage extends baseclass {
 
 	private String ExpertiseLevel2;
 	
-//	public void EnterAllMandatoryfieldsT(String CandidateEmail,String Date, String Name, String ContactNumber,String OnNoticePeriod, String experience, String CTC) throws InterruptedException, AWTException {
-//		
-//		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),' Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
-//		if(dynamicElement.size() != 0)
-//		{
-//			System.out.println("Candidate is present in system");
-//			common.clickOnOKBtn();
-//			nameOfCan=name.getAttribute("value");
-//			System.out.println("nameOfCan "+nameOfCan);
-//		}	
-//		else
-//		{
-//			System.out.println("Candidate is not present in system and you need to enter candidate details");
-//			Thread.sleep(2000);
-//			name.sendKeys(Name); 
-//			Thread.sleep(2000);
-//			nameOfCan=name.getAttribute("value");
-//			Thread.sleep(2000);
-//			calenderIcon.click();
-//			Thread.sleep(2000);
-//			driver.findElement(By.xpath("//span[text()='"+Date+"']")).click();
-//			se = new Select (onNoticePeriod);
-//			se.selectByVisibleText(OnNoticePeriod);
-//			experienceInYears.sendKeys(experience);
-//			ctc.sendKeys(CTC);
-//			this.expectedCTC.sendKeys(expectedCTC);
-//			se = new Select (countryId);
-//			se.selectByVisibleText(Country);
-//			se = new Select (city);
-//			se.selectByVisibleText(City);
-//			salaryOffered.sendKeys(Salaryoffered);
-//			this.distance.sendKeys(distance);
-//			se = new Select (isPermanentAddress);
-//			se.selectByVisibleText(permanentAddress);
-//			se = new Select (isReadyToRelocateToJobLocation);
-//			se.selectByVisibleText(relocate);
-//			contactNumber.sendKeys(ContactNumber);
-//			designation.sendKeys(Designation);
-//			se = new Select (gender);
-//			se.selectByVisibleText(Gender); 
-//		  	noticePeriod.sendKeys(NoticePeriod);
-//		  	location.sendKeys(Location);
-//		  	se = new Select (communicationMode);
-//		  	se.selectByIndex(2);
-//		  	ZipCode.sendKeys("111165");
-////		  	uploadResumeDocument();
-//			
-//		}
-////		common.clickOnSaveBtn();
-////		common.clickOnConfirmYes();
-//	}
-//	public void checkCandidateALreadyPresent() throws InterruptedException
-//	{
-//		try {
-//			
-//			driver.findElement(By.xpath("//h6[contains(text(),' This candidate is already added to this job either by you or somebody else.')]")).isDisplayed();
-//			System.out.println("This candidate is already added to this job either by you or somebody else");
-//			common.clickOnOKBtn();
-//			Thread.sleep(2000);
-//			common.clickOnCloseBtn();
-//			common.clickOnConfirmYes();
-//		}
-//		catch(NoSuchElementException e )
-//		{}
-//	}
-
-public void EnterAllMandatoryfieldsT(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws InterruptedException, AWTException {
-    	 
+	public void EnterAllMandatoryfieldsT(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException, AWTException {
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),' Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
 		if(dynamicElement.size() != 0)
@@ -228,31 +170,60 @@ public void EnterAllMandatoryfieldsT(String Name, String ContactNumber, String D
 			nameOfCan=name.getAttribute("value");
 			System.out.println("nameOfCan "+nameOfCan);
 		}	
-		else
+		else 
 		{
 			System.out.println("Candidate is not present in system and you need to enter candidate details");
-			Thread.sleep(2000);
+		
 			name.sendKeys(Name); 
-			Thread.sleep(2000);
 			nameOfCan=name.getAttribute("value");
-			System.out.println("nameOfCan "+nameOfCan);
 			contactNumber.sendKeys(ContactNumber);
 			designation.sendKeys(Designation);
-			gender.sendKeys(Keys.ENTER);
+			Thread.sleep(2000);
+			date.sendKeys(Date);
+			Thread.sleep(2000);
 			se = new Select (gender);
 			se.selectByVisibleText(Gender); 
-		  	noticePeriod.sendKeys(NoticePeriod);
-		  	location.sendKeys(Location);
-		  	se = new Select (communicationMode);
-		  	se.selectByIndex(2);
-		  	ZipCode.sendKeys("111165");
+			se = new Select (onNoticePeriod);
+			se.selectByVisibleText(OnNoticePeriod);
+			if(OnNoticePeriod.contentEquals("Yes"))
+			{
+				
+			}	
+			else
+			{
+			noticePeriod.sendKeys(NoticePeriod);
+			}
+			experienceInYears.sendKeys(experience);
+			ctc.sendKeys(CTC);
+			this.expectedCTC.sendKeys(expectedCTC);
+			se = new Select (countryId);
+			se.selectByVisibleText(Country);
+			city.sendKeys(City);
+			Thread.sleep(2000);
+			salaryOffered.click();
+			cityArea.sendKeys(CityArea);
+			zipCode.sendKeys(ZipCode);
+			se = new Select (communicationMode);
+		  	se.selectByVisibleText(Communicationmode);
+			salaryOffered.sendKeys(Salaryoffered);
+			this.distance.sendKeys(distance);
+			se = new Select (isPermanentAddress);
+			se.selectByVisibleText(permanentAddress);
+			se = new Select (isReadyToRelocateToJobLocation);
+			se.selectByVisibleText(relocate);
+		  	
 //		  	uploadResumeDocument();
 			
 		}
 //		common.clickOnSaveBtn();
 //		common.clickOnConfirmYes();
-try {
-				
+	}
+	
+	
+	public void checkCandidateALreadyPresent() throws InterruptedException
+	{
+		try {
+			
 			driver.findElement(By.xpath("//h6[contains(text(),' This candidate is already added to this job either by you or somebody else.')]")).isDisplayed();
 			System.out.println("This candidate is already added to this job either by you or somebody else");
 			common.clickOnOKBtn();
@@ -260,11 +231,10 @@ try {
 			common.clickOnCloseBtn();
 			common.clickOnConfirmYes();
 		}
-catch(NoSuchElementException e )
-{}
+		catch(NoSuchElementException e )
+		{}
 	}
-	
-		
+
         public void Enterexpertilevel (String ExpertiseLevel1, String ExpertiseLevel2 ) {
         		
         	se = new Select (expertiseLevel1);
@@ -273,9 +243,7 @@ catch(NoSuchElementException e )
 		  	se = new Select (expertiseLevel2);
 		  	se.selectByVisibleText(ExpertiseLevel2);
 	}
-	
-	
-	
+
 	public void clickUploadResumeField() {
 		
 		uploadResumeField.click();
@@ -290,15 +258,12 @@ catch(NoSuchElementException e )
 		
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
 		upload.sendKeys("C:\\Users\\TLP33\\Documents\\CV.docx");
-		
-
 	}
 	
 	public void uploadResumeDocumentT() throws AWTException {  //Method for Trupti
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
 		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.doc"); // CV Path of Trupti's system
 	}
-
 	
 
 }

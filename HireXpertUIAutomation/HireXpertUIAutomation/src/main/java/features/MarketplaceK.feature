@@ -125,8 +125,8 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials
 And Go to workbench
 And Add job
-|title                 |designation |industry   |jobrole        |location |budget |minexp|maxexp|
-|Software Tester(I)    |developer   |IT software|java developer |pune     |400000 |1     |2     |
+|title    |designation |industry   |jobrole        |location |budget |minexp|maxexp|
+|JOb 2    |developer   |IT software|java developer |pune     |400000 |1     |2     |
 And Select a added job
 And Click on share job with market place
 And change information and click on submit
@@ -169,13 +169,14 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And agency enters valid credentials
 And Go to workbench
-And Select a added job which is from martketplace
+And Select a added job
+#And Select a added job which is from martketplace
 And Go to agreement and click on view button
 Then all terms and condition remain same for agency one
 |Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|Employer|Agency|
 |8.33                 |30 Days       |60 Days      |90 Days           |pemp    |pagy  |
 And Click on add candidate
-And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>" ,"<Gender>", "<NoticePeriod>","<Location>" and "<Communicationmode>"
+And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
 Then User should be able to add candidate
 And Logout from App
 And Click on Employer-Agency Signin link
@@ -188,9 +189,8 @@ Then All updated terms and condition should show for new agency
 |9                    |30 Days       |60 Days      |90 Days           |pemp    |pagy1 |
 
 Examples:
-|Name   |CandidateEmail   |ContactNumber|Designation   |Gender|NoticePeriod |Location|Communicationmode|
-|Pratik |pratik@gmail.com |4564668596   |developer     |Male  |30           |pune     |Email            |
-
+|CandidateEmail        |Name    |ContactNumber|Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|
+|vishwani@gmail.com    |vishvani|8956652538   |jr.developer  |04/08/1999      |Female  |No            |25          |2.0       |400000|800000     |India  |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |
 
 #@TC375
 #Scenario: To check the functionality of Review request
