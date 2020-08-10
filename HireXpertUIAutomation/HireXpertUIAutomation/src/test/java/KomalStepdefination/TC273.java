@@ -18,7 +18,8 @@ public class TC273 extends baseclass{
 	}
 
 	@And("^the task should not display on employer side$")
-	public void the_task_should_not_display_on_employer_side() throws Throwable {
+	public void And the task should display for loggedinuser
+() throws Throwable {
 		taskpage.validateTaskAfterMarkCompletedEmp();
 	}
 

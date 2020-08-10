@@ -128,6 +128,10 @@ public AddJobPage()
 	@FindBy(xpath = "//button[@title='Add Employee']")
 	public WebElement addEmployee;
 	
+	@FindBy(xpath = "//input[@placeholder='Enter Organization']")
+	public WebElement Organization;
+	
+	
 	@FindBy(xpath = "//select[@formcontrolname='EmployerId']")
 	public WebElement employerId;
 	
@@ -279,34 +283,31 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 		minexp.sendKeys(data.get("minexp"));
 		maxexp.sendKeys(data.get("maxexp"));
 		noOfInterviews();
-		List<WebElement> deletebtn = driver.findElements(By.xpath("//i[@class='fa fa-trash']"));	
+		List<WebElement> deletebtn = driver.findElements(By.xpath("//i[@class='fa fa-trash']"));
+		this.emp=loginpage.b;
 		for(int i=0;i<deletebtn.size();i++)
 			{
 				WebElement btn = deletebtn.get(i);
-				Thread.sleep(4000);
+				Thread.sleep(6000);
 				btn.click();
 			}
-		this.emp=loginpage.b;
 		if(emp==false)
-			{ 
-			select =new Select(employerId);
-			List<WebElement> options = select.getOptions();
-			if(options.size()>0)
-			{
-				select.selectByIndex(1);
-			}
-			else if (options.size()==0)
-			{
-				Thread.sleep(2000);
-				addEmployee.click();
-				teampage.AddAllDetailsK(credentials);
-			}
-			}
-		common.ClickSumbit();
+		{ 
+		select =new Select(employerId);
+		List<WebElement> options = select.getOptions();
+		if(options.size()>0)
+		{
+			select.selectByIndex(1);
+		}
+		else if (options.size()==0)
+		{
+			Thread.sleep(2000);
+			addEmployee.click();
+			teampage.AddAllDetailsK(credentials);
+			select.selectByIndex(1);
+			Organization.sendKeys(data.get("Oraganization"));	
+		}
+		}
+			common.ClickSumbit();
+		}
 	}
-}
-	
-
-}
-	
-

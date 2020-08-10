@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -12,7 +13,9 @@ import cucumber.api.DataTable;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import pages.CandidateCardSectionPage;
 import utilPackage.baseclass;
 
@@ -125,7 +128,11 @@ public class taskRegression extends baseclass{
 		loginpage.logoutFromAppK();
 	}
 
-	
+	@And("^Click on hamburger menu$")
+	public void click_on_hamburger_menu() throws Throwable {
+		Thread.sleep(4000);
+	    workbenchpage.threeDot.click();
+	}
 
 	@And("^Login with team member$")
 	public void login_with_team_member() throws Throwable {
@@ -136,7 +143,7 @@ public class taskRegression extends baseclass{
 		}
 		else 
 		{
-			loginpage.loginInAppWithAgyTeamK();
+		loginpage.loginInAppWithAgyTeamK();
 		}
 	}
 	
@@ -157,7 +164,9 @@ public class taskRegression extends baseclass{
 
 	@And("^third user should not able to put task in progress$")
 	public void third_user_should_not_able_to_put_task_in_progress() throws Throwable {
-		taskpage.errordisplayed();
+//		taskpage.errordisplayed();'
+		Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' You can not change status of this task as you are neither assignee, creator or team owner for this task.']")).isDisplayed(), true);
+		common.clickOnOKBtn();
 	}
 
 	@And("^Click on edit task$")
@@ -200,16 +209,24 @@ public class taskRegression extends baseclass{
 
 
 	
-	@And("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" ,\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-	public void enter_All_details_of_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
+	@And("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+	public void enter_All_details_of_and(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
 		workbenchpage.enterEmailId(CandidateEmail);
-		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
+		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
+		addcandidatepage.uploadResumeDocument();
+		common.clickOnSaveBtn();
+		try
+		{
+		common.clickOnConfirmYes();
+		}
+		catch(NoSuchElementException e)	
+		{}
 		addcandidatepage.checkCandidateALreadyPresent();
 	}
 	
-	@And("^verify candidate card is displaying or not in New column$")
-	public void verify_candidate_card_is_displaying_or_not_in_New_column() throws Throwable {
-	    driver.findElement(By.xpath("//th[text()='New ']//following::div[@class='item-box cdk-drag']")).isDisplayed();
+	@When("^verify candidate card is displaying or not in New column \"([^\"]*)\"$")
+	public void verify_candidate_card_is_displaying_or_not_in_New_column(String Name) throws Throwable {
+		driver.findElement(By.xpath("//th[text()=' New ']//following::span[text()=' "+Name+"']")).isDisplayed();
 	}
 	
 	@And("^drag the candidate from new column to Schedule interview column$")
@@ -259,11 +276,34 @@ public class taskRegression extends baseclass{
 //		executor.executeScript("arguments[0].scrollLeft();",driver.findElement(By.cssSelector("div.item-box.cdk-drag")) );
 		WebElement ele = driver.findElement(By.xpath("//th[text()='Rejected ']//following::div[@class='item-box cdk-drag']"));
 		executor.executeScript("window.scrollBy(-500000, 0)");
-//		executor.executeScript("arguments[0].scrollRight = arguments[0].offsetWidth",ele );
 		ele.isDisplayed();
 	}
 
-	
+	@After("@regtask")
+	public void Endtest() throws InterruptedException
+	{
+		dashboardpage.openDashboardPage();
+//		taskpage.reloadtask();
+		List<WebElement> markCompleteButton = driver.findElements(By.xpath("//a[@title='Complete']"));
+		int size= markCompleteButton.size();
+		for(int i=0;i<size;i++)
+		{
+			Thread.sleep(4000);
+			markCompleteButton.get(i).click();
+		}
+		taskpage.ClickOnTeamTask();
+//		taskpage.reloadtask();
+		List<WebElement> markCompleteButton1 = driver.findElements(By.xpath("//a[@title='Complete']"));
+		int size1= markCompleteButton1.size();
+		System.out.println(size1);
+		for(int i=0;i<size1;i++)
+		{
+			Thread.sleep(4000);
+			markCompleteButton1.get(i).click();
+		}
+	}
+
+
 }
 
 
