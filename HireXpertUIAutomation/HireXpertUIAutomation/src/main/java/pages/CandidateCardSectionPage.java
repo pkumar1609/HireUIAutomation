@@ -268,7 +268,7 @@ public class CandidateCardSectionPage extends baseclass {
 			
 		else
 		{
-			System.out.println("Bell icon is present on candidate card as the expertise level for skills is answered.");
+			System.out.println("Bell icon is not present on candidate card as the expertise level for skills is answered.");
 	    }
 	}
  

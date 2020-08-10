@@ -1,5 +1,7 @@
 package RegressionTc;
 
+import org.openqa.selenium.By;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utilPackage.baseclass;
@@ -16,7 +18,7 @@ public class BelliconOnCandidateCard extends baseclass {
 		
 		Thread.sleep(3000);
 		
-		addjobpage.fillJobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+		addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
 		
 		Thread.sleep(3000);
 		
@@ -41,6 +43,13 @@ public class BelliconOnCandidateCard extends baseclass {
 		
 	}
 	
+	@When("^upload candidate resume$")
+    public void upload_candidate_resume() throws Throwable {
+  
+	Thread.sleep(3000);
+   addcandidatepage.uploadResumeDocumentT();
+  }
+	
 	@When("^Keep expertise level as Not answer \"([^\"]*)\" \"([^\"]*)\"$")
 	public void keep_expertise_level_as_Not_answer(String ExpertiseLevel1, String ExpertiseLevel2) throws Throwable {
 	    
@@ -52,7 +61,7 @@ public class BelliconOnCandidateCard extends baseclass {
 	public void select_different_expertise_level_for_the_skill_which_is_having_expert_level_as_not_answer(String expertiselevel1, String expertiselevel2) throws Throwable {
 	    
 		Thread.sleep(3000);
-		addcandidatepage.Enterexpertilevelofskills(expertiselevel1, expertiselevel2);
+		addcandidatepage.Enterexpertilevel(expertiselevel1, expertiselevel2);
 	}
 
 
@@ -65,13 +74,14 @@ public class BelliconOnCandidateCard extends baseclass {
 	
 	}
 
-	@Then("^Now Go to edit candidate\\.$")
-	public void now_Go_to_edit_candidate() throws Throwable {
-		
-		Thread.sleep(3000);
+	
+	@When("^Click on Edit Candidate icon on candidate card \"([^\"]*)\"$")
+	public void click_on_Edit_Candidate_icon_on_candidate_card(String Name) throws Throwable {
 	    
-		candidatecardsectionpage.clickOnEditCandidateIcon();
+		Thread.sleep(3000);
+		candidatecardsectionpage.clickOnEditCandidateIcon(Name);
 	}
+
 
 	@Then("^when user set expertise level other than Not answer in edit candidate at that time bell icon should removed from candidate card$")
 	public void when_user_set_expertise_level_other_than_Not_answer_in_edit_candidate_at_that_time_bell_icon_should_removed_from_candidate_card() throws Throwable {
@@ -81,7 +91,14 @@ public class BelliconOnCandidateCard extends baseclass {
 		candidatecardsectionpage.verifyBellIconOnCandidateCard();
 	}
 
-
+	@When("^click on save button$")
+	public void click_on_save_button() throws Throwable {
+	    
+		Thread.sleep(3000);
+	    driver.findElement(By.xpath("(//button[text()='Save'])[2]")).click();
+	    Thread.sleep(3000);
+		common.clickOnConfirmYes();
+	}
 	
 	
 	

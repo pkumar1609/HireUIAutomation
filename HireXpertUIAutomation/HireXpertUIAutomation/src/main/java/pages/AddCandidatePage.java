@@ -114,11 +114,11 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//*[@id='ng-invalidDiv']/td[2]/select")
 	public WebElement expertiseLevel;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/job-applicant-component/div[2]/div/div[1]/form/div[2]/div[2]/div/table/tbody/tr[1]/td[2]/select")
+	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[1]")
 	public WebElement expertiseLevel1;
 	
 	
-	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[2]/select")
+	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[2]")
 	public WebElement expertiseLevel2;
 	
 	@FindBy(xpath = "//div[@class='custom-file custom-file-invalid']")
@@ -243,6 +243,16 @@ public class AddCandidatePage extends baseclass {
 		  	se = new Select (expertiseLevel2);
 		  	se.selectByVisibleText(ExpertiseLevel2);
 	}
+        
+        public void EnterexpertilevelofskillasNotanswered(String ExpertiseLevel1, String ExpertiseLevel2) {
+    		
+    		se = new Select (expertiseLevel1);
+    	  	se.selectByVisibleText(ExpertiseLevel1);
+    	  	
+    	  	se = new Select (expertiseLevel2);
+    	  	se.selectByVisibleText(ExpertiseLevel2);
+    		
+    	}
 
 	public void clickUploadResumeField() {
 		
@@ -264,6 +274,8 @@ public class AddCandidatePage extends baseclass {
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
 		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.doc"); // CV Path of Trupti's system
 	}
+
+	
 	
 
 }
