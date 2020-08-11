@@ -309,7 +309,7 @@ public class candidateProfile extends baseclass {
 		
 		candidateupdateprofilepage.noticePeriodCheckbox.click();
 		Thread.sleep(1000);
-		candidateupdateprofilepage.lastWorkingDay.sendKeys(data.get(0).get(0));
+		candidateupdateprofilepage.lastWorkingDay.sendKeys();
 		Thread.sleep(2000);
 	}
 	

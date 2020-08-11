@@ -78,7 +78,7 @@ public class BelliconOnCandidateCard extends baseclass {
 	@When("^Click on Edit Candidate icon on candidate card \"([^\"]*)\"$")
 	public void click_on_Edit_Candidate_icon_on_candidate_card(String Name) throws Throwable {
 	    
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		candidatecardsectionpage.clickOnEditCandidateIcon(Name);
 	}
 

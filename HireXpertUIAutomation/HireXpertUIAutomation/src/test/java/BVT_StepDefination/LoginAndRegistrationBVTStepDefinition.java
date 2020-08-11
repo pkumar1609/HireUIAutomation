@@ -10,7 +10,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utilPackage.baseclass;
 
-public class LoginAndRegistrationStepDefinition extends baseclass  {
+public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		
 	@Given("^User open browser$")
 	public void user_open_browser() throws Throwable {

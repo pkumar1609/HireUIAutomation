@@ -81,115 +81,115 @@ Examples:
 
 
 
-#@BVT
-#Scenario Outline: To verify the registration functionality of already registered user and to verify user is not able to add one user with multiple roles.
-#
-#Given User open browser
-#When click on Register link       
-#And enter details of already registered user "<employername>" "<employeremail>" "<employercontactnumber>"
-#And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
-#And click on Submit button
-#And click on Yes button
-#Then User should get a error message as "User with 'employermain01@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
-#And click on Close button
-#And Click on Yes button of confirmation popup
-#And Close the browser
-#Given User open browser
-#When click on Register link       
-#And enter details of already registered agency "<agencyname>" "<agencyemail>" "<agencycontactnumber>"
-#And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
-#And click on Submit button
-#And click on Yes button
-#Then User should get a error message as "User with 'agencymain01@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
-#And click on Close button
-#And Click on Yes button of confirmation popup
-#And Close the browser
-#Given User open browser
-#When click on Register link  
-#And enter details of already registered employer "<candidatename>" "<candidateemail>" "<candidatecontactnumber>"
-#And Select value from dropdown of "<employerusertype>" "<timezone>" "<country>"
-#And click on Submit button
-#And click on Yes button
-#Then User should get a error message as "User with 'candidatemain01@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
-#And click on Close button
-#And Click on Yes button of confirmation popup
-#And Close the browser
-#
-#
-#Examples: 
-#   | employername    |   employeremail              | employercontactnumber   | candidateusertype  | timezone             | country |  agencyname   |   agencyemail             | agencycontactnumber  |   candidatename   |   candidateemail             | candidatecontactnumber  | employerusertype  |
-#   | employermain01  |  employermain01@gmail.com    | 211394644               | Candidate          | Indian Standard Time | India   | agencymain01  |  agencymain01@gmail.com   | 211314644            | candidatemain01   |  candidatemain01@gmail.com   | 123456456               | Employer          | 
-#   
+@BVT
+Scenario Outline: To verify the registration functionality of already registered user and to verify user is not able to add one user with multiple roles.
+
+Given User open browser
+When click on Register link       
+And enter details of already registered user "<employername>" "<employeremail>" "<employercontactnumber>"
+And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
+And click on Submit button
+And click on Yes button
+Then User should get a error message as "User with 'employermain01@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
+And click on Close button
+And Click on Yes button of confirmation popup
+And Close the browser
+Given User open browser
+When click on Register link       
+And enter details of already registered agency "<agencyname>" "<agencyemail>" "<agencycontactnumber>"
+And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
+And click on Submit button
+And click on Yes button
+Then User should get a error message as "User with 'agencymain01@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
+And click on Close button
+And Click on Yes button of confirmation popup
+And Close the browser
+Given User open browser
+When click on Register link  
+And enter details of already registered employer "<candidatename>" "<candidateemail>" "<candidatecontactnumber>"
+And Select value from dropdown of "<employerusertype>" "<timezone>" "<country>"
+And click on Submit button
+And click on Yes button
+Then User should get a error message as "User with 'candidatemain01@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
+And click on Close button
+And Click on Yes button of confirmation popup
+And Close the browser
+
+
+Examples: 
+   | employername    |   employeremail              | employercontactnumber   | candidateusertype  | timezone             | country |  agencyname   |   agencyemail             | agencycontactnumber  |   candidatename   |   candidateemail             | candidatecontactnumber  | employerusertype  |
+   | employermain01  |  employermain01@gmail.com    | 211394644               | Candidate          | Indian Standard Time | India   | agencymain01  |  agencymain01@gmail.com   | 211314644            | candidatemain01   |  candidatemain01@gmail.com   | 123456456               | Employer          | 
+   
 #TC :- 6, 289
 
 # no change for this scenario 
 # if db clear then register candidatemain01@gmail.com as candidate
 
   
-# @BVT
-#Scenario Outline: Verify user should not be able to Login with old password after creating the new password
-#
-#Given User open browser
-#When click on Register link       
-#And enter employer details "<EmployerName>" "<EmployerEmail>" "<EmployerContactNumber>" 
-#And Select value from dropdown for employer "<EmployerUserType>" "<timezone>" "<country>"
-#And click on Submit button
-#And User should get confirmation message and click on OK button
-#And click on Login link
-#And click on Employer-Agency SignIn link
-#And enter employer email and password "<EmployerEmail>" "<password>" 
-#And click on Signin button
-#And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<EmployerWebsite>" "<EmployerCity>"
-#And click on Submit button
-#And Click on Change Password tab
-#And Enter the Current Password and New Password "<password>" "<newpassword>" "<confirmpassword>"
-#And click on Submit button
-#And Successful pop-up message display as "Your password has been successfully updated." with Ok button
-#And Click on Ok button
-#And click on logout tab
-#And click on Login link
-#And click on Employer-Agency SignIn link
-#And login as employer with new password "<EmployerEmail>" "<newpassword>" 
-#And click on logout tab
-#And click on Login link
-#And click on Employer-Agency SignIn link
-#And login as employer with the old password "<EmployerEmail>" "<password>"
-#Then User should get error message as "Wrong password. Please use forgot password link to reset your password." when he try to login with old password
-#And Close browser
-#
-#Given User open browser
-#When click on Register link       
-#And enter Agency details "<AgencyName>" "<AgencyEmail>" "<AgencyContactNumber>" 
-#And Select value from dropdown for Agency "<AgencyUserType>" "<timezone>" "<country>"
-#And click on Submit button
-#And User should get confirmation message and click on OK button
-#And click on Login link
-#And click on Employer-Agency SignIn link
-#And enter agency email and password "<AgencyEmail>" "<password>" 
-#And click on Signin button
-#And Update Agency Profile  "<AgencyAddress>" "<AgencyOrganizationName>" "<AgencyWebsite>" "<AgencyCity>"
-#And click on Submit button
-#And Click on Change Password tab
-#And Enter the Current Password and New Password "<password>" "<newpassword>" "<confirmpassword>"
-#And click on Submit button
-#And Successful pop-up message display as "Your password has been successfully updated." with Ok button
-#And Click on Ok button
-#And click on logout tab
-#And click on Login link
-#And click on Employer-Agency SignIn link
-#And login as agency with new password "<AgencyEmail>" "<newpassword>" 
-#And click on logout tab
-#And click on Login link
-#And click on Employer-Agency SignIn link
-#And login as agency with old password "<AgencyEmail>" "<password>"
-#Then User should get error message as "Wrong password. Please use forgot password link to reset your password." when he try to login with old password
-#And Close browser
-#
-#Examples:
-#
-#| EmployerName  | EmployerEmail            | EmployerContactNumber | EmployerUserType | timezone              | country | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | password | newpassword | confirmpassword |  AgencyName  | AgencyEmail           | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity |
-#|CPemployer04   | cpemployer04@gmail.com   | 565566625             |   Employer       |  Indian Standard Time |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency04   | CPagency04@gmail.com  |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
-#
+ @BVT
+Scenario Outline: Verify user should not be able to Login with old password after creating the new password
+
+Given User open browser
+When click on Register link       
+And enter employer details "<EmployerName>" "<EmployerEmail>" "<EmployerContactNumber>" 
+And Select value from dropdown for employer "<EmployerUserType>" "<timezone>" "<country>"
+And click on Submit button
+And User should get confirmation message and click on OK button
+And click on Login link
+And click on Employer-Agency SignIn link
+And enter employer email and password "<EmployerEmail>" "<password>" 
+And click on Signin button
+And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<EmployerWebsite>" "<EmployerCity>"
+And click on Submit button
+And Click on Change Password tab
+And Enter the Current Password and New Password "<password>" "<newpassword>" "<confirmpassword>"
+And click on Submit button
+And Successful pop-up message display as "Your password has been successfully updated." with Ok button
+And Click on Ok button
+And click on logout tab
+And click on Login link
+And click on Employer-Agency SignIn link
+And login as employer with new password "<EmployerEmail>" "<newpassword>" 
+And click on logout tab
+And click on Login link
+And click on Employer-Agency SignIn link
+And login as employer with the old password "<EmployerEmail>" "<password>"
+Then User should get error message as "Wrong password. Please use forgot password link to reset your password." when he try to login with old password
+And Close browser
+
+Given User open browser
+When click on Register link       
+And enter Agency details "<AgencyName>" "<AgencyEmail>" "<AgencyContactNumber>" 
+And Select value from dropdown for Agency "<AgencyUserType>" "<timezone>" "<country>"
+And click on Submit button
+And User should get confirmation message and click on OK button
+And click on Login link
+And click on Employer-Agency SignIn link
+And enter agency email and password "<AgencyEmail>" "<password>" 
+And click on Signin button
+And Update Agency Profile  "<AgencyAddress>" "<AgencyOrganizationName>" "<AgencyWebsite>" "<AgencyCity>"
+And click on Submit button
+And Click on Change Password tab
+And Enter the Current Password and New Password "<password>" "<newpassword>" "<confirmpassword>"
+And click on Submit button
+And Successful pop-up message display as "Your password has been successfully updated." with Ok button
+And Click on Ok button
+And click on logout tab
+And click on Login link
+And click on Employer-Agency SignIn link
+And login as agency with new password "<AgencyEmail>" "<newpassword>" 
+And click on logout tab
+And click on Login link
+And click on Employer-Agency SignIn link
+And login as agency with old password "<AgencyEmail>" "<password>"
+Then User should get error message as "Wrong password. Please use forgot password link to reset your password." when he try to login with old password
+And Close browser
+
+Examples:
+
+| EmployerName  | EmployerEmail            | EmployerContactNumber | EmployerUserType | timezone              | country | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | password | newpassword | confirmpassword |  AgencyName  | AgencyEmail           | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity |
+|CPemployer04   | cpemployer04@gmail.com   | 565566625             |   Employer       |  Indian Standard Time |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency04   | CPagency04@gmail.com  |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
+
 
 #TC:- 81, 10
 
@@ -287,20 +287,20 @@ Examples:
 # Change name, email of employer/agency/candidate
 
 
-#@Regression
-#Scenario Outline: Forgot password functionality for not registered user
-#
-#Given User open browser
-#And click on Login link
-#When click on Employer-Agency SignIn link
-#And Click on forgot password link
-#And Enter an email id which is not registered and click on submit button "<emailid>" 
-#Then Verify that user get an error message as "aa11bb@gmail.com is not registered with us. Please register first." or not
-#
-#Examples:
-#
-#| emailid         |
-#|aa11bb@gmail.com |
+@Regression
+Scenario Outline: Forgot password functionality for not registered user
+
+Given User open browser
+And click on Login link
+When click on Employer-Agency SignIn link
+And Click on forgot password link
+And Enter an email id which is not registered and click on submit button "<emailid>" 
+Then Verify that user get an error message as "aa11bb@gmail.com is not registered with us. Please register first." or not
+
+Examples:
+
+| emailid         |
+|aa11bb@gmail.com |
 
 #TC:- 83
 

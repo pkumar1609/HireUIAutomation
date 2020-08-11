@@ -11,7 +11,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utilPackage.baseclass;
 
-public class JobCandidateWorkflowStepDefination extends baseclass {
+public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	
 	@Given("^Open the browser$")
 	public void open_the_browser() throws IOException  {
@@ -110,7 +110,7 @@ public class JobCandidateWorkflowStepDefination extends baseclass {
 	@When("^Click on Edit Candidate icon on candidate card \"([^\"]*)\"$")
 	public void click_on_Edit_Candidate_icon_on_candidate_card(String Name) throws Throwable {
 	    
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		candidatecardsectionpage.clickOnEditCandidateIcon(Name);
 	}
 
@@ -235,16 +235,16 @@ public class JobCandidateWorkflowStepDefination extends baseclass {
 	}
 
 
-	@Then("^click on close job button and delete the job$")
-	public void click_on_close_job_button_and_delete_the_job() throws Throwable {
-
-		Thread.sleep(3000);
-		workbenchpage.clickOnCloseJobButton();
-		
+//	@Then("^click on close job button and delete the job$")
+//	public void click_on_close_job_button_and_delete_the_job() throws Throwable {
+//
+//		Thread.sleep(3000);
+//		workbenchpage.clickOnCloseJobButton();
+//		
 //		Thread.sleep(3000);
 //		common.clickOnConfirmYes();
-
-	}
+//
+//	}
 	
 	
 	@Then("^click on employer tab and delete the employer$")

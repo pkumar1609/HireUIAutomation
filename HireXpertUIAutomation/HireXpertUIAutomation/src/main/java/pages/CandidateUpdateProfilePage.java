@@ -87,6 +87,9 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 	@FindBy(xpath = "//a[@title='Personal & Professional Details']")
 	public WebElement personalprofessionalInformation;
+	
+	@FindBy(xpath = "//a[@class='nav-link'][contains(text(),'Profile')]")
+	public WebElement profileTab;
 
 	
 	public CandidateUpdateProfilePage() {
