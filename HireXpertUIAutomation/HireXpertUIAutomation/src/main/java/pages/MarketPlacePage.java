@@ -24,8 +24,8 @@ public class MarketPlacePage extends baseclass {
 	  super();
       PageFactory.initElements(driver, this);
       this.driver = driver;
-      job =addjobpage.jobname;
-      System.out.println("construtor of marketplace job "+job);
+//      job =addjobpage.jobname;
+//      System.out.println("construtor of marketplace job "+job);
 	}
 	
 	boolean b;

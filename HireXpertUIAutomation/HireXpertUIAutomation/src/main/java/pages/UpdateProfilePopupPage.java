@@ -31,7 +31,7 @@ public class UpdateProfilePopupPage extends baseclass {
 	@FindBy(xpath="//input[@formcontrolname='email']")
 	public WebElement AgencyEmployerEmail;
 	
-	@FindBy(xpath="//input[@id='ContactNumber']")
+	@FindBy(xpath="//input[@placeholder='Enter Contact Number']")
 	public WebElement ContactNumber;
 	
 	@FindBy(xpath="//input[@formcontrolname='contactNumber']")
@@ -519,8 +519,7 @@ public class UpdateProfilePopupPage extends baseclass {
 	       }else {
 		   
 	    	   System.out.println("CTC (Per Annum) field is autopopulated as 0 on Update Profile Popup Window");
-	       }
-    
+	       }  
  }
     
     public void getDetails() throws InterruptedException
@@ -528,10 +527,10 @@ public class UpdateProfilePopupPage extends baseclass {
     	action.moveToElement(loginpage.profile).perform();
 		Thread.sleep(2000);
 		loginpage.updateProfile.click();
-    	Contact= this.ContactNumber.getAttribute("value");
+    	Contact= ContactNumber.getAttribute("text");
+    	System.out.println("contact is "+Contact);
     	Organization=OrganizationName.getText();
+    	System.out.println("Organization is "+Organization);
     	common.clickOnCloseBtn();
     }
 }
-
-

@@ -242,16 +242,14 @@ public class taskRegression extends baseclass{
 	@And("^the Auto generated task should get created for the schedule interview$")
 	public void the_Automatic_task_should_get_created_for_the_schedule_interview() throws Throwable {
 		
-	 driver.findElement(By.xpath("//strong[text()='Please schedule interview of "+addcandidatepage.nameOfCan+" for job "+addjobpage.jobname+"']")).isDisplayed();
-	
-			
+	Assert.assertEquals(true, driver.findElement(By.xpath("//strong[text()='Please schedule interview of "+addcandidatepage.nameOfCan+" for job "+addjobpage.jobname+"']")).isDisplayed());	
 	 
 	}
 	
 	@And("^again move the card to next column$")
 	public void again_move_the_card_to_next_column() throws Throwable {
 		Thread.sleep(4000);
-		 action.clickAndHold(driver.findElement(By.cssSelector("div.item-box.cdk-drag"))).moveToElement(driver.findElement(By.xpath("//td[@id='jobStatusColumn' and @class='TableCard'] [3]"))).release().build().perform();
+		action.clickAndHold(driver.findElement(By.cssSelector("div.item-box.cdk-drag"))).moveToElement(driver.findElement(By.xpath("//td[@id='jobStatusColumn' and @class='TableCard'] [3]"))).release().build().perform();
 
 	}
 
@@ -273,35 +271,36 @@ public class taskRegression extends baseclass{
 
 	@And("^verify the candidate card it should display in reject column$")
 	public void verify_the_candidate_card_it_should_display_in_reject_column() throws Throwable {
-//		executor.executeScript("arguments[0].scrollLeft();",driver.findElement(By.cssSelector("div.item-box.cdk-drag")) );
-		WebElement ele = driver.findElement(By.xpath("//th[text()='Rejected ']//following::div[@class='item-box cdk-drag']"));
-		executor.executeScript("window.scrollBy(-500000, 0)");
-		ele.isDisplayed();
+//		executor.executeScript("arguments[0].scrollLeft();", Scroll);
+		Thread.sleep(4000);
+		executor.executeScript("scroll(50000,0)");
+		WebElement Scroll = driver.findElement(By.xpath("//th[text()=' Rejected ']//following::div[@class='item-box cdk-drag']"));
+		Scroll.isDisplayed();
 	}
 
-	@After("@regtask")
-	public void Endtest() throws InterruptedException
-	{
-		dashboardpage.openDashboardPage();
+//	@After("@regtask")
+//	public void Endtest() throws InterruptedException
+//	{
+//		dashboardpage.openDashboardPage();
 //		taskpage.reloadtask();
-		List<WebElement> markCompleteButton = driver.findElements(By.xpath("//a[@title='Complete']"));
-		int size= markCompleteButton.size();
-		for(int i=0;i<size;i++)
-		{
-			Thread.sleep(4000);
-			markCompleteButton.get(i).click();
-		}
-		taskpage.ClickOnTeamTask();
+//		List<WebElement> markCompleteButton = driver.findElements(By.xpath("//a[@title='Complete']"));
+//		int size= markCompleteButton.size();
+//		for(int i=0;i<size;i++)
+//		{
+//			Thread.sleep(4000);
+//			markCompleteButton.get(i).click();
+//		}
+//		taskpage.ClickOnTeamTask();
 //		taskpage.reloadtask();
-		List<WebElement> markCompleteButton1 = driver.findElements(By.xpath("//a[@title='Complete']"));
-		int size1= markCompleteButton1.size();
-		System.out.println(size1);
-		for(int i=0;i<size1;i++)
-		{
-			Thread.sleep(4000);
-			markCompleteButton1.get(i).click();
-		}
-	}
+//		List<WebElement> markCompleteButton1 = driver.findElements(By.xpath("//a[@title='Complete']"));
+//		int size1= markCompleteButton1.size();
+//		System.out.println(size1);
+//		for(int i=0;i<size1;i++)
+//		{
+//			Thread.sleep(4000);
+//			markCompleteButton1.get(i).click();
+//		}
+//	}
 
 
 }

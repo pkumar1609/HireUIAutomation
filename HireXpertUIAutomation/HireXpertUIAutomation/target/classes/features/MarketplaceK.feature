@@ -59,6 +59,7 @@ And agency enters valid credentials
 And Go to agency marketplace tab
 Then status should display as employer signed
 
+#TC 351,359,357
 
 #@TC359_357 @BVT
 #Scenario: To check the functionality of Reject proposal and view button on Agency profile

@@ -689,20 +689,21 @@ And Employer enters valid credentials "<Username>","<Password>"
 And Go to workbench
 And Add job
 |title         |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |agytitle|
-|candidatejob2 |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |Agyjobtask|
+|candidatejob2 |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |Agyjobtask12|
 And Select a added job
 And Click on add candidate
-And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>" ,"<Gender>", "<NoticePeriod>","<Location>" and "<Communicationmode>"
-And verify candidate card is displaying or not in New column
+And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+And verify candidate card is displaying or not in New column "<Name>"
 And drag the candidate from new column to Schedule interview column
 And Go to dashboard
 And the Auto generated task should get created for the schedule interview 
 And Go to workbench
-And Select a adjeded job
-And click on rect icon on candidate card
+And Select a added job
+And click on reject icon on candidate card
 And verify the candidate card it should display in reject column
 
 Examples:
-|Username      |Password|Name   |CandidateEmail   |ContactNumber|Designation   |Gender|NoticePeriod | Location|Communicationmode|
-|pemp@gmail.com|12345   |Pratik |pratik@gmail.com |4564668596   |developer     |Male  |30           |pune     |Email            |
-|pagy@gmail.com|12345  |Abhijit|Abhijit@gmail.com|9856558555   |Java developer|Male  |30           |pune     |Email            |
+|Username      |Password|CandidateEmail        |Name    |ContactNumber|Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea     |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|
+#|pemp@gmail.com|12345   |vishwani@gmail.com    |vishvani|8956652538   |jr.developer  |04/08/1999      |Female  |No            |25          |2.0       |400000|800000     |India  |wardha|Arvi naka    |455966 |Call             |800000       |4       |No              |No      |
+|pagy@gmail.com|12345   |Shivani@gmail.com     |shivani |8552222222   |jr.developer  |08/09/1999      |Female  |No            |28          |7.0       |800000|800000     |India  |wardha|pawnar naka  |852966 |Call             |900000       |1       |No              |No      |
+
