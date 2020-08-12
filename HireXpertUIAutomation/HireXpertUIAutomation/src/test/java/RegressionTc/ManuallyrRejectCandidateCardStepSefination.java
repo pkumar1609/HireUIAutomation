@@ -144,8 +144,8 @@ Thread.sleep(3000);
 	    
 		Thread.sleep(3000);
 	       common.clickOnSaveBtn();
-			Thread.sleep(3000);
-			common.clickOnConfirmYes();
+//			Thread.sleep(3000);
+//			common.clickOnConfirmYes();
 	}
 
 	@When("^Verify candidate is displayed on workbench$")

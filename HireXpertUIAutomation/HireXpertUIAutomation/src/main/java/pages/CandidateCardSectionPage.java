@@ -112,6 +112,12 @@ public class CandidateCardSectionPage extends baseclass {
 		driver.findElement(By.xpath(deleteCandidateIcon)).click();
 	}
 	
+	public void clickOnRejectCandidateIcon(String Name) throws InterruptedException {
+		Thread.sleep(3000);
+	    String rejectCandidateIcon = "//span[text()=' "+Name+"']//following::button[@title='Reject Candidate']";
+		driver.findElement(By.xpath(rejectCandidateIcon)).click();
+	}
+	
 	public void clickOnCandidateNameFromCandidateCard() {
 		
 		candidateCardCandidateName.click();
@@ -256,6 +262,8 @@ public class CandidateCardSectionPage extends baseclass {
 //		}
 //	}
 	
+
+
 	
 	
 	public void verifyBellIconOnCandidateCard () {

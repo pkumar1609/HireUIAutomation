@@ -101,34 +101,34 @@ Feature: User Management
 ##TC ID: 26    
 #
 #
-#@regression1_03
-#	Scenario Outline: To verify the Notice Period field on candidate page
-#	
-#	Given User is on Home page of application
-#    
-#    When title of page is HireXpert
-#    And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
-#    And click on Workbench tab and observe Add Candidate button
-#    And select job from Jobs drop down and observe Add Candidate button
-#    And click on Add Candidate button and one new candidate for the job and click on Find button
-#    | c01@gmail.com | c02@gmail.com |
-#    And observe On Notice Period field
-#    And unchecked the On Notice Period field and enter zero in Notice Period field and click on Close button
-#    Then confirmation popup message should display with Yes and No buttons and Click on No button 
-#    And click on Save button
-#    Then User should able to add candidate after entering zero value in Notice Period field
-#    And click on Edit Candidate icon from candidate card
-#    And set another value in Notice Period in Edit Candidate page and click on Close button
-#    Then confirmation popup message should display with Yes and No buttons and Click on Yes button
-#    Then Workbench page should display
-#    And close the browser
-#    
-#Examples:
-#|    email address     |  password  |
-#|  sayali8@gmail.com   |   12345    |
-#| sayagency1@gmail.com |   12345    |      
-#
-##TC ID: 59,70,134,263
+@regression1_03
+	Scenario Outline: To verify the Notice Period field on candidate page
+	
+	Given User is on Home page of application
+    
+    When title of page is HireXpert
+    And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+    And click on Workbench tab and observe Add Candidate button
+    And select job from Jobs drop down and observe Add Candidate button
+    And click on Add Candidate button and one new candidate for the job and click on Find button
+    | c01@gmail.com | c02@gmail.com |
+    And observe On Notice Period field
+    And unchecked the On Notice Period field and enter zero in Notice Period field and click on Close button
+    Then confirmation popup message should display with Yes and No buttons and Click on No button 
+    And click on Save button
+    Then User should able to add candidate after entering zero value in Notice Period field
+    And click on Edit Candidate icon from candidate card
+    And set another value in Notice Period in Edit Candidate page and click on Close button
+    Then confirmation popup message should display with Yes and No buttons and Click on Yes button
+    Then Workbench page should display
+    And close the browser
+    
+Examples:
+|    email address     |  password  |
+|  sayali8@gmail.com   |   12345    |
+| sayagency1@gmail.com |   12345    |      
+
+#TC ID: 59,70,134,263
 #
 #
 #@regression1_04

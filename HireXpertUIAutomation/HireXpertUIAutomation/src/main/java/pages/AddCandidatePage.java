@@ -125,6 +125,15 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//div[@class='custom-file custom-file-invalid']")
 	public WebElement uploadResumeField;
 	
+	@FindBy(xpath = "//*[@id='ng-invalidDiv']/td[2]/select")
+	public WebElement expertiseLevel;
+	
+	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[1]")
+	public WebElement expertiseLevel1;
+	
+	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[2]")
+	public WebElement expertiseLevel2;
+	
 	public String nameOfCan;
 	Robot rb;
 	
@@ -289,6 +298,29 @@ public class AddCandidatePage extends baseclass {
     	  	se.selectByVisibleText(ExpertiseLevel2);
     		
     	}
+        
+        public void probabilitypopupwhileaddingcandidate() {
+        	
+        	{         
+        		  try   
+        		  {    
+        		    if(driver.findElement(By.xpath("(//div[@role='document'and@class='modal-dialog'])[2]")).isDisplayed())
+        		     
+        		    {      
+    						try {
+    							common.clickOnConfirmYes();
+    						} catch (InterruptedException e) {
+    							
+    						}
+        		    }    
+        		  }      
+        		  catch(NoSuchElementException e)     
+        		  {       
+        			  System.out.println("\\nNo probability popup is displayed");
+        		  }       
+        		}
+        	}
+
 
 	public void clickUploadResumeField() {
 		

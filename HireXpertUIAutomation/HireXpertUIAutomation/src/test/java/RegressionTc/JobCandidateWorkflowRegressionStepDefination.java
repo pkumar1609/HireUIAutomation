@@ -22,7 +22,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	@Given("^click on Login link$")
 	public void click_on_Login_link() throws Throwable {
 	   
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		registerpage.clickLogin();
 	}
 
@@ -69,7 +69,16 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	public void click_on_save_btn() throws InterruptedException  {
 		
 		Thread.sleep(3000);
-       driver.findElement(By.xpath("(//button[text()='Save'])[2]")).click();
+       driver.findElement(By.xpath("//button[text()='Save']")).click();
+		
+	}
+	
+	@When("^Click on save btn for skill$")
+	public void click_on_save_btn_for_skill() throws InterruptedException  {
+		
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("(//button[text()='Save'])[1]")).click();
+      
 		
 	}
 	
@@ -407,8 +416,251 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		Thread.sleep(2000);
 		common.clickOnConfirmYes();
 	}
+	
+	@Then("^set on notice period field as no and enter notice period days$")
+	public void set_on_notice_period_field_as_no_and_enter_notice_period_days() throws Throwable {
+
+		Select se = new Select(candidateupdateprofilepage.noticePeriodCheckbox);
+		se.selectByVisibleText("Yes");
+		Thread.sleep(5000);
+		addcandidatepage.noticePeriod.clear();
+		Thread.sleep(3000);
+		addcandidatepage.noticePeriod.sendKeys("60");
+		
+	}
+	
+
+//3
+	
+	@When("^login with Employer credential$")
+	public void login_with_Employer_credential() throws Throwable {
+	   
+		Thread.sleep(3000);
+		registerpage.employerlogin();
+		
+	}
+
+	@When("^if confirmation popup is displayed click on ok button$")
+	public void if_confirmation_popup_is_displayed_click_on_ok_button() throws Throwable {
+
+		Thread.sleep(3000);
+		addcandidatepage.probabilitypopupwhileaddingcandidate();
+	
+	}
+
+	@When("^Click on Comment icon from candidate card to add comment$")
+	public void click_on_Comment_icon_from_candidate_card_to_add_comment() throws Throwable {
+		
+		Thread.sleep(3000);
+		candidatecardsectionpage.comments.click();
+		
+	}
+
+	@When("^Add a comment greater than (\\d+) characters$")
+	public void add_a_comment_greater_than_characters(int arg1) throws Throwable {
+	    
+		Thread.sleep(3000);
+		candidatecardsectionpage.addCommentSection.sendKeys("111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+		
+	}
+
+	
+	@Then("^Verify that user get an error message as \"([^\"]*)\" for adding comment greater than specified characters$")
+	public void verify_that_user_get_an_error_message_as_for_adding_comment_greater_than_specified_characters(String ExpectedErrorMessage) throws Throwable {
+	   
+		Thread.sleep(3000);
+		String ActualErrorMessage = driver.findElement(By.xpath("//div[@class='text-danger']")).getText();
+		Assert.assertEquals(ExpectedErrorMessage, ActualErrorMessage);
+	}
+
+	@Then("^error message should display and Save button should be disabled$")
+	public void error_message_should_display_and_Save_button_should_be_disabled() throws Throwable {
+	    
+       boolean value = common.savebtn.isEnabled();
+		
+		if(value == true) {
+			
+			System.out.println("\nSave button is enabled when error message displayed");
+		}
+		else {
+			
+			System.out.println("\nSave button is disabled when error message displayed");
+		}
+	}
+
+	@Then("^add comment with or below (\\d+) characters and click on Save button$")
+	public void add_comment_with_or_below_characters_and_click_on_Save_button(int arg1) throws Throwable {
+	    
+		Thread.sleep(2000);
+		candidatecardsectionpage.addCommentSection.clear();
+		Thread.sleep(2000);
+		candidatecardsectionpage.addCommentSection.sendKeys("This is comment for candidate..");
+		Thread.sleep(2000);
+		common.clickOnSaveBtn();
+		Thread.sleep(3000);
+	}
+
+	@Then("^comment should get added below Save button with Delete Comment icon$")
+	public void comment_should_get_added_below_Save_button_with_Delete_Comment_icon() throws Throwable {
+
+		candidatecardsectionpage.addedNewComment = candidatecardsectionpage.addedComment.getText();
+		System.out.println("\nAdded comment: " + candidatecardsectionpage.addedNewComment);
+		
+		if(candidatecardsectionpage.addedNewComment.equals(candidatecardsectionpage.newComment)) {
+			
+			System.out.println("\nNew comment get added..");
+		}
+		else {
+			System.out.println("\nNew comment not getting added..");
+		}
+		
+//      boolean value = driver.findElement(By.cssSelector("span.text-danger.CustomerPonter")).isEnabled();
+//		
+//		if(value == true) {
+//			
+//			System.out.println("\nDelete icon is displayed when comment is saved.");
+//		}
+//		else {
+//			
+//			System.out.println("\nDelete icon is not displayed when comment is saved.");
+//		
+//		}
+	}
+	
+	
+	@Then("^click on Delete Comment icon to delete the comment and comment should get deleted$")
+	public void click_on_Delete_Comment_icon_to_delete_the_comment_and_comment_should_get_deleted() throws Throwable {
+	    
+		candidatecardsectionpage.deleteCommentIcon.click();
+		Thread.sleep(3000);
+		WebElement spaceBelowSaveButton = driver.findElement(By.xpath("//div[@class='scroll-box']"));
+		String str = spaceBelowSaveButton.getText();
+		System.out.println("\nData below Save button: " + str);
+		
+		if(str.equals(candidatecardsectionpage.addedNewComment)) {
+			
+			System.out.println("\nComment not getting deleted..");
+		}
+		else {
+			
+			System.out.println("\nComment get deleted..");
+		}
+	}
+	
+	
+//	4
+	
+
+	@Then("^Observe candidate get moved in Rejected column automatically$")
+	public void observe_candidate_get_moved_in_Rejected_column_automatically() throws Throwable {
+	    
+		
+	}
+
+	@Then("^Now move that candidate from Rejected column to any other column and observe$")
+	public void now_move_that_candidate_from_Rejected_column_to_any_other_column_and_observe() throws Throwable {
+
+		candidatecardsectionpage.dragAndDropCardToThirdColumn();
+		System.out.println("\nCard get moved to another column..");
+	}
+
+	@Then("^Click on Questionnaire tab$")
+	public void click_on_Questionnaire_tab() throws Throwable {
+	    
+		Thread.sleep(3000);
+		workbenchpage.clickonthreedot();
+		Thread.sleep(4200);
+		workbenchpage.clickonAddQuestionarybtn();
+	}
+
+	@Then("^Enter first question \"([^\"]*)\" and marks \"([^\"]*)\"$")
+	public void enter_first_question_and_marks(String QUESTION1, String QMARKS1) throws Throwable {
+	    
+		Thread.sleep(3000);
+        addquestionarypage.AddQUESTION1(QUESTION1);
+        addquestionarypage.AddMARKS1(QMARKS1);
+	}
+
+	@Then("^Enter the answer \"([^\"]*)\" \"([^\"]*)\"  and enter Marks \"([^\"]*)\" \"([^\"]*)\" for first question$")
+	public void enter_the_answer_and_enter_Marks_for_first_question(String ANSWER1, String ANSWER2, String MARKS1, String MARKS2) throws Throwable {
+	    
+		Thread.sleep(3000);
+		addquestionarypage.AddANSWERS1(ANSWER1, ANSWER2);
+		addquestionarypage.AddMARKS1(MARKS1, MARKS2);
+	}
+
+	@Then("^click on Save Changes button$")
+	public void click_on_Save_Changes_button() throws Throwable {
+	    
+		Thread.sleep(3000);
+		addquestionarypage.clickOnSaveChangesButton();
+	}
+
+	@Then("^Enter the cutoff & rejection percentage \"([^\"]*)\" \"([^\"]*)\"$")
+	public void enter_the_cutoff_rejection_percentage(String cuttoffpercentage, String rejectionpercentage) throws Throwable {
+
+		Thread.sleep(3000);
+        addquestionarypage.EntercuttoffPercentageT(cuttoffpercentage);
+        Thread.sleep(3000);
+        addquestionarypage.EnterRejectionPercentageT(rejectionpercentage);
+	}
+
+	@Then("^click on submit$")
+	public void click_on_submit() throws Throwable {
+
+		Thread.sleep(3000);
+		common.ClickSumbit();
+
+	}
+
+	@Then("^Collect Answer icon should reflect on candidates card for giving answers$")
+	public void collect_Answer_icon_should_reflect_on_candidates_card_for_giving_answers() throws Throwable {
+
+		workbenchpage.verifyCollectAnswericonT();
+	}
+	
+	@When("^Click on Reject Candidate icon from candidate card to reject the candidate \"([^\"]*)\"$")
+	public void click_on_Reject_Candidate_icon_from_candidate_card_to_reject_the_candidate(String Name) throws Throwable {
+
+		candidatecardsectionpage.clickOnRejectCandidateIcon(Name);
+		common.clickOnConfirmYes();
+		Thread.sleep(3000);
+		candidatecardsectionpage.selectRejectReason();
+		
+		
+	}
+
+	@Then("^Click on Reject Candidate icon from candidate card and reject that candidate \"([^\"]*)\"$")
+	public void click_on_Reject_Candidate_icon_from_candidate_card_and_reject_that_candidate(String Name1) throws Throwable {
+	    
+		candidatecardsectionpage.clickOnRejectCandidateIcon(Name1);
+		common.clickOnConfirmYes();
+		Thread.sleep(3000);
+		candidatecardsectionpage.selectRejectReason();
+	}
 
 
 
 
-}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	}
