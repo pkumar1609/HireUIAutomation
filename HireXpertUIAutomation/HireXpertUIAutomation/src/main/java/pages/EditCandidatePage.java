@@ -14,6 +14,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 //import junit.framework.Assert;
 import utilPackage.baseclass;
@@ -200,36 +201,61 @@ public class EditCandidatePage extends baseclass {
 	
 	public void AssertCandidatedetails(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable 
 	{
-		addcandidatepage.emailField.getAttribute("value").equals(CandidateEmail);
-		addcandidatepage.name.getAttribute("value").equals(Name);
-		addcandidatepage.contactNumber.getAttribute("value").equals(ContactNumber);
-		addcandidatepage.designation.getAttribute("value").equals(Designation);
-		addcandidatepage.gender.getAttribute("value").equals(Gender);
-		addcandidatepage.noticePeriod.getAttribute("value").equals(NoticePeriod);
-		addcandidatepage.communicationMode.getAttribute("value").equals(Communicationmode);
-		addcandidatepage.title.getAttribute("value").equals(addjobpage.jobname);
-		addcandidatepage.date.getAttribute("value").equals(Date);
-		addcandidatepage.onNoticePeriod.getAttribute("value").equals(OnNoticePeriod);
-		addcandidatepage.noticePeriod.getAttribute("value").equals(NoticePeriod);
-		addcandidatepage.experienceInYears.getAttribute("value").equals(experience);
-		addcandidatepage.ctc.getAttribute("value").equals(CTC);
-		addcandidatepage.expectedCTC.getAttribute("value").equals(expectedCTC);
-		addcandidatepage.countryId.getAttribute("value").equals(Country);
-		addcandidatepage.city.getAttribute("value").equals(City);
-		addcandidatepage.cityArea.getAttribute("value").equals(CityArea);
-		addcandidatepage.countryId.getAttribute("value").equals(Country);
-		addcandidatepage.city.getAttribute("value").equals(City);
-		addcandidatepage.cityArea.getAttribute("value").equals(CityArea);
-		addcandidatepage.zipCode.getAttribute("value").equals(ZipCode);
-		addcandidatepage.communicationMode.getAttribute("value").equals(Communicationmode);
-		addcandidatepage.salaryOffered.getAttribute("value").equals(Salaryoffered);
-		addcandidatepage.distance.getAttribute("value").equals(distance);
-		addcandidatepage.isPermanentAddress.getAttribute("value").equals(permanentAddress);
-		addcandidatepage.isReadyToRelocateToJobLocation.getAttribute("value").equals(relocate);
-
+		Thread.sleep(5000);
+//		
+//		addcandidatepage.emailField.getAttribute("value").equals(CandidateEmail);
+//		addcandidatepage.name.getAttribute("value").equals(Name);
+//		addcandidatepage.contactNumber.getAttribute("value").equals(ContactNumber);
+//		addcandidatepage.designation.getAttribute("value").equals(Designation);
+//		addcandidatepage.gender.getAttribute("value").equals(Gender);
+//		addcandidatepage.noticePeriod.getAttribute("value").equals(NoticePeriod);
+//		addcandidatepage.communicationMode.getAttribute("value").equals(Communicationmode);
+//		addcandidatepage.title.getAttribute("value").equals(addjobpage.jobname);
+//		addcandidatepage.date.getAttribute("value").equals(Date);
+//		addcandidatepage.onNoticePeriod.getAttribute("value").equals(OnNoticePeriod);
+//		addcandidatepage.noticePeriod.getAttribute("value").equals(NoticePeriod);
+//		addcandidatepage.experienceInYears.getAttribute("value").equals(experience);
+//		addcandidatepage.ctc.getAttribute("value").equals(CTC);
+//		addcandidatepage.expectedCTC.getAttribute("value").equals(expectedCTC);
+//		addcandidatepage.countryId.getAttribute("value").equals(Country);
+//		addcandidatepage.city.getAttribute("value").equals(City);
+//		addcandidatepage.cityArea.getAttribute("value").equals(CityArea);
+//		addcandidatepage.countryId.getAttribute("value").equals(Country);
+//		addcandidatepage.city.getAttribute("value").equals(City);
+//		addcandidatepage.cityArea.getAttribute("value").equals(CityArea);
+//		addcandidatepage.zipCode.getAttribute("value").equals(ZipCode);
+////		addcandidatepage.communicationMode.getAttribute("value").equals(Communicationmode);
+//		addcandidatepage.salaryOffered.getAttribute("value").equals(Salaryoffered);
+//		addcandidatepage.distance.getAttribute("value").equals(distance);
+//		addcandidatepage.isPermanentAddress.getAttribute("value").equals(permanentAddress);
+//		addcandidatepage.isReadyToRelocateToJobLocation.getAttribute("value").equals(relocate);
 		
-
-
+		
+		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"), CandidateEmail);
+		Assert.assertEquals(addcandidatepage.name.getAttribute("value"), Name);
+		Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), ContactNumber);
+		Assert.assertEquals(addcandidatepage.designation.getAttribute("value"), Designation);
+		Assert.assertEquals(addcandidatepage.gender.getAttribute("value"),Gender );
+		Assert.assertEquals(addcandidatepage.noticePeriod.getAttribute("value"), NoticePeriod);
+//		Assert.assertEquals(addcandidatepage.communicationMode.getAttribute("value"), Communicationmode);
+		Assert.assertEquals(addcandidatepage.title.getAttribute("value"), addjobpage.jobname);
+		Assert.assertEquals(addcandidatepage.date.getAttribute("value"), Date);
+//		select=new Select(addcandidatepage.onNoticePeriod);
+				
+		Assert.assertEquals(addcandidatepage.onNoticePeriod.getAttribute("value"),OnNoticePeriod);
+		Assert.assertEquals(addcandidatepage.noticePeriod.getAttribute("value"), NoticePeriod);
+		Assert.assertEquals(addcandidatepage.experienceInYears.getAttribute("value"), experience);
+		Assert.assertEquals(addcandidatepage.ctc.getAttribute("value"), CTC); 
+		Assert.assertEquals(addcandidatepage.expectedCTC.getAttribute("value"), expectedCTC);
+		Assert.assertEquals(addcandidatepage.countryId.getAttribute("value"), Country);
+		Assert.assertEquals(addcandidatepage.city.getAttribute("value"), City);
+		Assert.assertEquals(addcandidatepage.cityArea.getAttribute("value"), CityArea);
+		Assert.assertEquals(addcandidatepage.zipCode.getAttribute("value"), ZipCode);
+		Assert.assertEquals(addcandidatepage.salaryOffered.getAttribute("value"), Salaryoffered);
+		Assert.assertEquals(addcandidatepage.distance.getAttribute("value"), distance);
+		Assert.assertEquals(addcandidatepage.isPermanentAddress.getAttribute("value"), permanentAddress);
+		Assert.assertEquals(addcandidatepage.isReadyToRelocateToJobLocation.getAttribute("value"), relocate);
+		
 	}
 	
 

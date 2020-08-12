@@ -292,11 +292,11 @@ public class CandidateCardSectionPage extends baseclass {
 //		interview
 //		Assert.assertEquals(driver.findElement(By.xpath("")).isDisplayed(), true);
 		
-		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Salary Offered ']//following::td[text()='"+Salaryoffered+"']")).isDisplayed(), true);
-		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='CTC ']//following::td[text()='"+CTC+"']")).isDisplayed(), true);
-		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Expected CTC ']//following::td[text()='"+expectedCTC+"']")).isDisplayed(), true);
-		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Country ']//following::td[text()='"+Country+"']")).isDisplayed(), true);
-		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='City ']//following::td[text()='"+City+"']")).isDisplayed(), true);
+//		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Salary Offered ']//following::td[text()='"+Salaryoffered+"']")).isDisplayed(), true);
+//		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='CTC ']//following::td[text()='"+CTC+"']")).isDisplayed(), true);
+//		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Expected CTC ']//following::td[text()='"+expectedCTC+"']")).isDisplayed(), true);
+//		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Country ']//following::td[text()='"+Country+"']")).isDisplayed(), true);
+//		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='City ']//following::td[text()='"+City+"']")).isDisplayed(), true);
 		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Location ']//following::td[text()='"+CityArea+"']")).isDisplayed(), true);
 		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Zipcode ']//following::td[text()='"+ZipCode+"']")).isDisplayed(), true);
 	}

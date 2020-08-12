@@ -39,6 +39,8 @@ public class taskRegression extends baseclass{
 	@And("^Add job$")
 	public void add_job(DataTable credentials) throws Throwable {
 		addjobpage.addjob(credentials);
+		common.ClickSumbit();
+
 	}
 
 	@And("^Select a job$")

@@ -14,6 +14,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
@@ -21,6 +22,7 @@ import utilPackage.baseclass;
 
 public class AddCandidatePage extends baseclass {
 	
+
 	@FindBy(xpath = "//h5[@class='modal-title w-100']")
 	public WebElement pageTitle;
 	
@@ -111,15 +113,14 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(id = "salaryOffered")
 	public WebElement salaryOffered;
 	
-	@FindBy(xpath = "//*[@id='ng-invalidDiv']/td[2]/select")
-	public WebElement expertiseLevel;
+	@FindBy(xpath = "(//input[@placeholder='Skill']")  
+	public List<WebElement> jobskill;
+	 
+	@FindBy(xpath = "//select[@formcontrolname='ExpertiseLevel']")  
+	public List<WebElement> expertiselevel;
 	
-	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[1]")
-	public WebElement expertiseLevel1;
-	
-	
-	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[2]")
-	public WebElement expertiseLevel2;
+	@FindBy(xpath = "//input[@formcontrolname='Certificate']")  
+	public List<WebElement> certificate;
 	
 	@FindBy(xpath = "//div[@class='custom-file custom-file-invalid']")
 	public WebElement uploadResumeField;
@@ -160,6 +161,7 @@ public class AddCandidatePage extends baseclass {
 
 	private String ExpertiseLevel2;
 	
+	
 	public void EnterAllMandatoryfieldsT(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException, AWTException {
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),' Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
@@ -168,7 +170,13 @@ public class AddCandidatePage extends baseclass {
 			System.out.println("Candidate is present in system");
 			common.clickOnOKBtn();
 			nameOfCan=name.getAttribute("value");
-			System.out.println("nameOfCan "+nameOfCan);
+			salaryOffered.sendKeys(Salaryoffered);
+			this.distance.sendKeys(distance);
+			se = new Select (isPermanentAddress);
+			se.selectByVisibleText(permanentAddress);
+			se = new Select (isReadyToRelocateToJobLocation);
+			se.selectByVisibleText(relocate);
+		
 		}	
 		else 
 		{
@@ -198,9 +206,9 @@ public class AddCandidatePage extends baseclass {
 			this.expectedCTC.sendKeys(expectedCTC);
 			se = new Select (countryId);
 			se.selectByVisibleText(Country);
+			Thread.sleep(4000);
+			expertiselevel.get(1).click();
 			city.sendKeys(City);
-			Thread.sleep(2000);
-			salaryOffered.click();
 			cityArea.sendKeys(CityArea);
 			zipCode.sendKeys(ZipCode);
 			se = new Select (communicationMode);
@@ -211,14 +219,42 @@ public class AddCandidatePage extends baseclass {
 			se.selectByVisibleText(permanentAddress);
 			se = new Select (isReadyToRelocateToJobLocation);
 			se.selectByVisibleText(relocate);
-		  	
-//		  	uploadResumeDocument();
-			
 		}
-//		common.clickOnSaveBtn();
-//		common.clickOnConfirmYes();
+
 	}
 	
+	public void addSkill(String level1, String level2, String level3, String certificate1, String certificate2, String certificate3,String certificateforskill1, String certificateforskill2) throws InterruptedException
+	{
+		for(int i=0;i<3;i++)	
+		{
+			Thread.sleep(3000);
+			select =new Select(this.expertiselevel.get(i));
+			if(i==0)
+			{
+				select.selectByVisibleText(level1);
+				if(certificate1.contentEquals("Yes"))
+				{
+					certificate.get(i).sendKeys(certificateforskill1);
+				}
+			}
+			if(i==1)
+			{
+				select.selectByVisibleText(level2);
+				if(certificate2.contentEquals("Yes"))
+				{
+					certificate.get(i).sendKeys(certificateforskill2);
+				}
+			}
+			if(i==2)		
+			{
+				select.selectByVisibleText(level3);
+				if(certificate3.contentEquals("Yes"))
+				{
+					certificate.get(i).sendKeys(certificateforskill1);
+				}
+			}
+		}
+	}
 	
 	public void checkCandidateALreadyPresent() throws InterruptedException
 	{
@@ -275,7 +311,6 @@ public class AddCandidatePage extends baseclass {
 		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.doc"); // CV Path of Trupti's system
 	}
 
-	
-	
+
 
 }

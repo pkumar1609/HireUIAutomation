@@ -15,6 +15,7 @@ import cucumber.api.DataTable;
 import utilPackage.baseclass;
 import utilPackage.utilclass;
 
+import DataValidationTC_Stepdefination;
 public class AddJobPage extends baseclass {
 	
 public AddJobPage() 
@@ -89,38 +90,50 @@ public AddJobPage()
 	@FindBy(id = "employer")
 	public WebElement employer;
 	
-	@FindBy(xpath = "//tr[1]//td[1]//input[1]")
-	public WebElement jobskill1;
+	@FindBy(xpath = "//input[@placeholder='Enter Skill']")
+	public List<WebElement> jobskill;
 	
-	@FindBy(xpath = "//tr[1]//td[2]//select[1]")
-	public WebElement expertiselevel1;
+//	@FindBy(xpath = "(//input[@placeholder='Enter Skill'])[2]")
+//	public WebElement jobskill2;
+//	
+//	@FindBy(xpath = "(//input[@placeholder='Enter Skill'])[3]")
+//	public WebElement jobskill3;
 	
-	@FindBy(xpath = "//tr[1]//td[3]//select[1]")
-	public WebElement weightage1;
+	@FindBy(xpath = "//select[@formcontrolname='ExpertiseLevel']")
+	public List<WebElement> expertiselevel;
 	
-	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[4]/label/span")
-	public WebElement certificateNeeded1;
+//	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[2]")
+//	public WebElement expertiselevel2;
+//	
+//	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[3]")
+//	public WebElement expertiselevel3;
 	
-	@FindBy(xpath = "//tr[1]//td[5]//input[1]")
-	public WebElement remark1;
+	@FindBy(xpath = "//select[@formcontrolname='Weightage']")
+	public List<WebElement> weightage;
 	
-	@FindBy(xpath = "//tr[2]//td[1]//input[1]")
-	public WebElement jobskill2;
+//	@FindBy(xpath = "(//select[@formcontrolname='Weightage'])[2]")
+//	public WebElement weightage2;
+//	
+//	@FindBy(xpath = "(//select[@formcontrolname='Weightage'])[3]")
+//	public WebElement weightage3;
 	
-	@FindBy(xpath = "//tr[2]//td[2]//select[1]")
-	public WebElement expertiselevel2;
+	@FindBy(xpath = "//span[@class='checkmark']")
+	public List<WebElement> certificateNeeded;
 	
-	@FindBy(xpath = "//tr[2]//td[3]//select[1]")
-	public WebElement weightage2;
+//	@FindBy(xpath = "(//input[@formcontrolname='IsCertificateNeeded'])[2]")
+//	public WebElement certificateNeeded2;
+//	
+//	@FindBy(xpath = "(//input[@formcontrolname='IsCertificateNeeded'])[3]")
+//	public WebElement certificateNeeded3;
 	
-	@FindBy(xpath = "//tr[3]//td[1]//input[1]")
-	public WebElement jobskill3;
+	@FindBy(xpath = "//input[@formcontrolname='Remark']")
+	public List<WebElement> remark;
 	
-	@FindBy(xpath = "//tr[3]//td[2]//select[1]")
-	public WebElement expertiselevel3;
-	
-	@FindBy(xpath = "//tr[3]//td[3]//select[1]")
-	public WebElement weightage3;
+//	@FindBy(xpath = "(//input[@formcontrolname='Remark'])[2]")
+//	public WebElement remark2;
+//	
+//	@FindBy(xpath = "(//input[@formcontrolname='Remark'])[3]")
+//	public WebElement remark3;
 	
 	@FindBy(id = "noticeperiod")
 	public WebElement noticePeriod;
@@ -284,13 +297,13 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 //		maxexp.sendKeys(data.get("maxexp"));
 //		noOfInterviews();
 //		List<WebElement> deletebtn = driver.findElements(By.xpath("//button[@class='btn btn-outline-danger']"));
-//		this.emp=loginpage.b;
 //		for(int i=0;i<deletebtn.size();i++)
 //			{
 //				WebElement btn = deletebtn.get(i);
 //				Thread.sleep(6000);
 //				btn.click();
 //			}
+//		this.emp=loginpage.b;
 //		if(emp==false)
 //		{ 
 //		select =new Select(employerId);
@@ -306,9 +319,65 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 //			teampage.AddAllDetailsK(credentials);
 //			select.selectByIndex(1);
 //			Organization.sendKeys(data.get("Oraganization"));	
-//		}
-//		}
-//			common.ClickSumbit();
 		}
 	}
+		
+
+	
+	public void addSkills(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3) throws InterruptedException
+	{
+		for(int i=0;i<3;i++)	
+		{
+			Thread.sleep(4000);
+			this.addskillbutton.click();
+			if(i==0)
+			{
+				jobskill.get(i).sendKeys(Skill1);
+				select =new Select(expertiselevel.get(i));
+				select.selectByVisibleText(level1);
+				select =new Select(weightage.get(i));
+				select.selectByVisibleText(Weightage1);
+				if(certificate1.contains("Yes"))
+				{
+					Thread.sleep(4000);
+					certificateNeeded.get(i).click();
+				}
+				remark.get(i).sendKeys(remark1);
+			}
+			if(i==1)
+			{
+				jobskill.get(i).sendKeys(Skill2);
+				select =new Select(expertiselevel.get(i));
+				select.selectByVisibleText(level2);
+				select =new Select(weightage.get(i));
+				select.selectByVisibleText(Weightage2);
+				if(certificate2.contains("Yes"))
+				{
+					Thread.sleep(4000);
+					certificateNeeded.get(i).click();
+				}
+				remark.get(i).sendKeys(remark2);
+			}
+			if(i==2)
+			{
+				jobskill.get(i).sendKeys(Skill3);
+				select =new Select(expertiselevel.get(i));
+				select.selectByVisibleText(level3);
+				select =new Select(weightage.get(i));
+				select.selectByVisibleText(Weightage3);
+				if(certificate3.contains("Yes"))
+				{
+					Thread.sleep(4000);
+					certificateNeeded.get(i).click();
+				}
+				remark.get(i).sendKeys(remark3);
+				
+			}
+		}
+	}
+
+	
 }
+
+
+

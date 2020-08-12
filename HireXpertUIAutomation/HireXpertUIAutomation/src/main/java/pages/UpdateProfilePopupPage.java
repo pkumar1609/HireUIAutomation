@@ -527,9 +527,10 @@ public class UpdateProfilePopupPage extends baseclass {
     	action.moveToElement(loginpage.profile).perform();
 		Thread.sleep(2000);
 		loginpage.updateProfile.click();
-    	Contact= ContactNumber.getAttribute("text");
+		Thread.sleep(4000);
+    	Contact= ContactNumber.getAttribute("value");
     	System.out.println("contact is "+Contact);
-    	Organization=OrganizationName.getText();
+    	Organization=OrganizationName.getAttribute("value");
     	System.out.println("Organization is "+Organization);
     	common.clickOnCloseBtn();
     }
