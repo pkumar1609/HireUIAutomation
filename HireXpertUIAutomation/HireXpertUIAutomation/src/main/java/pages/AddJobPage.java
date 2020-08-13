@@ -14,8 +14,6 @@ import org.openqa.selenium.support.ui.Select;
 import cucumber.api.DataTable;
 import utilPackage.baseclass;
 import utilPackage.utilclass;
-
-import DataValidationTC_Stepdefination;
 public class AddJobPage extends baseclass {
 	
 public AddJobPage() 
@@ -93,17 +91,23 @@ public AddJobPage()
 	@FindBy(xpath = "//input[@placeholder='Enter Skill']")
 	public List<WebElement> jobskill;
 	
-//	@FindBy(xpath = "(//input[@placeholder='Enter Skill'])[2]")
-//	public WebElement jobskill2;
-//	
+	@FindBy(xpath = "(//input[@placeholder='Enter Skill'])[1]")
+	public WebElement jobskill1;
+	
+	@FindBy(xpath = "(//input[@placeholder='Enter Skill'])[2]")
+	public WebElement jobskill2;
+	
 //	@FindBy(xpath = "(//input[@placeholder='Enter Skill'])[3]")
 //	public WebElement jobskill3;
 	
 	@FindBy(xpath = "//select[@formcontrolname='ExpertiseLevel']")
 	public List<WebElement> expertiselevel;
 	
-//	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[2]")
-//	public WebElement expertiselevel2;
+	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[1]")
+	public WebElement expertiselevel1;
+	
+	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[2]")
+	public WebElement expertiselevel2;
 //	
 //	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[3]")
 //	public WebElement expertiselevel3;
@@ -111,8 +115,11 @@ public AddJobPage()
 	@FindBy(xpath = "//select[@formcontrolname='Weightage']")
 	public List<WebElement> weightage;
 	
-//	@FindBy(xpath = "(//select[@formcontrolname='Weightage'])[2]")
-//	public WebElement weightage2;
+	@FindBy(xpath = "(//select[@formcontrolname='Weightage'])[1]")
+	public WebElement weightage1;
+	
+	@FindBy(xpath = "(//select[@formcontrolname='Weightage'])[2]")
+	public WebElement weightage2;
 //	
 //	@FindBy(xpath = "(//select[@formcontrolname='Weightage'])[3]")
 //	public WebElement weightage3;
@@ -221,13 +228,18 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 		}
 	}
 	
+
+	
 	public void addNewSkill1() {
 		
 //		addskillbutton.click();
 		
+		
 		jobskill1.sendKeys(skill1);
+		
 		se = new Select(expertiselevel1);
 		se.selectByVisibleText("Expert");
+		
 		
 		se = new Select(weightage1);
 		se.selectByVisibleText("Mandatory");
@@ -237,7 +249,9 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 		
 //		addskillbutton.click();
 		
+		
 		jobskill2.sendKeys(skill2);
+		
 		se = new Select(expertiselevel2);
 		se.selectByVisibleText("Expert");
 		

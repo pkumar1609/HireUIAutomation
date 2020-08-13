@@ -201,65 +201,65 @@ Feature: Hirexpert Job Candidate Workflow feature
 
 
 
-@Regression
-Scenario Outline: To verify the functionality of Update Profile page of candidate
-	
-Given Open browser
-And click on Login link
-When click on Employer-Agency SignIn link
-And login with Employer credential.
-And Go to Workbench
-And Add a new Job as employer "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
-And Select the same job from job drop down
-And click on Add Candidate button
-And enter email id of candidate which is not registered previously and click on Find button "<CandidateEmail>" 
-And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
-And upload candidate resume and click on save button
-And if confirmation popup is displayed click on ok button
-Then user should able to add new candidate and candidate should get added in New column
-And logout as employer and login as new candidate added by employer "<CandidateEmail>" "<password>"
-And click on ok button of confirmation popup
-And Click on Profile tab
-Then verify the Auto Populated fields on candidate update profile popup window
-And Select the On Notice Period field and set Last working day on Update Profile page "<LastWorkingDay>"
-And set looking for job as yes
-And Click on save btn 
-And click on ok button
-And click on Skills & Roles tab
-And add skill, expertise level and certificate "<Skill1>" "<ExpertiseLevel>"
-And add same skill, expertise level and certificate "<Skill2>" "<ExpertiseLevel>"
-And Click on save btn for skill 
-Then Verify that user get an alert message as "Same skill entered more than one time." for adding duplicate skills
-And click on ok button
-And delete duplicate skill
-And Now Click on Add Skill button to add more than ten skills
-Then Verify that user get an alert message as "Skills adding limit is 10." for adding more than ten skills
-And click on ok button
-And click on Delete Skill button in front of any skill for candidate
-And click on Add Role button
-And add duplicate role "<JobRole>"
-And Click on save btn for role 
-Then Verify that user get an alert message as "Same role entered more than one time." for adding duplicate roles
-And click on ok button
-And delete duplicate role
-And Now Click on Add Role button to add more than ten skills
-Then Verify that user get an alert message as "Roles adding limit is 10." for adding more than ten roles
-And click on ok button
-And click on Delete Role button in front of any role for candidate
-And click on Personal & Professional tab
-And set looking for job as No
-And Click on save btn 
-And click on ok button
-And logout as candidate and login as same employer 
-And go to workbench and select the same job
-And click on close job button and delete the job
-And close the browser
-
- 
- 
- Examples:
-	| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail  |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate| password | LastWorkingDay | Skill1 | Skill2 | ExpertiseLevel |
-	| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  NR12@gmail.com  | nr12    |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 12345    | 1/9/2020       | Java   | Java   |  Expert        |
+#@Regression
+#Scenario Outline: To verify the functionality of Update Profile page of candidate
+#	
+#Given Open browser
+#And click on Login link
+#When click on Employer-Agency SignIn link
+#And login with Employer credential.
+#And Go to Workbench
+#And Add a new Job as employer "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
+#And Select the same job from job drop down
+#And click on Add Candidate button
+#And enter email id of candidate which is not registered previously and click on Find button "<CandidateEmail>" 
+#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+#And upload candidate resume and click on save button
+#And if confirmation popup is displayed click on ok button
+#Then user should able to add new candidate and candidate should get added in New column
+#And logout as employer and login as new candidate added by employer "<CandidateEmail>" "<password>"
+#And click on ok button of confirmation popup
+#And Click on Profile tab
+#Then verify the Auto Populated fields on candidate update profile popup window
+#And Select the On Notice Period field and set Last working day on Update Profile page "<LastWorkingDay>"
+#And set looking for job as yes
+#And Click on save btn 
+#And click on ok button
+#And click on Skills & Roles tab
+#And add skill, expertise level and certificate "<Skill1>" "<ExpertiseLevel>"
+#And add same skill, expertise level and certificate "<Skill2>" "<ExpertiseLevel>"
+#And Click on save btn for skill 
+#Then Verify that user get an alert message as "Same skill entered more than one time." for adding duplicate skills
+#And click on ok button
+#And delete duplicate skill
+#And Now Click on Add Skill button to add more than ten skills
+#Then Verify that user get an alert message as "Skills adding limit is 10." for adding more than ten skills
+#And click on ok button
+#And click on Delete Skill button in front of any skill for candidate
+#And click on Add Role button
+#And add duplicate role "<JobRole>"
+#And Click on save btn for role 
+#Then Verify that user get an alert message as "Same role entered more than one time." for adding duplicate roles
+#And click on ok button
+#And delete duplicate role
+#And Now Click on Add Role button to add more than ten skills
+#Then Verify that user get an alert message as "Roles adding limit is 10." for adding more than ten roles
+#And click on ok button
+#And click on Delete Role button in front of any role for candidate
+#And click on Personal & Professional tab
+#And set looking for job as No
+#And Click on save btn 
+#And click on ok button
+#And logout as candidate and login as same employer 
+#And go to workbench and select the same job
+#And click on close job button and delete the job
+#And close the browser
+#
+# 
+# 
+# Examples:
+#	| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail  |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate| password | LastWorkingDay | Skill1 | Skill2 | ExpertiseLevel |
+#	| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  NR12@gmail.com  | nr12    |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 12345    | 1/9/2020       | Java   | Java   |  Expert        |
 	 
 # TC :- 25,64,104,129,296        [Job candidate Workflow Regression TC] 
 # TC :- 36,37,38,39,92,228,229   [Job Candidate Workbench BVT TC ]
@@ -416,7 +416,6 @@ And close the browser
 #And click on Login link
 #When click on Employer-Agency SignIn link
 #And login with Employer credential
-#And Go to Workbench 	
 #And Go to Workbench 
 #And Add a new Job as employer "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
 #And Select the same job from job drop down
@@ -455,11 +454,44 @@ And close the browser
 
 
 
+Scenario Outline: Verify one after one rejected candidate listed in Rejected Column
+	
+Given Open browser
+And click on Login link
+When click on Employer-Agency SignIn link
+And login with Employer credential
+And Go to Workbench 
+And Add a new Job as employer "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
+And Select the same job from job drop down
+And Click on Add Candidate button.
+And Enter valid "<CandidateEmail>" 
+And click on find button 
+And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+And upload candidate resume
+And Click on save button 
+And if confirmation popup is displayed click on ok button
+And Click on Add Candidate button.
+And Enter valid "<CandidateEmail1>" 
+And click on find button 
+And fill all the information "<CandidateEmail1>","<Name1>","<ContactNumber1>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+And upload candidate resume
+And Click on save button 
+And if confirmation popup is displayed click on ok button
+And move both candidates in Interview Pending one column
+And Click on Reject Candidate icon from candidate card and reject that candidate "<Name>"
+Then Observe candidate get moved in Rejected column automatically
+And Click on Reject Candidate icon from candidate card for second candidate "<Name1>"
+And click on No from confirmation popup and observe
+Then both candidates should not display in same column
+And click on close job button and delete the job
+And close the browser
 
 
 
-
-
+Examples:
+      
+| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate |  CandidateEmail1      |  Name1       |   ContactNumber1 |
+| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  donald01@gmail.com  | donald01   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      |   harry01@gmail.com   |   Harry01    |     123456789    |                  |
 
 
 

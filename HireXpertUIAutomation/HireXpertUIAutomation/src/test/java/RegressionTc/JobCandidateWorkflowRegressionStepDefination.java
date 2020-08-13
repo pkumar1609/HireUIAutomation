@@ -3,6 +3,7 @@ package RegressionTc;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.java.en.Given;
@@ -630,21 +631,62 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		
 	}
 
-	@Then("^Click on Reject Candidate icon from candidate card and reject that candidate \"([^\"]*)\"$")
-	public void click_on_Reject_Candidate_icon_from_candidate_card_and_reject_that_candidate(String Name1) throws Throwable {
-	    
-		candidatecardsectionpage.clickOnRejectCandidateIcon(Name1);
+//5
+
+
+
+	@When("^move both candidates in Interview Pending one column$")
+	public void move_both_candidates_in_Interview_Pending_one_column() throws Throwable {
+
+
+		WebElement drag1 = driver.findElement(By.xpath("(//div[@class='item-box cdk-drag'])[1]")); //candidate card 1
+		WebElement drop = driver.findElement(By.xpath("(//td[@id='jobStatusColumn'])[3]")); // interview peneding column 1
+		WebElement drag2 = driver.findElement(By.xpath("(//div[@class='item-box cdk-drag'])[2]")); //candidate card 1
+		
+		Actions action = new Actions(driver);
+		action.clickAndHold(drag1).moveToElement(drop).release(drop).perform();
+		Thread.sleep(5000);
+		
+		action.clickAndHold(drag2).moveToElement(drop).release(drop).perform();
+		Thread.sleep(3000);
+		
+	}
+
+	@When("^Click on Reject Candidate icon from candidate card and reject that candidate \"([^\"]*)\"$")
+	public void click_on_Reject_Candidate_icon_from_candidate_card_and_reject_that_candidate(String Name) throws Throwable {
+
+		candidatecardsectionpage.clickOnRejectCandidateIcon(Name);
 		common.clickOnConfirmYes();
 		Thread.sleep(3000);
 		candidatecardsectionpage.selectRejectReason();
+		
+
+	}
+	
+	@Then("^Click on Reject Candidate icon from candidate card for second candidate \"([^\"]*)\"$")
+	public void click_on_Reject_Candidate_icon_from_candidate_card_for_second_candidate(String Name1) throws Throwable {
+
+		Thread.sleep(3000);
+		candidatecardsectionpage.clickOnRejectCandidateIcon(Name1);
+		
+	}
+
+	@Then("^click on No from confirmation popup and observe$")
+	public void click_on_No_from_confirmation_popup_and_observe() throws Throwable {
+        
+		Thread.sleep(3000);
+		common.clickNoButton();
+
+	}
+
+	@Then("^both candidates should not display in same column$")
+	public void both_candidates_should_not_display_in_same_column() throws Throwable {
+
+
+
 	}
 
 
-
-
-
-
-	
 	
 	
 	
