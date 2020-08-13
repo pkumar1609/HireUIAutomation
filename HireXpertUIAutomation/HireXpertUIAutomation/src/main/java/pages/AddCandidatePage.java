@@ -215,9 +215,9 @@ public class AddCandidatePage extends baseclass {
 			this.expectedCTC.sendKeys(expectedCTC);
 			se = new Select (countryId);
 			se.selectByVisibleText(Country);
-			Thread.sleep(4000);
-			expertiselevel.get(1).click();
 			city.sendKeys(City);
+			Thread.sleep(4000);
+			salaryOffered.click();
 			cityArea.sendKeys(CityArea);
 			zipCode.sendKeys(ZipCode);
 			se = new Select (communicationMode);

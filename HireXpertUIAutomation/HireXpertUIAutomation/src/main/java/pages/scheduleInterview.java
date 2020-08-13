@@ -1,14 +1,21 @@
 package pages;
 
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import cucumber.api.DataTable;
 import utilPackage.baseclass;
 
 public class scheduleInterview extends baseclass {
+	
+	String interviewDate;
+	String hourTime;
+	String minuteTime;
 	
 	@FindBy(id = "title")
 	public WebElement title;
@@ -39,6 +46,10 @@ public class scheduleInterview extends baseclass {
 	
 	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div[1]/div/div/div[3]/div/button[1]")
 	public WebElement editInterviewIcon;
+	
+	@FindBy(xpath = "//input[@formcontrolname='Location']")
+	public WebElement Location;
+	
 	
 	Select se;
 	
@@ -86,7 +97,29 @@ public class scheduleInterview extends baseclass {
 		 se.selectByVisibleText(timezone1);
 	}
 	 
-	 
+	 public void scheduleInterview(DataTable credentials) throws InterruptedException
+	 {
+		 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+			{
+				title.sendKeys(data.get("Title"));
+				Thread.sleep(3000);
+				interviewerDropDown.click();
+				driver.findElement(By.xpath("//div[contains(text(),'Select All')]")).click();
+				interviewerDropDown.click();
+				calendar.sendKeys(data.get("ScheduleOn"));
+				this.interviewDate=data.get("ScheduleOn");
+				hours.sendKeys(data.get("Hour"));
+				hourTime=data.get("Hour");
+				minutes.sendKeys(data.get("Minute"));
+				minuteTime=data.get("Minute");
+				select= new Select(duration);
+				select.selectByVisibleText(data.get("Duration"));
+				select = new Select(timezone);
+				select.selectByVisibleText(data.get("TimeZone"));	
+				Location.sendKeys(data.get("Location"));	
+				common.ClickSumbit();
+			}
+	 }
 	
 	
 

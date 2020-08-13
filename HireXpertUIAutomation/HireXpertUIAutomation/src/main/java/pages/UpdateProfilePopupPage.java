@@ -524,6 +524,7 @@ public class UpdateProfilePopupPage extends baseclass {
     
     public void getDetails() throws InterruptedException
     {
+    	Thread.sleep(2000);
     	action.moveToElement(loginpage.profile).perform();
 		Thread.sleep(2000);
 		loginpage.updateProfile.click();

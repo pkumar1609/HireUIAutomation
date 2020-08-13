@@ -87,10 +87,8 @@ public class scheduledInterview extends baseclass {
 
 	@When("^click on Schedule Interview icon from candidate card$")
 	public void click_on_Schedule_Interview_icon_from_candidate_card() throws Throwable {
-	    
 		Thread.sleep(3000);
 		workbenchpage.scheduleInterview.click();
-		
 	}
 	
 //	@When("^fill all the information \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
