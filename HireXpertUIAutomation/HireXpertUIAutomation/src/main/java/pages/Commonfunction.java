@@ -2,6 +2,7 @@ package pages;
 
 import java.io.IOException;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -61,6 +62,10 @@ public class Commonfunction extends baseclass {
 	{
 		Thread.sleep(4000);
 		closebtn.click();
+		try {
+		common.clickOnConfirmYes();
+		}catch(NoSuchElementException e)
+		{}
 	}
 	
 	public void clickOnAddClosebtn() throws InterruptedException
@@ -70,7 +75,7 @@ public class Commonfunction extends baseclass {
 	}
 	public void clickOnConfirmYes() throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		confimYes.click();
 	}
 	

@@ -333,10 +333,11 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 //			teampage.AddAllDetailsK(credentials);
 //			select.selectByIndex(1);
 //			Organization.sendKeys(data.get("Oraganization"));	
+//		}
+//	}
+		
 		}
 	}
-		
-
 	
 	public void addSkills(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3) throws InterruptedException
 	{
