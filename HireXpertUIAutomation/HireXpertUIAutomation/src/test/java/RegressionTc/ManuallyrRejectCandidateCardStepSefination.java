@@ -14,6 +14,7 @@ public class ManuallyrRejectCandidateCardStepSefination extends baseclass{
 	@Given("^Open browser$")
 	public void open_browser() throws Throwable {
 	    
+		Thread.sleep(3000);
 		baseclass.initialization();
 		
 	}

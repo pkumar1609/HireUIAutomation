@@ -66,6 +66,15 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		
 	}
 	
+	@When("^Click on save button for edit candidate$")
+	public void click_on_save_button_for_edit_candidate() throws Throwable {
+
+		Thread.sleep(3000);
+	       editcandidatepage.ClickOnSaveBtntoSavetheupdatedDetails();
+
+	}
+
+	
 	@When("^Click on save btn$")
 	public void click_on_save_btn() throws InterruptedException  {
 		
@@ -159,7 +168,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	@Then("^click on ok button$")
 	public void click_on_ok_button() throws Throwable {
 	    
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		common.clickOnOKBtn();
 	}
 
@@ -685,6 +694,80 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 
 	}
+
+//6
+	
+	@When("^upload candidate resume in document format$")
+	public void upload_candidate_resume_in_document_format() throws Throwable {
+
+		Thread.sleep(3000);
+        addcandidatepage.uploadResumeDocumentT();
+		
+	}
+
+	@When("^upload candidate resume in zip file format$")
+	public void upload_candidate_resume_in_zip_file_format() throws Throwable {
+	    
+		Thread.sleep(3000);
+        addcandidatepage.uploadResumeDocumentinZipformatT();
+		
+	}
+
+	@When("^verify the error message displayed as \"([^\"]*)\"$")
+	public void verify_the_error_message_displayed_as(String ExpectedAlertMessage) throws Throwable {
+
+		String ActualAlertMessage = driver.findElement(By.xpath("//h6[@id='alertlineheight']")).getText();
+		Assert.assertEquals(ExpectedAlertMessage, ActualAlertMessage);
+
+	}
+
+	@When("^upload candidate resume in pdf file format$")
+	public void upload_candidate_resume_in_pdf_file_format() throws Throwable {
+
+		Thread.sleep(3000);
+        addcandidatepage.uploadResumeDocumentinPdfformatT();
+		
+	}
+
+	@When("^upload candidate resume in text file format$")
+	public void upload_candidate_resume_in_text_file_format() throws Throwable {
+	    
+		Thread.sleep(3000);
+        addcandidatepage.uploadResumeDocumentintextformatT();
+	}
+
+	@When("^upload candidate resume in PNG file format$")
+	public void upload_candidate_resume_in_PNG_file_format() throws Throwable {
+
+		Thread.sleep(3000);
+        addcandidatepage.uploadResumeDocumentinPNGformatT();
+	}
+
+	@Given("^click on Job Seeker\\(Candidate\\) Sign In link$")
+	public void click_on_Job_Seeker_Candidate_Sign_In_link() throws Throwable {
+	    
+		Thread.sleep(3000);
+		registerpage.JobseekerCandidateSignInlink.click();
+	}
+
+	@Given("^enter candidate email and password \"([^\"]*)\" \"([^\"]*)\"$")
+	public void enter_candidate_email_and_password(String CandidateEmail, String password) throws Throwable {
+
+	  Thread.sleep(3000);
+      registerpage.Emailaddress.sendKeys(CandidateEmail);
+      registerpage.Password.sendKeys(password);
+		
+	}
+
+	@Given("^click on Signin button$")
+	public void click_on_Signin_button() throws Throwable {
+
+		Thread.sleep(3000);
+       registerpage.ClickSigninbtn();
+	}
+
+	
+
 
 
 	

@@ -196,30 +196,30 @@ Examples:
 ##reg TC ID: 292
 #
 
-@regression1_06
-	Scenario Outline: Verify one after one rejected candidate listed in Rejected Column
-	
-	Given User is on Home page of application
-    
-    When title of page is HireXpert
-    And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
-	And click on Workbench tab and select job from Jobs drop down
-	And click on Add Candidate button and add two new candidates for the job and click on Find button
-    | c01@gmail.com | c02@gmail.com | c03@gmail.com | c04@gmail.com |
-    And fill mandatory details
-    And click on Save button
-    Then new candidate should get added in New column
-    And move both candidates in Interview Pending 1 column
-    And Click on Reject Candidate icon from candidate card and reject that candidate
-    Then Observe candidate get moved in Rejected column automatically
-    And Click on Reject Candidate icon from candidate card for second candidate 
-    And click on No from confirmation popup and observe
-    Then both candidates should not display in same column
-    And close the browser
-
-Examples:
-|    email address     |  password  |
-|  sayali1@gmail.com   |   12345    |
-| sayagency1@gmail.com |   12345    |    
+#@regression1_06
+#	Scenario Outline: Verify one after one rejected candidate listed in Rejected Column
+#	
+#	Given User is on Home page of application
+#    
+#    When title of page is HireXpert
+#    And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+#	And click on Workbench tab and select job from Jobs drop down
+#	And click on Add Candidate button and add two new candidates for the job and click on Find button
+#    | c01@gmail.com | c02@gmail.com | c03@gmail.com | c04@gmail.com |
+#    And fill mandatory details
+#    And click on Save button
+#    Then new candidate should get added in New column
+#    And move both candidates in Interview Pending 1 column
+#    And Click on Reject Candidate icon from candidate card and reject that candidate
+#    Then Observe candidate get moved in Rejected column automatically
+#    And Click on Reject Candidate icon from candidate card for second candidate 
+#    And click on No from confirmation popup and observe
+#    Then both candidates should not display in same column
+#    And close the browser
+#
+#Examples:
+#|    email address     |  password  |
+#|  sayali1@gmail.com   |   12345    |
+#| sayagency1@gmail.com |   12345    |    
 
 ##reg TC ID: 467

@@ -454,7 +454,50 @@ Feature: Hirexpert Job Candidate Workflow feature
 
 
 
-Scenario Outline: Verify one after one rejected candidate listed in Rejected Column
+#Scenario Outline: Verify one after one rejected candidate listed in Rejected Column
+#	
+#Given Open browser
+#And click on Login link
+#When click on Employer-Agency SignIn link
+#And login with Employer credential
+#And Go to Workbench 
+#And Add a new Job as employer "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
+#And Select the same job from job drop down
+#And Click on Add Candidate button.
+#And Enter valid "<CandidateEmail>" 
+#And click on find button 
+#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+#And upload candidate resume
+#And Click on save button 
+#And if confirmation popup is displayed click on ok button
+#And Click on Add Candidate button.
+#And Enter valid "<CandidateEmail1>" 
+#And click on find button 
+#And fill all the information "<CandidateEmail1>","<Name1>","<ContactNumber1>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+#And upload candidate resume
+#And Click on save button 
+#And if confirmation popup is displayed click on ok button
+#And move both candidates in Interview Pending one column
+#And Click on Reject Candidate icon from candidate card and reject that candidate "<Name>"
+#Then Observe candidate get moved in Rejected column automatically
+#And Click on Reject Candidate icon from candidate card for second candidate "<Name1>"
+#And click on No from confirmation popup and observe
+#Then both candidates should not display in same column
+#And click on close job button and delete the job
+#And close the browser
+#
+#
+#
+#Examples:
+#      
+#| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate |  CandidateEmail1      |  Name1       |   ContactNumber1 |
+#| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  donald01@gmail.com  | donald01   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      |   harry01@gmail.com   |   Harry01    |     123456789    |                  |
+#
+
+# TC :- 467
+
+
+Scenario Outline: To verify the functionality of Upload Resume on candidate profile
 	
 Given Open browser
 And click on Login link
@@ -467,47 +510,98 @@ And Click on Add Candidate button.
 And Enter valid "<CandidateEmail>" 
 And click on find button 
 And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
-And upload candidate resume
+And upload candidate resume in document format
 And Click on save button 
 And if confirmation popup is displayed click on ok button
-And Click on Add Candidate button.
-And Enter valid "<CandidateEmail1>" 
-And click on find button 
-And fill all the information "<CandidateEmail1>","<Name1>","<ContactNumber1>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
-And upload candidate resume
-And Click on save button 
+And Click on Edit Candidate icon on candidate card "<Name>"
+And upload candidate resume in zip file format
+And verify the error message displayed as "only .pdf, .docx , .txt & .doc format files are supported."
+And click on ok button
+And upload candidate resume in pdf file format
+And Click on save button for edit candidate
 And if confirmation popup is displayed click on ok button
-And move both candidates in Interview Pending one column
-And Click on Reject Candidate icon from candidate card and reject that candidate "<Name>"
-Then Observe candidate get moved in Rejected column automatically
-And Click on Reject Candidate icon from candidate card for second candidate "<Name1>"
-And click on No from confirmation popup and observe
-Then both candidates should not display in same column
+And Click on Edit Candidate icon on candidate card "<Name>"
+And upload candidate resume in text file format
+And Click on save button for edit candidate
+And if confirmation popup is displayed click on ok button
+And Click on Edit Candidate icon on candidate card "<Name>"
+And upload candidate resume in PNG file format
+And verify the error message displayed as "only .pdf, .docx , .txt & .doc format files are supported."
+And click on ok button
+And Click on save button for edit candidate
+And if confirmation popup is displayed click on ok button
 And click on close job button and delete the job
 And close the browser
 
+Given Open browser
+And click on Login link
+When click on Employer-Agency SignIn link 
+And login with Agency credential
+And Go to Workbench 
+And Add a new Job as agency "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
+And Select the same job from job drop down
+And Click on Add Candidate button.
+And Enter valid "<CandidateEmail>" 
+And click on find button 
+And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+And upload candidate resume in document format
+And Click on save button 
+And if confirmation popup is displayed click on ok button
+And Click on Edit Candidate icon on candidate card "<Name>"
+And upload candidate resume in zip file format
+And verify the error message displayed as "only .pdf, .docx , .txt & .doc format files are supported."
+And click on ok button
+And upload candidate resume in pdf file format
+And Click on save button for edit candidate
+And if confirmation popup is displayed click on ok button
+And Click on Edit Candidate icon on candidate card "<Name>"
+And upload candidate resume in text file format
+And Click on save button for edit candidate
+And if confirmation popup is displayed click on ok button
+And Click on Edit Candidate icon on candidate card "<Name>"
+And upload candidate resume in PNG file format
+And verify the error message displayed as "only .pdf, .docx , .txt & .doc format files are supported."
+And click on ok button
+And Click on save button for edit candidate
+And if confirmation popup is displayed click on ok button
+And click on close job button and delete the job
+And click on employer tab and delete the employer
+And close the browser
 
+Given Open browser
+And click on Login link
+And click on Job Seeker(Candidate) Sign In link
+And enter candidate email and password "<CandidateEmail>" "<password>" 
+And click on Signin button
+And click on ok button of confirmation popup
+And Click on Profile tab
+Then verify the Auto Populated fields on candidate update profile popup window
+And upload candidate resume in document format
+And Click on save button 
+And click on ok button
+And upload candidate resume in zip file format
+And verify the error message displayed as "only .pdf, .docx , .txt & .doc format files are supported."
+And click on ok button
+And upload candidate resume in pdf file format
+And Click on save button 
+And click on ok button
+And upload candidate resume in text file format
+And Click on save button 
+And click on ok button
+And upload candidate resume in PNG file format
+And verify the error message displayed as "only .pdf, .docx , .txt & .doc format files are supported."
+And click on ok button
+And Click on save button
+And click on ok button
+And close the browser
 
 Examples:
       
-| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate |  CandidateEmail1      |  Name1       |   ContactNumber1 |
-| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  donald01@gmail.com  | donald01   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      |   harry01@gmail.com   |   Harry01    |     123456789    |                  |
+| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate | password |
+| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  donald01@gmail.com  | donald01   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      | 12345    |                 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# TC ID :- 26
+# Change the candidate name & candidate email every time
 
 
