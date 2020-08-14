@@ -222,8 +222,8 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		
 		Thread.sleep(3000);
        common.clickOnSaveBtn();
-		Thread.sleep(3000);
-		common.clickOnConfirmYes();
+//		Thread.sleep(3000);
+//		common.clickOnConfirmYes();
 		
 	}
 	
