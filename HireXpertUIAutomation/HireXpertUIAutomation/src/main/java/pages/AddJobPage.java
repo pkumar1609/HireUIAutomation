@@ -12,8 +12,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.DataTable;
+import org.testng.Assert;
 import utilPackage.baseclass;
 import utilPackage.utilclass;
+
+
 public class AddJobPage extends baseclass {
 	
 public AddJobPage() 
@@ -91,56 +94,17 @@ public AddJobPage()
 	@FindBy(xpath = "//input[@placeholder='Enter Skill']")
 	public List<WebElement> jobskill;
 	
-	@FindBy(xpath = "(//input[@placeholder='Enter Skill'])[1]")
-	public WebElement jobskill1;
-	
-	@FindBy(xpath = "(//input[@placeholder='Enter Skill'])[2]")
-	public WebElement jobskill2;
-	
-//	@FindBy(xpath = "(//input[@placeholder='Enter Skill'])[3]")
-//	public WebElement jobskill3;
-	
 	@FindBy(xpath = "//select[@formcontrolname='ExpertiseLevel']")
 	public List<WebElement> expertiselevel;
 	
-	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[1]")
-	public WebElement expertiselevel1;
-	
-	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[2]")
-	public WebElement expertiselevel2;
-//	
-//	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[3]")
-//	public WebElement expertiselevel3;
-	
 	@FindBy(xpath = "//select[@formcontrolname='Weightage']")
 	public List<WebElement> weightage;
-	
-	@FindBy(xpath = "(//select[@formcontrolname='Weightage'])[1]")
-	public WebElement weightage1;
-	
-	@FindBy(xpath = "(//select[@formcontrolname='Weightage'])[2]")
-	public WebElement weightage2;
-//	
-//	@FindBy(xpath = "(//select[@formcontrolname='Weightage'])[3]")
-//	public WebElement weightage3;
-	
+
 	@FindBy(xpath = "//span[@class='checkmark']")
 	public List<WebElement> certificateNeeded;
-	
-//	@FindBy(xpath = "(//input[@formcontrolname='IsCertificateNeeded'])[2]")
-//	public WebElement certificateNeeded2;
-//	
-//	@FindBy(xpath = "(//input[@formcontrolname='IsCertificateNeeded'])[3]")
-//	public WebElement certificateNeeded3;
-	
+
 	@FindBy(xpath = "//input[@formcontrolname='Remark']")
 	public List<WebElement> remark;
-	
-//	@FindBy(xpath = "(//input[@formcontrolname='Remark'])[2]")
-//	public WebElement remark2;
-//	
-//	@FindBy(xpath = "(//input[@formcontrolname='Remark'])[3]")
-//	public WebElement remark3;
 	
 	@FindBy(id = "noticeperiod")
 	public WebElement noticePeriod;
@@ -228,18 +192,13 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 		}
 	}
 	
-
-	
 	public void addNewSkill1() {
 		
 //		addskillbutton.click();
 		
-		
 		jobskill1.sendKeys(skill1);
-		
 		se = new Select(expertiselevel1);
 		se.selectByVisibleText("Expert");
-		
 		
 		se = new Select(weightage1);
 		se.selectByVisibleText("Mandatory");
@@ -249,9 +208,7 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 		
 //		addskillbutton.click();
 		
-		
 		jobskill2.sendKeys(skill2);
-		
 		se = new Select(expertiselevel2);
 		se.selectByVisibleText("Expert");
 		
@@ -284,61 +241,59 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 	
 	public void addjob(DataTable credentials) throws InterruptedException
 	{ 
-		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-//		workbenchpage.AddJob();
-		this.emp=loginpage.b;
-		if(emp==true) 
-		{
-			jobname=data.get("title");
-			System.out.println("Selected job: "+jobname);
-//			title.sendKeys(jobname);
-		}
-		else
-		{
-			jobname=data.get("agytitle");
-			System.out.println("Selected job: "+jobname);
-//			title.sendKeys(jobname);
-		}
-		
-//		designation.sendKeys(data.get("designation"));
-//		industry.sendKeys(data.get("industry"));
-//		jobrole.sendKeys(data.get("jobrole"));
-//		location.sendKeys(data.get("location"));
-//		budget.sendKeys(data.get("budget"));
-//		minexp.sendKeys(data.get("minexp"));
-//		maxexp.sendKeys(data.get("maxexp"));
-//		noOfInterviews();
-//		List<WebElement> deletebtn = driver.findElements(By.xpath("//button[@class='btn btn-outline-danger']"));
-//		for(int i=0;i<deletebtn.size();i++)
-//			{
-//				WebElement btn = deletebtn.get(i);
-//				Thread.sleep(6000);
-//				btn.click();
-//			}
-//		this.emp=loginpage.b;
-//		if(emp==false)
-//		{ 
-//		select =new Select(employerId);
-//		List<WebElement> options = select.getOptions();
-//		if(options.size()>0)
-//		{
-//			select.selectByIndex(1);
-//		}
-//		else if (options.size()==0)
-//		{
-//			Thread.sleep(2000);
-//			addEmployee.click();
-//			teampage.AddAllDetailsK(credentials);
-//			select.selectByIndex(1);
-//			Organization.sendKeys(data.get("Oraganization"));	
-//		}
-//	}
-		
-		}
-	}
-	
+//			workbenchpage.AddJob();
+			this.emp=loginpage.b;
+			if(emp==true) 
+			{
+				jobname=data.get("title");
+				System.out.println("Selected job: "+jobname);
+//				title.sendKeys(jobname);
+			}
+			else
+			{
+				jobname=data.get("agytitle");
+				System.out.println("Selected job: "+jobname);
+//				title.sendKeys(jobname);
+			}
+			
+//			designation.sendKeys(data.get("designation"));
+//			industry.sendKeys(data.get("industry"));
+//			jobrole.sendKeys(data.get("jobrole"));
+//			location.sendKeys(data.get("location"));
+//			budget.sendKeys(data.get("budget"));
+//			minexp.sendKeys(data.get("minexp"));
+//			maxexp.sendKeys(data.get("maxexp"));
+//			noOfInterviews();
+//			List<WebElement> deletebtn = driver.findElements(By.xpath("//button[@class='btn btn-outline-danger']"));
+//			for(int i=0;i<deletebtn.size();i++)
+//				{
+//					WebElement btn = deletebtn.get(i);
+//					Thread.sleep(6000);
+//					btn.click();
+//				}
+//			this.emp=loginpage.b;
+//			if(emp==false)
+//			{ 
+//				select =new Select(employerId);
+//				List<WebElement> options = select.getOptions();
+//				if(options.size()>0)
+//				{
+//					select.selectByIndex(1);
+//				}
+//				else if (options.size()==0)
+//				{
+//					Thread.sleep(2000);
+//					addEmployee.click();
+//					teampage.AddAllDetailsK(credentials);
+//					select.selectByIndex(1);
+//					Organization.sendKeys(data.get("Oraganization"));	
+				}
+		    }
+
+//	     }
+//    }
 	public void addSkills(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3) throws InterruptedException
 	{
 		for(int i=0;i<3;i++)	
@@ -348,6 +303,8 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 			if(i==0)
 			{
 				jobskill.get(i).sendKeys(Skill1);
+				Thread.sleep(2000);
+				expertiselevel.get(i).click();
 				select =new Select(expertiselevel.get(i));
 				select.selectByVisibleText(level1);
 				select =new Select(weightage.get(i));
@@ -362,6 +319,8 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 			if(i==1)
 			{
 				jobskill.get(i).sendKeys(Skill2);
+				Thread.sleep(2000);
+				expertiselevel.get(i).click();
 				select =new Select(expertiselevel.get(i));
 				select.selectByVisibleText(level2);
 				select =new Select(weightage.get(i));
@@ -376,6 +335,8 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 			if(i==2)
 			{
 				jobskill.get(i).sendKeys(Skill3);
+				Thread.sleep(2000);
+				expertiselevel.get(i).click();
 				select =new Select(expertiselevel.get(i));
 				select.selectByVisibleText(level3);
 				select =new Select(weightage.get(i));

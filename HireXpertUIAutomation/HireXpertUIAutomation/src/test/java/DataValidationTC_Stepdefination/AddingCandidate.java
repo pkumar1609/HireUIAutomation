@@ -27,7 +27,12 @@ public class AddingCandidate extends baseclass{
 	public void click_on_Employer_Agency_Signin_link() throws Throwable {
 		loginpage.ClickOnEmployerAgencySigninLink();
 	}
-
+	
+	@When("^Click on Job Seeker\\(Candidate\\) Sign In link$")
+	public void click_on_Job_Seeker_Candidate_Sign_In_link() throws Throwable {
+	    
+	}
+	
 	@When("^Employer enters valid credentials \"([^\"]*)\",\"([^\"]*)\"$")
 	public void employer_enters_valid_credentials(String Username, String Password) throws Throwable {
 		  loginpage.loginIn(Username, Password);

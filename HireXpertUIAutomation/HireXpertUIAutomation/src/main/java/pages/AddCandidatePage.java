@@ -17,6 +17,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import utilPackage.baseclass;
 
@@ -98,7 +99,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//label[@class='check mt-4']//span[@class='checkmark']")
 	public WebElement OnNoticePeriodCheckbox;
 	
-	@FindBy(xpath = "//*[@id=\"fromDatePicker\"]/div/div/input")
+	@FindBy(xpath = "(//input[@placeholder='Select Date'])[2]")
 	public WebElement lastWorkingDay;
 	
 //	@FindBy(xpath = "//div[3]//div[3]//input[1]")
@@ -136,8 +137,7 @@ public class AddCandidatePage extends baseclass {
 	
 	public String nameOfCan;
 	Robot rb;
-	
-	
+	public String datebelowField;
 	public AddCandidatePage() {
 		
 		PageFactory.initElements(driver, this);
@@ -171,7 +171,7 @@ public class AddCandidatePage extends baseclass {
 	private String ExpertiseLevel2;
 	
 	
-	public void EnterAllMandatoryfieldsT(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException, AWTException {
+	public void EnterAllMandatoryfieldsT(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException, AWTException {
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),' Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
 		if(dynamicElement.size() != 0)
@@ -185,7 +185,12 @@ public class AddCandidatePage extends baseclass {
 			se.selectByVisibleText(permanentAddress);
 			se = new Select (isReadyToRelocateToJobLocation);
 			se.selectByVisibleText(relocate);
-		
+			if(OnNoticePeriod.contentEquals("Yes"))
+			{
+			this.lastWorkingDay.clear();
+			this.lastWorkingDay.sendKeys(LastWorkingDay);
+			this.datebelowField = driver.findElement(By.xpath("(//div[@class='text-info'])[2]")).getText();
+			}	
 		}	
 		else 
 		{
@@ -204,25 +209,29 @@ public class AddCandidatePage extends baseclass {
 			se.selectByVisibleText(OnNoticePeriod);
 			if(OnNoticePeriod.contentEquals("Yes"))
 			{
-				
+				this.lastWorkingDay.clear();
+				this.lastWorkingDay.sendKeys(LastWorkingDay);
+				this.datebelowField = driver.findElement(By.xpath("(//div[@class='text-info'])[2]")).getText();
 			}	
 			else
 			{
-			noticePeriod.sendKeys(NoticePeriod);
+				noticePeriod.sendKeys(NoticePeriod);
 			}
+			Thread.sleep(2000);
 			experienceInYears.sendKeys(experience);
 			ctc.sendKeys(CTC);
 			this.expectedCTC.sendKeys(expectedCTC);
 			se = new Select (countryId);
 			se.selectByVisibleText(Country);
+			city.clear();
 			city.sendKeys(City);
-			Thread.sleep(4000);
-			salaryOffered.click();
+		  	salaryOffered.sendKeys(Salaryoffered);
+			Assert.assertEquals(city.getAttribute("value"), City);
 			cityArea.sendKeys(CityArea);
 			zipCode.sendKeys(ZipCode);
 			se = new Select (communicationMode);
 		  	se.selectByVisibleText(Communicationmode);
-			salaryOffered.sendKeys(Salaryoffered);
+			Assert.assertEquals(communicationMode.getAttribute("value"), Communicationmode);
 			this.distance.sendKeys(distance);
 			se = new Select (isPermanentAddress);
 			se.selectByVisibleText(permanentAddress);
@@ -243,6 +252,7 @@ public class AddCandidatePage extends baseclass {
 				select.selectByVisibleText(level1);
 				if(certificate1.contentEquals("Yes"))
 				{
+					certificate.get(i).clear();
 					certificate.get(i).sendKeys(certificateforskill1);
 				}
 			}
@@ -251,6 +261,7 @@ public class AddCandidatePage extends baseclass {
 				select.selectByVisibleText(level2);
 				if(certificate2.contentEquals("Yes"))
 				{
+					certificate.get(i).clear();
 					certificate.get(i).sendKeys(certificateforskill2);
 				}
 			}
@@ -259,6 +270,7 @@ public class AddCandidatePage extends baseclass {
 				select.selectByVisibleText(level3);
 				if(certificate3.contentEquals("Yes"))
 				{
+					certificate.get(i).clear();
 					certificate.get(i).sendKeys(certificateforskill1);
 				}
 			}
@@ -342,28 +354,7 @@ public class AddCandidatePage extends baseclass {
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
 		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.doc"); // CV Path of Trupti's system
 	}
-	
-	public void uploadResumeDocumentinZipformatT() throws AWTException {  //Method for Trupti
-		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.zip"); // CV Path of Trupti's system
-	}
-	
-	public void uploadResumeDocumentinPdfformatT() throws AWTException {  //Method for Trupti
-		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.pdf"); // CV Path of Trupti's system
-	}
-	
-	public void uploadResumeDocumentintextformatT() throws AWTException {  //Method for Trupti
-		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.txt"); // CV Path of Trupti's system
-	}
 
-	public void uploadResumeDocumentinPNGformatT() throws AWTException {  //Method for Trupti
-		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.PNG"); // CV Path of Trupti's system
-	}
-
-	
 
 
 }
