@@ -90,7 +90,7 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//button[@title='Reload Job']")).click();
 		Thread.sleep(3000);
-        workbenchpage.selectJob();
+        workbenchpage.selectjobT();
 	}
 
 	@Given("^logout as employer$")

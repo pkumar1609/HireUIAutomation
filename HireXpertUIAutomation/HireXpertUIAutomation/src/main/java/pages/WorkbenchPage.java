@@ -92,6 +92,10 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Reload Candidate']")
 	public WebElement ReloadCandidateButton;
 	
+	@FindBy(xpath = "//button[@title='Reload Job']")
+	public WebElement ReloadJobButton;
+	
+	
 	@FindBy(xpath = "//select[@formcontrolname='AssignedToName']")
 	public WebElement filtersAssignToList;
 	
@@ -148,9 +152,11 @@ public class WorkbenchPage extends baseclass {
 		
 	}
 	
-	public void selectjobT() {
-		se = new Select (jobDropDown);
-  		se.selectByVisibleText("Job-1 Test Engineer - Active");
+	public void selectjobT() throws InterruptedException {
+  		
+//  		Thread.sleep(5000);
+//		jobDropDown.click();
+//		driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).click();
 	}
 	
 	public void selectJobK() throws InterruptedException {
@@ -365,5 +371,34 @@ public void selectCandidateRejectionReason () {
 	select.selectByVisibleText("Communication Is Not Good");
 }
 
+
+public void deleteEmployerfromEmployerTabasAgency() throws InterruptedException {
+
+List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+if(dynamicElement.size() != 0){
+
+	System.out.println("\nEmployer tab not present for Employer user..");
 }
+
+else{
+
+	dashboardpage.openEmployersPage();
+	Thread.sleep(3000);
+	employerspage.searchEmployer();	
+	Thread.sleep(2000);
+	employerspage.deleteSearchedEmployer();
+	Thread.sleep(2000);
+	common.clickOnConfirmYes();
+	Thread.sleep(2000);
+	common.clickOnCloseBtn();
+}
+}
+}
+
+
+
+
+
+
+
 	

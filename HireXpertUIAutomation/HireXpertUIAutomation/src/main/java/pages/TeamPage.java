@@ -25,7 +25,7 @@ public class TeamPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Team Members']")
 	public WebElement AddTeamButton;
 	
-	@FindBy(xpath ="//input[@placeholder='Enter Name']")
+	@FindBy(xpath = "//input[@placeholder='Enter Name']")
 	public WebElement TeamMemberName;
 	
 	@FindBy(xpath = "//input[@placeholder='Enter Email']")
@@ -51,6 +51,8 @@ public class TeamPage extends baseclass {
 	
 	@FindBy(xpath = "//button[@title='Agencies']")
 	public WebElement addAgencies;
+	
+
 	
 	
 //	public String ele;

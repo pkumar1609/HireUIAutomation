@@ -27,13 +27,13 @@ public class EditJobPage extends baseclass {
 		this.driver = driver;
 	}
 	
-	public void updateJobDetails() throws InterruptedException {
+	public void updateJobDetails(String Budget1, String Noticeperiod ) throws InterruptedException {
 		
 		addjobpage.budget.clear();
-		addjobpage.budget.sendKeys("350000");  //updating budget
+		addjobpage.budget.sendKeys(Budget1);  //updating budget
 		Thread.sleep(1000);
 		addjobpage.noticePeriod.clear();
-		addjobpage.noticePeriod.sendKeys("30");  //updating notice period
+		addjobpage.noticePeriod.sendKeys(Noticeperiod);  //updating notice period
 		Thread.sleep(1000);
 	}
 	

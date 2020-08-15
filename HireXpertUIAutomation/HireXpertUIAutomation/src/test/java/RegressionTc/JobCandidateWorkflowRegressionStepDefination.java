@@ -1,5 +1,7 @@
 package RegressionTc;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -765,27 +767,287 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		Thread.sleep(3000);
        registerpage.ClickSigninbtn();
 	}
+	
+//	7
+
+	
+	@When("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
+	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String emailaddress, String password) throws Throwable {
+	   
+		Thread.sleep(4000);
+	
+	registerpage.clickEmployerAgencySignInlink();
+	Thread.sleep(3000);
+
+	loginpage.emailaddress.sendKeys(emailaddress);
+		loginpage.password.sendKeys(password);		
+		loginpage.signin.click();
+		
+	}
+
+	@Given("^click on Workbench tab$")
+	public void click_on_Workbench_tab() throws Throwable {
+
+		Thread.sleep(3000);
+		dashboardpage.openWorkbenchPage();
+	}
+
+	@Given("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
+
+		Thread.sleep(3000);
+		addjobpage.addJobforEmployerandAgency(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+	}
+
+	@Given("^click on Job drop down and select recently added job$")
+	public void click_on_Job_drop_down_and_select_recently_added_job() throws Throwable {
+
+		Thread.sleep(3000);
+		workbenchpage.selectJob();
+	}
+
+	@Given("^click on Edit Job button to update skills and number of interview$")
+	public void click_on_Edit_Job_button_to_update_skills_and_number_of_interview() throws Throwable {
+
+		Thread.sleep(3000);
+		workbenchpage.clickonthreedot();
+		Thread.sleep(3000);
+		workbenchpage.editJobButton.click();
+		Thread.sleep(3000);
+	}
+
+	@Given("^select number of interview except previously selected number  \"([^\"]*)\"$")
+	public void select_number_of_interview_except_previously_selected_number(String NoOfInterview1) throws Throwable {
+
+		Thread.sleep(3000);
+		Select se = new Select(addjobpage.totalinterviews);
+		se.selectByVisibleText(NoOfInterview1);
+	}
+
+	@Given("^click on submit button$")
+	public void click_on_submit_button() throws Throwable {
+
+		Thread.sleep(3000);
+		common.submitbtn.click();
+	}
+
+	@Given("^again click on Edit Job button and observe the number of interviews$")
+	public void again_click_on_Edit_Job_button_and_observe_the_number_of_interviews() throws Throwable {
+
+		Thread.sleep(3000);
+		workbenchpage.clickonthreedot();
+		Thread.sleep(3000);
+		workbenchpage.editJobButton.click();
+		Thread.sleep(3000);
+	}
+
+	@Given("^click on Add Skill button and add one new skill$")
+	public void click_on_Add_Skill_button_and_add_one_new_skill() throws Throwable {
+
+		addjobpage.addskillbutton.click();
+		Thread.sleep(3000);
+	    addjobpage.addNewSkill3();
+	    Thread.sleep(3000);
+	    common.ClickSumbit();
+	}
 
 	
 
+	@Then("^Newly Added skills should be reflect in candidate profile which are already added for that job$")
+	public void newly_Added_skills_should_be_reflect_in_candidate_profile_which_are_already_added_for_that_job() throws Throwable {
+
+//		Thread.sleep(3000);
+//    String skillname = driver.findElement(By.xpath("(//input[@formcontrolname='Skill'])[3]")).getText();
+//    
+//    if (skillname.equals("Python")) {
+//    	
+//    	System.out.println("Newly added skill to job, refelcted in edit candidate profile.");
+//    	
+//    }
+//    
+//    else {
+//    	
+//    	System.out.println("Newly added skill to job, not refelcted in edit candidate profile.");
+//    	
+//    }
+    
+    Thread.sleep(3000);
+    
+    editcandidatepage.ClickOnSaveBtntoSavetheupdatedDetails();
+	}
+	
+	@Then("^click on employer tab and delete the employer if login as agency\\.$")
+	public void click_on_employer_tab_and_delete_the_employer_if_login_as_agency() throws Throwable {
+
+		Thread.sleep(3000);
+		workbenchpage.deleteEmployerfromEmployerTabasAgency();
+	}
+	
+//	8
+
+	@Then("^Click on Candidate name from candidate card and observe the skills$")
+	public void click_on_Candidate_name_from_candidate_card_and_observe_the_skills() throws Throwable {
+	    
+		candidatecardsectionpage.clickOnCandidateNameFromCandidateCard();
+		Thread.sleep(3000);
+		candidatecardsectionpage.observeAllPresentSkills();
+	}
+
+	@Then("^click on Close button from candidate Details page$")
+	public void click_on_Close_button_from_candidate_Details_page() throws Throwable {
+	    
+		Thread.sleep(2000);
+		common.closebtn.click();
+		Thread.sleep(2000);
+	}
+	
+	@Then("^click on Edit Job button to make changes in job$")
+	public void click_on_Edit_Job_button_to_make_changes_in_job() throws Throwable {
+		Thread.sleep(3000);
+		workbenchpage.clickonthreedot();
+		Thread.sleep(3000);
+		workbenchpage.editJobButton.click();
+		Thread.sleep(3000);
+		String title1 = driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/add-edit-job/div[1]/h5")).getText();
+		System.out.println("\nTitle of page: " + title1);
+	}
+
+	
+	@Then("^Delete one skill from Skills section$")
+	public void delete_one_skill_from_Skills_section() throws Throwable {
+	    
+		Thread.sleep(3000);
+		addjobpage.deleteSkills();
+	}
+	
+	@Then("^observe deleted skill not displayed$")
+	public void observe_deleted_skill_not_displayed() throws Throwable {
+	    
+		Thread.sleep(3000);
+		editcandidatepage.observeOneDeletedSkill();
+	}
 
 
+	@Then("^click on Close button from Edit Candidate page$")
+	public void click_on_Close_button_from_Edit_Candidate_page() throws Throwable {
+	    
+		Thread.sleep(3000);
+		common.closebtn.click();
+	}
+
+	@Then("^deleted skills should display on Candidate Details page$")
+	public void deleted_skills_should_display_on_Candidate_Details_page() throws Throwable {
+	    
+		Thread.sleep(3000);
+		System.out.println("\nDeleted skill present on Candidate Details page..");
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@Then("^delete all added skills$")
+	public void delete_all_added_skills() throws Throwable {
+	    
+		Thread.sleep(3000);
+		addjobpage.deleteSkill1.click();
+	}
+
+	@Then("^observe deleted job skill should not show when employer is going to add new candidate$")
+	public void observe_deleted_job_skill_should_not_show_when_employer_is_going_to_add_new_candidate() throws Throwable {
+	    
+		Thread.sleep(3000);
+		System.out.println("\nSkills section not displayed as job does not have any skills added..");
+		Thread.sleep(3000);
+		common.clickOnCloseBtn();
+		
+	}
+		
+		
+//		9
+		
+		@Given("^click on Team tab and add one new team member by clicking on Add button for agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+		public void click_on_Team_tab_and_add_one_new_team_member_by_clicking_on_Add_button_for_agency(String AgencyteammemberName, String AgencyteammemberemailId, String AgencyteammemberNo) throws Throwable {
+
+			Thread.sleep(3000);
+			dashboardpage.openTeamPage();
+			Thread.sleep(3000);
+
+			teampage.AddTeamButton.click();
+			Thread.sleep(3000);
+			teampage.TeamMemberEmail.sendKeys(AgencyteammemberName);
+			teampage.TeamMemberName.sendKeys(AgencyteammemberemailId);
+			teampage.TeamMemberContactNumber.sendKeys(AgencyteammemberNo);
+			Thread.sleep(3000);
+			common.submitbtn.click();
+			System.out.println("\nNew team member get added by agency..");
+		}
+
+		@Given("^click on Close button from Team Members window$")
+		public void click_on_Close_button_from_Team_Members_window() throws Throwable {
+
+			Thread.sleep(3000);
+			teampage.closeTeamPage();
+		}
+		
+		@Then("^logout with agency team member$")
+		public void logout_with_agency_team_member() throws Throwable {
+		    
+			workbenchpage.ClickonLogout();
+			Thread.sleep(3000);
+		}
+
+		@Given("^logout with agency owner$")
+		public void logout_with_agency_owner() throws Throwable {
+
+			workbenchpage.ClickonLogout();
+			Thread.sleep(3000);
+		}
+
+		@Then("^Job should get successfully added and Job should be visible in Job drop down$")
+		public void job_should_get_successfully_added_and_Job_should_be_visible_in_Job_drop_down() throws Throwable {
+
+
+		}
+
+		
+
+		@Then("^click on Workbench tab and select the job which is added by agency team member$")
+		public void click_on_Workbench_tab_and_select_the_job_which_is_added_by_agency_team_member() throws Throwable {
+
+			Thread.sleep(3000);
+			dashboardpage.openWorkbenchPage();
+			Thread.sleep(3000);
+			workbenchpage.selectJob();
+		}
+
+		@Then("^new candidate should get added in New column$")
+		public void new_candidate_should_get_added_in_New_column() throws Throwable {
+
+
+		}
+
+		
+
+		@Then("^click on reload button$")
+		public void click_on_reload_button() throws Throwable {
+
+			Thread.sleep(3000);
+			workbenchpage.ReloadJobButton.click();
+
+		}
+		
+		@Then("^delete the agency team member \"([^\"]*)\"$")
+		public void delete_the_agency_team_member(String AgencyteammemberemailId) throws Throwable {
+		    
+			Thread.sleep(3000);
+			dashboardpage.openTeamPage();
+			Thread.sleep(3000);
+			teampage.searchField.sendKeys(AgencyteammemberemailId);
+			Thread.sleep(3000);
+			teampage.deletebtn.click();
+			Thread.sleep(3000);
+			common.clickOnConfirmYes();
+			Thread.sleep(3000);
+			common.clickOnCloseBtn();
+		}
+
+}
 		
 	
-	
-	}

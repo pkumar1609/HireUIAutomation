@@ -497,111 +497,231 @@ Feature: Hirexpert Job Candidate Workflow feature
 # TC :- 467
 
 
-Scenario Outline: To verify the functionality of Upload Resume on candidate profile
-	
-Given Open browser
-And click on Login link
-When click on Employer-Agency SignIn link
-And login with Employer credential
-And Go to Workbench 
-And Add a new Job as employer "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
-And Select the same job from job drop down
-And Click on Add Candidate button.
-And Enter valid "<CandidateEmail>" 
-And click on find button 
-And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
-And upload candidate resume in document format
-And Click on save button 
-And if confirmation popup is displayed click on ok button
-And Click on Edit Candidate icon on candidate card "<Name>"
-And upload candidate resume in zip file format
-And verify the error message displayed as "only .pdf, .docx , .txt & .doc format files are supported."
-And click on ok button
-And upload candidate resume in pdf file format
-And Click on save button for edit candidate
-And if confirmation popup is displayed click on ok button
-And Click on Edit Candidate icon on candidate card "<Name>"
-And upload candidate resume in text file format
-And Click on save button for edit candidate
-And if confirmation popup is displayed click on ok button
-And Click on Edit Candidate icon on candidate card "<Name>"
-And upload candidate resume in PNG file format
-And verify the error message displayed as "only .pdf, .docx , .txt & .doc format files are supported."
-And click on ok button
-And Click on save button for edit candidate
-And if confirmation popup is displayed click on ok button
-And click on close job button and delete the job
-And close the browser
+#Scenario Outline: To verify the functionality of Upload Resume on candidate profile
+#	
+#Given Open browser
+#And click on Login link
+#When click on Employer-Agency SignIn link
+#And login with Employer credential
+#And Go to Workbench 
+#And Add a new Job as employer "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
+#And Select the same job from job drop down
+#And Click on Add Candidate button.
+#And Enter valid "<CandidateEmail>" 
+#And click on find button 
+#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+#And upload candidate resume in document format
+#And Click on save button 
+#And if confirmation popup is displayed click on ok button
+#And Click on Edit Candidate icon on candidate card "<Name>"
+#And upload candidate resume in zip file format
+#And verify the error message displayed as "Only .pdf, .docx , .txt and .doc format files are supported."
+#And click on ok button
+#And upload candidate resume in pdf file format
+#And Click on save button for edit candidate
+#And if confirmation popup is displayed click on ok button
+#And Click on Edit Candidate icon on candidate card "<Name>"
+#And upload candidate resume in text file format
+#And Click on save button for edit candidate
+#And if confirmation popup is displayed click on ok button
+#And Click on Edit Candidate icon on candidate card "<Name>"
+#And upload candidate resume in PNG file format
+#And verify the error message displayed as "Only .pdf, .docx , .txt and .doc format files are supported."
+#And click on ok button
+#And Click on save button for edit candidate
+#And if confirmation popup is displayed click on ok button
+#And click on close job button and delete the job
+#And close the browser
+#
+#Given Open browser
+#And click on Login link
+#When click on Employer-Agency SignIn link 
+#And login with Agency credential
+#And Go to Workbench 
+#And Add a new Job as agency "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
+#And Select the same job from job drop down
+#And Click on Add Candidate button.
+#And Enter valid "<CandidateEmail>" 
+#And click on find button 
+#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+#And upload candidate resume in document format
+#And Click on save button 
+#And if confirmation popup is displayed click on ok button
+#And Click on Edit Candidate icon on candidate card "<Name>"
+#And upload candidate resume in zip file format
+#And verify the error message displayed as "Only .pdf, .docx , .txt and .doc format files are supported."
+#And click on ok button
+#And upload candidate resume in pdf file format
+#And Click on save button for edit candidate
+#And if confirmation popup is displayed click on ok button
+#And Click on Edit Candidate icon on candidate card "<Name>"
+#And upload candidate resume in text file format
+#And Click on save button for edit candidate
+#And if confirmation popup is displayed click on ok button
+#And Click on Edit Candidate icon on candidate card "<Name>"
+#And upload candidate resume in PNG file format
+#And verify the error message displayed as "Only .pdf, .docx , .txt and .doc format files are supported."
+#And click on ok button
+#And Click on save button for edit candidate
+#And if confirmation popup is displayed click on ok button
+#And click on close job button and delete the job
+#And click on employer tab and delete the employer
+#And close the browser
+#
+#Given Open browser
+#And click on Login link
+#And click on Job Seeker(Candidate) Sign In link
+#And enter candidate email and password "<CandidateEmail>" "<password>" 
+#And click on Signin button
+#And click on ok button of confirmation popup
+#And Click on Profile tab
+#Then verify the Auto Populated fields on candidate update profile popup window
+#And upload candidate resume in document format
+#And Click on save button 
+#And click on ok button
+#And upload candidate resume in zip file format
+#And verify the error message displayed as "Only .pdf, .docx , .txt and .doc format files are supported."
+#And click on ok button
+#And upload candidate resume in pdf file format
+#And Click on save button 
+#And click on ok button
+#And upload candidate resume in text file format
+#And Click on save button 
+#And click on ok button
+#And upload candidate resume in PNG file format
+#And verify the error message displayed as "Only .pdf, .docx , .txt and .doc format files are supported."
+#And click on ok button
+#And Click on save button
+#And click on ok button
+#And close the browser
 
-Given Open browser
-And click on Login link
-When click on Employer-Agency SignIn link 
-And login with Agency credential
-And Go to Workbench 
-And Add a new Job as agency "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
-And Select the same job from job drop down
-And Click on Add Candidate button.
-And Enter valid "<CandidateEmail>" 
-And click on find button 
-And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
-And upload candidate resume in document format
-And Click on save button 
-And if confirmation popup is displayed click on ok button
-And Click on Edit Candidate icon on candidate card "<Name>"
-And upload candidate resume in zip file format
-And verify the error message displayed as "only .pdf, .docx , .txt & .doc format files are supported."
-And click on ok button
-And upload candidate resume in pdf file format
-And Click on save button for edit candidate
-And if confirmation popup is displayed click on ok button
-And Click on Edit Candidate icon on candidate card "<Name>"
-And upload candidate resume in text file format
-And Click on save button for edit candidate
-And if confirmation popup is displayed click on ok button
-And Click on Edit Candidate icon on candidate card "<Name>"
-And upload candidate resume in PNG file format
-And verify the error message displayed as "only .pdf, .docx , .txt & .doc format files are supported."
-And click on ok button
-And Click on save button for edit candidate
-And if confirmation popup is displayed click on ok button
-And click on close job button and delete the job
-And click on employer tab and delete the employer
-And close the browser
-
-Given Open browser
-And click on Login link
-And click on Job Seeker(Candidate) Sign In link
-And enter candidate email and password "<CandidateEmail>" "<password>" 
-And click on Signin button
-And click on ok button of confirmation popup
-And Click on Profile tab
-Then verify the Auto Populated fields on candidate update profile popup window
-And upload candidate resume in document format
-And Click on save button 
-And click on ok button
-And upload candidate resume in zip file format
-And verify the error message displayed as "only .pdf, .docx , .txt & .doc format files are supported."
-And click on ok button
-And upload candidate resume in pdf file format
-And Click on save button 
-And click on ok button
-And upload candidate resume in text file format
-And Click on save button 
-And click on ok button
-And upload candidate resume in PNG file format
-And verify the error message displayed as "only .pdf, .docx , .txt & .doc format files are supported."
-And click on ok button
-And Click on save button
-And click on ok button
-And close the browser
-
-Examples:
-      
-| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate | password |
-| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  donald01@gmail.com  | donald01   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      | 12345    |                 
-
+#Examples:
+#      
+#| Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate | password |
+#| Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              |  donald01@gmail.com  | donald01   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      | 12345    |                 
+#
 
 # TC ID :- 26
 # Change the candidate name & candidate email every time
 
 
+
+# Scenario Outline: To verify user is able to update skills and No. of Interviews for the job with Employer login
+#  
+#Given Open browser
+#And click on Login link
+#And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+#And click on Workbench tab
+#And click on Add Job button and fill all mandatory details on Add Job popup window "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
+#And click on Job drop down and select recently added job
+#And Click on Add Candidate button.
+#And Enter valid "<CandidateEmail>" 
+#And click on find button 
+#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+#And upload candidate resume in document format
+#And Click on save button 
+#And if confirmation popup is displayed click on ok button
+#And click on Edit Job button to update skills and number of interview
+#And select number of interview except previously selected number  "<NoOfInterviews1>"
+#And click on submit button
+#And again click on Edit Job button and observe the number of interviews
+#And click on Add Skill button and add one new skill
+#And Click on Edit Candidate icon on candidate card "<Name>"
+#Then Newly Added skills should be reflect in candidate profile which are already added for that job
+#And click on close job button and delete the job
+#And click on employer tab and delete the employer if login as agency.
+#And close the browser
+#
+#Examples:
+#|    email address            |  password  | Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate | NoOfInterviews1 |
+#|  employermain01@gmail.com   |   12345    | SDET     | QA Analyst    | IT-Industry | Tester   | Pune        | 700000 | 3      | 5      |   2            |   donald01@gmail.com | donald01   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      |      3          |    
+#
+#    
+    #Reg TC ID: 112,324
+
+
+#Scenario Outline: To verify deleted skill on Candidate Details page and when employer is adding new candidate for the job
+#  
+#Given Open browser
+#And click on Login link
+#And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+#And click on Workbench tab
+#And click on Add Job button and fill all mandatory details on Add Job popup window "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
+#And click on Job drop down and select recently added job
+#And Click on Add Candidate button.
+#And Enter valid "<CandidateEmail>" 
+#And click on find button 
+#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+#And upload candidate resume in document format
+#And Click on save button 
+#And if confirmation popup is displayed click on ok button
+#And Click on Candidate name from candidate card and observe the skills 
+#And click on Close button from candidate Details page
+#And click on Edit Job button to make changes in job
+#And Delete one skill from Skills section 
+#And click on submit button
+#And Click on Edit Candidate icon on candidate card "<Name>"
+#And observe deleted skill not displayed
+#And click on Close button from Edit Candidate page
+#And Click on Candidate name from candidate card and observe the skills
+#Then deleted skills should display on Candidate Details page 
+#And click on Close button from candidate Details page 
+#And click on Edit Job button to make changes in job
+#And delete all added skills
+#And click on submit button
+#And Click on Add Candidate button.
+#And Enter valid "<CandidateEmail1>" 
+#And click on find button 
+#Then observe deleted job skill should not show when employer is going to add new candidate
+#And click on close job button and delete the job
+#And click on employer tab and delete the employer if login as agency.
+#And close the browser
+#    
+#    Examples:
+#|    email address            |  password  | Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate | CandidateEmail1 |
+#|  employermain01@gmail.com   |   12345    | SDET     | QA Analyst    | IT-Industry | Tester   | Pune        | 700000 | 3      | 5      |   2            |   donald01@gmail.com | donald01   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      | peter@gmail.com |    
+#    
+#    
+   #Reg TC ID: 335,349
+
+
+Scenario Outline: Verify the functionality of adding a candidate to the job that is shared by agency team member
+    
+Given Open browser
+And click on Login link
+And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+And click on Team tab and add one new team member by clicking on Add button for agency "<AgencyteammemberemailId>" "<AgencyteammemberName>" "<AgencyteammemberNo>"
+And click on Close button from Team Members window
+And logout with agency owner
+And enter valid user "<AgencyteammemberemailId>" and "<password>" for registered employer and agency and click on Sign in button
+And click on Workbench tab
+And click on Add Job button and fill all mandatory details on Add Job popup window "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"    
+Then Job should get successfully added and Job should be visible in Job drop down
+And logout with agency team member
+And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button   
+And click on Workbench tab and select the job which is added by agency team member
+And Click on Add Candidate button.
+And Enter valid "<CandidateEmail>" 
+And click on find button 
+And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+And upload candidate resume in document format
+And Click on save button 
+And if confirmation popup is displayed click on ok button
+Then new candidate should get added in New column
+And click on close job button and delete the job
+And delete the agency team member "<AgencyteammemberemailId>"
+And logout with agency owner
+And enter valid user "<AgencyteammemberemailId>" and "<password>" for registered employer and agency and click on Sign in button
+And click on Workbench tab
+And click on reload button    
+And click on employer tab and delete the employer if login as agency.
+And close the browser
+    
+     Examples:
+|    email address            |  password  | AgencyteammemberemailId  | AgencyteammemberName    |  AgencyteammemberNo | Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate |
+|  agencymain01@gmail.com     |   12345    | teamagencymain@gmail.com |      TeamAgencymain     |  852963741          | SDET     | QA Analyst    | IT-Industry | Tester   | Pune        | 700000 | 3      | 5      |   2            |   tina01@gmail.com   | Tina01     |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      |   
+       
+    
+    
+    
+#Reg TC ID: 239
