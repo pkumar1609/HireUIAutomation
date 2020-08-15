@@ -115,12 +115,39 @@ public AddJobPage()
 	@FindBy(xpath = "//input[@placeholder='Enter Organization']")
 	public WebElement Organization;
 	
+	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[1]")
+	public WebElement expertiselevel1;
+	
+	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[2]")
+	public WebElement expertiselevel2;
+	
+	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[3]")
+	public WebElement expertiselevel3;
+	
+	@FindBy(xpath = "(//select[@formcontrolname='Weightage'])[1]")
+	public WebElement weightage1;
+	
+	@FindBy(xpath = "(//select[@formcontrolname='Weightage'])[2]")
+	public WebElement weightage2;
+	
+	@FindBy(xpath = "(//select[@formcontrolname='Weightage'])[3]")
+	public WebElement weightage3;
+	
+	@FindBy(xpath = "(//input[@placeholder='Enter Skill'])[1]")
+	public WebElement jobskill1;
+	
+	@FindBy(xpath = "(//input[@placeholder='Enter Skill'])[2]")
+	public WebElement jobskill2;
+	
+	@FindBy(xpath = "(//input[@placeholder='Enter Skill'])[3]")
+	public WebElement jobskill3;
+	
 	
 	@FindBy(xpath = "//select[@formcontrolname='EmployerId']")
 	public WebElement employerId;
 	
-	public String skill1 = "s1";
-	public String skill2 = "s2";
+	public String skill1 = "Agile";
+	public String skill2 = "Java";
 	public String skill2Exp2 = "S2(Expert)";
 	Select se;
 	public String jobname;
@@ -183,14 +210,20 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 	}
 
 	
-	public void addSkillButton() throws InterruptedException {
+	
+public void addtenSkills() throws InterruptedException {
 		
-		for(int i=4;i<=12;i++) {
+		
+		Thread.sleep(3000);
+		
+		for(int i=2;i<=10;i++) {
 			
 			addskillbutton.click();
-			Thread.sleep(1000);
+			
+			
 		}
 	}
+
 	
 	public void addNewSkill1() {
 		
@@ -238,6 +271,98 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 		
 		common.submitbtn.click();
 	}
+	
+	
+public void addJobforEmployerandAgency(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws InterruptedException{
+		
+		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+		if(dynamicElement.size() != 0){
+			
+		 //If list size is non-zero, element is present
+			System.out.println("\nUser logged in as Employer..");
+			
+			Thread.sleep(3000);
+
+			workbenchpage.AddJob();
+			
+			Thread.sleep(3000);
+			
+			addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+			
+			Thread.sleep(3000);
+			
+			addjobpage.addNewSkill1();
+			
+			Thread.sleep(3000);
+			
+			addjobpage.addNewSkill2();
+			
+			Thread.sleep(3000);
+			
+			addjobpage.deleteSkill3.click();
+			
+			Thread.sleep(3000);
+			
+			common.submitbtn.click();
+
+		}
+		
+		else{
+			
+		 //Else if size is 0, then element is not present
+			System.out.println("\nUser logged in as Agency..");
+			
+			Thread.sleep(3000);
+
+			workbenchpage.AddJob();
+			
+			Thread.sleep(3000);
+			
+			addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+			
+			Thread.sleep(3000);
+			
+			addjobpage.addNewSkill1();
+			
+			Thread.sleep(3000);
+			
+			addjobpage.addNewSkill2();
+			
+			Thread.sleep(3000);
+			
+			addjobpage.deleteSkill3.click();
+			
+			Thread.sleep(2000);
+			
+			addjobpage.clickaddemployericon();
+			
+			Thread.sleep(3000);
+			
+			addjobpage.fillEmployerDetailsPlusIcon();
+			
+			Thread.sleep(3000);
+			
+			driver.findElement(By.xpath("//button[@class='btn Cbtn-primary w-20'][contains(text(),'Submit')]")).click();
+			
+			Thread.sleep(1000);
+			
+			addjobpage.employerDropDown();
+			
+	        Thread.sleep(3000);
+	        
+	        addjobpage.enteremployerorganizationname();
+			
+			Thread.sleep(3000);
+			
+			common.submitbtn.click();
+
+		
+		}
+	
+	}
+
+
+
 	
 	public void addjob(DataTable credentials) throws InterruptedException
 	{ 
