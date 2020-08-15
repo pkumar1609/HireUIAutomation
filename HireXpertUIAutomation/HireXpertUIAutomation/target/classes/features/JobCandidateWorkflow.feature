@@ -685,43 +685,106 @@ Feature: Hirexpert Job Candidate Workflow feature
    #Reg TC ID: 335,349
 
 
-Scenario Outline: Verify the functionality of adding a candidate to the job that is shared by agency team member
+#Scenario Outline: Verify the functionality of adding a candidate to the job that is shared by agency team member
+#    
+#Given Open browser
+#And click on Login link
+#And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+#And click on Team tab and add one new team member by clicking on Add button for agency "<AgencyteammemberemailId>" "<AgencyteammemberName>" "<AgencyteammemberNo>"
+#And click on Close button from Team Members window
+#And logout with agency owner
+#And enter valid user "<AgencyteammemberemailId>" and "<password>" for registered employer and agency and click on Sign in button
+#And click on Workbench tab
+#And click on Add Job button and fill all mandatory details on Add Job popup window "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"    
+#Then Job should get successfully added and Job should be visible in Job drop down
+#And logout with agency team member
+#And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button   
+#And click on Workbench tab and select the job which is added by agency team member
+#And Click on Add Candidate button.
+#And Enter valid "<CandidateEmail>" 
+#And click on find button 
+#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+#And upload candidate resume in document format
+#And Click on save button 
+#And if confirmation popup is displayed click on ok button
+#Then new candidate should get added in New column
+#And click on close job button and delete the job
+#And delete the agency team member "<AgencyteammemberemailId>"
+#And logout with agency owner
+#And enter valid user "<AgencyteammemberemailId>" and "<password>" for registered employer and agency and click on Sign in button
+#And click on Workbench tab
+#And click on reload button    
+#And click on employer tab and delete the employer if login as agency.
+#And close the browser
+#    
+#     Examples:
+#|    email address            |  password  | AgencyteammemberemailId  | AgencyteammemberName    |  AgencyteammemberNo | Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate |
+#|  agencymain01@gmail.com     |   12345    | teamagencymain@gmail.com |      TeamAgencymain     |  852963741          | SDET     | QA Analyst    | IT-Industry | Tester   | Pune        | 700000 | 3      | 5      |   2            |   tina01@gmail.com   | Tina01     |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      |   
+#       
     
+  
+#Reg TC ID: 239
+
+
+
+Scenario Outline: Verify functionality of bell icon on candidate card.
+
 Given Open browser
-And click on Login link
-And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
-And click on Team tab and add one new team member by clicking on Add button for agency "<AgencyteammemberemailId>" "<AgencyteammemberName>" "<AgencyteammemberNo>"
-And click on Close button from Team Members window
-And logout with agency owner
-And enter valid user "<AgencyteammemberemailId>" and "<password>" for registered employer and agency and click on Sign in button
-And click on Workbench tab
-And click on Add Job button and fill all mandatory details on Add Job popup window "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"    
-Then Job should get successfully added and Job should be visible in Job drop down
-And logout with agency team member
-And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button   
-And click on Workbench tab and select the job which is added by agency team member
+When click on Employer-Agency SignIn link
+And login with Employer credential.
+And Go to Workbench 
+And Add a new Job as employer with at list one skill "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
+And Select the same job from job drop down
 And Click on Add Candidate button.
 And Enter valid "<CandidateEmail>" 
 And click on find button 
 And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
-And upload candidate resume in document format
+And upload candidate resume
+And Keep expertise level as Not answer "<ExpertiseLevel1>" "<ExpertiseLevel2>"
 And Click on save button 
-And if confirmation popup is displayed click on ok button
-Then new candidate should get added in New column
+Then The candidate whose skill expert level is set as Not answer for that candidate card there should show bell icon
+And Click on Edit Candidate icon on candidate card "<Name>"
+And select different expertise level for the skill which is having expert level as not answer "<expertiselevel1>" "<expertiselevel2>"
+And click on save button
+Then when user set expertise level other than Not answer in edit candidate at that time bell icon should removed from candidate card
 And click on close job button and delete the job
-And delete the agency team member "<AgencyteammemberemailId>"
-And logout with agency owner
-And enter valid user "<AgencyteammemberemailId>" and "<password>" for registered employer and agency and click on Sign in button
-And click on Workbench tab
-And click on reload button    
-And click on employer tab and delete the employer if login as agency.
-And close the browser
-    
-     Examples:
-|    email address            |  password  | AgencyteammemberemailId  | AgencyteammemberName    |  AgencyteammemberNo | Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate |
-|  agencymain01@gmail.com     |   12345    | teamagencymain@gmail.com |      TeamAgencymain     |  852963741          | SDET     | QA Analyst    | IT-Industry | Tester   | Pune        | 700000 | 3      | 5      |   2            |   tina01@gmail.com   | Tina01     |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      |   
-       
-    
-    
-    
-#Reg TC ID: 239
+
+
+Examples:
+   | Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|   contactnumber   | ExpertiseLevel1 | ExpertiseLevel2 | expertiselevel1 | expertiselevel2 |
+   | Engineer | Test Engineer | IT-Software | Engineer | Viman Nagar | 500000 | 2      | 3      | 3              | candidate02@gmail.com   | Can02   |   912349699666   |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 1234567891        | Not Answered    |  Not Answered   |  Expert         | Intermediate    |
+  
+#  TC :- 374
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

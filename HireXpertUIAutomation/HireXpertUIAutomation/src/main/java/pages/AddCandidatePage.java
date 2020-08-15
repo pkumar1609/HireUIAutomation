@@ -354,6 +354,25 @@ public class AddCandidatePage extends baseclass {
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
 		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.doc"); // CV Path of Trupti's system
 	}
+	public void uploadResumeDocumentinZipformatT() throws AWTException {  //Method for Trupti
+		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
+		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.zip"); // CV Path of Trupti's system
+	}
+	
+	public void uploadResumeDocumentinPdfformatT() throws AWTException {  //Method for Trupti
+		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
+		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.pdf"); // CV Path of Trupti's system
+	}
+	
+	public void uploadResumeDocumentintextformatT() throws AWTException {  //Method for Trupti
+		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
+		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.txt"); // CV Path of Trupti's system
+	}
+
+	public void uploadResumeDocumentinPNGformatT() throws AWTException {  //Method for Trupti
+		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
+		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.PNG"); // CV Path of Trupti's system
+	}
 
 
 

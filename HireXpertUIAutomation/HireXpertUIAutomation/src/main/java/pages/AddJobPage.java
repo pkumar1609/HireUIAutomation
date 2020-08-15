@@ -249,6 +249,18 @@ public void addtenSkills() throws InterruptedException {
 		se.selectByVisibleText("Preferred");
 	}
 	
+public void addNewSkill3() {
+		
+//		addskillbutton.click();
+		
+		jobskill3.sendKeys("Python");
+		se = new Select(expertiselevel3);
+		se.selectByVisibleText("Expert");
+		
+		se = new Select(weightage3);
+		se.selectByVisibleText("Preferred");
+	}
+	
 	public void deleteSkills() {
 		
 		deleteSkill2.click();
