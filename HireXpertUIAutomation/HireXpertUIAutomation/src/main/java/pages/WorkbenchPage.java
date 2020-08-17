@@ -268,7 +268,6 @@ public class WorkbenchPage extends baseclass {
 	
 	public void clickOnAddCandidate() throws InterruptedException
 	{
-		Thread.sleep(4000);
 		addCandidateButton.click();
 	}
 	

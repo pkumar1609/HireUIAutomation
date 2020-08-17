@@ -120,6 +120,13 @@ public class CandidateCardSectionPage extends baseclass {
 		driver.findElement(By.xpath(rejectCandidateIcon)).click();
 	}
 	
+	public void clickOncommentsIcon(String Name) throws InterruptedException {
+		Thread.sleep(3000);
+	    String commentsIcon = "//span[text()=' "+Name+"']//following::button[@title='Comments']";
+		driver.findElement(By.xpath(commentsIcon)).click();
+	}
+	
+	
 	public void clickOnCandidateNameFromCandidateCard() {
 		
 		candidateCardCandidateName.click();

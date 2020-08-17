@@ -107,6 +107,22 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 
 	}
 	
+	@When("^Click on Add Candidate button$")
+	public void click_on_Add_Candidate_button() throws Throwable {
+
+         Thread.sleep(3000);
+		
+		workbenchpage.clickOnAddCandidate();
+	}
+
+	@Then("^click on employer tab and delete the employer if login as agency$")
+	public void click_on_employer_tab_and_delete_the_employer_if_login_as_agency() throws Throwable {
+	   
+		Thread.sleep(3000);
+		workbenchpage.deleteEmployerfromEmployerTabasAgency();
+	}
+
+	
 	@When("^Click on Edit Candidate icon on candidate card \"([^\"]*)\"$")
 	public void click_on_Edit_Candidate_icon_on_candidate_card(String Name) throws Throwable {
 	    
@@ -160,14 +176,6 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
            workbenchpage.selectJob();
 	}
 
-	@When("^Click on Add Candidate button\\.$")
-	public void click_on_Add_Candidate_button() throws Throwable {
-
-		Thread.sleep(3000);
-		
-		workbenchpage.clickOnAddCandidate();
-
-	}
 
 	@When("^Enter valid \"([^\"]*)\"$")
 	public void enter_valid(String CandidateEmail) throws Throwable {
@@ -190,8 +198,8 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		
 		Thread.sleep(3000);
 		editcandidatepage.ClickOnSaveBtntoSavetheupdatedDetails();
-		Thread.sleep(3000);
-		common.clickOnConfirmYes();
+//		Thread.sleep(3000);
+//		common.clickOnConfirmYes();
 	}
 
 
@@ -203,11 +211,28 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		 addcandidatepage.clickonFindbtn();
 	}
 
-	@When("^fill all the information \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-	public void fill_all_the_information_and(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
-	    
-		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
+//	@When("^fill all the information \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+//	public void fill_all_the_information_and(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod, String LastWorkingDay, String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
+//	    
+//		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
+//		
+//		
+//	}
+	
+	@When("^fill all the information \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+	public void fill_all_the_information_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String  Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String  CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String Salaryoffered, String distance, String permanentAddress, String relocate) throws Throwable {
+
+		Thread.sleep(3000);
+		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
 		
+
+	}
+
+	@When("^if confirmation popup is displayed click on ok button$")
+	public void if_confirmation_popup_is_displayed_click_on_ok_button() throws Throwable {
+
+		Thread.sleep(3000);
+		addcandidatepage.probabilitypopupwhileaddingcandidate();
 	}
 
 	@When("^Make the changes in \"([^\"]*)\" field$")
@@ -275,6 +300,21 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		Thread.sleep(3000);
 		workbenchpage.verifyDeletedCandidateNotDisplayedOnWorkbench();
 	}
+	
+	@When("^click on Save Changes button$")
+	public void click_on_Save_Changes_button() throws Throwable {
+
+		Thread.sleep(3000);
+		addquestionarypage.clickOnSaveChangesButton();
+	}
+
+	@Then("^Collect Answer icon should reflect on candidates card for giving answers$")
+	public void collect_Answer_icon_should_reflect_on_candidates_card_for_giving_answers() throws Throwable {
+
+		Thread.sleep(3000);
+		workbenchpage.verifyCollectAnswericonT();
+	}
+
 
 	@When("^Login with Employer credential Who already have a Job added and a candidate added to that job$")
 	public void login_with_Employer_credential_Who_already_have_a_Job_added_and_a_candidate_added_to_that_job() throws Throwable {
@@ -616,7 +656,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 
 	
 	@When("^Add Candidate to that job \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-	public void add_Candidate_to_that_job_and(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
+	public void add_Candidate_to_that_job_and(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay, String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
 	    
 		Thread.sleep(3000);
 		workbenchpage.addCandidateButton.click();
@@ -625,7 +665,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		Thread.sleep(3000);
 		addcandidatepage.FindButton.click();
 		Thread.sleep(3000);
-		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
+		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
 		Thread.sleep(3000);
 //		addcandidatepage.clickUploadResumeField();
 //		Thread.sleep(3000);

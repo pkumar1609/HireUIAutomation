@@ -32,7 +32,7 @@ public class EditCandidatePage extends baseclass {
 	@FindBy(id = "NoticePeriod")
 	public WebElement noticePeriod;
 	
-	@FindBy(xpath = "//button[contains(@class,'btn Cbtn-primary w-5')][contains(text(),'Save')]")
+	@FindBy(xpath = "(//button[text()='Save'])[2]")
 	public WebElement SavebtntoSaveUpdatedDetailsOnUpdateCandidatePopup;
 	
 	@FindBy(xpath = "//input[@placeholder='Skill']")

@@ -29,15 +29,12 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		Thread.sleep(5000);
 		registerpage.clickLogin();
 	}
-
-	@When("^click on Add Candidate button$")
+	
+	@When("^Click on Add Candidate button$")
 	public void click_on_Add_Candidate_button() throws Throwable {
 	    
-          Thread.sleep(3000);
-		  workbenchpage.clickOnAddCandidate();
-
-//		  Thread.sleep(3000);
-//			workbenchpage.addCandidateButton.click();
+		Thread.sleep(5000);
+		workbenchpage.clickOnAddCandidate();
 	}
 
 	@When("^enter email id of candidate which is not registered previously and click on Find button \"([^\"]*)\"$")
@@ -69,6 +66,18 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		
 	}
 	
+	@When("^Click on Save Button$")
+	public void click_on_Save_Button() throws InterruptedException  {
+		
+		Thread.sleep(3000);
+       common.clickOnSaveBtn();
+//		Thread.sleep(3000);
+//		common.clickOnConfirmYes();
+		
+	}
+
+
+	
 	@When("^Click on save button for edit candidate$")
 	public void click_on_save_button_for_edit_candidate() throws Throwable {
 
@@ -78,13 +87,16 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	}
 
 	
-	@When("^Click on save btn$")
-	public void click_on_save_btn() throws InterruptedException  {
-		
+	@Then("^Click on save button to save the updated changes$")
+	public void click_on_save_button_to_save_the_updated_changes() throws Throwable {
+
 		Thread.sleep(3000);
-       driver.findElement(By.xpath("//button[text()='Save']")).click();
-		
+	       editcandidatepage.ClickOnSaveBtntoSavetheupdatedDetails();
+			
+
 	}
+
+
 	
 	@When("^Click on save btn for skill$")
 	public void click_on_save_btn_for_skill() throws InterruptedException  {
@@ -434,7 +446,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	public void set_on_notice_period_field_as_no_and_enter_notice_period_days() throws Throwable {
 
 		Select se = new Select(candidateupdateprofilepage.noticePeriodCheckbox);
-		se.selectByVisibleText("Yes");
+		se.selectByVisibleText("No");
 		Thread.sleep(5000);
 		addcandidatepage.noticePeriod.clear();
 		Thread.sleep(3000);
@@ -461,13 +473,6 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	
 	}
 
-	@When("^Click on Comment icon from candidate card to add comment$")
-	public void click_on_Comment_icon_from_candidate_card_to_add_comment() throws Throwable {
-		
-		Thread.sleep(3000);
-		candidatecardsectionpage.comments.click();
-		
-	}
 
 	@When("^Add a comment greater than (\\d+) characters$")
 	public void add_a_comment_greater_than_characters(int arg1) throws Throwable {
@@ -560,6 +565,33 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		}
 	}
 	
+
+	@When("^Click on Comment icon from candidate card to add comment \"([^\"]*)\"$")
+	public void click_on_Comment_icon_from_candidate_card_to_add_comment(String Name) throws Throwable {
+
+        Thread.sleep(3000);
+        candidatecardsectionpage.clickOncommentsIcon(Name);
+	}
+
+
+	
+//	@When("^Click on Add Candidate button$")
+//	public void click_on_Add_Candidate_button() throws Throwable {
+//
+//         Thread.sleep(3000);
+//		workbenchpage.clickOnAddCandidate();
+//	}
+
+	@Then("^click on employer tab and delete the employer if login as agency$")
+	public void click_on_employer_tab_and_delete_the_employer_if_login_as_agency() throws Throwable {
+
+		Thread.sleep(3000);
+		workbenchpage.deleteEmployerfromEmployerTabasAgency();
+
+	}
+
+
+	
 	
 //	4
 	
@@ -629,6 +661,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	@Then("^Collect Answer icon should reflect on candidates card for giving answers$")
 	public void collect_Answer_icon_should_reflect_on_candidates_card_for_giving_answers() throws Throwable {
 
+		Thread.sleep(3000);
 		workbenchpage.verifyCollectAnswericonT();
 	}
 	
@@ -877,12 +910,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
     editcandidatepage.ClickOnSaveBtntoSavetheupdatedDetails();
 	}
 	
-	@Then("^click on employer tab and delete the employer if login as agency\\.$")
-	public void click_on_employer_tab_and_delete_the_employer_if_login_as_agency() throws Throwable {
-
-		Thread.sleep(3000);
-		workbenchpage.deleteEmployerfromEmployerTabasAgency();
-	}
+	
 	
 //	8
 
@@ -1253,15 +1281,25 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			 addcandidatepage.clickonFindbtn();
 		}
 		
-		@Then("^fill all the information \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-		public void fill_all_the_information_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String  Date, String Gender, String OnNoticePeriod, String LastWorkingDay, String NoticePeriod, String experience, String  CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String Salaryoffered, String distance, String permanentAddress, String relocate) throws Throwable {
-		    
+//		@Then("^fill all the information \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+//		public void fill_all_the_information_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String  Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String  CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String Salaryoffered, String distance, String permanentAddress, String relocate) throws Throwable {
+//		    
+//			Thread.sleep(3000);
+//			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
+//			
+//		   
+//		}
+		
+		@When("^fill all the information \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+		public void fill_all_the_information_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String  Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String  CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String Salaryoffered, String distance, String permanentAddress, String relocate) throws Throwable {
+
 			Thread.sleep(3000);
-			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, OnNoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
+			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
 			
-		   
+
 		}
 
+		
 		@When("^Verify candidate is displayed on workbench$")
 		public void verify_candidate_is_displayed_on_workbench() throws Throwable {
 		   
