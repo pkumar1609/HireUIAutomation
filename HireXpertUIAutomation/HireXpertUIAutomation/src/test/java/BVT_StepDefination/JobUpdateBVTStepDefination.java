@@ -125,6 +125,8 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	@When("^click on Delete Skill button in front of any skill$")
 	public void click_on_Delete_Skill_button_in_front_of_any_skill() throws Throwable {
 	    
+		Thread.sleep(3000);
+		common.clickOnOKBtn();
 		Thread.sleep(2000);
 		addjobpage.deleteSkills();
 		Thread.sleep(2000);
@@ -160,6 +162,7 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	@Then("^Verify that user get an alert message as \"([^\"]*)\" for adding more than ten skills$")
 	public void verify_that_user_get_an_alert_message_as_for_adding_more_than_ten_skills(String ExpectedErrorMessage) throws Throwable {
 
+		Thread.sleep(3000);
     String ActualAlertMessage = driver.findElement(By.xpath("//h6[@id='alertlineheight']")).getText();
     
     Assert.assertEquals(ExpectedErrorMessage, ActualAlertMessage);

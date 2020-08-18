@@ -19,7 +19,7 @@ Feature: Job Management
     And again click on Edit Job button and observe the changes
     And Now Click on Add Skill button to add more than ten skills
     Then Verify that user get an alert message as "User should not add more than 10 skills" for adding more than ten skills
-    And click on ok button
+#    And click on ok button
     And click on Delete Skill button in front of any skill
     And click on close job button and delete the job
     And click on employer tab and delete the employer if login as agency.
@@ -33,6 +33,6 @@ Examples:
 #TC ID - 15,21,22,46,74,76,94
 
 
-# If DB clear, register the employer first = employermain01@gmail.com and agency = agencymain02@gmail.com . 
+# If DB clear, register the employer first = employermain01@gmail.com and agency = agencymain01@gmail.com . 
 #otherwise no change required
 
