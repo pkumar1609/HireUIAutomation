@@ -29,18 +29,16 @@ public AddJobPage()
 	@FindBy(xpath ="//input[@id='title']")
 	public WebElement title;
 	
-	@FindBy(id = "typeahead-config")
+	@FindBy(xpath = "//input[@formcontrolname='Designation']")
 	public WebElement designation;
 	
-	
-	
-	@FindBy(xpath = "//div[@class='col-md-4 pr-0']//div[3]//input[1]")
+	@FindBy(xpath = "//input[@formcontrolname='Industry']")
 	public WebElement industry;
 	
-	@FindBy(xpath = "//div[@class='col-md-4 pr-0']//div[4]//input[1]")
+	@FindBy(xpath = "//input[@formcontrolname='JobRole']")
 	public WebElement jobrole;
 	
-	@FindBy(xpath = "//div[@class='col-md-4']//div[4]//input[1]")
+	@FindBy(xpath = "//input[@formcontrolname='Location']")
 	public WebElement location;
 	
 	@FindBy(id = "budget")

@@ -10,12 +10,63 @@ import utilPackage.baseclass;
 
 public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 	
-	@Given("^User open browser$")
-	public void user_open_browser() throws Throwable {
+	@Given("^Open browser$")
+	public void open_browser() throws Throwable {
 
+		Thread.sleep(5000);
 		baseclass.initialization();
 	}
-	
+
+	@Given("^click on Login link$")
+	public void click_on_Login_link() throws Throwable {
+	   
+		Thread.sleep(3000);
+		registerpage.clickLogin();
+	}
+
+	@Given("^enter valid user \"([^\"]*)\" and \"([^\"]*)\" for registered employer and agency and click on Sign in button$")
+	public void enter_valid_user_and_for_registered_employer_and_agency_and_click_on_Sign_in_button(String emailaddress, String password) throws Throwable {
+
+		Thread.sleep(4000);
+		
+		registerpage.clickEmployerAgencySignInlink();
+		Thread.sleep(3000);
+
+		loginpage.emailaddress.sendKeys(emailaddress);
+			loginpage.password.sendKeys(password);		
+			loginpage.signin.click();
+	}
+
+	@Given("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
+
+		Thread.sleep(3000);
+		addjobpage.addJobforEmployerandAgency(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+		
+	}
+
+	@Given("^logout from application$")
+	public void logout_from_application() throws Throwable {
+
+		Thread.sleep(3000);
+		workbenchpage.ClickonLogout();
+
+	}
+
+	@Then("^login with the same user \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void login_with_the_same_user_and(String emailaddress, String password) throws Throwable {
+
+         Thread.sleep(4000);
+		
+		registerpage.clickEmployerAgencySignInlink();
+		Thread.sleep(3000);
+
+		loginpage.emailaddress.sendKeys(emailaddress);
+			loginpage.password.sendKeys(password);		
+			loginpage.signin.click();
+	}
+
+
 	@Given("^Login as employer \"([^\"]*)\" \"([^\"]*)\"$")
 	public void login_as_employer(String EmployerEmailAddress, String Password) throws Throwable {
 	 	  
@@ -194,16 +245,16 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 
 	
 	@Given("^fill all the mandatory details of candidate and click on Apply button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void fill_all_the_mandatory_details_of_candidate_and_click_on_Apply_button(String CandidateEmail, String Name, String ContactNumber, String Designation, String DateOfBirth, String Gender, String NoticePeriod, String Experience, String CTC, String ExpectedCTC, String City, String CityArea, String ZipCode, String CommunicationMode, String ExpertiseLevel1, String ExpertiseLevel2) throws Throwable {
+	public void fill_all_the_mandatory_details_of_candidate_and_click_on_Apply_button(String CandidateEmail, String Name, String ContactNumber, String designation, String DateOfBirth, String Gender, String NoticePeriod, String Experience, String CTC, String ExpectedCTC, String City, String CityArea, String ZipCode, String CommunicationMode, String ExpertiseLevel1, String ExpertiseLevel2) throws Throwable {
 	    
 		Thread.sleep(3000);
-		jobboardpage.ApplycandidateWithoutLoginforaJobOnJobBoard(CandidateEmail, Name, ContactNumber, Designation, DateOfBirth, Gender, NoticePeriod, Experience, CTC, ExpectedCTC, City, CityArea, ZipCode, CommunicationMode);
+		jobboardpage.ApplycandidateWithoutLoginforaJobOnJobBoard(CandidateEmail, Name, ContactNumber, designation, DateOfBirth, Gender, NoticePeriod, Experience, CTC, ExpectedCTC, City, CityArea, ZipCode, CommunicationMode);
 		
 		Thread.sleep(3000);
 		addcandidatepage.uploadResumeDocumentT();
 		
-//		Thread.sleep(3000);
-//		addcandidatepage.Enterexpertilevel(ExpertiseLevel1, ExpertiseLevel2);
+		Thread.sleep(3000);
+		addcandidatepage.Enterexpertilevel(ExpertiseLevel1, ExpertiseLevel2);
 		
 		Thread.sleep(3000);
 //		jobboardpage.clickonApplyBtn();
@@ -256,22 +307,16 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 		jobapplicationspage.SearchBtn.click();
 	}
 
-
-	@Then("^Verify that candidate data displayed on job applications section$")
-	public void verify_that_candidate_data_displayed_on_job_applications_section() throws Throwable {
+	@Then("^Verify that candidate data displayed on job applications section \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void verify_that_candidate_data_displayed_on_job_applications_section(String CandidateName, String CandidateDesignation, String CityArea, String City, String Country, String Experience, String  CTC, String ExpectedCTC, String  NoticePeriod, String Title) throws Throwable {
 	    
-		Thread.sleep(3000);
-//		jobapplicationspage.AssertCandidatedetailsOnJobApplicationscollumn(Name, Designation, CityArea, NoticePeriod, Experience, CTC, ExpectedCTC, jobdesignation);
-	    
-		jobapplicationspage.Title.isDisplayed();
-		jobapplicationspage.designation.isDisplayed();
-		jobapplicationspage.location.isDisplayed();
-		jobapplicationspage.noticeperiod.isDisplayed();
-		jobapplicationspage.experience.isDisplayed();
-		jobapplicationspage.ctc.isDisplayed();
-		jobapplicationspage.expectedCTC.isDisplayed();
-		jobapplicationspage.JobTitle.isDisplayed();
+       Thread.sleep(3000);
+		
+		jobapplicationspage.verifycandidatedatadisplayedinJobApplicationSection(CandidateName, CandidateDesignation, CityArea, City, Country, Experience, CTC, ExpectedCTC, NoticePeriod, Title);
+		
+		
 	}
-
-
+		
+		
+		
 }

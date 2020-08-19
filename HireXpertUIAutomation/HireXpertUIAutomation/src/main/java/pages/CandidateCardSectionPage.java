@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -84,7 +85,20 @@ public class CandidateCardSectionPage extends baseclass {
 	
 	@FindBy(xpath = "//span[@title='Skill information is missing']")
 	public WebElement Skillinformationmissingicon;
+	
+	@FindBy(xpath = "//div[@id='cdk-drop-list-131']")
+	public WebElement rejectcolumn;
+	
+	@FindBy(xpath = "//div[@id='cdk-drop-list-129']")
+	public WebElement joinedcolumn;
+	
+	@FindBy(xpath = "//div[@id='cdk-drop-list-138']")
+	public WebElement InterviewPendingthreecolumn;
+	
+	
 		
+	
+	
 	Actions action;
 	Select se;
 	public String newComment;
@@ -164,6 +178,33 @@ public class CandidateCardSectionPage extends baseclass {
 		action = new Actions(driver);
 		action.clickAndHold(drag).moveToElement(drop).release(drop).perform();
 		Thread.sleep(3000);
+	}
+   
+   public void dragCandidateCardfromNewtoRejectColumn () {
+		
+	   WebElement drag = candidateCard;
+	   WebElement drop1 = InterviewPendingthreecolumn;
+		WebElement drop2 = rejectcolumn;
+	   
+		Actions action = new Actions(driver);
+		action.clickAndHold(drag).moveToElement(drop1).release(drop1).perform();
+		
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(1000,0)");               // scrolling horizontally
+	
+		action.clickAndHold(drag).moveToElement(drop2).release(drop2).perform();
+	
+	}
+   
+   public void dragCandidateCardfromRejectColumntoJoinedColumn () {
+		
+	   WebElement drag = candidateCard;
+		WebElement drop = joinedcolumn;
+	   
+		Actions action = new Actions(driver);
+		action.clickAndHold(drag).moveToElement(drop).release(drop).perform();
+	
+		
 	}
 	
 	public void verifyChangeAssignToField() throws InterruptedException {

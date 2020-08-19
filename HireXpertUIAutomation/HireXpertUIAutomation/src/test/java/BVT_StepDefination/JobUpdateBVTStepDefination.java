@@ -131,8 +131,8 @@ public class JobUpdateBVTStepDefination extends baseclass {
 		addjobpage.deleteSkills();
 		Thread.sleep(2000);
 		common.clickOnCloseBtn();
-		Thread.sleep(2000);
-		common.clickOnConfirmYes();
+//		Thread.sleep(2000);
+//		common.clickOnConfirmYes();
 	}
 	
 	@When("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")

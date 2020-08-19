@@ -1370,7 +1370,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 	      Thread.sleep(3000);
 	      
-	      workbenchpage.dragCandidateCardtoRejectColumn();
+	      candidatecardsectionpage.dragCandidateCardfromNewtoRejectColumn();
 		}
 
 		@When("^confirmation popup should diplay \"([^\"]*)\" with Yes and No button and click on Yes buton$")
@@ -1397,7 +1397,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		public void drag_the_candidate_card_from_rejected_column_to_any_other_column() throws Throwable {
 		    
 			Thread.sleep(3000);
-			workbenchpage.dragCandidateCardfromRejectColumntoJoinedColumn();
+			candidatecardsectionpage.dragCandidateCardfromRejectColumntoJoinedColumn();
 			
 		}
 

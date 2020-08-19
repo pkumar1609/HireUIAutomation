@@ -348,21 +348,7 @@ public void verifyDeletedCandidateNotDisplayedOnWorkbench () {
 	} 
 }
 
-public void dragCandidateCardtoRejectColumn () {
-	
-	Actions action = new Actions(driver);
 
- action.clickAndHold(driver.findElement(By.cssSelector("div.item-box.cdk-drag"))).moveToElement(driver.findElement(By.cssSelector("body.nimbus-is-editor:nth-child(2) div.container-fluid.pl-10.pr-10.pt-2:nth-child(2) div.row div.col-md-12 div.card div.card-body.mb-0.p-0.CardBodyHeight table.table.table-bordered.mb-1 tbody:nth-child(2) tr:nth-child(1) td.TableCard:nth-child(2) > div.drag-container"))).release().build().perform();
-	
-}
-
-public void dragCandidateCardfromRejectColumntoJoinedColumn () {
-	
-	Actions action = new Actions(driver);
-
-	action.clickAndHold(driver.findElement(By.cssSelector("div.item-box.cdk-drag"))).moveToElement(driver.findElement(By.xpath("//td[@id='jobStatusColumn' and @class='TableCard'] [10]"))).release().build().perform();
-	
-}
 
 public void selectCandidateRejectionReason () {
 	

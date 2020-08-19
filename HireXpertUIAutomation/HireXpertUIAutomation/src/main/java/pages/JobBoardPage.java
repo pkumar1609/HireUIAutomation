@@ -193,7 +193,7 @@ public void ApplycandidateWithoutLoginforaJobOnJobBoard(String CandidateEmail, S
 	
 	Thread.sleep(3000);
 	
-	addcandidatepage.location.sendKeys(CityArea);     // CityArea
+	addcandidatepage.cityArea.sendKeys(CityArea);     // CityArea
 	addcandidatepage.expectedCTC.click();
 	driver.findElement(By.xpath("//input[@id='ZipCode']")).sendKeys(ZipCode);
 	Select se1 = new Select (addcandidatepage.communicationMode);
