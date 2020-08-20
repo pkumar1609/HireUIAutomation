@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import utilPackage.baseclass;
 
@@ -42,8 +43,13 @@ public class JobApplicationsPage extends baseclass{
 	@FindBy(xpath = "//td[contains(text(),'Software Test Engineer')]")                                           //td[text()='Job Title']
 	public WebElement JobTitle;
 	
+	@FindBy(xpath = "//a[@title='View Details']")                                           
+	public WebElement viewdetailsBtn;
 	
 	
+	
+	
+
 
 public JobApplicationsPage() {
 		
@@ -90,15 +96,23 @@ public JobApplicationsPage() {
 	
 	public void verifycandidatedatadisplayedinJobApplicationSection (String CandidateName, String CandidateDesignation, String CityArea, String City, String Country, String Experience, String CTC, String ExpectedCTC, String NoticePeriod, String Title) {
 		
-		WebElement title = driver.findElement(By.xpath("//div[@id='style-5']//following::h6[text()=' "+CandidateName+" ']" ));
-		WebElement designation = driver.findElement(By.xpath("//div[@class='JobUpdateCard-Body']//following::p[text()=' "+CandidateDesignation+" ']"));
-		WebElement location = driver.findElement(By.xpath("//div[@class='JobUpdateCard-Body']//following::p[text()=' "+CityArea+City+Country+" ']"));
-		WebElement experience = driver.findElement(By.xpath("//div[@class='JobUpdateCard-Body']//following::p[text()=' "+Experience+" ']"));
-		WebElement ctc = driver.findElement(By.xpath("//div[@class='JobUpdateCard-Body']//following::p[text()=' "+CTC+" ']"));
-		WebElement ectc = driver.findElement(By.xpath("//div[@class='JobUpdateCard-Body']//following::p[text()=' "+ExpectedCTC+" ']"));
-		WebElement noticeperiod = driver.findElement(By.xpath("//div[@class='JobUpdateCard-Body']//following::p[text()=' "+NoticePeriod+" ']"));
-		WebElement jobtitle = driver.findElement(By.xpath("//div[@class='col-md-12']//following::td[text()=' "+Title+" ']"));
-		WebElement matchedskills = driver.findElement(By.xpath("//div[@class='col-md-12']//following::td[text()='Agile,JAVA']"));
+		WebElement title = driver.findElement(By.xpath("//h6[contains(text(),'"+CandidateName+"')]"));
+		
+		WebElement designation = driver.findElement(By.xpath("(//p[contains(text(),'"+CandidateDesignation+"')])[1]"));
+		
+		WebElement location = driver.findElement(By.xpath("//p[contains(text(),'"+CityArea+","+" "+City+","+" "+Country+"')]"));
+		
+		WebElement experience = driver.findElement(By.xpath("(//p[contains(text(),'" +Experience+" "+"Years"+ "')])[1]"));
+		
+		WebElement ctc = driver.findElement(By.xpath("(//p[contains(text(),'" +CTC+" "+"PA"+" "+"(CTC)"+ "')])[1]"));
+		
+		WebElement ectc = driver.findElement(By.xpath("(//p[contains(text(),'" +ExpectedCTC+" "+"PA"+" "+"(ECTC)"+ "')])[1]"));
+		
+		WebElement noticeperiod = driver.findElement(By.xpath("(//p[contains(text(),'" +NoticePeriod+" "+"Days"+ "')])[1]"));
+		
+		WebElement jobtitle = driver.findElement(By.xpath("//td[contains(text(),'"+Title+"')]"));
+		
+//		WebElement matchedskills = driver.findElement(By.xpath(""));
 		
 		boolean titleactual = title.isDisplayed();
 		Assert.assertEquals(titleactual, true);
@@ -124,16 +138,88 @@ public JobApplicationsPage() {
 		boolean jobtitleactual = jobtitle.isDisplayed();
 		Assert.assertEquals(jobtitleactual, true);
 		
-		boolean matchedskillsactual = matchedskills.isDisplayed();
-		Assert.assertEquals(matchedskills, true);
-		
+//		boolean matchedskillsactual = matchedskills.isDisplayed();
+//		Assert.assertEquals(matchedskills, true);
+//		
 	}
 	
+	public void verifycandidatedataafterclickingOnViewdetails (String CandidateName, String Title, String CandidateDesignation, String CityArea, String City, String Country, String ZipCode, String Experience, String CTC, String ExpectedCTC, String NoticePeriod, String ContactNumber, String DateOfBirth, String CandidateEmail, String Communicationmode, String Gender ) {
+		
+		WebElement name = driver.findElement(By.xpath("//strong[contains(text(),'"+CandidateName+"')]"));
+		
+		WebElement title = driver.findElement(By.xpath("//h6[text()='"+Title+"']"));
+		
+		WebElement designation = driver.findElement(By.xpath("(//p[contains(text(),'"+CandidateDesignation+"')])[2]"));
+		
+		WebElement location = driver.findElement(By.xpath("//p[contains(text(),'"+CityArea+","+" "+City+","+" "+Country+" "+"-"+" "+ZipCode+"')]"));
+		
+		WebElement experience = driver.findElement(By.xpath("(//p[contains(text(),'" +Experience+" "+"Years"+ "')])[2]"));
+		
+		WebElement ctc = driver.findElement(By.xpath("(//p[contains(text(),'" +CTC+" "+"PA"+" "+"(CTC)"+ "')])[2]"));
+				
+		WebElement ectc = driver.findElement(By.xpath("(//p[contains(text(),'" +ExpectedCTC+" "+"PA"+" "+"(ECTC)"+ "')])[2]"));
+		
+		WebElement noticeperiod = driver.findElement(By.xpath("(//p[contains(text(),'" +NoticePeriod+" "+"Days"+ "')])[2]"));
+		
+		WebElement contactnumber = driver.findElement(By.xpath("//p[contains(text(),'" +ContactNumber+ "')]"));
+		
+		WebElement dob = driver.findElement(By.xpath("//p[contains(text(),'" +DateOfBirth+ "')]"));
+		
+		WebElement email = driver.findElement(By.xpath("//td[contains(text(),'"+CandidateEmail+"')]"));
+		
+		WebElement modeofcommunication = driver.findElement(By.xpath("//td[contains(text(),'"+Communicationmode+"')]"));
+		
+		WebElement gender = driver.findElement(By.xpath("//td[contains(text(),'"+Gender+"')]"));
+		
+		WebElement readytorelocate = driver.findElement(By.xpath("//td[contains(text(),'No')]"));
+		
+		
+		
+		boolean nameactual = name.isDisplayed();
+		Assert.assertEquals(nameactual, true);
+		
+		boolean titleactual = title.isDisplayed();
+		Assert.assertEquals(titleactual, true);
+		
+		boolean designationactual = designation.isDisplayed();
+		Assert.assertEquals(designationactual, true);
+		
+		boolean locationactual = location.isDisplayed();
+		Assert.assertEquals(locationactual, true);
+		
+		boolean ctcactual = ctc.isDisplayed();
+		Assert.assertEquals(ctcactual, true);
+		
+		boolean ectcactual = ectc.isDisplayed();
+		Assert.assertEquals(ectcactual, true);
+		
+		boolean noticeperiodactual = noticeperiod.isDisplayed();
+		Assert.assertEquals(noticeperiodactual, true);
+		
+		boolean contactnumberactual = contactnumber.isDisplayed();
+		Assert.assertEquals(contactnumberactual, true);
+		
+		boolean dobactual = dob.isDisplayed();
+		Assert.assertEquals(dobactual, true);
+		
+		boolean emailactual = email.isDisplayed();
+		Assert.assertEquals(emailactual, true);
+		
+		boolean modeofcommunicationactual = modeofcommunication.isDisplayed();
+		Assert.assertEquals(modeofcommunicationactual, true);
+		
+		boolean genderactual = gender.isDisplayed();
+		Assert.assertEquals(genderactual, true);
+		
+		boolean readytorelocateactual = readytorelocate.isDisplayed();
+		Assert.assertEquals(readytorelocateactual, true);
+		
+
+	}
+
+
 	
-	
-	
-	
-	
+		
 	
 	
 	

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import utilPackage.baseclass;
 
@@ -220,7 +221,85 @@ public void loginWithsameemployerofJob(String EmployerEmailAddress, String Passw
 	registerpage.Signinbtn.click();
 }
 	
+
+public void verifyTheJobDataOnJobBoard (String Title, String OrganizationName, String Location, String City, String Country, String MinExp, String MaxExp, String Budget, String Industry, String Designation) {
 	
+	
+	WebElement title = driver.findElement(By.xpath("//h6[contains(text(),'"+Title+"')]"));
+	
+	WebElement organizationname = driver.findElement(By.xpath("//p[contains(text(),'"+OrganizationName+"')]"));
+	
+	WebElement location = driver.findElement(By.xpath("(//p[contains(text(),'"+Location+","+" "+City+","+" "+Country+"')])[1]"));
+	
+	WebElement experience = driver.findElement(By.xpath("(//p[contains(text(),'"+MinExp+" "+"to" +" "+MaxExp+" "+"Years"+"')])[1]"));
+	
+	WebElement budget = driver.findElement(By.xpath("(//p[contains(text(),'"+Budget+" "+"PA"+"')])[1]"));
+	
+	WebElement industry = driver.findElement(By.xpath("//p[contains(text(),'"+Industry+"')]"));
+	
+	WebElement designation = driver.findElement(By.xpath("//td[contains(text(),'"+Designation+"')]"));
+	
+	WebElement jobtype = driver.findElement(By.xpath("//td[contains(text(),'Permanent Full Time')]"));
+	
+	boolean titleactual = title.isDisplayed();
+	Assert.assertEquals(titleactual, true);
+	
+	boolean organizationnameactual = organizationname.isDisplayed();
+	Assert.assertEquals(organizationnameactual, true);
+	
+	boolean locationactual = location.isDisplayed();
+	Assert.assertEquals(locationactual, true);
+	
+	boolean experienceactual = experience.isDisplayed();
+	Assert.assertEquals(experienceactual, true);
+	
+	boolean budgetactual = budget.isDisplayed();
+	Assert.assertEquals(budgetactual, true);
+	
+	boolean industryactual = industry.isDisplayed();
+	Assert.assertEquals(industryactual, true);
+	
+	boolean designationactual = designation.isDisplayed();
+	Assert.assertEquals(designationactual, true);
+	
+	boolean jobtypeactual = jobtype.isDisplayed();
+	Assert.assertEquals(jobtypeactual, true);
+	
+
+	
+}
+
+
+public void  verifyJobDetailsOnJobBoardAfterclickingOnJobDetails(String Title, String Designation,String Location, String City, String Country,String MinExp, String MaxExp, String Budget, String Industry, String JobRole) {
+	
+	WebElement title = driver.findElement(By.xpath("//h5[contains(text(),'"+Title+"')]"));
+	
+	WebElement designation = driver.findElement(By.xpath("//h6[contains(text(),'"+Designation+"')]"));
+	
+	WebElement location = driver.findElement(By.xpath("(//p[contains(text(),'"+Location+","+" "+City+","+" "+Country+"')])[2]"));
+	
+	WebElement experience = driver.findElement(By.xpath("(//p[contains(text(),'"+MinExp+" "+"to" +" "+MaxExp+" "+"Years"+"')])[2]"));
+	
+	WebElement budget = driver.findElement(By.xpath("(//p[contains(text(),'"+Budget+" "+"PA"+"')])[2]"));
+	
+	WebElement industry = driver.findElement(By.xpath("//td[contains(text(),'"+Industry+"')]"));
+	
+	WebElement jobrole = driver.findElement(By.xpath("//td[text()='"+JobRole+"']"));
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
 	
 	
 	

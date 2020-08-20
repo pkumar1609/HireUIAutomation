@@ -81,17 +81,23 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 		    registerpage.Signinbtn.click();
 	}
 
-//	@Given("^Verify the details on Job card displayed on left side pannel$")
-//	public void verify_the_details_on_Job_card_displayed_on_left_side_pannel() throws Throwable {
-//	    // Write code here that turns the phrase above into concrete actions
-//	    throw new PendingException();
-//	}
-//
-//	@Given("^Verify all the details of the job after clicking on apply button$")
-//	public void verify_all_the_details_of_the_job_after_clicking_on_apply_button() throws Throwable {
-//	    // Write code here that turns the phrase above into concrete actions
-//	    throw new PendingException();
-//	}
+	
+	@Given("^Verify the details on Job card displayed on left side pannel \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void verify_the_details_on_Job_card_displayed_on_left_side_pannel(String Title, String OrganizationName, String Location, String City, String Country, String MinExp, String MaxExp, String Budget, String Industry, String Designation) throws Throwable {
+
+
+		Thread.sleep(3000);
+		jobboardpage.verifyTheJobDataOnJobBoard(Title, OrganizationName, Location, City, Country, MinExp, MaxExp, Budget, Industry, Designation);
+		
+	}
+
+	@Given("^Verify all the details of the job after clicking on Job Details button$")
+	public void verify_all_the_details_of_the_job_after_clicking_on_Job_Details_button() throws Throwable {
+
+
+		
+	}
+
 
 	@Given("^Go to Workbench$")
 	public void go_to_Workbench() throws Throwable {
@@ -316,6 +322,31 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 		
 		
 	}
+	
+	@Then("^click on View Details button$")
+	public void click_on_View_Details_button() throws Throwable {
+
+		 Thread.sleep(3000);
+		jobapplicationspage.viewdetailsBtn.click();
+	}
+
+	@Then("^click on Yes button of confirmation message$")
+	public void click_on_Yes_button_of_confirmation_message() throws Throwable {
+
+		Thread.sleep(3000);
+		common.clickOnConfirmYes();
+		
+	}
+	
+	@Then("^Verify that candidate data displayed after clicking on View Details button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void verify_that_candidate_data_displayed_after_clicking_on_View_Details_button(String CandidateName, String Title, String CandidateDesignation, String CityArea, String City, String Country, String ZipCode, String Experience, String CTC, String ExpectedCTC, String NoticePeriod, String ContactNumber, String DateOfBirth, String CandidateEmail, String Communicationmode, String Gender) throws Throwable {
+
+    Thread.sleep(3000);
+	jobapplicationspage.verifycandidatedataafterclickingOnViewdetails(CandidateName, Title, CandidateDesignation, CityArea, City, Country, ZipCode, Experience, CTC, ExpectedCTC, NoticePeriod, ContactNumber, DateOfBirth, CandidateEmail, Communicationmode, Gender);
+	
+	}
+
+
 		
 		
 		
