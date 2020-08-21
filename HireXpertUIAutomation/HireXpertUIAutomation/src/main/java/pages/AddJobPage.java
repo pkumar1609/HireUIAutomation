@@ -191,7 +191,7 @@ public AddJobPage()
 		Thread.sleep(2000);
 	}
 	
-public void filljobDetails(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws InterruptedException {
+public void filljobDetails(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod) throws InterruptedException {
 		
 		title.sendKeys(Title);
 		designation.sendKeys(Designation);
@@ -205,6 +205,7 @@ public void filljobDetails(String Title, String Designation, String Industry, St
 		se.selectByIndex(3);
 		click.click();
 		Thread.sleep(2000);
+		noticePeriod.sendKeys(JobNoticePeriod);
 	}
 
 	
@@ -223,11 +224,11 @@ public void addtenSkills() throws InterruptedException {
 	}
 
 	
-	public void addNewSkill1() {
+	public void addNewSkill1(String JobSkill1) {
 		
 //		addskillbutton.click();
 		
-		jobskill1.sendKeys(skill1);
+		jobskill1.sendKeys(JobSkill1);
 		se = new Select(expertiselevel1);
 		se.selectByVisibleText("Expert");
 		
@@ -235,11 +236,11 @@ public void addtenSkills() throws InterruptedException {
 		se.selectByVisibleText("Mandatory");
 	}
 	
-	public void addNewSkill2() {
+	public void addNewSkill2(String JobSkill2) {
 		
 //		addskillbutton.click();
 		
-		jobskill2.sendKeys(skill2);
+		jobskill2.sendKeys(JobSkill2);
 		se = new Select(expertiselevel2);
 		se.selectByVisibleText("Expert");
 		
@@ -283,7 +284,7 @@ public void addNewSkill3() {
 	}
 	
 	
-public void addJobforEmployerandAgency(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws InterruptedException{
+public void addJobforEmployerandAgency(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws InterruptedException{
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
 		if(dynamicElement.size() != 0){
@@ -297,15 +298,15 @@ public void addJobforEmployerandAgency(String Title, String Designation, String 
 			
 			Thread.sleep(3000);
 			
-			addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+			addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
 			
 			Thread.sleep(3000);
 			
-			addjobpage.addNewSkill1();
+			addjobpage.addNewSkill1(JobSkill1);
 			
 			Thread.sleep(3000);
 			
-			addjobpage.addNewSkill2();
+			addjobpage.addNewSkill2(JobSkill2);
 			
 			Thread.sleep(3000);
 			
@@ -328,15 +329,15 @@ public void addJobforEmployerandAgency(String Title, String Designation, String 
 			
 			Thread.sleep(3000);
 			
-			addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+			addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
 			
 			Thread.sleep(3000);
 			
-			addjobpage.addNewSkill1();
+			addjobpage.addNewSkill1(JobSkill1);
 			
 			Thread.sleep(3000);
 			
-			addjobpage.addNewSkill2();
+			addjobpage.addNewSkill2(JobSkill2);
 			
 			Thread.sleep(3000);
 			

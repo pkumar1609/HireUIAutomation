@@ -46,6 +46,13 @@ public class JobApplicationsPage extends baseclass{
 	@FindBy(xpath = "//a[@title='View Details']")                                           
 	public WebElement viewdetailsBtn;
 	
+	@FindBy(xpath = "//button[@title='Add To Job']")                                           
+	public WebElement addtojobBtn;
+	
+	
+	
+	
+	
 	
 	
 	
@@ -94,23 +101,23 @@ public JobApplicationsPage() {
 	}
 	
 	
-	public void verifycandidatedatadisplayedinJobApplicationSection (String CandidateName, String CandidateDesignation, String CityArea, String City, String Country, String Experience, String CTC, String ExpectedCTC, String NoticePeriod, String Title) {
+	public void verifycandidatedatadisplayedinJobApplicationSection (String CandidateName, String CandidateDesignation, String CandidateCityArea, String CandidateCity, String CandidateCountry, String CandidateExperience, String CandidateCTC, String CandidateExpectedCTC, String CandidateNoticePeriod, String JobTitle) {
 		
 		WebElement title = driver.findElement(By.xpath("//h6[contains(text(),'"+CandidateName+"')]"));
 		
 		WebElement designation = driver.findElement(By.xpath("(//p[contains(text(),'"+CandidateDesignation+"')])[1]"));
 		
-		WebElement location = driver.findElement(By.xpath("//p[contains(text(),'"+CityArea+","+" "+City+","+" "+Country+"')]"));
+		WebElement location = driver.findElement(By.xpath("//p[contains(text(),'"+CandidateCityArea+","+" "+CandidateCity+","+" "+CandidateCountry+"')]"));
 		
-		WebElement experience = driver.findElement(By.xpath("(//p[contains(text(),'" +Experience+" "+"Years"+ "')])[1]"));
+		WebElement experience = driver.findElement(By.xpath("(//p[contains(text(),'" +CandidateExperience+" "+"Years"+ "')])[1]"));
 		
-		WebElement ctc = driver.findElement(By.xpath("(//p[contains(text(),'" +CTC+" "+"PA"+" "+"(CTC)"+ "')])[1]"));
+		WebElement ctc = driver.findElement(By.xpath("(//p[contains(text(),'" +CandidateCTC+" "+"PA"+" "+"(CTC)"+ "')])[1]"));
 		
-		WebElement ectc = driver.findElement(By.xpath("(//p[contains(text(),'" +ExpectedCTC+" "+"PA"+" "+"(ECTC)"+ "')])[1]"));
+		WebElement ectc = driver.findElement(By.xpath("(//p[contains(text(),'" +CandidateExpectedCTC+" "+"PA"+" "+"(ECTC)"+ "')])[1]"));
 		
-		WebElement noticeperiod = driver.findElement(By.xpath("(//p[contains(text(),'" +NoticePeriod+" "+"Days"+ "')])[1]"));
+		WebElement noticeperiod = driver.findElement(By.xpath("(//p[contains(text(),'" +CandidateNoticePeriod+" "+"Days"+ "')])[1]"));
 		
-		WebElement jobtitle = driver.findElement(By.xpath("//td[contains(text(),'"+Title+"')]"));
+		WebElement jobtitle = driver.findElement(By.xpath("//td[contains(text(),'"+JobTitle+"')]"));
 		
 //		WebElement matchedskills = driver.findElement(By.xpath(""));
 		
@@ -143,23 +150,23 @@ public JobApplicationsPage() {
 //		
 	}
 	
-	public void verifycandidatedataafterclickingOnViewdetails (String CandidateName, String Title, String CandidateDesignation, String CityArea, String City, String Country, String ZipCode, String Experience, String CTC, String ExpectedCTC, String NoticePeriod, String ContactNumber, String DateOfBirth, String CandidateEmail, String Communicationmode, String Gender ) {
+	public void verifycandidatedataafterclickingOnViewdetails (String CandidateName, String JobTitle, String CandidateDesignation, String CandidateCityArea, String CandidateCity, String CandidateCountry, String ZipCode, String CandidateExperience, String CandidateCTC, String CandidateExpectedCTC, String CandidateNoticePeriod, String ContactNumber, String DateOfBirth, String CandidateEmail, String Communicationmode, String Gender ) {
 		
 		WebElement name = driver.findElement(By.xpath("//strong[contains(text(),'"+CandidateName+"')]"));
 		
-		WebElement title = driver.findElement(By.xpath("//h6[text()='"+Title+"']"));
+		WebElement title = driver.findElement(By.xpath("//h6[text()='"+JobTitle+"']"));
 		
 		WebElement designation = driver.findElement(By.xpath("(//p[contains(text(),'"+CandidateDesignation+"')])[2]"));
 		
-		WebElement location = driver.findElement(By.xpath("//p[contains(text(),'"+CityArea+","+" "+City+","+" "+Country+" "+"-"+" "+ZipCode+"')]"));
+		WebElement location = driver.findElement(By.xpath("//p[contains(text(),'"+CandidateCityArea+","+" "+CandidateCity+","+" "+CandidateCountry+" "+"-"+" "+ZipCode+"')]"));
 		
-		WebElement experience = driver.findElement(By.xpath("(//p[contains(text(),'" +Experience+" "+"Years"+ "')])[2]"));
+		WebElement experience = driver.findElement(By.xpath("(//p[contains(text(),'" +CandidateExperience+" "+"Years"+ "')])[2]"));
 		
-		WebElement ctc = driver.findElement(By.xpath("(//p[contains(text(),'" +CTC+" "+"PA"+" "+"(CTC)"+ "')])[2]"));
+		WebElement ctc = driver.findElement(By.xpath("(//p[contains(text(),'" +CandidateCTC+" "+"PA"+" "+"(CTC)"+ "')])[2]"));
 				
-		WebElement ectc = driver.findElement(By.xpath("(//p[contains(text(),'" +ExpectedCTC+" "+"PA"+" "+"(ECTC)"+ "')])[2]"));
+		WebElement ectc = driver.findElement(By.xpath("(//p[contains(text(),'" +CandidateExpectedCTC+" "+"PA"+" "+"(ECTC)"+ "')])[2]"));
 		
-		WebElement noticeperiod = driver.findElement(By.xpath("(//p[contains(text(),'" +NoticePeriod+" "+"Days"+ "')])[2]"));
+		WebElement noticeperiod = driver.findElement(By.xpath("(//p[contains(text(),'" +CandidateNoticePeriod+" "+"Days"+ "')])[2]"));
 		
 		WebElement contactnumber = driver.findElement(By.xpath("//p[contains(text(),'" +ContactNumber+ "')]"));
 		
@@ -171,7 +178,7 @@ public JobApplicationsPage() {
 		
 		WebElement gender = driver.findElement(By.xpath("//td[contains(text(),'"+Gender+"')]"));
 		
-		WebElement readytorelocate = driver.findElement(By.xpath("//td[contains(text(),'No')]"));
+//		WebElement readytorelocate = driver.findElement(By.xpath("//td[contains(text(),'No')]"));
 		
 		
 		
@@ -211,8 +218,8 @@ public JobApplicationsPage() {
 		boolean genderactual = gender.isDisplayed();
 		Assert.assertEquals(genderactual, true);
 		
-		boolean readytorelocateactual = readytorelocate.isDisplayed();
-		Assert.assertEquals(readytorelocateactual, true);
+//		boolean readytorelocateactual = readytorelocate.isDisplayed();
+//		Assert.assertEquals(readytorelocateactual, true);
 		
 
 	}

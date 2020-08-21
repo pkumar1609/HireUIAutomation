@@ -165,41 +165,53 @@ public void clickonApplyWithoutLoginBtn() {
 	ApplyWithoutLoginBtnOnApplyJobPopup.click();
 }
 	
-public void ApplycandidateWithoutLoginforaJobOnJobBoard(String CandidateEmail, String Name, String ContactNumber, String Designation, String DateOfBirth, String Gender, String NoticePeriod, String Experience, String CTC, String ExpectedCTC, String City, String CityArea, String ZipCode, String CommunicationMode ) throws InterruptedException {
+public void ApplycandidateWithoutLoginforaJobOnJobBoard(String CandidateEmail, String CandidateName, String ContactNumber, String CandidateDesignation, String DateOfBirth, String Gender,String OnNoticePeriod, String CandidateNoticePeriod, String CandidateExperience, String CandidateCTC, String CandidateExpectedCTC, String CandidateCity, String CandidateCityArea, String ZipCode, String CommunicationMode, String distance, String relocate, String permanentAddress ) throws InterruptedException {
 	
 	addcandidatepage.emailField.sendKeys(CandidateEmail);
-	addcandidatepage.name.sendKeys(Name);
+	addcandidatepage.name.sendKeys(CandidateName);
 	addcandidatepage.contactNumber.sendKeys(ContactNumber);
 	
 	Thread.sleep(3000);
 	
-	driver.findElement(By.xpath("//body[contains(@class,'bodyBackground modal-open')]//div[contains(@class,'row')]//div[contains(@class,'row')]//div[contains(@class,'row')]//div[1]//div[3]//input[1]")).sendKeys(Designation);
+	driver.findElement(By.xpath("(//input[@placeholder='Enter Designation'])[2]")).sendKeys(CandidateDesignation);
 	addcandidatepage.contactNumber.click();
 	driver.findElement(By.xpath("//input[@placeholder='Select Date']")).sendKeys(DateOfBirth);
 	
   	
 	Thread.sleep(3000);
 	
-	Select se = new Select (driver.findElement(By.xpath("/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-apply-job[1]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[5]/label[1]/select[1]")));
+	Select se = new Select (driver.findElement(By.xpath("//select[@formcontrolname='Gender']")));
   	se.selectByVisibleText(Gender);
-	addcandidatepage.noticePeriod.sendKeys(NoticePeriod);
-	addcandidatepage.experienceInYears.sendKeys(Experience);
+  	
+  	Select se1 = new Select (addcandidatepage.onNoticePeriod);
+  	se1.selectByVisibleText(OnNoticePeriod);
+  
+	addcandidatepage.noticePeriod.sendKeys(CandidateNoticePeriod);
+	addcandidatepage.experienceInYears.sendKeys(CandidateExperience);
 	
 	
 	Thread.sleep(3000);
 	
-	addcandidatepage.ctc.sendKeys(CTC);
-	addcandidatepage.expectedCTC.sendKeys(ExpectedCTC);
-	addcandidatepage.city.sendKeys(City);
+	addcandidatepage.ctc.sendKeys(CandidateCTC);
+	addcandidatepage.expectedCTC.sendKeys(CandidateExpectedCTC);
+	addcandidatepage.city.sendKeys(CandidateCity);
 	
 	Thread.sleep(3000);
 	
-	addcandidatepage.cityArea.sendKeys(CityArea);     // CityArea
+	addcandidatepage.cityArea.sendKeys(CandidateCityArea);     // CityArea
 	addcandidatepage.expectedCTC.click();
 	driver.findElement(By.xpath("//input[@id='ZipCode']")).sendKeys(ZipCode);
-	Select se1 = new Select (addcandidatepage.communicationMode);
-  	se1.selectByVisibleText(CommunicationMode);
+	Select se11 = new Select (addcandidatepage.communicationMode);
+  	se11.selectByVisibleText(CommunicationMode);
 	
+	Thread.sleep(3000);
+	
+	addcandidatepage.distance.sendKeys(distance);
+	
+	addcandidatepage.isReadyToRelocateToJobLocation.sendKeys(relocate);
+	
+	addcandidatepage.isPermanentAddress.sendKeys(permanentAddress);
+  	
 }
 
 public void clickOnLoginBtn() {
@@ -222,22 +234,22 @@ public void loginWithsameemployerofJob(String EmployerEmailAddress, String Passw
 }
 	
 
-public void verifyTheJobDataOnJobBoard (String Title, String OrganizationName, String Location, String City, String Country, String MinExp, String MaxExp, String Budget, String Industry, String Designation) {
+public void verifyTheJobDataOnJobBoard (String JobTitle, String OrganizationName, String JobLocation, String JobCity, String JobCountry, String MinExp, String MaxExp, String JobBudget, String Industry, String JobDesignation) {
 	
 	
-	WebElement title = driver.findElement(By.xpath("//h6[contains(text(),'"+Title+"')]"));
+	WebElement title = driver.findElement(By.xpath("//h6[contains(text(),'"+JobTitle+"')]"));
 	
 	WebElement organizationname = driver.findElement(By.xpath("//p[contains(text(),'"+OrganizationName+"')]"));
 	
-	WebElement location = driver.findElement(By.xpath("(//p[contains(text(),'"+Location+","+" "+City+","+" "+Country+"')])[1]"));
+	WebElement location = driver.findElement(By.xpath("(//p[contains(text(),'"+JobLocation+","+" "+JobCity+","+" "+JobCountry+"')])[1]"));
 	
 	WebElement experience = driver.findElement(By.xpath("(//p[contains(text(),'"+MinExp+" "+"to" +" "+MaxExp+" "+"Years"+"')])[1]"));
 	
-	WebElement budget = driver.findElement(By.xpath("(//p[contains(text(),'"+Budget+" "+"PA"+"')])[1]"));
+	WebElement budget = driver.findElement(By.xpath("(//p[contains(text(),'"+JobBudget+" "+"PA"+"')])[1]"));
 	
 	WebElement industry = driver.findElement(By.xpath("//p[contains(text(),'"+Industry+"')]"));
 	
-	WebElement designation = driver.findElement(By.xpath("//td[contains(text(),'"+Designation+"')]"));
+	WebElement designation = driver.findElement(By.xpath("//td[contains(text(),'"+JobDesignation+"')]"));
 	
 	WebElement jobtype = driver.findElement(By.xpath("//td[contains(text(),'Permanent Full Time')]"));
 	

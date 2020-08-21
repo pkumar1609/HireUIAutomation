@@ -152,11 +152,11 @@ public class WorkbenchPage extends baseclass {
 		
 	}
 	
-	public void selectjobT() throws InterruptedException {
+	public void selectjobT(String JobTitle, String OrganizationName) throws InterruptedException {
   		
-//  		Thread.sleep(5000);
-//		jobDropDown.click();
-//		driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).click();
+  		Thread.sleep(5000);
+		jobDropDown.click();
+		driver.findElement(By.xpath("//option[contains(text(),'"+JobTitle+" "+" "+"-"+" "+OrganizationName+" "+"-"+" "+" "+"Active"+"')]")).click();
 	}
 	
 	public void selectJobK() throws InterruptedException {

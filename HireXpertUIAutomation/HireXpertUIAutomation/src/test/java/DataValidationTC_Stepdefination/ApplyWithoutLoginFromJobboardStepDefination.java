@@ -37,11 +37,19 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 			loginpage.signin.click();
 	}
 
-	@Given("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
+//	@Given("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
+//
+//		Thread.sleep(3000);
+//		addjobpage.addJobforEmployerandAgency(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+//		
+//	}
+	
+	@Given("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
 
 		Thread.sleep(3000);
-		addjobpage.addJobforEmployerandAgency(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+		addjobpage.addJobforEmployerandAgency(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod, JobSkill1, JobSkill2);
 		
 	}
 
@@ -83,11 +91,11 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 
 	
 	@Given("^Verify the details on Job card displayed on left side pannel \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void verify_the_details_on_Job_card_displayed_on_left_side_pannel(String Title, String OrganizationName, String Location, String City, String Country, String MinExp, String MaxExp, String Budget, String Industry, String Designation) throws Throwable {
+	public void verify_the_details_on_Job_card_displayed_on_left_side_pannel(String JobTitle, String OrganizationName, String JobLocation, String JobCity, String JobCountry, String MinExp, String MaxExp, String JobBudget, String Industry, String JobDesignation) throws Throwable {
 
 
 		Thread.sleep(3000);
-		jobboardpage.verifyTheJobDataOnJobBoard(Title, OrganizationName, Location, City, Country, MinExp, MaxExp, Budget, Industry, Designation);
+		jobboardpage.verifyTheJobDataOnJobBoard(JobTitle, OrganizationName, JobLocation, JobCity, JobCountry, MinExp, MaxExp, JobBudget, Industry, JobDesignation);
 		
 	}
 
@@ -107,48 +115,36 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 
 	}
 
-	@Given("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void add_a_new_Job_as_employer(String JobTitle, String JobDesignation, String Industry, String JobRole, String Location, String budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
-	    
-		Thread.sleep(3000);
+//	@Given("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void add_a_new_Job_as_employer(String JobTitle, String JobDesignation, String Industry, String JobRole, String Location, String budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//
+//		workbenchpage.AddJob();
+//		
+//		Thread.sleep(3000);
+//		
+//		addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, Location, budget, MinExp, MaxExp, NoOfInterviews);
+//		
+//		Thread.sleep(3000);
+//		
+//		addjobpage.addNewSkill1();
+//		
+//		Thread.sleep(3000);
+//		
+//		addjobpage.addNewSkill2();
+//		
+//		Thread.sleep(3000);
+//		
+//		addjobpage.deleteSkill3.click();
+//		
+//		Thread.sleep(3000);
+//		
+//		common.submitbtn.click();
+//
+//	}
 
-		workbenchpage.AddJob();
-		
-		Thread.sleep(3000);
-		
-		addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, Location, budget, MinExp, MaxExp, NoOfInterviews);
-		
-		Thread.sleep(3000);
-		
-		addjobpage.addNewSkill1();
-		
-		Thread.sleep(3000);
-		
-		addjobpage.addNewSkill2();
-		
-		Thread.sleep(3000);
-		
-		addjobpage.deleteSkill3.click();
-		
-		Thread.sleep(3000);
-		
-		common.submitbtn.click();
 
-	}
-
-	@Given("^Verify that job is added or not$")
-	public void verify_that_job_is_added_or_not() throws Throwable {
-	    
-	}
-
-	@Given("^Select the same job from job drop down$")
-	public void select_the_same_job_from_job_drop_down() throws Throwable {
-	   
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//button[@title='Reload Job']")).click();
-		Thread.sleep(3000);
-        workbenchpage.selectjobT();
-	}
 
 	@Given("^logout as employer$")
 	public void logout_as_employer() throws Throwable {
@@ -250,22 +246,22 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 	}
 
 	
-	@Given("^fill all the mandatory details of candidate and click on Apply button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void fill_all_the_mandatory_details_of_candidate_and_click_on_Apply_button(String CandidateEmail, String Name, String ContactNumber, String designation, String DateOfBirth, String Gender, String NoticePeriod, String Experience, String CTC, String ExpectedCTC, String City, String CityArea, String ZipCode, String CommunicationMode, String ExpertiseLevel1, String ExpertiseLevel2) throws Throwable {
-	    
-		Thread.sleep(3000);
-		jobboardpage.ApplycandidateWithoutLoginforaJobOnJobBoard(CandidateEmail, Name, ContactNumber, designation, DateOfBirth, Gender, NoticePeriod, Experience, CTC, ExpectedCTC, City, CityArea, ZipCode, CommunicationMode);
-		
-		Thread.sleep(3000);
-		addcandidatepage.uploadResumeDocumentT();
-		
-		Thread.sleep(3000);
-		addcandidatepage.Enterexpertilevel(ExpertiseLevel1, ExpertiseLevel2);
-		
-		Thread.sleep(3000);
-//		jobboardpage.clickonApplyBtn();
-		driver.findElement(By.xpath("//button[@class='btn Cbtn-primary'][contains(text(),'Apply')]")).click();
-	}
+//	@Given("^fill all the mandatory details of candidate and click on Apply button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void fill_all_the_mandatory_details_of_candidate_and_click_on_Apply_button(String CandidateEmail, String Name, String ContactNumber, String designation, String DateOfBirth, String Gender, String NoticePeriod, String Experience, String CTC, String ExpectedCTC, String City, String CityArea, String ZipCode, String CommunicationMode, String ExpertiseLevel1, String ExpertiseLevel2) throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//		jobboardpage.ApplycandidateWithoutLoginforaJobOnJobBoard(CandidateEmail, Name, ContactNumber, designation, DateOfBirth, Gender, NoticePeriod, Experience, CTC, ExpectedCTC, City, CityArea, ZipCode, CommunicationMode);
+//		
+//		Thread.sleep(3000);
+//		addcandidatepage.uploadResumeDocumentT();
+//		
+//		Thread.sleep(3000);
+//		addcandidatepage.Enterexpertilevel(ExpertiseLevel1, ExpertiseLevel2);
+//		
+//		Thread.sleep(3000);
+////		jobboardpage.clickonApplyBtn();
+//		driver.findElement(By.xpath("//button[@class='btn Cbtn-primary'][contains(text(),'Apply')]")).click();
+//	}
 
 
 	
@@ -314,11 +310,11 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 	}
 
 	@Then("^Verify that candidate data displayed on job applications section \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void verify_that_candidate_data_displayed_on_job_applications_section(String CandidateName, String CandidateDesignation, String CityArea, String City, String Country, String Experience, String  CTC, String ExpectedCTC, String  NoticePeriod, String Title) throws Throwable {
+	public void verify_that_candidate_data_displayed_on_job_applications_section(String CandidateName, String CandidateDesignation, String CandidateCityArea, String CandidateCity, String CandidateCountry, String CandidateExperience, String  CandidateCTC, String CandidateExpectedCTC, String  CandidateNoticePeriod, String JobTitle) throws Throwable {
 	    
-       Thread.sleep(3000);
+       Thread.sleep(5000);
 		
-		jobapplicationspage.verifycandidatedatadisplayedinJobApplicationSection(CandidateName, CandidateDesignation, CityArea, City, Country, Experience, CTC, ExpectedCTC, NoticePeriod, Title);
+		jobapplicationspage.verifycandidatedatadisplayedinJobApplicationSection(CandidateName, CandidateDesignation, CandidateCityArea, CandidateCity, CandidateCountry, CandidateExperience, CandidateCTC, CandidateExpectedCTC, CandidateNoticePeriod, JobTitle);
 		
 		
 	}
@@ -345,6 +341,104 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 	jobapplicationspage.verifycandidatedataafterclickingOnViewdetails(CandidateName, Title, CandidateDesignation, CityArea, City, Country, ZipCode, Experience, CTC, ExpectedCTC, NoticePeriod, ContactNumber, DateOfBirth, CandidateEmail, Communicationmode, Gender);
 	
 	}
+
+	@Then("^click on Add to Job button$")
+	public void click_on_Add_to_Job_button() throws Throwable {
+
+		 Thread.sleep(3000);
+       jobapplicationspage.addtojobBtn.click();
+	}
+
+	@Then("^click on ok button of confirmation popup$")
+	public void click_on_ok_button_of_confirmation_popup() throws Throwable {
+
+		Thread.sleep(3000);
+		common.clickOnOKBtn();
+	}
+
+	@Then("^click on Save button and ok button of confirmation popup$")
+	public void click_on_Save_button_and_ok_button_of_confirmation_popup() throws Throwable {
+		
+		Thread.sleep(3000);
+		common.clickOnSaveBtn();
+		
+		Thread.sleep(3000);
+		common.clickOnOKBtn();
+
+	}
+
+	@Then("^Select the same job from job drop down \"([^\"]*)\" \"([^\"]*)\"$")
+	public void select_the_same_job_from_job_drop_down(String Title, String OrganizationName) throws Throwable {
+
+//		Thread.sleep(3000);
+//		driver.findElement(By.xpath("//button[@title='Reload Job']")).click();
+		Thread.sleep(5000);
+        workbenchpage.selectjobT(Title, OrganizationName);
+
+	}
+	
+	@Then("^Click on Search button$")
+	public void click_on_Search_button() throws Throwable {
+
+		Thread.sleep(3000);
+         jobapplicationspage.clickonSerchBtn();
+	}
+
+	
+	
+	
+	@Given("^fill all the information as a candidate from jobboard \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+	public void fill_all_the_information_as_a_candidate_from_jobboard(String CandidateEmail, String CandidateName, String ContactNumber, String CandidateDesignation, String DateOfBirth, String  Gender, String OnNoticePeriod, String CandidateNoticePeriod, String CandidateExperience, String CandidateCTC, String CandidateExpectedCTC, String CandidateCity, String CandidateCityArea, String ZipCode, String CommunicationMode, String distance, String relocate, String permanentAddress, String ExpertiseLevel1, String ExpertiseLevel2) throws Throwable {
+
+		Thread.sleep(3000);
+		jobboardpage.ApplycandidateWithoutLoginforaJobOnJobBoard(CandidateEmail, CandidateName, ContactNumber, CandidateDesignation, DateOfBirth, Gender, OnNoticePeriod, CandidateNoticePeriod, CandidateExperience, CandidateCTC, CandidateExpectedCTC, CandidateCity, CandidateCityArea, ZipCode, CommunicationMode, distance, relocate, permanentAddress);
+		
+		
+		Thread.sleep(3000);
+		addcandidatepage.uploadResumeDocumentT();
+		
+		Thread.sleep(3000);
+		addcandidatepage.Enterexpertilevel(ExpertiseLevel1, ExpertiseLevel2);
+		
+	}
+	
+	@Then("^click on Save button$")
+	public void click_on_Save_button() throws Throwable {
+		
+		Thread.sleep(3000);
+        common.clickOnSaveBtn();
+
+	}
+
+	@Then("^if confirmation popup is displayed click on ok button$")
+	public void if_confirmation_popup_is_displayed_click_on_ok_button() throws Throwable {
+
+
+		Thread.sleep(3000);
+		addcandidatepage.probabilitypopupwhileaddingcandidate();
+	
+	}
+
+
+	
+	@Given("^click on Apply button$")
+	public void click_on_Apply_button() throws Throwable {
+	    
+		Thread.sleep(3000);
+//		jobboardpage.clickonApplyBtn();
+		driver.findElement(By.xpath("//button[@class='btn Cbtn-primary'][contains(text(),'Apply')]")).click();
+		
+	}
+
+
+
+	@Then("^Verify the details on candidate details icon \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" \"([^\"]*)\"\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" \"([^\"]*)\"$")
+	public void verify_the_details_on_candidate_details_icon(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7, String arg8, String arg9, String arg10, String arg11, String arg12, String arg13) throws Throwable {
+
+
+		
+	}
+
 
 
 		

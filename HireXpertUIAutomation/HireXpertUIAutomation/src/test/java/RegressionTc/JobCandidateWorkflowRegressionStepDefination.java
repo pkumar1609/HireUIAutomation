@@ -826,11 +826,19 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		dashboardpage.openWorkbenchPage();
 	}
 
-	@Given("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
+//	@Given("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
+//
+//		Thread.sleep(3000);
+//		addjobpage.addJobforEmployerandAgency(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+//	}
+	
+	@Given("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
 
 		Thread.sleep(3000);
-		addjobpage.addJobforEmployerandAgency(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+		addjobpage.addJobforEmployerandAgency(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod, JobSkill1, JobSkill2);
+		
 	}
 
 	@Given("^click on Job drop down and select recently added job$")
@@ -1082,7 +1090,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		
 		
 		@When("^Add a new Job as employer with at list one skill \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-		public void add_a_new_Job_as_employer_with_at_list_one_skill(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
+		public void add_a_new_Job_as_employer_with_at_list_one_skill(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String Jobskill1, String JobSkill2) throws Throwable {
 		    
 			Thread.sleep(3000);
 
@@ -1090,15 +1098,15 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			
 			Thread.sleep(3000);
 			
-			addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+			 addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
+				
+			Thread.sleep(3000);
+			
+			addjobpage.addNewSkill1(Jobskill1);
 			
 			Thread.sleep(3000);
 			
-			addjobpage.addNewSkill1();
-			
-			Thread.sleep(3000);
-			
-	        addjobpage.addNewSkill2();
+	        addjobpage.addNewSkill2(JobSkill2);
 	        
 	        Thread.sleep(3000);
 			
@@ -1200,7 +1208,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		}
 
 		@When("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-		public void add_a_new_Job_as_employer(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
+		public void add_a_new_Job_as_employer(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
 			
 			Thread.sleep(3000);
 
@@ -1208,15 +1216,16 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			
 			Thread.sleep(3000);
 			
-			addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+            addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
 			
 			Thread.sleep(3000);
 			
-			addjobpage.addNewSkill1();
+			addjobpage.addNewSkill1(JobSkill1);
 			
 			Thread.sleep(3000);
 			
-			addjobpage.addNewSkill2();
+			addjobpage.addNewSkill2(JobSkill2);
+			
 			
 			Thread.sleep(3000);
 			
@@ -1320,7 +1329,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 
 		@When("^Add a new Job as agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-		public void add_a_new_Job_as_agency(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
+		public void add_a_new_Job_as_agency(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
 		   
 			Thread.sleep(3000);
 
@@ -1328,15 +1337,17 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			
 			Thread.sleep(3000);
 			
-			addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+//			addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+			
+			addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
 			
 			Thread.sleep(3000);
 			
-			addjobpage.addNewSkill1();
+			addjobpage.addNewSkill1(JobSkill1);
 			
 			Thread.sleep(3000);
 			
-			addjobpage.addNewSkill2();
+			addjobpage.addNewSkill2(JobSkill2);
 			
 			Thread.sleep(3000);
 			
