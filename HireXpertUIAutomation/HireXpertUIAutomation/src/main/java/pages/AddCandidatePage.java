@@ -134,6 +134,38 @@ public class AddCandidatePage extends baseclass {
 	
 	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[2]")
 	public WebElement expertiseLevel2;
+	@FindBy(xpath = "//input[@placeholder='Enter Current Organization']")
+	public WebElement CurrentOrganization;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Current Designation']")
+	public WebElement currentDesignation;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Duration']")
+	public WebElement currentDuration;
+	
+	@FindBy(xpath = "//ng-select[@placeholder='Select JobType']//input")
+	public WebElement jobType;
+	
+	@FindBy(xpath = "//ng-select[@placeholder='Select Shift']//input")
+	public WebElement Shift;
+	
+	@FindBy(xpath = "//input[@formcontrolname='SearchKeywords']")
+	public WebElement searchKeywords;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Industry']")
+	public WebElement industry;
+	
+	@FindBy(xpath = "//select[@formcontrolname='ResidentialStatus']")
+	public WebElement residentialStatus;
+	
+	@FindBy(xpath = "//select[@formcontrolname='WillingToTravel']")
+	public WebElement willingToTravel;
+	
+	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
+	public WebElement servingNoticePeriod;
+	
+	@FindBy(xpath = "")
+	public WebElement ;
 	
 	public String nameOfCan;
 	Robot rb;

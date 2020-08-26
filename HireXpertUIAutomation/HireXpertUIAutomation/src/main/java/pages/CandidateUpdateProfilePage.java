@@ -3,6 +3,7 @@ package pages;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -23,12 +24,9 @@ public class CandidateUpdateProfilePage extends baseclass {
 	public WebElement name;
 	
 	@FindBy(id = "ContactNumber")
-	public WebElement contactNumber;
+	public WebElement contactNumber;	
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[1]/div[1]/div[7]/input")
-	public WebElement designation;
-	
-	@FindBy(xpath = "//div[3]//div[6]//select[1]")
+	@FindBy(xpath = "//select[@formcontrolname='Gender']")
 	public WebElement gender;
 	
 	@FindBy(id = "NoticePeriod")
@@ -36,6 +34,40 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[1]/div[3]/div[3]/input")
 	public WebElement location;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter City']")
+	public WebElement city;
+	
+	@FindBy(xpath = "//input[@formcontrolname='ZipCode']")
+	public WebElement zipCode;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Industry']")
+	public WebElement industry;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Experience In Years']")
+	public WebElement experience;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter ECTC']")
+	public WebElement ectc;
+	
+	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
+	public WebElement onNoticePeriod;
+	
+	@FindBy(xpath = "(//input[@placeholder='Select Date'])[2]")
+	public WebElement lastWorkingDay;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter CTC']")
+	public WebElement ctc;
+	
+	@FindBy(xpath = "//select[@formcontrolname='PreferredModeOfCommunication']")
+	public WebElement modeOfcommunication;
+	
+	@FindBy(xpath = "//select[@formcontrolname='ReadyToRelocate']")
+	public WebElement readyToRelocate;
+	
+	
+	@FindBy(xpath = "//input[@formcontrolname='Designation']")
+	public WebElement designation;
 	
 	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div/form/div[1]/div[2]/div[6]/select")
 	public WebElement communicationMode;
@@ -46,8 +78,6 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
 	public WebElement noticePeriodCheckbox;
 	
-	@FindBy(xpath="(//input[@placeholder='Select Date'])[2]")
-	public WebElement lastWorkingDay;
 	
 	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
 	public WebElement addSkillButton;
@@ -91,6 +121,71 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//a[@class='nav-link'][contains(text(),'Profile')]")
 	public WebElement profileTab;
 
+	@FindBy(xpath = "//input[@placeholder='Enter Skill']")  
+	public List<WebElement> skills;
+	
+	@FindBy(xpath = "//select[@formcontrolname='ExpertiseLevel']")  
+	public List<WebElement> expertiselevel;
+	
+	@FindBy(xpath = "//input[@formcontrolname='Certificate']")  
+	public List<WebElement> certificate;
+	
+	@FindBy(xpath = "//input[@formcontrolname='Role']")
+	public WebElement role;
+	
+	@FindBy(xpath = "(//input[@placeholder='Select Date'])[1]")
+	public WebElement dateOfBirth;
+	
+	@FindBy(xpath = "//select[@formcontrolname='CountryId']")
+	public WebElement countryId;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter City Area']")
+	public WebElement cityArea;
+
+	@FindBy(xpath = "//input[@placeholder='Enter City']")
+	public WebElement city;
+	
+	@FindBy(xpath = "//input[@formcontrolname='ZipCode']")
+	public WebElement zipCode;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Industry']")
+	public WebElement industry;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Experience In Years']")
+	public WebElement experience;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter ECTC']")
+	public WebElement ectc;
+	
+	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
+	public WebElement onNoticePeriod;
+	
+	@FindBy(xpath = "(//input[@placeholder='Select Date'])[2]")
+	public WebElement lastWorkingDay;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter CTC']")
+	public WebElement ctc;
+	
+	@FindBy(xpath = "//select[@formcontrolname='PreferredModeOfCommunication']")
+	public WebElement modeOfcommunication;
+	
+	@FindBy(xpath = "//select[@formcontrolname='ReadyToRelocate']")
+	public WebElement readyToRelocate;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Skill']")  
+	public List<WebElement> skills;
+	
+	@FindBy(xpath = "//select[@formcontrolname='ExpertiseLevel']")  
+	public List<WebElement> expertiselevel;
+	
+	@FindBy(xpath = "//input[@formcontrolname='Certificate']")  
+	public List<WebElement> certificate;
+	
+	@FindBy(xpath = "//input[@formcontrolname='Role']")
+	public WebElement role;
+	
+//	@FindBy(xpath = "//input[@formcontrolname='Designation']")
+//	public WebElement designation;
 	
 	public CandidateUpdateProfilePage() {
 		
@@ -203,6 +298,67 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 			addRolesButton.click();
 			Thread.sleep(1000);
 		}
+	}
+	public void AssertDetailsOnCandidateProfile(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException
+	{
+		Thread.sleep(3000);
+//		Assert.assertEquals(this.profileTitle.getAttribute("value"), addjobpage.jobname);
+		Assert.assertEquals(this.emailID.getAttribute("value"),CandidateEmail);
+		Assert.assertEquals(this.contactNumber.getAttribute("value"),ContactNumber);
+		Assert.assertEquals(this.dateOfBirth.getAttribute("value"),Date); 
+		se = new Select (this.countryId);
+		WebElement option = se.getFirstSelectedOption();
+		Assert.assertEquals(option.getText()," "+Country+" ");
+		Assert.assertEquals(this.cityArea.getAttribute("value"),CityArea);
+		Assert.assertEquals(this.name.getAttribute("value"),Name);
+		Assert.assertEquals(this.gender.getAttribute("value"),Gender);
+		Assert.assertEquals(this.city.getAttribute("value"),City);
+		Assert.assertEquals(this.zipCode.getAttribute("value"),ZipCode);
+		Assert.assertEquals(this.designation.getAttribute("value"),Designation);
+		Assert.assertEquals(this.industry.getAttribute("value"),addjobpage.industryname);	
+		Assert.assertEquals(this.experience.getAttribute("value"),experience);
+//		Assert.assertEquals(this.ectc.getAttribute("value"),expectedCTC);
+		se = new Select (this.onNoticePeriod);
+		WebElement onNotice = se.getFirstSelectedOption();
+		Assert.assertEquals(onNotice.getText(),OnNoticePeriod);
+		Assert.assertEquals(this.lastWorkingDay.getAttribute("value"),LastWorkingDay);
+		Assert.assertEquals(this.ctc.getAttribute("value"),CTC);
+		se = new Select (this.modeOfcommunication);
+		WebElement communication = se.getFirstSelectedOption();
+//		Assert.assertEquals(communication.getText(),Communicationmode);
+		se = new Select (this.readyToRelocate);
+		WebElement Relocate = se.getFirstSelectedOption();
+		Assert.assertEquals(Relocate.getText(),relocate);		
+		common.clickOnSaveBtn();
+		common.clickOnOKBtn();
+	}
+	
+	public void AssertSkillonSkillAndRolesTab(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String certificate1, String certificate2, String certificate3,String certificateforskill1, String certificateforskill2) throws InterruptedException
+	{
+		this.clickonskillsInformation();
+		Thread.sleep(4000); 
+		Assert.assertEquals(this.skills.get(0).getAttribute("value"), Skill1);
+		Assert.assertEquals(this.skills.get(1).getAttribute("value"), Skill2);	
+		Assert.assertEquals(this.skills.get(2).getAttribute("value"), Skill3);	
+		select=new Select(this.expertiselevel.get(0));
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level1+" ");
+		select=new Select(this.expertiselevel.get(1));
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level2+" ");
+		select=new Select(this.expertiselevel.get(2));
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level3+" ");
+		if(certificate1.contentEquals("Yes"))
+		{
+		Assert.assertEquals(addcandidatepage.certificate.get(0).getAttribute("value"), certificateforskill1);	
+		}
+		if(certificate2.contentEquals("Yes"))
+		{
+		Assert.assertEquals(addcandidatepage.certificate.get(1).getAttribute("value"), certificateforskill2);	
+		}
+		if(certificate3.contentEquals("Yes"))
+		{
+		Assert.assertEquals(addcandidatepage.certificate.get(2).getAttribute("value"), certificateforskill1);	
+		}
+		Assert.assertEquals(this.role.getAttribute("value"),addjobpage.jobRole);
 	}
 
 }

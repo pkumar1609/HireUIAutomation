@@ -13,6 +13,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
 import cucumber.api.DataTable;
 import cucumber.runtime.Utils;
 import utilPackage.baseclass;
@@ -340,7 +342,45 @@ public class MarketPlacePage extends baseclass {
 	 viewagreement.click();
  }
  
- 
+ public void assertjobdetails(DataTable credentials) throws InterruptedException
+ {
+	 Thread.sleep(3000);
+	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+{
+	 Assert.assertEquals(driver.findElement(By.xpath("//h4[text()='"+addjobpage.jobname+"']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' "+data.get("designation")+"']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//p[text()=' "+data.get("organisation")+"']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//p[text()=' "+data.get("location")+", "+data.get("city")+"']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Industry ']//following::td[text()='"+data.get("industry")+"']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Experience ']//following::td[text()='"+data.get("minexp")+" - "+data.get("maxexp")+" Years']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Notice Period ']//following::td[text()='"+data.get("noticePeriod")+" Days']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Vacancies ']//following::td[text()='"+data.get("noofvacancies")+"']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='No of Interviews ']//following::td[text()='"+data.get("totalinterviews")+"']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Qualification ']//following::td[text()='"+data.get("qualification")+"']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Job Type ']//following::td[text()='"+data.get("jobType")+"']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Consider Relocation ']//following::td[text()='"+data.get("considerRelocation")+"']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//th[text()='Skill']//following::td[text()='"+data.get("Skill1")+"']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//th[text()='Skill']//following::td[text()='"+data.get("Skill2")+"']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//th[text()='Skill']//following::td[text()='"+data.get("Skill3")+"']")).isDisplayed(), true);
+	
+	 Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+data.get("Skill1")+"']//following::td[text()='"+data.get("level1")+" ']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+data.get("Skill1")+"']//following::td[text()='"+data.get("Weightage1")+" ']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+data.get("Skill1")+"']//following::td[text()='"+data.get("certificate1")+" ']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+data.get("Skill1")+"']//following::td[text()='"+data.get("remark1")+" ']")).isDisplayed(), true);
+
+	 Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+data.get("Skill2")+"']//following::td[text()='"+data.get("level2")+" ']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+data.get("Skill2")+"']//following::td[text()='"+data.get("Weightage2")+" ']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+data.get("Skill2")+"']//following::td[text()='"+data.get("certificate2")+" ']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+data.get("Skill2")+"']//following::td[text()='"+data.get("remark2")+" ']")).isDisplayed(), true);
+
+	 Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+data.get("Skill3")+"']//following::td[text()='"+data.get("level3")+" ']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+data.get("Skill3")+"']//following::td[text()='"+data.get("Weightage3")+" ']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+data.get("Skill3")+"']//following::td[text()='"+data.get("certificate3")+" ']")).isDisplayed(), true);
+	 Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+data.get("Skill3")+"']//following::td[text()='"+data.get("remark3")+" ']")).isDisplayed(), true);
+
+    }
+ }
+
  
 }
 

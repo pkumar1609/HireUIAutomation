@@ -53,6 +53,9 @@ public AddJobPage()
 	@FindBy(id = "totalInterviews")
 	public WebElement totalinterviews;
 	
+	@FindBy(xpath = "//input[@placeholder='Enter Qualification']")
+	public WebElement qualification;
+	
 	@FindBy(xpath = "//button[contains(text(),' Add Skill ')]")
 	public WebElement addskillbutton;
 	
@@ -140,9 +143,58 @@ public AddJobPage()
 	@FindBy(xpath = "(//input[@placeholder='Enter Skill'])[3]")
 	public WebElement jobskill3;
 	
+	@FindBy(xpath = "//select[@formcontrolname='CountryId']")
+	public WebElement country;
 	
+	@FindBy(xpath = "//input[@placeholder='Enter City']")
+	public WebElement city;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Zip Code']")
+	public WebElement zipcode;
+	
+	@FindBy(xpath = "//textarea[@placeholder='Enter Interview Address']")
+	public WebElement address;
+	
+	@FindBy(xpath = "//input[@formcontrolname='NoOfVacancies']")
+	public WebElement noofvacancies;
+	
+	@FindBy(xpath = "//input[@formcontrolname='CashBenefit']")
+	public WebElement cashBenefit;
+	
+	@FindBy(xpath = "//input[@formcontrolname='MinAge']")
+	public WebElement minAge;
+	
+	@FindBy(xpath = "//input[@formcontrolname='MaxAge']")
+	public WebElement maxAge;
+	
+	@FindBy(xpath = "//select[@formcontrolname='JobType']")
+	public WebElement jobType;
+	
+	@FindBy(xpath = "//select[@formcontrolname='ConsiderRelocation']")
+	public WebElement considerRelocation;
+	
+	@FindBy(xpath = "//select[@formcontrolname='DoNotAddOverBudgetCandidate']")
+	public WebElement DoNotAddOverBudgetCandidate;
+	
+	@FindBy(xpath = "//select[@formcontrolname='Shift']")
+	public WebElement Shift;
+	
+	@FindBy(xpath = "//input[@formcontrolname='ShiftTimings']")
+	public WebElement ShiftTimings;
+	
+	@FindBy(xpath = "//input[@formcontrolname='FromEmail']")
+	public WebElement FromEmail;
+	
+	@FindBy(xpath = "//input[@formcontrolname='EmailSubject']")
+	public WebElement EmailSubject;
+		
 	@FindBy(xpath = "//select[@formcontrolname='EmployerId']")
 	public WebElement employerId;
+	
+	@FindBy(xpath = "//input[@formcontrolname='IsCertificateNeeded']")
+	public List<WebElement> isCertificateNeeded;
+	
+
 	
 	public String skill1 = "Agile";
 	public String skill2 = "Java";
@@ -151,6 +203,8 @@ public AddJobPage()
 	public String jobname;
 	public boolean emp;
 	public String selectJob;
+	public String industryname;
+	public String jobRole;
 	
 	
 	public void validateJobPageTitle() {
@@ -380,56 +434,108 @@ public void addJobforEmployerandAgency(String JobTitle, String JobDesignation, S
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
 //			workbenchpage.AddJob();
-			this.emp=loginpage.b;
-			if(emp==true) 
+//			this.emp=loginpage.b;
+			if(loginpage.b==true)  
 			{
 				jobname=data.get("title");
 				System.out.println("Selected job: "+jobname);
-//				title.sendKeys(jobname);
+				title.sendKeys(jobname);
 			}
 			else
 			{
 				jobname=data.get("agytitle");
 				System.out.println("Selected job: "+jobname);
-//				title.sendKeys(jobname);
+				title.sendKeys(jobname);
 			}
 			
-//			designation.sendKeys(data.get("designation"));
-//			industry.sendKeys(data.get("industry"));
-//			jobrole.sendKeys(data.get("jobrole"));
-//			location.sendKeys(data.get("location"));
-//			budget.sendKeys(data.get("budget"));
-//			minexp.sendKeys(data.get("minexp"));
-//			maxexp.sendKeys(data.get("maxexp"));
-//			noOfInterviews();
-//			List<WebElement> deletebtn = driver.findElements(By.xpath("//button[@class='btn btn-outline-danger']"));
-//			for(int i=0;i<deletebtn.size();i++)
-//				{
-//					WebElement btn = deletebtn.get(i);
-//					Thread.sleep(6000);
-//					btn.click();
-//				}
-//			this.emp=loginpage.b;
-//			if(emp==false)
-//			{ 
-//				select =new Select(employerId);
-//				List<WebElement> options = select.getOptions();
-//				if(options.size()>0)
-//				{
-//					select.selectByIndex(1);
-//				}
-//				else if (options.size()==0)
-//				{
-//					Thread.sleep(2000);
-//					addEmployee.click();
-//					teampage.AddAllDetailsK(credentials);
-//					select.selectByIndex(1);
-//					Organization.sendKeys(data.get("Oraganization"));	
+			Thread.sleep(1000);
+			designation.sendKeys(data.get("designation"));
+			this.industry.sendKeys(data.get("industry"));
+			industryname= data.get("industry");
+			jobrole.sendKeys(data.get("jobrole"));
+			jobRole=data.get("jobrole");
+			location.sendKeys(data.get("location"));
+			budget.sendKeys(data.get("budget"));
+			minexp.sendKeys(data.get("minexp"));
+			maxexp.sendKeys(data.get("maxexp"));
+			Thread.sleep(1000);
+			se=new Select(totalinterviews);
+			se.selectByVisibleText(data.get("totalinterviews"));
+			List<WebElement> deletebtn = driver.findElements(By.xpath("//button[@class='btn btn-outline-danger']"));
+			for(int i=0;i<deletebtn.size();i++)
+				{
+					WebElement btn = deletebtn.get(i);
+					Thread.sleep(6000);
+					btn.click();
+				}
+			this.emp=loginpage.b;
+			if(emp==false)
+			{ 
+				select =new Select(employerId);
+				List<WebElement> options = select.getOptions();
+				if(options.size()>0)
+				{
+					select.selectByIndex(1);
+				}
+				else if (options.size()==0)
+				{
+					Thread.sleep(2000);
+					addEmployee.click();
+					teampage.AddAllDetailsK(credentials);
+					select.selectByIndex(1);
+					Organization.sendKeys(data.get("organisation"));	
 				}
 		    }
 
 //	     }
 //    }
+	     }
+    }
+	
+	
+	public void extraInfoOfJob(DataTable credentials) throws InterruptedException
+	{
+		this.emp=loginpage.b;
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+			if(loginpage.b==true)
+			{
+				this.Organization.sendKeys(data.get("organisation"));
+				this.FromEmail.sendKeys(data.get("FromEmail"));
+			}
+			else
+			{
+				this.FromEmail.sendKeys(data.get("FromEmailagy"));	
+			}
+		this.EmailSubject.sendKeys(data.get("EmailSubject"));
+		this.qualification.sendKeys(data.get("qualification"));
+		this.country.sendKeys(data.get("country"));
+		this.city.sendKeys(data.get("city"));
+		this.zipcode.sendKeys(data.get("zipcode"));
+		address.clear();
+		this.address.sendKeys(data.get("address"));
+		noofvacancies.clear();
+		this.noofvacancies.sendKeys(data.get("noofvacancies"));
+		budget.clear();
+		this.budget.sendKeys(data.get("budget"));
+		this.cashBenefit.sendKeys(data.get("cashBenefit"));
+		this.minAge.sendKeys(data.get("minAge"));
+		this.maxAge.sendKeys(data.get("maxAge"));
+		this.noticePeriod.sendKeys(data.get("noticePeriod"));
+		se=new Select(jobType);
+		se.selectByVisibleText(data.get("jobType"));
+		se=new Select(considerRelocation);
+		se.selectByVisibleText(data.get("considerRelocation"));
+		se=new Select(DoNotAddOverBudgetCandidate);
+		se.selectByVisibleText(data.get("OverBudget"));
+		se=new Select(Shift);
+		se.selectByVisibleText(data.get("Shift"));
+		this.ShiftTimings.sendKeys(data.get("ShiftTimings"));
+		}
+	}
+			
+
+
 	public void addSkills(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3) throws InterruptedException
 	{
 		for(int i=0;i<3;i++)	

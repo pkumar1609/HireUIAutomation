@@ -73,8 +73,8 @@ public class MarketplaceBvt extends baseclass {
 	}
 
 	@And("^verify shared job is displaying on support login$")
-		public void verify_shared_job_is_displaying_on_support_login(DataTable credentials) throws Throwable {
-		jobreviewpage.verifyJobDisplay(credentials);
+	public void verify_shared_job_is_displaying_on_support_login() throws Throwable {
+		jobreviewpage.verifyJobDisplay();
 	}
 	
 	@And("^Click on approve$")
