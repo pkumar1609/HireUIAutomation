@@ -1,6 +1,6 @@
 Feature: Job Management
 
-@bvt_agencyblock @block
+@bvt_agencyblock @block @bvt
   Scenario Outline: Verify the Block functionality for Agency with Employer login
   
  	Given User is on Home page of application
@@ -15,8 +15,8 @@ Feature: Job Management
 	And Click on close button
     And Go to workbench
    	And Add job
-	|title     |designation |industry   |jobrole        |location |budget |minexp|maxexp|
-	|blockjob1 |developer   |IT software|java developer |pune     |400000 |1     |2     |
+	|title		      |agytitle          |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
+	|developer        |agynew developer |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
     And Select a added job
     And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 
     And again click on Share With Agency button and select the Block/Unblock checkbox present in front of the agency "<agyEmailId>" with whom you shared the job    
@@ -48,18 +48,18 @@ Feature: Job Management
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
     And enter valid "<username>" and "<password>" for registered employer and click on Sign in button
-#	Given team member should be added
-#	|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |
-#	|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |
-#	|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |   
-#	And Go to workbench
+	Given team member should be added
+	|Name|         Email   | contact  |Nameagy   |    Emailagy     | contactagy  |
+	|pe1 | pe1@gmail.com   | 1234564  | pa1      | pa1@gmail.com   |1234556      |
+	|pe2 | pe2@gmail.com   | 1234564  | pa2      | pa2@gmail.com   |1234566      |   
+	And Go to workbench
 	And Add job
-	|title    |designation |industry   |jobrole        |location |budget |minexp|maxexp|agytitle   |
-	|blockjob |developer   |IT software|java developer |pune     |400000 |1     |2     |blockjobAGY|
-#	And Select a added job
-#    And click on Share With Team button and select the Share checkbox present in front of the team member "<team>"
-#	And click on Yes button from confirmation popup and now select the Block/Unblock checkbox present in front of the team member 
-# 	And Click on close button
+	|title		     |agytitle          |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
+	|new1 developer  |newagy1job   |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
+	And Select a added job
+    And click on Share With Team button and select the Share checkbox present in front of the team member "<team>"
+	And click on Yes button from confirmation popup and now select the Block/Unblock checkbox present in front of the team member 
+ 	And Click on close button
   	And Logout from App
 	And Click on Employer-Agency Signin link
     And enter valid "<teamId>" and "<password>" for registered employer and click on Sign in button
@@ -67,12 +67,12 @@ Feature: Job Management
     And Select a added job
     And click on Add Candidate button
     And enter "<CandEmailId>"of candidate and click on Find button and observe
-    Then Blocked team member should not be able to add candidate for the job and error message should display and he should be able to see all candidate status which are added by himself into that job
+    Then Blocked team member should not be able to add candidate
     And close the browser
     
 Examples:
 |username         |   password   |team|teamId         |CandEmailId    |
 |pemp@gmail.com   |    12345     |pe1 |pe1@gmail.com  |can12@gmail.com|
-#|pagy@gmail.com   |    12345     |pa1 |pa1@gmail.com  |can13@gmail.com|
+|pagy@gmail.com   |    12345     |pa1 |pa1@gmail.com  |can13@gmail.com|
 
 #TC ID - 67,72,73

@@ -267,22 +267,22 @@ else
 }
 }
 
-	@After("@task")
+	@After("@TaskBVT")
 	public void Endtest() throws InterruptedException
 	{
 		dashboardpage.openDashboardPage();
-//		taskpage.ClickOnMyTask();
-//		taskpage.reloadtask();
-		List<WebElement> markCompleteButton = driver.findElements(By.xpath("//button[text()='Mark Complete']"));
+		taskpage.ClickOnMyTask();
+		taskpage.reloadtask();
+		List<WebElement> markCompleteButton = driver.findElements(By.xpath("//a[@title='Complete']"));
 		int size= markCompleteButton.size();
 		for(int i=0;i<size;i++)
 		{
-			Thread.sleep(4000);
+			Thread.sleep(1000);
 			markCompleteButton.get(i).click();
 		}
 		taskpage.ClickOnTeamTask();
-//		taskpage.reloadtask();
-		List<WebElement> markCompleteButton1 = driver.findElements(By.xpath("//button[text()='Mark Complete']"));
+		taskpage.reloadtask();
+		List<WebElement> markCompleteButton1 = driver.findElements(By.xpath("//a[@title='Complete']"));
 		int size1= markCompleteButton1.size();
 		System.out.println(size1);
 		for(int i=0;i<size1;i++)

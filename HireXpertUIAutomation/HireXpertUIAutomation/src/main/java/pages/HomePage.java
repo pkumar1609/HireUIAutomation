@@ -11,6 +11,8 @@ public class HomePage extends baseclass {
 	@FindBy(linkText = "More Jobs..")
 	public WebElement MoreJobsLink;
 	
+	@FindBy(linkText="Job Seeker(Candidate) Sign In")
+	public WebElement JobseekerCandidateSignInlink;
 	
 	
 
@@ -19,15 +21,19 @@ public HomePage() {
 		PageFactory.initElements(driver, this);
 		this.driver = driver;
 	}
+		
+	public void clickonMoreJobsLink() {
+		
+		MoreJobsLink.click();
+	}
 	
-public void clickonMoreJobsLink() {
+	public void clickJobseekerCandidateSignInlinklink() throws InterruptedException {
+	   Thread.sleep(3000);
+	   JobseekerCandidateSignInlink.click();
+	}	
+		
 	
-	MoreJobsLink.click();
-}
-	
-	
-	
-	
+
 	
 	
 	

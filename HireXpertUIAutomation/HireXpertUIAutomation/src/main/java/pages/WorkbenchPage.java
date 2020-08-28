@@ -28,6 +28,8 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(id = "jobDropdown")
 	public WebElement jobDropDown;
 	
+	@FindBy(xpath = "//button[contains(text(),' View Job ')]")
+	public WebElement viewJobButton;
 	
 	@FindBy(xpath = "//button[contains(text(),'Share With Agency')]")
 	public WebElement shareWithAgencyButton;
@@ -165,7 +167,7 @@ public class WorkbenchPage extends baseclass {
 //		select = new Select(jobDropDown);
 //		select.selectByIndex(1);
 //		select.selectByVisibleText();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		jobDropDown.click();
 		driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).click();
 // 		updateprofilepopuppage.getDetails();
@@ -268,6 +270,7 @@ public class WorkbenchPage extends baseclass {
 	
 	public void clickOnAddCandidate() throws InterruptedException
 	{
+		Thread.sleep(3000);
 		addCandidateButton.click();
 	}
 	

@@ -37,7 +37,7 @@ Then Newly added team member should be displayed in team page
 Then the employer with which you have logged in should display in team tab by default
 And delete the added team
 
-@TC49_53 @BVT @login
+@TC49_53 @BVT @login 
 Scenario: To verify whether the Agency is able to add and delete employer
 
 Given User must be registered
@@ -79,7 +79,7 @@ Then deleted user should not be display on page
 
 #Regression Test Cases
 
-@TC77_79_95 @reglogin
+@TC77_79_95 @reglogin 
 Scenario: To verify search funtionality of Employer and team tab
 
 Given User must be registered
@@ -107,7 +107,7 @@ And Click on Search section and enter already existing employer team
 And User should able to search employer team
 
 
-@TC_78_80_95
+@TC_78_80_95 
 Scenario: To verify search funtionality of Agency and team tab
 
 Given User must be registered
@@ -137,7 +137,7 @@ And User should able to search agency team
 
 
 
-@TC41_89
+@TC41_89 
 Scenario Outline: To verify Error message for character limit for both agency and employer
 Given User must be registered
 When title of login page is Home

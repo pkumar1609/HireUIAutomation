@@ -63,7 +63,7 @@ boolean emp;
 //		workbenchpage.clickonthreedot();
 //		workbenchpage.shareWithAgencyButton.click();
 		
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		sharewithteampage.searchField.clear();
 		sharewithteampage.searchField.sendKeys(agyEmailId);
 		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
@@ -71,7 +71,7 @@ boolean emp;
 		}
 		else
 		{
-			Thread.sleep(4000);
+			Thread.sleep(1000);
 			sharewithagencypage.blockUnblockCheckbox.click();
 			common.clickOnConfirmYes();
 		}
@@ -112,22 +112,10 @@ boolean emp;
 	@Then("^Blocked agency should not be able to add candidate for the job and error message message should display and he should be able to see all candidate status which are added for that job$")
 	public void blocked_agency_should_not_be_able_to_add_candidate_for_the_job_and_error_message_message_should_display_and_he_should_be_able_to_see_all_candidate_status_which_are_added_for_that_job() throws Throwable {
 		
-		boolean ele = driver.findElement(By.xpath("//h6[contains(text(),' You are blocked by employer so you can not add more candidate now.')]")) != null;
-    	common.clickOnOKBtn();
+		boolean ele = driver.findElement(By.xpath("//h6[contains(text(),'You are blocked by employer so you can not add more candidate now.')]")) != null;
 		Assert.assertEquals(ele, true);
+		common.clickOnOKBtn();
 	}
-//	@And("^Fill All details \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-//	public void click_on_OK_button_from_error_message_popup(String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
-//		
-//		addcandidatepage.EnterAllMandatoryfieldsT(Name,ContactNumber,Designation, Gender, NoticePeriod, Location, Communicationmode);
-//		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-//		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\CV (1).doc");
-//		common.clickOnSaveBtn();
-//		common.clickOnConfirmYes();   
-//	}
-	
-	
-
 
 	@Then("^click on Close button from Add Candidate page and click on Yes button from confirmation popup$")
 	public void click_on_Close_button_from_Add_Candidate_page_and_click_on_Yes_button_from_confirmation_popup() throws Throwable {
@@ -189,7 +177,7 @@ boolean emp;
 	@Then("^user should able to search team member and blocked agency should not able to share job with any team members and error message should display$")
 	public void user_should_able_to_search_team_member_and_blocked_agency_should_not_able_to_share_job_with_any_team_members_and_error_message_should_display() throws Throwable {
 	    
-		Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' You are blocked by employer so you can not share this job anymore.']")).isDisplayed(), true);
+			Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'You are blocked by employer so you can not share this job anymore.')]")).isDisplayed(), true);
 	}
 
 	
@@ -251,7 +239,11 @@ boolean emp;
 	public void blocked_team_member_should_not_be_able_to_add_candidate_for_the_job_and_error_message_should_display_and_he_should_be_able_to_see_all_candidate_status_which_are_added_by_himself_into_that_job() throws Throwable {
 		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),' You are blocked by your team owner for this job so you can not add more candidate now.')]")).isDisplayed(), true);
 	}
-
+	
+	@Then("^Blocked team member should not be able to add candidate$")
+	public void blocked_team_member_should_not_be_able_to_add_candidate() throws Throwable {
+		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'You are blocked by your team owner for this job so you can not add more candidate now.')]")).isDisplayed(), true);   
+	}
 	
 //	@After("@bvt_teamblock, @bvt_agencyblock")
 //	public void tearDown() throws InterruptedException

@@ -1,4 +1,6 @@
 package DataValidationTC_Stepdefination;
+import org.openqa.selenium.interactions.Actions;
+
 
 import java.util.Map;
 
@@ -30,10 +32,10 @@ public class AddingCandidate extends baseclass{
 		loginpage.ClickOnEmployerAgencySigninLink();
 	}
 	
-	@When("^Click on Job Seeker\\(Candidate\\) Sign In link$")
-	public void click_on_Job_Seeker_Candidate_Sign_In_link() throws Throwable {
-	    
-	}
+//	@When("^Click on Job Seeker\\(Candidate\\) Sign In link$")
+//	public void click_on_Job_Seeker_Candidate_Sign_In_link() throws Throwable {
+//	    
+//	}
 	
 	@When("^Employer enters valid credentials \"([^\"]*)\",\"([^\"]*)\"$")
 	public void employer_enters_valid_credentials(String Username, String Password) throws Throwable {
@@ -173,7 +175,7 @@ public void click_on_Job_Seeker_Candidate_Sign_In_link() throws Throwable {
 @When("^click on update profile option$")
 public void click_on_update_profile_option() throws Throwable {		
 	Thread.sleep(2000);
-	action.moveToElement(loginpage.profile).perform();
+	Action.moveToElement(loginpage.profile).perform();
 	Thread.sleep(2000);
 	loginpage.updateProfile.click();
 }
@@ -325,55 +327,54 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 }
 //@candidatedetails
 
-@When("^Click register link$")
-public void click_register_link() throws Throwable {
-	Thread.sleep(2000);
-	registerpage.clickRegister();
-}
-
-@When("^Enter all details on register page \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-public void enter_all_details_on_register_page(String Name, String CandidateEmail , String ContactNumber, String UserType, String timezone, String country) throws Throwable {
-	registerpage.registerCandidatedetails1(UserType, timezone, country);
-	registerpage.registerCandidatedetails(Name, CandidateEmail, ContactNumber);
-	common.ClickSumbit();
-	common.clickOnConfirmYes();
-	common.clickOnOKBtn();
-}
-
-@When("^Enter all personal and professional details of candidate$")
-public void enter_all_details_of_candidate(DataTable credentials) throws Throwable {
-	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-	{
-	addcandidatepage.title.sendKeys(data.get("title"));
-	addcandidatepage.contactNumber.sendKeys(data.get("ContactNumber"));
-	addcandidatepage.date.sendKeys(data.get("Date"));
-	addcandidatepage.countryId.sendKeys(data.get("Country"));
-	addcandidatepage.cityArea.sendKeys(data.get("CityArea"));
-	addcandidatepage.name.sendKeys(data.get("Name"));
-	addcandidatepage.alternateEmail.sendKeys(data.get("alternateemail"));		
-	addcandidatepage.alternateContact.sendKeys(data.get("alternateContact"));
-	addcandidatepage.gender.sendKeys(data.get("Gender"));
-	addcandidatepage.city.sendKeys(data.get("City"));
-	addcandidatepage.zipCode.sendKeys(data.get("ZipCode"));
-	addcandidatepage.CurrentOrganization.sendKeys(data.get("currentorganization"));
-	addcandidatepage.currentDesignation.sendKeys(data.get("currentdesignation"));
-	addcandidatepage.currentDuration.sendKeys(data.get("currentduration"));
-	driver.findElement(By.xpath("//span[text()='×']")).click();
-	addcandidatepage.jobType.sendKeys(data.get("jobtype"));
-	addcandidatepage.Shift.sendKeys(data.get("shift"));
-	addcandidatepage.searchKeywords.sendKeys(data.get("searchkeyword"));
-	addcandidatepage.industry.sendKeys(data.get("industry"));
-	addcandidatepage.experienceInYears.sendKeys(data.get("experience"));
-	addcandidatepage.ctc.sendKeys(data.get("CTC"));
-	addcandidatepage.expectedCTC.sendKeys(data.get("expectedCTC"));
-	addcandidatepage.communicationMode.sendKeys(data.get("Communicationmode"));
-	addcandidatepage.residentialStatus.sendKeys(data.get("residentialstatus"));	
-	
-	addcandidatepage..sendKeys(data.get(""));
-	addcandidatepage..sendKeys(data.get(""));
-	addcandidatepage..sendKeys(data.get(""));
+	@When("^Click register link$")
+	public void click_register_link() throws Throwable {
+		Thread.sleep(2000);
+		registerpage.clickRegister();
 	}
-}
-
-}
-}
+	
+	@When("^Enter all details on register page \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void enter_all_details_on_register_page(String Name, String CandidateEmail , String ContactNumber, String UserType, String timezone, String country) throws Throwable {
+		registerpage.registerCandidatedetails1(UserType, timezone, country);
+		registerpage.registerCandidatedetails(Name, CandidateEmail, ContactNumber);
+		common.ClickSumbit();
+		common.clickOnConfirmYes();
+		common.clickOnOKBtn();
+	}
+	
+	@When("^Enter all personal and professional details of candidate$")
+	public void enter_all_details_of_candidate(DataTable credentials) throws Throwable {
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+		addcandidatepage.title.sendKeys(data.get("title"));
+		addcandidatepage.contactNumber.sendKeys(data.get("ContactNumber"));
+		addcandidatepage.date.sendKeys(data.get("Date"));
+		addcandidatepage.countryId.sendKeys(data.get("Country"));
+		addcandidatepage.cityArea.sendKeys(data.get("CityArea"));
+		addcandidatepage.name.sendKeys(data.get("Name"));
+		addcandidatepage.alternateEmail.sendKeys(data.get("alternateemail"));		
+		addcandidatepage.alternateContact.sendKeys(data.get("alternateContact"));
+		addcandidatepage.gender.sendKeys(data.get("Gender"));
+		addcandidatepage.city.sendKeys(data.get("City"));
+		addcandidatepage.zipCode.sendKeys(data.get("ZipCode"));
+		addcandidatepage.CurrentOrganization.sendKeys(data.get("currentorganization"));
+		addcandidatepage.currentDesignation.sendKeys(data.get("currentdesignation"));
+		addcandidatepage.currentDuration.sendKeys(data.get("currentduration"));
+		driver.findElement(By.xpath("//span[text()='×']")).click();
+		addcandidatepage.jobType.sendKeys(data.get("jobtype"));
+		addcandidatepage.Shift.sendKeys(data.get("shift"));
+		addcandidatepage.searchKeywords.sendKeys(data.get("searchkeyword"));
+		addcandidatepage.industry.sendKeys(data.get("industry"));
+		addcandidatepage.experienceInYears.sendKeys(data.get("experience"));
+		addcandidatepage.ctc.sendKeys(data.get("CTC"));
+		addcandidatepage.expectedCTC.sendKeys(data.get("expectedCTC"));
+		addcandidatepage.communicationMode.sendKeys(data.get("Communicationmode"));
+		addcandidatepage.residentialStatus.sendKeys(data.get("residentialstatus"));	
+		
+//		addcandidatepage..sendKeys(data.get(""));
+//		addcandidatepage..sendKeys(data.get(""));
+//		addcandidatepage..sendKeys(data.get(""));
+		}
+	}
+	
+	}

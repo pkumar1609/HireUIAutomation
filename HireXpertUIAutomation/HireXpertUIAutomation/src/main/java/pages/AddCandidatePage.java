@@ -30,6 +30,9 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(id = "Email")
 	public WebElement emailField;
 	
+	@FindBy(xpath = "//input[@placeholder='Enter Alternate Email']")
+	public WebElement alternateEmail;
+	
 	@FindBy(id = "Title")
 	public WebElement title;
 	
@@ -84,6 +87,9 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(id = "ContactNumber")
 	public WebElement contactNumber;
 	
+	@FindBy(xpath = "//input[@placeholder='Enter Alternate Contact Number']")
+	public WebElement alternateContact;
+	
 	@FindBy(xpath = "//input[@formcontrolname='Designation']")
 	public WebElement designation;
 	
@@ -101,9 +107,6 @@ public class AddCandidatePage extends baseclass {
 	
 	@FindBy(xpath = "(//input[@placeholder='Select Date'])[2]")
 	public WebElement lastWorkingDay;
-	
-//	@FindBy(xpath = "//div[3]//div[3]//input[1]")
-//	public WebElement location;
 	
 	@FindBy(id = "ECTC")
 	public WebElement expectedCTC;
@@ -134,6 +137,7 @@ public class AddCandidatePage extends baseclass {
 	
 	@FindBy(xpath = "(//select[@formcontrolname='ExpertiseLevel'])[2]")
 	public WebElement expertiseLevel2;
+	
 	@FindBy(xpath = "//input[@placeholder='Enter Current Organization']")
 	public WebElement CurrentOrganization;
 	
@@ -164,8 +168,8 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
 	public WebElement servingNoticePeriod;
 	
-	@FindBy(xpath = "")
-	public WebElement ;
+//	@FindBy(xpath = "")
+//	public WebElement ;
 	
 	public String nameOfCan;
 	Robot rb;

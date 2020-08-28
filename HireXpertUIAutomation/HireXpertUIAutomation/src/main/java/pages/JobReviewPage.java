@@ -27,11 +27,10 @@ public class JobReviewPage extends baseclass{
 	int flag=0;
 	String jobname;
 	
-	public void verifyJobDisplay(DataTable credential) throws InterruptedException
-	{
-		
-		Map<String, String> data = credential.asMap(String.class, String.class);
-//		jobname=data.get("title");
+	public void verifyJobDisplay() throws InterruptedException
+	{	
+		Thread.sleep(2000);
+		jobReview.click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//button[@title='Search']")).click();
 		String approvebtn="(//a[contains(text(),'"+addjobpage.jobname+"')]//following::button[text()='Approve'])[1]";		

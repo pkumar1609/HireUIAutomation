@@ -48,10 +48,10 @@ public class MarketPlacePage extends baseclass {
 	@FindBy(xpath ="//Select[@formcontrolname='ReplacementPeriod']")
 	public WebElement replacementPeriod;
 
-	@FindBy(xpath ="//a[@href='#/employerMarketPlace']")
+	@FindBy(xpath ="//a[text()=' Marketplace']")
 	public WebElement marketPlaceTab;
 	
-	@FindBy(xpath ="//a[@href='#/agencyMarketPlace']")
+	@FindBy(xpath ="//a[text()=' Marketplace']")
 	public WebElement agymarketPlaceTab;
 	
 	@FindBy(xpath ="//select[@id='jobDropdown']")

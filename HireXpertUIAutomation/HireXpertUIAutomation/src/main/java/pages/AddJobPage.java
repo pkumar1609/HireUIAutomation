@@ -35,14 +35,14 @@ public AddJobPage()
 	@FindBy(xpath = "//input[@formcontrolname='Industry']")
 	public WebElement industry;
 	
-	@FindBy(xpath = "//input[@formcontrolname='JobRole']")
-	public WebElement jobrole;
-	
 	@FindBy(xpath = "//input[@formcontrolname='Location']")
 	public WebElement location;
 	
-	@FindBy(id = "budget")
-	public WebElement budget;
+	@FindBy(xpath = "//input[@placeholder='Enter Min Salary']")
+	public WebElement minsal;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Max Salary']")
+	public WebElement maxsal;
 	
 	@FindBy(id = "minExperience")
 	public WebElement minexp;
@@ -433,29 +433,37 @@ public void addJobforEmployerandAgency(String JobTitle, String JobDesignation, S
 	{ 
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-//			workbenchpage.AddJob();
-//			this.emp=loginpage.b;
+			workbenchpage.AddJob();
+
 			if(loginpage.b==true)  
 			{
 				jobname=data.get("title");
 				System.out.println("Selected job: "+jobname);
 				title.sendKeys(jobname);
+				Organization.clear();
+				this.Organization.sendKeys(data.get("organization"));
 			}
 			else
 			{
 				jobname=data.get("agytitle");
 				System.out.println("Selected job: "+jobname);
 				title.sendKeys(jobname);
+				if(this.Organization.isEnabled())
+				{
+				this.Organization.sendKeys(data.get("agyorganization"));
+				}
 			}
 			
 			Thread.sleep(1000);
 			designation.sendKeys(data.get("designation"));
 			this.industry.sendKeys(data.get("industry"));
-			industryname= data.get("industry");
-			jobrole.sendKeys(data.get("jobrole"));
-			jobRole=data.get("jobrole");
-			location.sendKeys(data.get("location"));
-			budget.sendKeys(data.get("budget"));
+			industryname= data.get("industry");			
+//			jobrole.sendKeys(data.get("jobrole"));
+//			jobRole=data.get("jobrole");
+//			location.sendKeys(data.get("location"));
+//			budget.sendKeys(data.get("budget"));
+			minsal.sendKeys(data.get("minsal"));
+			maxsal.sendKeys(data.get("maxsal"));
 			minexp.sendKeys(data.get("minexp"));
 			maxexp.sendKeys(data.get("maxexp"));
 			Thread.sleep(1000);
@@ -465,7 +473,7 @@ public void addJobforEmployerandAgency(String JobTitle, String JobDesignation, S
 			for(int i=0;i<deletebtn.size();i++)
 				{
 					WebElement btn = deletebtn.get(i);
-					Thread.sleep(6000);
+					Thread.sleep(2000);
 					btn.click();
 				}
 			this.emp=loginpage.b;
@@ -500,7 +508,6 @@ public void addJobforEmployerandAgency(String JobTitle, String JobDesignation, S
 		{
 			if(loginpage.b==true)
 			{
-				this.Organization.sendKeys(data.get("organisation"));
 				this.FromEmail.sendKeys(data.get("FromEmail"));
 			}
 			else

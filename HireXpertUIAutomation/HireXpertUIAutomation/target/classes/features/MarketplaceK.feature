@@ -8,8 +8,9 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials
 And Go to workbench
 And Add job
-|title                  |designation |industry   |jobrole        |location |budget |minexp|maxexp|
-|bI developer           |developer   |IT software|java developer |pune     |400000 |1     |2     |
+|title		 |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
+|BI developer|developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
+
 And Select a added job
 And Click on share job with market place
 And change information and click on submit
@@ -21,7 +22,6 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And login as a support user
 And verify shared job is displaying on support login
-|title      |marketjob1 |
 And Click on approve
 And Logout from App
 And Click on Employer-Agency Signin link
@@ -126,8 +126,8 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials
 And Go to workbench
 And Add job
-|title    |designation |industry   |jobrole        |location |budget |minexp|maxexp|
-|JOb 2    |developer   |IT software|java developer |pune     |400000 |1     |2     |
+|title		 |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
+|UX developer|developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
 And Select a added job
 And Click on share job with market place
 And change information and click on submit
@@ -139,7 +139,6 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And login as a support user
 And verify shared job is displaying on support login
-|title      |marketjob11 |
 And Click on approve
 And Logout from App
 And Click on Employer-Agency Signin link
@@ -177,7 +176,7 @@ Then all terms and condition remain same for agency one
 |Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|Employer|Agency|
 |8.33                 |30 Days       |60 Days      |90 Days           |pemp    |pagy  |
 And Click on add candidate
-And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
 Then User should be able to add candidate
 And Logout from App
 And Click on Employer-Agency Signin link

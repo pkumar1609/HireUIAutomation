@@ -13,7 +13,7 @@ import utilPackage.baseclass;
 public class DashboardPage extends baseclass {
 
 	
-	@FindBy(xpath = "//a[@href='#/workbench']")
+	@FindBy(xpath = "//a[@href='#/ats/workbench']")
 	public WebElement workbench;
 	
 	@FindBy(xpath = "//a[contains(text(),'Employers')]")
@@ -28,7 +28,7 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath = "//a[contains(text(),'Interviews')]")
 	public WebElement interviews;
 	
-	@FindBy(xpath= "//a[@href='#/jobdashboard']")
+	@FindBy(xpath= "//a[text()=' Dashboard ']")
 	public WebElement dashboard ;
 	
 	@FindBy(xpath= "//a[contains(text(),'Job Applications')]")
@@ -72,7 +72,7 @@ public class DashboardPage extends baseclass {
 	
 	public void openDashboardPage() throws InterruptedException
 	{
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",dashboard);
 	} 
 	

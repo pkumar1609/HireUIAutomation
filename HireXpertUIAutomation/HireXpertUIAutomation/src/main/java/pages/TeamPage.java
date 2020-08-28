@@ -135,7 +135,6 @@ public class TeamPage extends baseclass {
 			}
 			catch(NoSuchElementException e)
 			{
-				System.out.println("team added succesfully");
 			}
 			
 		}
@@ -159,12 +158,9 @@ public class TeamPage extends baseclass {
 				common.okbtn.isDisplayed();
 				common.clickOnOKBtn();
 				common.clickOnAddClosebtn();
-				System.out.println("these Agency team member are already added");
 			}
 			catch(NoSuchElementException e)
-			{
-				System.out.println("Agency team added succesfully");
-			}
+			{}
 			
 		}
 			
@@ -200,19 +196,10 @@ public class TeamPage extends baseclass {
 		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-			dashboardpage.openTeamPage();
-//			teamMemberNameAgy=data.get("agyteam");
-//			String teammemberpresent= "//td[text()='" +teamMemberNameAgy+ "']";
-//			try
-//			{
-//				driver.findElement(By.xpath(teammemberpresent)).isDisplayed();
-//				teampage.closeTeamPage();
-//			}
-//			catch(NoSuchElementException e)
-//			{
+			    dashboardpage.openTeamPage();
 				AddAllDetailsagyK(credentials);
 				teampage.closeTeamPage();
-//			}	
+
 		}
 		}
 	
@@ -230,8 +217,8 @@ public class TeamPage extends baseclass {
 	
 	public void verifyTeamAdded(DataTable credentials) throws InterruptedException
 	{
-		this.emp=loginpage.b;
-		if(emp==true) 
+		
+		if(loginpage.b==true) 
 		{
 		teampage.isTeamPresentForEmp(credentials);
 		}

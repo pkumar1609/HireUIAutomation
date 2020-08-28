@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.Map;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -59,7 +61,7 @@ public class EditJobPage extends baseclass {
 		Assert.assertEquals(addjobpage.industry.getAttribute("value"), data.get("industry"));
 		Assert.assertEquals(addjobpage.designation.getAttribute("value"), data.get("designation"));
 		Assert.assertEquals(addjobpage.jobrole.getAttribute("value"), data.get("jobrole"));
-		if(emp=true)
+		if(loginpage.b=true)
 		{
 //			Assert.assertEquals(addjobpage.Organization.getAttribute("value"), data.get("organisation"));
 		}

@@ -64,8 +64,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 	@FindBy(xpath = "//select[@formcontrolname='ReadyToRelocate']")
 	public WebElement readyToRelocate;
-	
-	
+		
 	@FindBy(xpath = "//input[@formcontrolname='Designation']")
 	public WebElement designation;
 	
@@ -77,8 +76,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
 	public WebElement noticePeriodCheckbox;
-	
-	
+		
 	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
 	public WebElement addSkillButton;
 	
@@ -142,50 +140,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Enter City Area']")
 	public WebElement cityArea;
 
-	@FindBy(xpath = "//input[@placeholder='Enter City']")
-	public WebElement city;
-	
-	@FindBy(xpath = "//input[@formcontrolname='ZipCode']")
-	public WebElement zipCode;
-	
-	@FindBy(xpath = "//input[@placeholder='Enter Industry']")
-	public WebElement industry;
-	
-	@FindBy(xpath = "//input[@placeholder='Enter Experience In Years']")
-	public WebElement experience;
-	
-	@FindBy(xpath = "//input[@placeholder='Enter ECTC']")
-	public WebElement ectc;
-	
-	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
-	public WebElement onNoticePeriod;
-	
-	@FindBy(xpath = "(//input[@placeholder='Select Date'])[2]")
-	public WebElement lastWorkingDay;
-	
-	@FindBy(xpath = "//input[@placeholder='Enter CTC']")
-	public WebElement ctc;
-	
-	@FindBy(xpath = "//select[@formcontrolname='PreferredModeOfCommunication']")
-	public WebElement modeOfcommunication;
-	
-	@FindBy(xpath = "//select[@formcontrolname='ReadyToRelocate']")
-	public WebElement readyToRelocate;
-	
-	@FindBy(xpath = "//input[@placeholder='Enter Skill']")  
-	public List<WebElement> skills;
-	
-	@FindBy(xpath = "//select[@formcontrolname='ExpertiseLevel']")  
-	public List<WebElement> expertiselevel;
-	
-	@FindBy(xpath = "//input[@formcontrolname='Certificate']")  
-	public List<WebElement> certificate;
-	
-	@FindBy(xpath = "//input[@formcontrolname='Role']")
-	public WebElement role;
-	
-//	@FindBy(xpath = "//input[@formcontrolname='Designation']")
-//	public WebElement designation;
+
 	
 	public CandidateUpdateProfilePage() {
 		
@@ -324,7 +279,7 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 		Assert.assertEquals(this.lastWorkingDay.getAttribute("value"),LastWorkingDay);
 		Assert.assertEquals(this.ctc.getAttribute("value"),CTC);
 		se = new Select (this.modeOfcommunication);
-		WebElement communication = se.getFirstSelectedOption();
+//		WebElement communication = se.getFirstSelectedOption();
 //		Assert.assertEquals(communication.getText(),Communicationmode);
 		se = new Select (this.readyToRelocate);
 		WebElement Relocate = se.getFirstSelectedOption();

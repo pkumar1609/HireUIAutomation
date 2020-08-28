@@ -54,7 +54,7 @@ public class ShareWithAgencyPage extends baseclass {
 	public void shareWithAgency(String agyEmailId) throws InterruptedException
 	{
 		workbenchpage.clickonthreedot();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		workbenchpage.shareWithAgencyButton.click();
 		sharewithteampage.searchField.sendKeys(agyEmailId);
 		Thread.sleep(2000);
