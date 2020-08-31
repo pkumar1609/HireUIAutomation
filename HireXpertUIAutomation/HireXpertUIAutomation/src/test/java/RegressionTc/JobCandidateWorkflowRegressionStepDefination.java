@@ -833,13 +833,22 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 //		addjobpage.addJobforEmployerandAgency(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
 //	}
 	
-	@Given("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
-
-		Thread.sleep(3000);
-		addjobpage.addJobforEmployerandAgency(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod, JobSkill1, JobSkill2);
+//	@Given("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
+//
+//		Thread.sleep(3000);
+//		addjobpage.addJobforEmployerandAgency(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod, JobSkill1, JobSkill2);
+//		
+//	}
+	
+	@When("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
+	    
+		addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
 		
+
 	}
+
 
 	@Given("^click on Job drop down and select recently added job$")
 	public void click_on_Job_drop_down_and_select_recently_added_job() throws Throwable {
@@ -1089,39 +1098,39 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		//10
 		
 		
-		@When("^Add a new Job as employer with at list one skill \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-		public void add_a_new_Job_as_employer_with_at_list_one_skill(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String Jobskill1, String JobSkill2) throws Throwable {
-		    
-			Thread.sleep(3000);
-
-			workbenchpage.AddJob();
-			
-			Thread.sleep(3000);
-			
-			 addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
-				
-			Thread.sleep(3000);
-			
-			addjobpage.addNewSkill1(Jobskill1);
-			
-			Thread.sleep(3000);
-			
-	        addjobpage.addNewSkill2(JobSkill2);
-	        
-	        Thread.sleep(3000);
-			
-			//addjobpage.deleteSkills();         // Delete 2nd skill
-			
-			Thread.sleep(3000);
-			
-			addjobpage.deleteSkill3.click();   // Delete 3rd skill
-			
-			Thread.sleep(3000);
-			
-			common.submitbtn.click();
-
-			
-		}
+//		@When("^Add a new Job as employer with at list one skill \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//		public void add_a_new_Job_as_employer_with_at_list_one_skill(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String Jobskill1, String JobSkill2) throws Throwable {
+//		    
+//			Thread.sleep(3000);
+//
+//			workbenchpage.AddJob();
+//			
+//			Thread.sleep(3000);
+//			
+//			 addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
+//				
+//			Thread.sleep(3000);
+//			
+//			addjobpage.addNewSkill1(Jobskill1);
+//			
+//			Thread.sleep(3000);
+//			
+//	        addjobpage.addNewSkill2(JobSkill2);
+//	        
+//	        Thread.sleep(3000);
+//			
+//			//addjobpage.deleteSkills();         // Delete 2nd skill
+//			
+//			Thread.sleep(3000);
+//			
+//			addjobpage.deleteSkill3.click();   // Delete 3rd skill
+//			
+//			Thread.sleep(3000);
+//			
+//			common.submitbtn.click();
+//
+//			
+//		}
 		
 		@When("^upload candidate resume$")
 	    public void upload_candidate_resume() throws Throwable {
@@ -1207,35 +1216,35 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 		}
 
-		@When("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-		public void add_a_new_Job_as_employer(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
-			
-			Thread.sleep(3000);
-
-			workbenchpage.AddJob();
-			
-			Thread.sleep(3000);
-			
-            addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
-			
-			Thread.sleep(3000);
-			
-			addjobpage.addNewSkill1(JobSkill1);
-			
-			Thread.sleep(3000);
-			
-			addjobpage.addNewSkill2(JobSkill2);
-			
-			
-			Thread.sleep(3000);
-			
-			addjobpage.deleteSkill3.click();
-			
-			Thread.sleep(3000);
-			
-			common.submitbtn.click();
-
-		}
+//		@When("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//		public void add_a_new_Job_as_employer(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
+//			
+//			Thread.sleep(3000);
+//
+//			workbenchpage.AddJob();
+//			
+//			Thread.sleep(3000);
+//			
+//            addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
+//			
+//			Thread.sleep(3000);
+//			
+//			addjobpage.addNewSkill1(JobSkill1);
+//			
+//			Thread.sleep(3000);
+//			
+//			addjobpage.addNewSkill2(JobSkill2);
+//			
+//			
+//			Thread.sleep(3000);
+//			
+//			addjobpage.deleteSkill3.click();
+//			
+//			Thread.sleep(3000);
+//			
+//			common.submitbtn.click();
+//
+//		}
 
 		@When("^Verify that job is added or not$")
 		public void verify_that_job_is_added_or_not() throws Throwable {
@@ -1326,55 +1335,72 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 //			common.clickOnConfirmYes();
 			
 		}
+		
+		@When("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+		public void add_a_new_Job_as_employer(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
 
-
-		@When("^Add a new Job as agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-		public void add_a_new_Job_as_agency(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
-		   
 			Thread.sleep(3000);
-
-			workbenchpage.AddJob();
-			
-			Thread.sleep(3000);
-			
-//			addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
-			
-			addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
-			
-			Thread.sleep(3000);
-			
-			addjobpage.addNewSkill1(JobSkill1);
-			
-			Thread.sleep(3000);
-			
-			addjobpage.addNewSkill2(JobSkill2);
-			
-			Thread.sleep(3000);
-			
-			addjobpage.deleteSkill3.click();
-			
-			Thread.sleep(2000);
-			
-			addjobpage.employerplusicon.click();
-			
-			Thread.sleep(3000);
-			
-			addjobpage.fillEmployerDetailsPlusIcon();
-			
-			Thread.sleep(3000);
-			
-			driver.findElement(By.xpath("/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")).click();
-			
-			Thread.sleep(1000);
-			
-			addjobpage.employerDropDown();
-			
-	        Thread.sleep(3000);
-			
-			common.submitbtn.click();
-
+			addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
 
 		}
+		
+		@When("^Add a new Job as agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+		public void add_a_new_Job_as_agency(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
+
+			Thread.sleep(3000);
+			addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
+
+		}
+
+
+
+//		@When("^Add a new Job as agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//		public void add_a_new_Job_as_agency(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
+//		   
+//			Thread.sleep(3000);
+//
+//			workbenchpage.AddJob();
+//			
+//			Thread.sleep(3000);
+//			
+////			addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
+//			
+//			addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
+//			
+//			Thread.sleep(3000);
+//			
+//			addjobpage.addNewSkill1(JobSkill1);
+//			
+//			Thread.sleep(3000);
+//			
+//			addjobpage.addNewSkill2(JobSkill2);
+//			
+//			Thread.sleep(3000);
+//			
+//			addjobpage.deleteSkill3.click();
+//			
+//			Thread.sleep(2000);
+//			
+//			addjobpage.employerplusicon.click();
+//			
+//			Thread.sleep(3000);
+//			
+//			addjobpage.fillEmployerDetailsPlusIcon();
+//			
+//			Thread.sleep(3000);
+//			
+//			driver.findElement(By.xpath("/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")).click();
+//			
+//			Thread.sleep(1000);
+//			
+//			addjobpage.employerDropDown();
+//			
+//	        Thread.sleep(3000);
+//			
+//			common.submitbtn.click();
+//
+//
+//		}
 		
 		@When("^Drag the candidate card from that column to rejected column$")
 		public void drag_the_candidate_card_from_that_column_to_rejected_column1() throws Throwable {
