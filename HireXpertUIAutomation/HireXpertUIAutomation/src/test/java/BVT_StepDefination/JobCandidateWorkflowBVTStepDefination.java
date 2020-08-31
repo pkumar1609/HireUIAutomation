@@ -28,84 +28,22 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 
 	}
 	
-	@When("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void add_a_new_Job_as_employer(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
-	    
-		Thread.sleep(3000);
+	@When("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void add_a_new_Job_as_employer(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
 
-		workbenchpage.AddJob();
-		
 		Thread.sleep(3000);
-		
-		addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
-		
-		Thread.sleep(3000);
-		
-		addjobpage.addNewSkill1();
-		
-		Thread.sleep(3000);
-		
-		addjobpage.addNewSkill2();
-		
-		Thread.sleep(3000);
-		
-		addjobpage.deleteSkill3.click();
-		
-		Thread.sleep(3000);
-		
-		common.submitbtn.click();
+		addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
 
 	}
 	
-	@When("^Add a new Job as agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void add_a_new_Job_as_agency(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews) throws Throwable {
-	    
-		Thread.sleep(3000);
+	@When("^Add a new Job as agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void add_a_new_Job_as_agency(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
 
-		workbenchpage.AddJob();
-		
 		Thread.sleep(3000);
-		
-		addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
-		
-		Thread.sleep(3000);
-		
-		addjobpage.addNewSkill1();
-		
-		Thread.sleep(3000);
-		
-		addjobpage.addNewSkill2();
-		
-		Thread.sleep(3000);
-		
-		addjobpage.deleteSkill3.click();
-		
-		Thread.sleep(2000);
-		
-		addjobpage.clickaddemployericon();
-		
-		Thread.sleep(3000);
-		
-		addjobpage.fillEmployerDetailsPlusIcon();
-		
-		Thread.sleep(3000);
-		
-		driver.findElement(By.xpath("//button[@class='btn Cbtn-primary w-20'][contains(text(),'Submit')]")).click();
-		
-		Thread.sleep(1000);
-		
-		addjobpage.employerDropDown();
-		
-        Thread.sleep(3000);
-        
-        addjobpage.enteremployerorganizationname();
-		
-		Thread.sleep(3000);
-		
-		common.submitbtn.click();
-
+		addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
 
 	}
+
 	
 	@When("^Click on Add Candidate button$")
 	public void click_on_Add_Candidate_button() throws Throwable {
@@ -323,13 +261,24 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		registerpage.employerlogin();
 	}
 
-	@When("^Go to Workbench tab and select one job from job drop down$")
-	public void go_to_Workbench_tab_and_select_one_job_from_job_drop_down() throws InterruptedException {
-		
-		Thread.sleep(4200);
-		dashboardpage.openWorkbenchPage();
-		workbenchpage.selectjobT();
+//	@When("^Go to Workbench tab and select one job from job drop down$")
+//	public void go_to_Workbench_tab_and_select_one_job_from_job_drop_down() throws InterruptedException {
+//		
+//		Thread.sleep(4200);
+//		dashboardpage.openWorkbenchPage();
+//		workbenchpage.selectjobT();
+//	}
+	
+	@Then("^Select the same job from job drop down \"([^\"]*)\" \"([^\"]*)\"$")
+	public void select_the_same_job_from_job_drop_down(String Title, String OrganizationName) throws Throwable {
+
+//		Thread.sleep(3000);
+//		driver.findElement(By.xpath("//button[@title='Reload Job']")).click();
+		Thread.sleep(5000);
+        workbenchpage.selectjobT(Title, OrganizationName);
+
 	}
+
 
 	@When("^Click on Questionnaire tab$")
 	public void click_on_Questionnaire_tab() throws InterruptedException {
@@ -517,13 +466,15 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 
 
 
-	@When("^Go to Workbench tab and select the job from job drop down$")
-	public void go_to_Workbench_tab_and_select_the_job_from_job_drop_down() throws InterruptedException {
-		
-		Thread.sleep(3000);
-		dashboardpage.openWorkbenchPage();
-		workbenchpage.selectjobT();
-	}
+//	@When("^Go to Workbench tab and select the job from job drop down$")
+//	public void go_to_Workbench_tab_and_select_the_job_from_job_drop_down() throws InterruptedException {
+//		
+//		Thread.sleep(3000);
+//		dashboardpage.openWorkbenchPage();
+//		workbenchpage.selectjobT();
+//	}
+	
+
 
 	@When("^Click on Add Questionnaire$")
 	public void click_on_Add_Questionnaire() throws InterruptedException {
@@ -605,14 +556,14 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		
 	}
 
-	@When("^Click on Workbench tab and select job from job drop down$")
-	public void click_on_Workbench_tab_and_select_job_from_job_drop_down() throws Throwable {
-	    
-
-		Thread.sleep(3000);
-		dashboardpage.openWorkbenchPage();
-		workbenchpage.selectjobT();
-	}
+//	@When("^Click on Workbench tab and select job from job drop down$")
+//	public void click_on_Workbench_tab_and_select_job_from_job_drop_down() throws Throwable {
+//	    
+//
+//		Thread.sleep(3000);
+//		dashboardpage.openWorkbenchPage();
+//		workbenchpage.selectjobT();
+//	}
 
 
 	@When("^Verify that Questionnarie and Screening tab is not displayed when login with Agency$")

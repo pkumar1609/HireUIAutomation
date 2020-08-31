@@ -7,11 +7,11 @@ Feature: Job Management
     When title of page is HireXpert
     And click on Login link
     And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
-    And click on Workbench tab
-    And click on Add Job button and fill all mandatory details on Add Job popup window "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
+    And Go to Workbench 
+And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>"
 #    And Verify that job is added or not "<JobName>"
     And click on Employers tab at the top and verify user able to delete the employer or not when agency is logged in
-    And click on Job drop down and select recently added job
+    And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
     And click on Edit Job button to make changes in job
     And make any changes in the job "<Budget1>" "<Noticeperiod>"
     And click on submit button
