@@ -4,7 +4,6 @@ Feature: Job Management
   Scenario Outline: To verify user is able to add and edit job for Employer and Agency login
   
     Given User is on Home page of application
-    
     When title of page is HireXpert
     And click on Login link
     And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
@@ -24,6 +23,7 @@ Feature: Job Management
     And click on close job button and delete the job
     And click on employer tab and delete the employer if login as agency.
     And close the browser
+    
     
 Examples:
 |    email address            |  password  | Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews | Budget1 | Noticeperiod |
