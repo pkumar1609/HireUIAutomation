@@ -8,7 +8,7 @@ Feature: Job Management
     And click on Login link
     And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
     And Go to Workbench 
-And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
+     And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #    And Verify that job is added or not "<JobName>"
     And click on Employers tab at the top and verify user able to delete the employer or not when agency is logged in
     And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
