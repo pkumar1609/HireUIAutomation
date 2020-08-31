@@ -8,7 +8,7 @@ And click on Login link
 When click on Employer-Agency SignIn link
 And login with Employer credential
 And Go to Workbench 
-And Add a new Job as employer "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>>" "<JobSkill1>" "<JobSkill2>"
+And Add a new Job as employer "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
 And Click on Add Candidate button
 And Enter valid "<CandidateEmail>" 
@@ -27,13 +27,13 @@ And click on close job button and delete the job
 And click on employer tab and delete the employer if login as agency
 
 Examples:
-   | JobTitle | JobDesignation | Industry    | JobRole  | JobLocation   | JobBudget | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  contactnumber   | 
-   | Engineer | Test Engineer  | IT-Software | Engineer | Viman Nagar   | 500000    | 2      | 3      | 3              |      90         | Agile     |  Java     | candidate05@gmail.com   | Can05   |   912349699666   |   Software Tester |  04/08/1999 | Male   |     No         |     30       |    30/11/2020  |    2.5    | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   123456789      |
+   | JobTitle | JobDesignation | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  contactnumber   | OrganizationName |
+   | Engineer | Test Engineer  | IT-Software | 2      | 3      |   300000   |  500000   | 3              |      90         | Agile     |  Java     | candidate05@gmail.com   | Can05   |   912349699666   |   Software Tester |  04/08/1999 | Male   |     No         |     30       |    30/11/2020  |    2.5    | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   123456789      | EmpOrg           |
   
 #TC ID  232, 62,  24,  29 [Job Candidate Workflow BVT TC]
 #
 # If DB clear, register the employer first = employermain01@gmail.com and agency = agencymain01@gmail.com . 
-#otherwise no change required
+
  
  
 @BVT
@@ -44,7 +44,7 @@ And click on Login link
 When click on Employer-Agency SignIn link
 And login with Agency credential
 And Go to Workbench 
-And Add a new Job as agency "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>"
+And Add a new Job as agency "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
 And Click on Add Candidate button
 And Enter valid "<CandidateEmail>" 
@@ -63,8 +63,10 @@ And click on close job button and delete the job
 And click on employer tab and delete the employer if login as agency
 
   Examples:
-   | JobTitle | JobDesignation   | Industry    | JobRole  | JobLocation | JobBudget | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2     |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  noticeperiod   | OrganizationName |
-   | Engineer | Test Engineer    | IT-Software | Engineer | Viman Nagar | 500000    | 2      | 3      | 3              |       60        | Java      |  Agile        | candidate07@gmail.com   | Can07   |   912349699666   |   Software Tester |  04/08/1999 | Male   |     No         |     30       |    30/11/2020  |    2.5    | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   60            | Emporg           |
+  
+  | JobTitle | JobDesignation   | Industry    | MinExp | MaxExp  | MinSalary  | MaxSalary| NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2     |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  noticeperiod   | OrganizationName |
+  | Engineer | Test Engineer    | IT-Software | 2      | 3       |300000      | 500000   | 3              |       60        | Java      |  Agile        | candidate07@gmail.com   | Can07   |   912349699666   |   Software Tester |  04/08/1999 | Male   |     No         |     30       |    30/11/2020  |    2.5    | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   60            | Emporg           |
+  
   
 # TC ID 55, 28, 233 [Job Candidate Workflow BVT TC]
   
@@ -72,7 +74,7 @@ And click on employer tab and delete the employer if login as agency
 #otherwise no change required
 
   
- @BVT
+  @BVT
 Scenario Outline: Verify the functionality of Add Questionary, Edit question on questionary page and delete Questionary by Delete Questionnaire button and Delete icon.
 
 Given Open browser
@@ -80,7 +82,7 @@ And click on Login link
 When click on Employer-Agency SignIn link
 And login with Employer credential
 And Go to Workbench 
-And Add a new Job as employer "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>>" "<JobSkill1>" "<JobSkill2>"
+And Add a new Job as employer "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
 And Click on Add Candidate button
 And Enter valid "<CandidateEmail>" 
@@ -118,8 +120,8 @@ And click on close job button and delete the job
 And click on employer tab and delete the employer if login as agency
 
 Examples:
-| JobTitle | JobDesignation   | Industry    | JobRole  | JobLocation  | JobBudget | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 | CandidateEmail   |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate| QUESTION1     | QMARKS1 | ANSWER1 | ANSWER2 | MARKS1 | MARKS2 | QUESTION2    | QMARKS2 | ANSWER3 | ANSWER4 | MARKS3 | MARKS4 |QUESTION3  | QMARKS3 | ANSWER5 | ANSWER6     | MARKS5 | MARKS6 | cuttoffpercentage | rejectionpercentage | question      | OrganizationName |
-| Engineer | Test Engineer    | IT-Software | Engineer | Viman Nagar  | 500000    | 2      | 3      | 3              |   60            | Agile     | Java      |rahul@gmail.com   | Rahul   |   912349699666   |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | NP Negotiable |  50     |  Yes    |   No    |  30    |  20    |Can Relocate? | 50      |  Yes    |  No     |  50    |   0    | Work Exp  |  100    | Fresher | Experienced | 50     |  50    |   80              |      20             | NP Negotiable |  Emporg          |
+| JobTitle | JobDesignation   | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 | CandidateEmail   |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate| QUESTION1     | QMARKS1 | ANSWER1 | ANSWER2 | MARKS1 | MARKS2 | QUESTION2    | QMARKS2 | ANSWER3 | ANSWER4 | MARKS3 | MARKS4 |QUESTION3  | QMARKS3 | ANSWER5 | ANSWER6     | MARKS5 | MARKS6 | cuttoffpercentage | rejectionpercentage | question      | OrganizationName |
+| Engineer | Test Engineer    | IT-Software | 2      | 3      | 250000     | 450000    | 3              |   60            | Agile     | Java      |rahul@gmail.com   | Rahul   |   912349699666   |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | NP Negotiable |  50     |  Yes    |   No    |  30    |  20    |Can Relocate? | 50      |  Yes    |  No     |  50    |   0    | Work Exp  |  100    | Fresher | Experienced | 50     |  50    |   80              |      20             | NP Negotiable |  Emporg          |
 
 #TC :- 120, 122, 138, 234 [Job Candidate Workflow BVT TC]
 #TC :- 136 [Job Candidate Workflow Regression TC]
@@ -135,7 +137,7 @@ And click on Login link
 When click on Employer-Agency SignIn link
 And login with Employer credential
 And Go to Workbench 
-And Add a new Job as employer "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>>" "<JobSkill1>" "<JobSkill2>"
+And Add a new Job as employer "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
 And Click on Add Candidate button
 And Enter valid "<CandidateEmail>" 
@@ -160,12 +162,13 @@ And click on employer tab and delete the employer if login as agency
 
 Examples:
 
-| JobTitle | JobDesignation   | Industry    | JobRole  | JobLocation | JobBudget | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod  |  JobSkill1 |  JobSkill2 |      CandidateEmail     |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode | Salaryoffered | distance | permanentAddress | relocate | QUESTION1      | QMARKS1  | ANSWER1 | ANSWER2 | MARKS1  | MARKS2 | cuttoffpercentage | rejectionpercentage | OrganizationName |
-| Engineer | Test Engineer    | IT-Software | Engineer | Viman Nagar | 500000    | 2      | 3      | 3              |    60            | Agile      |    Java    |candidate03@gmail.com    | can03   |   912349699666   |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000        | 4        | No               | No       |  NP Negotiable |  100     |  Yes    |   No    |  100    |  0     |   80              |      20             | Emporg           |
+| JobTitle | JobDesignation   | Industry    | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod  |  JobSkill1 |  JobSkill2 |      CandidateEmail     |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode | Salaryoffered | distance | permanentAddress | relocate | QUESTION1      | QMARKS1  | ANSWER1 | ANSWER2 | MARKS1  | MARKS2 | cuttoffpercentage | rejectionpercentage | OrganizationName |
+| Engineer | Test Engineer    | IT-Software | 2      | 3      | 3              |    60            | Agile      |    Java    |candidate03@gmail.com    | can03   |   912349699666   |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000        | 4        | No               | No       |  NP Negotiable |  100     |  Yes    |   No    |  100    |  0     |   80              |      20             | Emporg           |
 
 #TC ID :- 125 [Job Candidate Workflow BVT TC]
 
 # If DB clear, register the employer first = employermain01@gmail.com. otherwise no change required
+
 
 
 @BVT
@@ -177,7 +180,7 @@ And click on Login link
 And click on Employer-Agency SignIn link
 And login with Agency credential
 And Go to Workbench 
-And Add a new Job as agency "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>"
+And Add a new Job as agency "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
 And Click on Add Candidate button
 And Enter valid "<CandidateEmail>" 
@@ -197,11 +200,10 @@ And click on employer tab and delete the employer
 And click on employer tab and delete the employer if login as agency
 
 Examples:
-| JobTitle   | JobDesignation   | Industry    | JobRole  | JobLocation | JobBudget | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod |  JobSkill1 |  JobSkill2  | interviewer | title     | scheduleon  | hour | minute | interviewduration | timezone             |   CandidateEmail        |Name    |ContactNumber|Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate| OrganizationName |
-| Engineer   | Test Engineer    | IT-Software | Engineer | Viman Nagar | 500000    | 2      | 3      | 3              |        60       |    Agile   |    Java     | emp         | Interview |  25/12/2020 | 11   | 30     |  1 hour           | Indian Standard Time | candidate01@gmail.com   |can01   |8956652538   |jr.developer  |04/08/1999      |Female  |No            |25          |2.0       |400000|800000     |India  |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |  Emporg          |
+| JobTitle   | JobDesignation   | Industry    | JobRole  | JobLocation | JobBudget | MinExp | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod |  JobSkill1 |  JobSkill2  | interviewer | title     | scheduleon  | hour | minute | interviewduration | timezone             |   CandidateEmail        |Name    |ContactNumber|Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate| OrganizationName |
+| Engineer   | Test Engineer    | IT-Software | Engineer | Viman Nagar | 500000    | 2      | 3      | 300000     | 500000    | 3              |        60       |    Agile   |    Java     | emp         | Interview |  25/12/2020 | 11   | 30     |  1 hour           | Indian Standard Time | candidate01@gmail.com   |can01   |8956652538   |jr.developer  |04/08/1999      |Female  |No            |25          |2.0       |400000|800000     |India  |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |  Emporg          |
 
 #TC ID :- 109, 137 [Job Candidate Workflow BVT TC]
-
 
 #Change interview date and time
 # If DB clear, register the agency first = agencymain01@gmail.com. otherwise no change required
