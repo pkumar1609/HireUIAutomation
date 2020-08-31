@@ -39,14 +39,22 @@ And Go to Workbench
 And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
 And verify candidate card is displaying or not in New column "<CandidateName>"
 And Click Candidate details eye icon on candidate card "<CandidateName>"
-And Verify the details on candidate details icon "<CandidateName>","<JobTitle>","<CandidateEmail>","<ContactNumber>","<CandidateDesignation>","<CandidateExperience>" "<CandidateNoticePeriod>""<CandidateCTC>" "<CandidateExpectedCTC>" "<CandidateCountry>","<CandidateCity>","<CabdidateCityArea>" "<CandidateCountry>"
+#And Verify the details on candidate details icon "<CandidateName>","<JobTitle>","<CandidateEmail>","<ContactNumber>","<CandidateDesignation>","<CandidateExperience>" "<CandidateNoticePeriod>""<CandidateCTC>" "<CandidateExpectedCTC>" "<CandidateCountry>","<CandidateCity>","<CabdidateCityArea>" "<CandidateCountry>"
+#And Click on close button
+And Verify the details on candidate details icon "<CandidateName>","<JobTitle>","<CandidateEmail>","<ContactNumber>","<CandidateDesignation>","<CandidateExperience>" "<OnNoticePeriod>>" "<CandidateNoticePeriod>" "<emailaddress>" "<CandidateCTC>" "<CandidateExpectedCTC>" "<CandidateCountry>","<CandidateCity>","<CabdidateCityArea>" "<CandidateCountry>"
 And Click on close button
+
 
  
 Examples:
  
- | emailaddress              | password  | JobTitle    | JobDesignation          | Industry      | JobRole          | JobLocation    | JobBudget   | MinExp | MaxExp | NoOfInterviews  | JobNoticePeriod | JobSkill1  | JobSkill2  | JobCity | JobCountry   |experience |  CandidateEmail     | CandidateName | ContactNumber | CandidateDesignation   | DateOfBirth |  Gender | OnNoticePeriod | CandidateNoticePeriod | LastWorkingDay  | CandidateExperience | CandidateCTC  | CandidateExpectedCTC  | CandidateCity | CandidateCityArea  | ZipCode | Communicationmode |ExpertiseLevel1 | ExpertiseLevel2 | CandidateCountry | Salaryoffered | distance | permanentAddress | relocate  | OrganizationName | Job                        |
- | employermain01@gmail.com  | 12345     | Engineer    | Software Test Engineer  | IT-Software   |  Test Engineer   | Viman Nagar    |  700000     |   3    |  4     |         2       |      60         |     Agile  |     JAVA   |    Pune |  India       | 3         |  rahuljha@gmail.com | Rahul Jha     | 123456789     | Tester                 | 1/5/1995    | Male    |       No       |    60                 |       1/10/2020 | 3.5                 | 450000        | 550000                | Pune          | Viman Nagar        | 12345   | Call              | Expert         | Expert          | India            |    550000     |  2       |   Yes            |    Yes    |  Emporg          | Engineer - Emporg - Active |
+ | emailaddress              | password  | JobTitle    | JobDesignation          | Industry      | JobRole          | JobLocation    | JobBudget   | MinExp | MaxExp | NoOfInterviews  | JobNoticePeriod | JobSkill1  | JobSkill2  | JobCity | JobCountry   |experience |  CandidateEmail     | CandidateName | ContactNumber | CandidateDesignation   | DateOfBirth |  Gender | OnNoticePeriod | CandidateNoticePeriod | LastWorkingDay  | CandidateExperience | CandidateCTC  | CandidateExpectedCTC  | CandidateCity | CandidateCityArea  | ZipCode | Communicationmode |ExpertiseLevel1 | ExpertiseLevel2 | CandidateCountry | Salaryoffered | distance | permanentAddress | relocate  | OrganizationName | Job                                 |
+ | employermain01@gmail.com  | 12345     | Engineer    | Software Test Engineer  | IT-Software   |  Test Engineer   | Viman Nagar    |  700000     |   3    |  4     |         2       |      60         |     Agile  |     JAVA   |    Pune |  India       | 3         |  rahuljha@gmail.com | Rahul Jha     | 123456789     | Tester                 | 1/5/1995    | Male    |       No       |    60                 |       1/10/2020 | 3.5                 | 450000        | 550000                | Pune          | Viman Nagar        | 12345   | Call              | Expert         | Expert          | India            |    550000     |  2       |   Yes            |    Yes    |  Emporg          | Engineer - Emporg - Active          |
+ | agencymain01@gmail.com    | 12345     | Teacher     | Maths Teacher           | Teaching      | M1 Teacher       | Kharadi        |  500000     |  2     | 3      |       2         |      60         | Maths1     |   Maths2   | Pune    |  India       | 2         |  sonujain@gmail.com | Sonu Jain     | 987456123     | Professor              |  1/5/1990   | Male    |       Yes      |   60                  |      1/10/2020  | 2.2                 | 350000        | 450000                | Pune          | Yerwada            | 54321   | Call              | Expert         | Intermediate    | India            |    480000     |  3       |   Yes            |   Yes     |  EmployerOrg     |  Teacher - EmployerOrg - Active     |      
+    
+    
+    
+    
     
     # TC :- 462, 477 
     
