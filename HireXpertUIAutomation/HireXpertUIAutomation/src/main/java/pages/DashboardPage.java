@@ -13,7 +13,7 @@ import utilPackage.baseclass;
 public class DashboardPage extends baseclass {
 
 	
-	@FindBy(xpath = "//a[@href='#/ats/workbench']")
+	@FindBy(xpath = "//a[contains(text(),'ATS-Workbench')]")
 	public WebElement workbench;
 	
 	@FindBy(xpath = "//a[contains(text(),'Employers')]")

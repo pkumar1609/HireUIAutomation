@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.ForgetPasswordPage;
 import utilPackage.baseclass;
 
 public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
@@ -58,12 +59,12 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	}
 
 
-	@Then("^Update employer profile \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void update_employer_profile(String EmployerAddress, String EmployerOrganizationName, String EmployerWebsite, String EmployerCity) throws Throwable {
-		
-		Thread.sleep(4200);
-		updateprofilepopuppage.UpdateProfileEmployer(EmployerAddress, EmployerOrganizationName, EmployerWebsite, EmployerCity);
-	}
+//	@Then("^Update employer profile \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void update_employer_profile(String EmployerAddress, String EmployerOrganizationName, String EmployerWebsite, String EmployerCity) throws Throwable {
+//		
+//		Thread.sleep(4200);
+//		updateprofilepopuppage.UpdateProfileEmployer(EmployerAddress, EmployerOrganizationName, EmployerWebsite, EmployerCity);
+//	}
 
 
 	@Then("^Update agency profile\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
@@ -72,6 +73,15 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		Thread.sleep(4200);
 		updateprofilepopuppage.UpdateProfileAgency(AgencyAddress, AgencyOrganizationName, AgencyWebsite, AgencyCity);
 	}
+	
+	@When("^Update employer profile  \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void update_employer_profile(String EmployerAddress, String EmployerOrganizationName, String  EmployerWebsite, String EmployerCity) throws Throwable {
+
+		Thread.sleep(4200);
+		updateprofilepopuppage.UpdateProfileEmployer(EmployerAddress, EmployerOrganizationName, EmployerWebsite, EmployerCity);
+
+	}
+	
 
 
 	

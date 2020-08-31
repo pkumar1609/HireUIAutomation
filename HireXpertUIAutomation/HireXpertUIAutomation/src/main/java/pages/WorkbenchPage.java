@@ -13,6 +13,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import cucumber.api.DataTable;
 import utilPackage.baseclass;
@@ -330,7 +331,73 @@ public void verifyCandidateAddedDisplayedOnWorkbenchOrNot () {
 	}
 }
 
-	
+public void AssertDetailsOnCandidateDetails(String CandidateName, String JobTile, String CandidateEmail, String ContactNumber,String CandidateDesignation,String CandidateExperience, String emailaddress,String OnNoticePeriod,String CandidateNoticePeriod,String LastWorkingDay,String CandidateCTC,String CandidateExpectedCTC,String CandidateCountry,String CandidateCity,String CandidateCityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException
+{
+	Assert.assertEquals(driver.findElement(By.xpath("//h4[text()='"+CandidateName+"']")).isDisplayed(), true);
+	Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' "+JobTile+"']")).isDisplayed(), true);
+	Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Email Id ']//following::td[text()='"+CandidateEmail+"']")).isDisplayed(), true);
+	Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Contact No. ']//following::td[text()='"+ContactNumber+"']")).isDisplayed(), true);
+	Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Designation ']//following::td[text()='"+CandidateDesignation+"']")).isDisplayed(), true);		
+	Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Experience ']//following::td[text()='"+CandidateExperience+" Years']")).isDisplayed(), true);	
+	if(OnNoticePeriod.contentEquals(OnNoticePeriod)){
+		
+		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Notice Period']//following::td[text()='"+CandidateNoticePeriod+" Days']")).isDisplayed(), true);
+	}
+	else{
+		
+		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Last Working Day']//following::td[text()='"+addcandidatepage.datebelowField+" ']")).isDisplayed(), true);
+		
+	}
+	Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Added By Email']//following::td[text()='"+emailaddress+"']")).isDisplayed(), true);
+	Assert.assertEquals(driver.findElement(By.xpath("(//strong[text()='Assign To ']//following::td[contains(text(),'"+emailaddress+"')])[1]")).isDisplayed(), true);
+//	Assert.assertEquals(driver.findElement(By.xpath("(//strong[text()='Assign To Number']//following::td[text()='"+updateprofilepopuppage.Contact+"'])[1]")).isDisplayed(), true);
+	Assert.assertEquals(driver.findElement(By.xpath("(//strong[text()='Assign To Email']//following::td[text()='"+emailaddress+"'])[1]")).isDisplayed(), true);
+	Assert.assertEquals(driver.findElement(By.xpath("(//strong[text()='Added By ']//following::td[contains(text(),'"+emailaddress+"')])")).isDisplayed(), true);	
+//	Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Added By Number']//following::td[text()='"+updateprofilepopuppage.Contact+"']")).isDisplayed(), true);	
+//	Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Interview ']//following::td[text()='"+scheduleinterviewpage.interviewDate+", "+scheduleinterviewpage.hourTime+" : "+scheduleinterviewpage.minuteTime+"']")).isDisplayed(), true);		
+//	Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Salary Offered ']//following::td[text()='"+Salaryoffered+"']")).isDisplayed(), true);
+	Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='CTC ']//following::td[text()='"+CandidateCTC+"']")).isDisplayed(), true);
+	Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Expected CTC ']//following::td[text()='"+CandidateExpectedCTC+"']")).isDisplayed(), true);
+	Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Country ']//following::td[text()='"+CandidateCountry+"']")).isDisplayed(), true);
+	Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='City ']//following::td[text()='"+CandidateCity+"']")).isDisplayed(), true);
+	Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Location ']//following::td[text()='"+CandidateCityArea+"']")).isDisplayed(), true);
+	Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Zipcode ']//following::td[text()='"+ZipCode+"']")).isDisplayed(), true);
+}
+
+public void assertskill(String JobSkill1, String JobSkill2, String ExpertiseLevel1, String ExpertiseLevel2, String certificate1, String certificate2, String certificate3,String certificateforskill1, String certificateforskill2)
+{
+	driver.findElement(By.xpath("//th[text()='Skill']//following::td[text()='"+JobSkill1+"']")).isDisplayed();
+	driver.findElement(By.xpath("//th[text()='Skill']//following::td[text()='"+JobSkill2+"']")).isDisplayed();
+//	driver.findElement(By.xpath("//th[text()='Skill']//following::td[text()='"+Skill3+"']")).isDisplayed();
+	driver.findElement(By.xpath("//td[text()='"+JobSkill1+"']//following::td[text()='"+ExpertiseLevel1+"']")).isDisplayed();
+	driver.findElement(By.xpath("//td[text()='"+JobSkill2+"']//following::td[text()='"+ExpertiseLevel2+"']")).isDisplayed();
+//	driver.findElement(By.xpath("//td[text()='"+Skill3+"']//following::td[text()='"+level3+"']")).isDisplayed();
+	if(certificate1.contentEquals("Yes"))
+	{
+		Assert.assertEquals(driver.findElements(By.xpath("//td[text()='"+JobSkill1+"']//following::td[text()='"+certificateforskill1+"']")).size()>0, true);
+	}
+	else
+	{
+		Assert.assertEquals(driver.findElements(By.xpath("//td[text()='"+JobSkill1+"']//following::td[text()='"+certificateforskill1+"']")).size()>0, false);
+	}
+	if(certificate2.contentEquals("Yes"))
+	{
+		Assert.assertEquals(driver.findElements(By.xpath("//td[text()='"+JobSkill2+"']//following::td[text()='"+certificateforskill2+"']")).size()>0, true);
+	}
+	else
+	{
+		Assert.assertEquals(driver.findElements(By.xpath("//td[text()='"+JobSkill2+"']//following::td[text()='"+certificateforskill2+"']")).size()>0, false);
+	}
+//	if(certificate3.contentEquals("Yes"))
+//	{
+//		Assert.assertEquals(driver.findElements(By.xpath("//td[text()='"+Skill3+"']//following::td[text()='"+certificateforskill1+"']")).size()>0, true);
+//	}
+//	else
+//	{
+//		Assert.assertEquals(driver.findElements(By.xpath("//td[text()='"+Skill3+"']//following::td[text()='"+certificateforskill1+"']")).size()>0, false);
+//	}
+
+}
 
 public void verifyDeletedCandidateNotDisplayedOnWorkbench () {
 	
