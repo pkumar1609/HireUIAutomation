@@ -72,7 +72,7 @@ Feature: Job Management
     
 Examples:
 |username         |   password   |team|teamId         |CandEmailId    |
-|pemp@gmail.com   |    12345     |pe1 |pe1@gmail.com  |can12@gmail.com|
+#|pemp@gmail.com   |    12345     |pe1 |pe1@gmail.com  |can12@gmail.com|
 |pagy@gmail.com   |    12345     |pa1 |pa1@gmail.com  |can13@gmail.com|
 
 #TC ID - 67,72,73

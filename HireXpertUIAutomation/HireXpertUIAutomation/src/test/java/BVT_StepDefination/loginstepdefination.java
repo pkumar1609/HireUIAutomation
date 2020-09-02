@@ -43,7 +43,7 @@ public class loginstepdefination extends baseclass {
 	@And("^Click on Employer-Agency Signin link$")
 	public void click_on_Employer_Agency_Signin_link() throws Throwable {
 	    loginpage.ClickOnEmployerAgencySigninLink();
-	}
+	} 
 	
 	@And("^Employer enters valid credentials$")
 	public void Employer_enters_valid_credentials() throws InterruptedException{
@@ -62,6 +62,7 @@ public class loginstepdefination extends baseclass {
 	
 	@Then("^Employer should be able to add Agency$")
 	public void employer_should_be_able_to_add_Agency() {
+
 	ele=  driver.findElement(By.xpath("//td[text()='"+agenciespage.empname+"']")).isDisplayed();
 	Assert.assertEquals(ele, true);
 	}
@@ -79,17 +80,17 @@ public class loginstepdefination extends baseclass {
 	@When("^Click on add Button and Fill all the mandatory details for team$")
 	public void click_on_add_Button_and_Fill_all_the_mandatory_details_for_team(DataTable credentials) throws Throwable {
 		teampage.AddAllDetailsK(credentials);
-	}
+	} 
 	
-	@Then("^Employer should be able to add team member$")
-	public void employer_should_be_able_to_add_team_member()  {
-	}
+
 	
 	@Then("^Newly added team member should be displayed in team page$")
-	public void newly_added_team_member_should_be_displayed_in_team_page()  {
+	public void newly_added_team_member_should_be_displayed_in_team_page() throws InterruptedException  {
+		dashboardpage.openTeamPage();
 		ele = driver.getPageSource().contains(teampage.namevalidate);
 		Assert.assertEquals(ele, true);
-	}
+
+	} 
 
 	@Then("^the employer with which you have logged in should display in team tab by default$")
 	public void the_employer_with_which_you_have_logged_in_should_display_in_team_tab_by_default()  
@@ -120,19 +121,17 @@ public class loginstepdefination extends baseclass {
 	}
 
 	@Then("^Agency should be able to add Employer$")
-	public void Agency_should_be_able_to_add_Employer()  {
-	 
-	}
-
-	@Then("^Newly added employer should be displayed in employer page$")
-	public void newly_added_employer_should_be_displayed_in_Employer_page() {
+	public void Agency_should_be_able_to_add_Employer() throws InterruptedException  {
+		dashboardpage.openTeamPage();
 		System.out.println(size);
 		for(int i=0; i<size; i++) 
 		{
 			ele = driver.getPageSource().contains(ar.get(i));
 			Assert.assertEquals(ele, true);	
 		}
-}
+	}
+
+
 	
 	@And("^delete the added employer$")
 	public void delete_the_added_employer() throws InterruptedException {

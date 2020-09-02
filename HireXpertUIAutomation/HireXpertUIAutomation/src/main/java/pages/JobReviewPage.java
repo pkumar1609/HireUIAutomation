@@ -29,8 +29,8 @@ public class JobReviewPage extends baseclass{
 	
 	public void verifyJobDisplay() throws InterruptedException
 	{	
-		Thread.sleep(2000);
-		jobReview.click();
+		Thread.sleep(3000);
+		jobReview.click(); 
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//button[@title='Search']")).click();
 		String approvebtn="(//a[contains(text(),'"+addjobpage.jobname+"')]//following::button[text()='Approve'])[1]";		

@@ -231,13 +231,13 @@ public class LoginPage extends baseclass
 				logedinusername.click();
 				b=true;
 		
-			}
+			} 
 			catch(NoSuchElementException e)
 			{
 				b=false;
 				logedinuser= logedinusername.getText();
 				Thread.sleep(2000);
-				logedinusername.click();	
+				logedinusername.click();	 
 			}
 			  
 	}

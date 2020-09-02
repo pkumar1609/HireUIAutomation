@@ -95,7 +95,7 @@ public class taskBWT extends baseclass {
 	@And("^Select a job$")
 	public void select_a_job_and_click_on_add_task_button() throws Throwable {
 		workbenchpage.selectJob();
-	}
+	} 
 	
 	
 //tc 265 and 267
@@ -171,7 +171,7 @@ public class taskBWT extends baseclass {
 @Given("^team member should be added$")
 public void team_member_should_be_added(DataTable credentials) throws Throwable {
 	teampage.verifyTeamAdded(credentials);
-} 
+}  
 
 @And("^Share job with team member$")
 public void share_job_with_team_member(DataTable credentials) throws Throwable {
@@ -287,7 +287,7 @@ else
 		System.out.println(size1);
 		for(int i=0;i<size1;i++)
 		{
-			Thread.sleep(4000);
+			Thread.sleep(2000);
 			markCompleteButton1.get(i).click();
 		}
 	}

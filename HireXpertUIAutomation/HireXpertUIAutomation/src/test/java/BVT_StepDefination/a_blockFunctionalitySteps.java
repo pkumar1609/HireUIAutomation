@@ -24,7 +24,7 @@ import utilPackage.utilclass;
 public class a_blockFunctionalitySteps extends baseclass {
 @Before( "@bvt_agencyblock,@bvt_teamblock,@bvt_agencyunblock,@bvt_teamunblock")
 public void setup()
-{
+{ 
 }
 
 //@bvt_agencyblock:
@@ -33,7 +33,7 @@ boolean emp;
 	@When("^enter valid \"([^\"]*)\" and \"([^\"]*)\" for registered employer and click on Sign in button$")
 	public void enter_valid_and_for_registered_employer_and_click_on_Sign_in_button(String username, String password) throws Throwable {
 		loginpage.loginIn(username, password);
-	}
+	} 
 	
 
 	@When("^Agency should be added previously$")
@@ -200,7 +200,7 @@ boolean emp;
 		sharewithteampage.searchField.sendKeys(team);
 		Thread.sleep(2000);
 		sharewithteampage.shareCheckbox.click();
-		try
+		try 
 		{
 		common.clickOnConfirmYes();
 		}

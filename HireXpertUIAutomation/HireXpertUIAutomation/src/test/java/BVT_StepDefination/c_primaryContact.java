@@ -58,7 +58,7 @@ public class c_primaryContact extends baseclass {
 		common.clickOnConfirmYes();
 		Thread.sleep(3000);
 	    sharewithteampage.primaryContactRadioButton.click();
-	    common.clickOnConfirmYes();
+	    common.clickOnConfirmYes(); 
 	}
 	
 

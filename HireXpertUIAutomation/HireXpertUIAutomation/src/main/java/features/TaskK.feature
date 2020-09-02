@@ -14,8 +14,8 @@ And Employer enters valid credentials "<Username>","<Password>"
 #|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Add job
-|title    |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|
-|abc      |developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|
+|title    |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
+|abc      |developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
 And Select a added job
 And Share job with team member
 |EmpTeam|Agyteam|
@@ -24,7 +24,7 @@ And Click on close button
 And Go to dashboard
 And Click on Add task button and enter all details employer
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|genral task        |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+|task1       |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 And the task should display for employer
 And Logout from App
 And Click on Employer-Agency Signin link
@@ -38,7 +38,7 @@ And Select a added job
 And Click on hamburger menu
 And Click on Add task button and enter all details employer
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|particular task    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+|task2    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 And Go to dashboard
 And the task should display for employer
 And Logout from App
@@ -72,7 +72,7 @@ And Click on close button
 And Go to dashboard
 And Click on Add task button and enter all details for agency
 |Title for emp  |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|genral task 1    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+|task3          |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |taskagy3  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 Then the task should display for agency
 And Logout from App
 And Click on Employer-Agency Signin link
@@ -86,7 +86,7 @@ And Select a added job
 And Click on hamburger menu
 And Click on Add task button and enter all details for agency
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|particular task 1   |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com         |
+|task4   |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |taskagy4  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com         |
 And Go to dashboard
 Then the task should display for agency
 And Logout from App
@@ -117,7 +117,7 @@ And Click on close button
 And Go to dashboard
 And Click on Add task button and enter all details
 |Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|task1            |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |Genral task      |pagy         |pa1         |Task should complete before time    |pagy   		    |pe1       |pe1@gmail.com        |
+|task6            |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |task6     |pagy         |pa1         |Task should complete before time    |pagy   		    |pe1       |pe1@gmail.com        |
 And Logout from App
 And Click on Employer-Agency Signin link
 And Login with team member
@@ -133,7 +133,7 @@ Examples:
 |pagy@gmail.com|12345   |
 
 
-@TC282 @TaskBVT
+@TC282 
 Scenario Outline: Verify only creator of the particular task can delete the task
 Given User must be registered
 When title of login page is Home
@@ -154,7 +154,7 @@ And Select a job
 And Click on hamburger menu
 And Click on Add task button and enter all details 
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|task2    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+|task7    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |taskagy7  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 And Logout from App
 And Click on Employer-Agency Signin link
 And Login with team member
@@ -165,7 +165,7 @@ And Employer enters valid credentials "<Username>","<Password>"
 Then Delete the task
 Examples:
 |Username      |Password|
-|pemp@gmail.com|12345   |
+#|pemp@gmail.com|12345   |
 |pagy@gmail.com|12345   |
 
 
@@ -189,17 +189,18 @@ And Click on close button
 And Go to dashboard
 And Click on Add task button and enter all details
 |Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|Genral task      |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |Genral task      |pagy         |pa1         |Task should complete before time    |pagy   		    |pe1       |pe1@gmail.com        |
+|task10      |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |Genral task      |pagy         |pa1         |Task should complete before time    |pagy   		    |pe1       |pe1@gmail.com        |
 And Go to dashboard
 And Click on edit task
 And edit the task "<editedtask>"and "<editednote>"
 And Click on edit task
 Then verify all the edited details "<editedtask>"and "<editednote>"
+And Click on close button
 
 Examples:
 |Username      |Password|task    |team|Assignto|note                             |editedtask|editednote          |
-|pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task2     |complete before 1 pm|
-|pagy@gmail.com|12345  |task11  |pagy|pa1      |Task should complete before time |task2     |complete before 1 pm|
+|pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task8     |complete before 1 pm|
+|pagy@gmail.com|12345  |task11  |pagy|pa1      |Task should complete before time |task8     |complete before 1 pm|
 
 
 @TC305 @TaskBVT
@@ -223,17 +224,18 @@ And Select a job
 And Click on hamburger menu
 And Click on Add task button and enter all details
 |Title for emp      |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|particular task    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |Genral task      |pagy         |pa1         |Task should complete before time    |pagy   		    |pe1       |pe1@gmail.com        |
+|task12    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |taskagy12     |pagy         |pa1         |Task should complete before time    |pagy   		    |pe1       |pe1@gmail.com        |
 And Go to dashboard
 And Click on edit task
 And edit the task "<editedtask>"and "<editednote>"
 And Click on edit task
 Then verify all the edited details "<editedtask>"and "<editednote>"
+And Click on close button
 
 Examples:
 |Username      |Password|task    |team|Assignto|note                             |editedtask|editednote          |
-|pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task2     |complete before 1 pm|
-|pagy@gmail.com|12345   |task11  |pagy|pa1     |Task should complete before time |task2     |complete before 1 pm|
+|pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task11     |complete before 1 pm|
+|pagy@gmail.com|12345   |task11  |pagy|pa1     |Task should complete before time |task11     |complete before 1 pm|
 
 
 @TC294 @TaskBVT
@@ -256,7 +258,7 @@ And Go to dashboard
 And Click on Add task button and enter all details
 |Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
 |Genral task      |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |Genral task      |pagy         |pa1         |Task should complete before time    |pagy   		    |pe1       |pe1@gmail.com        |
-|task1            |pemp      |pemp     |note1                            |pemp    		    |pe1       |pe1@gmail.com        |task             |pagy         |pagy        |Task                                |pagy   		    |pe1       |pe1@gmail.com        |
+|task13            |pemp      |pemp     |note1                            |pemp    		    |pe1       |pe1@gmail.com        |taskagy13             |pagy         |pagy        |Task                                |pagy   		    |pe1       |pe1@gmail.com        |
 And Click on My Task
 Then Click on Reload Task button
 And Click on Team Task

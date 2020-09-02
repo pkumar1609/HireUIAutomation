@@ -1,6 +1,6 @@
 Feature: UserAccount Feature
 
-@TC47_51 @BVT @login
+@TC47_51 @BVT 
 Scenario: To verify whether the employer is able to add agency.
 
 Given User must be registered
@@ -19,7 +19,7 @@ And delete the added agency
 
 
 
-@TC48_52 @BVT @login
+@TC48_52 @BVT 
 Scenario: To verify whether the employer is able to add team
 
 Given User must be registered
@@ -29,10 +29,9 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials
 And Click on team tab
 And Click on add Button and Fill all the mandatory details for team
-|Name|         Email   | contact  |
+|Name|      Email      | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
-Then Employer should be able to add team member
 Then Newly added team member should be displayed in team page
 Then the employer with which you have logged in should display in team tab by default
 And delete the added team
@@ -52,7 +51,6 @@ And Click on add Button and Fill all the mandatory details for employer
 |pe2 | pe2@gmail.com   | 1234564  |
 #And click on close button
 Then Agency should be able to add Employer
-Then Newly added employer should be displayed in employer page
 And  delete the added employer
 Then deleted employer should not be display on page
 

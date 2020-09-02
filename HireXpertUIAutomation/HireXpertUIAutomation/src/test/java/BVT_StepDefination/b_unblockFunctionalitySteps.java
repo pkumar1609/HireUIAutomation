@@ -169,9 +169,10 @@ public class b_unblockFunctionalitySteps extends baseclass {
 
 	@Then("^Unblocked agency should be able to add candidate$")
 	public void unblocked_agency_should_be_able_to_add_candidate() throws Throwable {
-	    
-		System.out.println("Unblocked agency able to add candidate for the job and added candidate displayed in New column");
+	    Asser
 	}
+	
+	
 //
 //	@Then("^close the browser$")
 //	public void close_the_browser() throws Throwable {
@@ -355,6 +356,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 		boolean candidateDisplay = driver.findElement(By.xpath("//span[text()=' "+Name+"']")) != null;
 		Assert.assertEquals(true, candidateDisplay);
 	}
+	
 	
 //	@After("@bvt_agencyunblock, @bvt_teamunblock")
 //	public void tearDown() throws InterruptedException

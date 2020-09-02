@@ -63,7 +63,7 @@ public class DashboardPage extends baseclass {
 
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",team);
-	}
+	} 
 	
 	public void openInterviewsPage() 
 	{

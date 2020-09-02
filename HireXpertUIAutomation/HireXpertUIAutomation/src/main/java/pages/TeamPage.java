@@ -125,7 +125,7 @@ public class TeamPage extends baseclass {
 			Select dropdown = new Select(countryid);
 			dropdown.selectByVisibleText("India");
 			Thread.sleep(1000);
-			common.ClickSumbit();
+			common.ClickSumbit(); 
 			try
 			{ 
 				common.okbtn.isDisplayed();
@@ -136,8 +136,8 @@ public class TeamPage extends baseclass {
 			catch(NoSuchElementException e)
 			{
 			}
-			
 		}
+		common.clickOnCloseBtn();
 	 }
 	
 	public void AddAllDetailsagyK(DataTable credentials) throws InterruptedException
@@ -164,15 +164,16 @@ public class TeamPage extends baseclass {
 			
 		}
 			
-			
+	
 	}
 	
-	public void deleteteamK()
+	public void deleteteamK() throws InterruptedException
 	{
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//td[text()='"+teampage.namevalidate+"']//following::button[@title='Delete']")).click();
 		confimYesDelete.click();
 		
-	}
+	} 
 	
 	public void closeTeamPage()
 	{
@@ -199,7 +200,6 @@ public class TeamPage extends baseclass {
 			    dashboardpage.openTeamPage();
 				AddAllDetailsagyK(credentials);
 				teampage.closeTeamPage();
-
 		}
 		}
 	
@@ -222,7 +222,7 @@ public class TeamPage extends baseclass {
 		{
 		teampage.isTeamPresentForEmp(credentials);
 		}
-		else
+		else 
 		{
 		teampage.isTeamPresentForAgy(credentials);
 		}

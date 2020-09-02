@@ -1,4 +1,4 @@
-package pages;
+package pagesK;
 
 
 import java.awt.AWTException;
@@ -324,7 +324,7 @@ public class AddCandidatePage extends baseclass {
 		}
 		catch(NoSuchElementException e )
 		{}
-	} 
+	}
 
         public void Enterexpertilevel (String ExpertiseLevel1, String ExpertiseLevel2 ) {
         		

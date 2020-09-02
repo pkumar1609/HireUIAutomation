@@ -60,7 +60,7 @@ public class EditJobPage extends baseclass {
 		}
 		Assert.assertEquals(addjobpage.industry.getAttribute("value"), data.get("industry"));
 		Assert.assertEquals(addjobpage.designation.getAttribute("value"), data.get("designation"));
-		Assert.assertEquals(addjobpage.jobrole.getAttribute("value"), data.get("jobrole"));
+//		Assert.assertEquals(addjobpage.jobrole.getAttribute("value"), data.get("jobrole"));
 		if(loginpage.b=true)
 		{
 //			Assert.assertEquals(addjobpage.Organization.getAttribute("value"), data.get("organisation"));
@@ -75,11 +75,12 @@ public class EditJobPage extends baseclass {
 		WebElement option = se.getFirstSelectedOption();
 		Assert.assertEquals(option.getText()," "+data.get("country")+" ");
 		Assert.assertEquals(addjobpage.city.getAttribute("value"), data.get("city"));
-		Assert.assertEquals(addjobpage.location.getAttribute("value"), data.get("location"));
+		Assert.assertEquals(addjobpage.cityArea.getAttribute("value"), data.get("location"));
 		Assert.assertEquals(addjobpage.zipcode.getAttribute("value"), data.get("zipcode"));
 		Assert.assertEquals(addjobpage.address.getAttribute("value"), data.get("address"));
 		Assert.assertEquals(addjobpage.noofvacancies.getAttribute("value"), data.get("noofvacancies"));
-		Assert.assertEquals(addjobpage.budget.getAttribute("value"), data.get("budget"));
+		Assert.assertEquals(addjobpage.minsal.getAttribute("value"), data.get("minsal"));
+		Assert.assertEquals(addjobpage.maxsal.getAttribute("value"), data.get("maxsal"));
 		Assert.assertEquals(addjobpage.minexp.getAttribute("value"), data.get("minexp"));
 		Assert.assertEquals(addjobpage.maxexp.getAttribute("value"), data.get("maxexp"));
 		Assert.assertEquals(addjobpage.cashBenefit.getAttribute("value"), data.get("cashBenefit"));

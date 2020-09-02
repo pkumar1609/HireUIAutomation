@@ -442,7 +442,7 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 				title.sendKeys(jobname);
 				Organization.clear();
 				this.Organization.sendKeys(data.get("organization"));
-			}
+			} 
 			else
 			{
 				jobname=data.get("agytitle");

@@ -84,7 +84,7 @@ public class TaskPage extends baseclass {
 	@FindBy(xpath="//strong[text()=addedtask]")
 	public WebElement taskname;
 	
-	@FindBy(xpath="//button[@title='Refresh'][@class='btn Cbtn-primary mr-1 float-right optbtn']")
+	@FindBy(xpath="//button[@title='Refresh']")
 	private WebElement reloadtaskbtn;
 	
 	@FindBy(xpath="//h5[text()=' Error']")
@@ -113,9 +113,9 @@ public class TaskPage extends baseclass {
 //		}
 //	}
 	
-	public void reloadtask()
+	public void reloadtask() throws InterruptedException
 	{
-		explicitwait.until(ExpectedConditions.elementToBeClickable(reloadtaskbtn));
+	Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", reloadtaskbtn);
 	}
 	
@@ -180,7 +180,7 @@ public class TaskPage extends baseclass {
 	{
 		if(assignto.contentEquals(loginpage.logedinuser))
 		{ 
-			Thread.sleep(4000);
+			Thread.sleep(4000); 
 			mytask.click();
 			reloadtask();
 			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")) != null;
@@ -188,7 +188,7 @@ public class TaskPage extends baseclass {
 		}
 		else
 		{
-			Thread.sleep(4000);
+			Thread.sleep(3000);
 			teamtask.click();
 			reloadtask();
 			boolean b= driver.findElement(By.xpath("//strong[text()='"+addedtask+"']")) != null;
