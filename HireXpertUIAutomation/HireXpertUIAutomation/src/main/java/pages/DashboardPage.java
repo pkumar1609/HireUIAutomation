@@ -13,7 +13,7 @@ import utilPackage.baseclass;
 public class DashboardPage extends baseclass {
 
 	
-	@FindBy(xpath = "//a[contains(text(),'ATS-Workbench')]")
+	@FindBy(xpath = "//a[@href='#/ats/workbench']")
 	public WebElement workbench;
 	
 	@FindBy(xpath = "//a[contains(text(),'Employers')]")
@@ -55,13 +55,13 @@ public class DashboardPage extends baseclass {
 	public void openAgenciesPage() throws InterruptedException {
 		
 //		wait.until(ExpectedConditions.elementToBeClickable(agencies));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		agencies.click();
 	}
 	
 	public void openTeamPage() throws InterruptedException {
 
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",team);
 	}
 	

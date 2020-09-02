@@ -76,7 +76,7 @@ public class AgenciesPage extends baseclass {
 	
 	public void ClickAddbtn() throws InterruptedException
 	{
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		addAgencyButton.click();
 	}
 	
@@ -87,18 +87,16 @@ public class AgenciesPage extends baseclass {
 		ClickAddbtn();
 		agencyName.sendKeys(data.get("Name"));
 		empname=data.get("Name");
-//		Adding element to array list
-//		agencies.add(data.get("Name"));
 		agencyEmail.sendKeys(data.get("Email"));
 		agencyContactNumber.sendKeys(data.get("contact"));
 		namevalidate= data.get("Name");
-		WebElement testDropDown = driver.findElement(By.xpath("//select[@formcontrolname='CountryId']"));
-		select = new Select(testDropDown);
-		select.selectByVisibleText("India");
+//		WebElement testDropDown = driver.findElement(By.xpath("//select[@formcontrolname='CountryId']"));
+//		select = new Select(testDropDown);
+//		select.selectByVisibleText("India");
 		common.ClickSumbit();
 		try
 		{
-			common.okbtn.isDisplayed();
+			common.okbtn.isDisplayed(); 
 			common.clickOnOKBtn();
 			common.clickOnAddClosebtn();
 			System.out.println("this agency is already added");

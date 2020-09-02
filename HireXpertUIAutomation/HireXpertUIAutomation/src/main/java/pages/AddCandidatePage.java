@@ -231,7 +231,6 @@ public class AddCandidatePage extends baseclass {
 		else 
 		{
 			System.out.println("Candidate is not present in system and you need to enter candidate details");
-		
 			name.sendKeys(Name); 
 			nameOfCan=name.getAttribute("value");
 			contactNumber.sendKeys(ContactNumber);
