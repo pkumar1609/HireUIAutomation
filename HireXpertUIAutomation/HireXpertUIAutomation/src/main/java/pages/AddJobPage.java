@@ -230,35 +230,35 @@ public AddJobPage()
 	}
 	
 	
-	public void fillDetails() throws InterruptedException {
-		
-		title.sendKeys("Automation1");
-		designation.sendKeys("Automation engineer");
-		industry.sendKeys("IT Company Pvt. Ltd.");
-		jobrole.sendKeys("Automation engineer");
-		location.sendKeys("Bombay");
-		budget.sendKeys("400000");
-		minexp.sendKeys("0");
-		maxexp.sendKeys("2");
-		noOfInterviews();
-		click.click();
-		Thread.sleep(2000);
-	}
+//	public void fillDetails() throws InterruptedException {
+//		
+//		title.sendKeys("Automation1");
+//		designation.sendKeys("Automation engineer");
+//		industry.sendKeys("IT Company Pvt. Ltd.");
+//		jobrole.sendKeys("Automation engineer");
+//		location.sendKeys("Bombay");
+//		budget.sendKeys("400000");
+//		minexp.sendKeys("0");
+//		maxexp.sendKeys("2");
+//		noOfInterviews();
+//		click.click();
+//		Thread.sleep(2000);
+//	}
 	
-public void filljobDetails(String Title, String Designation, String Industry, String JobRole, String Location, String Budget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod) throws InterruptedException {
+public void filljobDetails(String JobTitle,String Industry, String JobDesignation, String MinSalary , String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod) throws InterruptedException {
 		
-		title.sendKeys(Title);
-		designation.sendKeys(Designation);
+		title.sendKeys(JobTitle);
 		industry.sendKeys(Industry);
-		jobrole.sendKeys(JobRole);
-		location.sendKeys(Location);
-		budget.sendKeys(Budget);
+		designation.sendKeys(JobDesignation);
+		minsal.sendKeys(MinSalary);
+		maxsal.sendKeys(MaxSalary);
 		minexp.sendKeys(MinExp);
 		maxexp.sendKeys(MaxExp);
 		se = new Select(totalinterviews);
-		se.selectByIndex(3);
-		click.click();
+		se.selectByVisibleText(NoOfInterviews);
 		Thread.sleep(2000);
+		cityArea.sendKeys(CityArea);
+		zipcode.sendKeys(ZipCode);
 		noticePeriod.sendKeys(JobNoticePeriod);
 	}
 
@@ -338,7 +338,7 @@ public void addNewSkill3() {
 	}
 	
 	
-public void addJobforEmployerandAgency(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws InterruptedException{
+public void addJobforEmployerandAgency(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws InterruptedException{
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
 		if(dynamicElement.size() != 0){
@@ -352,7 +352,7 @@ public void addJobforEmployerandAgency(String JobTitle, String JobDesignation, S
 			
 			Thread.sleep(3000);
 			
-			addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
+			addjobpage.filljobDetails(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod);
 			
 			Thread.sleep(3000);
 			
@@ -383,7 +383,7 @@ public void addJobforEmployerandAgency(String JobTitle, String JobDesignation, S
 			
 			Thread.sleep(3000);
 			
-			addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
+			addjobpage.filljobDetails(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod);
 			
 			Thread.sleep(3000);
 			
