@@ -338,7 +338,7 @@ public void addNewSkill3() {
 	}
 	
 	
-public void addJobforEmployerandAgency(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws InterruptedException{
+public void addJobforEmployerandAgency(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws InterruptedException{
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
 		if(dynamicElement.size() != 0){
