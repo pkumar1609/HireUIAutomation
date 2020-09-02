@@ -209,7 +209,7 @@ public class AddCandidatePage extends baseclass {
 	
 	public void EnterAllMandatoryfieldsT(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException, AWTException {
 		
-		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),' Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
+		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),'Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
 		if(dynamicElement.size() != 0)
 		{
 			System.out.println("Candidate is present in system");
@@ -226,7 +226,7 @@ public class AddCandidatePage extends baseclass {
 			this.lastWorkingDay.clear();
 			this.lastWorkingDay.sendKeys(LastWorkingDay);
 			this.datebelowField = driver.findElement(By.xpath("(//div[@class='text-info'])[2]")).getText();
-			}	
+			}
 		}	
 		else 
 		{

@@ -168,7 +168,7 @@ public class WorkbenchPage extends baseclass {
 //		select = new Select(jobDropDown);
 //		select.selectByIndex(1);
 //		select.selectByVisibleText();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		jobDropDown.click();
 		driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).click();
 // 		updateprofilepopuppage.getDetails();

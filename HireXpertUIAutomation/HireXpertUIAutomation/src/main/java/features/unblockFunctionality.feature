@@ -15,8 +15,8 @@ Feature: Job Management
 	And Click on close button
     And Go to workbench
 	And Add job
-	|title		   |agytitle          |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-	|job1 developer|agyjob1 developer |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |
+	|title		      |agytitle          |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
+	|ui/ux developer  |agyjob1 developer |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |
 	And Select a added job
     And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 
     And click on the Block/Unblock to unblock checkbox present in front of agency whom you shared the job "<agyEmailId>"
@@ -31,8 +31,8 @@ Feature: Job Management
 #   And close the browser
 
  Examples:
- |username      |agyEmailId    |Teamid        |password|CandidateEmail        |Name    |ContactNumber|Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|
- |pemp@gmail.com|pagy@gmail.com|pe1@gmail.com |12345   |vishwani@gmail.com    |vishvani|8956652538   |jr.developer  |04/08/1999      |Female  |No            |25          |2.0       |400000|800000     |India  |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |
+ |username      |agyEmailId    |Teamid        |password|CandidateEmail         |Name            |ContactNumber|Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|
+ |pemp@gmail.com|pagy@gmail.com|pe1@gmail.com |12345   |vishwaniT@gmail.com    |vishvani Thakare|7897562134   |jr.developer  |04/08/1999      |Female  |No            |50         |2.0       |400000|800000     |India  |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |
 
 @bvt_teamunblock
   Scenario Outline: Verify the Unblock functionality for team member with Employer and Agency login

@@ -35,8 +35,8 @@ public AddJobPage()
 	@FindBy(xpath = "//input[@formcontrolname='Industry']")
 	public WebElement industry;
 	
-	@FindBy(xpath = "//input[@formcontrolname='Location']")
-	public WebElement location;
+	@FindBy(xpath = "//input[@placeholder='Enter City Area']")
+	public WebElement cityArea;
 	
 	@FindBy(xpath = "//input[@placeholder='Enter Min Salary']")
 	public WebElement minsal;
@@ -457,18 +457,15 @@ public void addJobforEmployerandAgency(String JobTitle, String JobDesignation, S
 			designation.sendKeys(data.get("designation"));
 			this.industry.sendKeys(data.get("industry"));
 			industryname= data.get("industry");			
-//			jobrole.sendKeys(data.get("jobrole"));
-//			jobRole=data.get("jobrole");
-//			location.sendKeys(data.get("location"));
-//			budget.sendKeys(data.get("budget"));
 			minsal.sendKeys(data.get("minsal"));
 			maxsal.sendKeys(data.get("maxsal"));
 			minexp.sendKeys(data.get("minexp"));
 			maxexp.sendKeys(data.get("maxexp"));
+			cityArea.sendKeys(data.get("location"));
 			Thread.sleep(1000);
 			se=new Select(totalinterviews);
 			se.selectByVisibleText(data.get("totalinterviews"));
-			List<WebElement> deletebtn = driver.findElements(By.xpath("//button[@class='btn btn-outline-danger']"));
+			List<WebElement> deletebtn = driver.findElements(By.xpath("//th[text()='Job Skills']//following::i[@class='fa fa-trash']"));
 			for(int i=0;i<deletebtn.size();i++)
 				{
 					WebElement btn = deletebtn.get(i);
