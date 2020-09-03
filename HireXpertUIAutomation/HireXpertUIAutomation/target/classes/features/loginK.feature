@@ -1,6 +1,6 @@
 Feature: UserAccount Feature
 
-@TC47_51 @BVT 
+@TC47_51 @BVT @login
 Scenario: To verify whether the employer is able to add agency.
 
 Given User must be registered
@@ -19,7 +19,7 @@ And delete the added agency
 
 
 
-@TC48_52 @BVT 
+@TC48_52 @BVT @login
 Scenario: To verify whether the employer is able to add team
 
 Given User must be registered

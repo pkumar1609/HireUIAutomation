@@ -134,28 +134,11 @@ public class EmployersPage extends baseclass {
 		}
 		
 	}
-	
 
-//	public void ClickSubmitBtn() throws InterruptedException
-//	{
-////		submitbtn.click();
-//		Thread.sleep(2000);
-//		executor.executeScript("arguments[0].click();",submitbtn);
-//	}
-//	
-//	public void ClickCloseBtn() throws InterruptedException
-//	{
-//		Thread.sleep(4000);
-//		closebtn.click();
-//
-////		explicitwait.until(ExpectedConditions.elementToBeClickable(closebtn));
-////		executor.executeScript("arguments[0].click();",closebtn);
-//	}
-//
-	public void deleteUser()
+	public void deleteUser() throws InterruptedException
 	{
+		Thread.sleep(2000);
 		deleteEmployer.click();
-//		driver.findElement(By.xpath("//td[text()='"+namevalidate+"']//following::button[@title='Delete']")).click();
 		confimYes.click();	
 	}
 	
