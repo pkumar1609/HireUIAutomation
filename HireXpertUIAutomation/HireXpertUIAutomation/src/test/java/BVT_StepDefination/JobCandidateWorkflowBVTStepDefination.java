@@ -217,11 +217,11 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void click_on_employer_tab_and_delete_the_employer() throws Throwable {
 
 		dashboardpage.openEmployersPage();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		employerspage.searchEmployer();	
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		employerspage.deleteSearchedEmployer();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		common.clickOnConfirmYes();
 		
 
@@ -602,7 +602,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		
 		Thread.sleep(3000);
 		scheduleinterviewpage.EnterInterviewTitleT(title);
-		scheduleinterviewpage.ScheduleInterviewOnT(scheduleon);
+		scheduleinterviewpage.ScheduleInterviewOnT();
 		scheduleinterviewpage.EnterInterviewTimeT(hour, minute);
 		scheduleinterviewpage.EnterInterviewDurationT(interviewduration);
 		scheduleinterviewpage.EnterTimezoneT(timezone);

@@ -16,19 +16,19 @@ public class InterviewsPage extends baseclass {
 	@FindBy(xpath = "//div[@class='col-md-2 InterviewDetailsFilter pr-1']//select[@id='jobDropdown']")
 	public WebElement jobDropdown;
 	
-	@FindBy(xpath = "//my-date-picker[@id='fromDatePicker']//input[@placeholder='Select Date']")
+	@FindBy(xpath = "(//input[@placeholder='Select Date'])[1]")
 	public WebElement fromdate;
 	
-	@FindBy(xpath = "//my-date-picker[@id='toDatePicker']//input[@placeholder='Select Date']")
+	@FindBy(xpath = "(//input[@placeholder='Select Date'])[2]")
 	public WebElement todate;
 	
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-interview/div[2]/form/div/div[7]/button")
 	public WebElement searchButton;
 	
-	@FindBy(xpath = "//*[@id=\"fromDatePicker\"]/div/div/div/button[1]")
+	@FindBy(xpath = "(//button[@aria-label='Clear Date'])[1]")
 	public WebElement clearFromDate;
 	
-	@FindBy(xpath = "//*[@id=\"toDatePicker\"]/div/div/div/button[1]")
+	@FindBy(xpath = "(//button[@aria-label='Clear Date'])[2]")
 	public WebElement clearToDate;
 	
 	

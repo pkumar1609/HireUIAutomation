@@ -3,14 +3,21 @@ package BVT_StepDefination;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.DataTable;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.InterviewsPage;
 import utilPackage.baseclass;
 
 public class InterviewManagementBVTStepDefination extends baseclass {
+	
+	WebElement calendar;
+	String date;
 	
 
 	@When("^observe candidate is getting added in New column$")
@@ -25,13 +32,15 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		workbenchpage.scheduleInterview.click();
 	}
 	
+
+	
 	@When("^fill all interview details and click on Submit button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void fill_all_interview_details_and_click_on_Submit_button(String Title, String ScheduleOn, String Hour, String Minute, String Duration, String TimeZone) throws Throwable {
 	    
 		Thread.sleep(1000);
 		scheduleinterviewpage.title.sendKeys(Title);
 		Thread.sleep(1000);
-		scheduleinterviewpage.calendar.sendKeys(ScheduleOn);
+		scheduleinterviewpage.ScheduleInterviewOnT();
 		Thread.sleep(1000);
 		scheduleinterviewpage.hours.sendKeys(Hour);
 		Thread.sleep(1000);
@@ -117,10 +126,11 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	@Then("^make some changes and click on Submit button \"([^\"]*)\"$")
 	public void make_some_changes_and_click_on_Submit_button(String scheduleon) throws Throwable {
 	    
-		scheduleinterviewpage.calendar.clear();
+//		scheduleinterviewpage.calendar.clear();
 		Thread.sleep(1000);
-		scheduleinterviewpage.calendar.sendKeys(scheduleon);
+		scheduleinterviewpage.calendar.click();
 		Thread.sleep(1000);
+		driver.findElement(By.xpath("//div[@class='datevalue currmonth']//span[contains(text(),'30')]")).click();
 		common.submitbtn.click();
 		Thread.sleep(3000);
 	}
@@ -150,8 +160,8 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		interviewspage.fromdate.clear();
 		interviewspage.fromdate.sendKeys(data.get(0).get(1));
 		Thread.sleep(2000);
-		interviewspage.todate.clear();
-		interviewspage.todate.sendKeys(data.get(0).get(1));
+		interviewspage.clearToDate.click();
+//		interviewspage.todate.sendKeys(data.get(0).get(1));
 		Thread.sleep(2000);
 		interviewspage.searchButton.click();
 	}

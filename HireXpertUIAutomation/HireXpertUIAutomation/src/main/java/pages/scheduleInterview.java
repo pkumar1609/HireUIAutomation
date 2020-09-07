@@ -3,6 +3,8 @@ package pages;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -27,7 +29,13 @@ public class scheduleInterview extends baseclass {
 	public WebElement SelectInterviewer;
 	
 	@FindBy(xpath = "//input[@placeholder='Select Date']")
+	public WebElement scheduleOnfield;
+	
+	@FindBy(xpath = "(//button[@aria-label='Open Calendar'])[2]")
 	public WebElement calendar;
+	
+	@FindBy(xpath = "//span[contains(text(),'Today')]")
+	public WebElement todayBtn;
 	
 	@FindBy(id = "estimateTimeInHour")
 	public WebElement hours;
@@ -71,10 +79,12 @@ public class scheduleInterview extends baseclass {
 		 title.sendKeys(title1);
 	}
 	 
-	 public void ScheduleInterviewOnT(String scheduleon) {
-			
-		 calendar.sendKeys(scheduleon); 
+	 public void ScheduleInterviewOnT() throws InterruptedException {
+		 Thread.sleep(3000);	
 		 calendar.click();
+		 Thread.sleep(3000);
+		 todayBtn.click();
+		
 	 }
 	 
 	 public void EnterInterviewTimeT(String hour, String minute) {
