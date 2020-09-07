@@ -15,6 +15,7 @@ import pages.AddCandidatePage;
 import pages.AddJobPage;
 import pages.AddQuestionaryPage;
 import pages.AgenciesPage;
+import pages.CandidateCardSectionPage;
 import pages.CandidateDashboardPage;
 import pages.CandidateUpdateProfilePage;
 import pages.ChangePasswordPage;
@@ -23,10 +24,15 @@ import pages.DashboardPage;
 import pages.EditCandidatePage;
 import pages.EditJobPage;
 import pages.EmployersPage;
+import pages.HomePage;
 import pages.InterviewsPage;
+import pages.JobApplicationsPage;
+import pages.JobBoardPage;
+import pages.JobReviewPage;
 import pages.LoginPage;
 import pages.MarketPlacePage;
 import pages.RegisterPage;
+import pages.ScreeningPage;
 import pages.ShareWithAgencyPage;
 import pages.ShareWithTeamPage;
 import pages.TaskPage;
@@ -68,13 +74,21 @@ public class baseclass {
 	public static TaskPage taskpage;
 	public static MarketPlacePage marketplacepage;
 	public static Commonfunction common;
+	public static CandidateCardSectionPage candidatecardsectionpage;
+	public static ScreeningPage screeningpage;
+	public static HomePage homepage;
+	public static JobBoardPage jobboardpage;
+	public static JobApplicationsPage jobapplicationspage;
+	public static JobReviewPage jobreviewpage;
+	public static Actions Action;
+	
 	
 	public baseclass() { 
 		
 		try 
-		{
+		{ 
 			prop = new Properties();
-			FileInputStream fis = new FileInputStream("C:\\Users\\Admin\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
+			FileInputStream fis = new FileInputStream("C:\\Users\\TLP33\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
 			prop.load(fis);	
 		}
 		catch(IOException e) {
@@ -86,9 +100,9 @@ public class baseclass {
 		
 		String browsername = prop.getProperty("browser");
 		
-		if(browsername.equals("chrome")) {
-			
-			System.setProperty("webdriver.chrome.driver", "D:\\automation testing\\chromedriver_win32\\chromedriver.exe");
+		if(browsername.equals("chrome"))
+		{
+			System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
 		
@@ -98,7 +112,7 @@ public class baseclass {
 		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 			
 		driver.get(prop.getProperty("url"));
-		
+//		driver.get("https://hiretest.txsas.com/#/home");
 		loginpage = new LoginPage();
 		dashboardpage = new DashboardPage();
 		workbenchpage = new WorkbenchPage();
@@ -122,6 +136,13 @@ public class baseclass {
 		taskpage = new TaskPage();
 		marketplacepage = new MarketPlacePage();
 		common = new Commonfunction();
+		candidatecardsectionpage = new CandidateCardSectionPage();
+		screeningpage = new ScreeningPage();
+		homepage = new HomePage();
+		jobboardpage = new JobBoardPage();
+		jobapplicationspage = new JobApplicationsPage();
+		jobreviewpage=new JobReviewPage();
+		Action = new Actions(driver);
 	}
 	
 
