@@ -407,7 +407,7 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 			
 			Thread.sleep(3000);
 			
-			driver.findElement(By.xpath("//button[@class='btn Cbtn-primary w-20'][contains(text(),'Submit')]")).click();
+			driver.findElement(By.xpath("/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")).click();
 			
 			Thread.sleep(1000);
 			

@@ -13,9 +13,9 @@ Feature: Job Management
     And click on Employers tab at the top and verify user able to delete the employer or not when agency is logged in
     And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
     And click on Edit Job button to make changes in job
-    And make any changes in the job "<Budget1>" "<Noticeperiod>"
+    And make any changes in the job "<NoticePeriod1>"
     And click on submit button
-    And again click on Edit Job button and observe the changes
+    And click on Edit Job button to make changes in job
     And Now Click on Add Skill button to add more than ten skills
     Then Verify that user get an alert message as "User should not add more than 10 skills" for adding more than ten skills
 #    And click on ok button
@@ -26,9 +26,9 @@ Feature: Job Management
     
     
 Examples:
-|    email address            |  password  | Title    | Designation   | Industry    | JobRole  | Location    | Budget | MinExp | MaxExp | NoOfInterviews | Budget1 | Noticeperiod |
-|  employermain01@gmail.com   |   12345    | SDET     | QA Analyst    | IT-Industry | Tester   | Pune        | 700000 | 3      | 5      |   2            | 900000  |  30          |    
-|  agencymain01@gmail.com     |   12345    | QA-1     | Tester        | IT-Industry | Tester   | Pune        | 500000 | 2      | 3      | 2              | 600000  |  45          | 
+|    email address            |  password  | JobTitle | JobDesignation   | Industry    | MinSalary  | MaxSalary | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod | CityArea    | ZipCode |  JobSkill1 | JobSkill2 | JobNoticePeriod1 | OrganizationName |
+|  employermain01@gmail.com   |   12345    | SDET     | QA Analyst       | IT-Industry | 300000     | 500000    | 3      | 5      |   2            |  30             | Viman Nagar | 411014  | Agile      |  Java     |   60             |  EmpOrg          |
+|  agencymain01@gmail.com     |   12345    | QA-1     | Tester           | IT-Industry | 300000     | 600000    | 2      | 3      | 2              |  45             | Kharadi     | 12345   |  Java      |  Agile    |   45             |  EmployerOrg     |
 
 #TC ID - 15,21,22,46,74,76,94
 

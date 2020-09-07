@@ -42,6 +42,14 @@ public class JobUpdateBVTStepDefination extends baseclass {
 		Thread.sleep(3000);
 		workbenchpage.deleteEmployerfromEmployerTabasAgency();
 		}
+	
+	
+	@When("^make any changes in the job \"([^\"]*)\"$")
+	public void make_any_changes_in_the_job(String JobNoticePeriod1) throws Throwable {
+
+		Thread.sleep(3000);
+		addjobpage.noticePeriod.sendKeys(JobNoticePeriod1);
+	}
 		
 	
 	@Then("^click on Employers tab at the top and verify user able to delete the employer or not when agency is logged in$")
