@@ -22,7 +22,6 @@ import org.testng.Assert;
 import utilPackage.baseclass;
 
 public class AddCandidatePage extends baseclass {
-	
 
 	@FindBy(xpath = "//h5[@class='modal-title w-100']")
 	public WebElement pageTitle;

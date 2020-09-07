@@ -177,7 +177,7 @@ public class TeamPage extends baseclass {
 	
 	public void closeTeamPage()
 	{
-		executor.executeScript("arguments[0].click();",closeButton);
+		executor.executeScript("arguments[0].click();",common.clo);
 	}
 	
 	//is team member present?
@@ -187,7 +187,7 @@ public class TeamPage extends baseclass {
 		{
 			dashboardpage.openTeamPage();
 			AddAllDetailsK(credentials);
-			teampage.closeTeamPage();
+			common.clickOnCloseBtn();
 		}
 	}
 
@@ -199,7 +199,7 @@ public class TeamPage extends baseclass {
 		{
 			    dashboardpage.openTeamPage();
 				AddAllDetailsagyK(credentials);
-				teampage.closeTeamPage();
+				common.clickOnCloseBtn();
 		}
 		}
 	
