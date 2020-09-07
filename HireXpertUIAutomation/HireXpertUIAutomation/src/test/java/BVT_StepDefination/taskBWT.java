@@ -277,7 +277,7 @@ else
 		int size= markCompleteButton.size();
 		for(int i=0;i<size;i++)
 		{
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			markCompleteButton.get(i).click();
 		}
 		taskpage.ClickOnTeamTask();
@@ -287,7 +287,7 @@ else
 		System.out.println(size1);
 		for(int i=0;i<size1;i++)
 		{
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			markCompleteButton1.get(i).click();
 		}
 	}

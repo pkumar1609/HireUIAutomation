@@ -161,10 +161,8 @@ public class TeamPage extends baseclass {
 			}
 			catch(NoSuchElementException e)
 			{}
-			
-		}
-			
-	
+		}		
+		common.clickOnCloseBtn();
 	}
 	
 	public void deleteteamK() throws InterruptedException
@@ -187,7 +185,7 @@ public class TeamPage extends baseclass {
 		{
 			dashboardpage.openTeamPage();
 			AddAllDetailsK(credentials);
-			common.clickOnCloseBtn();
+//			common.clickOnCloseBtn();
 		}
 	}
 
@@ -199,9 +197,8 @@ public class TeamPage extends baseclass {
 		{
 			    dashboardpage.openTeamPage();
 				AddAllDetailsagyK(credentials);
-				common.clickOnCloseBtn();
 		}
-		}
+	}
 	
 	public void searchExistingTeam(DataTable credentials) throws InterruptedException
 	{

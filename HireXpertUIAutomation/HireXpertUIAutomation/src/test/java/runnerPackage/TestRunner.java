@@ -22,7 +22,9 @@ glue= {"BVT_StepDefination"},
 dryRun= false,
 monochrome = true,
 plugin = {"html:target/cucumber-reports"},
-tags=("@TC264_266")
+tags=("@TC275")
 )
 public class TestRunner
+
 {}
+

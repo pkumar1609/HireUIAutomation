@@ -206,7 +206,7 @@ public class LoginPage extends baseclass
 	{
 		emailaddress.sendKeys(prop.getProperty("agyteamid"));
 		password.sendKeys(prop.getProperty("pwd"));
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		signin.click();
 		identifyUserK();
 	}
