@@ -1,6 +1,6 @@
 Feature: Job Management
 
-@bvt_agencyunblock @bvtunblock
+@bvt_agencyunblock @bvt @unblock
   Scenario Outline: Verify the Unblock functionality for Agency with Employer login
   
   	Given User is on Home page of application
@@ -34,7 +34,7 @@ Feature: Job Management
  |username      |agyEmailId    |Teamid        |password|CandidateEmail         |Name            |ContactNumber|Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|
  |pemp@gmail.com|pagy@gmail.com|pe1@gmail.com |12345   |vishwaniT@gmail.com    |vishvani Thakare|7897562134   |jr.developer  |04/08/1999      |Female  |No            |50         |2.0       |400000|800000     |India  |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |
 
-@bvt_teamunblock @bvtunblock
+@bvt_teamunblock @bvt @unblock
   Scenario Outline: Verify the Unblock functionality for team member with Employer and Agency login
   
   	Given User is on Home page of application
@@ -67,7 +67,7 @@ Feature: Job Management
     
 Examples:
  |username       |Teamid        |password|CandidateEmail                |Name    |ContactNumber|Designation   |Date           |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|
-# |pemp@gmail.com |pe1@gmail.com |12345   |vishwaniThakare@gmail.com     |vishvani|8956652538   |jr.developer  |04/08/1999     |Female  |No            |25          |2.0       |400000|800000     |India  |wardha|sindi      |455966 |Call             |800000       |4       |No              |No      |
+ |pemp@gmail.com |pe1@gmail.com |12345   |vishwaniThakare@gmail.com     |vishvani|8956652538   |jr.developer  |04/08/1999     |Female  |No            |25          |2.0       |400000|800000     |India  |wardha|sindi      |455966 |Call             |800000       |4       |No              |No      |
  |pagy@gmail.com |pa1@gmail.com |12345   |Abhijitg@gmail.com           |Abhijitg|9856558555   |Java developer|02/08/1999     |Male    |No            |30          |4.9       |800000|800000     |India  |wardha|Arvi naka  |455966 |Call             |800000       |9       |No              |No      |
 
 

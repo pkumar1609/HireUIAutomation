@@ -16,7 +16,7 @@ Feature: Job Management
     And Go to workbench
    	And Add job
 	|title		      |agytitle          |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-	|developer        |agynew developer |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
+	|developer 1      |agynew developer |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
     And Select a added job
     And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 
     And again click on Share With Agency button and select the Block/Unblock checkbox present in front of the agency "<agyEmailId>" with whom you shared the job    

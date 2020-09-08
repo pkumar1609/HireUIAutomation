@@ -115,8 +115,8 @@ public class TaskPage extends baseclass {
 	
 	public void reloadtask() throws InterruptedException
 	{
-	Thread.sleep(2000);
-		executor.executeScript("arguments[0].click();", reloadtaskbtn);
+		Thread.sleep(3000);
+		reloadtaskbtn.click();
 	}
 	
 	public void clickOnAddTaskBtn() throws InterruptedException

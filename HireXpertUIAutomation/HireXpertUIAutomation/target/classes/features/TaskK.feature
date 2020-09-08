@@ -104,16 +104,6 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-#Given team member should be added
-#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
-#And Go to workbench
-#And Select a job
-#And Share job with team member
-#|EmpTeam|Agyteam|
-#|pe1    |pa1    |
-#And Click on close button
 And Go to dashboard
 And Click on Add task button and enter all details
 |Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
@@ -129,7 +119,7 @@ And Employer enters valid credentials "<Username>","<Password>"
 Then Delete the task
 Examples:
 |Username      |Password|
-#|pemp@gmail.com|12345   |
+|pemp@gmail.com|12345   |
 |pagy@gmail.com|12345   |
 
 
@@ -176,16 +166,6 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-#And team member should be added
-#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
-#And Go to workbench
-#And Select a job
-#And Share job with team member
-#|EmpTeam|Agyteam|
-#|pe1    |pa1    |
-#And Click on close button
 And Go to dashboard
 And Click on Add task button and enter all details
 |Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
@@ -244,16 +224,6 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-#And team member should be added
-#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
-#And Go to workbench
-#And Select a job
-#And Share job with team member
-#|EmpTeam|Agyteam|
-#|pe1    |pa1    |
-#And Click on close button
 And Go to dashboard
 And Click on Add task button and enter all details
 |Title for emp    |teamField |AssignTo |note                             |employer          |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |

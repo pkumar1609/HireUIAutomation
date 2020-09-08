@@ -169,7 +169,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 
 	@Then("^Unblocked agency should be able to add candidate$")
 	public void unblocked_agency_should_be_able_to_add_candidate() throws Throwable {
-	    Asser
+//	    Asser
 	}
 	
 	

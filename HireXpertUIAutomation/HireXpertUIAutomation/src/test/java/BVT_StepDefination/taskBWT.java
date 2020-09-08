@@ -281,6 +281,7 @@ else
 			markCompleteButton.get(i).click();
 		}
 		taskpage.ClickOnTeamTask();
+		Thread.sleep(4000);
 		taskpage.reloadtask();
 		List<WebElement> markCompleteButton1 = driver.findElements(By.xpath("//a[@title='Complete']"));
 		int size1= markCompleteButton1.size();

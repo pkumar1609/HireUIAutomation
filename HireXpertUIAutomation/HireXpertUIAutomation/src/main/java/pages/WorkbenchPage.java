@@ -284,6 +284,7 @@ public class WorkbenchPage extends baseclass {
 	
 	public void enterEmailId(String CandidateEmail) throws InterruptedException           //added on add candidate page
 	{
+		Thread.sleep(2000);
 		emailfield.sendKeys(CandidateEmail);
 		Thread.sleep(4000);
 		findbtn.click();

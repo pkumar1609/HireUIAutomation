@@ -29,7 +29,7 @@ public class JobReviewPage extends baseclass{
 	
 	public void verifyJobDisplay() throws InterruptedException
 	{	
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		jobReview.click(); 
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//button[@title='Search']")).click();
