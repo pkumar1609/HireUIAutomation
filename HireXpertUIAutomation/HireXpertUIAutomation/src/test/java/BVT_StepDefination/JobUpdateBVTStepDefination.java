@@ -48,6 +48,8 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	public void make_any_changes_in_the_job(String JobNoticePeriod1) throws Throwable {
 
 		Thread.sleep(3000);
+		addjobpage.noticePeriod.clear();
+		Thread.sleep(3000);
 		addjobpage.noticePeriod.sendKeys(JobNoticePeriod1);
 	}
 		
@@ -139,8 +141,8 @@ public class JobUpdateBVTStepDefination extends baseclass {
 		addjobpage.deleteSkills();
 		Thread.sleep(2000);
 		common.clickOnCloseBtn();
-//		Thread.sleep(2000);
-//		common.clickOnConfirmYes();
+		Thread.sleep(2000);
+		common.clickOnConfirmYes();
 	}
 	
 	@When("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
