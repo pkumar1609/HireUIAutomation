@@ -1,6 +1,6 @@
 Feature: Job Management
 
-@bvt_agencyunblock @bvt @unblock
+@bvt_agencyunblock @Bvtc @unblock
   Scenario Outline: Verify the Unblock functionality for Agency with Employer login
   
   	Given User is on Home page of application
@@ -34,7 +34,7 @@ Feature: Job Management
  |username      |agyEmailId    |Teamid        |password|CandidateEmail         |Name            |ContactNumber|Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|
  |pemp@gmail.com|pagy@gmail.com|pe1@gmail.com |12345   |vishwaniT@gmail.com    |vishvani Thakare|7897562134   |jr.developer  |04/08/1999      |Female  |No            |50         |2.0       |400000|800000     |India  |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |
 
-@bvt_teamunblock @bvt @unblock
+@bvt_teamunblock @Bvtc @unblock
   Scenario Outline: Verify the Unblock functionality for team member with Employer and Agency login
   
   	Given User is on Home page of application

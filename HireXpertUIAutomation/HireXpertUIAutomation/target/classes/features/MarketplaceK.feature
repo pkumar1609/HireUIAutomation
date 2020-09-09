@@ -1,6 +1,6 @@
 Feature: Marketplace Feature
 
-@TC351 @BVT @market
+@TC351 @Bvtc @market
 Scenario: To verify the functionality to share job with market place.
 Given User must be registered
 When title of login page is Home
@@ -61,8 +61,8 @@ Then status should display as employer signed
 
 #TC 351,359,357
 
-#@TC359_357 @BVT
-#Scenario: To check the functionality of Reject proposal and view button on Agency profile
+#@TC361 @BVT
+#Scenario: To check the functionality of Review request
 #Given User must be registered
 #And Click on Employer-Agency Signin link
 #Given Job must be share to market place
@@ -78,48 +78,18 @@ Then status should display as employer signed
 #And Employer enters valid credentials
 #And click on Employer marketplace tab
 #And Select that job in filter on job proposal section
-#And Click on reject button of that proposal
-#And Job proposal area should show rejected status
+#And Click on Review button
+#And Now click on accept and sign button
+#Then the status should be change as Employer signed
 #And Logout from App
 #And Click on Employer-Agency Signin link
 #And agency enters valid credentials
 #And Go to agency marketplace tab
-#Then status of that request should show as rejected
-#And Click on Review button
-#Then Agreement popup should show request information in read only mode
-#|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
-#|8.33                 |30 Days       |60 Days      |90 Days           |
-
-
-@TC361 @BVT
-Scenario: To check the functionality of Review request
-Given User must be registered
-And Click on Employer-Agency Signin link
-Given Job must be share to market place
-|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
-|8.33                 |30 Days       |60 Days      |90 Days           |
-And Logout from App
-And Click on Employer-Agency Signin link
-And agency enters valid credentials
-And Go to agency marketplace tab
-And Click on Apply button of job
-And Logout from App
-And Click on Employer-Agency Signin link
-And Employer enters valid credentials
-And click on Employer marketplace tab
-And Select that job in filter on job proposal section
-And Click on Review button
-And Now click on accept and sign button
-Then the status should be change as Employer signed
-And Logout from App
-And Click on Employer-Agency Signin link
-And agency enters valid credentials
-And Go to agency marketplace tab
-Then status should display as employer signed
+#Then status should display as employer signed
 
 
 
-@TC363_375 @BVT @market
+@TC363_375 @Bvtc @market
 Scenario Outline: To check the functionality of Review request and add candidate
 Given User must be registered
 And Click on Employer-Agency Signin link
@@ -192,25 +162,3 @@ Examples:
 |CandidateEmail        |Name    |ContactNumber|Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|
 |vishwani@gmail.com    |vishvani|8956652538   |jr.developer  |04/08/1999      |Female  |No            |25          |2.0       |400000|800000     |India  |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |
 
-#@TC375
-#Scenario: To check the functionality of Review request
-#Given Job must be share to market place
-#|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
-#|8.33                 |30 Days       |60 Days      |90 Days           |
-#And Login with agency one
-#And click on marketplace tab
-#And Click on Apply button of job
-#And login with Employer
-#And Go to marketplace tab
-#And Select job proposal
-#And Click on Accept and sign button from Employer
-#And Again login with agency one
-#And Click on marketplace tab for agency one
-#And Click on Review button
-#And Click on Accept and sign button from agency
-#And Now Again login with Agency one
-#And navigate to agency workbench tab
-#And Select job from jobs drop down
-#And Click on add candidate
-#And Enter All details of candidate
-#Then User should be able to add candidate

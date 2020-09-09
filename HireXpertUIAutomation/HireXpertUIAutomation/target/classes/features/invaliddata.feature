@@ -1,6 +1,6 @@
 Feature: User Management
 
-@bvt @invalid
+@Bvtc @invalid
   Scenario Outline: Verify that User is not able to Login with invalid credentials
   
     Given User is on Home page of application

@@ -1,6 +1,6 @@
 Feature: Job Management
 
-@bvt @primary
+@Bvtc @primary
   Scenario Outline: Verify user having only one primary contact with Employer and Agency login
   
   	Given User is on Home page of application 
@@ -19,7 +19,7 @@ Feature: Job Management
     And click on Share With Team button and select the Share checkbox present in front of the team member "<Teamid>"
     And Click on primary contact
     And try to make that team member as primary contact "<anotherteam>"
-    Then user should not able to make multiple team members as primary contact "<email address>"
+    Then user should not able to make multiple team members as primary contact "<Teamid>"
     And Click on close button
 	And team member should be added
 	|Name|         Email   | contact  |Nameagy  |         Emailagy  |
@@ -30,7 +30,7 @@ Feature: Job Management
     
 Examples:
 |   email address    |  password  |Team|Teamid       |contact |anotherteam|thridteam|
-|pemp@gmail.com      |   12345    |pe1 |pe1@gmail.com|16546856|pe2        |pe3@gmail.com|
+#|pemp@gmail.com      |   12345    |pe1 |pe1@gmail.com|16546856|pe2        |pe3@gmail.com|
 |pagy@gmail.com      |   12345    |pa1 |pa1@gmail.com|98598695|pa2        |pa3@gmail.com|
 
     

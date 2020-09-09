@@ -1,6 +1,6 @@
 Feature: Job Management
 
-@bvt_agencyblock @block @bvt
+@bvt_agencyblock @block @Bvtc
   Scenario Outline: Verify the Block functionality for Agency with Employer login
   
  	Given User is on Home page of application
@@ -40,7 +40,7 @@ Feature: Job Management
 
 #TC ID - 61,65,66,384
  
-@bvt_teamblock @block
+@bvt_teamblock @block @Bvtc
  Scenario Outline: Verify the Block functionality for team member with Employer and Agency login
   
   	Given User is on Home page of application
