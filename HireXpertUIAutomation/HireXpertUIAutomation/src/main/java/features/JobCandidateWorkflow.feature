@@ -282,7 +282,7 @@ And close the browser
 #change email id of candidate [enter candidate email id not presnet in system]
   
   
-  
+ @Regression 
  Scenario Outline: To verify the Notice Period field on candidate page 
 	
 Given Open browser
@@ -332,7 +332,7 @@ Examples:
 # Also check the last working day 
   
   
-  
+  @Regression
 Scenario Outline: Verify user is able to add comment for candidate
 
 Given Open browser
@@ -370,6 +370,7 @@ Examples:
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
 
+@Regression
 Scenario Outline: Verify user able to move rejected candidate from Rejected column to any other column
 	
 Given Open browser
@@ -413,7 +414,7 @@ Examples:
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
 
-
+@Regression
 Scenario Outline: Verify one after one rejected candidate listed in Rejected Column
 	
 Given Open browser
@@ -458,7 +459,7 @@ Examples:
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
 
-
+@Regression
 Scenario Outline: To verify the functionality of Upload Resume on candidate profile
 	
 Given Open browser
@@ -568,7 +569,7 @@ Examples:
 # Change the candidate name & candidate email every time
 
 
-
+@Regression
  Scenario Outline: To verify user is able to update skills and No. of Interviews for the job with Employer login
   
 Given Open browser
@@ -603,7 +604,7 @@ Examples:
     # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
     
 
-
+@Regression
 Scenario Outline: To verify deleted skill on Candidate Details page and when employer is adding new candidate for the job
   
 Given Open browser
@@ -649,7 +650,7 @@ And close the browser
    # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
    
 
-
+@Regression
 Scenario Outline: Verify the functionality of adding a candidate to the job that is shared by agency team member
     
 Given Open browser
@@ -691,6 +692,7 @@ And close the browser
 
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
+@Regression
 Scenario Outline: Verify functionality of bell icon on candidate card.
 
 Given Open browser
@@ -723,6 +725,7 @@ Examples:
 
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
+@Regression
 Scenario Outline: Verify there is asking reason when user manually drag the candidate card in rejection column from employer login, employer team member login, agency login, agency team member login
 
 

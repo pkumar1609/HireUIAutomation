@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -601,11 +602,33 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void fill_all_mandatory_details(String title, String scheduleon, String hour, String minute, String interviewduration, String timezone) throws Throwable {
 		
 		Thread.sleep(3000);
-		scheduleinterviewpage.EnterInterviewTitleT(title);
+		Thread.sleep(1000);
+		scheduleinterviewpage.title.sendKeys(title);
+		Thread.sleep(1000);
 		scheduleinterviewpage.ScheduleInterviewOnT();
-		scheduleinterviewpage.EnterInterviewTimeT(hour, minute);
-		scheduleinterviewpage.EnterInterviewDurationT(interviewduration);
-		scheduleinterviewpage.EnterTimezoneT(timezone);
+		Thread.sleep(1000);
+		scheduleinterviewpage.hours.sendKeys(hour);
+		Thread.sleep(1000);
+		scheduleinterviewpage.minutes.sendKeys(minute);
+		Thread.sleep(1000);
+		
+		Select se = new Select(scheduleinterviewpage.duration);
+		se.selectByVisibleText(interviewduration);
+		
+		Thread.sleep(1000);
+		se = new Select(scheduleinterviewpage.timezone);
+		se.selectByVisibleText(timezone);
+		
+		Thread.sleep(1000);
+		scheduleinterviewpage.interviewerDropDown.click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//div[contains(text(),'Select All')]")).click();
+		Thread.sleep(1000);
+		scheduleinterviewpage.interviewerDropDown.click();
+		
+		Thread.sleep(1000);
+		common.ClickSumbit();
+
 	}
 
 	

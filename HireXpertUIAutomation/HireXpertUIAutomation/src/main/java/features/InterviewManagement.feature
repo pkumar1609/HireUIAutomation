@@ -1,6 +1,6 @@
 Feature: Interview Management
 
-@bvt @regression1_01
+@BVT @Regression
 	Scenario Outline: To verify the functionality of scheduled interview with Employer and Agency login
 	
 	Given Open browser

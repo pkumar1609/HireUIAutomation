@@ -74,7 +74,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		updateprofilepopuppage.UpdateProfileAgency(AgencyAddress, AgencyOrganizationName, AgencyWebsite, AgencyCity);
 	}
 	
-	@When("^Update employer profile  \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	@When("^Update employer profile \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void update_employer_profile(String EmployerAddress, String EmployerOrganizationName, String  EmployerWebsite, String EmployerCity) throws Throwable {
 
 		Thread.sleep(4200);
