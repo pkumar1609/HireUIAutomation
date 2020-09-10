@@ -96,6 +96,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	@Then("^Click on close button$")
 	public void click_on_close_button() throws Throwable {
 		common.clickOnCloseBtn();
+
 	}
 
 

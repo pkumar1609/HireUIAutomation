@@ -58,8 +58,19 @@ public class scheduleInterview extends baseclass {
 	@FindBy(xpath = "//input[@formcontrolname='Location']")
 	public WebElement Location;
 	
+	@FindBy(xpath = "(//span[@class='mydpicon icon-mydpcalendar'])[2]")
+	public WebElement calendarIcon;
+	
+	@FindBy(xpath = "//button[@aria-label='Next Month']")
+	public WebElement nextMonth;
+	
+	@FindBy(xpath = "//button[@aria-label='Previous Month']")
+	public WebElement previousMonth;
 	
 	Select se;
+	
+
+	
 	
 	public scheduleInterview() {
 		
@@ -116,8 +127,10 @@ public class scheduleInterview extends baseclass {
 				interviewerDropDown.click();
 				driver.findElement(By.xpath("//div[contains(text(),'Select All')]")).click();
 				interviewerDropDown.click();
-				calendar.sendKeys(data.get("ScheduleOn"));
-				this.interviewDate=data.get("ScheduleOn");
+				Thread.sleep(2000);
+				calendarIcon.click();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//span[text()='"+data.get("ScheduleOn")+"']")).click();				
 				hours.sendKeys(data.get("Hour"));
 				hourTime=data.get("Hour");
 				minutes.sendKeys(data.get("Minute"));
@@ -127,10 +140,10 @@ public class scheduleInterview extends baseclass {
 				select = new Select(timezone);
 				select.selectByVisibleText(data.get("TimeZone"));	
 				Location.sendKeys(data.get("Location"));	
+				common.submitbtn.isEnabled();
 				common.ClickSumbit();
+				Thread.sleep(2000);
+				interviewDate=driver.findElement(By.xpath("(//p[@class='mb-1'])[3]")).getText();
 			}
 	 }
-	
-	
-
 }

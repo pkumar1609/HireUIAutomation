@@ -221,6 +221,7 @@ public class AddCandidatePage extends baseclass {
 			se.selectByVisibleText(permanentAddress);
 			se = new Select (isReadyToRelocateToJobLocation);
 			se.selectByVisibleText(relocate);
+			this.expectedCTC.sendKeys(expectedCTC);
 			if(OnNoticePeriod.contentEquals("Yes"))
 			{
 			this.lastWorkingDay.clear();
