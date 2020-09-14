@@ -174,7 +174,7 @@ public AddJobPage()
 	public WebElement considerRelocation;
 	
 	@FindBy(xpath = "//select[@formcontrolname='DoNotAddOverBudgetCandidate']")
-	public WebElement DoNotAddOverBudgetCandidate;
+	public WebElement blockOverBudgetCandidate;
 	
 	@FindBy(xpath = "//select[@formcontrolname='Shift']")
 	public WebElement Shift;
@@ -442,7 +442,7 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 				title.sendKeys(jobname);
 				Organization.clear();
 				this.Organization.sendKeys(data.get("organization"));
-			} 
+			}
 			else
 			{
 				jobname=data.get("agytitle");
@@ -450,21 +450,18 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 				title.sendKeys(jobname);
 				if(this.Organization.isEnabled())
 				{
-				this.Organization.sendKeys(data.get("agyorganization"));
+				this.Organization.sendKeys(data.get("organization"));
 				}
 			}
 			Thread.sleep(1000);
 			designation.sendKeys(data.get("designation"));
 			this.industry.sendKeys(data.get("industry"));
-			industryname= data.get("industry");			
+			industryname= data.get("industry");		
 			minsal.sendKeys(data.get("minsal"));
 			maxsal.sendKeys(data.get("maxsal"));
 			minexp.sendKeys(data.get("minexp"));
 			maxexp.sendKeys(data.get("maxexp"));
 			cityArea.sendKeys(data.get("location"));
-			Thread.sleep(1000);
-			se=new Select(totalinterviews);
-			se.selectByVisibleText(data.get("totalinterviews"));
 			List<WebElement> deletebtn = driver.findElements(By.xpath("//th[text()='Job Skills']//following::i[@class='fa fa-trash']"));
 			for(int i=0;i<deletebtn.size();i++)
 				{
@@ -529,7 +526,7 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 		se.selectByVisibleText(data.get("jobType"));
 		se=new Select(considerRelocation);
 		se.selectByVisibleText(data.get("considerRelocation"));
-		se=new Select(DoNotAddOverBudgetCandidate);
+		se=new Select(blockOverBudgetCandidate);
 		se.selectByVisibleText(data.get("OverBudget"));
 		se=new Select(Shift);
 		se.selectByVisibleText(data.get("Shift"));
@@ -537,7 +534,6 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 		}
 	}
 			
-
 
 	public void addSkills(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3) throws InterruptedException
 	{

@@ -60,15 +60,14 @@ public class EditJobPage extends baseclass {
 		}
 		Assert.assertEquals(addjobpage.industry.getAttribute("value"), data.get("industry"));
 		Assert.assertEquals(addjobpage.designation.getAttribute("value"), data.get("designation"));
-//		Assert.assertEquals(addjobpage.jobrole.getAttribute("value"), data.get("jobrole"));
 		if(loginpage.b=true)
 		{
-//			Assert.assertEquals(addjobpage.Organization.getAttribute("value"), data.get("organisation"));
+			Assert.assertEquals(addjobpage.Organization.getAttribute("value"), data.get("organization"));
 		}
 		else
 		{
 			Assert.assertEquals(addjobpage.employerId.getAttribute("value"), data.get("Employer"));
-			Assert.assertEquals(addjobpage.employerOrganizationName.getAttribute("value"), data.get("emporganzation"));
+			Assert.assertEquals(addjobpage.employerOrganizationName.getAttribute("value"), data.get("organization"));
 		}
 		Assert.assertEquals(addjobpage.qualification.getAttribute("value"), data.get("qualification"));
 		se = new Select (addjobpage.country);

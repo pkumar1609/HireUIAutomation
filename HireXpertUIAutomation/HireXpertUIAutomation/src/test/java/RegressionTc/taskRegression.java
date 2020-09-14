@@ -226,6 +226,7 @@ public class taskRegression extends baseclass{
 	
 	@When("^verify candidate card is displaying or not in New column \"([^\"]*)\"$")
 	public void verify_candidate_card_is_displaying_or_not_in_New_column(String Name) throws Throwable {
+		
 		driver.findElement(By.xpath("//th[text()=' New ']//following::span[text()=' "+Name+"']")).isDisplayed();
 	}
 	
@@ -235,8 +236,8 @@ public class taskRegression extends baseclass{
 //		action.build().perform();
 		WebElement drag=driver.findElement(By.cssSelector("div.item-box.cdk-drag"));
 		WebElement drop=driver.findElement(By.xpath("//td[@class='TableCard' and @id='jobStatusColumn'][2]"));
-		action.clickAndHold(drag).moveToElement(drop).release(drop);
-		action.build().perform();
+		Action.clickAndHold(drag).moveToElement(drop).release(drop);
+		Action.build().perform();
 	}
 	
 	@And("^the Auto generated task should get created for the schedule interview$")

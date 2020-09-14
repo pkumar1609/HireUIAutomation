@@ -2,6 +2,8 @@ package pages;
 
 import org.testng.Assert;
 
+import cucumber.api.DataTable;
+
 import java.awt.AWTException;
 
 import java.awt.Robot;
@@ -9,6 +11,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -201,68 +204,73 @@ public class EditCandidatePage extends baseclass {
 			return true;
 	}
 	
-	public void AssertCandidatedetails(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable 
+	public void AssertCandidatedetails(DataTable credentials) throws Throwable 
 	{
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
 		Thread.sleep(5000);
-		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"), CandidateEmail);
-		Assert.assertEquals(addcandidatepage.name.getAttribute("value"), Name);
-		Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), ContactNumber);
-		Assert.assertEquals(addcandidatepage.designation.getAttribute("value"), Designation);
-		Assert.assertEquals(addcandidatepage.gender.getAttribute("value"),Gender );
-//		Assert.assertEquals(addcandidatepage.communicationMode.getAttribute("value"), Communicationmode);
+		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"), data.get("CandidateEmail"));
 		Assert.assertEquals(addcandidatepage.title.getAttribute("value"), addjobpage.jobname);
-//		Assert.assertEquals(addcandidatepage.date.getAttribute("value"), Date);
+		Assert.assertEquals(addcandidatepage.name.getAttribute("value"), data.get("Name"));
+		Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), data.get("ContactNumber"));
+		Assert.assertEquals(addcandidatepage.designation.getAttribute("value"), data.get("Designation"));
+		Assert.assertEquals(addcandidatepage.gender.getAttribute("value"),data.get("Gender"));
+		Assert.assertEquals(addcandidatepage.communicationMode.getAttribute("value"), data.get("Communicationmode"));
+		Assert.assertEquals(addcandidatepage.date.getAttribute("value"), data.get("Date"));
 		select=new Select(addcandidatepage.onNoticePeriod);
 		WebElement option = select.getFirstSelectedOption();
-		Assert.assertEquals(option.getText(),OnNoticePeriod);
-		if(OnNoticePeriod.contentEquals("Yes"))
+		Assert.assertEquals(option.getText(),data.get("OnNoticePeriod"));
+		if(data.get("OnNoticePeriod").contentEquals("Yes"))
 		{
-//		Assert.assertEquals(addcandidatepage.lastWorkingDay.getAttribute("value"), LastWorkingDay);
+		Assert.assertEquals(addcandidatepage.lastWorkingDay.getAttribute("value"), data.get("LastWorkingDay"));
 		}
 		else
 		{
-		Assert.assertEquals(addcandidatepage.noticePeriod.getAttribute("value"), NoticePeriod);
+		Assert.assertEquals(addcandidatepage.noticePeriod.getAttribute("value"), data.get("NoticePeriod"));
 		}
-		Assert.assertEquals(addcandidatepage.experienceInYears.getAttribute("value"), experience);
-		Assert.assertEquals(addcandidatepage.ctc.getAttribute("value"), CTC); 
-		Assert.assertEquals(addcandidatepage.expectedCTC.getAttribute("value"), expectedCTC);
+		Assert.assertEquals(addcandidatepage.experienceInYears.getAttribute("value"), data.get("experience"));
+		Assert.assertEquals(addcandidatepage.ctc.getAttribute("value"), data.get("CTC")); 
+		Assert.assertEquals(addcandidatepage.expectedCTC.getAttribute("value"), data.get("expectedCTC"));
 		select=new Select(addcandidatepage.countryId);
-		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+Country+" ");		
-		Assert.assertEquals(addcandidatepage.city.getAttribute("value"), City);
-		Assert.assertEquals(addcandidatepage.cityArea.getAttribute("value"), CityArea);
-		Assert.assertEquals(addcandidatepage.zipCode.getAttribute("value"), ZipCode);
-		Assert.assertEquals(addcandidatepage.salaryOffered.getAttribute("value"), Salaryoffered);
-		Assert.assertEquals(addcandidatepage.distance.getAttribute("value"), distance);
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+data.get("Country")+" ");		
+		Assert.assertEquals(addcandidatepage.city.getAttribute("value"), data.get("City"));
+		Assert.assertEquals(addcandidatepage.cityArea.getAttribute("value"), data.get("CityArea"));
+		Assert.assertEquals(addcandidatepage.zipCode.getAttribute("value"), data.get("ZipCode"));
+		Assert.assertEquals(addcandidatepage.salaryOffered.getAttribute("value"), data.get("Salaryoffered"));
+		Assert.assertEquals(addcandidatepage.distance.getAttribute("value"), data.get("distance"));
 		select=new Select(addcandidatepage.isPermanentAddress);
-		Assert.assertEquals(select.getFirstSelectedOption().getText(), permanentAddress);	
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), data.get("permanentAddress"));	
 		select=new Select(addcandidatepage.isReadyToRelocateToJobLocation);
-		Assert.assertEquals(select.getFirstSelectedOption().getText(), relocate);	
-
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), data.get("relocate"));	
+		 }
 	}
 	
-	public void assertSkill(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String certificate1, String certificate2, String certificate3,String certificateforskill1, String certificateforskill2) throws InterruptedException
+	public void assertSkill(DataTable credentials) throws InterruptedException
 	{
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
 		Thread.sleep(4000);
-		Assert.assertEquals(this.jobskill.get(0).getAttribute("value"), Skill1+" ("+level1+")");
-		Assert.assertEquals(this.jobskill.get(1).getAttribute("value"), Skill2+" ("+level2+")");	
-		Assert.assertEquals(this.jobskill.get(2).getAttribute("value"), Skill3+" ("+level3+")");	
+		Assert.assertEquals(this.jobskill.get(0).getAttribute("value"), data.get("Skill1")+" ("+data.get("level1")+")");
+		Assert.assertEquals(this.jobskill.get(1).getAttribute("value"), data.get("Skill2")+" ("+data.get("level2")+")");	
+		Assert.assertEquals(this.jobskill.get(2).getAttribute("value"), data.get("Skill3")+" ("+data.get("level3")+")");	
 		select=new Select(addcandidatepage.expertiselevel.get(0));
-		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level1+" ");
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+data.get("level1")+" ");
 		select=new Select(addcandidatepage.expertiselevel.get(1));
-		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level2+" ");
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+data.get("level2")+" ");
 		select=new Select(addcandidatepage.expertiselevel.get(2));
-		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level3+" ");
-		if(certificate1.contentEquals("Yes"))
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+data.get("level3")+" ");
+		if(data.get("certificate1").contentEquals("Yes"))
 		{
-		Assert.assertEquals(addcandidatepage.certificate.get(0).getAttribute("value"), certificateforskill1);	
+		Assert.assertEquals(addcandidatepage.certificate.get(0).getAttribute("value"), data.get("certificateforskill1"));	
 		}
-		if(certificate2.contentEquals("Yes"))
+		if(data.get("certificate2").contentEquals("Yes"))
 		{
-		Assert.assertEquals(addcandidatepage.certificate.get(1).getAttribute("value"), certificateforskill2);	
+		Assert.assertEquals(addcandidatepage.certificate.get(1).getAttribute("value"), data.get("certificateforskill2"));	
 		}
-		if(certificate3.contentEquals("Yes"))
+		if(data.get("certificate3").contentEquals("Yes"))
 		{
-		Assert.assertEquals(addcandidatepage.certificate.get(2).getAttribute("value"), certificateforskill1);	
+		Assert.assertEquals(addcandidatepage.certificate.get(2).getAttribute("value"), data.get("certificateforskill1"));	
+		}
 		}
 	}
 }

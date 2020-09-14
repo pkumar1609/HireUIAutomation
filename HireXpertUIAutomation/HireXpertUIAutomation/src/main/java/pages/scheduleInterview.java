@@ -143,7 +143,7 @@ public class scheduleInterview extends baseclass {
 				common.submitbtn.isEnabled();
 				common.ClickSumbit();
 				Thread.sleep(2000);
-				interviewDate=driver.findElement(By.xpath("(//p[@class='mb-1'])[3]")).getText();
+//				interviewDate=driver.findElement(By.xpath("(//p[@class='mb-1'])[3]")).getText();
 			}
 	 }
 }

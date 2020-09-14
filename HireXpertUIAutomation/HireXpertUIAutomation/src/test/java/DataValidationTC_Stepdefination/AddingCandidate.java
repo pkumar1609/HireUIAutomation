@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -50,8 +51,9 @@ public class AddingCandidate extends baseclass{
 	@When("^Add job \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
 	public void add_jobskill_and(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3, DataTable credentials) throws Throwable {
 		addjobpage.addjob(credentials);
+		addjobpage.extraInfoOfJob(credentials);
 		addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3);		
-		common.ClickSumbit();
+//		common.ClickSumbit();
 	}
 
 	@When("^Select a added job$")
@@ -80,9 +82,14 @@ public class AddingCandidate extends baseclass{
 	}
 	
 	@When("^Assert the details of candidate \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-	public void assert_the_details_of_candidate_and(String Username,String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String certificate1, String certificate2, String certificate3,String certificateforskill1, String certificateforskill2) throws Throwable {
-		editcandidatepage.AssertCandidatedetails(CandidateEmail,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress, relocate);
-		editcandidatepage.assertSkill(Skill1,Skill2,Skill3,level1, level2, level3,certificate1, certificate2,certificate3,certificateforskill1, certificateforskill2);
+	public void assert_the_details_of_candidate_and() throws Throwable {
+		
+	}
+	
+	@When("^Assert the details of candidate$")
+	public void assert_the_details_of_candidate(DataTable arg1) throws Throwable {
+		editcandidatepage.AssertCandidatedetails(arg1);
+		editcandidatepage.assertSkill(arg1);
 	}
 	
 	@When("^Assert the details on candidate details icon\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
@@ -104,7 +111,11 @@ public class AddingCandidate extends baseclass{
 	
 	
 	@When("^verify candidate card is displaying or not in New column \"([^\"]*)\"$")
-	public void verify_candidate_card_is_displaying_or_not_in_New_column(String Name) throws Throwable {
+	public void verify_candidate_card_is_displaying_or_not_in_New_column(String Name) throws Throwable {		
+		WebElement drag=driver.findElement(By.cssSelector("div.item-box.cdk-drag"));
+		WebElement drop=driver.findElement(By.xpath("(//th[text()=' New ']//following::div[@class='item-list cdk-drop-list'])[2]"));
+		Action.clickAndHold(drag).moveToElement(drop).release(drop);
+		Action.build().perform();
 		driver.findElement(By.xpath("//th[text()=' New ']//following::span[text()=' "+Name+"']")).isDisplayed();
 	}
 
@@ -185,13 +196,27 @@ public void click_on_update_profile_option() throws Throwable {
 	loginpage.updateProfile.click();
 }
 
+@When("^Assert the details on candidate profile page$")
+public void assert_the_details_on_candidate_profile_page(DataTable arg1) throws Throwable {
+	candidateupdateprofilepage.AssertDetailsOnCandidateProfile(arg1);
 
-
-@When("^Assert the details on candidate profile page \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-public void assert_the_details_on_candidate_profile_page_and(String Username,String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String certificate1, String certificate2, String certificate3,String certificateforskill1, String certificateforskill2) throws Throwable {
-	candidateupdateprofilepage.AssertDetailsOnCandidateProfile(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
-	candidateupdateprofilepage.AssertSkillonSkillAndRolesTab(Skill1, Skill2, Skill3, level1, level2, level3, certificate1, certificate2, certificate3, certificateforskill1, certificateforskill2);
 }
+
+@When("^Assert the Skills on candidate profile page$")
+public void assert_the_Skills_on_candidate_profile_page(DataTable arg1) throws Throwable {
+	candidateupdateprofilepage.AssertSkillonSkillAndRolesTab(arg1);
+
+}
+
+
+
+
+
+
+
+
+
+
 
 //############job validation###############
 

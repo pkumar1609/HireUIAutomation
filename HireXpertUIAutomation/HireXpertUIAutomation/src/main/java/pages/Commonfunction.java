@@ -77,8 +77,7 @@ public class Commonfunction extends baseclass {
 	
 	public void clickOnOKBtn() throws InterruptedException
 	{
-		Thread.sleep(3000);
-//		explicitwait.until(ExpectedConditions.elementToBeClickable(okbtn));
+		Thread.sleep(6000);
 		okbtn.click();
 	}
 	

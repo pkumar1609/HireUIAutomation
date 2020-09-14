@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,12 +14,16 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import cucumber.api.DataTable;
 import utilPackage.baseclass;
 
 public class CandidateUpdateProfilePage extends baseclass {
 	
 	@FindBy(id = "Email")
 	public WebElement emailID;
+	
+	@FindBy(id = "Title")
+	public WebElement profiletitle;
 	
 	@FindBy(id = "Name")
 	public WebElement name;
@@ -254,66 +259,71 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 			Thread.sleep(1000);
 		}
 	}
-	public void AssertDetailsOnCandidateProfile(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException
+	public void AssertDetailsOnCandidateProfile(DataTable credentials) throws InterruptedException
 	{
+	 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+     {
 		Thread.sleep(3000);
-//		Assert.assertEquals(this.profileTitle.getAttribute("value"), addjobpage.jobname);
-		Assert.assertEquals(this.emailID.getAttribute("value"),CandidateEmail);
-		Assert.assertEquals(this.contactNumber.getAttribute("value"),ContactNumber);
-		Assert.assertEquals(this.dateOfBirth.getAttribute("value"),Date); 
+		Assert.assertEquals(this.profiletitle.getAttribute("value"), addjobpage.jobname);
+		Assert.assertEquals(this.emailID.getAttribute("value"),data.get("CandidateEmail"));
+		Assert.assertEquals(this.contactNumber.getAttribute("value"),data.get("ContactNumber"));
+		Assert.assertEquals(this.dateOfBirth.getAttribute("value"),data.get("Date")); 
 		se = new Select (this.countryId);
 		WebElement option = se.getFirstSelectedOption();
-		Assert.assertEquals(option.getText()," "+Country+" ");
-		Assert.assertEquals(this.cityArea.getAttribute("value"),CityArea);
-		Assert.assertEquals(this.name.getAttribute("value"),Name);
-		Assert.assertEquals(this.gender.getAttribute("value"),Gender);
-		Assert.assertEquals(this.city.getAttribute("value"),City);
-		Assert.assertEquals(this.zipCode.getAttribute("value"),ZipCode);
-		Assert.assertEquals(this.designation.getAttribute("value"),Designation);
+		Assert.assertEquals(option.getText()," "+data.get("Country")+" ");
+		Assert.assertEquals(this.cityArea.getAttribute("value"),data.get("CityArea"));
+		Assert.assertEquals(this.name.getAttribute("value"),data.get("Name"));
+		Assert.assertEquals(this.gender.getAttribute("value"),data.get("Gender"));
+		Assert.assertEquals(this.city.getAttribute("value"),data.get("City"));
+		Assert.assertEquals(this.zipCode.getAttribute("value"),data.get("ZipCode"));
+		Assert.assertEquals(this.designation.getAttribute("value"),data.get("Designation"));
 		Assert.assertEquals(this.industry.getAttribute("value"),addjobpage.industryname);	
-		Assert.assertEquals(this.experience.getAttribute("value"),experience);
+		Assert.assertEquals(this.experience.getAttribute("value"),data.get("experience"));
 //		Assert.assertEquals(this.ectc.getAttribute("value"),expectedCTC);
 		se = new Select (this.onNoticePeriod);
 		WebElement onNotice = se.getFirstSelectedOption();
-		Assert.assertEquals(onNotice.getText(),OnNoticePeriod);
-		Assert.assertEquals(this.lastWorkingDay.getAttribute("value"),LastWorkingDay);
-		Assert.assertEquals(this.ctc.getAttribute("value"),CTC);
+		Assert.assertEquals(onNotice.getText(),data.get("OnNoticePeriod"));
+		Assert.assertEquals(this.lastWorkingDay.getAttribute("value"),data.get("LastWorkingDay"));
+		Assert.assertEquals(this.ctc.getAttribute("value"),data.get("CTC"));
 		se = new Select (this.modeOfcommunication);
-//		WebElement communication = se.getFirstSelectedOption();
-//		Assert.assertEquals(communication.getText(),Communicationmode);
+		WebElement communication = se.getFirstSelectedOption();
+		Assert.assertEquals(communication.getText(),data.get("Communicationmode"));
 		se = new Select (this.readyToRelocate);
 		WebElement Relocate = se.getFirstSelectedOption();
-		Assert.assertEquals(Relocate.getText(),relocate);		
+		Assert.assertEquals(Relocate.getText(),data.get("relocate"));		
 		common.clickOnSaveBtn();
 		common.clickOnOKBtn();
+     }
 	}
 	
-	public void AssertSkillonSkillAndRolesTab(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String certificate1, String certificate2, String certificate3,String certificateforskill1, String certificateforskill2) throws InterruptedException
+	public void AssertSkillonSkillAndRolesTab(DataTable credentials) throws InterruptedException
 	{
+	 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+	   {
 		this.clickonskillsInformation();
 		Thread.sleep(4000); 
-		Assert.assertEquals(this.skills.get(0).getAttribute("value"), Skill1);
-		Assert.assertEquals(this.skills.get(1).getAttribute("value"), Skill2);	
-		Assert.assertEquals(this.skills.get(2).getAttribute("value"), Skill3);	
+		Assert.assertEquals(this.skills.get(0).getAttribute("value"), data.get("Skill1"));
+		Assert.assertEquals(this.skills.get(1).getAttribute("value"), data.get("Skill2"));	
+		Assert.assertEquals(this.skills.get(2).getAttribute("value"), data.get("Skill3"));	
 		select=new Select(this.expertiselevel.get(0));
-		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level1+" ");
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+data.get("level1")+" ");
 		select=new Select(this.expertiselevel.get(1));
-		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level2+" ");
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+data.get("level2")+" ");
 		select=new Select(this.expertiselevel.get(2));
-		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level3+" ");
-		if(certificate1.contentEquals("Yes"))
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+data.get("level3")+" ");
+		if(data.get("certificate1").contentEquals("Yes"))
 		{
-		Assert.assertEquals(addcandidatepage.certificate.get(0).getAttribute("value"), certificateforskill1);	
+		Assert.assertEquals(addcandidatepage.certificate.get(0).getAttribute("value"), data.get("certificateforskill1"));	
 		}
-		if(certificate2.contentEquals("Yes"))
+		if(data.get("certificate2").contentEquals("Yes"))
 		{
-		Assert.assertEquals(addcandidatepage.certificate.get(1).getAttribute("value"), certificateforskill2);	
+		Assert.assertEquals(addcandidatepage.certificate.get(1).getAttribute("value"), data.get("certificateforskill2"));	
 		}
-		if(certificate3.contentEquals("Yes"))
+		if(data.get("certificate3").contentEquals("Yes"))
 		{
-		Assert.assertEquals(addcandidatepage.certificate.get(2).getAttribute("value"), certificateforskill1);	
+		Assert.assertEquals(addcandidatepage.certificate.get(2).getAttribute("value"), data.get("certificateforskill1"));	
 		}
 		Assert.assertEquals(this.role.getAttribute("value"),addjobpage.jobRole);
 	}
-
+	}
 }
