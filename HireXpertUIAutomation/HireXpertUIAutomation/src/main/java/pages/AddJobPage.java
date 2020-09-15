@@ -26,6 +26,11 @@ public AddJobPage()
 		this.driver = driver;
 	}
 
+	public int flag;
+	public String selectedOrganization;
+	public String SelectedEmployer;
+	public boolean jobAddedByEmp;
+	
 	@FindBy(xpath ="//input[@id='title']")
 	public WebElement title;
 	
@@ -434,7 +439,8 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
 			workbenchpage.AddJob();
-
+			jobAddedByEmp=this.employerId.getSize() != null;
+			
 			if(loginpage.b==true)  
 			{
 				jobname=data.get("title");
@@ -448,9 +454,33 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 				jobname=data.get("agytitle");
 				System.out.println("Selected job: "+jobname);
 				title.sendKeys(jobname);
-				if(this.Organization.isEnabled())
+				select =new Select(employerId);
+				List<WebElement> options = select.getOptions();
+				if(options.size()>0)
 				{
-				this.Organization.sendKeys(data.get("organization"));
+					select.selectByIndex(1);
+					SelectedEmployer=select.getFirstSelectedOption().getText();
+					selectedOrganization=this.Organization.getAttribute("value");
+				}
+				else if (options.size()==0)
+				{
+					Thread.sleep(2000);
+					addEmployee.click();
+					teampage.clickOnAddBtnK();
+					teampage.TeamMemberEmail.sendKeys(data.get("Employer")+"@gmail.com");
+					Thread.sleep(2000);
+					common.find.click();
+					common.ClickSumbit();
+					SelectedEmployer=select.getFirstSelectedOption().getText();
+					if(this.Organization.isEnabled())
+					{
+						this.Organization.sendKeys(data.get("organization"));
+						this.flag=1;
+					}
+					else
+					{
+						selectedOrganization=this.Organization.getAttribute("value");
+					}
 				}
 			}
 			Thread.sleep(1000);
@@ -462,6 +492,9 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 			minexp.sendKeys(data.get("minexp"));
 			maxexp.sendKeys(data.get("maxexp"));
 			cityArea.sendKeys(data.get("location"));
+			Thread.sleep(1000);
+			se=new Select(totalinterviews);
+			se.selectByVisibleText(data.get("totalinterviews"));
 			List<WebElement> deletebtn = driver.findElements(By.xpath("//th[text()='Job Skills']//following::i[@class='fa fa-trash']"));
 			for(int i=0;i<deletebtn.size();i++)
 				{
@@ -469,28 +502,26 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 					Thread.sleep(2000);
 					btn.click();
 				}
-			this.emp=loginpage.b;
-			if(emp==false)
-			{ 
-				select =new Select(employerId);
-				List<WebElement> options = select.getOptions();
-				if(options.size()>0)
-				{
-					select.selectByIndex(1);
-				}
-				else if (options.size()==0)
-				{
-					Thread.sleep(2000);
-					addEmployee.click();
-					teampage.AddAllDetailsK(credentials);
-					select.selectByIndex(1);
-					Organization.sendKeys(data.get("organisation"));	
-				}
-		    }
-
-//	     }
-//    }
-	     }
+//			if(loginpage.b==false)
+//			{ 
+//				select =new Select(employerId);
+//				List<WebElement> options = select.getOptions();
+//				if(options.size()>0)
+//				{
+//					select.selectByIndex(1);
+//				}
+//				else if (options.size()==0)
+//				{
+//					Thread.sleep(2000);
+//					addEmployee.click();
+//					teampage.AddAllDetailsK(credentials);
+//					select.selectByIndex(1);
+//					Organization.sendKeys(data.get("organisation"));	
+//				}
+//		    }
+			
+			
+	    }
     }
 	
 	
@@ -511,13 +542,12 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 		this.qualification.sendKeys(data.get("qualification"));
 		this.country.sendKeys(data.get("country"));
 		this.city.sendKeys(data.get("city"));
+		cityArea.sendKeys(data.get("location"));
 		this.zipcode.sendKeys(data.get("zipcode"));
 		address.clear();
 		this.address.sendKeys(data.get("address"));
 		noofvacancies.clear();
-		this.noofvacancies.sendKeys(data.get("noofvacancies"));
-		budget.clear();
-		this.budget.sendKeys(data.get("budget"));
+		noofvacancies.sendKeys(data.get("noofvacancies"));
 		this.cashBenefit.sendKeys(data.get("cashBenefit"));
 		this.minAge.sendKeys(data.get("minAge"));
 		this.maxAge.sendKeys(data.get("maxAge"));

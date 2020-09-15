@@ -44,6 +44,10 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath = "//button[contains(text(), 'Search')]")
 	public WebElement Search;
 	
+	@FindBy(xpath = "//button[text()='Find']")
+	public WebElement find;
+	
+	
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
 	
 	public void clickOnSaveBtn() throws InterruptedException

@@ -33,10 +33,7 @@ public class AddingCandidate extends baseclass{
 		loginpage.ClickOnEmployerAgencySigninLink();
 	}
 	
-//	@When("^Click on Job Seeker\\(Candidate\\) Sign In link$")
-//	public void click_on_Job_Seeker_Candidate_Sign_In_link() throws Throwable {
-//	    
-//	}
+
 	
 	@When("^Employer enters valid credentials \"([^\"]*)\",\"([^\"]*)\"$")
 	public void employer_enters_valid_credentials(String Username, String Password) throws Throwable {
@@ -51,9 +48,8 @@ public class AddingCandidate extends baseclass{
 	@When("^Add job \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
 	public void add_jobskill_and(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3, DataTable credentials) throws Throwable {
 		addjobpage.addjob(credentials);
-		addjobpage.extraInfoOfJob(credentials);
 		addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3);		
-//		common.ClickSumbit();
+		common.ClickSumbit();
 	}
 
 	@When("^Select a added job$")
@@ -251,11 +247,24 @@ public void click_on_Edit_view_job_button() throws Throwable {
    }
 }
 
+@When("^click on view job button$")
+public void click_on_view_job_button() throws Throwable {
+	 Thread.sleep(2000);
+	workbenchpage.viewJobButton.click();
+}
+
 @When("^share job with agency \"([^\"]*)\"$")
 public void share_job_with_agency(String agyEmailId) throws Throwable {
 	sharewithagencypage.shareWithAgency(agyEmailId);
 }
 
+@When("^Add job with all details\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+public void add_job_with_all_details_and(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3, DataTable credentials) throws Throwable {
+	addjobpage.addjob(credentials);
+	addjobpage.extraInfoOfJob(credentials);
+	addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3);		
+	common.ClickSumbit();
+}
 
 
 //Onmarketplace####

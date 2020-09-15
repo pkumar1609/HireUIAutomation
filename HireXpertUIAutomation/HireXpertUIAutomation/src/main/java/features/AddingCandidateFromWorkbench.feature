@@ -104,38 +104,38 @@ And Employer enters valid credentials "<Username>","<Password>"
 #|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
 #|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
-And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
-|title             |agytitle         |designation |industry   |jobrole        |organization|qualification|country|city|location |zipcode|address    |noofvacancies|budget |minexp|maxexp|minsal|maxsal|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|                                                                    
-|candidateJob      |candidateJobagy  |Developer   |IT software|java developer |Talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |400000 |1     |2     |400000|800000|400000     |25     |30   |4			  |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |
-#And Select a added job
-#And Share job with team member
-#|EmpTeam|Agyteam|
-#|pe1    |pa1    |
-#And Click on close button
+And Add job with all details"<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
+|title             |agytitle         |designation |industry   |organization|qualification|country|city|location |zipcode|address    |noofvacancies|minexp|maxexp|minsal|maxsal|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|                                                                    
+|candidateJob      |candidateJobagy  |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30   |4			    |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |
+And Select a added job
+And Share job with team member
+|EmpTeam|Agyteam|
+|pe1    |pa1    |
+And Click on close button
 #And Click on hamburger menu
 #And click on edit button
 #And Assert details of add jon on edit job page "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
-#|title             |agytitle         |designation |industry   |jobrole        |organisation|qualification|country|city|location |zipcode|address    |noofvacancies|budget |minexp|maxexp|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|                                                                    
-#|candidateJob      |candidateJobagy  |Developer   |IT software|java developer |Talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |400000 |1     |2     |400000     |25     |30   |4			  |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |
+#|title             |agytitle         |designation |industry   |organization|qualification|country|city|location |zipcode|address    |noofvacancies|minexp|maxexp|minsal|maxsal|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift            |ShiftTimings  |FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|                                                                    
+#|candidateJob      |candidateJobagy  |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30   |4			    |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |
 #And Click on close button
-#And Logout from App
-#And Click on Employer-Agency Signin link
-#And Employer enters valid credentials "<Teamid>","<Password>"
-#And And Go to workbench
-#And Select a added job
-#And Click on hamburger menu
-#And click on Edit/view job button
-#And Assert details of add jon on edit job page "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
-#|title             |agytitle         |designation |industry   |jobrole        |organisation|qualification|country|city|location |zipcode|address    |noofvacancies|budget |minexp|maxexp|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|                                                                    
-#|candidateJob      |candidateJobagy  |Developer   |IT software|java developer |Talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |400000 |1     |2     |400000     |25     |30   |4			  |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |
+And Logout from App
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials "<Teamid>","<Password>"
+And And Go to workbench
+And Select a added job
+And Click on hamburger menu
+And click on Edit/view job button
+And Assert details of add jon on edit job page "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
+|title             |agytitle         |designation |industry   |organization|qualification|country|city|location |zipcode|address    |noofvacancies|minexp|maxexp|minsal|maxsal|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|                                                                    
+|candidateJob      |candidateJobagy  |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30   |4			    |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |
 
 Examples:
 |Username      |Teamid        |Password|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
-|pemp@gmail.com|pe1@gmail.com|12345   |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
-#|pagy@gmail.com|pa1@gmail.com |12345   |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
+#|pemp@gmail.com|pe1@gmail.com|12345   |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
+|pagy@gmail.com|pa1@gmail.com |12345   |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
 @jobvalidationonAgency
-Scenario Outline: Add job and assert all details on edit job page on agency side ehen job is shared
+Scenario Outline: Add job and assert all details on edit job page on agency side when job is shared
 	
 Given User must be registered
 
@@ -147,27 +147,37 @@ And Employer enters valid credentials "<Username>","<Password>"
 #|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
 #|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
-And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
-|title             |agytitle         |designation |industry   |jobrole        |organisation|qualification|country|city|location |zipcode|address    |noofvacancies|budget |minexp|maxexp|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|                                                                    
-|candidateJob      |candidateJobagy  |Developer   |IT software|java developer |Talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |400000 |1     |2     |400000     |25     |30   |4			  |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |
+And Add job with all details"<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
+|title                   |agytitle         |designation |industry   |organization|qualification|country|city|location |zipcode|address    |noofvacancies|minexp|maxexp|minsal|maxsal|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|                                                                    
+|jobvalidationonAgency   |candidateJobagy  |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30   |4			    |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |
 And Select a added job
 And share job with agency "<agencyname>"
 And Click on close button
+And Logout from App
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials "<agencyname>","<Password>"
+And And Go to workbench
+And Select a added job
 And Click on hamburger menu
-And click on edit button
+And click on view job button
 And Assert details of add jon on edit job page "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
-|title             |agytitle         |designation |industry   |jobrole        |organisation|qualification|country|city|location |zipcode|address    |noofvacancies|budget |minexp|maxexp|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|                                                                    
-|candidateJob      |candidateJobagy  |Developer   |IT software|java developer |Talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |400000 |1     |2     |400000     |25     |30   |4			  |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |
+|title                 |agytitle         |designation |industry   |organization|qualification|country|city|location |zipcode|address    |noofvacancies|minexp|maxexp|minsal|maxsal|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|                                                                    
+|jobvalidationonAgency |candidateJobagy  |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30   |4			    |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |
 And Click on close button
 And Share job with team member
 |EmpTeam|Agyteam|
 |pe1    |pa1    |
 And Click on close button
+And Logout from App
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials "pagy@gmail.com","<Password>"
+And And Go to workbench
+And Select a added job
 And Click on hamburger menu
 And click on Edit/view job button
 And Assert details of add jon on edit job page "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
-|title             |agytitle         |designation |industry   |jobrole        |organisation|qualification|country|city|location |zipcode|address    |noofvacancies|budget |minexp|maxexp|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|                                                                    
-|candidateJob      |candidateJobagy  |Developer   |IT software|java developer |Talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |400000 |1     |2     |400000     |25     |30   |4			  |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |
+|title                |agytitle         |designation |industry   |organization|qualification|country|city|location |zipcode|address    |noofvacancies|minexp|maxexp|minsal|maxsal|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|                                                                    
+|jobvalidationonAgency|candidateJobagy  |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30   |4			    |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |
 And Click on close button
 
 Examples:

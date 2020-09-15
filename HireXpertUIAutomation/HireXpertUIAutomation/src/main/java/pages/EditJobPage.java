@@ -2,6 +2,7 @@ package pages;
 
 import java.util.Map;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -50,24 +51,19 @@ public class EditJobPage extends baseclass {
 		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-		Thread.sleep(4000);
-		if(loginpage.b==true)
-		{
-		Assert.assertEquals(addjobpage.title.getAttribute("value"), data.get("title"));
-		}else
-		{ 
-		Assert.assertEquals(addjobpage.title.getAttribute("value"), data.get("agytitle"));
-		}
+		Thread.sleep(5000);
+		Assert.assertEquals(addjobpage.title.getAttribute("value"), addjobpage.jobname);
 		Assert.assertEquals(addjobpage.industry.getAttribute("value"), data.get("industry"));
 		Assert.assertEquals(addjobpage.designation.getAttribute("value"), data.get("designation"));
-		if(loginpage.b=true)
+		if(loginpage.b==true)
 		{
 			Assert.assertEquals(addjobpage.Organization.getAttribute("value"), data.get("organization"));
 		}
 		else
 		{
-			Assert.assertEquals(addjobpage.employerId.getAttribute("value"), data.get("Employer"));
-			Assert.assertEquals(addjobpage.employerOrganizationName.getAttribute("value"), data.get("organization"));
+			
+			Assert.assertEquals(driver.findElement(By.xpath("//input[@formcontrolname='Employer']")).getAttribute("value"), addjobpage.SelectedEmployer.strip());
+			Assert.assertEquals(addjobpage.employerOrganizationName.getAttribute("value"), addjobpage.selectedOrganization);
 		}
 		Assert.assertEquals(addjobpage.qualification.getAttribute("value"), data.get("qualification"));
 		se = new Select (addjobpage.country);
@@ -93,7 +89,7 @@ public class EditJobPage extends baseclass {
 		se = new Select (addjobpage.considerRelocation);
 		WebElement considerRelocation = se.getFirstSelectedOption();
 		Assert.assertEquals(considerRelocation.getText(), data.get("considerRelocation"));
-		se = new Select (addjobpage.DoNotAddOverBudgetCandidate);
+		se = new Select (addjobpage.blockOverBudgetCandidate);
 		WebElement DoNotAddOverBudgetCandidate = se.getFirstSelectedOption();
 		Assert.assertEquals(DoNotAddOverBudgetCandidate.getText(), data.get("OverBudget"));
 		se = new Select (addjobpage.Shift);
