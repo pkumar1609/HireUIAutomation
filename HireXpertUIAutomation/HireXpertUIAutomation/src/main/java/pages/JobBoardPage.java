@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,7 +17,7 @@ public class JobBoardPage extends baseclass {
 	@FindBy(xpath = "//select[@id='industryDropdown']")
 	public WebElement Industrydropdown;
 	
-	@FindBy(id = "typeahead-config")
+	@FindBy(xpath = "//ng-select[@placeholder='Select Designation']//input")
 	public WebElement Designation;
 	
 	@FindBy(xpath = "//input[@formcontrolname='Role']")
@@ -58,22 +59,39 @@ public class JobBoardPage extends baseclass {
 	@FindBy(linkText="Job Seeker(Candidate) Sign In")
 	WebElement JobseekerCandidateSignInlinkOnJobBoard;
 	
+	@FindBy(id="jobDropdown")
+	WebElement filtertypeDropdown;
+	
+	@FindBy(id="location")
+	WebElement cityarea;
+	
+	
 	
 public JobBoardPage() {
 		
 		PageFactory.initElements(driver, this);
 		this.driver = driver;
 	}
+
+public void selectfilterType() {
 	
-public void selectIndustryType(String industry) {
-	
-	Select select = new Select(Industrydropdown);
-	select.selectByVisibleText(industry);
+	Select select = new Select(filtertypeDropdown);
+	select.selectByVisibleText("Advance Filters");
 }
 
-public void enterdesignation(String designation) {
+public void selectIndustryType(String Industry) {
 	
-	Designation.sendKeys(designation);
+	Select select = new Select(Industrydropdown);
+	select.selectByVisibleText(Industry);
+}
+
+public void enterdesignation(String JobDesignation) {
+	
+	Designation.click();
+	Designation.sendKeys(JobDesignation);
+	Designation.sendKeys(Keys.ENTER);
+//	Select select = new Select(Designation);
+//	select.selectByVisibleText(JobDesignation);
 }
 
 public void enterrole(String role) {
@@ -81,15 +99,24 @@ public void enterrole(String role) {
 	Role.sendKeys(role);
 }
 
-public void enterexperience(String experience) {
+public void enterexperience(String MinExp) {
 	
-   Experience.sendKeys(experience);
+//   Experience.sendKeys(MinExp);
+   Select select = new Select(Experience);
+	select.selectByVisibleText(MinExp);
 }
 
-public void entercity(String city) {
+public void entercity(String JobCity) {
 	
-   City.sendKeys(city);
+	Select select = new Select(City);
+	select.selectByVisibleText(JobCity);
 }
+
+public void entercityarea(String CityArea) {
+	
+	Select select = new Select(cityarea);
+	select.selectByVisibleText(CityArea);
+	}
 
 public void clickonSearchBtn() {
 	
@@ -173,7 +200,7 @@ public void ApplycandidateWithoutLoginforaJobOnJobBoard(String CandidateEmail, S
 	
 	Thread.sleep(3000);
 	
-	driver.findElement(By.xpath("(//input[@placeholder='Enter Designation'])[2]")).sendKeys(CandidateDesignation);
+	driver.findElement(By.xpath("//input[@placeholder='Enter Designation']")).sendKeys(CandidateDesignation);
 	addcandidatepage.contactNumber.click();
 	driver.findElement(By.xpath("//input[@placeholder='Select Date']")).sendKeys(DateOfBirth);
 	
@@ -234,24 +261,26 @@ public void loginWithsameemployerofJob(String EmployerEmailAddress, String Passw
 }
 	
 
-public void verifyTheJobDataOnJobBoard (String JobTitle, String OrganizationName, String JobLocation, String JobCity, String JobCountry, String MinExp, String MaxExp, String JobBudget, String Industry, String JobDesignation) {
+public void verifyTheJobDataOnJobBoard (String JobTitle, String OrganizationName, String CityArea, String JobCity, String JobCountry, String MinExp, String MaxExp, String MaxSalary, String Industry, String JobDesignation, String JobNoticePeriod) {
 	
 	
 	WebElement title = driver.findElement(By.xpath("//h6[contains(text(),'"+JobTitle+"')]"));
 	
 	WebElement organizationname = driver.findElement(By.xpath("//p[contains(text(),'"+OrganizationName+"')]"));
 	
-	WebElement location = driver.findElement(By.xpath("(//p[contains(text(),'"+JobLocation+","+" "+JobCity+","+" "+JobCountry+"')])[1]"));
+	WebElement location = driver.findElement(By.xpath("//span[contains(text(),'"+CityArea+","+" "+JobCity+","+" "+JobCountry+"')]"));
 	
-	WebElement experience = driver.findElement(By.xpath("(//p[contains(text(),'"+MinExp+" "+"to" +" "+MaxExp+" "+"Years"+"')])[1]"));
+	WebElement experience = driver.findElement(By.xpath("//p[contains(text(),'"+MinExp+" "+"to" +" "+MaxExp+" "+"Years"+"')]"));
 	
-	WebElement budget = driver.findElement(By.xpath("(//p[contains(text(),'"+JobBudget+" "+"PA"+"')])[1]"));
+	WebElement budget = driver.findElement(By.xpath("//p[contains(text(),'" +MaxSalary+" "+"PA"+ "')])"));
 	
 	WebElement industry = driver.findElement(By.xpath("//p[contains(text(),'"+Industry+"')]"));
 	
 	WebElement designation = driver.findElement(By.xpath("//td[contains(text(),'"+JobDesignation+"')]"));
 	
 	WebElement jobtype = driver.findElement(By.xpath("//td[contains(text(),'Permanent Full Time')]"));
+	
+	WebElement noticeperiod = driver.findElement(By.xpath("//p[contains(text(),'"+JobNoticePeriod+"')]"));
 	
 	boolean titleactual = title.isDisplayed();
 	Assert.assertEquals(titleactual, true);
@@ -277,6 +306,8 @@ public void verifyTheJobDataOnJobBoard (String JobTitle, String OrganizationName
 	boolean jobtypeactual = jobtype.isDisplayed();
 	Assert.assertEquals(jobtypeactual, true);
 	
+	boolean noticeperiodactual = noticeperiod.isDisplayed();
+	Assert.assertEquals(noticeperiodactual, true);
 
 	
 }

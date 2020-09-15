@@ -54,11 +54,42 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 //		
 //	}
 	
-	@When("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	@When("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
+//	    
+//		addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
+//		
+//
+//	}
+	
+//	@Given("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
+//
+//		 Thread.sleep(3000); 
+//	addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
+//				
+//	}
+	
+	@Given("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
-	    
-		addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
+
+		 Thread.sleep(3000); 
+			addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
+						
+	}
+	
+	@Given("^Verify the details on Job card displayed on left side pannel \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void verify_the_details_on_Job_card_displayed_on_left_side_pannel(String JobTitle, String OrganizationName, String CityArea, String JobCity, String JobCountry, String MinExp, String MaxExp, String MaxSalary, String Industry, String JobDesignation, String JobNoticePeriod) throws Throwable {
+
+		Thread.sleep(3000);
+		jobboardpage.verifyTheJobDataOnJobBoard(JobTitle, OrganizationName, CityArea, JobCity, JobCountry, MinExp, MaxExp, MaxSalary, Industry, JobDesignation, JobNoticePeriod);
 		
+	}
+
+
+	@Then("^Verify the details on candidate details icon \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" \"([^\"]*)\"$")
+	public void verify_the_details_on_candidate_details_icon(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7, String arg8, String arg9, String arg10, String arg11, String arg12, String arg13, String arg14, String arg15) throws Throwable {
+
 
 	}
 
@@ -100,14 +131,14 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 	}
 
 	
-	@Given("^Verify the details on Job card displayed on left side pannel \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void verify_the_details_on_Job_card_displayed_on_left_side_pannel(String JobTitle, String OrganizationName, String JobLocation, String JobCity, String JobCountry, String MinExp, String MaxExp, String JobBudget, String Industry, String JobDesignation) throws Throwable {
-
-
-		Thread.sleep(3000);
-		jobboardpage.verifyTheJobDataOnJobBoard(JobTitle, OrganizationName, JobLocation, JobCity, JobCountry, MinExp, MaxExp, JobBudget, Industry, JobDesignation);
-		
-	}
+//	@Given("^Verify the details on Job card displayed on left side pannel \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void verify_the_details_on_Job_card_displayed_on_left_side_pannel(String JobTitle, String OrganizationName, String CityArea, String JobCity, String JobCountry, String MinExp, String MaxExp, String MaxSalary, String Industry, String JobDesignation, String JobNoticePeriod) throws Throwable {
+//
+//
+//		Thread.sleep(3000);
+//		jobboardpage.verifyTheJobDataOnJobBoard(JobTitle, OrganizationName, CityArea, JobCity, JobCountry, MinExp, MaxExp, MaxSalary, Industry, JobDesignation, JobNoticePeriod);
+//		
+//	}
 
 	@Given("^Verify all the details of the job after clicking on Job Details button$")
 	public void verify_all_the_details_of_the_job_after_clicking_on_Job_Details_button() throws Throwable {
@@ -203,20 +234,23 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 	}
 
 	@Given("^Select all mandatory filters and click on search button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void select_all_mandatory_filters_and_click_on_search_button(String industry, String jobdesignation, String role, String experience, String city) throws Throwable {
+	public void select_all_mandatory_filters_and_click_on_search_button(String Industry, String JobDesignation, String MinExp, String JobCity, String CityArea ) throws Throwable {
 	    
 		Thread.sleep(2000);
-		jobboardpage.selectIndustryType(industry);
+		jobboardpage.selectfilterType();
 		Thread.sleep(2000);
-		jobboardpage.enterdesignation(jobdesignation);
+		jobboardpage.selectIndustryType(Industry);
 		Thread.sleep(2000);
-		jobboardpage.enterrole(role);
+		jobboardpage.enterdesignation(JobDesignation);
 		Thread.sleep(2000);
-		jobboardpage.enterexperience(experience);
+		jobboardpage.enterexperience(MinExp);
 		Thread.sleep(2000);
-		jobboardpage.entercity(city);
+		jobboardpage.entercity(JobCity);
+		Thread.sleep(2000);
+		jobboardpage.entercityarea(CityArea);
 		Thread.sleep(2000);
 		jobboardpage.clickonSearchBtn();
+		
 	}
 
 
@@ -436,7 +470,7 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 	    
 		Thread.sleep(3000);
 //		jobboardpage.clickonApplyBtn();
-		driver.findElement(By.xpath("//button[@class='btn Cbtn-primary'][contains(text(),'Apply')]")).click();
+		driver.findElement(By.xpath("(//button[contains(text(),'Apply')])[2]")).click();
 		
 	}
 
