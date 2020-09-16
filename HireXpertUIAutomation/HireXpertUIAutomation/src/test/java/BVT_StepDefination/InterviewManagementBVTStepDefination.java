@@ -157,13 +157,21 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		Select se = new Select(interviewspage.jobDropdown);
 		se.selectByVisibleText(data.get(0).get(0));
 		Thread.sleep(2000);
-		interviewspage.fromdate.clear();
-		interviewspage.fromdate.sendKeys(data.get(0).get(1));
+		driver.findElement(By.xpath("(//button[@aria-label='Clear Date'])[1]")).click();
 		Thread.sleep(2000);
-		interviewspage.clearToDate.click();
+		driver.findElement(By.xpath("(//button[@aria-label='Open Calendar'])[2]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@class='datevalue currmonth']//span[contains(text(),'30')]")).click();
+//		Thread.sleep(2000);
+//		driver.findElement(By.xpath("(//button[@aria-label='Clear Date'])[2]")).click();
+//		interviewspage.fromdate.clear();
+//		interviewspage.fromdate.sendKeys(data.get(0).get(1));
+//		Thread.sleep(2000);
+//		interviewspage.clearToDate.click();
 //		interviewspage.todate.sendKeys(data.get(0).get(1));
 		Thread.sleep(2000);
 		interviewspage.searchButton.click();
+
 	}
 	
 	@When("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
