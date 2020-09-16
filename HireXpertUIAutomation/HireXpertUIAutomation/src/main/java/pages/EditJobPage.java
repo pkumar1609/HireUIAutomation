@@ -61,9 +61,17 @@ public class EditJobPage extends baseclass {
 		}
 		else
 		{
+			if(addjobpage.jobAddedByEmp==true)
+			{
+				Assert.assertEquals(driver.findElement(By.xpath("//input[@formcontrolname='Employer']")).getAttribute("value"), "pemp");
+//				Assert.assertEquals(addjobpage.employerOrganizationName.getAttribute("value"), "");
+			}
+			else
+			{
+				Assert.assertEquals(driver.findElement(By.xpath("//input[@formcontrolname='Employer']")).getAttribute("value"), addjobpage.SelectedEmployer.strip());
+				Assert.assertEquals(addjobpage.employerOrganizationName.getAttribute("value"), addjobpage.selectedOrganization);
+			}
 			
-			Assert.assertEquals(driver.findElement(By.xpath("//input[@formcontrolname='Employer']")).getAttribute("value"), addjobpage.SelectedEmployer.strip());
-			Assert.assertEquals(addjobpage.employerOrganizationName.getAttribute("value"), addjobpage.selectedOrganization);
 		}
 		Assert.assertEquals(addjobpage.qualification.getAttribute("value"), data.get("qualification"));
 		se = new Select (addjobpage.country);

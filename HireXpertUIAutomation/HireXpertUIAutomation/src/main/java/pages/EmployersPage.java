@@ -137,7 +137,7 @@ public class EmployersPage extends baseclass {
 
 	public void deleteUser() throws InterruptedException
 	{
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		deleteEmployer.click();
 		confimYes.click();	
 	}

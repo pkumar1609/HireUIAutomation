@@ -1,6 +1,6 @@
 Feature: Marketplace Feature
 
-@TC351 @Bvtc @market
+@TC351 @Bvtc 
 Scenario: To verify the functionality to share job with market place.
 Given User must be registered
 When title of login page is Home
@@ -23,7 +23,7 @@ And Click on Employer-Agency Signin link
 And login as a support user
 And verify shared job is displaying on support login
 And Click on approve
-And Logout from App
+And Logout as a support user
 And Click on Employer-Agency Signin link
 And agency enters valid credentials
 And Go to agency marketplace tab
@@ -110,7 +110,7 @@ And Click on Employer-Agency Signin link
 And login as a support user
 And verify shared job is displaying on support login
 And Click on approve
-And Logout from App
+And Logout as a support user
 And Click on Employer-Agency Signin link
 And agency enters valid credentials
 And Go to agency marketplace tab

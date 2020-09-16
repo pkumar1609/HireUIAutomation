@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchContextException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -438,9 +439,23 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 	{ 
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
+			try
+			{
+			common.clickOnOKBtn();
+			}
+			catch(NoSuchElementException e)
+			{
+			}
 			workbenchpage.AddJob();
-			jobAddedByEmp=this.employerId.getSize() != null;
-			
+//			try
+//			{
+//			jobAddedByEmp=this.employerId.isDisplayed();
+//			this.jobAddedByEmp=true;
+//			}
+//			catch(NoSuchElementException e)
+//			{
+//				this.jobAddedByEmp=false;
+//			}
 			if(loginpage.b==true)  
 			{
 				jobname=data.get("title");
@@ -458,9 +473,18 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 				List<WebElement> options = select.getOptions();
 				if(options.size()>0)
 				{
-					select.selectByIndex(1);
-					SelectedEmployer=select.getFirstSelectedOption().getText();
-					selectedOrganization=this.Organization.getAttribute("value");
+					select.selectByIndex(1);	
+					if(this.Organization.isEnabled())
+					{
+						this.Organization.sendKeys(data.get("organization"));
+					}
+					else
+					{
+						selectedOrganization=this.Organization.getAttribute("value");
+					}
+					
+				SelectedEmployer=select.getFirstSelectedOption().getText();
+				selectedOrganization=this.Organization.getAttribute("value");
 				}
 				else if (options.size()==0)
 				{

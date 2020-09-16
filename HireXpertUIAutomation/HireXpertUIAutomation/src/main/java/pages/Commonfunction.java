@@ -47,6 +47,8 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath = "//button[text()='Find']")
 	public WebElement find;
 	
+	@FindBy(xpath = "//button[text()='Cancel']")
+	public WebElement cancel;
 	
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
 	

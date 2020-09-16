@@ -84,6 +84,7 @@ boolean emp;
 	    
 		workbenchpage.ClickonLogout();
 		Thread.sleep(3000);
+		common.cancel.click();
 		
 		registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(3000);

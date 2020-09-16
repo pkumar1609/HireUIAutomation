@@ -122,7 +122,7 @@ public class loginstepdefination extends baseclass {
 
 	@Then("^Agency should be able to add Employer$")
 	public void Agency_should_be_able_to_add_Employer() throws InterruptedException  {
-		dashboardpage.openTeamPage();
+		dashboardpage.openEmployersPage();
 		System.out.println(size);
 		for(int i=0; i<size; i++) 
 		{

@@ -1,6 +1,6 @@
 Feature: Task Feature
 
-@TC264_266 @TaskBVT @Bvtc
+@TC264_266  @Bvtc
 Scenario Outline: Verify functionality of adding general task and particular task from Employer login
 
 Given User must be registered
@@ -50,7 +50,7 @@ Examples:
 |pemp@gmail.com|12345   |
 
 
-@TC265_267 @TaskBVT @Bvtc
+@TC265_267  @Bvtc
 Scenario Outline: Verify agency can add general task and particular task.
 Given User must be registered
 When title of login page is Home
@@ -63,7 +63,7 @@ And team member should be added
 And Go to workbench
 And Add job
 |agytitle        |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-|agencyjobtask2  |developer   |IT software|java developer |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
+|agencyjobtask2  |developer   |IT software|java developer |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert   |rahitech       |
 And Select a added job
 And Share job with team member
 |EmpTeam|Agyteam|
@@ -98,7 +98,7 @@ Examples:
 |pagy@gmail.com|12345   |
 
 
-@TC275 @TaskBVT @Bvtc
+@TC275  @Bvtc
 Scenario Outline: Verify only creator of the general task can delete that general task
 Given User must be registered
 When title of login page is Home
@@ -123,7 +123,7 @@ Examples:
 |pagy@gmail.com|12345   |
 
 
-@TC282 @TaskBVT @Bvtc
+@TC282 @Bvtc
 Scenario Outline: Verify only creator of the particular task can delete the task
 Given User must be registered
 When title of login page is Home
@@ -155,12 +155,12 @@ And Employer enters valid credentials "<Username>","<Password>"
 Then Delete the task
 Examples:
 |Username      |Password|
-|pemp@gmail.com|12345   |
+#|pemp@gmail.com|12345   |
 |pagy@gmail.com|12345   |
 
 
 
-@TC302 @TaskBVT @Bvtc
+@TC302 @Bvtc
 Scenario Outline: verify the functionality of edit for general tasks
 Given User must be registered
 When title of login page is Home

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import cucumber.api.DataTable;
@@ -39,7 +40,6 @@ public class MarketplaceBvt extends baseclass {
 
 	@And("^Click on share job with market place$")
 	public void click_on_share_job_with_market_place() throws InterruptedException   {
-	
 		marketplacepage.ClickOnShareWithMarketPlace();
 	}
 
@@ -71,6 +71,15 @@ public class MarketplaceBvt extends baseclass {
 	public void login_as_a_support_user() throws Throwable {
 	  loginpage.loginInAppWithSupport();
 	}
+
+	@Then("^Logout as a support user$")
+	public void logout_as_a_support_user() throws Throwable {
+		Thread.sleep(2000);
+		explicitwait.until(ExpectedConditions.elementToBeClickable(loginpage.profile));
+		Action.moveToElement(loginpage.profile).click().perform();
+		Thread.sleep(2000);
+		loginpage.Logout.click();
+	 }
 
 	@And("^verify shared job is displaying on support login$")
 	public void verify_shared_job_is_displaying_on_support_login() throws Throwable {

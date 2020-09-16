@@ -217,7 +217,8 @@ public class LoginPage extends baseclass
 		explicitwait.until(ExpectedConditions.elementToBeClickable(profile));
 		Action.moveToElement(profile).click().perform();
 		executor.executeScript("arguments[0].click();",Logout);
-
+		Thread.sleep(2000);
+		common.cancel.click();
 	}
 	
 	public void identifyUserK() throws InterruptedException

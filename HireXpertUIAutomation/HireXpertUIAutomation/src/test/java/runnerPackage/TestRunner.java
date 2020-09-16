@@ -1,6 +1,4 @@
-
 package runnerPackage;
-
 import org.junit.runner.RunWith;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -8,6 +6,7 @@ import org.testng.annotations.DataProvider;
 
 
 import org.testng.annotations.Test;
+
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -22,7 +21,7 @@ glue= {"BVT_StepDefination"},
 dryRun= false,
 monochrome = true,
 plugin = {"html:target/cucumber-reports"},
-tags=("@TaskBVT ")
+tags=("@invalid")
 )
 public class TestRunner
 {}
