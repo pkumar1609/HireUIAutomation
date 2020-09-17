@@ -38,6 +38,9 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath = "//button[text()='Submit']")
 	public WebElement submitbtn ;
 	
+	@FindBy(xpath = "(//button[text()='Submit'])[2]")
+	public WebElement addSubmitbtn ;
+	
 	@FindBy(id = "confirmModalCloseBtn")
 	public WebElement noButtonPopup;
 	

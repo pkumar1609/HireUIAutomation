@@ -13,6 +13,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.DataTable;
+import okio.Options;
+
 import org.testng.Assert;
 import utilPackage.baseclass;
 import utilPackage.utilclass;
@@ -31,6 +33,17 @@ public AddJobPage()
 	public String selectedOrganization;
 	public String SelectedEmployer;
 	public boolean jobAddedByEmp;
+	public String skill1 = "Agile";
+	public String skill2 = "Java";
+	public String skill2Exp2 = "S2(Expert)";
+	Select se;
+	public String jobname;
+	public boolean emp;
+	public String selectJob;
+	public String industryname;
+	public String jobRole;
+	public String allOptions;
+	
 	
 	@FindBy(xpath ="//input[@id='title']")
 	public WebElement title;
@@ -116,7 +129,7 @@ public AddJobPage()
 	@FindBy(id = "noticeperiod")
 	public WebElement noticePeriod;
 	
-	@FindBy(xpath = "//button[@title='Add Employee']")
+	@FindBy(xpath = "//button[@title='Add Employer']")
 	public WebElement addEmployee;
 	
 	@FindBy(xpath = "//input[@placeholder='Enter Organization']")
@@ -202,15 +215,8 @@ public AddJobPage()
 	
 
 	
-	public String skill1 = "Agile";
-	public String skill2 = "Java";
-	public String skill2Exp2 = "S2(Expert)";
-	Select se;
-	public String jobname;
-	public boolean emp;
-	public String selectJob;
-	public String industryname;
-	public String jobRole;
+	
+
 	
 	
 	public void validateJobPageTitle() {
@@ -446,6 +452,7 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 			catch(NoSuchElementException e)
 			{
 			}
+			
 			workbenchpage.AddJob();
 //			try
 //			{
@@ -471,40 +478,47 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 				title.sendKeys(jobname);
 				select =new Select(employerId);
 				List<WebElement> options = select.getOptions();
+//				System.out.println(options.size());
+//				for(WebElement item : options) 
+//		        { 
+//		          System.out.println(item.getText());          
+//		        }
+//				
 				if(options.size()>0)
 				{
-					select.selectByIndex(1);	
+					try {
+						select.selectByVisibleText(" pemp ");
+					}
+					catch(NoSuchElementException e)
+					{
+						Thread.sleep(2000);
+						addEmployee.click();
+						Thread.sleep(5000);
+						teampage.TeamMemberEmail.sendKeys("pemp@gmail.com");
+						Thread.sleep(2000);
+						common.find.click();
+						Thread.sleep(2000);
+						common.addSubmitbtn.click();  
+					}
 					if(this.Organization.isEnabled())
-					{
-						this.Organization.sendKeys(data.get("organization"));
-					}
-					else
-					{
-						selectedOrganization=this.Organization.getAttribute("value");
-					}
-					
-				SelectedEmployer=select.getFirstSelectedOption().getText();
-				selectedOrganization=this.Organization.getAttribute("value");
+						{
+							this.Organization.sendKeys(data.get("organization"));
+						}
+					SelectedEmployer=select.getFirstSelectedOption().getText();
+					selectedOrganization=this.Organization.getAttribute("value");
 				}
 				else if (options.size()==0)
 				{
 					Thread.sleep(2000);
 					addEmployee.click();
-					teampage.clickOnAddBtnK();
-					teampage.TeamMemberEmail.sendKeys(data.get("Employer")+"@gmail.com");
+					Thread.sleep(5000);
+					teampage.TeamMemberEmail.sendKeys("pemp@gmail.com");
 					Thread.sleep(2000);
 					common.find.click();
-					common.ClickSumbit();
+					Thread.sleep(2000);
+					common.addSubmitbtn.click();
 					SelectedEmployer=select.getFirstSelectedOption().getText();
-					if(this.Organization.isEnabled())
-					{
-						this.Organization.sendKeys(data.get("organization"));
-						this.flag=1;
-					}
-					else
-					{
-						selectedOrganization=this.Organization.getAttribute("value");
-					}
+					selectedOrganization=this.Organization.getAttribute("value");
 				}
 			}
 			Thread.sleep(1000);
@@ -526,25 +540,6 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 					Thread.sleep(2000);
 					btn.click();
 				}
-//			if(loginpage.b==false)
-//			{ 
-//				select =new Select(employerId);
-//				List<WebElement> options = select.getOptions();
-//				if(options.size()>0)
-//				{
-//					select.selectByIndex(1);
-//				}
-//				else if (options.size()==0)
-//				{
-//					Thread.sleep(2000);
-//					addEmployee.click();
-//					teampage.AddAllDetailsK(credentials);
-//					select.selectByIndex(1);
-//					Organization.sendKeys(data.get("organisation"));	
-//				}
-//		    }
-			
-			
 	    }
     }
 	

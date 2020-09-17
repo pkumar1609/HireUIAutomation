@@ -28,7 +28,7 @@ public class TeamPage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Enter Name']")
 	public WebElement TeamMemberName;
 	
-	@FindBy(xpath = "//input[@placeholder='Enter Email']")
+	@FindBy(xpath = "(//input[@placeholder='Enter Email'])[2]")
 	public WebElement TeamMemberEmail;
 	
 	@FindBy(xpath = "//input[@formcontrolname='ContactNumber']")

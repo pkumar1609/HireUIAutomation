@@ -9,13 +9,13 @@ Feature: Job Management
     And enter valid "<email address>" and "<password>" for registered employer and click on Sign in button
     And Go to workbench
 	And Add job
-	|title		        |agytitle       |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-	|primary123     |primaryagy job |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
+	|title		    |agytitle       |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|Employer|
+	|primary123     |primaryagy job |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			    |Hirexpert   |rahitech       |pemp    |
 	And Select a added job
-    And team member should be added
-	|Name|         Email   | contact  |Nameagy  |         Emailagy  |team  |agyteam |
-	|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|pe1   |pa1     |
-	|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|pe1   |pa1	    |
+#    And team member should be added
+#	|Name|         Email   | contact  |Nameagy  |         Emailagy  |team  |agyteam |
+#	|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|pe1   |pa1     |
+#	|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|pe1   |pa1	    |
     And click on Share With Team button and select the Share checkbox present in front of the team member "<Teamid>"
     And Click on primary contact
     And try to make that team member as primary contact "<anotherteam>"
