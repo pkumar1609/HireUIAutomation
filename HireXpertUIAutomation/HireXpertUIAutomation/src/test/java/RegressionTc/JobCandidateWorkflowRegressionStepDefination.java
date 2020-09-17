@@ -1313,7 +1313,8 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 			Thread.sleep(3000);
 			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
-			
+			Thread.sleep(3000);
+			addcandidatepage.uploadResumeDocumentT();
 
 		}
 

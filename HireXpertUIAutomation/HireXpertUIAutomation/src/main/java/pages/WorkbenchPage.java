@@ -252,12 +252,15 @@ public class WorkbenchPage extends baseclass {
 		updateProfile.click();
 	}
 	
-	public void ClickonLogout() {
+	public void ClickonLogout() throws InterruptedException {
 		
 		WebElement we = profile;
 		Actions action = new Actions(driver);
 		action.moveToElement(we).perform();
 		Logout.click();
+		Thread.sleep(2000);
+		common.cancel.click();
+
 	}
 	
 	public void userNameProfile() {
