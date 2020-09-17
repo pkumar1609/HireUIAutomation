@@ -83,44 +83,44 @@ And click on ok button
 	# Change name, email of employer/agency/candidate
 
 
-	#@BVT
-	#Scenario Outline: To verify the registration functionality of already registered user and to verify user is not able to add one user with multiple roles.
-	#
-	#Given User open browser
-	#When click on Register link       
-	#And enter details of already registered user "<employername>" "<employeremail>" "<employercontactnumber>"
-	#And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
-	#And click on Submit button
-	#And click on Yes button
-	#Then User should get a error message as "User with 'employermain01@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
-	#And click on Close button
-	#And Click on Yes button of confirmation popup
-	#And Close the browser
-	#Given User open browser
-		#When click on Register link       
-	#And enter details of already registered agency "<agencyname>" "<agencyemail>" "<agencycontactnumber>"
-	#And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
-		#And click on Submit button
-	#And click on Yes button
-	#Then User should get a error message as "User with 'agencymain01@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
-	#And click on Close button
-	#And Click on Yes button of confirmation popup
-	#And Close the browser
-	#Given User open browser
-	#When click on Register link  
-	#And enter details of already registered employer "<candidatename>" "<candidateemail>" "<candidatecontactnumber>"
-	#And Select value from dropdown of "<employerusertype>" "<timezone>" "<country>"
-	#And click on Submit button
-	#And click on Yes button
-	#Then User should get a error message as "User with 'candidatemain01@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
-	#And click on Close button
-	#And Click on Yes button of confirmation popup
-	#And Close the browser
-	#
-	#
-	#Examples: 
-	#   | employername    |   employeremail              | employercontactnumber   | candidateusertype  | timezone             | country |  agencyname   |   agencyemail             | agencycontactnumber  |   candidatename   |   candidateemail             | candidatecontactnumber  | employerusertype  |
-	#   | employermain01  |  employermain01@gmail.com    | 211394644               | Candidate          | Indian Standard Time | India   | agencymain01  |  agencymain01@gmail.com   | 211314644            | candidatemain01   |  candidatemain01@gmail.com   | 123456456               | Employer          | 
+	@BVT
+	Scenario Outline: To verify the registration functionality of already registered user and to verify user is not able to add one user with multiple roles.
+	
+	Given User open browser
+	When click on Register link       
+	And enter details of already registered user "<employername>" "<employeremail>" "<employercontactnumber>"
+	And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
+	And click on Submit button
+	And click on Yes button
+	Then User should get a error message as "User with 'employermain01@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
+	And click on Close button
+	And Click on Yes button of confirmation popup
+	And Close the browser
+	Given User open browser
+		When click on Register link       
+	And enter details of already registered agency "<agencyname>" "<agencyemail>" "<agencycontactnumber>"
+	And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
+		And click on Submit button
+	And click on Yes button
+	Then User should get a error message as "User with 'agencymain01@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
+	And click on Close button
+	And Click on Yes button of confirmation popup
+	And Close the browser
+	Given User open browser
+	When click on Register link  
+	And enter details of already registered employer "<candidatename>" "<candidateemail>" "<candidatecontactnumber>"
+	And Select value from dropdown of "<employerusertype>" "<timezone>" "<country>"
+	And click on Submit button
+	And click on Yes button
+	Then User should get a error message as "User with 'candidatemain01@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
+	And click on Close button
+	And Click on Yes button of confirmation popup
+	And Close the browser
+	
+	
+	Examples: 
+	   | employername    |   employeremail              | employercontactnumber   | candidateusertype  | timezone             | country |  agencyname   |   agencyemail             | agencycontactnumber  |   candidatename   |   candidateemail             | candidatecontactnumber  | employerusertype  |
+	   | employermain01  |  employermain01@gmail.com    | 211394644               | Candidate          | Indian Standard Time | India   | agencymain01  |  agencymain01@gmail.com   | 211314644            | candidatemain01   |  candidatemain01@gmail.com   | 123456456               | Employer          | 
 	   
 	#TC :- 6, 289
 	
@@ -283,6 +283,7 @@ And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<
 	And click on ok button
 
 
+
 	Examples:
 
 	| AgencyName   | AgencyEmail            | AgencyContactNumber | AgencyUserType | timezone              | country | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity | organizationname | password |EmployerName  | EmployerEmail            | EmployerContactNumber | EmployerUserType | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | organizationname | CandidateName  | CandidateEmail           | CandidateContactNumber | CandidateUserType     | country |title         | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel | 
@@ -293,20 +294,20 @@ And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<
 	# Change name, email of employer/agency/candidate
 
 	
-#@Regression
-	#Scenario Outline: Forgot password functionality for not registered user
+@Regression
+	Scenario Outline: Forgot password functionality for not registered user
 	
-	#Given User open browser
-		##And click on Login link
-	##When click on Employer-Agency SignIn link
-	#And Click on forgot password link
-	#And Enter an email id which is not registered and click on submit button "<emailid>" 
-	#Then Verify that user get an error message as "aa11bb@gmail.com is not registered with us. Please register first." or not
-	#
-	#Examples:
-	#
-	#| emailid         |
-	#|aa11bb@gmail.com |
+	Given User open browser
+		#And click on Login link
+#	When click on Employer-Agency SignIn link
+	And Click on forgot password link
+	And Enter an email id which is not registered and click on submit button "<emailid>" 
+	Then Verify that user get an error message as "aa11bb@gmail.com is not registered with us. Please register first." or not
+	
+	Examples:
+	
+	| emailid         |
+	|aa11bb@gmail.com |
 	
 	#TC:- 83
 	
