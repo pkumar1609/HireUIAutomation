@@ -90,9 +90,9 @@ public class AgenciesPage extends baseclass {
 		agencyEmail.sendKeys(data.get("Email"));
 		agencyContactNumber.sendKeys(data.get("contact"));
 		namevalidate= data.get("Name");
-//		WebElement testDropDown = driver.findElement(By.xpath("//select[@formcontrolname='CountryId']"));
-//		select = new Select(testDropDown);
-//		select.selectByVisibleText("India");
+		WebElement testDropDown = driver.findElement(By.xpath("//select[@formcontrolname='CountryId']"));
+		select = new Select(testDropDown);
+		select.selectByVisibleText("India");
 		common.ClickSumbit();
 		try
 		{

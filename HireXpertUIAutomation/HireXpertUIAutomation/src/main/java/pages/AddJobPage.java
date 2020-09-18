@@ -315,7 +315,7 @@ public void addtenSkills() throws InterruptedException {
 	}
 	
 public void addNewSkill3() {
-		
+		 
 //		addskillbutton.click();
 		
 		jobskill3.sendKeys("Python");
@@ -445,13 +445,13 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 	{ 
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-			try
-			{
-			common.clickOnOKBtn();
-			}
-			catch(NoSuchElementException e)
-			{
-			}
+//			try 
+//			{
+//			common.clickOnOKBtn();
+//			}
+//			catch(NoSuchElementException e)
+//			{
+//			}
 			
 			workbenchpage.AddJob();
 //			try
@@ -475,7 +475,7 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 			{
 				jobname=data.get("agytitle");
 				System.out.println("Selected job: "+jobname);
-				title.sendKeys(jobname);
+				title.sendKeys(data.get("agytitle"));
 				select =new Select(employerId);
 				List<WebElement> options = select.getOptions();
 //				System.out.println(options.size());
@@ -494,11 +494,12 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 						Thread.sleep(2000);
 						addEmployee.click();
 						Thread.sleep(5000);
-						teampage.TeamMemberEmail.sendKeys("pemp@gmail.com");
+						teampage.Email.sendKeys("pemp@gmail.com");
 						Thread.sleep(2000);
 						common.find.click();
 						Thread.sleep(2000);
 						common.addSubmitbtn.click();  
+						select.selectByVisibleText(" pemp ");
 					}
 					if(this.Organization.isEnabled())
 						{
@@ -537,8 +538,8 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 			for(int i=0;i<deletebtn.size();i++)
 				{
 					WebElement btn = deletebtn.get(i);
-					Thread.sleep(2000);
-					btn.click();
+					Thread.sleep(3000);
+					btn.click(); 
 				}
 	    }
     }

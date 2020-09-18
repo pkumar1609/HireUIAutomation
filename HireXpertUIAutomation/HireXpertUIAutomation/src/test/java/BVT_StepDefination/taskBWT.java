@@ -45,7 +45,7 @@ public class taskBWT extends baseclass {
 	@And("^Click on Add task button and enter all details employer$")
 	public void in_add_task_popup_Fill_all_the_mandatory_details(DataTable credentials) throws Throwable {
 		this.emp=loginpage.b;
-		if(emp==true)
+		if(emp==true) 
 		{ 
 			taskpage.enterAlldetails(credentials);
 		}
@@ -168,129 +168,131 @@ public class taskBWT extends baseclass {
 
  
 	
-@Given("^team member should be added$")
-public void team_member_should_be_added(DataTable credentials) throws Throwable {
-	teampage.verifyTeamAdded(credentials);
-}  
+	@Given("^team member should be added$")
+	public void team_member_should_be_added(DataTable credentials) throws Throwable {
+		teampage.verifyTeamAdded(credentials);
+	}   
 
-@And("^Share job with team member$")
-public void share_job_with_team_member(DataTable credentials) throws Throwable {
-taskpage.shareWithTeam(credentials);
-}
-
-@And("^Click on Add task button and enter all details$")
-public void Click_on_Add_task_button_and_enter_all_details(DataTable credentials) throws InterruptedException  {
+	@And("^Share job with team member$")
+	public void share_job_with_team_member(DataTable credentials) throws Throwable {
+	taskpage.shareWithTeam(credentials);
+	}
 	
-	this.b=loginpage.b;
-	if(b==true) 
-	{
-	taskpage.enterAlldetails(credentials);
-	}
-	else
-	{
-	taskpage.enterAlldetailsForAgy(credentials);
-	}
-}
-
-@And("^Login with team member$")
-public void login_with_emp_team_member() throws Throwable {
-	this.b=loginpage.b;
-	if(b==true)
-	{
-	loginpage.loginInAppWithTeamK();
-	}
-	else 
-	{
-		loginpage.loginInAppWithAgyTeamK();
-	}
-} 
-
-@And("^Click on Delete task$")
-public void click_on_Delete_task() throws InterruptedException  {
-	this.b=loginpage.b;
-	if(taskpage.assignto.contentEquals(loginpage.logedinuser)) 
-	{
-		taskpage.clickondeletetask();
-		Thread.sleep(1000);
-		common.clickOnOKBtn();
-	}
-	else
+	@And("^Click on Add task button and enter all details$")
+	public void Click_on_Add_task_button_and_enter_all_details(DataTable credentials) throws InterruptedException  {
+		
+		this.b=loginpage.b;
+		if(b==true) 
 		{
-			taskpage.teamtask.click();
+		taskpage.enterAlldetails(credentials);
+		}
+		else
+		{
+		taskpage.enterAlldetailsForAgy(credentials);
+		}
+	}
+	
+	@And("^Login with team member$")
+	public void login_with_emp_team_member() throws Throwable {
+		this.b=loginpage.b;
+		if(b==true)
+		{
+		loginpage.loginInAppWithTeamK();
+		}
+		else 
+		{
+		loginpage.loginInAppWithAgyTeamK();
+		}
+	} 
+	
+	@And("^Click on Delete task$")
+	public void click_on_Delete_task() throws InterruptedException  {
+		this.b=loginpage.b;
+		if(taskpage.assignto.contentEquals(loginpage.logedinuser)) 
+		{
+			taskpage.clickondeletetask();
 			Thread.sleep(1000);
+			common.clickOnOKBtn();
+		}
+		else
+			{
+				taskpage.teamtask.click();
+				Thread.sleep(1000);
+				taskpage.clickondeletetask();
+			}
+		
+		}
+		
+		
+	
+	
+	@And("^observe the message$")
+	public void observe_the_message() throws Throwable {
+		
+	//	boolean b= driver.getWindowHandle().contentEquals("You are not creator of this task. You are not authorised to delete it.");
+	//	boolean b= driver.getPageSource().contains("You are not creator of this task. You are not authorised to delete it.");
+	//			Assert.assertEquals(b, true);
+	}
+	
+	
+	
+	
+	@Then("^Delete the task$")
+	public void delete_the_task() throws Throwable 
+	{
+		this.b=loginpage.b;
+		if(b==true) {
+		if(taskpage.assignto.contains("employer"))
+		{
 			taskpage.clickondeletetask();
 		}
-	
-	}
-	
-	
-
-
-@And("^observe the message$")
-public void observe_the_message() throws Throwable {
-	
-//	boolean b= driver.getWindowHandle().contentEquals("You are not creator of this task. You are not authorised to delete it.");
-//	boolean b= driver.getPageSource().contains("You are not creator of this task. You are not authorised to delete it.");
-//			Assert.assertEquals(b, true);
-}
-
-
-
-
-@Then("^Delete the task$")
-public void delete_the_task() throws Throwable 
-{
-	this.b=loginpage.b;
-	if(b==true) {
-	if(taskpage.assignto.contains("employer"))
-	{
-		taskpage.clickondeletetask();
-	}
-	else
-	{
-		taskpage.ClickOnTeamTask();
-		taskpage.clickondeletetask();
-	}
-	}
-
-else 
-{
-	if(taskpage.assignto.contains("agency"))
-	{
-		taskpage.clickondeletetask();
-	}
-	else
-	{
-		taskpage.ClickOnTeamTask();
-		taskpage.clickondeletetask();
-	}
-}
-}
-
-	@After("@TaskBVT")
-	public void Endtest() throws InterruptedException
-	{
-		dashboardpage.openDashboardPage();
-		taskpage.ClickOnMyTask();
-		taskpage.reloadtask();
-		List<WebElement> markCompleteButton = driver.findElements(By.xpath("//a[@title='Complete']"));
-		int size= markCompleteButton.size();
-		for(int i=0;i<size;i++)
+		else
 		{
-			Thread.sleep(3000);
-			markCompleteButton.get(i).click();
+			taskpage.ClickOnTeamTask();
+			taskpage.clickondeletetask();
 		}
-		taskpage.ClickOnTeamTask();
-		Thread.sleep(4000);
-		taskpage.reloadtask();
-		List<WebElement> markCompleteButton1 = driver.findElements(By.xpath("//a[@title='Complete']"));
-		int size1= markCompleteButton1.size();
-		System.out.println(size1);
-		for(int i=0;i<size1;i++)
+		}
+	
+	else 
+	{
+		if(taskpage.assignto.contains("agency"))
 		{
-			Thread.sleep(3000);
-			markCompleteButton1.get(i).click();
+			taskpage.clickondeletetask();
+		}
+		else
+		{
+			taskpage.ClickOnTeamTask();
+			taskpage.clickondeletetask();
 		}
 	}
-
-}
+	}
+	
+		@After("@TaskBVT")
+		public void Endtest() throws InterruptedException
+		{
+			dashboardpage.openDashboardPage();
+			taskpage.ClickOnMyTask();
+	//		taskpage.reloadtask();
+			Thread.sleep(2000);
+			List<WebElement> markCompleteButton = driver.findElements(By.xpath("//a[@title='Complete']"));
+			int size= markCompleteButton.size();
+			for(int i=0;i<size;i++)
+			{
+				Thread.sleep(3000);
+				markCompleteButton.get(i).click();
+			}
+			taskpage.ClickOnTeamTask();
+			Thread.sleep(2000);
+			taskpage.reloadtask();
+			Thread.sleep(2000);
+			List<WebElement> markCompleteButton1 = driver.findElements(By.xpath("//a[@title='Complete']"));
+			int size1= markCompleteButton1.size();
+			System.out.println(size1);
+			for(int i=0;i<size1;i++)
+			{
+				Thread.sleep(3000);
+				markCompleteButton1.get(i).click();
+			}
+		}
+	
+	}

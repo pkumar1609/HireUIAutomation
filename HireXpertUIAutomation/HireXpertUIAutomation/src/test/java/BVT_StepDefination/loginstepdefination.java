@@ -33,8 +33,8 @@ public class loginstepdefination extends baseclass {
 	@Given("^User must be registered$")
 	public void user_must_be_registered() throws Throwable {    
 		baseclass.initialization();
-	}
-
+	} 
+ 
 	@When("^title of login page is Home$")
 	public void title_of_login_page_is_Home()  {
 		agenciespage.getTitle();
@@ -167,5 +167,6 @@ public class loginstepdefination extends baseclass {
 		
 //		Assert.assertFalse(driver.findElement(By.xpath("//td[text()='"+teampage.namevalidate+"']")) != null);
 	}
+	
 }
 

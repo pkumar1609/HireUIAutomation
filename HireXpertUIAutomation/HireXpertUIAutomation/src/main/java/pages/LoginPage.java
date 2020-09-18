@@ -34,6 +34,9 @@ public class LoginPage extends baseclass
 	@FindBy(xpath= "//a[@title='Employer']")
 	public WebElement userbtnemp;
 	
+	@FindBy(xpath= "//a[@title='Agency']")
+	public WebElement userbtnagy;
+	
 	@FindBy(xpath= "//a[@href='#']")
 	private WebElement logedinusername;
 	
@@ -135,7 +138,7 @@ public class LoginPage extends baseclass
 //		explicitwait.until(ExpectedConditions.elementToBeClickable(signin));
 		Thread.sleep(4000);
 		signin.click();
-		identifyUserK();
+		identifyUserK(); 
 	}
     
     public void loginIn(String Username, String Password) throws InterruptedException {
@@ -228,21 +231,16 @@ public class LoginPage extends baseclass
 				Thread.sleep(2000);
 				userbtnemp.isDisplayed();		
 				Thread.sleep(2000);
-				logedinuser= logedinusername.getText();
-				logedinusername.click();
+				logedinuser= userbtnemp.getText();
+				userbtnemp.click();
 				b=true;
-		
 			} 
 			catch(NoSuchElementException e)
 			{
 				b=false;
-				logedinuser= logedinusername.getText();
+				logedinuser= userbtnagy.getText();
 				Thread.sleep(2000);
-				logedinusername.click();	 
+				userbtnagy.click();	  
 			}
-			  
 	}
-	
-	
-
 }

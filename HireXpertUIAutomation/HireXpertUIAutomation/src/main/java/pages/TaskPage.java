@@ -29,7 +29,7 @@ public class TaskPage extends baseclass {
 	super();
 	PageFactory.initElements(driver, this);
 	}
-
+ 
 	String addedtask;
 	public String assignto;
 	boolean emp;
@@ -84,7 +84,7 @@ public class TaskPage extends baseclass {
 	@FindBy(xpath="//strong[text()=addedtask]")
 	public WebElement taskname;
 	
-	@FindBy(xpath="//button[@title='Refresh']")
+	@FindBy(xpath="//button[text()=' Reload Tasks']")
 	private WebElement reloadtaskbtn;
 	
 	@FindBy(xpath="//h5[text()=' Error']")
@@ -331,9 +331,8 @@ public class TaskPage extends baseclass {
 		}
 //		element=driver.findElement(By.xpath("//strong[text()='"+taskpage.addedtask+"']"));
 //	    Assert.assertFalse(element.isDisplayed());
-	    Assert.assertEquals(0, driver.findElements(By.xpath("//strong[text()='"+taskpage.addedtask+"']")).size());
-
-	}
+	    Assert.assertEquals(driver.findElements(By.xpath("//strong[text()='"+taskpage.addedtask+"']")).size(), 0, "element found");
+	} 
 
 	
 	

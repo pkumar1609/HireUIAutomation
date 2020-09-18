@@ -1,6 +1,6 @@
 Feature: Marketplace Feature
 
-@TC351 @Bvtc 
+@TC351 @Bvtc @market
 Scenario: To verify the functionality to share job with market place.
 Given User must be registered
 When title of login page is Home

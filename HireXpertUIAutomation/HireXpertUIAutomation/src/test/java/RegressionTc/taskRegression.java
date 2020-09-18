@@ -157,7 +157,7 @@ public class taskRegression extends baseclass{
 	@And("^the task should not display on employer side$")
 	public void the_task_should_not_display_on_employer_side() throws Throwable {
 		taskpage.validateTaskAfterMarkCompletedEmp();
-	}
+	} 
 
 	@And("^login as third employer team \"([^\"]*)\"$")
 	public void login_as_third_employer_team(String teamid2) throws Throwable {
@@ -167,7 +167,7 @@ public class taskRegression extends baseclass{
 	@And("^third user should not able to put task in progress$")
 	public void third_user_should_not_able_to_put_task_in_progress() throws Throwable {
 //		taskpage.errordisplayed();'
-		Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' You can not change status of this task as you are neither assignee, creator or team owner for this task.']")).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'You can not change status of this task as you are neither assignee, creator or team owner for this task.')]")).isDisplayed(), true);
 		common.clickOnOKBtn();
 	}
 
@@ -209,8 +209,8 @@ public class taskRegression extends baseclass{
 		workbenchpage.clickOnAddCandidate();
 	}
 	
-	@Then("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-	public void enter_All_details_of_and(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
+	@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void enter_All_details_of(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7, String arg8, String arg9, String arg10, String arg11, String arg12, String arg13, String arg14, String arg15, String arg16, String arg17, String arg18, String arg19, String arg20, String arg21) throws Throwable {
 		workbenchpage.enterEmailId(CandidateEmail);
 		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
 		addcandidatepage.uploadResumeDocument();
@@ -223,6 +223,7 @@ public class taskRegression extends baseclass{
 		{}
 		addcandidatepage.checkCandidateALreadyPresent();
 	}
+	
 	
 	@When("^verify candidate card is displaying or not in New column \"([^\"]*)\"$")
 	public void verify_candidate_card_is_displaying_or_not_in_New_column(String Name) throws Throwable {
@@ -252,7 +253,7 @@ public class taskRegression extends baseclass{
 		Thread.sleep(4000);
 		action.clickAndHold(driver.findElement(By.cssSelector("div.item-box.cdk-drag"))).moveToElement(driver.findElement(By.xpath("//td[@id='jobStatusColumn' and @class='TableCard'] [3]"))).release().build().perform();
 
-	}
+	} 
 
 	@And("^verify the Auto generated task is getting deleted or not$")
 	public void verify_the_Auto_generated_task_is_getting_deleted_or_not() throws Throwable {
@@ -279,29 +280,33 @@ public class taskRegression extends baseclass{
 		Scroll.isDisplayed();
 	}
 
-//	@After("@regtask")
-//	public void Endtest() throws InterruptedException
-//	{
-//		dashboardpage.openDashboardPage();
+	@After("@regtask")
+	public void Endtest() throws InterruptedException
+	{
+		dashboardpage.openDashboardPage();
+		taskpage.ClickOnMyTask();
 //		taskpage.reloadtask();
-//		List<WebElement> markCompleteButton = driver.findElements(By.xpath("//a[@title='Complete']"));
-//		int size= markCompleteButton.size();
-//		for(int i=0;i<size;i++)
-//		{
-//			Thread.sleep(4000);
-//			markCompleteButton.get(i).click();
-//		}
-//		taskpage.ClickOnTeamTask();
-//		taskpage.reloadtask();
-//		List<WebElement> markCompleteButton1 = driver.findElements(By.xpath("//a[@title='Complete']"));
-//		int size1= markCompleteButton1.size();
-//		System.out.println(size1);
-//		for(int i=0;i<size1;i++)
-//		{
-//			Thread.sleep(4000);
-//			markCompleteButton1.get(i).click();
-//		}
-//	}
+		Thread.sleep(2000);
+		List<WebElement> markCompleteButton = driver.findElements(By.xpath("//a[@title='Complete']"));
+		int size= markCompleteButton.size();
+		for(int i=0;i<size;i++)
+		{
+			Thread.sleep(3000);
+			markCompleteButton.get(i).click();
+		}
+		taskpage.ClickOnTeamTask();
+		Thread.sleep(2000);
+		taskpage.reloadtask();
+		Thread.sleep(2000);
+		List<WebElement> markCompleteButton1 = driver.findElements(By.xpath("//a[@title='Complete']"));
+		int size1= markCompleteButton1.size();
+		System.out.println(size1);
+		for(int i=0;i<size1;i++)
+		{
+			Thread.sleep(3000);
+			markCompleteButton1.get(i).click();
+		}
+	}
 
 
 }

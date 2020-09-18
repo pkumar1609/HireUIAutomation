@@ -61,10 +61,10 @@ public class DashboardPage extends baseclass {
 	
 	public void openTeamPage() throws InterruptedException {
 
-		Thread.sleep(2000);
-		executor.executeScript("arguments[0].click();",team);
-	} 
-	
+		Thread.sleep(3000);
+		team.click();
+	}  
+	 
 	public void openInterviewsPage() 
 	{
 		interviews.click();

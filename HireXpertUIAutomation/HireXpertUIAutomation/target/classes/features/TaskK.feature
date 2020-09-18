@@ -1,6 +1,6 @@
 Feature: Task Feature
 
-@TC264_266  @Bvtc
+@TC264_266  @Bvtc 
 Scenario Outline: Verify functionality of adding general task and particular task from Employer login
 
 Given User must be registered
@@ -50,7 +50,7 @@ Examples:
 |pemp@gmail.com|12345   |
 
 
-@TC265_267  @Bvtc
+@TC265_267  @Bvtc 
 Scenario Outline: Verify agency can add general task and particular task.
 Given User must be registered
 When title of login page is Home
@@ -98,7 +98,7 @@ Examples:
 |pagy@gmail.com|12345   |
 
 
-@TC275  @Bvtc
+@TC275  @Bvtc 
 Scenario Outline: Verify only creator of the general task can delete that general task
 Given User must be registered
 When title of login page is Home
@@ -123,7 +123,7 @@ Examples:
 |pagy@gmail.com|12345   |
 
 
-@TC282 @Bvtc
+@TC282 @Bvtc 
 Scenario Outline: Verify only creator of the particular task can delete the task
 Given User must be registered
 When title of login page is Home
@@ -155,12 +155,12 @@ And Employer enters valid credentials "<Username>","<Password>"
 Then Delete the task
 Examples:
 |Username      |Password|
-#|pemp@gmail.com|12345   |
+|pemp@gmail.com|12345   |
 |pagy@gmail.com|12345   |
 
 
 
-@TC302 @Bvtc
+@TC302 @Bvtc @TaskBVT
 Scenario Outline: verify the functionality of edit for general tasks
 Given User must be registered
 When title of login page is Home
@@ -179,7 +179,7 @@ And Click on close button
 
 Examples:
 |Username      |Password|task    |team|Assignto|note                             |editedtask|editednote          |
-|pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task8     |complete before 1 pm|
+#|pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task8     |complete before 1 pm|
 |pagy@gmail.com|12345  |task11  |pagy|pa1      |Task should complete before time |task8     |complete before 1 pm|
 
 
@@ -293,7 +293,7 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Click on Add task button and enter all details employer
 |Title for emp      |teamField |AssignTo |note                             |employer   |team    |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|task4              |pemp      |pe1      |Task should complete before time |pemp       |pe1     |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+|CompleteTask       |pemp      |pe1      |Task should complete before time |pemp       |pe1     |pe1@gmail.com        |Completetaskagy  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 And the task should display for loggedinuser
 And Logout from App
 And Click on Employer-Agency Signin link
@@ -343,8 +343,8 @@ And Employer enters valid credentials "<Username>","<Password>"
 #|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Add job
-|title        |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |agytitle|Oraganization|
-|taskjob2    |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |Agyjobtask|talentxpert|
+|title        |agytitle    |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
+|parttask job |parttaskagy job|developer|IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
 And Select a added job
 And Share job with team member
 |EmpTeam|Agyteam|
@@ -354,8 +354,8 @@ And Go to workbench
 And Select a added job
 And Click on hamburger menu
 And Click on Add task button and enter all details
-|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|task2    |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid         |Title for agy       |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|Partaskinprogress  |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com  |Partaskinprogressagy|pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 And Go to dashboard
 And the task should display for loggedinuser
 And Logout from App
@@ -374,8 +374,8 @@ And Employer enters valid credentials "<Username>","<Password>"
 And Go to workbench
 And Select a added job
 And Click on Add task button and enter all details employer
-|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|task5              |pemp      |pemp     |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pagy        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy        |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|Partaskinprogress  |pemp      |pemp     |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |Partaskinprogressagy  |pagy         |pagy        |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 And Go to dashboard
 And the task should display for loggedinuser
 And Click on mark in progress
@@ -385,8 +385,9 @@ And Login with team member
 And the task should display for loggedinuser with Status "Inprogress"
 Examples:
 |Username      |Password|
-|pemp@gmail.com|12345   |
+#|pemp@gmail.com|12345   |
 |pagy@gmail.com|12345   |
+
 
 @TC280 @regtask
 Scenario Outline: verify particular job task removed from employer and team member dashboard if task mark as done
@@ -396,8 +397,8 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to workbench
 And Add job
-|title            |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |agytitle|
-|taskFor TC 280   |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |Agyjobtask|
+|title             |agytitle          |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
+|CompletePart job |CompletePartagy job|developer|IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
 And Select a added job
 And Share job with team member
 |EmpTeam|Agyteam|
@@ -407,8 +408,8 @@ And Go to workbench
 And Select a added job
 And Click on hamburger menu 
 And Click on Add task button and enter all details employer
-|Title for emp      |Title for agy    |teamField |AssignTo |note                             |employer            |team      |teamid               |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|task6              |task6            |pemp      |pe1     |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |pagy         |pa1    |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+|Title for emp|Title for agy    |teamField |AssignTo |note                             |employer |team      |teamid               |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|CompletePart |CompletePartagy  |pemp      |pe1     |Task should complete before time |pemp      |pe1       |pe1@gmail.com        |pagy         |pa1    |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 And Go to dashboard
 And the task should display for loggedinuser
 And Logout from App
@@ -480,7 +481,7 @@ And third user should not able to put task in progress
 
 Examples:
 |Username      |Password|teamid2      |
-|pemp@gmail.com|12345   |Pe2@gmail.com|
+#|pemp@gmail.com|12345   |Pe2@gmail.com|
 |pagy@gmail.com|12345   |pa2@gmail.com|
 
 
@@ -596,9 +597,8 @@ And team member should be added
 |pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Add job
-|title        |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |agytitle|
-|sharejob     |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |Agyjobtask|
-And Go to workbench
+|title   |agytitle          |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
+|TC300   |CompletePartagy job|developer|IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
 And Select a added job
 And Share job with team member
 |EmpTeam|Agyteam|
@@ -616,7 +616,7 @@ Examples:
 
 
 @TC268 @regtask
-Scenario Outline: Verify auto task generated and deleted for scheduling interview for user who added the candidate
+Scenario Outline: Verify auto task generated get deleted for schedule interview user who added the candidate
 Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
@@ -627,11 +627,11 @@ And Employer enters valid credentials "<Username>","<Password>"
 #|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Add job
-|title        |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |agytitle|
-|candidatejob |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |Agyjobtask|
+|title             |agytitle           |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
+|Addcandidate job  |Addcandidateagy job|developer|IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
 And Select a added job
 And Click on add candidate
-And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>"
 And verify candidate card is displaying or not in New column "<Name>"
 And drag the candidate from new column to Schedule interview column
 And Go to dashboard
@@ -660,8 +660,8 @@ And Employer enters valid credentials "<Username>","<Password>"
 #|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Add job
-|title         |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |agytitle|
-|candidatejob2 |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |Agyjobtask12|
+|title           |designation |industry   |jobrole        |location |budget |minexp|maxexp|Name |         Email   | contact  |agytitle|
+|autotask job   |developer   |IT software|java developer |pune     |400000 |1     |2     |pe1  | pe1@gmail.com   | 1234564  |Agyjobtask|
 And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"

@@ -1,6 +1,6 @@
 Feature: Job Management
 
-@bvt_agencyunblock @Bvtc @unblock
+@bvt_agencyunblock @Bvtc 
   Scenario Outline: Verify the Unblock functionality for Agency with Employer login
   
   	Given User is on Home page of application
@@ -16,7 +16,7 @@ Feature: Job Management
     And Go to workbench
 	And Add job
 	|title		      |agytitle          |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-	|ui/ux developer  |agyjob1 developer |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |
+	|job1 |job1agy |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |
 	And Select a added job
     And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 
     And click on the Block/Unblock to unblock checkbox present in front of agency whom you shared the job "<agyEmailId>"
@@ -49,7 +49,7 @@ Feature: Job Management
    	And Go to workbench
 	And Add job
 	|title		   |agytitle          |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-	|UX developer  |agyUX developer |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |	
+	|job3  |job3agy |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |	
 	And Select a added job
     And click on Share With Team button and select the Share checkbox present in front of the team member "<Teamid>"
     And click on the Block/Unblock to unblock checkbox present in front of team with whom you shared the job "<Teamid>"

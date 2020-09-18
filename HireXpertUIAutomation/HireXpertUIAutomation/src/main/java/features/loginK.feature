@@ -36,7 +36,7 @@ Then Newly added team member should be displayed in team page
 Then the employer with which you have logged in should display in team tab by default
 And delete the added team
 
-@TC49_53 @Bvtc @login 
+@TC49_53 @Bvtc @login
 Scenario: To verify whether the Agency is able to add and delete employer
 
 Given User must be registered

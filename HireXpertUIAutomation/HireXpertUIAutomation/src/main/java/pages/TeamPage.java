@@ -28,8 +28,11 @@ public class TeamPage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Enter Name']")
 	public WebElement TeamMemberName;
 	
-	@FindBy(xpath = "(//input[@placeholder='Enter Email'])[2]")
+	@FindBy(xpath = "//input[@placeholder='Enter Email']")
 	public WebElement TeamMemberEmail;
+	
+	@FindBy(xpath = "(//input[@placeholder='Enter Email'])[2]")
+	public WebElement Email;
 	
 	@FindBy(xpath = "//input[@formcontrolname='ContactNumber']")
 	public WebElement TeamMemberContactNumber;
@@ -110,45 +113,47 @@ public class TeamPage extends baseclass {
 	{
 		Thread.sleep(3000);
 		addAgencies.click();
-	}
+	} 
 
 	public void AddAllDetailsK(DataTable credentials) throws InterruptedException
 	{
-		this.emp=loginpage.b;
+		teampage.clickOnAddBtnK();
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-			teampage.clickOnAddBtnK();
+			TeamMemberName.clear();
 			TeamMemberName.sendKeys(data.get("Name"));
 			namevalidate = data.get("Name");
+			TeamMemberEmail.clear();
 			TeamMemberEmail.sendKeys(data.get("Email"));
+			TeamMemberContactNumber.clear();
 			TeamMemberContactNumber.sendKeys(data.get("contact"));
-			Select dropdown = new Select(countryid);
-			dropdown.selectByVisibleText("India");
-			Thread.sleep(1000);
+//			Select dropdown = new Select(countryid);
+//			dropdown.selectByVisibleText("India");
 			common.ClickSumbit(); 
 			try
 			{ 
-				common.okbtn.isDisplayed();
 				common.clickOnOKBtn();
-				common.clickOnAddClosebtn();
+//				common.clickOnAddClosebtn();
 				System.out.println("these team member are already added");
 			}
 			catch(NoSuchElementException e)
-			{
-			}
+			{}
 		}
+		common.clickOnAddClosebtn();
 		common.clickOnCloseBtn();
 	 }
 	
 	public void AddAllDetailsagyK(DataTable credentials) throws InterruptedException
 	{
-		
+		teampage.clickOnAddBtnK();
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-			teampage.clickOnAddBtnK();
+			TeamMemberName.clear(); 
 			TeamMemberName.sendKeys(data.get("Nameagy"));
 			namevalidate= data.get("Nameagy");
+			TeamMemberEmail.clear();
 			TeamMemberEmail.sendKeys(data.get("Emailagy"));
+			TeamMemberContactNumber.clear();
 			TeamMemberContactNumber.sendKeys(data.get("contact"));
 //			select = new Select(countryid);
 //			select.selectByVisibleText("India");
@@ -157,17 +162,18 @@ public class TeamPage extends baseclass {
 			{ 
 				common.okbtn.isDisplayed();
 				common.clickOnOKBtn();
-				common.clickOnAddClosebtn();
+//				common.clickOnAddClosebtn();
 			}
 			catch(NoSuchElementException e)
 			{}
-		}		
+		}	
+		common.clickOnAddClosebtn();
 		common.clickOnCloseBtn();
 	}
 	
 	public void deleteteamK() throws InterruptedException
 	{
-		Thread.sleep(2000);
+		Thread.sleep(2000); 
 		driver.findElement(By.xpath("//td[text()='"+teampage.namevalidate+"']//following::button[@title='Delete']")).click();
 		confimYesDelete.click();
 		
@@ -181,23 +187,14 @@ public class TeamPage extends baseclass {
 	//is team member present?
 	public void isTeamPresentForEmp(DataTable credentials) throws InterruptedException
 	{
-		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{
 			dashboardpage.openTeamPage();
 			AddAllDetailsK(credentials);
-//			common.clickOnCloseBtn();
-		}
 	}
-
 
 	public void isTeamPresentForAgy(DataTable credentials) throws InterruptedException
 	{
-		
-		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{
-			    dashboardpage.openTeamPage();
-				AddAllDetailsagyK(credentials);
-		}
+			dashboardpage.openTeamPage();
+			AddAllDetailsagyK(credentials);
 	}
 	
 	public void searchExistingTeam(DataTable credentials) throws InterruptedException
@@ -218,8 +215,8 @@ public class TeamPage extends baseclass {
 		if(loginpage.b==true) 
 		{
 		teampage.isTeamPresentForEmp(credentials);
-		}
-		else 
+		} 
+		else
 		{
 		teampage.isTeamPresentForAgy(credentials);
 		}
