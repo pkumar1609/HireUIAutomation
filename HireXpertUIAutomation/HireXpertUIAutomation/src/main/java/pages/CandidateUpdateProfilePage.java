@@ -103,7 +103,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//tr[3]//td[4]//button[1]")
 	public WebElement skill3Delete;
 	
-	@FindBy(xpath = "//button[contains(text(),'Add Role')]")
+	@FindBy(xpath = "//button[contains(text(),'Add Designation')]")
 	public WebElement addRolesButton;
 	
 	@FindBy(xpath = "//tr[2]//td[2]//button[1]")
@@ -115,7 +115,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//select[@formcontrolname='NotLookingForJob']")
 	public WebElement LookingforJobfield;
 	
-	@FindBy(linkText = "Skills & Roles")
+	@FindBy(xpath = "//a[@title='Skills & Roles Details']")
 	public WebElement SkillsInformation;
 	
 	@FindBy(xpath = "//a[@title='Personal & Professional Details']")

@@ -76,7 +76,7 @@ And click on ok button
 	
 	Examples: 
 	| EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone             | country | password | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail      | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail    | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
-	| TXE12          |  txe12@gmail.com      | 285248688             | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age12        | age12@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike12          | mike12@gmail.com  | 369497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+	| TXE14          |  txe14@gmail.com      | 285248688             | Employer         | Indian Standard Time | India   | 12345    | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age14        | age14@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike14          | mike14@gmail.com  | 369497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
 	
 	#TC :- 4, 5, 12, 433
 
@@ -194,7 +194,7 @@ And click on ok button
 	Examples:
 	
 	| EmployerName  | EmployerEmail            | EmployerContactNumber | EmployerUserType | timezone              | country | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | password | newpassword | confirmpassword |  AgencyName  | AgencyEmail           | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity |
-	|CPemployer07   | cpemployer07@gmail.com   | 565566625             |   Employer       |  Indian Standard Time |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency07   | CPagency07@gmail.com  |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
+	|CPemployer09   | cpemployer09@gmail.com   | 565566625             |   Employer       |  Indian Standard Time |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency09   | CPagency09@gmail.com  |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
 	
 	
 	#TC:- 81, 10
@@ -287,7 +287,7 @@ And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<
 	Examples:
 
 	| AgencyName   | AgencyEmail            | AgencyContactNumber | AgencyUserType | timezone              | country | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity | organizationname | password |EmployerName  | EmployerEmail            | EmployerContactNumber | EmployerUserType | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | organizationname | CandidateName  | CandidateEmail           | CandidateContactNumber | CandidateUserType     | country |title         | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel | 
-	| UPAgency15   | upagency15@gmail.com   | 5685263125          |   Agency       | Indian Standard Time  |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |UPEmployer15  | upemployer15@gmail.com   | 565566625             |   Employer       | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      |UPCandidate15   | upcandidate15@gmail.com  | 9564783126             | Candidate             | India   |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate   |
+	| UPAgency16   | upagency16@gmail.com   | 5685263125          |   Agency       | Indian Standard Time  |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |UPEmployer16  | upemployer16@gmail.com   | 565566625             |   Employer       | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      |UPCandidate16   | upcandidate16@gmail.com  | 9564783126             | Candidate             | India   |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate   |
 
 	
      #TC ID :- 84,85,31,35,17,87,57,19,86,34,91,60

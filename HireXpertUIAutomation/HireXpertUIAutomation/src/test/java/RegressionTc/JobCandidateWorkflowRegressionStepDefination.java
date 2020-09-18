@@ -30,12 +30,12 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		registerpage.clickLogin();
 	}
 	
-	@When("^Click on Add Candidate button$")
-	public void click_on_Add_Candidate_button() throws Throwable {
-	    
-		Thread.sleep(5000);
-		workbenchpage.clickOnAddCandidate();
-	}
+//	@When("^Click on Add Candidate button$")
+//	public void click_on_Add_Candidate_button() throws Throwable {
+//	    
+//		Thread.sleep(5000);
+//		workbenchpage.clickOnAddCandidate();
+//	}
 
 	@When("^enter email id of candidate which is not registered previously and click on Find button \"([^\"]*)\"$")
 	public void enter_email_id_of_candidate_which_is_not_registered_previously_and_click_on_Find_button(String CandidateEmail) throws Throwable {
@@ -86,6 +86,14 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 	}
 
+	@When("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void add_a_new_Job_as_employer(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
+
+		Thread.sleep(3000);
+		addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
+		
+
+	}
 	
 	@Then("^Click on save button to save the updated changes$")
 	public void click_on_save_button_to_save_the_updated_changes() throws Throwable {
@@ -108,14 +116,14 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	}
 	
 	
-	@When("^Click on save btn for role$")
-	public void click_on_save_btn_for_role() throws InterruptedException  {
-		
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("(//button[text()='Save'])[2]")).click();
-      
-		
-	}
+//	@When("^Click on save btn for role$")
+//	public void click_on_save_btn_for_role() throws InterruptedException  {
+//		
+//		Thread.sleep(3000);
+//		driver.findElement(By.xpath("(//button[text()='Save'])[2]")).click();
+//      
+//		
+//	}
 
 	@Then("^user should able to add new candidate and candidate should get added in New column$")
 	public void user_should_able_to_add_new_candidate_and_candidate_should_get_added_in_New_column() throws Throwable {
@@ -160,16 +168,23 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		
 	}
 
+
 	
-	@Then("^Select the On Notice Period field and set Last working day on Update Profile page \"([^\"]*)\"$")
-	public void select_the_On_Notice_Period_field_and_set_Last_working_day_on_Update_Profile_page(String LastWorkingDay) throws Throwable {
+	@Then("^Select the On Notice Period field and set Last working day on Update Profile page$")
+	public void select_the_On_Notice_Period_field_and_set_Last_working_day_on_Update_Profile_page() throws Throwable {
 	    
 		Select se = new Select(candidateupdateprofilepage.noticePeriodCheckbox);
 		se.selectByVisibleText("Yes");
 		Thread.sleep(1000);
-		candidateupdateprofilepage.lastWorkingDay.sendKeys(LastWorkingDay);
+		driver.findElement(By.xpath("(//button[@aria-label='Open Calendar'])[2]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//div[@class='datevalue currmonth']//span[contains(text(),'30')]")).click();
+//		candidateupdateprofilepage.lastWorkingDay.sendKeys(LastWorkingDay);
 		Thread.sleep(2000);
+
 	}
+
+
 
 	@Then("^set looking for job as yes$")
 	public void set_looking_for_job_as_yes() throws Throwable {
@@ -186,6 +201,68 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		Thread.sleep(5000);
 		common.clickOnOKBtn();
 	}
+	
+	@Then("^click on Add Designation button$")
+	public void click_on_Add_Designation_button() throws Throwable {
+
+		Thread.sleep(5000);
+		candidateupdateprofilepage.addRolesButton.click();
+	}
+
+	@Then("^add duplicate designation \"([^\"]*)\"$")
+	public void add_duplicate_designation(String JobDesignation) throws Throwable {
+
+
+		Thread.sleep(3000);
+        driver.findElement(By.xpath("(//input[@formcontrolname='Role'])[2]")).sendKeys(JobDesignation); // enter duplicate role
+
+	}
+
+	@Then("^Click on save btn for designation$")
+	public void click_on_save_btn_for_designation() throws Throwable {
+
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("(//button[text()='Save'])[2]")).click();
+      
+	}
+
+	@Then("^Verify that user get an alert message as \"([^\"]*)\" for adding duplicate designations$")
+	public void verify_that_user_get_an_alert_message_as_for_adding_duplicate_designations(String ExpectedAlertMessage) throws Throwable {
+
+		String ActualAlertMessage = driver.findElement(By.xpath("//h6[@id='alertlineheight']")).getText();
+		Assert.assertEquals(ExpectedAlertMessage, ActualAlertMessage);
+	}
+
+	@Then("^delete duplicate designation$")
+	public void delete_duplicate_designation() throws Throwable {
+	    
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//tr[2]//td[2]//button[1]")).click();  // delete 1 duplicate role
+	}
+
+	@Then("^Now Click on Add designation button to add more than ten designation$")
+	public void now_Click_on_Add_designation_button_to_add_more_than_ten_designation() throws Throwable {
+
+		Thread.sleep(3000);
+		candidateupdateprofilepage.addTenRoles();
+	}
+
+	@Then("^Verify that user get an alert message as \"([^\"]*)\" for adding more than ten designation$")
+	public void verify_that_user_get_an_alert_message_as_for_adding_more_than_ten_designation(String ExpectedAlertMessage) throws Throwable {
+	   
+		String ActualAlertMessage = driver.findElement(By.xpath("//h6[@id='alertlineheight']")).getText();
+		Assert.assertEquals(ExpectedAlertMessage, ActualAlertMessage);
+	}
+
+	@Then("^click on Delete designation button in front of any designation for candidate$")
+	public void click_on_Delete_designation_button_in_front_of_any_designation_for_candidate() throws Throwable {
+
+		Thread.sleep(3000);
+		candidateupdateprofilepage.role3Delete.click();
+		
+	}
+
+
 
 	@Then("^click on Skills & Roles tab$")
 	public void click_on_Skills_Roles_tab() throws Throwable {
@@ -231,15 +308,15 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		common.clickOnOKBtn();
 	}
 	
-	@Then("^delete duplicate role$")
-	public void delete_duplicate_role() throws Throwable {
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//tr[2]//td[2]//button[1]")).click();  // delete 1 duplicate role
+//	@Then("^delete duplicate role$")
+//	public void delete_duplicate_role() throws Throwable {
+//		Thread.sleep(3000);
+//		driver.findElement(By.xpath("//tr[2]//td[2]//button[1]")).click();  // delete 1 duplicate role
 //		Thread.sleep(3000);
 //		common.clickOnSaveBtn();
 //		Thread.sleep(3000);
 //		common.clickOnOKBtn();
-	}
+//	}
 
 	@Then("^Now Click on Add Skill button to add more than ten skills$")
 	public void now_Click_on_Add_Skill_button_to_add_more_than_ten_skills() throws Throwable {
@@ -255,34 +332,34 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		candidateupdateprofilepage.skill3Delete.click();
 	}
 
-	@Then("^click on Add Role button$")
-	public void click_on_Add_Role_button() throws Throwable {
-	    
-		candidateupdateprofilepage.addRolesButton.click();
-	}
+//	@Then("^click on Add Role button$")
+//	public void click_on_Add_Role_button() throws Throwable {
+//	    
+//		candidateupdateprofilepage.addRolesButton.click();
+//	}
 
-	@Then("^add duplicate role \"([^\"]*)\"$")
-	public void add_duplicate_role(String JobRole) throws Throwable {
+//	@Then("^add duplicate role \"([^\"]*)\"$")
+//	public void add_duplicate_role(String JobRole) throws Throwable {
+//
+//		Thread.sleep(3000);
+//        driver.findElement(By.xpath("(//input[@formcontrolname='Role'])[2]")).sendKeys(JobRole); // enter duplicate role
+//
+//	}
 
-		Thread.sleep(3000);
-        driver.findElement(By.xpath("(//input[@formcontrolname='Role'])[2]")).sendKeys(JobRole); // enter duplicate role
+//	@Then("^Now Click on Add Role button to add more than ten skills$")
+//	public void now_Click_on_Add_Role_button_to_add_more_than_ten_skills() throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//		candidateupdateprofilepage.addTenRoles();
+//	}
 
-	}
-
-	@Then("^Now Click on Add Role button to add more than ten skills$")
-	public void now_Click_on_Add_Role_button_to_add_more_than_ten_skills() throws Throwable {
-	    
-		Thread.sleep(3000);
-		candidateupdateprofilepage.addTenRoles();
-	}
-
-	@Then("^click on Delete Role button in front of any role for candidate$")
-	public void click_on_Delete_Role_button_in_front_of_any_role_for_candidate() throws Throwable {
-	    
-		Thread.sleep(3000);
-		candidateupdateprofilepage.role3Delete.click();
-		
-	}
+//	@Then("^click on Delete Role button in front of any role for candidate$")
+//	public void click_on_Delete_Role_button_in_front_of_any_role_for_candidate() throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//		candidateupdateprofilepage.role3Delete.click();
+//		
+//	}
 
 	@Then("^click on Personal & Professional tab$")
 	public void click_on_Personal_Professional_tab() throws Throwable {
@@ -347,19 +424,19 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		Assert.assertEquals(ExpectedAlertMessage, ActualAlertMessage);
 	}
 
-	@Then("^Verify that user get an alert message as \"([^\"]*)\" for adding duplicate roles$")
-	public void verify_that_user_get_an_alert_message_as_for_adding_duplicate_roles(String ExpectedAlertMessage) throws Throwable {
+//	@Then("^Verify that user get an alert message as \"([^\"]*)\" for adding duplicate roles$")
+//	public void verify_that_user_get_an_alert_message_as_for_adding_duplicate_roles(String ExpectedAlertMessage) throws Throwable {
+//
+//		String ActualAlertMessage = driver.findElement(By.xpath("//h6[@id='alertlineheight']")).getText();
+//		Assert.assertEquals(ExpectedAlertMessage, ActualAlertMessage);
+//	}
 
-		String ActualAlertMessage = driver.findElement(By.xpath("//h6[@id='alertlineheight']")).getText();
-		Assert.assertEquals(ExpectedAlertMessage, ActualAlertMessage);
-	}
-
-	@Then("^Verify that user get an alert message as \"([^\"]*)\" for adding more than ten roles$")
-	public void verify_that_user_get_an_alert_message_as_for_adding_more_than_ten_roles(String ExpectedAlertMessage) throws Throwable {
-
-		String ActualAlertMessage = driver.findElement(By.xpath("//h6[@id='alertlineheight']")).getText();
-		Assert.assertEquals(ExpectedAlertMessage, ActualAlertMessage);
-	}
+//	@Then("^Verify that user get an alert message as \"([^\"]*)\" for adding more than ten roles$")
+//	public void verify_that_user_get_an_alert_message_as_for_adding_more_than_ten_roles(String ExpectedAlertMessage) throws Throwable {
+//
+//		String ActualAlertMessage = driver.findElement(By.xpath("//h6[@id='alertlineheight']")).getText();
+//		Assert.assertEquals(ExpectedAlertMessage, ActualAlertMessage);
+//	}
 
 
 //2
@@ -1337,13 +1414,13 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			
 		}
 		
-		@When("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-		public void add_a_new_Job_as_employer(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
-
-			Thread.sleep(3000);
-			addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
-
-		}
+//		@When("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//		public void add_a_new_Job_as_employer(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
+//
+//			Thread.sleep(3000);
+//			addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
+//
+//		}
 		
 		@When("^Add a new Job as agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 		public void add_a_new_Job_as_agency(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
@@ -1352,6 +1429,34 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
 
 		}
+		
+		@Then("^Select the same job from job drop down \"([^\"]*)\" \"([^\"]*)\"$")
+		public void select_the_same_job_from_job_drop_down(String Title, String OrganizationName) throws Throwable {
+
+//			Thread.sleep(3000);
+//			driver.findElement(By.xpath("//button[@title='Reload Job']")).click();
+			Thread.sleep(5000);
+	        workbenchpage.selectjobT(Title, OrganizationName);
+
+		}
+		
+		@Then("^Click on save btn$")
+		public void click_on_save_btn() throws Throwable {
+			
+			Thread.sleep(3000);
+            common.savebtn.click();
+		}
+
+		
+
+		@When("^click on Add Candidate button$")
+		public void click_on_Add_Candidate_button() throws Throwable {
+
+			Thread.sleep(5000);
+			workbenchpage.clickOnAddCandidate();
+		}
+
+
 
 
 

@@ -512,8 +512,8 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void fill_all_the_Questions_answers() throws Throwable {
 
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-job-question-answer[1]/div[2]/div[1]/div[1]/label[1]/span[2]")).click();
-
+		driver.findElement(By.xpath("//label[1]//span[2]")).click();
+		
 	}
 
 	@When("^Click on screening tab$")
