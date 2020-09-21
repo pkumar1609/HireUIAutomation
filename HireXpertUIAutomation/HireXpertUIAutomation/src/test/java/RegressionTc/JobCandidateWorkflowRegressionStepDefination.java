@@ -183,6 +183,20 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		Thread.sleep(2000);
 
 	}
+	
+	@Then("^Select the On Notice Period field and set Last working day$")
+	public void select_the_On_Notice_Period_field_and_set_Last_working_day() throws Throwable {
+	    
+		Select se = new Select(editcandidatepage.onnoticePeriod);
+		se.selectByVisibleText("Yes");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//button[@aria-label='Open Calendar'])[3]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//div[@class='datevalue currmonth']//span[contains(text(),'30')]")).click();
+//		candidateupdateprofilepage.lastWorkingDay.sendKeys(LastWorkingDay);
+		Thread.sleep(2000);
+
+	}
 
 
 
@@ -217,6 +231,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
         driver.findElement(By.xpath("(//input[@formcontrolname='Role'])[2]")).sendKeys(JobDesignation); // enter duplicate role
 
 	}
+	
 
 	@Then("^Click on save btn for designation$")
 	public void click_on_save_btn_for_designation() throws Throwable {
@@ -360,6 +375,14 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 //		candidateupdateprofilepage.role3Delete.click();
 //		
 //	}
+	
+	@Then("^Select the On Notice Period field and set Last working day on Update Profile page \"([^\"]*)\"$")
+	public void select_the_On_Notice_Period_field_and_set_Last_working_day_on_Update_Profile_page(String arg1) throws Throwable {
+
+
+		
+	}
+
 
 	@Then("^click on Personal & Professional tab$")
 	public void click_on_Personal_Professional_tab() throws Throwable {

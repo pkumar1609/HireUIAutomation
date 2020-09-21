@@ -230,69 +230,69 @@ Feature: Hirexpert Job Candidate Workflow feature
 
 
 
-@Regression
-Scenario Outline: To verify the functionality of Update Profile page of candidate
-	
-Given Open browser
-And click on Login link
-When click on Employer-Agency SignIn link
-And login with Employer credential
-And click on ok button
-And Go to Workbench
-And click on ok button
-And Add a new Job as employer "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
-And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-And click on Add Candidate button
-And enter email id of candidate which is not registered previously and click on Find button "<CandidateEmail>" 
-And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
-And upload candidate resume and click on save button
-And if confirmation popup is displayed click on ok button
-Then user should able to add new candidate and candidate should get added in New column
-And logout as employer and login as new candidate added by employer "<CandidateEmail>" "<password>"
-And click on ok button of confirmation popup
-And Click on Profile tab
-Then verify the Auto Populated fields on candidate update profile popup window
-And Select the On Notice Period field and set Last working day on Update Profile page
-And set looking for job as yes
-And Click on save btn 
-And click on ok button
-And click on Skills & Roles tab
-And add skill, expertise level and certificate "<Skill1>" "<ExpertiseLevel>"
-And add same skill, expertise level and certificate "<Skill2>" "<ExpertiseLevel>"
-And Click on save btn for skill 
-Then Verify that user get an alert message as "Same skill entered more than one time." for adding duplicate skills
-And click on ok button
-And delete duplicate skill
-And Now Click on Add Skill button to add more than ten skills
-Then Verify that user get an alert message as "Skills adding limit is 10." for adding more than ten skills
-And click on ok button
-And click on Delete Skill button in front of any skill for candidate
-And click on Add Designation button
-And add duplicate designation "<JobDesignation>"
-And Click on save btn for designation 
-Then Verify that user get an alert message as "Same designation entered more than one time." for adding duplicate designations
-And click on ok button
-And delete duplicate designation
-And Now Click on Add designation button to add more than ten designation
-Then Verify that user get an alert message as "Designations adding limit is 10." for adding more than ten designation
-And click on ok button
-And click on Delete designation button in front of any designation for candidate
-And click on Personal & Professional tab
-And set looking for job as No
-And Click on save btn 
-And click on ok button
-And logout as candidate and login as same employer 
-And go to workbench and select the same job
-And click on close job button and delete the job
-And click on ok button
-And click on employer tab and delete the employer if login as agency
-And close the browser
-
- 
- 
- Examples:
-| JobTitle | JobDesignation   | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1  |  JobSkill2 |   CandidateEmail |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate| password | LastWorkingDay | Skill1 | Skill2 | ExpertiseLevel |  OrganizationName |
-| Engineer | Test Engineer    | IT-Software | 2      | 3      |  500000    | 600000    | 3              |    60            | Agile       |   Java     |  NR17@gmail.com  | nr17    |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 12345    | 1/9/2020       | Java   | Java   |  Expert        |EmpOrg             |
+#@Regression
+#Scenario Outline: To verify the functionality of Update Profile page of candidate
+#	
+#Given Open browser
+#And click on Login link
+#When click on Employer-Agency SignIn link
+#And login with Employer credential
+#And click on ok button
+#And Go to Workbench
+#And click on ok button
+#And Add a new Job as employer "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
+#And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
+#And click on Add Candidate button
+#And enter email id of candidate which is not registered previously and click on Find button "<CandidateEmail>" 
+#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+#And upload candidate resume and click on save button
+#And if confirmation popup is displayed click on ok button
+#Then user should able to add new candidate and candidate should get added in New column
+#And logout as employer and login as new candidate added by employer "<CandidateEmail>" "<password>"
+#And click on ok button of confirmation popup
+#And Click on Profile tab
+#Then verify the Auto Populated fields on candidate update profile popup window
+#And Select the On Notice Period field and set Last working day on Update Profile page
+#And set looking for job as yes
+#And Click on save btn 
+#And click on ok button
+#And click on Skills & Roles tab
+#And add skill, expertise level and certificate "<Skill1>" "<ExpertiseLevel>"
+#And add same skill, expertise level and certificate "<Skill2>" "<ExpertiseLevel>"
+#And Click on save btn for skill 
+#Then Verify that user get an alert message as "Same skill entered more than one time." for adding duplicate skills
+#And click on ok button
+#And delete duplicate skill
+#And Now Click on Add Skill button to add more than ten skills
+#Then Verify that user get an alert message as "Skills adding limit is 10." for adding more than ten skills
+#And click on ok button
+#And click on Delete Skill button in front of any skill for candidate
+#And click on Add Designation button
+#And add duplicate designation "<JobDesignation>"
+#And Click on save btn for designation 
+#Then Verify that user get an alert message as "Same designation entered more than one time." for adding duplicate designations
+#And click on ok button
+#And delete duplicate designation
+#And Now Click on Add designation button to add more than ten designation
+#Then Verify that user get an alert message as "Designations adding limit is 10." for adding more than ten designation
+#And click on ok button
+#And click on Delete designation button in front of any designation for candidate
+#And click on Personal & Professional tab
+#And set looking for job as No
+#And Click on save btn 
+#And click on ok button
+#And logout as candidate and login as same employer 
+#And go to workbench and select the same job
+#And click on close job button and delete the job
+#And click on ok button
+#And click on employer tab and delete the employer if login as agency
+#And close the browser
+#
+# 
+# 
+# Examples:
+#| JobTitle | JobDesignation   | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1  |  JobSkill2 |   CandidateEmail |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate| password | LastWorkingDay | Skill1 | Skill2 | ExpertiseLevel |  OrganizationName |
+#| Engineer | Test Engineer    | IT-Software | 2      | 3      |  500000    | 600000    | 3              |    60            | Agile       |   Java     |  NR17@gmail.com  | nr17    |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 12345    | 1/9/2020       | Java   | Java   |  Expert        |EmpOrg             |
 	 
 # TC :- 25,64,104,129,296        [Job candidate Workflow Regression TC] 
 # TC :- 36,37,38,39,92,228,229   [Job Candidate Workbench BVT TC ]
@@ -300,47 +300,50 @@ And close the browser
 #change email id of candidate [enter candidate email id not presnet in system]
   
   
-# @Regression 
-# Scenario Outline: To verify the Notice Period field on candidate page 
-#	
-#Given Open browser
-#And click on Login link
-#And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
-#And Go to Workbench 
-#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>"
-#And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-#And Click on Add Candidate button
-#And Enter valid "<CandidateEmail>" 
-#And click on find button
-#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
-#And upload candidate resume
-#And click on Close button
-#Then confirmation popup message should display with Yes and No buttons and Click on No button
-#And Click save button
-#And if confirmation popup is displayed click on ok button
-#And Click on Edit Candidate icon on candidate card "<Name>"
-#And change the set notice period days
-#And click on Close button
-#Then confirmation popup message should display with Yes and No buttons and Click on No button
-#And Click on save button to save the updated changes
-#And if confirmation popup is displayed click on ok button
-#And Click on Edit Candidate icon on candidate card "<Name>"
-#And Select the On Notice Period field and set Last working day on Update Profile page "<LastWorkingDay>"
-#And Click on save button to save the updated changes
-#And if confirmation popup is displayed click on ok button
-#And Click on Edit Candidate icon on candidate card "<Name>"
-#And set on notice period field as no and enter notice period days
-#And Click on save button to save the updated changes
-#And if confirmation popup is displayed click on ok button
-#And click on close job button and delete the job
-#And click on employer tab and delete the employer if login as agency
-#	
-#
-#Examples:
-#      
-#|    email address            |  password   | JobTitle | JobDesignation | Industry    | JobRole  | JobLocation | JobBudget | MinExp | MaxExp | NoOfInterviews |JobNoticePeriod | JobSkill1 | JobSkill2 |  CandidateEmail       |  Name       |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|LastWorkingDay | OrganizationName |
-#|  employermain01@gmail.com   | 12345       | Engineer | Test Engineer  | IT-Software | Engineer | Viman Nagar | 500000    | 2      | 3      | 3              |       90       |  Agile    |   JAVA    | petertom14@gmail.com  | PeterTom14  |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 30/09/2020    |  Emporg          |
-#|   agencymain01@gmail.com    |  12345      | Engineer | Tester         | IT-Software | Engineer | Viman Nagar | 500000    | 0      | 3      | 4              |      90        |  Agile    |    Java   | tompeter04@gmail.com  | TomPeter04  |   91852649666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      1    | 200000 |     400000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 30/10/2020    |  EmployerOrg     |
+ @Regression 
+ Scenario Outline: To verify the Notice Period field on candidate page 
+	
+Given Open browser
+And click on Login link
+And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+And click on ok button
+And Go to Workbench 
+And click on ok button
+And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
+And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
+And click on Add Candidate button
+And Enter valid "<CandidateEmail>" 
+And click on find button
+And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+And upload candidate resume
+And click on Close button
+Then confirmation popup message should display with Yes and No buttons and Click on No button
+And Click save button
+And if confirmation popup is displayed click on ok button
+And Click on Edit Candidate icon on candidate card "<Name>"
+And change the set notice period days
+And click on Close button
+Then confirmation popup message should display with Yes and No buttons and Click on No button
+And Click on save button to save the updated changes
+And if confirmation popup is displayed click on ok button
+And Click on Edit Candidate icon on candidate card "<Name>"
+And Select the On Notice Period field and set Last working day
+And Click on save button to save the updated changes
+And if confirmation popup is displayed click on ok button
+And Click on Edit Candidate icon on candidate card "<Name>"
+And set on notice period field as no and enter notice period days
+And Click on save button to save the updated changes
+And if confirmation popup is displayed click on ok button
+And click on close job button and delete the job
+And click on ok button
+And click on employer tab and delete the employer if login as agency
+	
+
+Examples:
+      
+|    email address            |  password   |  JobTitle | JobDesignation | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1  |  JobSkill2 |  CandidateEmail       |  Name       |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|LastWorkingDay | OrganizationName |
+|  employermain01@gmail.com   | 12345       | Engineer  | Test Engineer  | IT-Software |  0     |   2    | 300000     | 400000    | 3              | 30               |  Agile      |   JAVA     | petertom14@gmail.com  | PeterTom14  |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 30/09/2020    |  EmpOrg          |
+|   agencymain01@gmail.com    |  12345      | Engineer  | Tester         | IT-Software | 3      | 5      | 500000     | 700000    | 3              | 60               |  Agile      |    Java    | tompeter04@gmail.com  | TomPeter04  |   91852649666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      1    | 200000 |     400000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 30/10/2020    |  EmpOrg     |
 
 
 #TC ID: 59,70,134,263  [Job candidate Workflow Regression TC]
