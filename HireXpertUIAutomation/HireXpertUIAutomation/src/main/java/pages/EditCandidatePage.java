@@ -38,6 +38,9 @@ public class EditCandidatePage extends baseclass {
 	@FindBy(xpath = "(//button[text()='Save'])[2]")
 	public WebElement SavebtntoSaveUpdatedDetailsOnUpdateCandidatePopup;
 	
+	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
+	public WebElement onnoticePeriod;
+	
 	@FindBy(xpath = "//input[@placeholder='Skill']")
 	public List<WebElement> jobskill;
 	
