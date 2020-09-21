@@ -1,13 +1,13 @@
 package DataValidationTC_Stepdefination;
 import org.openqa.selenium.interactions.Actions;
 
-
+import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
@@ -294,6 +294,15 @@ public void login_as_a_support_user() throws Throwable {
 	  loginpage.loginInAppWithSupport();
 }
 
+@When("^Logout as a support user$")
+public void logout_as_a_support_user() throws Throwable {
+	Thread.sleep(2000);
+	explicitwait.until(ExpectedConditions.elementToBeClickable(loginpage.profile));
+	Action.moveToElement(loginpage.profile).click().perform();
+	Thread.sleep(2000);
+	loginpage.Logout.click();
+}
+
 @When("^verify shared job is displaying on support login$")
 public void verify_shared_job_is_displaying_on_support_login() throws Throwable {
 	jobreviewpage.verifyJobDisplay();
@@ -378,41 +387,60 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 		registerpage.registerCandidatedetails(Name, CandidateEmail, ContactNumber);
 		common.ClickSumbit();
 		common.clickOnConfirmYes();
-		common.clickOnOKBtn();
+		try
+		{
+			common.clickOnOKBtn();
+		}
+		catch(NoSuchElementException e)
+		{
+			common.clickOnCloseBtn();
+			common.clickOnConfirmYes();
+		}
+		
 	}
 	
-	@When("^Enter all personal and professional details of candidate$")
-	public void enter_all_details_of_candidate(DataTable credentials) throws Throwable {
-		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{
-		addcandidatepage.title.sendKeys(data.get("title"));
-		addcandidatepage.contactNumber.sendKeys(data.get("ContactNumber"));
-		addcandidatepage.date.sendKeys(data.get("Date"));
-		addcandidatepage.countryId.sendKeys(data.get("Country"));
-		addcandidatepage.cityArea.sendKeys(data.get("CityArea"));
-		addcandidatepage.name.sendKeys(data.get("Name"));
-		addcandidatepage.alternateEmail.sendKeys(data.get("alternateemail"));		
-		addcandidatepage.alternateContact.sendKeys(data.get("alternateContact"));
-		addcandidatepage.gender.sendKeys(data.get("Gender"));
-		addcandidatepage.city.sendKeys(data.get("City"));
-		addcandidatepage.zipCode.sendKeys(data.get("ZipCode"));
-		addcandidatepage.CurrentOrganization.sendKeys(data.get("currentorganization"));
-		addcandidatepage.currentDesignation.sendKeys(data.get("currentdesignation"));
-		addcandidatepage.currentDuration.sendKeys(data.get("currentduration"));
-		driver.findElement(By.xpath("//span[text()='×']")).click();
-		addcandidatepage.jobType.sendKeys(data.get("jobtype"));
-		addcandidatepage.Shift.sendKeys(data.get("shift"));
-		addcandidatepage.searchKeywords.sendKeys(data.get("searchkeyword"));
-		addcandidatepage.industry.sendKeys(data.get("industry"));
-		addcandidatepage.experienceInYears.sendKeys(data.get("experience"));
-		addcandidatepage.ctc.sendKeys(data.get("CTC"));
-		addcandidatepage.expectedCTC.sendKeys(data.get("expectedCTC"));
-		addcandidatepage.communicationMode.sendKeys(data.get("Communicationmode"));
-		addcandidatepage.residentialStatus.sendKeys(data.get("residentialstatus"));	
+//	@Then("^Enter all the personal and professional details of candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"                                  |$")
+//	public void enter_all_the_personal_and_professional_details_of_candidate(String title,String currentorganization, String currentdesignation,String currentduration>" "<jobtype>" "<shift>" "<preferredcity>" "<Date>" "<Gender>" "<OnNoticePeriod>" "<NoticePeriod>" "<searchkeyword>" "<industry>" "<experience>" "<CTC>" "<expectedCTC>" "<City>" "<CityArea>" "<ZipCode>" "<Communicationmode>" "<residentialstatus>" "<willingtotravel>" "<lookingforjob>" "<relocate>" "<cv>"                     ) throws Throwable {
+//
+//
+//	}
+	
+	@When("^Enter all the personal and professional details of candidate$")
+	public void enter_all_the_personal_and_professional_details_of_candidate(DataTable credentials) throws Throwable {
 		
-//		addcandidatepage..sendKeys(data.get(""));
-//		addcandidatepage..sendKeys(data.get(""));
-//		addcandidatepage..sendKeys(data.get(""));
+		List<Map<String, String>> rows = credentials.asMaps(String.class,  String.class);
+		for (Map<String, String> data : rows)
+		{
+//		Map<String, String> data = (Map<String, String>) credentials.asMaps(String.class, String.class);
+//		Thread.sleep(5000); 
+		addcandidatepage.title.sendKeys(data.get("title"));
+		
+//		Assert.assertEquals(addcandidatepage.title.getAtribute("value"), data.get("title"));
+//		addcandidatepage.contactNumber.sendKeys(data.get("ContactNumber"));
+//		addcandidatepage.calenderIcon.click();
+//		Thread.sleep(2000);
+//		driver.findElement(By.xpath("//span[text()='"+data.get("Date")+"']")).click();	
+//		addcandidatepage.countryId.sendKeys(data.get("Country"));
+//		addcandidatepage.cityArea.sendKeys(data.get("CityArea"));
+//		addcandidatepage.name.sendKeys(data.get("Name"));
+//		addcandidatepage.alternateEmail.sendKeys(data.get("alternateemail"));		
+//		addcandidatepage.alternateContact.sendKeys(data.get("alternateContact"));
+//		addcandidatepage.gender.sendKeys(data.get("Gender"));
+//		addcandidatepage.city.sendKeys(data.get("City"));
+//		addcandidatepage.zipCode.sendKeys(data.get("ZipCode"));
+//		addcandidatepage.CurrentOrganization.sendKeys(data.get("currentorganization"));
+//		addcandidatepage.currentDesignation.sendKeys(data.get("currentdesignation"));
+//		addcandidatepage.currentDuration.sendKeys(data.get("currentduration"));
+//		driver.findElement(By.xpath("//span[text()='×']")).click();
+//		addcandidatepage.jobType.sendKeys(data.get("jobtype"));
+//		addcandidatepage.Shift.sendKeys(data.get("shift"));
+//		addcandidatepage.searchKeywords.sendKeys(data.get("searchkeyword"));
+//		addcandidatepage.industry.sendKeys(data.get("industry"));
+//		addcandidatepage.experienceInYears.sendKeys(data.get("experience"));
+//		addcandidatepage.ctc.sendKeys(data.get("CTC"));
+//		addcandidatepage.expectedCTC.sendKeys(data.get("expectedCTC"));
+//		addcandidatepage.communicationMode.sendKeys(data.get("Communicationmode"));
+//		addcandidatepage.residentialStatus.sendKeys(data.get("residentialstatus"));	
 		}
 	}
 	

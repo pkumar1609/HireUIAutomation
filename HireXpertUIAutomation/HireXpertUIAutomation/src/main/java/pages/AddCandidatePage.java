@@ -33,10 +33,10 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Enter Alternate Email']")
 	public WebElement alternateEmail;
 	
-	@FindBy(id = "Title")
+	@FindBy(xpath = "//input[@placeholder='Enter Title']")
 	public WebElement title;
 	
-	@FindBy(xpath = "(//span[@class='mydpicon icon-mydpcalendar'])[2]")
+	@FindBy(xpath = "//button[@aria-label='Open Calendar']")
 	public WebElement calenderIcon;
 	
 	@FindBy(xpath = "//span[text()='Today']")

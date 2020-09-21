@@ -70,8 +70,7 @@ public class EditJobPage extends baseclass {
 			{
 				Assert.assertEquals(driver.findElement(By.xpath("//input[@formcontrolname='Employer']")).getAttribute("value"), addjobpage.SelectedEmployer.strip());
 				Assert.assertEquals(addjobpage.employerOrganizationName.getAttribute("value"), addjobpage.selectedOrganization);
-			}
-			
+		    }
 		}
 		Assert.assertEquals(addjobpage.qualification.getAttribute("value"), data.get("qualification"));
 		se = new Select (addjobpage.country);
@@ -110,8 +109,15 @@ public class EditJobPage extends baseclass {
 			}
 			else
 			{
+				if(addjobpage.jobAddedByEmp==true)
+				{
+				Assert.assertEquals(addjobpage.FromEmail.getAttribute("value"), data.get("FromEmail"));
+				}
+				else
+				{
 				Assert.assertEquals(addjobpage.FromEmail.getAttribute("value"), data.get("FromEmailagy"));
-			}
+				}
+		}
 		Assert.assertEquals(addjobpage.EmailSubject.getAttribute("value"), data.get("EmailSubject"));
 		}
 	}

@@ -470,20 +470,16 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 				title.sendKeys(jobname);
 				Organization.clear();
 				this.Organization.sendKeys(data.get("organization"));
+				jobAddedByEmp=true;
 			}
 			else
 			{
+				jobAddedByEmp=false;
 				jobname=data.get("agytitle");
 				System.out.println("Selected job: "+jobname);
 				title.sendKeys(data.get("agytitle"));
 				select =new Select(employerId);
-				List<WebElement> options = select.getOptions();
-//				System.out.println(options.size());
-//				for(WebElement item : options) 
-//		        { 
-//		          System.out.println(item.getText());          
-//		        }
-//				
+				List<WebElement> options = select.getOptions();		
 				if(options.size()>0)
 				{
 					try {
