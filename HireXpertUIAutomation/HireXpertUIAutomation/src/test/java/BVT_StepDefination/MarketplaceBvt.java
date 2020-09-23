@@ -227,7 +227,15 @@ public class MarketplaceBvt extends baseclass {
 	
 	@And("^Login with another agency$")
 	public void login_with_another_agency() throws Throwable {
-		loginpage.loginInAppWithAgy2K(); 
+		emailaddress.sendKeys(prop.getProperty("agyid2"));
+		password.sendKeys(prop.getProperty("pwd"));
+		Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();",signin);
+		identifyUserK();
+		if(dashboardpage.jobPopup != null)
+		{
+			common.clickOnOKBtn();
+		}
 	}
 
 	

@@ -105,7 +105,7 @@ And Click on Search section and enter already existing employer team
 And User should able to search employer team
 
 
-@TC_78_80_95 
+@TC_78_80_95 @reglogin
 Scenario: To verify search funtionality of Agency and team tab
 
 Given User must be registered
@@ -135,7 +135,7 @@ And User should able to search agency team
 
 
 
-@TC41_89 
+@TC41_89 @reglogin
 Scenario Outline: To verify Error message for character limit for both agency and employer
 Given User must be registered
 When title of login page is Home
@@ -150,6 +150,6 @@ Then Error message should show only after exceeding character limit
 Examples:
 |Username      |Password |Name                                                            |
 |pemp@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
-#|pagy@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
+|pagy@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
 
 

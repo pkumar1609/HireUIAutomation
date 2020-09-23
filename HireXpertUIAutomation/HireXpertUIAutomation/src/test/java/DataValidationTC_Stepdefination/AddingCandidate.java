@@ -350,6 +350,7 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 	Thread.sleep(3000);
 	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 	{
+		System.out.println("designation"+data.get("designation"));
 		 Assert.assertEquals(driver.findElement(By.xpath("//h5[text()='"+addjobpage.jobname+"']")).isDisplayed(), true);
 		 Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' "+data.get("organisation")+"']")).isDisplayed(), true);
 		 Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' "+data.get("designation")+"']")).isDisplayed(), true);
@@ -399,18 +400,49 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 		
 	}
 	
-//	@Then("^Enter all the personal and professional details of candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"                                  |$")
-//	public void enter_all_the_personal_and_professional_details_of_candidate(String title,String currentorganization, String currentdesignation,String currentduration>" "<jobtype>" "<shift>" "<preferredcity>" "<Date>" "<Gender>" "<OnNoticePeriod>" "<NoticePeriod>" "<searchkeyword>" "<industry>" "<experience>" "<CTC>" "<expectedCTC>" "<City>" "<CityArea>" "<ZipCode>" "<Communicationmode>" "<residentialstatus>" "<willingtotravel>" "<lookingforjob>" "<relocate>" "<cv>"                     ) throws Throwable {
-//
-//
-//	}
+	@Then("^Enter all the personal and professional details of candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void enter_all_the_personal_and_professional_details_of_candidate(String title, String currentorganization, String currentdesignation, String currentduration, String jobtype, String shift, String preferredcity, String Date, String Gender, String OnNoticePeriod>" "<NoticePeriod>" "<searchkeyword>" "<industry>" "<experience>" "<CTC>" "<expectedCTC>" "<City>" "<CityArea>" "<ZipCode>" "<Communicationmode>" "<residentialstatus>" "<willingtotravel>" "<lookingforjob>" "<relocate>" "<cv>") throws Throwable {
+	
+	@Then("^Enter all the personal and professional details of candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"                                  |$")
+	public void enter_all_the_personal_and_professional_details_of_candidate(String title,String currentorganization, String currentdesignation,String currentduration, String jobtype, String shift, String preferredcity, String Date,String Gender, String OnNoticePeriod,String NoticePeriod, String searchkeyword,String industry, String experience,String CTC, String expectedCTC, String City,String CityArea, String ZipCode,String Communicationmode, String residentialstatus, String willingtotravel, String lookingforjob,String relocate, String cv) throws Throwable {
+		
+		addcandidatepage.title.sendKeys(title);		
+		Assert.assertEquals(addcandidatepage.title.getAttribute("value"), title);
+		addcandidatepage.contactNumber.sendKeys(ContactNumber);
+		addcandidatepage.calenderIcon.click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[text()='"+Date+"']")).click();	
+		addcandidatepage.countryId.sendKeys(Country);
+		addcandidatepage.cityArea.sendKeys(CityArea);
+		addcandidatepage.name.sendKeys(Name);
+		addcandidatepage.alternateEmail.sendKeys(alternateemail);		
+		addcandidatepage.alternateContact.sendKeys(alternateContact);
+		addcandidatepage.gender.sendKeys(Gender);
+		addcandidatepage.city.sendKeys(City);
+		addcandidatepage.zipCode.sendKeys(ZipCode);
+		addcandidatepage.CurrentOrganization.sendKeys(currentorganization);
+		addcandidatepage.currentDesignation.sendKeys(currentdesignation);
+		addcandidatepage.currentDuration.sendKeys(currentduration);
+		driver.findElement(By.xpath("//span[text()='×']")).click();
+		addcandidatepage.jobType.sendKeys(jobtype);
+		addcandidatepage.Shift.sendKeys(shift);
+		addcandidatepage.searchKeywords.sendKeys(searchkeyword);
+		addcandidatepage.industry.sendKeys(industry);
+		addcandidatepage.experienceInYears.sendKeys(experience);
+		addcandidatepage.ctc.sendKeys(CTC);
+		addcandidatepage.expectedCTC.sendKeys(expectedCTC);
+		addcandidatepage.communicationMode.sendKeys(Communicationmode);
+		addcandidatepage.residentialStatus.sendKeys(residentialstatus);	
+
+	}
 	
 	@When("^Enter all the personal and professional details of candidate$")
 	public void enter_all_the_personal_and_professional_details_of_candidate(DataTable credentials) throws Throwable {
 		
-		List<Map<String, String>> rows = credentials.asMaps(String.class,  String.class);
-		for (Map<String, String> data : rows)
+		System.out.println("test");
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
+		System.out.println("title is "+data.get("title"));
 //		Map<String, String> data = (Map<String, String>) credentials.asMaps(String.class, String.class);
 //		Thread.sleep(5000); 
 		addcandidatepage.title.sendKeys(data.get("title"));

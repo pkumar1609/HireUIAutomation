@@ -69,8 +69,7 @@ public class AgenciesPage extends baseclass {
 	}
 	public void Clickagencybtn() throws InterruptedException
 	{
-		wait= new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.elementToBeClickable(dashboardpage.agencies));
+		explicitwait.until(ExpectedConditions.elementToBeClickable(dashboardpage.agencies));
 		dashboardpage.openAgenciesPage();
 	}
 	
@@ -96,17 +95,16 @@ public class AgenciesPage extends baseclass {
 		common.ClickSumbit();
 		try
 		{
-			common.okbtn.isDisplayed(); 
 			common.clickOnOKBtn();
-			common.clickOnAddClosebtn();
+//			common.clickOnAddClosebtn();
 			System.out.println("this agency is already added");
 		}
 		catch(NoSuchElementException e)
 		{
-			System.out.println("team added succesfully");
 		}
 	}
-//	common.clickOnCloseBtn();
+	common.clickOnAddClosebtn();
+	common.clickOnCloseBtn();
 	}
 
 //	public void deleteagy() throws InterruptedException

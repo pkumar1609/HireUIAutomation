@@ -445,24 +445,8 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 	{ 
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-//			try 
-//			{
-//			common.clickOnOKBtn();
-//			}
-//			catch(NoSuchElementException e)
-//			{
-//			}
-			
 			workbenchpage.AddJob();
-//			try
-//			{
-//			jobAddedByEmp=this.employerId.isDisplayed();
-//			this.jobAddedByEmp=true;
-//			}
-//			catch(NoSuchElementException e)
-//			{
-//				this.jobAddedByEmp=false;
-//			}
+
 			if(loginpage.b==true)  
 			{
 				jobname=data.get("title");

@@ -1,6 +1,6 @@
 Feature: Job Management
 
-@bvt_agencyunblock @Bvtc 
+@bvt_agencyunblock @Bvtc @unblock
   Scenario Outline: Verify the Unblock functionality for Agency with Employer login
   
   	Given User is on Home page of application

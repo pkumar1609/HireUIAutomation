@@ -30,7 +30,7 @@ Feature: Job Management
     
 Examples:
 |   email address    |  password  |Team|Teamid       |contact |anotherteam|thridteam|
-#|pemp@gmail.com      |   12345    |pe1 |pe1@gmail.com|16546856|pe2        |pe3@gmail.com|
+|pemp@gmail.com      |   12345    |pe1 |pe1@gmail.com|16546856|pe2        |pe3@gmail.com|
 |pagy@gmail.com      |   12345    |pa1 |pa1@gmail.com|98598695|pa2        |pa3@gmail.com|
 
     

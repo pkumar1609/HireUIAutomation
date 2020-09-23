@@ -34,6 +34,9 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath= "//a[contains(text(),'Job Applications')]")
 	public WebElement JobApplication ;
 	
+	@FindBy(xpath= "//h6[contains(text(),'Hey there, looks like you haven’t added a job as features work best when used with a job, You can add a job by clicking Add Job button.')]")
+	public List<WebElement> jobPopup;
+	
 	public DashboardPage() {
 		
 		PageFactory.initElements(driver, this);
@@ -45,6 +48,10 @@ public class DashboardPage extends baseclass {
 		
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",workbench);
+		if(dashboardpage.jobPopup.size()>0)
+		{
+			common.clickOnOKBtn();
+		}
 	}
 	
 	public void openEmployersPage() throws InterruptedException {

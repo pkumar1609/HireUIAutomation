@@ -78,7 +78,7 @@ And Click on Job Seeker(Candidate) Sign In link
 And candidate enters valid credentials "<CandidateEmail>","<Password>"
 And click on update profile option
 And Assert the details on candidate profile page 
-|"<Username>|<CandidateEmail>|<Name>|<ContactNumber>|<Designation>|<Date>|<Gender>|<OnNoticePeriod>|<NoticePeriod>|<LastWorkingDay>|<experience>|<CTC>|<expectedCTC>|<Country>|<City>|<CityArea>|<ZipCode>|<Communicationmode>|<Salaryoffered>|<distance>|<permanentAddress>|<relocate>|
+|<Username>|<CandidateEmail>|<Name>|<ContactNumber>|<Designation>|<Date>|<Gender>|<OnNoticePeriod>|<NoticePeriod>|<LastWorkingDay>|<experience>|<CTC>|<expectedCTC>|<Country>|<City>|<CityArea>|<ZipCode>|<Communicationmode>|<Salaryoffered>|<distance>|<permanentAddress>|<relocate>|
 And Assert the Skills on candidate profile page
 |<Skill1>|<Skill2>|<Skill3>|<level1>|<level2>|<level3>|<certificate1>|<certificate2>|<certificate3>|<certificateforskill1>|<certificateforskill2>|
 Examples:
@@ -235,7 +235,7 @@ And Employer enters valid credentials "<Username>","<Password>"
 And Go to workbench
 And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
 |title    |agytitle 	 |designation |industry   |organization|qualification|country|city|location |zipcode|address    |noofvacancies|minexp|maxexp|minsal|maxsal|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|                                                                    
-|jobboard |jobboard agy  |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30   |4			    |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |
+|job1board |jobboard agy  |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30   |4			    |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |
 And Select a added job
 And Logout from App
 And Click on Employer-Agency Signin link
@@ -266,20 +266,19 @@ When title of login page is Home
 And Click on Job Seeker(Candidate) Sign In link
 And candidate enters valid credentials "<CandidateEmail>","<Password>"
 And click on update profile option
-Then Enter all the personal and professional details of candidate
-|<title>|
-
 Then Enter all the personal and professional details of candidate "<title>" "<currentorganization>" "<currentdesignation>" "<currentduration>" "<jobtype>" "<shift>" "<preferredcity>" "<Date>" "<Gender>" "<OnNoticePeriod>" "<NoticePeriod>" "<searchkeyword>" "<industry>" "<experience>" "<CTC>" "<expectedCTC>" "<City>" "<CityArea>" "<ZipCode>" "<Communicationmode>" "<residentialstatus>" "<willingtotravel>" "<lookingforjob>" "<relocate>" "<cv>"
-
-#|title                |currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date|Gender  |OnNoticePeriod|NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel  |lookingforjob|relocate|cv                                  |
-#|Sr. software engineer|Accenture          |Sr.developer       |2   			 |Contractual Full Time|Evening Shift|Pune         |14  |Female  |Yes           |25          |can11        |IT software|1.5       |800000|800000     |wardha|Arvi naka  |455966 |Call             |Citizen          |No		     	 |No           |No      |C:\\Users\\TLP33\\Documents\\CV.docx|
-#|<CandidateEmail>|<alternateemail>|<Name>|<ContactNumber>|<alternateContact>|<UserType>|<timezone>|<country>|<title>|<currentorganization>|<currentdesignation>|<currentduration>|<jobtype>|<shift>|<preferredcity>|<Date>|<Gender>|<OnNoticePeriod>|<NoticePeriod>|<searchkeyword>|<industry>|<experience>|<CTC>|<expectedCTC>|<City>|<CityArea>|<ZipCode>|<Communicationmode>|<residentialstatus>|<willingtotravel>|<lookingforjob>|<relocate>|<cv>|
 
 Examples: 
 |Username      |Teamid        |Password|CandidateEmail      |alternateemail     |Name     |ContactNumber |alternateContact|UserType |timezone			  |country|title                |currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date|Gender  |OnNoticePeriod|NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel  |lookingforjob|relocate|cv                                  |
 |pemp@gmail.com|pe1@gmail.com |12345   |hirecan11@gmail.com |hirecan11@yahoo.com|hirecan11|9890685538    |8694755554      |Candidate|Indian Standard Time | India |Sr. software engineer|Accenture          |Sr.developer       |2   			|Contractual Full Time|Evening Shift|Pune         |14  |Female  |Yes           |25          |can11        |IT software|1.5       |800000|800000     |wardha|Arvi naka  |455966 |Call             |Citizen          |No		     	 |No           |No      |C:\\Users\\TLP33\\Documents\\CV.docx|
 
 
+
+#Then Enter all the personal and professional details of candidate "<title>" "<currentorganization>" "<currentdesignation>" "<currentduration>" "<jobtype>" "<shift>" "<preferredcity>" "<Date>" "<Gender>" "<OnNoticePeriod>" "<NoticePeriod>" "<searchkeyword>" "<industry>" "<experience>" "<CTC>" "<expectedCTC>" "<City>" "<CityArea>" "<ZipCode>" "<Communicationmode>" "<residentialstatus>" "<willingtotravel>" "<lookingforjob>" "<relocate>" "<cv>"
+
+#|title                |currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date|Gender  |OnNoticePeriod|NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel  |lookingforjob|relocate|cv                                  |
+#|Sr. software engineer|Accenture          |Sr.developer       |2   			 |Contractual Full Time|Evening Shift|Pune         |14  |Female  |Yes           |25          |can11        |IT software|1.5       |800000|800000     |wardha|Arvi naka  |455966 |Call             |Citizen          |No		     	 |No           |No      |C:\\Users\\TLP33\\Documents\\CV.docx|
+#|<CandidateEmail>|<alternateemail>|<Name>|<ContactNumber>|<alternateContact>|<UserType>|<timezone>|<country>|<title>|<currentorganization>|<currentdesignation>|<currentduration>|<jobtype>|<shift>|<preferredcity>|<Date>|<Gender>|<OnNoticePeriod>|<NoticePeriod>|<searchkeyword>|<industry>|<experience>|<CTC>|<expectedCTC>|<City>|<CityArea>|<ZipCode>|<Communicationmode>|<residentialstatus>|<willingtotravel>|<lookingforjob>|<relocate>|<cv>|
 
 
 

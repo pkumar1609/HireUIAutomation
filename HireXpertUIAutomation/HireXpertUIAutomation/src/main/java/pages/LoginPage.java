@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -139,6 +141,10 @@ public class LoginPage extends baseclass
 		Thread.sleep(4000);
 		signin.click();
 		identifyUserK(); 
+		if(dashboardpage.jobPopup.size()>0)
+		{
+			common.clickOnOKBtn();
+		}
 	}
     
     public void loginIn(String Username, String Password) throws InterruptedException {
@@ -148,6 +154,10 @@ public class LoginPage extends baseclass
 		Thread.sleep(4000);
 		signin.click();
 		identifyUserK();
+		if(dashboardpage.jobPopup.size()>0)
+		{
+			common.clickOnOKBtn();
+		}
 	}
     
     public void loginInAppWithTeamK() throws InterruptedException
@@ -157,17 +167,12 @@ public class LoginPage extends baseclass
 		Thread.sleep(4000);
 		signin.click();
 		identifyUserK();
+		if(dashboardpage.jobPopup.size()>0)
+		{
+			common.clickOnOKBtn();
+		}
 	}
-	
-	public void loginInAppWithTeam2(String teamid2) throws InterruptedException
-	{
-		emailaddress.sendKeys(teamid2);
-		password.sendKeys("12345");
-		Thread.sleep(4000);
-		signin.click();
-		identifyUserK();
-	}
-	
+
 	public void loginInAppWithAgyK() throws InterruptedException
 	{
 		emailaddress.sendKeys(prop.getProperty("agyid"));
@@ -175,26 +180,26 @@ public class LoginPage extends baseclass
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",signin);
 		identifyUserK();
+		if(dashboardpage.jobPopup.size()>0)
+		{
+			common.clickOnOKBtn();
+		}
 	}
 	
-	public void loginInAppWithAgy2K() throws InterruptedException
-	{
-		emailaddress.sendKeys(prop.getProperty("agyid2"));
-		password.sendKeys(prop.getProperty("pwd"));
-		Thread.sleep(2000);
-		executor.executeScript("arguments[0].click();",signin);
-		identifyUserK();
-	}
-	 
-//	public void loginInAppWithAgyTeam2() throws InterruptedException
+//	public void loginInAppWithAgy2K() throws InterruptedException
 //	{
-//		emailaddress.sendKeys(prop.getProperty("agyteamid2"));
+//		emailaddress.sendKeys(prop.getProperty("agyid2"));
 //		password.sendKeys(prop.getProperty("pwd"));
 //		Thread.sleep(2000);
 //		executor.executeScript("arguments[0].click();",signin);
 //		identifyUserK();
+//		if(dashboardpage.jobPopup != null)
+//		{
+//			common.clickOnOKBtn();
+//		}
 //	}
-	
+	 
+
 	public void loginInAppWithSupport() throws InterruptedException
 	{
 		emailaddress.sendKeys("support@gmail.com");
@@ -226,21 +231,23 @@ public class LoginPage extends baseclass
 	
 	public void identifyUserK() throws InterruptedException
 	{
-		    try {
 				Action.moveToElement(profile).perform();
-				Thread.sleep(2000);
-				userbtnemp.isDisplayed();		
-				Thread.sleep(2000);
-				logedinuser= userbtnemp.getText();
-				userbtnemp.click();
-				b=true;
-			} 
-			catch(NoSuchElementException e)
-			{
-				b=false;
-				logedinuser= userbtnagy.getText();
-				Thread.sleep(2000);
-				userbtnagy.click();	  
-			}
+				try
+				{
+					Thread.sleep(2000);
+					userbtnemp.isDisplayed();	
+					Thread.sleep(2000);
+					logedinuser= userbtnemp.getText();
+					userbtnemp.click();
+					b=true;
+				}
+				catch(NoSuchElementException e)
+				{
+					b=false;
+					logedinuser= userbtnagy.getText();
+					Thread.sleep(2000);
+					userbtnagy.click();	
+				}
+
 	}
 }
