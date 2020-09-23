@@ -105,34 +105,34 @@ public class EmployersPage extends baseclass {
 		addbtn.click();
 	}
 	
-	
 	public void enterValidCredentials(DataTable credentials) throws InterruptedException {
+		employerspage.ClickAddBtn();
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-			employerspage.ClickAddBtn();
 			Thread.sleep(1000);
+			namefield.clear();
 			namefield.sendKeys(data.get("Name"));
 			namevalidate=data.get("Name");
 			ar.add(namevalidate);
+			emailfield.clear();
 			emailfield.sendKeys(data.get("Email"));
+			contactnumberfield.clear();
 			contactnumberfield.sendKeys(data.get("contact"));
 			select = new Select(countryid);
 			select.selectByVisibleText("India");
 			common.ClickSumbit();
 			try
 			{ 
-				common.okbtn.isDisplayed();
 				common.clickOnOKBtn();
-				common.clickOnAddClosebtn();
+				
 				System.out.println("these employer member are already added");
 			}
 			catch(NoSuchElementException e)
-			{
-				System.out.println("Employer added succesfully");
-			}
+			{}
 			
 		}
-		
+		common.clickOnAddClosebtn();
+		common.clickOnCloseBtn();
 	}
 
 	public void deleteUser() throws InterruptedException

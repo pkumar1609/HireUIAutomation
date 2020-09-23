@@ -112,8 +112,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 //	@FindBy(xpath = "//div[@class='col-md-4']//div[@class='row']//div[1]//label[1]//span[2]")
 //	public WebElement notLookingForJobCheckbox;
 	
-	@FindBy(xpath = "//select[@formcontrolname='NotLookingForJob']")
-	public WebElement LookingforJobfield;
+
 	
 	@FindBy(xpath = "//a[@title='Skills & Roles Details']")
 	public WebElement SkillsInformation;
@@ -145,7 +144,56 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Enter City Area']")
 	public WebElement cityArea;
 
-
+	@FindBy(xpath = "//input[@placeholder='Enter Current Organization']")
+	public WebElement CurrentOrganization;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Current Designation']")
+	public WebElement currentDesignation;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Duration']")
+	public WebElement currentDuration;
+	
+	@FindBy(xpath = "//ng-select[@placeholder='Select JobType']//input")
+	public WebElement jobType;
+	
+	@FindBy(xpath = "//ng-select[@placeholder='Select Shift']//input")
+	public WebElement Shift;
+	
+	@FindBy(xpath = "//ng-select[@placeholder='Enter Preferred Cities']//input")
+	public WebElement preferredCity;
+	
+	@FindBy(xpath = "//input[@formcontrolname='SearchKeywords']")
+	public WebElement searchKeywords;
+	
+	@FindBy(xpath = "//select[@formcontrolname='ResidentialStatus']")
+	public WebElement residentialStatus;
+	
+	@FindBy(xpath = "//select[@formcontrolname='WillingToTravel']")
+	public WebElement willingToTravel;
+	
+	@FindBy(xpath = "//a[@title='Qualifications Details']")
+	public WebElement qualificationTab;
+	
+	@FindBy(xpath = "//input[@formcontrolname='Major']")
+	public List<WebElement> Major;
+	
+	@FindBy(xpath = "//input[@id='toDate']")
+	public List<WebElement> passingYear;
+	
+	@FindBy(xpath = "//input[@id='Grade']")
+	public List<WebElement> grade;
+	
+	@FindBy(xpath = "//input[@id='College']")
+	public List<WebElement> college;
+	
+	@FindBy(xpath = "//input[@formcontrolname='University']")
+	public List<WebElement> university;
+	
+	@FindBy(xpath = "")
+	public List<WebElement> ;
+	
+	@FindBy(xpath = "")
+	public List<WebElement> ;
 	
 	public CandidateUpdateProfilePage() {
 		

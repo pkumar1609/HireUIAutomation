@@ -81,12 +81,15 @@ public class AgenciesPage extends baseclass {
 	
 	public void enterAllDetails(DataTable credentials) throws InterruptedException
 	{
+		ClickAddbtn();
 	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 	{
-		ClickAddbtn();
+		agencyName.clear();
 		agencyName.sendKeys(data.get("Name"));
 		empname=data.get("Name");
+		agencyEmail.clear();
 		agencyEmail.sendKeys(data.get("Email"));
+		agencyContactNumber.clear();
 		agencyContactNumber.sendKeys(data.get("contact"));
 		namevalidate= data.get("Name");
 		WebElement testDropDown = driver.findElement(By.xpath("//select[@formcontrolname='CountryId']"));
@@ -114,12 +117,9 @@ public class AgenciesPage extends baseclass {
 //		common.clickOnConfirmYes();	
 //	}
 	
-	public void AddedAgyencyDisplaying()
-	{
-		boolean ele=driver.getPageSource().contains(empname);
-		Assert.assertEquals(true, true);
-			
-	}
+
+		
+
 	
 	public void enterAgyNameInSearchSection(DataTable credentials)
 	{

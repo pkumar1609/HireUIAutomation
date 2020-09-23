@@ -1,13 +1,11 @@
 package DataValidationTC_Stepdefination;
-import org.openqa.selenium.interactions.Actions;
-
-import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
@@ -170,9 +168,8 @@ public void candidate_enters_valid_credentials(String Username, String Password)
 	Thread.sleep(4000);
 	loginpage.signin.click();
 	try {
-//		driver.findElement(By.xpath(""))
 		common.clickOnOKBtn();
-	}
+		}
 	catch(NoSuchElementException e )
 	{}
 }
@@ -399,81 +396,63 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 		}
 		
 	}
-	
-	@Then("^Enter all the personal and professional details of candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void enter_all_the_personal_and_professional_details_of_candidate(String title, String currentorganization, String currentdesignation, String currentduration, String jobtype, String shift, String preferredcity, String Date, String Gender, String OnNoticePeriod>" "<NoticePeriod>" "<searchkeyword>" "<industry>" "<experience>" "<CTC>" "<expectedCTC>" "<City>" "<CityArea>" "<ZipCode>" "<Communicationmode>" "<residentialstatus>" "<willingtotravel>" "<lookingforjob>" "<relocate>" "<cv>") throws Throwable {
-	
-	@Then("^Enter all the personal and professional details of candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"                                  |$")
-	public void enter_all_the_personal_and_professional_details_of_candidate(String title,String currentorganization, String currentdesignation,String currentduration, String jobtype, String shift, String preferredcity, String Date,String Gender, String OnNoticePeriod,String NoticePeriod, String searchkeyword,String industry, String experience,String CTC, String expectedCTC, String City,String CityArea, String ZipCode,String Communicationmode, String residentialstatus, String willingtotravel, String lookingforjob,String relocate, String cv) throws Throwable {
-		
-		addcandidatepage.title.sendKeys(title);		
-		Assert.assertEquals(addcandidatepage.title.getAttribute("value"), title);
-		addcandidatepage.contactNumber.sendKeys(ContactNumber);
-		addcandidatepage.calenderIcon.click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//span[text()='"+Date+"']")).click();	
-		addcandidatepage.countryId.sendKeys(Country);
-		addcandidatepage.cityArea.sendKeys(CityArea);
-		addcandidatepage.name.sendKeys(Name);
-		addcandidatepage.alternateEmail.sendKeys(alternateemail);		
-		addcandidatepage.alternateContact.sendKeys(alternateContact);
-		addcandidatepage.gender.sendKeys(Gender);
-		addcandidatepage.city.sendKeys(City);
-		addcandidatepage.zipCode.sendKeys(ZipCode);
-		addcandidatepage.CurrentOrganization.sendKeys(currentorganization);
-		addcandidatepage.currentDesignation.sendKeys(currentdesignation);
-		addcandidatepage.currentDuration.sendKeys(currentduration);
-		driver.findElement(By.xpath("//span[text()='×']")).click();
-		addcandidatepage.jobType.sendKeys(jobtype);
-		addcandidatepage.Shift.sendKeys(shift);
-		addcandidatepage.searchKeywords.sendKeys(searchkeyword);
-		addcandidatepage.industry.sendKeys(industry);
-		addcandidatepage.experienceInYears.sendKeys(experience);
-		addcandidatepage.ctc.sendKeys(CTC);
-		addcandidatepage.expectedCTC.sendKeys(expectedCTC);
-		addcandidatepage.communicationMode.sendKeys(Communicationmode);
-		addcandidatepage.residentialStatus.sendKeys(residentialstatus);	
 
-	}
-	
-	@When("^Enter all the personal and professional details of candidate$")
-	public void enter_all_the_personal_and_professional_details_of_candidate(DataTable credentials) throws Throwable {
-		
-		System.out.println("test");
-		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{
-		System.out.println("title is "+data.get("title"));
-//		Map<String, String> data = (Map<String, String>) credentials.asMaps(String.class, String.class);
-//		Thread.sleep(5000); 
-		addcandidatepage.title.sendKeys(data.get("title"));
-		
-//		Assert.assertEquals(addcandidatepage.title.getAtribute("value"), data.get("title"));
-//		addcandidatepage.contactNumber.sendKeys(data.get("ContactNumber"));
-//		addcandidatepage.calenderIcon.click();
-//		Thread.sleep(2000);
-//		driver.findElement(By.xpath("//span[text()='"+data.get("Date")+"']")).click();	
-//		addcandidatepage.countryId.sendKeys(data.get("Country"));
-//		addcandidatepage.cityArea.sendKeys(data.get("CityArea"));
-//		addcandidatepage.name.sendKeys(data.get("Name"));
-//		addcandidatepage.alternateEmail.sendKeys(data.get("alternateemail"));		
-//		addcandidatepage.alternateContact.sendKeys(data.get("alternateContact"));
-//		addcandidatepage.gender.sendKeys(data.get("Gender"));
-//		addcandidatepage.city.sendKeys(data.get("City"));
-//		addcandidatepage.zipCode.sendKeys(data.get("ZipCode"));
-//		addcandidatepage.CurrentOrganization.sendKeys(data.get("currentorganization"));
-//		addcandidatepage.currentDesignation.sendKeys(data.get("currentdesignation"));
-//		addcandidatepage.currentDuration.sendKeys(data.get("currentduration"));
-//		driver.findElement(By.xpath("//span[text()='×']")).click();
-//		addcandidatepage.jobType.sendKeys(data.get("jobtype"));
-//		addcandidatepage.Shift.sendKeys(data.get("shift"));
-//		addcandidatepage.searchKeywords.sendKeys(data.get("searchkeyword"));
-//		addcandidatepage.industry.sendKeys(data.get("industry"));
-//		addcandidatepage.experienceInYears.sendKeys(data.get("experience"));
-//		addcandidatepage.ctc.sendKeys(data.get("CTC"));
-//		addcandidatepage.expectedCTC.sendKeys(data.get("expectedCTC"));
-//		addcandidatepage.communicationMode.sendKeys(data.get("Communicationmode"));
-//		addcandidatepage.residentialStatus.sendKeys(data.get("residentialstatus"));	
+		@Then("^Enter all the personal and professional details of candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+		public void enter_all_the_personal_and_professional_details_of_candidate(String title, String ContactNumber, String Date, String Country, String CityArea, String Name, String alternateemail, String alternateContact, String Gender, String City, String ZipCode, String currentorganization, String currentdesignation, String currentduration, String jobtype, String shift, String preferredcity, String searchkeyword, String industry, String experience, String expectedCTC, String residentialstatus, String OnNoticePeriod,String LastWorkingDay, String NoticePeriod, String CTC, String Communicationmode, String willingtotravel, String lookingforjob, String relocate, String cv) throws Throwable {
+			Thread.sleep(4000);
+			addcandidatepage.title.sendKeys(title);
+			Assert.assertEquals(addcandidatepage.title.getAttribute("value"), title);
+//			addcandidatepage.contactNumber.sendKeys(ContactNumber);
+			Thread.sleep(2000);
+			addcandidatepage.calenderIcon.click();
+			driver.findElement(By.xpath("//span[text()='"+Date+"']")).click();
+			addcandidatepage.countryId.sendKeys(Country);
+			addcandidatepage.cityArea.sendKeys(CityArea);
+//			addcandidatepage.name.sendKeys(Name);
+			addcandidatepage.alternateEmail.sendKeys(alternateemail);	
+			addcandidatepage.alternateContact.sendKeys(alternateContact);
+			addcandidatepage.gender.sendKeys(Gender);
+			addcandidatepage.city.sendKeys(City);
+			addcandidatepage.zipCode.sendKeys(ZipCode);
+			candidateupdateprofilepage.CurrentOrganization.sendKeys(currentorganization);
+			candidateupdateprofilepage.currentDesignation.sendKeys(currentdesignation);
+			candidateupdateprofilepage.currentDuration.sendKeys(currentduration);			
+			Thread.sleep(3000);
+			addcandidatepage.industry.click();
+			driver.findElement(By.xpath("(//span[text()='×'])[1]")).click();
+			candidateupdateprofilepage.jobType.sendKeys(jobtype);
+			driver.findElement(By.xpath("//span[text()='"+jobtype+"']")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("(//span[text()='×'])[2]")).click();
+			candidateupdateprofilepage.Shift.sendKeys(shift);
+			driver.findElement(By.xpath("//span[text()='"+shift+"']")).click();				
+			candidateupdateprofilepage.preferredCity.sendKeys(preferredcity);
+			driver.findElement(By.xpath("//span[text()='"+preferredcity+"']")).click();		
+			candidateupdateprofilepage.searchKeywords.sendKeys(searchkeyword);
+			addcandidatepage.industry.sendKeys(industry);
+			addcandidatepage.ctc.click();
+			addcandidatepage.experienceInYears.clear();
+			addcandidatepage.experienceInYears.sendKeys(experience);
+			addcandidatepage.ctc.clear();
+			addcandidatepage.ctc.sendKeys(CTC);
+			addcandidatepage.expectedCTC.sendKeys(expectedCTC);
+			addcandidatepage.communicationMode.sendKeys(Communicationmode);
+			candidateupdateprofilepage.residentialStatus.sendKeys(residentialstatus);
+			candidateupdateprofilepage.willingToTravel.sendKeys(willingtotravel);
+			addcandidatepage.onNoticePeriod.sendKeys(OnNoticePeriod);
+			if(OnNoticePeriod.contentEquals("Yes"))
+			{
+				Thread.sleep(5000);
+				addcandidatepage.lastWorkingDay.click();
+				driver.findElement(By.xpath("//span[text()='"+LastWorkingDay+"']")).click();
+//				addcandidatepage.datebelowField = driver.findElement(By.xpath("(//div[@class='text-info'])[2]")).getText();
+			}	
+			else
+			{
+				addcandidatepage.noticePeriod.sendKeys(NoticePeriod);
+			}
+			addcandidatepage.LookingforJobfield.sendKeys(lookingforjob);
+			candidateupdateprofilepage.readyToRelocate.sendKeys(relocate);
+			addcandidatepage.cv.sendKeys(cv);
 		}
-	}
-	
 	}
