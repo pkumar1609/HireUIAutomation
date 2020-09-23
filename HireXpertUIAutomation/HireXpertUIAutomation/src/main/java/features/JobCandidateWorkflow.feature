@@ -268,7 +268,7 @@ Feature: Hirexpert Job Candidate Workflow feature
 #And click on ok button
 #And click on Delete Skill button in front of any skill for candidate
 #And click on Add Designation button
-#And add duplicate designation "<JobDesignation>"
+#And add duplicate designation "<Designation>" 
 #And Click on save btn for designation 
 #Then Verify that user get an alert message as "Same designation entered more than one time." for adding duplicate designations
 #And click on ok button
@@ -290,10 +290,10 @@ Feature: Hirexpert Job Candidate Workflow feature
 #
 # 
 # 
-# Examples:
+#Examples:
 #| JobTitle | JobDesignation   | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1  |  JobSkill2 |   CandidateEmail |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate| password | LastWorkingDay | Skill1 | Skill2 | ExpertiseLevel |  OrganizationName |
-#| Engineer | Test Engineer    | IT-Software | 2      | 3      |  500000    | 600000    | 3              |    60            | Agile       |   Java     |  NR17@gmail.com  | nr17    |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 12345    | 1/9/2020       | Java   | Java   |  Expert        |EmpOrg             |
-	 
+#| Engineer | Test Engineer    | IT-Software | 2      | 3      |  500000    | 600000    | 3              |    60            | Agile       |   Java     |  NR20@gmail.com  | nr20    |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 12345    | 1/9/2020       | Java   | Java   |  Expert        |EmpOrg             |
+
 # TC :- 25,64,104,129,296        [Job candidate Workflow Regression TC] 
 # TC :- 36,37,38,39,92,228,229   [Job Candidate Workbench BVT TC ]
 
