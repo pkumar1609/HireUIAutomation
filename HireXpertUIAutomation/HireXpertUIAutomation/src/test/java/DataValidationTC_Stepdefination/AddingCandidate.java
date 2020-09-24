@@ -452,4 +452,26 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 			candidateupdateprofilepage.readyToRelocate.sendKeys(relocate);
 			addcandidatepage.cv.sendKeys(cv);
 		}
+		
+		@Then("^Click on save button$")
+		public void click_on_save_button() throws Throwable {
+		   common.clickOnSaveBtn();
+		}
+
+		@Then("^click ok on success popup$")
+		public void click_ok_on_success_popup() throws Throwable {
+		   common.clickOnOKBtn();
+		}
+
+		@Then("^click on qualification tab$")
+		public void click_on_qualification_tab() throws Throwable {
+			Thread.sleep(2000);
+		    candidateupdateprofilepage.qualificationTab.click();
+		}
+
+		@Then("^Fill all the qualification details$")
+		public void fill_all_the_qualification_details(DataTable credentials) throws Throwable {
+			candidateupdateprofilepage.addQualificationDetails(credentials);
+
+		}
 	}

@@ -3,6 +3,7 @@ package pages;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.time.Year;
 import java.util.List;
 import java.util.Map;
 
@@ -67,8 +68,8 @@ public class CandidateUpdateProfilePage extends baseclass {
 //	@FindBy(xpath = "//select[@formcontrolname='PreferredModeOfCommunication']")
 //	public WebElement modeOfcommunication;
 //	
-//	@FindBy(xpath = "//select[@formcontrolname='ReadyToRelocate']")
-//	public WebElement readyToRelocate;
+	@FindBy(xpath = "//select[@formcontrolname='ReadyToRelocate']")
+	public WebElement readyToRelocate;
 //		
 //	@FindBy(xpath = "//input[@formcontrolname='Designation']")
 //	public WebElement designation;
@@ -82,11 +83,11 @@ public class CandidateUpdateProfilePage extends baseclass {
 //	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
 //	public WebElement noticePeriodCheckbox;
 //		
-	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
-	public WebElement addSkillButton;
-	
-	@FindBy(xpath = "//tr[2]//td[1]//input[1]")
-	public WebElement skill2;
+//	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
+//	public WebElement addSkillButton;
+//	
+//	@FindBy(xpath = "//tr[2]//td[1]//input[1]")
+//	public WebElement skill2;
 //	
 //	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[2]/div[3]/table/tbody/tr[2]/td[2]/select")
 //	public WebElement expertiseLevel2;
@@ -94,20 +95,20 @@ public class CandidateUpdateProfilePage extends baseclass {
 //	@FindBy(xpath = "//tr[2]//td[3]//input[1]")
 //	public WebElement certificate2;
 //	
-	@FindBy(xpath = "//tr[3]//td[1]//input[1]")
-	public WebElement skill3;
+//	@FindBy(xpath = "//tr[3]//td[1]//input[1]")
+//	public WebElement skill3;
 //	
 //	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[2]/div[3]/table/tbody/tr[3]/td[2]/select")
 //	public WebElement expertiseLevel3;
 //	
-	@FindBy(xpath = "//tr[3]//td[4]//button[1]")
-	public WebElement skill3Delete;
-	
-	@FindBy(xpath = "//button[contains(text(),'Add Designation')]")
-	public WebElement addRolesButton;
-	
-	@FindBy(xpath = "//tr[2]//td[2]//button[1]")
-	public WebElement role3Delete;	
+//	@FindBy(xpath = "//tr[3]//td[4]//button[1]")
+//	public WebElement skill3Delete;
+//	
+//	@FindBy(xpath = "//button[contains(text(),'Add Designation')]")
+//	public WebElement addRolesButton;
+//	
+//	@FindBy(xpath = "//tr[2]//td[2]//button[1]")
+//	public WebElement role3Delete;	
 //	
 //	@FindBy(xpath = "//div[@class='col-md-4']//div[@class='row']//div[1]//label[1]//span[2]")
 //	public WebElement notLookingForJobCheckbox;
@@ -119,6 +120,9 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 	@FindBy(xpath = "//a[@title='Personal & Professional Details']")
 	public WebElement personalprofessionalInformation;
+	
+	@FindBy(xpath = "//a[@title='Professional Work Experience']")
+	public WebElement workExperienceTab;
 	
 	@FindBy(xpath = "//a[@class='nav-link'][contains(text(),'Profile')]")
 	public WebElement profileTab;
@@ -175,7 +179,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	public WebElement qualificationTab;
 	
 	@FindBy(xpath = "//input[@formcontrolname='Major']")
-	public List<WebElement> Major;
+	public List<WebElement> major;
 	
 	@FindBy(xpath = "//input[@id='toDate']")
 	public List<WebElement> passingYear;
@@ -189,11 +193,11 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//input[@formcontrolname='University']")
 	public List<WebElement> university;
 	
-//	@FindBy(xpath = "")
-//	public List<WebElement> ;
-//	
-//	@FindBy(xpath = "")
-//	public List<WebElement> ;
+	@FindBy(xpath = "//input[@formcontrolname='Degree']")
+	public List<WebElement> degree;
+	
+	@FindBy(xpath = "//span[@class='ng-arrow-wrapper']")
+	public List<WebElement> Country;
 	
 	public CandidateUpdateProfilePage() {
 		
@@ -206,71 +210,75 @@ public class CandidateUpdateProfilePage extends baseclass {
 	public int aftercount;
 	
 	
+	public void enterLastWorkingDay(String LastWorkingDay) {
+		
+		lastWorkingDay.sendKeys(LastWorkingDay);
+	}
 	
-//	public void autoPopulatedData() throws InterruptedException, AWTException {
-//		
-//		System.out.println("\nAuto populated data:");
-//		
-//		name.click();
-//		String canName = name.getAttribute("value");
-//		System.out.println("Candidate Name: " + canName);
-//		Thread.sleep(1000);
-//		
-//		emailID.click();
-//		String email = emailID.getAttribute("value");
-//		System.out.println("Email: " + email);
-//		Thread.sleep(1000);
-//		
-//		contactNumber.click();
-//		String contact = contactNumber.getAttribute("value");
-//		System.out.println("Contact Number: " + contact);
-//		Thread.sleep(1000);
-//		
-//		designation.click();
-//		String canDesignation = designation.getAttribute("value");
-//		System.out.println("Designation: " +canDesignation);
-//		Thread.sleep(1000);
-//		
-//		se = new Select(gender);
-//		WebElement canGen = se.getFirstSelectedOption();
-//		String canGender = canGen.getText();
-//		System.out.println("Gender: " +canGender);
-//		Thread.sleep(1000);
-//		
-//		noticePeriod.click();
-//		String noticeperiod = noticePeriod.getAttribute("value");
-//		System.out.println("Notice Period: " +noticeperiod);
-//		Thread.sleep(1000);
-//		
-//		location.click();
-//		String canLocation = location.getAttribute("value");
-//		System.out.println("Location: " +canLocation);
-//		Thread.sleep(1000);
-//		
-//		se = new Select(communicationMode);
-//		WebElement communication = se.getFirstSelectedOption();
-//		String communicationmode = communication.getText();
-//		System.out.println("Preferred mode of communication: " +communicationmode);
-//		
-//		se = new Select(expertiseLevel);
-//		WebElement expertise = se.getFirstSelectedOption();
-//		String expertiselevel = expertise.getText();
-//		System.out.println("Expertise level: " +expertiselevel);
-//	}
+	public void autoPopulatedData() throws InterruptedException, AWTException {
+		
+		System.out.println("\nAuto populated data:");
+		
+		name.click();
+		String canName = name.getAttribute("value");
+		System.out.println("Candidate Name: " + canName);
+		Thread.sleep(1000);
+		
+		emailID.click();
+		String email = emailID.getAttribute("value");
+		System.out.println("Email: " + email);
+		Thread.sleep(1000);
+		
+		contactNumber.click();
+		String contact = contactNumber.getAttribute("value");
+		System.out.println("Contact Number: " + contact);
+		Thread.sleep(1000);
+		
+		designation.click();
+		String canDesignation = designation.getAttribute("value");
+		System.out.println("Designation: " +canDesignation);
+		Thread.sleep(1000);
+		
+		se = new Select(gender);
+		WebElement canGen = se.getFirstSelectedOption();
+		String canGender = canGen.getText();
+		System.out.println("Gender: " +canGender);
+		Thread.sleep(1000);
+		
+		noticePeriod.click();
+		String noticeperiod = noticePeriod.getAttribute("value");
+		System.out.println("Notice Period: " +noticeperiod);
+		Thread.sleep(1000);
+		
+		location.click();
+		String canLocation = location.getAttribute("value");
+		System.out.println("Location: " +canLocation);
+		Thread.sleep(1000);
+		
+		se = new Select(communicationMode);
+		WebElement communication = se.getFirstSelectedOption();
+		String communicationmode = communication.getText();
+		System.out.println("Preferred mode of communication: " +communicationmode);
+		
+		se = new Select(expertiseLevel);
+		WebElement expertise = se.getFirstSelectedOption();
+		String expertiselevel = expertise.getText();
+		System.out.println("Expertise level: " +expertiselevel);
+	}
 	
-//	public void verifyEmail() {
-//		
-//		emailID.click();
-//		String emailAttribute = candidateupdateprofilepage.emailID.getAttribute("readonly");
-//		System.out.println("\nEmail readonly field: " + emailAttribute);
-//		
-//		if(emailAttribute.equals("true")) {
-//			System.out.println("Email ID field is not editable.. Email ID field is critical field..");
-//		}
-//		else {
-//			System.out.println("Email ID field is editable..");
-//		}
-//	}
+	public void verifyEmail() {
+		
+		emailID.click();
+		String emailAttribute = candidateupdateprofilepage.emailID.getAttribute("readonly");
+		System.out.println("\nEmail readonly field: " + emailAttribute);
+		
+		if(emailAttribute.equals("true")) {
+			System.out.println("Email ID field is not editable.. Email ID field is critical field..");
+		}
+		else {
+			System.out.println("Email ID field is editable..");
+		}
+	}
 	
 	public void addTenSkills() throws InterruptedException {
 		
@@ -301,42 +309,42 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 			Thread.sleep(1000);
 		}
 	}
-//	public void AssertDetailsOnCandidateProfile(DataTable credentials) throws InterruptedException
-//	{
-//	 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-//     {
-//		Thread.sleep(3000);
-//		Assert.assertEquals(this.profiletitle.getAttribute("value"), addjobpage.jobname);
-//		Assert.assertEquals(this.emailID.getAttribute("value"),data.get("CandidateEmail"));
-//		Assert.assertEquals(this.contactNumber.getAttribute("value"),data.get("ContactNumber"));
-//		Assert.assertEquals(this.dateOfBirth.getAttribute("value"),data.get("Date")); 
-//		se = new Select (this.countryId);
-//		WebElement option = se.getFirstSelectedOption();
-//		Assert.assertEquals(option.getText()," "+data.get("Country")+" ");
-//		Assert.assertEquals(this.cityArea.getAttribute("value"),data.get("CityArea"));
-//		Assert.assertEquals(this.name.getAttribute("value"),data.get("Name"));
-//		Assert.assertEquals(this.gender.getAttribute("value"),data.get("Gender"));
-//		Assert.assertEquals(this.city.getAttribute("value"),data.get("City"));
-//		Assert.assertEquals(this.zipCode.getAttribute("value"),data.get("ZipCode"));
-//		Assert.assertEquals(this.designation.getAttribute("value"),data.get("Designation"));
-//		Assert.assertEquals(this.industry.getAttribute("value"),addjobpage.industryname);	
-//		Assert.assertEquals(this.experience.getAttribute("value"),data.get("experience"));
-////		Assert.assertEquals(this.ectc.getAttribute("value"),expectedCTC);
-//		se = new Select (this.onNoticePeriod);
-//		WebElement onNotice = se.getFirstSelectedOption();
-//		Assert.assertEquals(onNotice.getText(),data.get("OnNoticePeriod"));
-//		Assert.assertEquals(this.lastWorkingDay.getAttribute("value"),data.get("LastWorkingDay"));
-//		Assert.assertEquals(this.ctc.getAttribute("value"),data.get("CTC"));
-//		se = new Select (this.modeOfcommunication);
-//		WebElement communication = se.getFirstSelectedOption();
-//		Assert.assertEquals(communication.getText(),data.get("Communicationmode"));
-//		se = new Select (this.readyToRelocate);
-//		WebElement Relocate = se.getFirstSelectedOption();
-//		Assert.assertEquals(Relocate.getText(),data.get("relocate"));		
-//		common.clickOnSaveBtn();
-//		common.clickOnOKBtn();
-//     }
-//	}
+	public void AssertDetailsOnCandidateProfile(DataTable credentials) throws InterruptedException
+	{
+	 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+     {
+		Thread.sleep(3000);
+		Assert.assertEquals(this.profiletitle.getAttribute("value"), addjobpage.jobname);
+		Assert.assertEquals(this.emailID.getAttribute("value"),data.get("CandidateEmail"));
+		Assert.assertEquals(this.contactNumber.getAttribute("value"),data.get("ContactNumber"));
+		Assert.assertEquals(this.dateOfBirth.getAttribute("value"),data.get("Date")); 
+		se = new Select (this.countryId);
+		WebElement option = se.getFirstSelectedOption();
+		Assert.assertEquals(option.getText()," "+data.get("Country")+" ");
+		Assert.assertEquals(this.cityArea.getAttribute("value"),data.get("CityArea"));
+		Assert.assertEquals(this.name.getAttribute("value"),data.get("Name"));
+		Assert.assertEquals(this.gender.getAttribute("value"),data.get("Gender"));
+		Assert.assertEquals(this.city.getAttribute("value"),data.get("City"));
+		Assert.assertEquals(this.zipCode.getAttribute("value"),data.get("ZipCode"));
+		Assert.assertEquals(this.designation.getAttribute("value"),data.get("Designation"));
+		Assert.assertEquals(this.industry.getAttribute("value"),addjobpage.industryname);	
+		Assert.assertEquals(this.experience.getAttribute("value"),data.get("experience"));
+//		Assert.assertEquals(this.ectc.getAttribute("value"),expectedCTC);
+		se = new Select (this.onNoticePeriod);
+		WebElement onNotice = se.getFirstSelectedOption();
+		Assert.assertEquals(onNotice.getText(),data.get("OnNoticePeriod"));
+		Assert.assertEquals(this.lastWorkingDay.getAttribute("value"),data.get("LastWorkingDay"));
+		Assert.assertEquals(this.ctc.getAttribute("value"),data.get("CTC"));
+		se = new Select (this.modeOfcommunication);
+		WebElement communication = se.getFirstSelectedOption();
+		Assert.assertEquals(communication.getText(),data.get("Communicationmode"));
+		se = new Select (this.readyToRelocate);
+		WebElement Relocate = se.getFirstSelectedOption();
+		Assert.assertEquals(Relocate.getText(),data.get("relocate"));		
+		common.clickOnSaveBtn();
+		common.clickOnOKBtn();
+     }
+	}
 	
 	public void AssertSkillonSkillAndRolesTab(DataTable credentials) throws InterruptedException
 	{
@@ -367,5 +375,22 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 		}
 		Assert.assertEquals(this.role.getAttribute("value"),addjobpage.jobRole);
 	}
+}
+	
+	public void addQualificationDetails(DataTable credentials)
+	{
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		   {
+			 for(int i=0;i<major.size();i++)
+			 {
+				 major.get(i).sendKeys(data.get("Major"));
+				 passingYear.get(i).sendKeys(data.get("year"));
+				 grade.get(i).sendKeys("grade");
+				 college.get(i).sendKeys(data.get("college"));
+				 university.get(i).sendKeys(data.get("university"));	
+				 Country.get(i).sendKeys("country");
+				 driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']")).click();
+			 }
+		   }
 	}
 }
