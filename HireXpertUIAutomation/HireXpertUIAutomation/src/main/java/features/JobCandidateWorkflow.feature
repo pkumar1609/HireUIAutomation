@@ -439,10 +439,11 @@ Examples:
 #And click on Login link
 #When click on Employer-Agency SignIn link
 #And login with Employer credential
+#And click on ok button
 #And Go to Workbench 
-#And Add a new Job as employer "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>>" "<JobSkill1>" "<JobSkill2>"
+#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-#And Click on Add Candidate button
+#And click on Add Candidate button
 #And Enter valid "<CandidateEmail>" 
 #And click on find button 
 #And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
@@ -461,6 +462,7 @@ Examples:
 #And click on No from confirmation popup and observe
 #Then both candidates should not display in same column
 #And click on close job button and delete the job
+#And click on ok button
 #And click on employer tab and delete the employer if login as agency
 #And close the browser
 #
@@ -468,8 +470,8 @@ Examples:
 #
 #Examples:
 #      
-#| JobTitle | JobDesignation   | Industry    | JobRole  | JobLocation  | JobBudget | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 |   CandidateEmail     |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate |  CandidateEmail1      |  Name1       |   ContactNumber1 | OrganizationName |
-#| Engineer | Test Engineer    | IT-Software | Engineer | Viman Nagar  | 500000    | 2      | 3      | 3              |   60            | Agile     |  Java     |  donald01@gmail.com  | donald01   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      |   harry01@gmail.com   |   Harry01    |     123456789    | Emporg           |
+#|  JobTitle | JobDesignation | Industry    | MinExp   | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1  | JobSkill2  |   CandidateEmail     |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate |  CandidateEmail1      |  Name1       |   ContactNumber1 | OrganizationName |
+#| Engineer  | Test Engineer  | IT-Software | 2        | 5      | 500000     | 600000    | 3              |   60             | Agile       |  Java      |  donald01@gmail.com  | donald01   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      |   harry01@gmail.com   |   Harry01    |     123456789    | EmpOrg           |
 
 
 # TC :- 467 [Job candidate workfloww Regression TC]
@@ -484,10 +486,11 @@ Examples:
 #And click on Login link
 #When click on Employer-Agency SignIn link
 #And login with Employer credential
+#And click on ok button
 #And Go to Workbench 
-#And Add a new Job as employer "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>>" "<JobSkill1>" "<JobSkill2>"
+#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-#And Click on Add Candidate button
+#And click on Add Candidate button
 #And Enter valid "<CandidateEmail>" 
 #And click on find button 
 #And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
@@ -512,6 +515,7 @@ Examples:
 #And Click on save button for edit candidate
 #And if confirmation popup is displayed click on ok button
 #And click on close job button and delete the job
+#And click on ok button
 #And click on employer tab and delete the employer if login as agency
 #And close the browser
 #
@@ -519,10 +523,11 @@ Examples:
 #And click on Login link
 #When click on Employer-Agency SignIn link 
 #And login with Agency credential
+#And click on ok button
 #And Go to Workbench 
-#And Add a new Job as agency "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>"
+#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-#And Click on Add Candidate button
+#And click on Add Candidate button
 #And Enter valid "<CandidateEmail>" 
 #And click on find button 
 #And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
@@ -547,6 +552,7 @@ Examples:
 #And Click on save button for edit candidate
 #And if confirmation popup is displayed click on ok button
 #And click on close job button and delete the job
+#And click on ok button
 #And click on employer tab and delete the employer if login as agency
 #And close the browser
 #
@@ -579,8 +585,8 @@ Examples:
 #
 #Examples:
 #      
-#| JobTitle | JobDesignation   | Industry    | JobRole  | JobLocation | JobBudget | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 | OrganizationName |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate | password |
-#| Engineer | Test Engineer    | IT-Software | Engineer | Viman Nagar | 500000    | 2      | 3      | 3              |     60          | Agile     | Java      | Emporg           |  donald02@gmail.com  | donald02   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      | 12345    |                 
+#|  JobTitle | JobDesignation | Industry    | MinExp   | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1  | JobSkill2  | OrganizationName |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate | password |
+#| Engineer  | Test Engineer  | IT-Software | 2        | 5      | 300000     | 300000    | 3              |     60           | Agile       | Java       | EmpOrg           |  donald02@gmail.com  | donald02   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      | 12345    |                 
 
 
 # TC ID :- 26 [Job candidate workfloww Regression TC]
@@ -593,10 +599,11 @@ Examples:
 #Given Open browser
 #And click on Login link
 #And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+#And click on ok button
 #And click on Workbench tab
-#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>"
+#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-#And Click on Add Candidate button
+#And click on Add Candidate button
 #And Enter valid "<CandidateEmail>" 
 #And click on find button 
 #And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
@@ -610,12 +617,13 @@ Examples:
 #And Click on Edit Candidate icon on candidate card "<Name>"
 #Then Newly Added skills should be reflect in candidate profile which are already added for that job
 #And click on close job button and delete the job
+#And click on ok button
 #And click on employer tab and delete the employer if login as agency
 #And close the browser
 #
 #Examples:
-#|    email address            |  password  | JobTitle | JobDesignation | Industry    | JobRole  | JobLocation | JobBudget | MinExp | MaxExp | NoOfInterviews |  JobNoticePeriod | JobSkill1 | JobSkill2 | OrganizationName |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate | NoOfInterviews1 |
-#|  employermain01@gmail.com   |   12345    | SDET     | QA Analyst     | IT-Industry | Tester   | Pune        | 700000    | 3      | 5      |   2            |    60            | Agile     |  Java     | Emporg           |   donald01@gmail.com | donald01   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      |      3          |    
+#|    email address            |  password  |  JobTitle | JobDesignation | Industry    | MinExp   | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1  | JobSkill2 | OrganizationName |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate | NoOfInterviews1 |
+#|  employermain01@gmail.com   |   12345    | SDET      | QA Analyst     | IT-Industry | 2        | 5      | 700000     | 900000    | 3              |    60            | Agile       |  Java     | EmpOrg           |   donald01@gmail.com | donald01   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      |      3          |    
 #
 #    
     #Reg TC ID: 112,324 [Job candidate workfloww Regression TC]
@@ -628,10 +636,11 @@ Examples:
 #Given Open browser
 #And click on Login link
 #And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+#And click on ok button
 #And click on Workbench tab
-#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>"
+#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-#And Click on Add Candidate button
+#And click on Add Candidate button
 #And Enter valid "<CandidateEmail>" 
 #And click on find button 
 #And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
@@ -656,12 +665,13 @@ Examples:
 #And click on find button 
 #Then observe deleted job skill should not show when employer is going to add new candidate
 #And click on close job button and delete the job
+#And click on ok button
 #And click on employer tab and delete the employer if login as agency
 #And close the browser
 #    
 #    Examples:
-#|    email address            |  password  | JobTitle | JobDesignation | Industry    | JobRole  | JobLocation | JobBudget | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 | OrganizationName  |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate | CandidateEmail1 |
-#|  employermain01@gmail.com   |   12345    | SDET     | QA Analyst     | IT-Industry | Tester   | Pune        | 700000    | 3      | 5      |   2            | 60              | Agile     | Java      | Emporg            |   donald01@gmail.com | donald01   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      | peter@gmail.com |    
+#|    email address            |  password  |  JobTitle | JobDesignation | Industry    | MinExp   | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1  | JobSkill2  | OrganizationName  |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate | CandidateEmail1 |
+#|  employermain01@gmail.com   |   12345    | SDET      | QA Analyst     | IT-Industry | 0        | 5      | 500000     | 700000    | 2              | 60               | Agile       | Java       | EmpOrg            |   donald01@gmail.com | donald01   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      | peter@gmail.com |    
 #    
     
    #Reg TC ID: 335,349 [Job candidate workfloww Regression TC]
@@ -674,17 +684,18 @@ Examples:
 #Given Open browser
 #And click on Login link
 #And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+#And click on ok button
 #And click on Team tab and add one new team member by clicking on Add button for agency "<AgencyteammemberemailId>" "<AgencyteammemberName>" "<AgencyteammemberNo>"
 #And click on Close button from Team Members window
 #And logout with agency owner
 #And enter valid user "<AgencyteammemberemailId>" and "<password>" for registered employer and agency and click on Sign in button
 #And click on Workbench tab
-#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>"    
+#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #Then Job should get successfully added and Job should be visible in Job drop down
 #And logout with agency team member
 #And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button   
 #And click on Workbench tab and select the job which is added by agency team member
-#And Click on Add Candidate button
+#And click on Add Candidate button
 #And Enter valid "<CandidateEmail>" 
 #And click on find button 
 #And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
@@ -692,6 +703,7 @@ Examples:
 #And if confirmation popup is displayed click on ok button
 #Then new candidate should get added in New column
 #And click on close job button and delete the job
+#And click on ok button
 #And delete the agency team member "<AgencyteammemberemailId>"
 #And logout with agency owner
 #And enter valid user "<AgencyteammemberemailId>" and "<password>" for registered employer and agency and click on Sign in button
@@ -701,8 +713,8 @@ Examples:
 #And close the browser
 #    
 #     Examples:
-#|    email address            |  password  | AgencyteammemberemailId  | AgencyteammemberName    |  AgencyteammemberNo | JobTitle | JobDesignation | Industry    | JobRole  | JobLocation | JobBudget | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 | OrganizationName  |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate |
-#|  agencymain01@gmail.com     |   12345    | teamagencymain@gmail.com |      TeamAgencymain     |  852963741          | SDET     | QA Analyst     | IT-Industry | Tester   | Pune        | 700000    | 3      | 5      |   2            |    60           | Agile     | Java      | Emporg            |   tina01@gmail.com   | Tina01     |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      |   
+#|    email address            |  password  | AgencyteammemberemailId  | AgencyteammemberName    |  AgencyteammemberNo | JobTitle | JobDesignation | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary  | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 | OrganizationName  |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate |
+#|  agencymain01@gmail.com     |   12345    | teamagencymain@gmail.com |      TeamAgencymain     |  852963741          | SDET     | QA Analyst     | IT-Industry | 3      | 5      | 300000     |  500000    |   2            |    60           | Agile     | Java      | EmpOrg            |   tina01@gmail.com   | Tina01     |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      |   
 #       
     
   
@@ -716,10 +728,11 @@ Examples:
 #Given Open browser
 #When click on Employer-Agency SignIn link
 #And login with Employer credential
+#And click on ok button
 #And Go to Workbench 
-#And Add a new Job as employer "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>>" "<JobSkill1>" "<JobSkill2>"
+#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-#And Click on Add Candidate button
+#And click on Add Candidate button
 #And Enter valid "<CandidateEmail>" 
 #And click on find button 
 #And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
@@ -732,12 +745,13 @@ Examples:
 #And Click on save button for edit candidate
 #Then when user set expertise level other than Not answer in edit candidate at that time bell icon should removed from candidate card
 #And click on close job button and delete the job
+#And click on ok button
 #And click on employer tab and delete the employer if login as agency
 #
 #
 #Examples:
-#   | JobTitle | JobDesignation | Industry    | JobRole  | JobLocation | JobBudget | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 | OrganizationName |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|   contactnumber   | ExpertiseLevel1 | ExpertiseLevel2 | expertiselevel1 | expertiselevel2 |
-#   | Engineer | Test Engineer  | IT-Software | Engineer | Viman Nagar | 500000    | 2      | 3      | 3              | 60              | Agile     | Java      | Emporg           | candidate02@gmail.com   | Can02   |   912349699666   |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 1234567891        | Not Answered    |  Not Answered   |  Expert         | Intermediate    |
+#   | JobTitle | JobDesignation | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary  | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 | OrganizationName |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|   contactnumber   | ExpertiseLevel1 | ExpertiseLevel2 | expertiselevel1 | expertiselevel2 |
+#   | Engineer | Test Engineer  | IT-Software | 2      | 3      |500000      | 700000     | 3              | 60              | Agile     | Java      | EmpOrg           | candidate02@gmail.com   | Can02   |   912349699666   |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 1234567891        | Not Answered    |  Not Answered   |  Expert         | Intermediate    |
   
 #  TC :- 374  [Job candidate workfloww Regression TC]
 
@@ -750,10 +764,11 @@ Examples:
 #Given Open browser
 #When click on Employer-Agency SignIn link
 #And login with Employer credential
+#And click on ok button
 #And Go to Workbench 
-#And Add a new Job as employer "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>>" "<JobSkill1>" "<JobSkill2>"
+#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-#And Click on Add Candidate button
+#And click on Add Candidate button
 #And Enter valid "<CandidateEmail>" 
 #And click on find button 
 #And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
@@ -767,10 +782,10 @@ Examples:
 #And add a team member to employer
 #And logout with employer and login as employer team member
 #And Go to Workbench 
-#And Add a new Job as employer "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
+#And Add a new Job as employer "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Verify that job is added or not
 #And Select the same job from job drop down
-#And Click on Add Candidate button
+#And click on Add Candidate button
 #And Enter valid "<CandidateEmail>" 
 #And click on find button 
 #And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
@@ -781,16 +796,18 @@ Examples:
 #And select the reason of rejection and cick on submit button
 #Then drag the candidate card from rejected column to any other column
 #And click on close job button and delete the job
+#And click on ok button
 #And logout as employer team member and login as employer
 #And delete the team member
 #
 #Given Open browser
 #When click on Employer-Agency SignIn link
 #And login with Agency credential
+#And click on ok button
 #And Go to Workbench 
-#And Add a new Job as agency "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>"
+#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-#And Click on Add Candidate button
+#And click on Add Candidate button
 #And Enter valid "<CandidateEmail>" 
 #And click on find button 
 #And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
@@ -804,10 +821,10 @@ Examples:
 #And add a team member to agency
 #And logout with agency and login as agency team member
 #And Go to Workbench 
-#And Add a new Job as agency "<Title>" "<Designation>" "<Industry>" "<JobRole>" "<Location>" "<Budget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>"
+#And Add a new Job as agency "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Verify that job is added or not
 #And Select the same job from job drop down
-#And Click on Add Candidate button
+#And click on Add Candidate button
 #And Enter valid "<CandidateEmail>" 
 #And click on find button 
 #And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
@@ -818,12 +835,13 @@ Examples:
 #And select the reason of rejection and cick on submit button
 #Then drag the candidate card from rejected column to any other column
 #And click on close job button and delete the job
+#And click on ok button
 #And logout as agency team member and login as agency
 #And delete the team member
 #
 #Examples:
-#   | JobTitle    | JobDesignation   | Industry    | JobRole  | JobLocation | JobBudget | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 | OrganizationName |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  contactnumber   | 
-#   | Engineer    | Test Engineer    | IT-Software | Engineer | Viman Nagar | 500000    | 2      | 3      | 3              |    60           | Agile     | Java      | Emporg           | candidate02@gmail.com   | Can02   |   9128529666     |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   123456789      |
+#   | JobTitle    | JobDesignation   | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary  | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 | OrganizationName |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  contactnumber   | 
+#   | Engineer    | Test Engineer    | IT-Software | 2      | 3      | 400000     |  600000    | 3              |    60           | Agile     | Java      | Emporg           | candidate02@gmail.com   | Can02   |   9128529666     |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   123456789      |
   
 
 # TC = 533
