@@ -82,11 +82,11 @@ public class CandidateUpdateProfilePage extends baseclass {
 //	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
 //	public WebElement noticePeriodCheckbox;
 //		
-//	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
-//	public WebElement addSkillButton;
-//	
-//	@FindBy(xpath = "//tr[2]//td[1]//input[1]")
-//	public WebElement skill2;
+	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
+	public WebElement addSkillButton;
+	
+	@FindBy(xpath = "//tr[2]//td[1]//input[1]")
+	public WebElement skill2;
 //	
 //	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[2]/div[3]/table/tbody/tr[2]/td[2]/select")
 //	public WebElement expertiseLevel2;
@@ -94,20 +94,20 @@ public class CandidateUpdateProfilePage extends baseclass {
 //	@FindBy(xpath = "//tr[2]//td[3]//input[1]")
 //	public WebElement certificate2;
 //	
-//	@FindBy(xpath = "//tr[3]//td[1]//input[1]")
-//	public WebElement skill3;
+	@FindBy(xpath = "//tr[3]//td[1]//input[1]")
+	public WebElement skill3;
 //	
 //	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[2]/div[3]/table/tbody/tr[3]/td[2]/select")
 //	public WebElement expertiseLevel3;
 //	
-//	@FindBy(xpath = "//tr[3]//td[4]//button[1]")
-//	public WebElement skill3Delete;
-//	
-//	@FindBy(xpath = "//button[contains(text(),'Add Designation')]")
-//	public WebElement addRolesButton;
-//	
-//	@FindBy(xpath = "//tr[2]//td[2]//button[1]")
-//	public WebElement role3Delete;	
+	@FindBy(xpath = "//tr[3]//td[4]//button[1]")
+	public WebElement skill3Delete;
+	
+	@FindBy(xpath = "//button[contains(text(),'Add Designation')]")
+	public WebElement addRolesButton;
+	
+	@FindBy(xpath = "//tr[2]//td[2]//button[1]")
+	public WebElement role3Delete;	
 //	
 //	@FindBy(xpath = "//div[@class='col-md-4']//div[@class='row']//div[1]//label[1]//span[2]")
 //	public WebElement notLookingForJobCheckbox;

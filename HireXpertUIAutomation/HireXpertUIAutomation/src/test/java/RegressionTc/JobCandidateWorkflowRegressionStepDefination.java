@@ -173,7 +173,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	@Then("^Select the On Notice Period field and set Last working day on Update Profile page$")
 	public void select_the_On_Notice_Period_field_and_set_Last_working_day_on_Update_Profile_page() throws Throwable {
 	    
-		Select se = new Select(candidateupdateprofilepage.noticePeriodCheckbox);
+		Select se = new Select(addcandidatepage.OnNoticePeriodCheckbox);
 		se.selectByVisibleText("Yes");
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//button[@aria-label='Open Calendar'])[2]")).click();
@@ -205,7 +205,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	    
 		Thread.sleep(3000);
 		
-		Select se = new Select(candidateupdateprofilepage.LookingforJobfield);
+		Select se = new Select(addcandidatepage.LookingforJobfield);
 		se.selectByVisibleText("Yes");
 	}
 
@@ -397,7 +397,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	   
 		Thread.sleep(3000);
 		
-		Select se = new Select(candidateupdateprofilepage.LookingforJobfield);
+		Select se = new Select(addcandidatepage.LookingforJobfield);
 		se.selectByVisibleText("No");
 	}
 
@@ -545,7 +545,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	@Then("^set on notice period field as no and enter notice period days$")
 	public void set_on_notice_period_field_as_no_and_enter_notice_period_days() throws Throwable {
 
-		Select se = new Select(candidateupdateprofilepage.noticePeriodCheckbox);
+		Select se = new Select(addcandidatepage.OnNoticePeriodCheckbox);
 		se.selectByVisibleText("No");
 		Thread.sleep(5000);
 		addcandidatepage.noticePeriod.clear();
