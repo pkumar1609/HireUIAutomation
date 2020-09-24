@@ -9,7 +9,6 @@ Feature: Hirexpert Job Candidate Workflow feature
 #And login with Employer credential
 #And click on ok button
 #And Go to Workbench 
-#And click on ok button
 #And Add a new Job as employer "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
 #And Click on Add Candidate button
@@ -48,7 +47,6 @@ Feature: Hirexpert Job Candidate Workflow feature
 #And login with Agency credential
 #And click on ok button
 #And Go to Workbench 
-#And click on ok button
 #And Add a new Job as agency "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
 #And Click on Add Candidate button
@@ -89,7 +87,6 @@ Feature: Hirexpert Job Candidate Workflow feature
 #And login with Employer credential
 #And click on ok button
 #And Go to Workbench 
-#And click on ok button
 #And Add a new Job as employer "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
 #And Click on Add Candidate button
@@ -147,7 +144,6 @@ Feature: Hirexpert Job Candidate Workflow feature
 #And login with Employer credential
 #And click on ok button
 #And Go to Workbench 
-#And click on ok button
 #And Add a new Job as employer "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
 #And Click on Add Candidate button
@@ -193,7 +189,6 @@ Feature: Hirexpert Job Candidate Workflow feature
 #And login with Agency credential
 #And click on ok button
 #And Go to Workbench 
-#And click on ok button
 #And Add a new Job as agency "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
 #And Click on Add Candidate button
@@ -239,7 +234,6 @@ Feature: Hirexpert Job Candidate Workflow feature
 #And login with Employer credential
 #And click on ok button
 #And Go to Workbench
-#And click on ok button
 #And Add a new Job as employer "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
 #And click on Add Candidate button
@@ -300,50 +294,49 @@ Feature: Hirexpert Job Candidate Workflow feature
 #change email id of candidate [enter candidate email id not presnet in system]
   
   
- @Regression 
- Scenario Outline: To verify the Notice Period field on candidate page 
-	
-Given Open browser
-And click on Login link
-And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
-And click on ok button
-And Go to Workbench 
-And click on ok button
-And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
-And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-And click on Add Candidate button
-And Enter valid "<CandidateEmail>" 
-And click on find button
-And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
-And upload candidate resume
-And click on Close button
-Then confirmation popup message should display with Yes and No buttons and Click on No button
-And Click save button
-And if confirmation popup is displayed click on ok button
-And Click on Edit Candidate icon on candidate card "<Name>"
-And change the set notice period days
-And click on Close button
-Then confirmation popup message should display with Yes and No buttons and Click on No button
-And Click on save button to save the updated changes
-And if confirmation popup is displayed click on ok button
-And Click on Edit Candidate icon on candidate card "<Name>"
-And Select the On Notice Period field and set Last working day
-And Click on save button to save the updated changes
-And if confirmation popup is displayed click on ok button
-And Click on Edit Candidate icon on candidate card "<Name>"
-And set on notice period field as no and enter notice period days
-And Click on save button to save the updated changes
-And if confirmation popup is displayed click on ok button
-And click on close job button and delete the job
-And click on ok button
-And click on employer tab and delete the employer if login as agency
-	
-
-Examples:
-      
-|    email address            |  password   |  JobTitle | JobDesignation | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1  |  JobSkill2 |  CandidateEmail       |  Name       |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|LastWorkingDay | OrganizationName |
-|  employermain01@gmail.com   | 12345       | Engineer  | Test Engineer  | IT-Software |  0     |   2    | 300000     | 400000    | 3              | 30               |  Agile      |   JAVA     | petertom14@gmail.com  | PeterTom14  |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 30/09/2020    |  EmpOrg          |
-|   agencymain01@gmail.com    |  12345      | Engineer  | Tester         | IT-Software | 3      | 5      | 500000     | 700000    | 3              | 60               |  Agile      |    Java    | tompeter04@gmail.com  | TomPeter04  |   91852649666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      1    | 200000 |     400000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 30/10/2020    |  EmpOrg     |
+# @Regression 
+# Scenario Outline: To verify the Notice Period field on candidate page 
+#	
+#Given Open browser
+#And click on Login link
+#And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+#And click on ok button
+#And Go to Workbench 
+#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
+#And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
+#And click on Add Candidate button
+#And Enter valid "<CandidateEmail>" 
+#And click on find button
+#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+#And upload candidate resume
+#And click on Close button
+#Then confirmation popup message should display with Yes and No buttons and Click on No button
+#And Click save button
+#And if confirmation popup is displayed click on ok button
+#And Click on Edit Candidate icon on candidate card "<Name>"
+#And change the set notice period days
+#And click on Close button
+#Then confirmation popup message should display with Yes and No buttons and Click on No button
+#And Click on save button to save the updated changes
+#And if confirmation popup is displayed click on ok button
+#And Click on Edit Candidate icon on candidate card "<Name>"
+#And Select the On Notice Period field and set Last working day
+#And Click on save button to save the updated changes
+#And if confirmation popup is displayed click on ok button
+#And Click on Edit Candidate icon on candidate card "<Name>"
+#And set on notice period field as no and enter notice period days
+#And Click on save button to save the updated changes
+#And if confirmation popup is displayed click on ok button
+#And click on close job button and delete the job
+#And click on ok button
+#And click on employer tab and delete the employer if login as agency
+#	
+#
+#Examples:
+#      
+#|    email address            |  password   |  JobTitle | JobDesignation | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1  |  JobSkill2 |  CandidateEmail       |  Name       |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|LastWorkingDay | OrganizationName |
+#|  employermain01@gmail.com   | 12345       | Engineer  | Test Engineer  | IT-Software |  0     |   2    | 300000     | 400000    | 3              | 30               |  Agile      |   JAVA     | petertom14@gmail.com  | PeterTom14  |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 30/09/2020    |  EmpOrg          |
+#|   agencymain01@gmail.com    |  12345      | Engineer  | Tester         | IT-Software | 3      | 5      | 500000     | 700000    | 3              | 60               |  Agile      |    Java    | tompeter04@gmail.com  | TomPeter04  |   91852649666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      1    | 200000 |     400000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 30/10/2020    |  EmpOrg     |
 
 
 #TC ID: 59,70,134,263  [Job candidate Workflow Regression TC]
@@ -359,10 +352,11 @@ Examples:
 #Given Open browser
 #And click on Login link
 #And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
+#And click on ok button
 #And Go to Workbench 
-#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>"
+#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
 #And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-#And Click on Add Candidate button
+#And click on Add Candidate button
 #And Enter valid "<CandidateEmail>" 
 #And click on find button 
 #And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
@@ -378,56 +372,59 @@ Examples:
 #And click on Delete Comment icon to delete the comment and comment should get deleted
 #And click on Close button
 #And click on close job button and delete the job
+#And click on ok button
 #And click on employer tab and delete the employer if login as agency
 #
 #
 #Examples:
 #      
-#|    email address            |  password   | JobTitle | JobDesignation | Industry    | JobRole  | JobLocation  | JobBudget | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod |JobSkill1 | JobSkill2  |  CandidateEmail      |  Name    |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate| OrganizationName |
-#|   employermain01@gmail.com  |  12345      | Engineer | Test Engineer  | IT-Software | Engineer | Viman Nagar  | 500000    | 2      | 3      | 3              |    60           |  Agile   | Java       |  tj01@gmail.com      | TJ01     |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | Emporg           |
-#|   agencymain01@gmail.com    |  12345      | Engineer | Tester         | IT-Software | Engineer | Viman Nagar  | 500000    | 0      | 3      | 4              |    60           |  Agile   | Java       |  tj02@gmail.com      | TJ02     |   91852649666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      1    | 200000 |     400000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | Emporg           |
+#|    email address            |  password   |  JobTitle | JobDesignation | Industry    | MinExp   | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1  | JobSkill2  |  CandidateEmail      |  Name    |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate| OrganizationName |
+#|   employermain01@gmail.com  |  12345      | Engineer  | Test Engineer  | IT-Software | 2        | 5      | 500000     | 600000    | 3              |    60            |  Agile      | Java       |  tj01@gmail.com      | TJ01     |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | EmpOrg           |
+#|   agencymain01@gmail.com    |  12345      | Engineer  | Tester         | IT-Software | 3        | 6      | 500000     | 700000    | 3              |    60            |  Agile      | Java       |  tj02@gmail.com      | TJ02     |   91852649666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      1    | 200000 |     400000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | EmpOrg           |
 
 #TC : 317     [Job candidate workfloww Regression TC]
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
 
-#@Regression
-#Scenario Outline: Verify user able to move rejected candidate from Rejected column to any other column
-#	
-#Given Open browser
-#And click on Login link
-#When click on Employer-Agency SignIn link
-#And login with Employer credential
-#And Go to Workbench 
-#And Add a new Job as employer "<JobTitle>" "<JobDesignation>" "<Industry>" "<JobRole>" "<JobLocation>" "<JobBudget>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<JobNoticePeriod>>" "<JobSkill1>" "<JobSkill2>"
-#And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-#And Click on Add Candidate button
-#And Enter valid "<CandidateEmail>" 
-#And click on find button 
-#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
-#And upload candidate resume and click on save button
-#And if confirmation popup is displayed click on ok button
-#And Click on Reject Candidate icon from candidate card to reject the candidate "<Name>"
-#Then Observe candidate get moved in Rejected column automatically
-#And Now move that candidate from Rejected column to any other column and observe
-#And Click on Questionnaire tab
-#And Enter first question "<QUESTION1>" and marks "<QMARKS1>" 
-#And Enter the answer "<ANSWER1>" "<ANSWER2>"  and enter Marks "<MARKS1>" "<MARKS2>" for first question
-#And click on Save Changes button
-#And Enter the cutoff & rejection percentage "<cuttoffpercentage>" "<rejectionpercentage>" 
-#And click on submit
-#Then Collect Answer icon should reflect on candidates card for giving answers
-#And Click on Reject Candidate icon from candidate card to reject the candidate "<Name>"
-#Then Observe candidate get moved in Rejected column automatically
-#And Now move that candidate from Rejected column to any other column and observe
-#And click on close job button and delete the job
-#And click on employer tab and delete the employer if login as agency
-#And close the browser
-#
-#Examples:
-#      
-#| JobTitle | JobDesignation | Industry    | JobRole  | JobLocation | JobBudget | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  QUESTION1          | QMARKS1 | ANSWER1 | ANSWER2 | MARKS1 | MARKS2 | cuttoffpercentage | rejectionpercentage | OrganizationName |
-#| Engineer | Test Engineer  | IT-Software | Engineer | Viman Nagar | 500000    | 2      | 3      | 3              |     50          | Agile     |  Java     |  cherry03@gmail.com  | Cherry03   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | Ready to Relocate ? | 100     |  Yes    |  No     | 100    | 0      | 80                |  20                 | Emporg           |
+@Regression
+Scenario Outline: Verify user able to move rejected candidate from Rejected column to any other column
+	
+Given Open browser
+And click on Login link
+When click on Employer-Agency SignIn link
+And login with Employer credential
+And click on ok button
+And Go to Workbench 
+And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
+And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
+And click on Add Candidate button
+And Enter valid "<CandidateEmail>" 
+And click on find button 
+And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
+And upload candidate resume and click on save button
+And if confirmation popup is displayed click on ok button
+And Click on Reject Candidate icon from candidate card to reject the candidate "<Name>"
+Then Observe candidate get moved in Rejected column automatically
+And Now move that candidate from Rejected column to any other column and observe
+And Click on Questionnaire tab
+And Enter first question "<QUESTION1>" and marks "<QMARKS1>" 
+And Enter the answer "<ANSWER1>" "<ANSWER2>"  and enter Marks "<MARKS1>" "<MARKS2>" for first question
+And click on Save Changes button
+And Enter the cutoff & rejection percentage "<cuttoffpercentage>" "<rejectionpercentage>" 
+And click on submit
+Then Collect Answer icon should reflect on candidates card for giving answers
+And Click on Reject Candidate icon from candidate card to reject the candidate "<Name>"
+Then Observe candidate get moved in Rejected column automatically
+And Now move that candidate from Rejected column to any other column and observe
+And click on close job button and delete the job
+And click on ok button
+And click on employer tab and delete the employer if login as agency
+And close the browser
+
+Examples:
+      
+|  JobTitle | JobDesignation | Industry    | MinExp   | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1  | JobSkill2 |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  QUESTION1          | QMARKS1 | ANSWER1 | ANSWER2 | MARKS1 | MARKS2 | cuttoffpercentage | rejectionpercentage | OrganizationName |
+| Engineer  | Test Engineer  | IT-Software | 2        | 5      | 500000     | 900000    | 3              | 30               | Agile       |  Java     |  cherry03@gmail.com  | Cherry03   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | Ready to Relocate ? | 100     |  Yes    |  No     | 100    | 0      | 80                |  20                 | EmpOrg           |
 
 
 # TC :- 292 [Job candidate workfloww Regression TC]

@@ -258,6 +258,12 @@ public class AddCandidatePage extends baseclass {
 
 	}
 	
+public void enterLastWorkingDay(String LastWorkingDay) {
+		
+		lastWorkingDay.sendKeys(LastWorkingDay);
+	}
+	
+	
 	public void addSkill(String level1, String level2, String level3, String certificate1, String certificate2, String certificate3,String certificateforskill1, String certificateforskill2) throws InterruptedException
 	{
 		for(int i=0;i<3;i++)	
