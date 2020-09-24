@@ -19,96 +19,96 @@ import utilPackage.baseclass;
 
 public class CandidateUpdateProfilePage extends baseclass {
 	
-	@FindBy(id = "Email")
-	public WebElement emailID;
-	
-	@FindBy(id = "Title")
-	public WebElement profiletitle;
-	
-	@FindBy(id = "Name")
-	public WebElement name;
-	
-	@FindBy(id = "ContactNumber")
-	public WebElement contactNumber;	
-	
-	@FindBy(xpath = "//select[@formcontrolname='Gender']")
-	public WebElement gender;
-	
-	@FindBy(id = "NoticePeriod")
-	public WebElement noticePeriod;
-	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[1]/div[3]/div[3]/input")
-	public WebElement location;
-	
-	@FindBy(xpath = "//input[@placeholder='Enter City']")
-	public WebElement city;
-	
-	@FindBy(xpath = "//input[@formcontrolname='ZipCode']")
-	public WebElement zipCode;
-	
-	@FindBy(xpath = "//input[@placeholder='Enter Industry']")
-	public WebElement industry;
-	
-	@FindBy(xpath = "//input[@placeholder='Enter Experience In Years']")
-	public WebElement experience;
-	
-	@FindBy(xpath = "//input[@placeholder='Enter ECTC']")
-	public WebElement ectc;
-	
-	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
-	public WebElement onNoticePeriod;
-	
-	@FindBy(xpath = "(//input[@placeholder='Select Date'])[2]")
-	public WebElement lastWorkingDay;
-	
-	@FindBy(xpath = "//input[@placeholder='Enter CTC']")
-	public WebElement ctc;
-	
-	@FindBy(xpath = "//select[@formcontrolname='PreferredModeOfCommunication']")
-	public WebElement modeOfcommunication;
-	
-	@FindBy(xpath = "//select[@formcontrolname='ReadyToRelocate']")
-	public WebElement readyToRelocate;
-		
-	@FindBy(xpath = "//input[@formcontrolname='Designation']")
-	public WebElement designation;
-	
-	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div/form/div[1]/div[2]/div[6]/select")
-	public WebElement communicationMode;
-	
-	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[2]/select")
-	public WebElement expertiseLevel;
-	
-	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
-	public WebElement noticePeriodCheckbox;
-		
-	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
-	public WebElement addSkillButton;
-	
-	@FindBy(xpath = "//tr[2]//td[1]//input[1]")
-	public WebElement skill2;
-	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[2]/div[3]/table/tbody/tr[2]/td[2]/select")
-	public WebElement expertiseLevel2;
-	
-	@FindBy(xpath = "//tr[2]//td[3]//input[1]")
-	public WebElement certificate2;
-	
-	@FindBy(xpath = "//tr[3]//td[1]//input[1]")
-	public WebElement skill3;
-	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[2]/div[3]/table/tbody/tr[3]/td[2]/select")
-	public WebElement expertiseLevel3;
-	
-	@FindBy(xpath = "//tr[3]//td[4]//button[1]")
-	public WebElement skill3Delete;
-	
-	@FindBy(xpath = "//button[contains(text(),'Add Designation')]")
-	public WebElement addRolesButton;
-	
-	@FindBy(xpath = "//tr[2]//td[2]//button[1]")
-	public WebElement role3Delete;
-	
+//	@FindBy(id = "Email")
+//	public WebElement emailID;
+//	
+//	@FindBy(id = "Title")
+//	public WebElement profiletitle;
+//	
+//	@FindBy(id = "Name")
+//	public WebElement name;
+//	
+//	@FindBy(id = "ContactNumber")
+//	public WebElement contactNumber;	
+//	
+//	@FindBy(xpath = "//select[@formcontrolname='Gender']")
+//	public WebElement gender;
+//	
+//	@FindBy(id = "NoticePeriod")
+//	public WebElement noticePeriod;
+//	
+//	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[1]/div[3]/div[3]/input")
+//	public WebElement location;
+//	
+//	@FindBy(xpath = "//input[@placeholder='Enter City']")
+//	public WebElement city;
+//	
+//	@FindBy(xpath = "//input[@formcontrolname='ZipCode']")
+//	public WebElement zipCode;
+//	
+//	@FindBy(xpath = "//input[@placeholder='Enter Industry']")
+//	public WebElement industry;
+//	
+//	@FindBy(xpath = "//input[@placeholder='Enter Experience In Years']")
+//	public WebElement experience;
+//	
+//	@FindBy(xpath = "//input[@placeholder='Enter ECTC']")
+//	public WebElement ectc;
+//	
+//	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
+//	public WebElement onNoticePeriod;
+//	
+//	@FindBy(xpath = "(//input[@placeholder='Select Date'])[2]")
+//	public WebElement lastWorkingDay;
+//	
+//	@FindBy(xpath = "//input[@placeholder='Enter CTC']")
+//	public WebElement ctc;
+//	
+//	@FindBy(xpath = "//select[@formcontrolname='PreferredModeOfCommunication']")
+//	public WebElement modeOfcommunication;
+//	
+//	@FindBy(xpath = "//select[@formcontrolname='ReadyToRelocate']")
+//	public WebElement readyToRelocate;
+//		
+//	@FindBy(xpath = "//input[@formcontrolname='Designation']")
+//	public WebElement designation;
+//	
+//	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div/form/div[1]/div[2]/div[6]/select")
+//	public WebElement communicationMode;
+//	
+//	@FindBy(xpath = "//*[@id=\"ng-invalidDiv\"]/td[2]/select")
+//	public WebElement expertiseLevel;
+//	
+//	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
+//	public WebElement noticePeriodCheckbox;
+//		
+//	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
+//	public WebElement addSkillButton;
+//	
+//	@FindBy(xpath = "//tr[2]//td[1]//input[1]")
+//	public WebElement skill2;
+//	
+//	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[2]/div[3]/table/tbody/tr[2]/td[2]/select")
+//	public WebElement expertiseLevel2;
+//	
+//	@FindBy(xpath = "//tr[2]//td[3]//input[1]")
+//	public WebElement certificate2;
+//	
+//	@FindBy(xpath = "//tr[3]//td[1]//input[1]")
+//	public WebElement skill3;
+//	
+//	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-candidate-profile/div[2]/div/div/form/div[2]/div[3]/table/tbody/tr[3]/td[2]/select")
+//	public WebElement expertiseLevel3;
+//	
+//	@FindBy(xpath = "//tr[3]//td[4]//button[1]")
+//	public WebElement skill3Delete;
+//	
+//	@FindBy(xpath = "//button[contains(text(),'Add Designation')]")
+//	public WebElement addRolesButton;
+//	
+//	@FindBy(xpath = "//tr[2]//td[2]//button[1]")
+//	public WebElement role3Delete;	
+//	
 //	@FindBy(xpath = "//div[@class='col-md-4']//div[@class='row']//div[1]//label[1]//span[2]")
 //	public WebElement notLookingForJobCheckbox;
 	
@@ -265,7 +265,6 @@ public class CandidateUpdateProfilePage extends baseclass {
 	public void verifyEmail() {
 		
 		emailID.click();
-		
 		String emailAttribute = candidateupdateprofilepage.emailID.getAttribute("readonly");
 		System.out.println("\nEmail readonly field: " + emailAttribute);
 		
@@ -275,7 +274,6 @@ public class CandidateUpdateProfilePage extends baseclass {
 		else {
 			System.out.println("Email ID field is editable..");
 		}
-		
 	}
 	
 	public void addTenSkills() throws InterruptedException {

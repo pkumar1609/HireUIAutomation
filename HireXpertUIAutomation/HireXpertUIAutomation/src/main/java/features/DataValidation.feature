@@ -269,7 +269,7 @@ And click on update profile option
 Then Enter all the personal and professional details of candidate "<title>" "<ContactNumber>" "<Date>" "<Country>" "<CityArea>" "<Name>" "<alternateemail>" "<alternateContact>" "<Gender>" "<City>" "<ZipCode>" "<currentorganization>" "<currentdesignation>" "<currentduration>" "<jobtype>" "<shift>" "<preferredcity>" "<searchkeyword>" "<industry>" "<experience>" "<expectedCTC>" "<residentialstatus>" "<OnNoticePeriod>" "<LastWorkingDay>" "<NoticePeriod>" "<CTC>" "<Communicationmode>" "<willingtotravel>" "<lookingforjob>" "<relocate>" "<cv>"
 And Click on save button
 And click ok on success popup
-And click on qualification tab 
+And click on qualification tab
 And Fill all the qualification details
 
 
