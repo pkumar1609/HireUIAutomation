@@ -270,10 +270,13 @@ Then Enter all the personal and professional details of candidate "<title>" "<Co
 And Click on save button
 And click ok on success popup
 And click on qualification tab
-And Fill all the qualification details
-
-
-
+And Fill all the qualification details 
+|Major    |year|grade|college        |university|country|
+|Research |2021|A    |CUJB      	 |cambridge |USA    |
+|MBA  	  |2019|A    |BD college     |Nagpur    |India  |
+|BE       |2017|A    |DMIETR college |Nagpur    |India  |
+|Science  |2013|A    |New English    |Nagpur    |India  |
+|CBSE     |2011|A    |MVM            |Nagpur    |India  |
 
 Examples: 
 |Username      |Teamid        |Password|CandidateEmail      |title				  |Name     |alternateemail     |ContactNumber |alternateContact|UserType |timezone			    |country|currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date|Gender  |OnNoticePeriod|LastWorkingDay|NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel  |lookingforjob|relocate|cv                                  |

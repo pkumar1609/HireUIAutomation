@@ -66,7 +66,6 @@ public class baseclass {
 	public static AddQuestionaryPage addquestionarypage;
 	public static ChangePasswordPage changepasswordpage; 
 	public static UpdateProfilePopupPage updateprofilepopuppage;
-	public static WebDriverWait wait;
 	public static ArrayList<String> ar= new ArrayList<String>();
 	public static int size;
 	public static ArrayList<String> ar1= new ArrayList<String>();
@@ -83,8 +82,8 @@ public class baseclass {
 	public static JobReviewPage jobreviewpage;
 	public static Actions Action;
 	public static ForgetPasswordPage forgetpasswordpage;
-	
-
+	public static WebDriverWait explicitwait;
+ 
 	
 	public baseclass() { 
 		
@@ -108,7 +107,6 @@ public class baseclass {
 			System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
-		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(utilclass.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
@@ -147,6 +145,7 @@ public class baseclass {
 		jobreviewpage=new JobReviewPage();
 		Action = new Actions(driver);
 		forgetpasswordpage=new ForgetPasswordPage();
+		explicitwait = new WebDriverWait(driver,80);
 
 	}
 	
