@@ -1,942 +1,897 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("TaskK.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("DataValidation.feature");
 formatter.feature({
   "line": 1,
-  "name": "Task Feature",
+  "name": "Data validation",
   "description": "",
-  "id": "task-feature",
+  "id": "data-validation",
   "keyword": "Feature"
 });
 formatter.scenarioOutline({
-  "line": 4,
-  "name": "Verify functionality of adding general task and particular task from Employer login",
+  "comments": [
+    {
+      "line": 256,
+      "value": "########Candidate data validation########"
+    }
+  ],
+  "line": 259,
+  "name": "validate the candidate details when candidate login himself and add profile details",
   "description": "",
-  "id": "task-feature;verify-functionality-of-adding-general-task-and-particular-task-from-employer-login",
+  "id": "data-validation;validate-the-candidate-details-when-candidate-login-himself-and-add-profile-details",
   "type": "scenario_outline",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 3,
-      "name": "@TC264_266"
-    },
-    {
-      "line": 3,
-      "name": "@TaskBVT"
+      "line": 258,
+      "name": "@candidatedetails"
     }
   ]
 });
 formatter.step({
-  "line": 6,
+  "line": 261,
   "name": "User must be registered",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 8,
+  "line": 263,
   "name": "title of login page is Home",
   "keyword": "When "
 });
 formatter.step({
-  "line": 9,
-  "name": "Click on Employer-Agency Signin link",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 10,
-  "name": "Employer enters valid credentials \"\u003cUsername\u003e\",\"\u003cPassword\u003e\"",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 11,
-  "name": "team member should be added",
-  "rows": [
+  "comments": [
     {
-      "cells": [
-        "Name",
-        "Email",
-        "contact",
-        "Nameagy",
-        "Emailagy",
-        "contactagy",
-        "team",
-        "agyteam"
-      ],
-      "line": 12
+      "line": 264,
+      "value": "#And Click register link"
     },
     {
-      "cells": [
-        "pe1",
-        "pe1@gmail.com",
-        "1234564",
-        "pa1",
-        "pa1@gmail.com",
-        "1234556",
-        "pe1",
-        "pa1"
-      ],
-      "line": 13
-    },
-    {
-      "cells": [
-        "pe2",
-        "pe2@gmail.com",
-        "1234564",
-        "pa2",
-        "pa2@gmail.com",
-        "1234566",
-        "pe1",
-        "pa1"
-      ],
-      "line": 14
+      "line": 265,
+      "value": "#And Enter all details on register page \"\u003cName\u003e\" \"\u003cCandidateEmail\u003e\" \"\u003cContactNumber\u003e\" \"\u003cUserType\u003e\" \"\u003ctimezone\u003e\" \"\u003ccountry\u003e\""
     }
   ],
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 15,
-  "name": "Go to workbench",
+  "line": 266,
+  "name": "Click on Job Seeker(Candidate) Sign In link",
   "keyword": "And "
 });
 formatter.step({
-  "line": 16,
-  "name": "Add job",
+  "line": 267,
+  "name": "candidate enters valid credentials \"\u003cCandidateEmail\u003e\",\"\u003cPassword\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 268,
+  "name": "click on update profile option",
+  "keyword": "And "
+});
+formatter.step({
+  "comments": [
+    {
+      "line": 269,
+      "value": "#Then Enter all the personal and professional details of candidate \"\u003ctitle\u003e\" \"\u003cContactNumber\u003e\" \"\u003cDate\u003e\" \"\u003cCountry\u003e\" \"\u003cCityArea\u003e\" \"\u003cName\u003e\" \"\u003calternateemail\u003e\" \"\u003calternateContact\u003e\" \"\u003cGender\u003e\" \"\u003cCity\u003e\" \"\u003cZipCode\u003e\" \"\u003ccurrentorganization\u003e\" \"\u003ccurrentdesignation\u003e\" \"\u003ccurrentduration\u003e\" \"\u003cjobtype\u003e\" \"\u003cshift\u003e\" \"\u003cpreferredcity\u003e\" \"\u003csearchkeyword\u003e\" \"\u003cindustry\u003e\" \"\u003cexperience\u003e\" \"\u003cexpectedCTC\u003e\" \"\u003cresidentialstatus\u003e\" \"\u003cOnNoticePeriod\u003e\" \"\u003cLastWorkingDay\u003e\" \"\u003cNoticePeriod\u003e\" \"\u003cCTC\u003e\" \"\u003cCommunicationmode\u003e\" \"\u003cwillingtotravel\u003e\" \"\u003clookingforjob\u003e\" \"\u003crelocate\u003e\" \"\u003ccv\u003e\""
+    },
+    {
+      "line": 270,
+      "value": "#And Click on save button"
+    },
+    {
+      "line": 271,
+      "value": "#And click ok on success popup"
+    },
+    {
+      "line": 272,
+      "value": "#Then Assert the personal and professional details of candidate"
+    },
+    {
+      "line": 273,
+      "value": "#|Username      |Teamid        |Password|CandidateEmail      |title\t\t\t\t   |Name     |alternateemail     |ContactNumber |alternateContact|UserType |timezone\t\t\t    |country|currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date         |Gender    |OnNoticePeriod|LastWorkingDay|NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel    |lookingforjob|relocate|cv     |"
+    },
+    {
+      "line": 274,
+      "value": "#|pemp@gmail.com|pe1@gmail.com |12345   |hirecan13@gmail.com |Sr.software engineer |hirecan13 |hirecan13@yahoo.com|7895885538    |8555855555      |Candidate|Indian Standard Time    | India |Accenture          |Sr.developer       |2   \t\t\t|Contractual Full Time|Evening Shift|Pune         |14-Sep-2020  |Female    |Yes           |25-Dec-2020   |25          |can13        |IT software|1.7       |700000|800000     |Nagpur|sita bardi |248966 |Call             |Citizen          |Yes\t\t     \t |No           |No      |CV.docx|"
+    },
+    {
+      "line": 275,
+      "value": "#And click on qualification tab"
+    },
+    {
+      "line": 276,
+      "value": "#And Fill all the qualification details"
+    },
+    {
+      "line": 277,
+      "value": "#|Major    |year|grade |college        |university|country|degree  |"
+    },
+    {
+      "line": 278,
+      "value": "#|Research |2021|90    |CUJB      \t  |cambridge |USA    |Ph.D    |"
+    },
+    {
+      "line": 279,
+      "value": "#|MBA  \t  |2019|95    |BD college     |Nagpur    |India  |Master  |"
+    },
+    {
+      "line": 280,
+      "value": "#|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|"
+    },
+    {
+      "line": 281,
+      "value": "#|Science  |2013|79    |New English    |Nagpur    |India  |12\t  |"
+    },
+    {
+      "line": 282,
+      "value": "#|CBSE     |2011|80    |MVM            |Nagpur    |India  |10\t  |"
+    },
+    {
+      "line": 283,
+      "value": "#And Click on save button"
+    },
+    {
+      "line": 284,
+      "value": "#And click ok on success popup"
+    },
+    {
+      "line": 285,
+      "value": "#Then Assert the qualification details"
+    },
+    {
+      "line": 286,
+      "value": "#|Major    |year|grade |college        |university|country|degree  |"
+    },
+    {
+      "line": 287,
+      "value": "#|Research |2021|90    |CUJB      \t  |cambridge |USA    |Ph.D    |"
+    },
+    {
+      "line": 288,
+      "value": "#|MBA  \t  |2019|95    |BD college     |Nagpur    |India  |Master  |"
+    },
+    {
+      "line": 289,
+      "value": "#|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|"
+    },
+    {
+      "line": 290,
+      "value": "#|Science  |2013|79    |New English    |Nagpur    |India  |12\t  |"
+    },
+    {
+      "line": 291,
+      "value": "#|CBSE     |2011|80    |MVM            |Nagpur    |India  |10\t  |"
+    }
+  ],
+  "line": 292,
+  "name": "Click on work experience tab",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 293,
+  "name": "fill all work experience details",
   "rows": [
     {
       "cells": [
-        "title",
+        "organization",
+        "fromMonth",
+        "fromYear",
+        "toMonth",
+        "toYear",
         "designation",
-        "industry",
-        "jobrole",
-        "location",
-        "budget",
-        "minexp",
-        "maxexp",
-        "minsal",
-        "maxsal",
-        "totalinterviews",
-        "organization"
+        "city",
+        "country"
       ],
-      "line": 17
+      "line": 294
     },
     {
       "cells": [
-        "abc",
-        "developer",
-        "IT software",
-        "java developer",
-        "pune",
-        "400000",
-        "1",
-        "2",
-        "400000",
-        "500000",
-        "4",
-        "talentxpert"
+        "wipro",
+        "JAN",
+        "2018",
+        "NOV",
+        "2018",
+        "Software engineer",
+        "nagpur",
+        "India"
       ],
-      "line": 18
+      "line": 295
+    },
+    {
+      "cells": [
+        "persistant",
+        "FEB",
+        "2019",
+        "APR",
+        "2019",
+        "Software engineer",
+        "nagpur",
+        "India"
+      ],
+      "line": 296
+    },
+    {
+      "cells": [
+        "Dell",
+        "MAR",
+        "2020",
+        "DEC",
+        "2020",
+        "Software engineer",
+        "nagpur",
+        "India"
+      ],
+      "line": 297
     }
   ],
   "keyword": "And "
 });
 formatter.step({
-  "line": 19,
-  "name": "Select a added job",
+  "line": 298,
+  "name": "Click on save button",
   "keyword": "And "
 });
 formatter.step({
-  "line": 20,
-  "name": "Share job with team member",
+  "line": 299,
+  "name": "click ok on success popup",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 300,
+  "name": "Assert work experience details",
   "rows": [
     {
       "cells": [
-        "EmpTeam",
-        "Agyteam"
+        "organization",
+        "fromMonth",
+        "fromYear",
+        "toMonth",
+        "toYear",
+        "designation",
+        "city",
+        "country"
       ],
-      "line": 21
+      "line": 301
     },
     {
       "cells": [
-        "pe1",
-        "pa1"
+        "wipro",
+        "JAN",
+        "2018",
+        "NOV",
+        "2018",
+        "Software engineer",
+        "nagpur",
+        "India"
       ],
-      "line": 22
-    }
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 23,
-  "name": "Click on close button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 24,
-  "name": "Go to dashboard",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 25,
-  "name": "Click on Add task button and enter all details employer",
-  "rows": [
-    {
-      "cells": [
-        "Title for emp",
-        "teamField",
-        "AssignTo",
-        "note",
-        "employer",
-        "team",
-        "teamid",
-        "Title for agy",
-        "agyteamField",
-        "agyAssignTo",
-        "agynote",
-        "agency",
-        "agyteam",
-        "agyteamid"
-      ],
-      "line": 26
+      "line": 302
     },
     {
       "cells": [
-        "task1",
-        "pemp",
-        "pe1",
-        "Task should complete before time",
-        "pemp",
-        "pe1",
-        "pe1@gmail.com",
-        "particular task",
-        "pagy",
-        "pa1",
-        "Task should complete before time",
-        "pagy",
-        "pa1",
-        "pe1@gmail.com"
+        "persistant",
+        "FEB",
+        "2019",
+        "APR",
+        "2019",
+        "Software engineer",
+        "nagpur",
+        "India"
       ],
-      "line": 27
-    }
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 28,
-  "name": "the task should display for employer",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 29,
-  "name": "Logout from App",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 30,
-  "name": "Click on Employer-Agency Signin link",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 31,
-  "name": "Login with team member",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 32,
-  "name": "Task should also display for employer team member",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 33,
-  "name": "Logout from App",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 34,
-  "name": "Click on Employer-Agency Signin link",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 35,
-  "name": "Employer enters valid credentials \"\u003cUsername\u003e\",\"\u003cPassword\u003e\"",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 36,
-  "name": "Go to workbench",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 37,
-  "name": "Select a added job",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 38,
-  "name": "Click on hamburger menu",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 39,
-  "name": "Click on Add task button and enter all details employer",
-  "rows": [
-    {
-      "cells": [
-        "Title for emp",
-        "teamField",
-        "AssignTo",
-        "note",
-        "employer",
-        "team",
-        "teamid",
-        "Title for agy",
-        "agyteamField",
-        "agyAssignTo",
-        "agynote",
-        "agency",
-        "agyteam",
-        "agyteamid"
-      ],
-      "line": 40
+      "line": 303
     },
     {
       "cells": [
-        "task2",
-        "pemp",
-        "pe1",
-        "Task should complete before time",
-        "pemp",
-        "pe1",
-        "pe1@gmail.com",
-        "particular task",
-        "pagy",
-        "pa1",
-        "Task should complete before time",
-        "pagy",
-        "pa1",
-        "pe1@gmail.com"
+        "Dell",
+        "MAR",
+        "2020",
+        "DEC",
+        "2020",
+        "Software engineer",
+        "nagpur",
+        "India"
       ],
-      "line": 41
+      "line": 304
     }
   ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 42,
-  "name": "Go to dashboard",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 43,
-  "name": "the task should display for employer",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 44,
-  "name": "Logout from App",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 45,
-  "name": "Click on Employer-Agency Signin link",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 46,
-  "name": "Login with team member",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 47,
-  "name": "Task should also display for employer team member",
   "keyword": "Then "
 });
 formatter.examples({
-  "line": 48,
+  "comments": [
+    {
+      "line": 305,
+      "value": "#And Click on skills and designation"
+    },
+    {
+      "line": 306,
+      "value": "#And fill all skills and designation details \"Sr.Test engineer\""
+    },
+    {
+      "line": 307,
+      "value": "#|skill\t\t  |Expertiselevel |certificate  |"
+    },
+    {
+      "line": 308,
+      "value": "#|JAVA         |Basic Knowledge|sun microsoft|"
+    },
+    {
+      "line": 309,
+      "value": "#|advanced java|Intermediate   |ad. java  \t|"
+    },
+    {
+      "line": 310,
+      "value": "#|Javascript   | Expert        |javaScript\t|"
+    },
+    {
+      "line": 311,
+      "value": "#And Click on save button"
+    },
+    {
+      "line": 312,
+      "value": "#And click ok on success popup"
+    },
+    {
+      "line": 313,
+      "value": "#And Click on certificate tab"
+    },
+    {
+      "line": 314,
+      "value": "#And fill all certificate details"
+    },
+    {
+      "line": 315,
+      "value": "#|certificate      |year|grade|issuing Authority|country|"
+    },
+    {
+      "line": 316,
+      "value": "#|best performance |2018|A    |Wipro pvt ltd    |India  |"
+    },
+    {
+      "line": 317,
+      "value": "#|cudos            |2019|A    |Dell pvt ltd     |India  |"
+    },
+    {
+      "line": 318,
+      "value": "#|Employee of month|2020|A    |Dell pvt ltd     |India  |"
+    },
+    {
+      "line": 319,
+      "value": "#And Click on save button"
+    },
+    {
+      "line": 320,
+      "value": "#And click ok on success popup"
+    },
+    {
+      "line": 321,
+      "value": "#And Click on languages tab"
+    },
+    {
+      "line": 322,
+      "value": "#And Fill all language details"
+    },
+    {
+      "line": 323,
+      "value": "#|language|proficiency\t\t\t\t\t\t|certificate            |"
+    },
+    {
+      "line": 324,
+      "value": "#|English | Professional working proficiency |Certificate of merit   |"
+    },
+    {
+      "line": 325,
+      "value": "#|French  | Limited working proficiency      |Certificate of merit   |"
+    },
+    {
+      "line": 326,
+      "value": "#|spanish |  Elementary proficiency          |Certificate of persuing|"
+    },
+    {
+      "line": 327,
+      "value": "#And Click on save button"
+    },
+    {
+      "line": 328,
+      "value": "#And click ok on success popup"
+    },
+    {
+      "line": 329,
+      "value": "#And Click on Visa Tab"
+    },
+    {
+      "line": 330,
+      "value": "#And Fill All the deatils of visa"
+    },
+    {
+      "line": 331,
+      "value": "#|country\t|VisaType    |ValidUpto     |year|month|"
+    },
+    {
+      "line": 332,
+      "value": "#|USA\t\t|Work Visa   |28-Oct-2030   |2030|Oct  |"
+    },
+    {
+      "line": 333,
+      "value": "#|Singapore\t|Student Visa|30-Apr-2025\t|2025|Apr  |"
+    },
+    {
+      "line": 334,
+      "value": "#|Australia\t|Tourist Visa|1-Jan-2023    |2023|Jan  |"
+    },
+    {
+      "line": 335,
+      "value": "#And Click on save button"
+    },
+    {
+      "line": 336,
+      "value": "#And click ok on success popup"
+    },
+    {
+      "line": 337,
+      "value": "#And Click on Experience details tab"
+    },
+    {
+      "line": 338,
+      "value": "#And Fill all experience details"
+    },
+    {
+      "line": 339,
+      "value": "#|title   |organization|fromDate   |toDate     |technologies |client|"
+    },
+    {
+      "line": 340,
+      "value": "#|paypal  |talentxpert |20-Jan-2020|21-Sep-2020|Java selenium|Alexu |"
+    },
+    {
+      "line": 341,
+      "value": "#And Click on save button"
+    },
+    {
+      "line": 342,
+      "value": "#And click ok on success popup"
+    }
+  ],
+  "line": 346,
   "name": "",
   "description": "",
-  "id": "task-feature;verify-functionality-of-adding-general-task-and-particular-task-from-employer-login;",
+  "id": "data-validation;validate-the-candidate-details-when-candidate-login-himself-and-add-profile-details;",
   "rows": [
     {
       "cells": [
         "Username",
-        "Password"
+        "Teamid",
+        "Password",
+        "CandidateEmail",
+        "title",
+        "Name",
+        "alternateemail",
+        "ContactNumber",
+        "alternateContact",
+        "UserType",
+        "timezone",
+        "country",
+        "currentorganization",
+        "currentdesignation",
+        "currentduration",
+        "jobtype",
+        "shift",
+        "preferredcity",
+        "Date",
+        "Gender",
+        "OnNoticePeriod",
+        "LastWorkingDay",
+        "NoticePeriod",
+        "searchkeyword",
+        "industry",
+        "experience",
+        "CTC",
+        "expectedCTC",
+        "City",
+        "CityArea",
+        "ZipCode",
+        "Communicationmode",
+        "residentialstatus",
+        "willingtotravel",
+        "lookingforjob",
+        "relocate",
+        "cv"
       ],
-      "line": 49,
-      "id": "task-feature;verify-functionality-of-adding-general-task-and-particular-task-from-employer-login;;1"
+      "line": 347,
+      "id": "data-validation;validate-the-candidate-details-when-candidate-login-himself-and-add-profile-details;;1"
     },
     {
       "cells": [
         "pemp@gmail.com",
-        "12345"
+        "pe1@gmail.com",
+        "12345",
+        "hirecan13@gmail.com",
+        "Sr.software engineer",
+        "hirecan13",
+        "hirecan13@yahoo.com",
+        "7895885538",
+        "8555855555",
+        "Candidate",
+        "Indian Standard Time",
+        "India",
+        "Accenture",
+        "Sr.developer",
+        "2",
+        "Contractual Full Time",
+        "Evening Shift",
+        "Pune",
+        "14-Sep-2020",
+        "Female",
+        "Yes",
+        "25",
+        "25-Dec-2020",
+        "can13",
+        "IT software",
+        "1.7",
+        "700000",
+        "800000",
+        "Nagpur",
+        "sita bardi",
+        "248966",
+        "Call",
+        "Citizen",
+        "Yes",
+        "No",
+        "No",
+        "C:\\Users\\TLP33\\Documents\\CV.docx"
       ],
-      "line": 50,
-      "id": "task-feature;verify-functionality-of-adding-general-task-and-particular-task-from-employer-login;;2"
+      "line": 348,
+      "id": "data-validation;validate-the-candidate-details-when-candidate-login-himself-and-add-profile-details;;2"
     }
   ],
   "keyword": "Examples"
 });
-formatter.before({
-  "duration": 1201800,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 1282100,
-  "status": "passed"
-});
 formatter.scenario({
-  "line": 50,
-  "name": "Verify functionality of adding general task and particular task from Employer login",
+  "line": 348,
+  "name": "validate the candidate details when candidate login himself and add profile details",
   "description": "",
-  "id": "task-feature;verify-functionality-of-adding-general-task-and-particular-task-from-employer-login;;2",
+  "id": "data-validation;validate-the-candidate-details-when-candidate-login-himself-and-add-profile-details;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 3,
-      "name": "@TC264_266"
-    },
-    {
-      "line": 3,
-      "name": "@TaskBVT"
+      "line": 258,
+      "name": "@candidatedetails"
     }
   ]
 });
 formatter.step({
-  "line": 6,
+  "line": 261,
   "name": "User must be registered",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 8,
+  "line": 263,
   "name": "title of login page is Home",
   "keyword": "When "
 });
 formatter.step({
-  "line": 9,
-  "name": "Click on Employer-Agency Signin link",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 10,
-  "name": "Employer enters valid credentials \"pemp@gmail.com\",\"12345\"",
-  "matchedColumns": [
-    0,
-    1
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 11,
-  "name": "team member should be added",
-  "rows": [
+  "comments": [
     {
-      "cells": [
-        "Name",
-        "Email",
-        "contact",
-        "Nameagy",
-        "Emailagy",
-        "contactagy",
-        "team",
-        "agyteam"
-      ],
-      "line": 12
+      "line": 264,
+      "value": "#And Click register link"
     },
     {
-      "cells": [
-        "pe1",
-        "pe1@gmail.com",
-        "1234564",
-        "pa1",
-        "pa1@gmail.com",
-        "1234556",
-        "pe1",
-        "pa1"
-      ],
-      "line": 13
-    },
-    {
-      "cells": [
-        "pe2",
-        "pe2@gmail.com",
-        "1234564",
-        "pa2",
-        "pa2@gmail.com",
-        "1234566",
-        "pe1",
-        "pa1"
-      ],
-      "line": 14
+      "line": 265,
+      "value": "#And Enter all details on register page \"\u003cName\u003e\" \"\u003cCandidateEmail\u003e\" \"\u003cContactNumber\u003e\" \"\u003cUserType\u003e\" \"\u003ctimezone\u003e\" \"\u003ccountry\u003e\""
     }
   ],
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 15,
-  "name": "Go to workbench",
+  "line": 266,
+  "name": "Click on Job Seeker(Candidate) Sign In link",
   "keyword": "And "
 });
 formatter.step({
-  "line": 16,
-  "name": "Add job",
+  "line": 267,
+  "name": "candidate enters valid credentials \"hirecan13@gmail.com\",\"12345\"",
+  "matchedColumns": [
+    2,
+    3
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 268,
+  "name": "click on update profile option",
+  "keyword": "And "
+});
+formatter.step({
+  "comments": [
+    {
+      "line": 269,
+      "value": "#Then Enter all the personal and professional details of candidate \"\u003ctitle\u003e\" \"\u003cContactNumber\u003e\" \"\u003cDate\u003e\" \"\u003cCountry\u003e\" \"\u003cCityArea\u003e\" \"\u003cName\u003e\" \"\u003calternateemail\u003e\" \"\u003calternateContact\u003e\" \"\u003cGender\u003e\" \"\u003cCity\u003e\" \"\u003cZipCode\u003e\" \"\u003ccurrentorganization\u003e\" \"\u003ccurrentdesignation\u003e\" \"\u003ccurrentduration\u003e\" \"\u003cjobtype\u003e\" \"\u003cshift\u003e\" \"\u003cpreferredcity\u003e\" \"\u003csearchkeyword\u003e\" \"\u003cindustry\u003e\" \"\u003cexperience\u003e\" \"\u003cexpectedCTC\u003e\" \"\u003cresidentialstatus\u003e\" \"\u003cOnNoticePeriod\u003e\" \"\u003cLastWorkingDay\u003e\" \"\u003cNoticePeriod\u003e\" \"\u003cCTC\u003e\" \"\u003cCommunicationmode\u003e\" \"\u003cwillingtotravel\u003e\" \"\u003clookingforjob\u003e\" \"\u003crelocate\u003e\" \"\u003ccv\u003e\""
+    },
+    {
+      "line": 270,
+      "value": "#And Click on save button"
+    },
+    {
+      "line": 271,
+      "value": "#And click ok on success popup"
+    },
+    {
+      "line": 272,
+      "value": "#Then Assert the personal and professional details of candidate"
+    },
+    {
+      "line": 273,
+      "value": "#|Username      |Teamid        |Password|CandidateEmail      |title\t\t\t\t   |Name     |alternateemail     |ContactNumber |alternateContact|UserType |timezone\t\t\t    |country|currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date         |Gender    |OnNoticePeriod|LastWorkingDay|NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel    |lookingforjob|relocate|cv     |"
+    },
+    {
+      "line": 274,
+      "value": "#|pemp@gmail.com|pe1@gmail.com |12345   |hirecan13@gmail.com |Sr.software engineer |hirecan13 |hirecan13@yahoo.com|7895885538    |8555855555      |Candidate|Indian Standard Time    | India |Accenture          |Sr.developer       |2   \t\t\t|Contractual Full Time|Evening Shift|Pune         |14-Sep-2020  |Female    |Yes           |25-Dec-2020   |25          |can13        |IT software|1.7       |700000|800000     |Nagpur|sita bardi |248966 |Call             |Citizen          |Yes\t\t     \t |No           |No      |CV.docx|"
+    },
+    {
+      "line": 275,
+      "value": "#And click on qualification tab"
+    },
+    {
+      "line": 276,
+      "value": "#And Fill all the qualification details"
+    },
+    {
+      "line": 277,
+      "value": "#|Major    |year|grade |college        |university|country|degree  |"
+    },
+    {
+      "line": 278,
+      "value": "#|Research |2021|90    |CUJB      \t  |cambridge |USA    |Ph.D    |"
+    },
+    {
+      "line": 279,
+      "value": "#|MBA  \t  |2019|95    |BD college     |Nagpur    |India  |Master  |"
+    },
+    {
+      "line": 280,
+      "value": "#|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|"
+    },
+    {
+      "line": 281,
+      "value": "#|Science  |2013|79    |New English    |Nagpur    |India  |12\t  |"
+    },
+    {
+      "line": 282,
+      "value": "#|CBSE     |2011|80    |MVM            |Nagpur    |India  |10\t  |"
+    },
+    {
+      "line": 283,
+      "value": "#And Click on save button"
+    },
+    {
+      "line": 284,
+      "value": "#And click ok on success popup"
+    },
+    {
+      "line": 285,
+      "value": "#Then Assert the qualification details"
+    },
+    {
+      "line": 286,
+      "value": "#|Major    |year|grade |college        |university|country|degree  |"
+    },
+    {
+      "line": 287,
+      "value": "#|Research |2021|90    |CUJB      \t  |cambridge |USA    |Ph.D    |"
+    },
+    {
+      "line": 288,
+      "value": "#|MBA  \t  |2019|95    |BD college     |Nagpur    |India  |Master  |"
+    },
+    {
+      "line": 289,
+      "value": "#|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|"
+    },
+    {
+      "line": 290,
+      "value": "#|Science  |2013|79    |New English    |Nagpur    |India  |12\t  |"
+    },
+    {
+      "line": 291,
+      "value": "#|CBSE     |2011|80    |MVM            |Nagpur    |India  |10\t  |"
+    }
+  ],
+  "line": 292,
+  "name": "Click on work experience tab",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 293,
+  "name": "fill all work experience details",
   "rows": [
     {
       "cells": [
-        "title",
+        "organization",
+        "fromMonth",
+        "fromYear",
+        "toMonth",
+        "toYear",
         "designation",
-        "industry",
-        "jobrole",
-        "location",
-        "budget",
-        "minexp",
-        "maxexp",
-        "minsal",
-        "maxsal",
-        "totalinterviews",
-        "organization"
+        "city",
+        "country"
       ],
-      "line": 17
+      "line": 294
     },
     {
       "cells": [
-        "abc",
-        "developer",
-        "IT software",
-        "java developer",
-        "pune",
-        "400000",
-        "1",
-        "2",
-        "400000",
-        "500000",
-        "4",
-        "talentxpert"
+        "wipro",
+        "JAN",
+        "2018",
+        "NOV",
+        "2018",
+        "Software engineer",
+        "nagpur",
+        "India"
       ],
-      "line": 18
+      "line": 295
+    },
+    {
+      "cells": [
+        "persistant",
+        "FEB",
+        "2019",
+        "APR",
+        "2019",
+        "Software engineer",
+        "nagpur",
+        "India"
+      ],
+      "line": 296
+    },
+    {
+      "cells": [
+        "Dell",
+        "MAR",
+        "2020",
+        "DEC",
+        "2020",
+        "Software engineer",
+        "nagpur",
+        "India"
+      ],
+      "line": 297
     }
   ],
   "keyword": "And "
 });
 formatter.step({
-  "line": 19,
-  "name": "Select a added job",
+  "line": 298,
+  "name": "Click on save button",
   "keyword": "And "
 });
 formatter.step({
-  "line": 20,
-  "name": "Share job with team member",
+  "line": 299,
+  "name": "click ok on success popup",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 300,
+  "name": "Assert work experience details",
   "rows": [
     {
       "cells": [
-        "EmpTeam",
-        "Agyteam"
+        "organization",
+        "fromMonth",
+        "fromYear",
+        "toMonth",
+        "toYear",
+        "designation",
+        "city",
+        "country"
       ],
-      "line": 21
+      "line": 301
     },
     {
       "cells": [
-        "pe1",
-        "pa1"
+        "wipro",
+        "JAN",
+        "2018",
+        "NOV",
+        "2018",
+        "Software engineer",
+        "nagpur",
+        "India"
       ],
-      "line": 22
-    }
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 23,
-  "name": "Click on close button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 24,
-  "name": "Go to dashboard",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 25,
-  "name": "Click on Add task button and enter all details employer",
-  "rows": [
-    {
-      "cells": [
-        "Title for emp",
-        "teamField",
-        "AssignTo",
-        "note",
-        "employer",
-        "team",
-        "teamid",
-        "Title for agy",
-        "agyteamField",
-        "agyAssignTo",
-        "agynote",
-        "agency",
-        "agyteam",
-        "agyteamid"
-      ],
-      "line": 26
+      "line": 302
     },
     {
       "cells": [
-        "task1",
-        "pemp",
-        "pe1",
-        "Task should complete before time",
-        "pemp",
-        "pe1",
-        "pe1@gmail.com",
-        "particular task",
-        "pagy",
-        "pa1",
-        "Task should complete before time",
-        "pagy",
-        "pa1",
-        "pe1@gmail.com"
+        "persistant",
+        "FEB",
+        "2019",
+        "APR",
+        "2019",
+        "Software engineer",
+        "nagpur",
+        "India"
       ],
-      "line": 27
-    }
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 28,
-  "name": "the task should display for employer",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 29,
-  "name": "Logout from App",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 30,
-  "name": "Click on Employer-Agency Signin link",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 31,
-  "name": "Login with team member",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 32,
-  "name": "Task should also display for employer team member",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 33,
-  "name": "Logout from App",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 34,
-  "name": "Click on Employer-Agency Signin link",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 35,
-  "name": "Employer enters valid credentials \"pemp@gmail.com\",\"12345\"",
-  "matchedColumns": [
-    0,
-    1
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 36,
-  "name": "Go to workbench",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 37,
-  "name": "Select a added job",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 38,
-  "name": "Click on hamburger menu",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 39,
-  "name": "Click on Add task button and enter all details employer",
-  "rows": [
-    {
-      "cells": [
-        "Title for emp",
-        "teamField",
-        "AssignTo",
-        "note",
-        "employer",
-        "team",
-        "teamid",
-        "Title for agy",
-        "agyteamField",
-        "agyAssignTo",
-        "agynote",
-        "agency",
-        "agyteam",
-        "agyteamid"
-      ],
-      "line": 40
+      "line": 303
     },
     {
       "cells": [
-        "task2",
-        "pemp",
-        "pe1",
-        "Task should complete before time",
-        "pemp",
-        "pe1",
-        "pe1@gmail.com",
-        "particular task",
-        "pagy",
-        "pa1",
-        "Task should complete before time",
-        "pagy",
-        "pa1",
-        "pe1@gmail.com"
+        "Dell",
+        "MAR",
+        "2020",
+        "DEC",
+        "2020",
+        "Software engineer",
+        "nagpur",
+        "India"
       ],
-      "line": 41
+      "line": 304
     }
   ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 42,
-  "name": "Go to dashboard",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 43,
-  "name": "the task should display for employer",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 44,
-  "name": "Logout from App",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 45,
-  "name": "Click on Employer-Agency Signin link",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 46,
-  "name": "Login with team member",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 47,
-  "name": "Task should also display for employer team member",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "loginstepdefination.user_must_be_registered()"
+  "location": "AddingCandidate.user_must_be_registered()"
 });
 formatter.result({
-  "duration": 21984376500,
+  "duration": 38351368200,
   "status": "passed"
 });
 formatter.match({
-  "location": "loginstepdefination.title_of_login_page_is_Home()"
+  "location": "AddingCandidate.title_of_login_page_is_Home()"
 });
 formatter.result({
-  "duration": 17304800,
+  "duration": 7593100,
   "status": "passed"
 });
 formatter.match({
-  "location": "loginstepdefination.click_on_Employer_Agency_Signin_link()"
+  "location": "AddingCandidate.click_on_Job_Seeker_Candidate_Sign_In_link()"
 });
 formatter.result({
-  "duration": 6229180800,
+  "duration": 5242353100,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "pemp@gmail.com",
-      "offset": 35
+      "val": "hirecan13@gmail.com",
+      "offset": 36
     },
     {
       "val": "12345",
-      "offset": 52
+      "offset": 58
     }
   ],
-  "location": "taskBWT.employer_enters_valid_credentials(String,String)"
+  "location": "AddingCandidate.candidate_enters_valid_credentials(String,String)"
 });
 formatter.result({
-  "duration": 16145411300,
+  "duration": 50280358400,
   "status": "passed"
 });
 formatter.match({
-  "location": "taskBWT.team_member_should_be_added(DataTable)"
+  "location": "AddingCandidate.click_on_update_profile_option()"
 });
 formatter.result({
-  "duration": 53797081200,
-  "error_message": "org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"/html/body/ngb-modal-window/div/div/app-list-jobprovider/div[3]/button\"}\n  (Session info: chrome\u003d85.0.4183.83)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027DESKTOP-6IM5GGG\u0027, ip: \u0027192.168.43.55\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002712.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 85.0.4183.83, chrome: {chromedriverVersion: 85.0.4183.87 (cd6713ebf92fa..., userDataDir: C:\\Users\\TLP33\\AppData\\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:52923}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}\nSession ID: 647cb68441b66b15dc0d870b6f7a0bd0\n*** Element info: {Using\u003dxpath, value\u003d/html/body/ngb-modal-window/div/div/app-list-jobprovider/div[3]/button}\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)\r\n\tat org.openqa.selenium.By$ByXPath.findElement(By.java:353)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)\r\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)\r\n\tat com.sun.proxy.$Proxy21.getWrappedElement(Unknown Source)\r\n\tat org.openqa.selenium.remote.internal.WebElementToJsonConverter.apply(WebElementToJsonConverter.java:50)\r\n\tat java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)\r\n\tat java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)\r\n\tat java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)\r\n\tat java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)\r\n\tat java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913)\r\n\tat java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)\r\n\tat java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:484)\r\n\tat pages.TeamPage.closeTeamPage(TeamPage.java:180)\r\n\tat pages.TeamPage.isTeamPresentForEmp(TeamPage.java:190)\r\n\tat pages.TeamPage.verifyTeamAdded(TeamPage.java:223)\r\n\tat BVT_StepDefination.taskBWT.team_member_should_be_added(taskBWT.java:173)\r\n\tat ✽.Given team member should be added(TaskK.feature:11)\r\n",
+  "duration": 4339944400,
+  "status": "passed"
+});
+formatter.match({
+  "location": "AddingCandidate.click_on_work_experience_tab()"
+});
+formatter.result({
+  "duration": 3098177500,
+  "error_message": "org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element \u003ca _ngcontent-xyn-c9\u003d\"\" class\u003d\"btn Cbtn-primary optbtn mr-1 profilebtn\" routerlink\u003d\"experiencedetails\" routerlinkactive\u003d\"btnMain\" title\u003d\"Professional Work Experience\" href\u003d\"#/candidate/candidateprofile/experiencedetails\"\u003e...\u003c/a\u003e is not clickable at point (941, 106). Other element would receive the click: \u003cdiv _ngcontent-xyn-c2\u003d\"\" class\u003d\"ngx-overlay loading-foreground\" style\u003d\"background-color: rgba(40, 40, 40, 0.8); border-radius: 0px;\"\u003e...\u003c/div\u003e\n  (Session info: chrome\u003d85.0.4183.121)\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027DESKTOP-6IM5GGG\u0027, ip: \u0027192.168.43.34\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002712.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 85.0.4183.121, chrome: {chromedriverVersion: 85.0.4183.87 (cd6713ebf92fa..., userDataDir: C:\\Users\\TLP33\\AppData\\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60254}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}\nSession ID: 15f7307b328985d4d41f6fab7528050b\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)\r\n\tat com.sun.proxy.$Proxy18.click(Unknown Source)\r\n\tat DataValidationTC_Stepdefination.AddingCandidate.click_on_work_experience_tab(AddingCandidate.java:482)\r\n\tat ✽.And Click on work experience tab(DataValidation.feature:292)\r\n",
   "status": "failed"
 });
 formatter.match({
-  "location": "taskBWT.go_to_workbench()"
+  "location": "AddingCandidate.fill_all_work_experience_details(DataTable)"
 });
 formatter.result({
   "status": "skipped"
 });
 formatter.match({
-  "location": "taskBWT.add_job(DataTable)"
+  "location": "AddingCandidate.click_on_save_button()"
 });
 formatter.result({
   "status": "skipped"
 });
 formatter.match({
-  "location": "MarketplaceBvt.select_a_added_job()"
+  "location": "AddingCandidate.click_ok_on_success_popup()"
 });
 formatter.result({
   "status": "skipped"
 });
 formatter.match({
-  "location": "taskBWT.share_job_with_team_member(DataTable)"
+  "location": "AddingCandidate.assert_work_experience_details(DataTable)"
 });
 formatter.result({
   "status": "skipped"
-});
-formatter.match({
-  "location": "b_unblockFunctionalitySteps.click_on_close_button()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.go_to_dashboard()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.in_add_task_popup_Fill_all_the_mandatory_details(DataTable)"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.the_task_should_display_for_both_employer()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.Logout_from_App()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "loginstepdefination.click_on_Employer_Agency_Signin_link()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.login_with_emp_team_member()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.task_should_also_display_for_team_member()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.Logout_from_App()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "loginstepdefination.click_on_Employer_Agency_Signin_link()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "pemp@gmail.com",
-      "offset": 35
-    },
-    {
-      "val": "12345",
-      "offset": 52
-    }
-  ],
-  "location": "taskBWT.employer_enters_valid_credentials(String,String)"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.go_to_workbench()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "MarketplaceBvt.select_a_added_job()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.click_on_hamburger_menu()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.in_add_task_popup_Fill_all_the_mandatory_details(DataTable)"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.go_to_dashboard()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.the_task_should_display_for_both_employer()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.Logout_from_App()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "loginstepdefination.click_on_Employer_Agency_Signin_link()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.login_with_emp_team_member()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "taskBWT.task_should_also_display_for_team_member()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.after({
-  "duration": 46525226800,
-  "status": "passed"
 });
 });

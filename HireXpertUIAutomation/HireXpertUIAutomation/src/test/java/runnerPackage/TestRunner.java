@@ -17,11 +17,11 @@ import cucumber.api.testng.TestNGCucumberRunner;
 @CucumberOptions
 (
 features="C:\\Users\\TLP33\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\features",
-glue= {"BVT_StepDefination"},
+glue= {"DataValidationTC_Stepdefination"},
 dryRun= false,
 monochrome = true,
 plugin = {"html:target/cucumber-reports"},
-tags=("@primary")
+tags=("@candidatedetails")
 )
 public class TestRunner
-{}\
+{}

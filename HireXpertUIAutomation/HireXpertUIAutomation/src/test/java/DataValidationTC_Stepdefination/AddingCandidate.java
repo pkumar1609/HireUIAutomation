@@ -402,7 +402,8 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 //			addcandidatepage.contactNumber.sendKeys(ContactNumber);
 			Thread.sleep(2000);
 			addcandidatepage.calenderIcon.click();
-			driver.findElement(By.xpath("//span[text()='"+Date+"']")).click();
+//			driver.findElement(By.xpath("//span[text()='"+Date+"']")).click();
+			candidateupdateprofilepage.enterdate(Date);
 			addcandidatepage.countryId.sendKeys(Country);
 			addcandidatepage.cityArea.sendKeys(CityArea);
 //			addcandidatepage.name.sendKeys(Name);
@@ -441,7 +442,8 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 			{
 				Thread.sleep(5000);
 				addcandidatepage.lastWorkingDay.click();
-				driver.findElement(By.xpath("//span[text()='"+LastWorkingDay+"']")).click();
+//				driver.findElement(By.xpath("//span[text()='"+LastWorkingDay+"']")).click();
+				candidateupdateprofilepage.enterdate(LastWorkingDay);
 //				addcandidatepage.datebelowField = driver.findElement(By.xpath("(//div[@class='text-info'])[2]")).getText();
 			}	
 			else
@@ -465,13 +467,173 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 
 		@Then("^click on qualification tab$")
 		public void click_on_qualification_tab() throws Throwable {
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 		    candidateupdateprofilepage.qualificationTab.click();
 		}
 
 		@Then("^Fill all the qualification details$")
 		public void fill_all_the_qualification_details(DataTable credentials) throws Throwable {
 			candidateupdateprofilepage.addQualificationDetails(credentials);
+		}
+		
+		@When("^Click on work experience tab$")
+		public void click_on_work_experience_tab() throws Throwable {
+			Thread.sleep(2000);
+			candidateupdateprofilepage.workExperienceTab.click();
+		}
+
+		@When("^fill all work experience details$")
+		public void fill_all_work_experience_details(DataTable credentials) throws Throwable {
+			candidateupdateprofilepage.fillWorkExperienceDetails(credentials);
+		}
+		
+		@When("^Click on skills and designation$")
+		public void click_on_skills_and_designation() throws Throwable {
+			Thread.sleep(2000);
+			candidateupdateprofilepage.SkillsInformation.click();
+		}
+
+
+		@When("^fill all skills and designation details \"([^\"]*)\"$")
+		public void fill_all_skills_and_designation_details(String designation, DataTable credentials) throws Throwable {
+			candidateupdateprofilepage.fillAllskillsAndDesignationDetails(designation, credentials);
 
 		}
+		
+		@When("^Click on certificate tab$")
+		public void click_on_certificate_tab() throws Throwable {
+			Thread.sleep(2000);
+			candidateupdateprofilepage.certificateTab.click();
+		}
+
+		@When("^fill all certificate details$")
+		public void fill_all_certificate_details(DataTable credentials) throws Throwable {
+			candidateupdateprofilepage.fillAllCertificateDetails(credentials);
+		}
+		
+		@When("^Click on languages tab$")
+		public void click_on_languages_tab() throws Throwable {
+			Thread.sleep(2000);
+			candidateupdateprofilepage.languageTab.click();
+		}
+
+		@When("^Fill all language details$")
+		public void fill_all_language_details(DataTable credentials) throws Throwable {
+			candidateupdateprofilepage.fillAllLanguageDetails(credentials);
+		}
+		@When("^Click on Visa Tab$")
+		public void click_on_Visa_Tab() throws Throwable {
+			Thread.sleep(2000);
+			candidateupdateprofilepage.visaTab.click();
+		}
+
+		@When("^Fill All the deatils of visa$")
+		public void fill_All_the_deatils_of_visa(DataTable credentials) throws Throwable {
+			candidateupdateprofilepage.fillAllVisaDetails(credentials);
+		}
+		
+		@When("^Click on Experience details tab$")
+		public void click_on_Experience_details_tab() throws Throwable {
+			Thread.sleep(2000);
+			candidateupdateprofilepage.experienceTab.click();
+		}
+
+		@When("^Fill all experience details$")
+		public void fill_all_experience_details(DataTable credentials) throws Throwable {
+			candidateupdateprofilepage.fillAllExperirenceDetails(credentials);
+		}
+		
+		@Then("^Assert the personal and professional details of candidate$")
+		public void assert_the_personal_and_professional_details_of_candidate(DataTable credentials) throws Throwable {
+			Thread.sleep(4000);
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			{
+			Assert.assertEquals(addcandidatepage.title.getAttribute("value"), data.get("title"));	
+			Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"), data.get("CandidateEmail"));		
+			Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), data.get("ContactNumber"));		
+			Assert.assertEquals(driver.findElement(By.xpath("(//input[@placeholder='Select Date']//following::p)[1]")).getText(), data.get("Date"));
+			select=new Select(addcandidatepage.countryId);
+			Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+data.get("country")+" ");
+			Assert.assertEquals(addcandidatepage.cityArea.getAttribute("value"), data.get("CityArea"));	
+			Assert.assertEquals(addcandidatepage.name.getAttribute("value"), data.get("Name"));	
+			Assert.assertEquals(addcandidatepage.alternateEmail.getAttribute("value"), data.get("alternateemail"));	
+			Assert.assertEquals(addcandidatepage.alternateContact.getAttribute("value"), data.get("alternateContact"));	
+			Assert.assertEquals(addcandidatepage.gender.getAttribute("value"), data.get("Gender"));	
+			Assert.assertEquals(addcandidatepage.city.getAttribute("value"), data.get("City"));	
+			Assert.assertEquals(addcandidatepage.zipCode.getAttribute("value"), data.get("ZipCode"));	
+			Assert.assertEquals(candidateupdateprofilepage.CurrentOrganization.getAttribute("value"), data.get("currentorganization"));	
+			Assert.assertEquals(candidateupdateprofilepage.designation.get(0).getAttribute("value"), data.get("currentdesignation"));	
+			Assert.assertEquals(candidateupdateprofilepage.currentDuration.getAttribute("value"), data.get("currentduration"));	
+			Assert.assertEquals(driver.findElement(By.xpath("(//ng-select[@placeholder='Select JobType']//span)[1]")).getText(), data.get("jobtype"));
+			Assert.assertEquals(driver.findElement(By.xpath("(//ng-select[@placeholder='Select Shift']//span)[1]")).getText(), data.get("shift"));
+			Assert.assertEquals(driver.findElement(By.xpath("(//ng-select[@placeholder='Enter Preferred Cities']//span)[1]")).getText(), data.get("preferredcity"));
+//			Assert.assertEquals(candidateupdateprofilepage.preferredCity.getAttribute("value"), data.get("preferredcity"));	
+			Assert.assertEquals(candidateupdateprofilepage.searchKeywords.getAttribute("value"), data.get("searchkeyword"));	
+			Assert.assertEquals(addcandidatepage.industry.getAttribute("value"), data.get("industry"));	
+			Assert.assertEquals(addcandidatepage.experienceInYears.getAttribute("value"), data.get("experience"));	
+			Assert.assertEquals(addcandidatepage.expectedCTC.getAttribute("value"), data.get("expectedCTC"));	
+			Assert.assertEquals(candidateupdateprofilepage.residentialStatus.getAttribute("value"), data.get("residentialstatus"));	
+//			Assert.assertEquals(addcandidatepage.onNoticePeriod.getAttribute("value"), data.get(""));	
+			select=new Select(addcandidatepage.onNoticePeriod);
+			WebElement option = select.getFirstSelectedOption();
+			Assert.assertEquals(option.getText(),data.get("OnNoticePeriod"));
+			if(data.get("OnNoticePeriod").contentEquals("Yes"))
+			{
+			Assert.assertEquals(driver.findElement(By.xpath("(//input[@placeholder='Select Date'])[2]//following::p")).getText(), data.get("LastWorkingDay"));
+			}
+			else
+			{
+			Assert.assertEquals(addcandidatepage.noticePeriod.getAttribute("value"), data.get("NoticePeriod"));
+			}
+			Assert.assertEquals(addcandidatepage.ctc.getAttribute("value"), data.get("CTC"));	
+			Assert.assertEquals(addcandidatepage.communicationMode.getAttribute("value"), data.get("Communicationmode"));	
+			select=new Select(candidateupdateprofilepage.willingToTravel);
+			Assert.assertEquals(select.getFirstSelectedOption().getText(), data.get("willingtotravel"));
+			select=new Select(addcandidatepage.LookingforJobfield);
+			Assert.assertEquals(select.getFirstSelectedOption().getText(), data.get("lookingforjob"));
+			select=new Select(candidateupdateprofilepage.readyToRelocate);
+			Assert.assertEquals(select.getFirstSelectedOption().getText(), data.get("relocate"));
+			Assert.assertEquals(driver.findElement(By.xpath("(//input[@formcontrolname='CVUpload']//following::label)[1]")).getText(), data.get("cv"));	
+			}
+		}
+
+		@Then("^Assert the qualification details$")
+		public void assert_the_qualification_details(DataTable credentials) throws Throwable {
+			int i=0;
+			
+			 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+			   {			  
+					if(i<candidateupdateprofilepage.degree.size())
+					{
+
+						Assert.assertEquals(candidateupdateprofilepage.major.get(i).getAttribute("value"), data.get("Major"));
+						Assert.assertEquals(candidateupdateprofilepage.year.get(i).getAttribute("value"), data.get("year"));
+						Assert.assertEquals(candidateupdateprofilepage.grade.get(i).getAttribute("value"), data.get("grade"));
+						Assert.assertEquals(candidateupdateprofilepage.college.get(i).getAttribute("value"), data.get("college"));
+						Assert.assertEquals(candidateupdateprofilepage.university.get(i).getAttribute("value"), data.get("university"));
+						Assert.assertEquals(driver.findElements(By.xpath("//span[@class='ng-value-label']")).get(i).getText(), data.get("country"));
+					}
+				i++;
+			}
+		}
+		
+		@Then("^Assert work experience details$")
+		public void assert_work_experience_details(DataTable credentials) throws Throwable {
+			int i=0;
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			  {
+				if(i<candidateupdateprofilepage.organization.size())
+				{
+					Assert.assertEquals(candidateupdateprofilepage.organization.get(i).getAttribute("value"), data.get("organization"));
+					Assert.assertEquals(candidateupdateprofilepage.fromMonth.get(i).getAttribute("value"), data.get("fromMonth"));
+					Assert.assertEquals(candidateupdateprofilepage.fromYear.get(i).getAttribute("value"), data.get("fromYear"));
+					Assert.assertEquals(candidateupdateprofilepage.toMonth.get(i).getAttribute("value"), data.get("toMonth"));
+					Assert.assertEquals(candidateupdateprofilepage.toYear.get(i).getAttribute("value"), data.get("toYear"));
+					Assert.assertEquals(candidateupdateprofilepage.designation.get(i).getAttribute("value"), data.get("designation"));
+					Assert.assertEquals(candidateupdateprofilepage.city.get(i).getAttribute("value"), data.get("city"));
+					Assert.assertEquals(driver.findElements(By.xpath("//span[@class='ng-value-label']")).get(i).getText(), data.get("country"));
+				}
+				i++;
+			 }
 	}
+}

@@ -6,12 +6,16 @@ import java.awt.event.KeyEvent;
 import java.time.Year;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
+
+import javax.annotation.meta.When;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -112,9 +116,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 //	
 //	@FindBy(xpath = "//div[@class='col-md-4']//div[@class='row']//div[1]//label[1]//span[2]")
 //	public WebElement notLookingForJobCheckbox;
-	
 
-	
 	@FindBy(xpath = "//a[@title='Skills & Roles Details']")
 	public WebElement SkillsInformation;
 	
@@ -182,7 +184,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	public List<WebElement> major;
 	
 	@FindBy(xpath = "//input[@id='toDate']")
-	public List<WebElement> passingYear;
+	public List<WebElement> year;
 	
 	@FindBy(xpath = "//input[@id='Grade']")
 	public List<WebElement> grade;
@@ -196,9 +198,71 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//input[@formcontrolname='Degree']")
 	public List<WebElement> degree;
 	
-	@FindBy(xpath = "//span[@class='ng-arrow-wrapper']")
+	@FindBy(xpath = "//div[@class='ng-input']//input")
 	public List<WebElement> Country;
 	
+	@FindBy(xpath = "//input[@placeholder='Enter Organization']")
+	public List<WebElement> organization;
+	
+	@FindBy(xpath = "//select[@formcontrolname='FromMonth']")
+	public List<WebElement> fromMonth;
+	
+	@FindBy(xpath = "//input[@formcontrolname='FromYear']")
+	public List<WebElement> fromYear;
+	
+	@FindBy(xpath = "//th[text()='To Date']//following::select[@formcontrolname='ToMonth']")
+	public List<WebElement> toMonth;
+	
+	@FindBy(xpath = "//th[text()='To Date']//following::input[@formcontrolname='ToYear']")
+	public List<WebElement> toYear;
+	
+	@FindBy(xpath = "//input[@formcontrolname='Designation']")
+	public List<WebElement> designation;
+	
+	@FindBy(xpath = "//input[@formcontrolname='City']")
+	public List<WebElement> city;
+	
+//	certificate tab
+	
+	@FindBy(xpath = "//a[@title='Certificates Details']")
+	public WebElement certificateTab;
+	
+	@FindBy(xpath = "//input[@id='IssuingAuthority']")
+	public List<WebElement> issuingAuthority;
+	
+//	language tab
+	
+	@FindBy(xpath = "//a[@title='Languages Details']")
+	public WebElement languageTab;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Language']")
+	public List<WebElement> language;
+	
+	@FindBy(xpath = "//select[@formcontrolname='ProficiencyId']")
+	public List<WebElement> proficiency;
+	
+//	visa Tab
+	
+	@FindBy(xpath = "//a[@title='Visa Details']")
+	public WebElement visaTab;
+	
+	@FindBy(xpath = "//input[@id='VisaType']")
+	public List<WebElement> visaType;
+	
+	@FindBy(xpath = "//button[@aria-label='Open Calendar']")
+	public List<WebElement> date;
+	
+//	Experience details Tab
+	
+	@FindBy(xpath = "//a[@title='Experience Details']")
+	public WebElement experienceTab;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Technologies']")
+	public WebElement technologies;
+	
+	@FindBy(xpath = "//input[@id='Client']")
+	public WebElement client;
+
 	public CandidateUpdateProfilePage() {
 		
 		PageFactory.initElements(driver, this);
@@ -377,20 +441,170 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 	}
 }
 	
-	public void addQualificationDetails(DataTable credentials)
+	public void addQualificationDetails(DataTable credentials) throws InterruptedException
 	{
-		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		   {
-			 for(int i=0;i<major.size();i++)
-			 {
-				 major.get(i).sendKeys(data.get("Major"));
-				 passingYear.get(i).sendKeys(data.get("year"));
-				 grade.get(i).sendKeys("grade");
-				 college.get(i).sendKeys(data.get("college"));
-				 university.get(i).sendKeys(data.get("university"));	
-				 Country.get(i).sendKeys("country");
-				 driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']")).click();
-			 }
-		   }
+		int i=0;
+			
+		 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		   {			  
+				if(i<degree.size())
+				{
+//					major.get(i).sendKeys(data.get("Major"));
+//					year.get(i).sendKeys(data.get("year"));
+					grade.get(i).sendKeys(data.get("grade"));
+//					college.get(i).sendKeys(data.get("college"));
+//					university.get(i).sendKeys(data.get("university"));
+//					Country.get(i).sendKeys(data.get("country"));
+//					Thread.sleep(2000);
+//					driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']")).click();
+					
+				}
+			i++;
+		}
 	}
+	
+	public void fillWorkExperienceDetails(DataTable credentials) throws InterruptedException
+	{
+		int i=0;
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			  {
+				if(i<organization.size())
+				{
+					organization.get(i).clear();
+					organization.get(i).sendKeys(data.get("organization"));
+					fromMonth.get(i).sendKeys(data.get("fromMonth"));
+					fromYear.get(i).sendKeys(data.get("fromYear"));
+					toMonth.get(i).sendKeys(data.get("toMonth"));
+					toYear.get(i).sendKeys(data.get("toYear"));
+					designation.get(i).clear();
+					designation.get(i).sendKeys(data.get("designation"));
+					city.get(i).clear();
+					city.get(i).sendKeys(data.get("city"));
+					Country.get(i).sendKeys(data.get("country"));
+					explicitwait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']"))));
+					driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']")).click();
+				}
+				i++;
+			 }
+	}
+	
+	public void fillAllskillsAndDesignationDetails(String designation,DataTable credentials) throws InterruptedException
+	{
+		int i=0;
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			  {
+				if(i<skills.size())
+				{
+					skills.get(i).sendKeys(data.get("skill"));
+					expertiselevel.get(i).sendKeys(data.get("Expertiselevel"));
+					certificate.get(i).sendKeys(data.get("certificate"));
+				}
+				i++;
+			 }
+			addcandidatepage.designation.clear();
+			addcandidatepage.designation.sendKeys(designation);
+	}
+
+	public void fillAllCertificateDetails(DataTable credentials) throws InterruptedException
+	{
+		int i=0;
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			  {
+				if(i<certificate.size())
+				{
+					certificate.get(i).sendKeys(data.get("certificate"));
+					this.year.get(i).sendKeys(data.get("year"));
+					grade.get(i).sendKeys(data.get("grade"));
+					this.issuingAuthority.get(i).sendKeys(data.get("issuing Authority"));
+					Country.get(i).sendKeys(data.get("country"));
+					explicitwait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']"))));
+					driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']")).click();
+					
+				}
+				i++;
+			 }
+			
+	}
+	
+	public void fillAllLanguageDetails(DataTable credentials) throws InterruptedException
+	{
+		int i=0;
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			  {
+				if(i<certificate.size())
+				{
+					language.get(i).sendKeys(data.get("language"));
+					proficiency.get(i).sendKeys(data.get("proficiency"));
+					certificate.get(i).sendKeys(data.get("certificate"));
+				}
+				i++;
+			 }
+			
+	}
+	
+	public void enterdate(String date) throws InterruptedException
+	{
+
+	        String[] values = date.split("-");
+	        int day = Integer.parseInt(values[0]);
+	        String month = String.valueOf(values[1]);   
+	        int year = Integer.parseInt(values[2]);
+	        Thread.sleep(1000);		
+			driver.findElement(By.xpath("//button[@class='headerlabelbtn yearlabel']")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//div[text()='"+year+"']")).click();
+			driver.findElement(By.xpath("//button[@class='headerlabelbtn monthlabel']")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//div[text()='"+month+"']")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//span[text()='"+day+"']")).click();	
+
+	}
+	
+	public void fillAllVisaDetails(DataTable credentials) throws InterruptedException
+	{
+		int i=0;
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			 {
+				if(i<visaType.size())
+				{
+					Thread.sleep(1000);	
+					date.get(i).click();			
+					this.enterdate(data.get("ValidUpto"));
+					visaType.get(i).sendKeys(data.get("VisaType"));
+					Country.get(i).sendKeys(data.get("country"));
+					explicitwait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']"))));
+					driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']")).click();
+				}
+				i++;
+			}
+	}	
+	
+	
+	public void fillAllExperirenceDetails(DataTable credentials) throws InterruptedException
+	{
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			 {
+				Thread.sleep(2000);	
+				this.date.get(0).click();
+				this.enterdate(data.get("fromDate"));
+				Thread.sleep(2000);	
+				this.date.get(1).click();
+				this.enterdate(data.get("toDate"));
+
+//				driver.findElement(By.xpath("//button[@class='headerlabelbtn yearlabel']")).click();
+//				Thread.sleep(1000);
+//				driver.findElement(By.xpath("//div[text()='"+data.get("year")+"']")).click();
+//				driver.findElement(By.xpath("//button[@class='headerlabelbtn monthlabel']")).click();
+//				Thread.sleep(1000);
+//				driver.findElement(By.xpath("//div[text()='"+data.get("month")+"']")).click();
+//				Thread.sleep(1000);
+//				driver.findElement(By.xpath("//span[text()='"+data.get("ValidUpto")+"']")).click();
+				
+				addcandidatepage.title.sendKeys(data.get("title"));
+				this.organization.get(0).sendKeys(data.get("organization"));
+				this.technologies.sendKeys(data.get("technologies"));
+				this.client.sendKeys(data.get("client"));
+			 }
+	}	
 }

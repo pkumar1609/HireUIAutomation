@@ -266,18 +266,83 @@ When title of login page is Home
 And Click on Job Seeker(Candidate) Sign In link
 And candidate enters valid credentials "<CandidateEmail>","<Password>"
 And click on update profile option
-Then Enter all the personal and professional details of candidate "<title>" "<ContactNumber>" "<Date>" "<Country>" "<CityArea>" "<Name>" "<alternateemail>" "<alternateContact>" "<Gender>" "<City>" "<ZipCode>" "<currentorganization>" "<currentdesignation>" "<currentduration>" "<jobtype>" "<shift>" "<preferredcity>" "<searchkeyword>" "<industry>" "<experience>" "<expectedCTC>" "<residentialstatus>" "<OnNoticePeriod>" "<LastWorkingDay>" "<NoticePeriod>" "<CTC>" "<Communicationmode>" "<willingtotravel>" "<lookingforjob>" "<relocate>" "<cv>"
+#Then Enter all the personal and professional details of candidate "<title>" "<ContactNumber>" "<Date>" "<Country>" "<CityArea>" "<Name>" "<alternateemail>" "<alternateContact>" "<Gender>" "<City>" "<ZipCode>" "<currentorganization>" "<currentdesignation>" "<currentduration>" "<jobtype>" "<shift>" "<preferredcity>" "<searchkeyword>" "<industry>" "<experience>" "<expectedCTC>" "<residentialstatus>" "<OnNoticePeriod>" "<LastWorkingDay>" "<NoticePeriod>" "<CTC>" "<Communicationmode>" "<willingtotravel>" "<lookingforjob>" "<relocate>" "<cv>"
+#And Click on save button
+#And click ok on success popup
+#Then Assert the personal and professional details of candidate
+#|Username      |Teamid        |Password|CandidateEmail      |title				   |Name     |alternateemail     |ContactNumber |alternateContact|UserType |timezone			    |country|currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date         |Gender    |OnNoticePeriod|LastWorkingDay|NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel    |lookingforjob|relocate|cv     |
+#|pemp@gmail.com|pe1@gmail.com |12345   |hirecan13@gmail.com |Sr.software engineer |hirecan13 |hirecan13@yahoo.com|7895885538    |8555855555      |Candidate|Indian Standard Time    | India |Accenture          |Sr.developer       |2   			|Contractual Full Time|Evening Shift|Pune         |14-Sep-2020  |Female    |Yes           |25-Dec-2020   |25          |can13        |IT software|1.7       |700000|800000     |Nagpur|sita bardi |248966 |Call             |Citizen          |Yes		     	 |No           |No      |CV.docx|
+#And click on qualification tab
+#And Fill all the qualification details 
+#|Major    |year|grade |college        |university|country|degree  |
+#|Research |2021|90    |CUJB      	  |cambridge |USA    |Ph.D    |
+#|MBA  	  |2019|95    |BD college     |Nagpur    |India  |Master  |
+#|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|
+#|Science  |2013|79    |New English    |Nagpur    |India  |12	  |
+#|CBSE     |2011|80    |MVM            |Nagpur    |India  |10	  |
+#And Click on save button
+#And click ok on success popup
+#Then Assert the qualification details
+#|Major    |year|grade |college        |university|country|degree  |
+#|Research |2021|90    |CUJB      	  |cambridge |USA    |Ph.D    |
+#|MBA  	  |2019|95    |BD college     |Nagpur    |India  |Master  |
+#|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|
+#|Science  |2013|79    |New English    |Nagpur    |India  |12	  |
+#|CBSE     |2011|80    |MVM            |Nagpur    |India  |10	  |
+And Click on work experience tab
+And fill all work experience details
+|organization|fromMonth|fromYear|toMonth|toYear|designation		 |city  |country|
+|wipro       |JAN      |2018    |NOV    |2018  |Software engineer|nagpur|India  |
+|persistant  |FEB      |2019    |APR    |2019  |Software engineer|nagpur|India  |
+|Dell        |MAR      |2020    |DEC    |2020  |Software engineer|nagpur|India  |
 And Click on save button
 And click ok on success popup
-And click on qualification tab
-And Fill all the qualification details 
-|Major    |year|grade|college        |university|country|
-|Research |2021|A    |CUJB      	 |cambridge |USA    |
-|MBA  	  |2019|A    |BD college     |Nagpur    |India  |
-|BE       |2017|A    |DMIETR college |Nagpur    |India  |
-|Science  |2013|A    |New English    |Nagpur    |India  |
-|CBSE     |2011|A    |MVM            |Nagpur    |India  |
+Then Assert work experience details
+|organization|fromMonth|fromYear|toMonth|toYear|designation		 |city  |country|
+|wipro       |JAN      |2018    |NOV    |2018  |Software engineer|nagpur|India  |
+|persistant  |FEB      |2019    |APR    |2019  |Software engineer|nagpur|India  |
+|Dell        |MAR      |2020    |DEC    |2020  |Software engineer|nagpur|India  |
+#And Click on skills and designation 
+#And fill all skills and designation details "Sr.Test engineer"
+#|skill		  |Expertiselevel |certificate  |
+#|JAVA         |Basic Knowledge|sun microsoft|
+#|advanced java|Intermediate   |ad. java  	|			      
+#|Javascript   | Expert        |javaScript	|				 
+#And Click on save button
+#And click ok on success popup
+#And Click on certificate tab
+#And fill all certificate details
+#|certificate      |year|grade|issuing Authority|country|
+#|best performance |2018|A    |Wipro pvt ltd    |India  |
+#|cudos            |2019|A    |Dell pvt ltd     |India  |
+#|Employee of month|2020|A    |Dell pvt ltd     |India  |
+#And Click on save button
+#And click ok on success popup
+#And Click on languages tab
+#And Fill all language details
+#|language|proficiency						|certificate            |
+#|English | Professional working proficiency |Certificate of merit   |
+#|French  | Limited working proficiency      |Certificate of merit   |
+#|spanish |  Elementary proficiency          |Certificate of persuing|
+#And Click on save button
+#And click ok on success popup
+#And Click on Visa Tab
+#And Fill All the deatils of visa 
+#|country	|VisaType    |ValidUpto     |year|month|
+#|USA		|Work Visa   |28-Oct-2030   |2030|Oct  |
+#|Singapore	|Student Visa|30-Apr-2025	|2025|Apr  |
+#|Australia	|Tourist Visa|1-Jan-2023    |2023|Jan  |
+#And Click on save button
+#And click ok on success popup
+#And Click on Experience details tab
+#And Fill all experience details
+#|title   |organization|fromDate   |toDate     |technologies |client|
+#|paypal  |talentxpert |20-Jan-2020|21-Sep-2020|Java selenium|Alexu |
+#And Click on save button
+#And click ok on success popup
+
+
 
 Examples: 
-|Username      |Teamid        |Password|CandidateEmail      |title				  |Name     |alternateemail     |ContactNumber |alternateContact|UserType |timezone			    |country|currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date|Gender  |OnNoticePeriod|LastWorkingDay|NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel  |lookingforjob|relocate|cv                                  |
-|pemp@gmail.com|pe1@gmail.com |12345   |hirecan11@gmail.com |Sr. software engineer|hirecan11|hirecan11@yahoo.com|9890685538    |8694755554      |Candidate|Indian Standard Time | India |Accenture          |Sr.developer       |2   			|Contractual Full Time|Evening Shift|Pune         |14  |Female  |Yes           |25            |25          |can11        |IT software|1.5       |800000|800000     |wardha|Arvi naka  |455966 |Call             |Citizen          |No		     	 |No           |No      |C:\\Users\\TLP33\\Documents\\CV.docx|
+|Username      |Teamid        |Password|CandidateEmail      |title				   |Name     |alternateemail     |ContactNumber |alternateContact|UserType |timezone			    |country|currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date         |Gender  |OnNoticePeriod|LastWorkingDay|NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel  |lookingforjob|relocate|cv                                  |
+|pemp@gmail.com|pe1@gmail.com |12345   |hirecan13@gmail.com |Sr.software engineer |hirecan13 |hirecan13@yahoo.com|7895885538    |8555855555      |Candidate|Indian Standard Time    | India |Accenture          |Sr.developer       |2   			|Contractual Full Time|Evening Shift|Pune         |14-Sep-2020  |Female  |Yes           |25            |25-Dec-2020 |can13        |IT software|1.7       |700000|800000     |Nagpur|sita bardi |248966 |Call             |Citizen          |Yes		     	 |No           |No      |C:\\Users\\TLP33\\Documents\\CV.docx|
