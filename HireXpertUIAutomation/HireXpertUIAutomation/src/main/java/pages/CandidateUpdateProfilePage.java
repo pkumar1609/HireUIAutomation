@@ -277,6 +277,44 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//a[@title='Trainings Details']")
 	public WebElement trainingsTab;
 	
+	
+// Social Link
+	
+	@FindBy(xpath = "//a[@title='Social Links Details']")
+	public WebElement sociallinkTab;
+	
+	@FindBy(xpath = "//input[@id='Link']")
+	public List<WebElement> link;
+	
+//Aditional tab
+	
+	@FindBy(xpath = "//a[@title='Additional Details']")
+	public WebElement aditionalTab;
+	
+	@FindBy(xpath = "//button[text()=' Cover Letter ']")
+	public WebElement coverLetter;
+	
+	@FindBy(xpath = "//button[text()=' Achievements '] ")
+	public WebElement achievements;
+	
+	@FindBy(xpath = "//button[text()=' Testimonials '] ")
+	public WebElement testimonials;
+	
+	@FindBy(xpath = "//button[text()=' References '] ")
+	public WebElement references;
+	
+	@FindBy(xpath = "//button[text()=' Extracurricular ']")
+	public WebElement extracurricular;
+	
+	@FindBy(xpath = "//button[text()=' Profile Summary ']")
+	public WebElement profileSummary;
+	
+	@FindBy(xpath = "//button[text()=' Declaration ']")
+	public WebElement declaration;
+	
+	@FindBy(xpath = "//div[@class='ngx-editor-textarea']")
+	public WebElement textArea;
+	
 	public CandidateUpdateProfilePage() {
 		
 		PageFactory.initElements(driver, this);
@@ -642,5 +680,52 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 				j++;
 			 }
 	}	
-			
+	public void fillAllSocialLinkDetails(DataTable credentials) throws InterruptedException
+	{
+		int i=0;
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			 {
+				if(i<this.link.size())
+				{
+					driver.findElements(By.xpath("//input[@id='Title']")).get(i).sendKeys(data.get("title"));	
+					link.get(i).sendKeys(data.get("link"));
+
+			    }
+				i++;
+			}
+	}
+	
+	public void fillAllAdditinalDetails() throws InterruptedException
+	{
+		Thread.sleep(5000);
+		this.coverLetter.click();
+		textArea.sendKeys(prop.getProperty("Coverletter"));	
+		common.clickOnSaveBtn();
+		common.clickOnOKBtn();
+		this.achievements.click();
+		textArea.sendKeys(prop.getProperty("acheivment"));	
+		common.clickOnSaveBtn();
+		common.clickOnOKBtn();
+		common.clickOnOKBtn();
+		this.testimonials.click();
+		textArea.sendKeys(prop.getProperty("testimonals"));	
+		common.clickOnSaveBtn();
+		common.clickOnOKBtn();
+		this.references.click();
+		textArea.sendKeys(prop.getProperty("refresnces"));
+		common.clickOnSaveBtn();
+		common.clickOnOKBtn();
+		this.extracurricular.click();
+		textArea.sendKeys(prop.getProperty("extracurriculam"));	
+		common.clickOnSaveBtn();
+		common.clickOnOKBtn();
+		this.profileSummary.click();
+		textArea.sendKeys(prop.getProperty("profilesummary"));	
+		common.clickOnSaveBtn();
+		common.clickOnOKBtn();
+		this.declaration.click();
+		textArea.sendKeys(prop.getProperty("declaration"));	
+		common.clickOnSaveBtn();
+		common.clickOnOKBtn();
+	}
 }

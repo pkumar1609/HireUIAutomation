@@ -746,4 +746,87 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 			common.clickOnOKBtn();			
 		}
 		
+		@Then("^Assert the training deatils$")
+		public void assert_the_training_deatils(DataTable credentials) throws Throwable {
+			int i=0;
+			
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			 {
+				if(i<candidateupdateprofilepage.TotalExperience.size())
+				{
+				Assert.assertEquals(driver.findElements(By.xpath("//input[@id='Title']")).get(i).getAttribute("value"), data.get("title1"));
+				Assert.assertEquals(candidateupdateprofilepage.TotalExperience.get(i).getAttribute("value"), data.get("experirence"));
+				Assert.assertEquals(candidateupdateprofilepage.remark.get(i).getAttribute("value"), data.get("reamrk1"));
+				Assert.assertEquals(candidateupdateprofilepage.attendedIn.get(i).getAttribute("value"), data.get("attendedYear"));	
+				}				
+				i++;
+			 }
+			
+			int j=i;
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			 {
+				if(j<=candidateupdateprofilepage.remark.size())
+				{
+				Assert.assertEquals(driver.findElements(By.xpath("//input[@id='Title']")).get(j).getAttribute("value"), data.get("title2"));	
+				Assert.assertEquals(candidateupdateprofilepage.remark.get(j).getAttribute("value"), data.get("remark2"));	
+				}
+				j++;
+			 }
+		}
+		
+		@When("^click on social links tab$")
+		public void click_on_social_links_tab() throws Throwable {
+			Thread.sleep(2000);
+			candidateupdateprofilepage.sociallinkTab.click();
+		}
+		
+		@Then("^fill all social link details$")
+		public void fill_all_social_link_details(DataTable credentials) throws Throwable {
+		   candidateupdateprofilepage.fillAllSocialLinkDetails(credentials);
+		}
+		
+		@Then("^Assert the social link details$")
+		public void assert_the_social_link_details(DataTable credentials) throws Throwable {
+			int i=0;
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			 {
+				if(i<candidateupdateprofilepage.link.size())
+				{
+					Assert.assertEquals(driver.findElements(By.xpath("//input[@id='Title']")).get(i).getAttribute("value"), data.get("title"));	
+					Assert.assertEquals(candidateupdateprofilepage.link.get(i).getAttribute("value"), data.get("link"));	
+			    }
+				i++;
+			}
+		}
+		
+		@When("^Click on Aditional Details tab$")
+		public void click_on_Aditional_Details_tab() throws Throwable {
+			Thread.sleep(2000);
+			candidateupdateprofilepage.aditionalTab.click();
+		}
+
+		@When("^fill all Aditional details$")
+		public void fill_all_Aditional_details() throws Throwable {
+//			candidateupdateprofilepage.fillAllAdditinalDetails();
+		}
+		
+		@Then("^Assert the additional details$")
+		public void assert_the_additional_detaails() throws Throwable {
+			Thread.sleep(5000);
+			candidateupdateprofilepage.coverLetter.click();
+			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("Coverletter"));
+			candidateupdateprofilepage.achievements.click();
+			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("acheivment"));
+			candidateupdateprofilepage.testimonials.click();
+			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("testimonals"));
+			candidateupdateprofilepage.references.click();
+			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("refresnces"));
+			candidateupdateprofilepage.extracurricular.click();
+			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("extracurriculam"));
+			candidateupdateprofilepage.profileSummary.click();
+			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("profilesummary"));
+			candidateupdateprofilepage.declaration.click();
+			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("declaration"));
+
+		}
 }

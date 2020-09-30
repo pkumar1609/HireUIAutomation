@@ -382,14 +382,41 @@ When title of login page is Home
 And Click on Job Seeker(Candidate) Sign In link
 And candidate enters valid credentials "<CandidateEmail>","<Password>"
 And click on update profile option
-And clck on training tab
-And fill all training details
-|title1               |experirence|reamrk1      |title2                   |attendedYear|remark2    			 |
-|robotic              |1		  |electronics  |antrupeurnship           |2020        |independent 		 |
-|Java workshop        |5		  |java langauge|logical skill development|2017        |develop logical skill|
-|langauge fundamentals|4		  |c,c++        |It Workshop              |2015		   |it firm conducted	 |
-And save the changes
+#And clck on training tab
+#And fill all training details
+#|title1               |experirence|reamrk1      |title2                   |attendedYear|remark2    			 |
+#|robotic              |1		  |electronics  |antrupeurnship           |2020        |independent 		 |
+#|Java workshop        |5		  |java langauge|logical skill development|2017        |develop logical skill|
+#|langauge fundamentals|4		  |c,c++        |It Workshop              |2015		   |it firm conducted	 |
+#And save the changes
+#Then Assert the training deatils
+#|title1               |experirence|reamrk1      |title2                   |attendedYear|remark2    			 |
+#|robotic              |1		  |electronics  |antrupeurnship           |2020        |independent 		 |
+#|Java workshop        |5		  |java langauge|logical skill development|2017        |develop logical skill|
+#|langauge fundamentals|4		  |c,c++        |It Workshop              |2015		   |it firm conducted	 |
+#And click on social links tab
+#And fill all social link details
+#|title     |link                                 |
+#|linkedin  |https://www.linkedin.com/in/riya     |
+#|naukri    |https://www.naukri.com/profile-job s |
+#|Facebook  |https://www.Facebook.com/profile-jobs|
+#And Click on save button
+#And click ok on success popup
+#Then Assert the social link details
+#|title     |link                                 |
+#|linkedin  |https://www.linkedin.com/in/riya     |
+#|naukri    |https://www.naukri.com/profile-job s |
+#|Facebook  |https://www.Facebook.com/profile-jobs|
+And Click on Aditional Details tab
+And fill all Aditional details
+Then Assert the additional details
 
 Examples: 
 |Username      |Password|CandidateEmail     |
 |pemp@gmail.com|12345   |hirecan13@gmail.com|
+
+
+
+
+
+
