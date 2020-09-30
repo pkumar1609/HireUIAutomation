@@ -289,60 +289,107 @@ And click on update profile option
 #|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|
 #|Science  |2013|79    |New English    |Nagpur    |India  |12	  |
 #|CBSE     |2011|80    |MVM            |Nagpur    |India  |10	  |
-And Click on work experience tab
-And fill all work experience details
-|organization|fromMonth|fromYear|toMonth|toYear|designation		 |city  |country|
-|wipro       |JAN      |2018    |NOV    |2018  |Software engineer|nagpur|India  |
-|persistant  |FEB      |2019    |APR    |2019  |Software engineer|nagpur|India  |
-|Dell        |MAR      |2020    |DEC    |2020  |Software engineer|nagpur|India  |
-And Click on save button
-And click ok on success popup
-Then Assert work experience details
-|organization|fromMonth|fromYear|toMonth|toYear|designation		 |city  |country|
-|wipro       |JAN      |2018    |NOV    |2018  |Software engineer|nagpur|India  |
-|persistant  |FEB      |2019    |APR    |2019  |Software engineer|nagpur|India  |
-|Dell        |MAR      |2020    |DEC    |2020  |Software engineer|nagpur|India  |
+#And Click on work experience tab
+#And fill all work experience details
+#|organization|fromMonth|fromYear|toMonth|toYear|designation	  |city  |country|
+#|wipro       |JAN      |2020    |NOV    |2020  |Software Engineer|Nagpur|India  |
+#|persistant  |FEB      |2019    |APR    |2019  |Software Engineer|Nagpur|India  |
+#|Dell        |MAR      |2018    |DEC    |2018  |Software Engineer|Nagpur|India  |
+#And Click on save button
+#And click ok on success popup
+#Then Assert work experience details
+#|organization|fromMonth|fromYear|toMonth|toYear|designation		 |city  |country|
+#|wipro       |JAN      |2020    |NOV    |2020  |Software Engineer|Nagpur|India  |
+#|persistant  |FEB      |2019    |APR    |2019  |Software Engineer|Nagpur|India  |
+#|Dell        |MAR      |2018    |DEC    |2018  |Software Engineer|Nagpur|India  |
 #And Click on skills and designation 
-#And fill all skills and designation details "Sr.Test engineer"
+#And fill all skills and designation details "sr.Test Engineer"
 #|skill		  |Expertiselevel |certificate  |
 #|JAVA         |Basic Knowledge|sun microsoft|
 #|advanced java|Intermediate   |ad. java  	|			      
-#|Javascript   | Expert        |javaScript	|				 
+#|JavaScript   | Expert        |javaScript	|	
 #And Click on save button
 #And click ok on success popup
+#Then Assert skills and designation "sr.Test Engineer" 
+#|skill		  |Expertiselevel |certificate  |
+#|JAVA         |Basic Knowledge|sun microsoft|
+#|advanced java|Intermediate   |ad. java  	|			      
+#|JavaScript   | Expert        |javaScript	|		 
 #And Click on certificate tab
 #And fill all certificate details
-#|certificate      |year|grade|issuing Authority|country|
-#|best performance |2018|A    |Wipro pvt ltd    |India  |
-#|cudos            |2019|A    |Dell pvt ltd     |India  |
-#|Employee of month|2020|A    |Dell pvt ltd     |India  |
+#|certificate      |year|grade |issuing Authority|country|
+#|best performance |2020|90    |Wipro pvt ltd    |India  |
+#|cudos            |2019|75    |Dell pvt ltd     |India  |
+#|Employee of month|2018|86    |Dell pvt ltd     |India  |
 #And Click on save button
 #And click ok on success popup
+#Then Assert the certificate details
+#|certificate      |year|grade |issuing Authority|country|
+#|best performance |2020|90    |Wipro pvt ltd    |India  |
+#|cudos            |2019|75    |Dell pvt ltd     |India  |
+#|Employee of month|2018|86    |Dell pvt ltd     |India  |
 #And Click on languages tab
 #And Fill all language details
 #|language|proficiency						|certificate            |
 #|English | Professional working proficiency |Certificate of merit   |
 #|French  | Limited working proficiency      |Certificate of merit   |
-#|spanish |  Elementary proficiency          |Certificate of persuing|
+#|spanish | Elementary proficiency           |Certificate of persuing|
 #And Click on save button
 #And click ok on success popup
+#Then Assert the languages details
+#|language|proficiency						|certificate            |
+#|English |Professional working proficiency  |Certificate of merit   |
+#|French  |Limited working proficiency       |Certificate of merit   |
+#|Spanish |Elementary proficiency            |Certificate of persuing|
 #And Click on Visa Tab
 #And Fill All the deatils of visa 
-#|country	|VisaType    |ValidUpto     |year|month|
-#|USA		|Work Visa   |28-Oct-2030   |2030|Oct  |
-#|Singapore	|Student Visa|30-Apr-2025	|2025|Apr  |
-#|Australia	|Tourist Visa|1-Jan-2023    |2023|Jan  |
+#|country	|VisaType    |ValidUpto     |
+#|USA		|Work Visa   |28-Oct-2030   |
+#|Singapore	|Student Visa|30-Apr-2025	|
+#|Australia	|Tourist Visa|1-Jan-2023    |
 #And Click on save button
 #And click ok on success popup
-#And Click on Experience details tab
+Then Assert the visa details
+#|country	|VisaType    |ValidUpto     |
+#|USA		|Work Visa   |28-Oct-2030   |
+#|Singapore	|Student Visa|30-Apr-2025	|
+#|Australia	|Tourist Visa|1-Jan-2023    |
+And Click on Experience details tab
 #And Fill all experience details
 #|title   |organization|fromDate   |toDate     |technologies |client|
 #|paypal  |talentxpert |20-Jan-2020|21-Sep-2020|Java selenium|Alexu |
 #And Click on save button
 #And click ok on success popup
+Then Asert the experirnce deatils
+|title   |organization|fromDate   |toDate     |technologies |client|
+|paypal  |talentxpert |20-Jan-2020|21-Sep-2020|Java selenium|Alexu |
 
 
 
 Examples: 
 |Username      |Teamid        |Password|CandidateEmail      |title				   |Name     |alternateemail     |ContactNumber |alternateContact|UserType |timezone			    |country|currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date         |Gender  |OnNoticePeriod|LastWorkingDay|NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel  |lookingforjob|relocate|cv                                  |
 |pemp@gmail.com|pe1@gmail.com |12345   |hirecan13@gmail.com |Sr.software engineer |hirecan13 |hirecan13@yahoo.com|7895885538    |8555855555      |Candidate|Indian Standard Time    | India |Accenture          |Sr.developer       |2   			|Contractual Full Time|Evening Shift|Pune         |14-Sep-2020  |Female  |Yes           |25            |25-Dec-2020 |can13        |IT software|1.7       |700000|800000     |Nagpur|sita bardi |248966 |Call             |Citizen          |Yes		     	 |No           |No      |C:\\Users\\TLP33\\Documents\\CV.docx|
+
+
+@training 
+Scenario Outline: validate the candidate details when candidate login himself and add profile details
+	
+Given User must be registered
+
+When title of login page is Home
+#And Click register link
+#And Enter all details on register page "<Name>" "<CandidateEmail>" "<ContactNumber>" "<UserType>" "<timezone>" "<country>"
+And Click on Job Seeker(Candidate) Sign In link
+And candidate enters valid credentials "<CandidateEmail>","<Password>"
+And click on update profile option
+And clck on training tab
+And fill all training details
+|title1               |experirence|reamrk1      |title2                   |attendedYear|remark2    			 |
+|robotic              |1		  |electronics  |antrupeurnship           |2020        |independent 		 |
+|Java workshop        |5		  |java langauge|logical skill development|2017        |develop logical skill|
+|langauge fundamentals|4		  |c,c++        |It Workshop              |2015		   |it firm conducted	 |
+And save the changes
+
+Examples: 
+|Username      |Password|CandidateEmail     |
+|pemp@gmail.com|12345   |hirecan13@gmail.com|

@@ -262,7 +262,21 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 	@FindBy(xpath = "//input[@id='Client']")
 	public WebElement client;
-
+	
+//	Training tab
+	
+	@FindBy(xpath = "//input[@id='TotalExperience']")
+	public List<WebElement> TotalExperience;
+	
+	@FindBy(xpath = "//input[@id='Remark']")
+	public List<WebElement> remark;
+	
+	@FindBy(xpath = "//input[@id='AttendedIn']")
+	public List<WebElement> attendedIn;
+	
+	@FindBy(xpath = "//a[@title='Trainings Details']")
+	public WebElement trainingsTab;
+	
 	public CandidateUpdateProfilePage() {
 		
 		PageFactory.initElements(driver, this);
@@ -276,7 +290,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 	public void enterLastWorkingDay(String LastWorkingDay) {
 		
-		lastWorkingDay.sendKeys(LastWorkingDay);
+		addcandidatepage.lastWorkingDay.sendKeys(LastWorkingDay);
 	}
 	
 	public void autoPopulatedData() throws InterruptedException, AWTException {
@@ -480,9 +494,10 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 					designation.get(i).sendKeys(data.get("designation"));
 					city.get(i).clear();
 					city.get(i).sendKeys(data.get("city"));
-					Country.get(i).sendKeys(data.get("country"));
-					explicitwait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']"))));
-					driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']")).click();
+//					driver.findElement(By.xpath("//span[text()='×']")).click();
+//					Country.get(i).sendKeys(data.get("country"));
+//					Thread.sleep(2000);
+//					driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']")).click();
 				}
 				i++;
 			 }
@@ -503,6 +518,8 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 			 }
 			addcandidatepage.designation.clear();
 			addcandidatepage.designation.sendKeys(designation);
+			Thread.sleep(4000); 
+			driver.findElement(By.xpath("(//button[text()='Save'])[2]")).click();
 	}
 
 	public void fillAllCertificateDetails(DataTable credentials) throws InterruptedException
@@ -591,20 +608,39 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 				Thread.sleep(2000);	
 				this.date.get(1).click();
 				this.enterdate(data.get("toDate"));
-
-//				driver.findElement(By.xpath("//button[@class='headerlabelbtn yearlabel']")).click();
-//				Thread.sleep(1000);
-//				driver.findElement(By.xpath("//div[text()='"+data.get("year")+"']")).click();
-//				driver.findElement(By.xpath("//button[@class='headerlabelbtn monthlabel']")).click();
-//				Thread.sleep(1000);
-//				driver.findElement(By.xpath("//div[text()='"+data.get("month")+"']")).click();
-//				Thread.sleep(1000);
-//				driver.findElement(By.xpath("//span[text()='"+data.get("ValidUpto")+"']")).click();
-				
 				addcandidatepage.title.sendKeys(data.get("title"));
 				this.organization.get(0).sendKeys(data.get("organization"));
 				this.technologies.sendKeys(data.get("technologies"));
 				this.client.sendKeys(data.get("client"));
 			 }
 	}	
+	
+	public void fillAllTrainingDetails(DataTable credentials) throws InterruptedException
+	{
+		int i=0;
+		
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			 {
+				if(i<this.TotalExperience.size())
+				{
+				driver.findElements(By.xpath("//input[@id='Title']")).get(i).sendKeys(data.get("title1"));
+				TotalExperience.get(i).sendKeys(data.get("experirence"));
+				remark.get(i).sendKeys(data.get("reamrk1"));
+				attendedIn.get(i).sendKeys(data.get("attendedYear"));
+				}				
+				i++;
+			 }
+			
+			int j=i;
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			 {
+				if(j<=this.remark.size())
+				{
+				 driver.findElements(By.xpath("//input[@id='Title']")).get(j).sendKeys(data.get("title2"));	
+				 remark.get(j).sendKeys(data.get("remark2"));
+				}
+				j++;
+			 }
+	}	
+			
 }

@@ -625,9 +625,11 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 				if(i<candidateupdateprofilepage.organization.size())
 				{
 					Assert.assertEquals(candidateupdateprofilepage.organization.get(i).getAttribute("value"), data.get("organization"));
-					Assert.assertEquals(candidateupdateprofilepage.fromMonth.get(i).getAttribute("value"), data.get("fromMonth"));
+					select=new Select(candidateupdateprofilepage.fromMonth.get(i));
+					Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), data.get("fromMonth"));
 					Assert.assertEquals(candidateupdateprofilepage.fromYear.get(i).getAttribute("value"), data.get("fromYear"));
-					Assert.assertEquals(candidateupdateprofilepage.toMonth.get(i).getAttribute("value"), data.get("toMonth"));
+					select=new Select(candidateupdateprofilepage.toMonth.get(i));
+					Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), data.get("toMonth"));
 					Assert.assertEquals(candidateupdateprofilepage.toYear.get(i).getAttribute("value"), data.get("toYear"));
 					Assert.assertEquals(candidateupdateprofilepage.designation.get(i).getAttribute("value"), data.get("designation"));
 					Assert.assertEquals(candidateupdateprofilepage.city.get(i).getAttribute("value"), data.get("city"));
@@ -636,4 +638,112 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 				i++;
 			 }
 	}
+		
+		@Then("^Assert skills and designation \"([^\"]*)\"$")
+		public void assert_skills_and_designation(String arg1, DataTable credentials) throws Throwable {
+			int i=0;
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			  {
+				if(i<candidateupdateprofilepage.skills.size())
+				{
+					Assert.assertEquals(candidateupdateprofilepage.skills.get(i).getAttribute("value"), data.get("skill"));
+					select=new Select(candidateupdateprofilepage.expertiselevel.get(i));
+					Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), data.get("Expertiselevel"));
+					Assert.assertEquals(candidateupdateprofilepage.certificate.get(i).getAttribute("value"), data.get("certificate"));
+				}
+				i++;
+			 }
+			Assert.assertEquals(addcandidatepage.designation.getAttribute("value"), arg1);
+		}
+
+		@Then("^Assert the certificate details$")
+		public void assert_the_certificate_details(DataTable credentials) throws Throwable {
+			int i=0;
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			  {
+				if(i<candidateupdateprofilepage.certificate.size())
+				{
+					Assert.assertEquals(candidateupdateprofilepage.certificate.get(i).getAttribute("value"), data.get("certificate"));
+					Assert.assertEquals(candidateupdateprofilepage.year.get(i).getAttribute("value"), data.get("year"));
+					Assert.assertEquals(candidateupdateprofilepage.grade.get(i).getAttribute("value"), data.get("grade"));
+					Assert.assertEquals(candidateupdateprofilepage.issuingAuthority.get(i).getAttribute("value"), data.get("issuing Authority"));
+					Assert.assertEquals(driver.findElements(By.xpath("//span[@class='ng-value-label']")).get(i).getText(), data.get("country"));
+
+				}
+				i++;
+			 }
+		}
+		
+		@Then("^Assert the languages details$")
+		public void assert_the_languages_details(DataTable credentials) throws Throwable {
+			int i=0;
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			  {
+				if(i<candidateupdateprofilepage.certificate.size())
+				{
+					Assert.assertEquals(candidateupdateprofilepage.language.get(i).getAttribute("value"), data.get("language"));
+					select=new Select(candidateupdateprofilepage.proficiency.get(i));
+					Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), data.get("proficiency"));
+					Assert.assertEquals(candidateupdateprofilepage.certificate.get(i).getAttribute("value"), data.get("certificate"));
+					Assert.assertEquals(candidateupdateprofilepage.language.get(i).getAttribute("value"), data.get("language"));
+
+				}
+				i++;
+			 }
+		}
+		@Then("^Assert the visa details$")
+		public void assert_the_visa_details(DataTable credentials) throws Throwable {
+			Thread.sleep(2000);
+			int i=0;
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			 {
+				if(i<candidateupdateprofilepage.visaType.size())
+				{
+					Assert.assertEquals(driver.findElements(By.xpath("//span[@class='ng-value-label']")).get(i).getText(), data.get("country"));
+					Assert.assertEquals(candidateupdateprofilepage.visaType.get(i).getAttribute("value"), data.get("VisaType"));
+//					Assert.assertEquals(driver.findElements(By.xpath("//input[@placeholder='Select Date']")).get(i).getAttribute("value"), data.get("ValidUpto"));
+				}
+				i++;
+			}
+		}
+		
+		@Then("^Asert the experirnce deatils$")
+		public void asert_the_experirnce_deatils(DataTable credentials) throws Throwable {
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("(//i[@class='fa fa-pencil'])[2]")).click();
+			Thread.sleep(3000);
+			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
+			 {
+			Assert.assertEquals(addcandidatepage.title.getAttribute("value"), data.get("title"));
+			Assert.assertEquals(driver.findElement(By.xpath("//input[@placeholder='Select Date']//following::p")).getAttribute("value"), data.get("ValidUpto"));
+			Assert.assertEquals(driver.findElement(By.xpath("(//input[@placeholder='Select Date']//following::p)[2]")).getAttribute("value"), data.get("ValidUpto"));
+			Assert.assertEquals(candidateupdateprofilepage.organization.get(0).getAttribute("value"), data.get("organization"));
+			Assert.assertEquals(candidateupdateprofilepage.technologies.getAttribute("value"), data.get("technologies"));
+			Assert.assertEquals(candidateupdateprofilepage.client.getAttribute("value"), data.get("client"));		 
+			 }
+		}
+		
+//	@training
+		
+		@When("^clck on training tab$")
+		public void clck_on_training_tab() throws Throwable {
+			Thread.sleep(3000);
+			candidateupdateprofilepage.trainingsTab.click();
+		}
+		
+		@When("^fill all training details$")
+		public void fill_all_training_details(DataTable credentials) throws Throwable {
+			candidateupdateprofilepage.fillAllTrainingDetails(credentials);
+		}
+		
+		@When("^save the changes$")
+		public void save_the_changes() throws Throwable {
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//button[text()='Save']")).click();
+			common.clickOnOKBtn();			
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("(//button[text()='Save'])[2]")).click();
+			common.clickOnOKBtn();			
+		}
+		
 }

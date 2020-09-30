@@ -33,7 +33,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Enter Alternate Email']")
 	public WebElement alternateEmail;
 	
-	@FindBy(xpath = "//input[@placeholder='Enter Title']")
+	@FindBy(xpath = "//input[@id='Title']")
 	public WebElement title;
 	
 	@FindBy(xpath = "//button[@aria-label='Open Calendar']")
@@ -90,7 +90,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Enter Alternate Contact Number']")
 	public WebElement alternateContact;
 	
-	@FindBy(xpath = "//input[@formcontrolname='Designation']")
+	@FindBy(xpath = "//input[@placeholder='Enter Designation']")
 	public WebElement designation;
 	
 	@FindBy(xpath = "//input[@formcontrolname='ZipCode']")
