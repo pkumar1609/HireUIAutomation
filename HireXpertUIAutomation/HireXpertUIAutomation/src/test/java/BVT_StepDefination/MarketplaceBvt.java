@@ -211,7 +211,7 @@ public class MarketplaceBvt extends baseclass {
 	}
 	
 	@Then("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" ,\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-	public void enter_All_details_of_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
+	public void enter_All_details_of_and(String CandidateEmail, String Name, String ContactNumber, String String Designation, String Gender, String NoticePeriod, String Location, String Communicationmode) throws Throwable {
 		workbenchpage.enterEmailId(CandidateEmail);
 		addcandidatepage.EnterAllMandatoryfieldsT(Name, ContactNumber, Designation, Gender, NoticePeriod, Location, Communicationmode);
 		addcandidatepage.uploadResumeDocument();
@@ -219,6 +219,12 @@ public class MarketplaceBvt extends baseclass {
 		common.clickOnConfirmYes();
 		addcandidatepage.checkCandidateALreadyPresent();
 	}
+	
+//	@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
+//	public void enter_All_details_of_and(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7, String arg8, String arg9, String arg10, String arg11, String arg12, String arg13, String arg14, String arg15, String arg16, String arg17, String arg18, String arg19, String arg20, String arg21, String arg22, String arg23, String arg24, String arg25, String arg26, String arg27, String arg28, String arg29, String arg30, String arg31, String arg32, String arg33, String arg34, String arg35, String arg36, String arg37, String arg38, String arg39) throws Throwable {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new PendingException();
+//	}
 	
 	@Then("^User should be able to add candidate$")
 	public void user_should_be_able_to_add_candidate() throws Throwable {

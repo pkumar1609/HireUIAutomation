@@ -328,7 +328,7 @@ public class CandidateCardSectionPage extends baseclass {
 	}
 
 	
-	public void AssertDetailsOnCandidateDetails(String Username, String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException
+	public void AssertDetailsOnCandidateDetails(String Username, String CandidateEmail,String profiletitle, String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException
 	{
 		Assert.assertEquals(driver.findElement(By.xpath("//h4[text()='"+Name+"']")).isDisplayed(), true);
 		Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' "+addjobpage.jobname+"']")).isDisplayed(), true);

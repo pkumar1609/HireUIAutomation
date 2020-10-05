@@ -79,10 +79,8 @@ public class taskBWT extends baseclass {
 	}
 
 	@And("^Go to workbench$")
-	public void go_to_workbench() throws Throwable {
-		
-		dashboardpage.openWorkbenchPage();
-		
+	public void go_to_workbench() throws Throwable {	
+		dashboardpage.openWorkbenchPage();		
 	}
 
 	@And("^Add job$")

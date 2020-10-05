@@ -91,7 +91,7 @@ public class AddCandidatePage extends baseclass {
 	public WebElement alternateContact;
 	
 	@FindBy(xpath = "//input[@placeholder='Enter Designation']")
-	public WebElement designation;
+	public List<WebElement> designation;
 	
 	@FindBy(xpath = "//input[@formcontrolname='ZipCode']")
 	public WebElement ZipCode;
@@ -186,7 +186,7 @@ public class AddCandidatePage extends baseclass {
 	private String ExpertiseLevel2;
 	
 	
-	public void EnterAllMandatoryfieldsT(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException, AWTException {
+	public void EnterAllMandatoryfieldsT(String CandidateEmail,String profiletitle,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException, AWTException {
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),'Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
 		if(dynamicElement.size() != 0)
@@ -212,11 +212,11 @@ public class AddCandidatePage extends baseclass {
 		else 
 		{
 			System.out.println("Candidate is not present in system and you need to enter candidate details");
-//			title.sendKeys();
+			title.sendKeys(profiletitle);
 			name.sendKeys(Name); 
 			nameOfCan=name.getAttribute("value");
 			contactNumber.sendKeys(ContactNumber);
-			designation.sendKeys(Designation);
+			designation.get(0).sendKeys(Designation);
 			Thread.sleep(2000);
 			date.sendKeys(Date);
 			Thread.sleep(2000);
@@ -258,7 +258,7 @@ public class AddCandidatePage extends baseclass {
 
 	}
 	
-public void enterLastWorkingDay(String LastWorkingDay) {
+	public void enterLastWorkingDay(String LastWorkingDay) {
 		
 		lastWorkingDay.sendKeys(LastWorkingDay);
 	}

@@ -57,7 +57,7 @@ public class Commonfunction extends baseclass {
 	
 	public void clickOnSaveBtn() throws InterruptedException
 	{
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		savebtn.click();
 	}
 	

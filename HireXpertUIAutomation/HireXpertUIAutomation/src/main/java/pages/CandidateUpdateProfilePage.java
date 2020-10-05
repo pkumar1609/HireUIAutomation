@@ -430,28 +430,28 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 	 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
      {
 		Thread.sleep(3000);
-		Assert.assertEquals(this.profiletitle.getAttribute("value"), addjobpage.jobname);
-		Assert.assertEquals(this.emailID.getAttribute("value"),data.get("CandidateEmail"));
-		Assert.assertEquals(this.contactNumber.getAttribute("value"),data.get("ContactNumber"));
+		Assert.assertEquals(addcandidatepage.title.getAttribute("value"), addjobpage.jobname);
+		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),data.get("CandidateEmail"));
+		Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"),data.get("ContactNumber"));
 		Assert.assertEquals(this.dateOfBirth.getAttribute("value"),data.get("Date")); 
 		se = new Select (this.countryId);
 		WebElement option = se.getFirstSelectedOption();
 		Assert.assertEquals(option.getText()," "+data.get("Country")+" ");
 		Assert.assertEquals(this.cityArea.getAttribute("value"),data.get("CityArea"));
-		Assert.assertEquals(this.name.getAttribute("value"),data.get("Name"));
-		Assert.assertEquals(this.gender.getAttribute("value"),data.get("Gender"));
-		Assert.assertEquals(this.city.getAttribute("value"),data.get("City"));
-		Assert.assertEquals(this.zipCode.getAttribute("value"),data.get("ZipCode"));
-		Assert.assertEquals(this.designation.getAttribute("value"),data.get("Designation"));
-		Assert.assertEquals(this.industry.getAttribute("value"),addjobpage.industryname);	
-		Assert.assertEquals(this.experience.getAttribute("value"),data.get("experience"));
+		Assert.assertEquals(addcandidatepage.name.getAttribute("value"),data.get("Name"));
+		Assert.assertEquals(addcandidatepage.gender.getAttribute("value"),data.get("Gender"));
+		Assert.assertEquals(addcandidatepage.city.getAttribute("value"),data.get("City"));
+		Assert.assertEquals(addcandidatepage.zipCode.getAttribute("value"),data.get("ZipCode"));
+		Assert.assertEquals(addcandidatepage.designation.get(0).getAttribute("value"),data.get("Designation"));
+		Assert.assertEquals(addcandidatepage.industry.getAttribute("value"),addjobpage.industryname);	
+		Assert.assertEquals(addcandidatepage.experienceInYears.getAttribute("value"),data.get("experience"));
 //		Assert.assertEquals(this.ectc.getAttribute("value"),expectedCTC);
-		se = new Select (this.onNoticePeriod);
+		se = new Select (addcandidatepage.onNoticePeriod);
 		WebElement onNotice = se.getFirstSelectedOption();
 		Assert.assertEquals(onNotice.getText(),data.get("OnNoticePeriod"));
-		Assert.assertEquals(this.lastWorkingDay.getAttribute("value"),data.get("LastWorkingDay"));
-		Assert.assertEquals(this.ctc.getAttribute("value"),data.get("CTC"));
-		se = new Select (this.modeOfcommunication);
+		Assert.assertEquals(addcandidatepage.lastWorkingDay.getAttribute("value"),data.get("LastWorkingDay"));
+		Assert.assertEquals(addcandidatepage.ctc.getAttribute("value"),data.get("CTC"));
+		se = new Select (addcandidatepage.communicationMode);
 		WebElement communication = se.getFirstSelectedOption();
 		Assert.assertEquals(communication.getText(),data.get("Communicationmode"));
 		se = new Select (this.readyToRelocate);
@@ -501,14 +501,14 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 		   {			  
 				if(i<degree.size())
 				{
-//					major.get(i).sendKeys(data.get("Major"));
-//					year.get(i).sendKeys(data.get("year"));
+					major.get(i).sendKeys(data.get("Major"));
+					year.get(i).sendKeys(data.get("year"));
 					grade.get(i).sendKeys(data.get("grade"));
-//					college.get(i).sendKeys(data.get("college"));
-//					university.get(i).sendKeys(data.get("university"));
-//					Country.get(i).sendKeys(data.get("country"));
-//					Thread.sleep(2000);
-//					driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']")).click();
+					college.get(i).sendKeys(data.get("college"));
+					university.get(i).sendKeys(data.get("university"));
+					Country.get(i).sendKeys(data.get("country"));
+					Thread.sleep(2000);
+					driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']")).click();
 					
 				}
 			i++;
@@ -533,9 +533,9 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 					city.get(i).clear();
 					city.get(i).sendKeys(data.get("city"));
 //					driver.findElement(By.xpath("//span[text()='×']")).click();
-//					Country.get(i).sendKeys(data.get("country"));
-//					Thread.sleep(2000);
-//					driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']")).click();
+					Country.get(i).sendKeys(data.get("country"));
+					Thread.sleep(2000);
+					driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']")).click();
 				}
 				i++;
 			 }
@@ -551,13 +551,14 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 					skills.get(i).sendKeys(data.get("skill"));
 					expertiselevel.get(i).sendKeys(data.get("Expertiselevel"));
 					certificate.get(i).sendKeys(data.get("certificate"));
+					addcandidatepage.designation.get(i).sendKeys(data.get("designation"));
 				}
 				i++;
 			 }
-			addcandidatepage.designation.clear();
-			addcandidatepage.designation.sendKeys(designation);
-			Thread.sleep(4000); 
-			driver.findElement(By.xpath("(//button[text()='Save'])[2]")).click();
+//			addcandidatepage.designation.clear();
+//			addcandidatepage.designation.sendKeys(designation);
+//			Thread.sleep(4000); 
+//			driver.findElement(By.xpath("(//button[text()='Save'])[2]")).click();
 	}
 
 	public void fillAllCertificateDetails(DataTable credentials) throws InterruptedException
@@ -705,7 +706,6 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 		this.achievements.click();
 		textArea.sendKeys(prop.getProperty("acheivment"));	
 		common.clickOnSaveBtn();
-		common.clickOnOKBtn();
 		common.clickOnOKBtn();
 		this.testimonials.click();
 		textArea.sendKeys(prop.getProperty("testimonals"));	

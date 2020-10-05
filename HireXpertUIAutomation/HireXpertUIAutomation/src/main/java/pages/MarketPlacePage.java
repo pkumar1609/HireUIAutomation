@@ -159,6 +159,7 @@ public class MarketPlacePage extends baseclass {
 		
 			}		
 		}	
+		
 	public void clickApplybtnOfParticularJob() throws InterruptedException
 	{
 	try{

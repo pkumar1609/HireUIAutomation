@@ -1,6 +1,7 @@
 package pages;
 
-import org.openqa.selenium.By;   
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -79,6 +80,23 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	
 	//Actions
 	
+	
+	    public void FillAllregisterdeatils(String Name, String CandidateEmail , String ContactNumber, String UserType, String timezone, String country) throws Throwable {
+		registerpage.registerCandidatedetails1(UserType, timezone, country);
+		registerpage.registerCandidatedetails(Name, CandidateEmail, ContactNumber);
+		common.ClickSumbit();
+		common.clickOnConfirmYes();
+		try
+		{
+			common.clickOnOKBtn();
+		}
+		catch(NoSuchElementException e)
+		{
+			common.clickOnCloseBtn();
+			common.clickOnConfirmYes();
+		}
+		
+	   }
 	public void clickRegister() {
 		
 		Registerlink.click();
