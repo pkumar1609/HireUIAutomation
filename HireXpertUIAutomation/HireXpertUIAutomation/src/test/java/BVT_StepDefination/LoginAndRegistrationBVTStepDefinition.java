@@ -163,7 +163,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	@Then("^click on ok button$")
 	public void click_on_ok_button() throws Throwable {
 	    
-		Thread.sleep(3000);
+		
 		common.clickOnOKBtn();
 	}
 

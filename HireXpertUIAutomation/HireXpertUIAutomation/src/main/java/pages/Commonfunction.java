@@ -2,6 +2,7 @@ package pages;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,13 +13,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utilPackage.baseclass;
 
 public class Commonfunction extends baseclass {
-	
+
 	public Commonfunction() throws IOException
 	{
 		super();
 		PageFactory.initElements(driver, this);
 		this.driver = driver;
 	}
+	
+	public String DisplayDate;
+	public String monthName;
+	
 	
 	@FindBy(xpath="//button[@id='confirmModalBtn']")
 	public WebElement confimYes;
@@ -100,4 +105,60 @@ public class Commonfunction extends baseclass {
 		
 		noButtonPopup.click();
 	}
+	
+	public void enterdate(String date) throws InterruptedException
+	{
+	        String[] values = date.split("/");
+	        int day = Integer.parseInt(values[0]);
+	        int month = Integer.valueOf(values[1]);   
+	        int year = Integer.parseInt(values[2]);
+	        switch(month){    
+		    case 1: monthName= "Jan";  
+		    break;    
+		    case 2: monthName="Feb";  
+		    break;    
+		    case 3: monthName="Mar";  
+		    break;    
+		    case 4: monthName="Apr";  
+		    break;    
+		    case 5: monthName="May";  
+		    break;    
+		    case 6: monthName="Jun";  
+		    break;    
+		    case 7: monthName="Jul";  
+		    break;    
+		    case 8: monthName="Aug";  
+		    break;    
+		    case 9: monthName="Sep";  
+		    break;    
+		    case 10: monthName="Oct";  
+		    break;    
+		    case 11: monthName="Nov";  
+		    break;    
+		    case 12: monthName="Dec";  
+		    break; 
+			}
+	        Thread.sleep(1000);		
+			driver.findElement(By.xpath("//button[@class='headerlabelbtn yearlabel']")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//div[text()='"+year+"']")).click();
+			driver.findElement(By.xpath("//button[@class='headerlabelbtn monthlabel']")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//div[text()='"+monthName+"']")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//span[text()='"+day+"']")).click();
+		}    
+	 
+	
+//	public String displaydateFormate(String date)
+//	{	
+//		String[] values = date.split("-");
+//        day = Integer.parseInt(values[0]);
+//        month = String.valueOf(values[1]);   
+//        year = Integer.parseInt(values[2]);
+//		
+//	    }    
+//		return DisplayDate= day+"/"+month+"/"+year;
+//	}
+
 }

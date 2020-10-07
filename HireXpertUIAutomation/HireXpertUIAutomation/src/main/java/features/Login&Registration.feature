@@ -1,6 +1,6 @@
 Feature: HireXpert Login & Registration feature
 
-	@BVT @Regression
+	@BVT @Regression @register
 	Scenario Outline: To verify the fields/button on Registration popup window and check functionality of Registration
 	
 	Given User open browser

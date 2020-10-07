@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
@@ -31,16 +32,15 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		Thread.sleep(3000);
 		workbenchpage.scheduleInterview.click();
 	}
-	
 
-	
 	@When("^fill all interview details and click on Submit button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void fill_all_interview_details_and_click_on_Submit_button(String Title, String ScheduleOn, String Hour, String Minute, String Duration, String TimeZone) throws Throwable {
+	public void fill_all_interview_details_and_click_on_Submit_button(String Title, String Scheduleon, String Hour, String Minute, String Duration, String TimeZone) throws Throwable {
 	    
 		Thread.sleep(1000);
 		scheduleinterviewpage.title.sendKeys(Title);
 		Thread.sleep(1000);
-		scheduleinterviewpage.ScheduleInterviewOnT();
+		scheduleinterviewpage.calendarIcon.click();
+		common.enterdate(Scheduleon);
 		Thread.sleep(1000);
 		scheduleinterviewpage.hours.sendKeys(Hour);
 		Thread.sleep(1000);
@@ -67,18 +67,25 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	
 	@When("^click on close button from Interview details page$")
 	public void click_on_close_button_from_Interview_details_page() throws Throwable {
-	    
 		Thread.sleep(2000);
 		common.closebtn.click();
-		
 	}
 	
-	@When("^observe the interview date and time displayed on candidate card below Assign To field$")
-	public void observe_the_interview_date_and_time_displayed_on_candidate_card_below_Assign_To_field() throws Throwable {
-	    
-		Thread.sleep(3000);
-		String interview = candidatecardsectionpage.candidateCardInterviewDetails.getText();
-		System.out.println("Interview Details on candidate card: " + interview);
+//	@When("^observe the interview date and time displayed on candidate card below Assign To field$")
+//	public void observe_the_interview_date_and_time_displayed_on_candidate_card_below_Assign_To_field() throws Throwable {
+//		Assert.assertEquals(candidatecardsectionpage.candidateCardInterviewDetails.getText(), common.displaydateFormate(date););
+//	}
+	@Then("^Click on Reload job button$")
+	public void click_on_Reload_job_button() throws Throwable {
+	   Thread.sleep(3000);
+		workbenchpage.ReloadJobButton.click();
+	}
+	
+	@When("^observe the interview date and time displayed on candidate card below Assign To field \"([^\"]*)\"$")
+	public void observe_the_interview_date_and_time_displayed_on_candidate_card_below_Assign_To_field(String ScheduleOn) throws Throwable {
+		Thread.sleep(1000);
+		System.out.println(candidatecardsectionpage.candidateCardInterviewDetails.getText().substring(0, candidatecardsectionpage.candidateCardInterviewDetails.getText().indexOf(',')));
+		Assert.assertEquals(candidatecardsectionpage.candidateCardInterviewDetails.getText().substring(0, candidatecardsectionpage.candidateCardInterviewDetails.getText().indexOf(',')), ScheduleOn);
 	}
 	
 	@When("^click on Reload Candidate button and observe$")
@@ -124,22 +131,16 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	}
 	
 	@Then("^make some changes and click on Submit button \"([^\"]*)\"$")
-	public void make_some_changes_and_click_on_Submit_button(String scheduleon) throws Throwable {
-	    
-//		scheduleinterviewpage.calendar.clear();
-		Thread.sleep(1000);
-		scheduleinterviewpage.calendar.click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[@class='datevalue currmonth']//span[contains(text(),'30')]")).click();
-		common.submitbtn.click();
-		Thread.sleep(3000);
+	public void make_some_changes_and_click_on_Submit_button(String scheduleon1) throws Throwable {	    
+		Thread.sleep(2000);
+		scheduleinterviewpage.calendarIcon.click();
+		common.enterdate(scheduleon1);
+		common.ClickSumbit();
 	}
 	
-
-	@Then("^updated details should display properly$")
-	public void updated_details_should_display_properly() throws Throwable {
-	    
-		System.out.println("\nUser able to update interview details from Interview Details page..");
+	@Then("^updated details should display properly \"([^\"]*)\"$")
+	public void updated_details_should_display_properly(String scheduleon1) throws Throwable {
+		Assert.assertEquals(candidatecardsectionpage.candidateCardInterviewDetails.getText().substring(0, candidatecardsectionpage.candidateCardInterviewDetails.getText().indexOf(',')), scheduleon1);
 	}
 
 	@Then("^click on Interviews tab$")
@@ -148,31 +149,23 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		dashboardpage.openInterviewsPage();
 		Thread.sleep(3000);
 	}
+	
 
-	@Then("^Select the filters for which you want candidate interview details and click on Search button$")
-	public void select_the_filters_for_which_you_want_candidate_interview_details_and_click_on_Search_button(DataTable dt) throws Throwable {
-	    
-		List<List<String>> data = dt.raw();
-		
+	@Then("^Select the filters for which you want candidate interview details and click on Search button \"([^\"]*)\"$")
+	public void select_the_filters_for_which_you_want_candidate_interview_details_and_click_on_Search_button(String scheduleon1) throws Throwable {
 		Select se = new Select(interviewspage.jobDropdown);
-		se.selectByVisibleText(data.get(0).get(0));
+		se.selectByVisibleText(addjobpage.jobname);
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("(//button[@aria-label='Clear Date'])[1]")).click();
+		scheduleinterviewpage.calendarIcon.click();
+		common.enterdate(scheduleon1);
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("(//button[@aria-label='Open Calendar'])[2]")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//div[@class='datevalue currmonth']//span[contains(text(),'30')]")).click();
-//		Thread.sleep(2000);
-//		driver.findElement(By.xpath("(//button[@aria-label='Clear Date'])[2]")).click();
-//		interviewspage.fromdate.clear();
-//		interviewspage.fromdate.sendKeys(data.get(0).get(1));
-//		Thread.sleep(2000);
-//		interviewspage.clearToDate.click();
-//		interviewspage.todate.sendKeys(data.get(0).get(1));
+		driver.findElement(By.xpath("(//button[@aria-label='Open Calendar'])[3]")).click();
+		common.enterdate(scheduleon1);
 		Thread.sleep(2000);
 		interviewspage.searchButton.click();
-
 	}
+
+	
 	
 	@When("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
@@ -213,7 +206,22 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	}
 
 	
+//Close All Job
+	
 
+	@When("^close all job$")
+	public void close_all_job() throws Throwable {
+		 Thread.sleep(2000);	
+	     List<WebElement> allJobs = driver.findElements(By.xpath("//option"));	 	 
+	     select = new Select(workbenchpage.jobDropDown);
+	     
+	     for(int i=1; i<=allJobs.size(); i++)
+	     {		
+	    	 Thread.sleep(2000);		 
+	    	 select.selectByIndex(i);
+	    	 workbenchpage.clickOnCloseJobButton();
+	     } 
+	}
 	
 
 	

@@ -115,7 +115,7 @@ public class scheduledInterview extends baseclass {
 	@When("^fill all interview details and click on Submit button$")
 	public void fill_all_interview_details_and_click_on_Submit_button(DataTable credentials) throws Throwable {
 	    
-		scheduleinterviewpage.fillInterviewDetails();
+		scheduleinterviewpage.scheduleInterview(credentials);
 		Thread.sleep(2000);
 		scheduleinterviewpage.submitButton.click();
 		Thread.sleep(3000);

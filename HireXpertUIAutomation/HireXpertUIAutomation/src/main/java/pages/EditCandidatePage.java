@@ -52,10 +52,10 @@ public class EditCandidatePage extends baseclass {
 		this.driver = driver;
 	}
 	
-	public void EnterContactNumberT(String contactnumber) {
-		 
-		contactNumber.clear();
-		contactNumber.sendKeys(contactnumber); 
+	public void EnterContactNumberT(String contactnumber) throws InterruptedException {
+		 Thread.sleep(3000);
+		addcandidatepage.contactNumber.clear();
+		addcandidatepage.contactNumber.sendKeys(contactnumber); 
 	 }
 	
 	public void ClickOnSaveBtntoSavetheupdatedDetails() {

@@ -24,7 +24,6 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	@When("^Go to Workbench$")
 	public void go_to_Workbench() throws Throwable {
 
-		Thread.sleep(3000);
 		dashboardpage.openWorkbenchPage();
 
 	}
@@ -52,8 +51,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	@When("^Click on Add Candidate button$")
 	public void click_on_Add_Candidate_button() throws Throwable {
 
-         Thread.sleep(3000);
-		
+         Thread.sleep(3000);		
 		workbenchpage.clickOnAddCandidate();
 	}
 
@@ -161,6 +159,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 //		
 //	}
 	
+	
 	@When("^fill all the information \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
 	public void fill_all_the_information_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String  Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String  CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String Salaryoffered, String distance, String permanentAddress, String relocate) throws Throwable {
 
@@ -178,10 +177,10 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	}
 
 	@When("^Make the changes in \"([^\"]*)\" field$")
-	public void make_the_changes_in_field(String contactnumber) throws InterruptedException  {
+	public void make_the_changes_in_field(String contactnumber1) throws InterruptedException  {
 	    
 		Thread.sleep(3000);
-		editcandidatepage.EnterContactNumberT(contactnumber);
+		editcandidatepage.EnterContactNumberT(contactnumber1);
 	}
 	
 	@When("^Click on save button$")

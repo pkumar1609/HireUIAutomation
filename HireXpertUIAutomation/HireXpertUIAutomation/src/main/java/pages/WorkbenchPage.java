@@ -306,9 +306,7 @@ public void ClickonScreeningBtn() {
 
 
 		public void clickOnCloseJobButton() throws InterruptedException {
-		//	
-//			     closejobbtn.click();
-//			     common.clickOnConfirmYes();
+
 				clickonthreedot();
 				Thread.sleep(2000);
 				closejobbtn.click();

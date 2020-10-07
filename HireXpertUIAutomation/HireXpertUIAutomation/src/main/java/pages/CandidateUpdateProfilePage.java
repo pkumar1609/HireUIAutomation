@@ -326,6 +326,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	public int aftercount;
 	
 	
+	
 	public void enterLastWorkingDay(String LastWorkingDay) {
 		
 		addcandidatepage.lastWorkingDay.sendKeys(LastWorkingDay);
@@ -598,24 +599,7 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 			
 	}
 	
-	public void enterdate(String date) throws InterruptedException
-	{
-
-	        String[] values = date.split("-");
-	        int day = Integer.parseInt(values[0]);
-	        String month = String.valueOf(values[1]);   
-	        int year = Integer.parseInt(values[2]);
-	        Thread.sleep(1000);		
-			driver.findElement(By.xpath("//button[@class='headerlabelbtn yearlabel']")).click();
-			Thread.sleep(1000);
-			driver.findElement(By.xpath("//div[text()='"+year+"']")).click();
-			driver.findElement(By.xpath("//button[@class='headerlabelbtn monthlabel']")).click();
-			Thread.sleep(1000);
-			driver.findElement(By.xpath("//div[text()='"+month+"']")).click();
-			Thread.sleep(1000);
-			driver.findElement(By.xpath("//span[text()='"+day+"']")).click();	
-
-	}
+	
 	
 	public void fillAllVisaDetails(DataTable credentials) throws InterruptedException
 	{

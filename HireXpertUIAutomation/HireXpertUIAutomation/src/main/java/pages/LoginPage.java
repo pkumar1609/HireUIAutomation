@@ -151,7 +151,7 @@ public class LoginPage extends baseclass
 		
 		emailaddress.sendKeys(Username);
 		password.sendKeys(Password);
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		signin.click();
 		identifyUserK();
 		if(dashboardpage.jobPopup.size()>0)

@@ -58,7 +58,7 @@ public class scheduleInterview extends baseclass {
 	@FindBy(xpath = "//input[@formcontrolname='Location']")
 	public WebElement Location;
 	
-	@FindBy(xpath = "(//span[@class='mydpicon icon-mydpcalendar'])[2]")
+	@FindBy(xpath = "(//button[@aria-label='Open Calendar'])[2]")
 	public WebElement calendarIcon;
 	
 	@FindBy(xpath = "//button[@aria-label='Next Month']")
