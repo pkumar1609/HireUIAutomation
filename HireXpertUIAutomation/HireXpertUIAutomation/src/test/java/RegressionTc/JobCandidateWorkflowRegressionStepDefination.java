@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -111,8 +112,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("(//button[text()='Save'])[1]")).click();
-      
-		
+
 	}
 	
 	
@@ -172,17 +172,29 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	
 	@Then("^Select the On Notice Period field and set Last working day on Update Profile page$")
 	public void select_the_On_Notice_Period_field_and_set_Last_working_day_on_Update_Profile_page() throws Throwable {
-	    
-		Select se = new Select(addcandidatepage.OnNoticePeriodCheckbox);
+		select = new Select (addcandidatepage.onNoticePeriod);
 		se.selectByVisibleText("Yes");
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//button[@aria-label='Open Calendar'])[2]")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[@class='datevalue currmonth']//span[contains(text(),'30')]")).click();
-//		candidateupdateprofilepage.lastWorkingDay.sendKeys(LastWorkingDay);
+		common.enterdate(LastWorkingDay);
+		//candidateupdateprofilepage.lastWorkingDay.sendKeys(LastWorkingDay);
 		Thread.sleep(2000);
 
 	}
+	
+	@Then("^Select the On Notice Period field and set Last working day on Update Profile page \"([^\"]*)\",\"([^\"]*)\"$")
+	public void select_the_On_Notice_Period_field_and_set_Last_working_day_on_Update_Profile_page(String OnNoticePeriod, String LastWorkingDay) throws Throwable {
+		select = new Select (addcandidatepage.onNoticePeriod);
+		select.selectByVisibleText("Yes");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//button[@aria-label='Open Calendar'])[2]")).click();
+		Thread.sleep(1000);
+		common.enterdate(LastWorkingDay);
+		//candidateupdateprofilepage.lastWorkingDay.sendKeys(LastWorkingDay);
+		Thread.sleep(2000);
+	}
+
 	
 	@Then("^Select the On Notice Period field and set Last working day$")
 	public void select_the_On_Notice_Period_field_and_set_Last_working_day() throws Throwable {
@@ -289,26 +301,25 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	@Then("^add skill, expertise level and certificate \"([^\"]*)\" \"([^\"]*)\"$")
 	public void add_skill_expertise_level_and_certificate(String Skill1, String ExpertiseLevel) throws Throwable {
 	    
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("(//input[@formcontrolname='Skill'])[1]")).sendKeys(Skill1); // enter 1st skill
-		Thread.sleep(3000);
-		WebElement expertiselevel = driver.findElement(By.xpath("(//select[@formcontrolname='ExpertiseLevel'])[1]"));
-		Select select = new Select (expertiselevel);
-		select.selectByVisibleText(ExpertiseLevel);    // set expertise level
-		Thread.sleep(3000);
+		Thread.sleep(2000);
+		candidateupdateprofilepage.skills.get(0).clear();
+		candidateupdateprofilepage.skills.get(0).sendKeys(Skill1); // enter 1st skill
+		candidateupdateprofilepage.expertiselevel.get(0).sendKeys(ExpertiseLevel);
+		
+//		WebElement expertiselevel = driver.findElement(By.xpath("(//select[@formcontrolname='ExpertiseLevel'])[1]"));
+//		Select select = new Select (expertiselevel);
+//		select.selectByVisibleText(ExpertiseLevel);    // set expertise level
+//		Thread.sleep(3000);
 		driver.findElement(By.xpath("//tr[1]//td[3]//input[1]")).sendKeys("ISTQB"); //Enter certification
 	}
 
 	@Then("^add same skill, expertise level and certificate \"([^\"]*)\" \"([^\"]*)\"$")
-	public void add_same_skill_expertise_level_and_certificate(String Skill2, String ExpertiseLevel) throws Throwable {
+	public void add_same_skill_expertise_level_and_certificate(String Skill1, String ExpertiseLevel) throws Throwable {
 	    
-		Thread.sleep(3000);
-        driver.findElement(By.xpath("(//input[@formcontrolname='Skill'])[2]")).sendKeys(Skill2); // enter 2nd skill
-        Thread.sleep(3000);
-		WebElement expertiselevel = driver.findElement(By.xpath("(//select[@formcontrolname='ExpertiseLevel'])[2]"));
-		Select select = new Select (expertiselevel);
-		select.selectByVisibleText(ExpertiseLevel);    // set expertise level
-		
+		Thread.sleep(2000);
+		candidateupdateprofilepage.skills.get(1).clear();
+		candidateupdateprofilepage.skills.get(1).sendKeys(Skill1); // enter 1st skill
+		candidateupdateprofilepage.expertiselevel.get(1).sendKeys(ExpertiseLevel);
 		driver.findElement(By.xpath("//tr[3]//td[4]//button[1]//i[1]")).click(); // delete 3rd skill
 		
 	}
@@ -1649,8 +1660,29 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	        registerpage.agencylogin();
 		}
 		
+		@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
+		public void enter_All_details_of_and(String CandidateEmail,String profiletitle,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2,String remark3,String certificateforskill1, String certificateforskill2) throws Throwable {
+			workbenchpage.enterEmailId(CandidateEmail);
+			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,profiletitle,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
+			addcandidatepage.addSkill(level1, level2, level3, certificate1, certificate2, certificate3, certificateforskill1, certificateforskill2);
+			addcandidatepage.uploadResumeDocument();
+			common.clickOnSaveBtn();
+			addcandidatepage.checkCandidateALreadyPresent();
+		}
+
+
+		@When("^Add job \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+		public void add_jobskill_and(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3, DataTable credentials) throws Throwable {
+			addjobpage.addjob(credentials);
+			addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3);		
+			common.ClickSumbit();
+		}
+
 		
-		
-		
+		@Then("^verify the Auto Populated fields on candidate update profile popup window \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void verify_the_Auto_Populated_fields_on_candidate_update_profile_popup_window(String Username, String CandidateEmail, String profiletitle, String Name, String ContactNumber, String Designation, String Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String relocate) throws Throwable {
+		    candidateupdateprofilepage.AssertDetailsOnCandidateProfile(Username, CandidateEmail, profiletitle, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode,relocate);
+
+		}
 	}
 	

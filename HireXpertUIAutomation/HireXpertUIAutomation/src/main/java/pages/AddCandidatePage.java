@@ -19,6 +19,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import freemarker.ext.jsp.TaglibFactory.ClearMetaInfTldSource;
 import utilPackage.baseclass;
 
 public class AddCandidatePage extends baseclass {
@@ -37,7 +38,7 @@ public class AddCandidatePage extends baseclass {
 	public WebElement title;
 	
 	@FindBy(xpath = "//button[@aria-label='Open Calendar']")
-	public WebElement calenderIcon;
+	public List<WebElement> calenderIcon;
 	
 	@FindBy(xpath = "//span[text()='Today']")
 	public WebElement todayDate;
@@ -193,6 +194,7 @@ public class AddCandidatePage extends baseclass {
 		{
 			System.out.println("Candidate is present in system");
 			common.clickOnOKBtn();
+			Thread.sleep(2000);
 			nameOfCan=name.getAttribute("value");
 			salaryOffered.sendKeys(Salaryoffered);
 			this.distance.sendKeys(distance);
@@ -202,16 +204,18 @@ public class AddCandidatePage extends baseclass {
 			se.selectByVisibleText(relocate);
 			this.expectedCTC.clear();
 			this.expectedCTC.sendKeys(expectedCTC);
-			if(OnNoticePeriod.contentEquals("Yes"))
-			{
-			this.lastWorkingDay.clear();
-			this.lastWorkingDay.sendKeys(LastWorkingDay);
-			this.datebelowField = driver.findElement(By.xpath("(//div[@class='text-info'])[2]")).getText();
-			}
+			Thread.sleep(2000);
+//			if(OnNoticePeriod.contentEquals("Yes"))
+//			{			
+//			this.lastWorkingDay.clear();
+//			this.lastWorkingDay.sendKeys(LastWorkingDay);
+//			this.datebelowField = driver.findElement(By.xpath("(//div[@class='text-info'])[2]")).getText();
+//			}
 		}	
-		else 
+		else
 		{
 			System.out.println("Candidate is not present in system and you need to enter candidate details");
+			title.clear();
 			title.sendKeys(profiletitle);
 			name.sendKeys(Name); 
 			nameOfCan=name.getAttribute("value");
@@ -226,9 +230,12 @@ public class AddCandidatePage extends baseclass {
 			se.selectByVisibleText(OnNoticePeriod);
 			if(OnNoticePeriod.contentEquals("Yes"))
 			{
-				this.lastWorkingDay.clear();
-				this.lastWorkingDay.sendKeys(LastWorkingDay);
-				this.datebelowField = driver.findElement(By.xpath("(//div[@class='text-info'])[2]")).getText();
+				addcandidatepage.calenderIcon.get(2).click();			
+				common.enterdate(LastWorkingDay);
+				
+//				this.lastWorkingDay.clear();
+//				this.lastWorkingDay.sendKeys(LastWorkingDay);
+//				this.datebelowField = driver.findElement(By.xpath("(//div[@class='text-info'])[2]")).getText();
 			}	
 			else
 			{

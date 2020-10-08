@@ -426,41 +426,44 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 			Thread.sleep(1000);
 		}
 	}
-	public void AssertDetailsOnCandidateProfile(DataTable credentials) throws InterruptedException
+	public void AssertDetailsOnCandidateProfile(String Username, String CandidateEmail, String profiletitle, String Name, String ContactNumber, String Designation, String Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String relocate) throws InterruptedException
 	{
-	 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-     {
 		Thread.sleep(3000);
-		Assert.assertEquals(addcandidatepage.title.getAttribute("value"), addjobpage.jobname);
-		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),data.get("CandidateEmail"));
-		Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"),data.get("ContactNumber"));
-		Assert.assertEquals(this.dateOfBirth.getAttribute("value"),data.get("Date")); 
+		Assert.assertEquals(addcandidatepage.title.getAttribute("value"), profiletitle);
+		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),CandidateEmail);
+		Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"),ContactNumber);
+		Assert.assertEquals(this.dateOfBirth.getAttribute("value"),Date); 
 		se = new Select (this.countryId);
 		WebElement option = se.getFirstSelectedOption();
-		Assert.assertEquals(option.getText()," "+data.get("Country")+" ");
-		Assert.assertEquals(this.cityArea.getAttribute("value"),data.get("CityArea"));
-		Assert.assertEquals(addcandidatepage.name.getAttribute("value"),data.get("Name"));
-		Assert.assertEquals(addcandidatepage.gender.getAttribute("value"),data.get("Gender"));
-		Assert.assertEquals(addcandidatepage.city.getAttribute("value"),data.get("City"));
-		Assert.assertEquals(addcandidatepage.zipCode.getAttribute("value"),data.get("ZipCode"));
-		Assert.assertEquals(addcandidatepage.designation.get(0).getAttribute("value"),data.get("Designation"));
-		Assert.assertEquals(addcandidatepage.industry.getAttribute("value"),addjobpage.industryname);	
-		Assert.assertEquals(addcandidatepage.experienceInYears.getAttribute("value"),data.get("experience"));
+		Assert.assertEquals(option.getText()," "+Country+" ");
+		Assert.assertEquals(this.cityArea.getAttribute("value"),CityArea);
+		Assert.assertEquals(addcandidatepage.name.getAttribute("value"),Name);
+		Assert.assertEquals(addcandidatepage.gender.getAttribute("value"),Gender);
+		Assert.assertEquals(addcandidatepage.city.getAttribute("value"),City);
+		Assert.assertEquals(addcandidatepage.zipCode.getAttribute("value"),ZipCode);
+		Assert.assertEquals(this.currentDesignation.getAttribute("value"),Designation);
+//		Assert.assertEquals(addcandidatepage.industry.getAttribute("value"),addjobpage.industryname);	
+		Assert.assertEquals(addcandidatepage.experienceInYears.getAttribute("value"),experience);
 //		Assert.assertEquals(this.ectc.getAttribute("value"),expectedCTC);
-		se = new Select (addcandidatepage.onNoticePeriod);
-		WebElement onNotice = se.getFirstSelectedOption();
-		Assert.assertEquals(onNotice.getText(),data.get("OnNoticePeriod"));
-		Assert.assertEquals(addcandidatepage.lastWorkingDay.getAttribute("value"),data.get("LastWorkingDay"));
-		Assert.assertEquals(addcandidatepage.ctc.getAttribute("value"),data.get("CTC"));
+		select=new Select(addcandidatepage.onNoticePeriod);
+		Assert.assertEquals(select.getFirstSelectedOption().getText(),OnNoticePeriod);
+		if(OnNoticePeriod.contentEquals("Yes"))
+		{
+		Assert.assertEquals(addcandidatepage.lastWorkingDay.getText(), LastWorkingDay);
+		}
+		else
+		{
+		Assert.assertEquals(addcandidatepage.noticePeriod.getAttribute("value"), NoticePeriod);
+		}
+		Assert.assertEquals(addcandidatepage.ctc.getAttribute("value"),CTC);
 		se = new Select (addcandidatepage.communicationMode);
 		WebElement communication = se.getFirstSelectedOption();
-		Assert.assertEquals(communication.getText(),data.get("Communicationmode"));
+		Assert.assertEquals(communication.getText(),Communicationmode);
 		se = new Select (this.readyToRelocate);
-		WebElement Relocate = se.getFirstSelectedOption();
-		Assert.assertEquals(Relocate.getText(),data.get("relocate"));		
+		Assert.assertEquals(se.getFirstSelectedOption().getText(),relocate);			
 		common.clickOnSaveBtn();
 		common.clickOnOKBtn();
-     }
+     
 	}
 	
 	public void AssertSkillonSkillAndRolesTab(DataTable credentials) throws InterruptedException
@@ -610,7 +613,7 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 				{
 					Thread.sleep(1000);	
 					date.get(i).click();			
-					this.enterdate(data.get("ValidUpto"));
+					common.enterdate(data.get("ValidUpto"));
 					visaType.get(i).sendKeys(data.get("VisaType"));
 					Country.get(i).sendKeys(data.get("country"));
 					explicitwait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//span[text()='"+data.get("country")+"']"))));

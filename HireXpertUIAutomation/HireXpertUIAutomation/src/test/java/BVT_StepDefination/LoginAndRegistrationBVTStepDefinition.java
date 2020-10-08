@@ -515,12 +515,18 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 
 			}
 
-			@Then("^verify the Auto Populated fields on candidate update profile popup window$")
-			public void verify_the_Auto_Populated_fields_on_candidate_update_profile_popup_window() throws Throwable {
-			    
+			@Then("^verify the Auto Populated fields on candidate update profile popup window \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+			public void verify_the_Auto_Populated_fields_on_candidate_update_profile_popup_window(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7, String arg8, String arg9, String arg10, String arg11, String arg12, String arg13, String arg14, String arg15, String arg16, String arg17, String arg18) throws Throwable {
 				Thread.sleep(3000);
 				updateprofilepopuppage.VerifyAutoPopulatedFieldsOnUpdateCandidateProfile();
 			}
+			
+//			@Then("^verify the Auto Populated fields on candidate update profile popup window$")
+//			public void verify_the_Auto_Populated_fields_on_candidate_update_profile_popup_window() throws Throwable {
+//			    
+//				Thread.sleep(3000);
+//				updateprofilepopuppage.VerifyAutoPopulatedFieldsOnUpdateCandidateProfile();
+//			}
 
 			@Then("^Update Candidate Profile \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 			public void update_Candidate_Profile(String title, String designation, String noticeperiod, String CandidateCity, String industry, String gender, String expertiselevel) throws Throwable {
