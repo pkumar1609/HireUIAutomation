@@ -874,7 +874,6 @@ Examples:
 @Regression @reg11
 Scenario Outline: Verify functionality of bell icon on candidate card.
 
-
 Given Open browser
 When title of login page is Home
 And Click on Employer-Agency Signin link
@@ -890,7 +889,7 @@ And Enter All details of except the expertise level "<CandidateEmail>","<profile
 #And Click on Save Button 
 Then The candidate whose skill expert level is set as Not answer for that candidate card there should show bell icon
 And Click on Edit Candidate icon on candidate card "<Name>"
-And select different expertise level for the skill which is having expert level as not answer "<expertiselevel1>" "<expertiselevel2>"
+And select different expertise level for the skill which is having expert level as not answer "<level1>" "<level2>"
 And Click on save button for edit candidate
 Then when user set expertise level other than Not answer in edit candidate at that time bell icon should removed from candidate card
 And click on close job button and delete the job
@@ -899,7 +898,7 @@ And click on employer tab and delete the employer if login as agency
 
 Examples: 
 |Username            |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |
-|pemp@gmail.com      |12345    |hirecan30@gmail.com |jr software developer|hirecan30|9545866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |No          |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com|   
+|pemp@gmail.com      |12345    |hirecan30@gmail.com |jr software developer|hirecan30|9545866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Not Answered     | Not Answered | Expert | Mandatory |Preferred |Optional  |No          |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com|   
 
 #Examples:
 #   | JobTitle | JobDesignation | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary  | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 | OrganizationName |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|   contactnumber   | ExpertiseLevel1 | ExpertiseLevel2 | expertiselevel1 | expertiselevel2 |
