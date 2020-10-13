@@ -91,7 +91,7 @@ public class Commonfunction extends baseclass {
 	
 	public void clickOnOKBtn() throws InterruptedException
 	{
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		okbtn.click();
 	}
 	

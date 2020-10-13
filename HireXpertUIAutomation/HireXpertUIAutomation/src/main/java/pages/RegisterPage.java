@@ -400,8 +400,8 @@ public void verifythefieldsonregisterdialogbox () {
        }
      
        public void employerlogin() {
-    	   Emailaddress.sendKeys(prop.getProperty("employerusername"));
-    	   Password.sendKeys(prop.getProperty("password"));
+    	   Emailaddress.sendKeys("pemp@gmail.com");
+    	   Password.sendKeys("12345");
     	   Signinbtn.click();
        }
        

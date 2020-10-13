@@ -117,15 +117,15 @@ public class CandidateCardSectionPage extends baseclass {
 	}
 
 	public void clickOnEditCandidateIcon(String Name) throws InterruptedException {
-		Thread.sleep(3000);
 		editCandidateIcon="//span[text()=' "+Name+"']//following::button[@id='EditCandidate']";
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(editCandidateIcon)).click();
 	}
 	
 	public void clickOnDeleteCandidateIcon(String Name) throws InterruptedException {
-		Thread.sleep(3000);
 	    String deleteCandidateIcon = "//span[text()=' "+Name+"']//following::button[@title='Delete Candidate']";
-		driver.findElement(By.xpath(deleteCandidateIcon)).click();
+		Thread.sleep(2000);
+	    driver.findElement(By.xpath(deleteCandidateIcon)).click();
 	}
 	
 	public void clickOnRejectCandidateIcon(String Name) throws InterruptedException {
@@ -135,9 +135,9 @@ public class CandidateCardSectionPage extends baseclass {
 	}
 	
 	public void clickOncommentsIcon(String Name) throws InterruptedException {
-		Thread.sleep(3000);
 	    String commentsIcon = "//span[text()=' "+Name+"']//following::button[@title='Comments']";
-		driver.findElement(By.xpath(commentsIcon)).click();
+	    Thread.sleep(2000);
+	    driver.findElement(By.xpath(commentsIcon)).click();
 	}
 	
 	

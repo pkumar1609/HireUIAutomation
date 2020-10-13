@@ -381,26 +381,26 @@ public class AddCandidatePage extends baseclass {
 	
 	public void uploadResumeDocumentT() throws AWTException {  //Method for Trupti
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.doc"); // CV Path of Trupti's system
+		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\sample2.doc"); // CV Path of Trupti's system
 	}
 	public void uploadResumeDocumentinZipformatT() throws AWTException {  //Method for Trupti
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.zip"); // CV Path of Trupti's system
+		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\DVWA-master.zip"); // CV Path of Trupti's system
 	}
 	
 	public void uploadResumeDocumentinPdfformatT() throws AWTException {  //Method for Trupti
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.pdf"); // CV Path of Trupti's system
+		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\komal[5_1_2019__6_1_2019].pdf"); // CV Path of Trupti's system
 	}
 	
 	public void uploadResumeDocumentintextformatT() throws AWTException {  //Method for Trupti
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.txt"); // CV Path of Trupti's system
+		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\sample.txt"); // CV Path of Trupti's system
 	}
 
 	public void uploadResumeDocumentinPNGformatT() throws AWTException {  //Method for Trupti
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP32\\Documents\\CV.PNG"); // CV Path of Trupti's system
+		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\RequestControlPopUp (1).png"); // CV Path of Trupti's system
 	}
 
 

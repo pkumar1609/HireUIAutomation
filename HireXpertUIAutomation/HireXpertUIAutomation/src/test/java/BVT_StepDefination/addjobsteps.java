@@ -4,10 +4,10 @@ import java.util.List;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
@@ -251,30 +251,16 @@ public class addjobsteps extends baseclass{
 		editjobpage.updateNoOfInterviews();
 	}
 
-	@Then("^again click on Edit Job button and observe the number of interviews$")
-	public void again_click_on_Edit_Job_button_and_observe_the_number_of_interviews() throws Throwable {
-	    
-		workbenchpage.editJobButton.click();
-		Thread.sleep(3000);
-		
-		Select se = new Select(editjobpage.totalinterviews);
-		WebElement interviews = se.getFirstSelectedOption();
-		String TotalInterviews = interviews.getText();
-		System.out.println("\nNo. of Interviews: " + TotalInterviews);
-		Thread.sleep(1000);
-	}
+//	@Then("^again click on Edit Job button and observe the number of interviews$")
+//	public void again_click_on_Edit_Job_button_and_observe_the_number_of_interviews() throws Throwable {
+//		Thread.sleep(2000);
+//		workbenchpage.editJobButton.click();
+//		select = new Select(addjobpage.totalinterviews);
+//		Assert.assertEquals(select.getFirstSelectedOption().getText(), expected);
+//	}
 
-	@Then("^click on Add Skill button and add one new skill$")
-	public void click_on_Add_Skill_button_and_add_one_new_skill() throws Throwable {
-	    
-		addjobpage.addskillbutton.click();
-		
-		addjobpage.addNewSkill1();
-		
-		common.ClickSumbit();
-		
-		
-	}
+
+
 
 //	@Then("^enter skill details and click on submit button$")
 //	public void enter_skill_details_and_click_on_submit_button(DataTable dt) throws Throwable {

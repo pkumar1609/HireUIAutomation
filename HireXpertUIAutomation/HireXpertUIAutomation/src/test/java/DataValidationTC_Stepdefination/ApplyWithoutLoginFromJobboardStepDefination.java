@@ -150,10 +150,7 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 
 	@Given("^Go to Workbench$")
 	public void go_to_Workbench() throws Throwable {
-	    
-		Thread.sleep(3000);
 		dashboardpage.openWorkbenchPage();
-
 	}
 
 //	@Given("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")

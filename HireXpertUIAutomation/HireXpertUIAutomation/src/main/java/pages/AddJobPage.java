@@ -78,6 +78,9 @@ public AddJobPage()
 	@FindBy(xpath = "//button[contains(text(),' Add Skill ')]")
 	public WebElement addskillbutton;
 	
+	@FindBy(xpath = "//th[text()='Job Skills']//following::i[@class='fa fa-trash']")
+	public List<WebElement> deleteSkill;
+	
 	@FindBy(xpath = "//tr[2]//td[6]//button[1]")
 	WebElement deleteSkill2;
 	
@@ -284,21 +287,18 @@ public void addtenSkills() throws InterruptedException {
 		for(int i=2;i<=10;i++) {
 			
 			addskillbutton.click();
-			
-			
+
 		}
 	}
 
 	
 	public void addNewSkill1(String JobSkill1) {
-		
-//		addskillbutton.click();
-		
-		jobskill1.sendKeys(JobSkill1);
-		se = new Select(expertiselevel1);
+				
+		jobskill.get(3).sendKeys(JobSkill1);
+		se = new Select(expertiselevel.get(3));
 		se.selectByVisibleText("Expert");
 		
-		se = new Select(weightage1);
+		se = new Select(weightage.get(3));
 		se.selectByVisibleText("Mandatory");
 	}
 	

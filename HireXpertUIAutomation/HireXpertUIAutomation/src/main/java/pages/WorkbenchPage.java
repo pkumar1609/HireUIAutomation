@@ -163,27 +163,12 @@ public class WorkbenchPage extends baseclass {
 	}
 	
 	public void selectJobK() throws InterruptedException {
-	
-		
-//		select = new Select(jobDropDown);
-//		select.selectByIndex(1);
-//		select.selectByVisibleText();
+
 		Thread.sleep(4000);
 		jobDropDown.click();
 		driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).click();
-// 		updateprofilepopuppage.getDetails();
-//		this.emp=loginpage.b;
-//		if(emp==true)
-//		{
-//		organisation=updateprofilepopuppage.Organization;
-//		select.selectByVisibleText(" "+addjobpage.jobname+"  - "+organisation+" -  Active ");
-//		select.selectByValue(addjobpage.jobname);
-//		} 
-//		else
-//		{
-//		select.selectByValue(addjobpage.jobname);
-//		select.selectByVisibleText(" "+addjobpage.jobname+"  - "+organisation+" -  Active " );
-//		}
+//		driver.findElement(By.xpath("//option[contains(text(),'JCFW 11')]")).click();
+
 	}
 	
 	public void clickonthreedot() throws InterruptedException {

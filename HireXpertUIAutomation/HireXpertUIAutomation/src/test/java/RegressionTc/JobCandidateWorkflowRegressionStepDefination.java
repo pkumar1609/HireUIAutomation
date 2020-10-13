@@ -1,8 +1,9 @@
 package RegressionTc;
 
-import java.util.List;
 
-import org.junit.Assert;
+import java.util.List;
+import org.testng.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -154,7 +155,6 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 	@Then("^Click on Profile tab$")
 	public void click_on_Profile_tab() throws Throwable {
-	    
 		Thread.sleep(3000);
 		candidateupdateprofilepage.profileTab.click();
 		
@@ -265,6 +265,11 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	    
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//tr[2]//td[2]//button[1]")).click();  // delete 1 duplicate role
+		try
+		{
+		common.clickOnOKBtn();
+		}
+		catch(NoSuchElementException e) {}
 	}
 
 	@Then("^Now Click on Add designation button to add more than ten designation$")
@@ -285,11 +290,9 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	public void click_on_Delete_designation_button_in_front_of_any_designation_for_candidate() throws Throwable {
 
 		Thread.sleep(3000);
-		candidateupdateprofilepage.role3Delete.click();
+		candidateupdateprofilepage.deletedesignation.get(3).click();
 		
 	}
-
-
 
 	@Then("^click on Skills & Roles tab$")
 	public void click_on_Skills_Roles_tab() throws Throwable {
@@ -320,18 +323,23 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		candidateupdateprofilepage.skills.get(1).clear();
 		candidateupdateprofilepage.skills.get(1).sendKeys(Skill1); // enter 1st skill
 		candidateupdateprofilepage.expertiselevel.get(1).sendKeys(ExpertiseLevel);
-		driver.findElement(By.xpath("//tr[3]//td[4]//button[1]//i[1]")).click(); // delete 3rd skill
-		
+		driver.findElement(By.xpath("//tr[3]//td[4]//button[1]//i[1]")).click(); // delete 3rd skill	}
+		try
+		{
+		common.clickOnOKBtn();
+		}
+		catch(NoSuchElementException e) {}
 	}
-
 	@Then("^delete duplicate skill$")
 	public void delete_duplicate_skill() throws Throwable {
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//tr[2]//td[4]//button[1]")).click();  // delete 1 duplicate skill
-		Thread.sleep(3000);
-		common.clickOnSaveBtn();
-		Thread.sleep(3000);
+		try
+		{
 		common.clickOnOKBtn();
+		}
+		catch(NoSuchElementException e) {}
+		common.clickOnSaveBtn();
 	}
 	
 //	@Then("^delete duplicate role$")
@@ -355,7 +363,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	public void click_on_Delete_Skill_button_in_front_of_any_skill_for_candidate() throws Throwable {
 
 		Thread.sleep(3000);
-		candidateupdateprofilepage.skill3Delete.click();
+		candidateupdateprofilepage.skills.get(3).click();
 	}
 
 //	@Then("^click on Add Role button$")
@@ -553,16 +561,27 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		common.clickOnConfirmYes();
 	}
 	
-	@Then("^set on notice period field as no and enter notice period days$")
-	public void set_on_notice_period_field_as_no_and_enter_notice_period_days() throws Throwable {
+//	@Then("^set on notice period field as no and enter notice period days$")
+//	public void set_on_notice_period_field_as_no_and_enter_notice_period_days() throws Throwable {
+//
+//		Select se = new Select(addcandidatepage.OnNoticePeriodCheckbox);
+//		se.selectByVisibleText("No");
+//		Thread.sleep(5000);
+//		addcandidatepage.noticePeriod.clear();
+//		Thread.sleep(3000);
+//		addcandidatepage.noticePeriod.sendKeys("60");
+//		
+//	}
 
-		Select se = new Select(addcandidatepage.OnNoticePeriodCheckbox);
-		se.selectByVisibleText("No");
-		Thread.sleep(5000);
-		addcandidatepage.noticePeriod.clear();
-		Thread.sleep(3000);
-		addcandidatepage.noticePeriod.sendKeys("60");
-		
+	
+
+	@Then("^Set Notice period field as yes and enter lastworking day \"([^\"]*)\"$")
+	public void set_Notice_period_field_as_yes_and_enter_lastworking_day(String LastWorkingDay) throws Throwable {
+		Select se = new Select(addcandidatepage.onNoticePeriod);
+		se.selectByVisibleText("Yes");
+		Thread.sleep(2000);
+		addcandidatepage.calenderIcon.get(2).click();
+		common.enterdate(LastWorkingDay);
 	}
 	
 
@@ -892,9 +911,9 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 	@Given("^click on Job Seeker\\(Candidate\\) Sign In link$")
 	public void click_on_Job_Seeker_Candidate_Sign_In_link() throws Throwable {
-	    
-		Thread.sleep(3000);
-		registerpage.JobseekerCandidateSignInlink.click();
+		Thread.sleep(2000);
+		Action.moveToElement(loginpage.login).click().perform();
+		homepage.clickJobseekerCandidateSignInlinklink();
 	}
 
 	@Given("^enter candidate email and password \"([^\"]*)\" \"([^\"]*)\"$")
@@ -978,12 +997,22 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		Thread.sleep(3000);
 	}
 
-	@Given("^select number of interview except previously selected number  \"([^\"]*)\"$")
+	@When("^select number of interview except previously selected number \"([^\"]*)\"$")
 	public void select_number_of_interview_except_previously_selected_number(String NoOfInterview1) throws Throwable {
-
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Select se = new Select(addjobpage.totalinterviews);
 		se.selectByVisibleText(NoOfInterview1);
+	}
+	
+
+	@When("^again click on Edit Job button and observe the number of interviews \"([^\"]*)\"$")
+	public void again_click_on_Edit_Job_button_and_observe_the_number_of_interviews(String NoOfInterview1) throws Throwable {
+		
+		Thread.sleep(2000);
+		workbenchpage.clickonthreedot();
+		workbenchpage.editJobButton.click();
+		select = new Select(addjobpage.totalinterviews);
+		Assert.assertEquals(select.getFirstSelectedOption().getAttribute("value"), NoOfInterview1);
 	}
 
 	@Given("^click on submit button$")
@@ -1002,43 +1031,31 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		workbenchpage.editJobButton.click();
 		Thread.sleep(3000);
 	}
-
-	@Given("^click on Add Skill button and add one new skill$")
-	public void click_on_Add_Skill_button_and_add_one_new_skill() throws Throwable {
-
-		addjobpage.addskillbutton.click();
-		Thread.sleep(3000);
-	    addjobpage.addNewSkill3();
-	    Thread.sleep(3000);
-	    common.ClickSumbit();
-	}
-
 	
-
-	@Then("^Newly Added skills should be reflect in candidate profile which are already added for that job$")
-	public void newly_Added_skills_should_be_reflect_in_candidate_profile_which_are_already_added_for_that_job() throws Throwable {
-
+	@When("^click on Add Skill button and add one new skill \"([^\"]*)\"$")
+	public void click_on_Add_Skill_button_and_add_one_new_skill(String skill4) throws Throwable {
+		Thread.sleep(1000);
+		addjobpage.addskillbutton.click();			
+		addjobpage.addNewSkill1(skill4);		
+		common.ClickSumbit();
+	}
+	
+//	@Given("^click on Add Skill button and add one new skill$")
+//	public void click_on_Add_Skill_button_and_add_one_new_skill() throws Throwable {
+//
+//		addjobpage.addskillbutton.click();
 //		Thread.sleep(3000);
-//    String skillname = driver.findElement(By.xpath("(//input[@formcontrolname='Skill'])[3]")).getText();
-//    
-//    if (skillname.equals("Python")) {
-//    	
-//    	System.out.println("Newly added skill to job, refelcted in edit candidate profile.");
-//    	
-//    }
-//    
-//    else {
-//    	
-//    	System.out.println("Newly added skill to job, not refelcted in edit candidate profile.");
-//    	
-//    }
-    
-    Thread.sleep(3000);
-    
-    editcandidatepage.ClickOnSaveBtntoSavetheupdatedDetails();
+//	    addjobpage.addNewSkill3();
+//	    Thread.sleep(3000);
+//	    common.ClickSumbit();
+//	}
+
+	@Then("^Newly Added skills should be reflect in candidate profile which are already added for that job \"([^\"]*)\"$")
+	public void newly_Added_skills_should_be_reflect_in_candidate_profile_which_are_already_added_for_that_job(String Skill4) throws Throwable {
+		
+		String txt=editcandidatepage.jobskill.get(3).getAttribute("value");
+		Assert.assertEquals(txt.substring(0, txt.indexOf("(")).strip(), Skill4);
 	}
-	
-	
 	
 //	8
 
@@ -1068,73 +1085,75 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		String title1 = driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/add-edit-job/div[1]/h5")).getText();
 		System.out.println("\nTitle of page: " + title1);
 	}
-
 	
 	@Then("^Delete one skill from Skills section$")
 	public void delete_one_skill_from_Skills_section() throws Throwable {
-	    
-		Thread.sleep(3000);
-		addjobpage.deleteSkills();
+		Thread.sleep(2000);
+		addjobpage.deleteSkill.get(addjobpage.deleteSkill.size()-1).click();
+	}
+
+	@When("^observe deleted skill not displayed \"([^\"]*)\"$")
+	public void observe_deleted_skill_not_displayed(String Skill3) throws Throwable {
+		
+		Assert.assertEquals(editcandidatepage.jobskill.size()>2, false);
+			
 	}
 	
-	@Then("^observe deleted skill not displayed$")
-	public void observe_deleted_skill_not_displayed() throws Throwable {
-	    
-		Thread.sleep(3000);
-		editcandidatepage.observeOneDeletedSkill();
-	}
-
-
 	@Then("^click on Close button from Edit Candidate page$")
-	public void click_on_Close_button_from_Edit_Candidate_page() throws Throwable {
-	    
+	public void click_on_Close_button_from_Edit_Candidate_page() throws Throwable {	    
 		Thread.sleep(3000);
 		common.closebtn.click();
 	}
 
-	@Then("^deleted skills should display on Candidate Details page$")
-	public void deleted_skills_should_display_on_Candidate_Details_page() throws Throwable {
-	    
-		Thread.sleep(3000);
-		System.out.println("\nDeleted skill present on Candidate Details page..");
+//	@Then("^deleted skills should display on Candidate Details page$")
+//	public void deleted_skills_should_display_on_Candidate_Details_page() throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//		System.out.println("\nDeleted skill present on Candidate Details page..");
+//	}
+	
+	
+	@Then("^deleted skills should display on Candidate Details page \"([^\"]*)\"$")
+	public void deleted_skills_should_display_on_Candidate_Details_page(String Skill3) throws Throwable {
+	    Assert.assertEquals(Skill3.length()>0, true);
 	}
 	
 	@Then("^delete all added skills$")
 	public void delete_all_added_skills() throws Throwable {
-	    
-		Thread.sleep(3000);
-		addjobpage.deleteSkill1.click();
+		Thread.sleep(1000);
+		for(int i=0; i<2; i++)
+		{
+			Thread.sleep(1000);
+			addjobpage.deleteSkill.get(i).click();
+		}
 	}
 
-	@Then("^observe deleted job skill should not show when employer is going to add new candidate$")
-	public void observe_deleted_job_skill_should_not_show_when_employer_is_going_to_add_new_candidate() throws Throwable {
-	    
-		Thread.sleep(3000);
-		System.out.println("\nSkills section not displayed as job does not have any skills added..");
-		Thread.sleep(3000);
-		common.clickOnCloseBtn();
-		
+	@Then("^observe deleted job skill should not show when employer is going to add new candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void observe_deleted_job_skill_should_not_show_when_employer_is_going_to_add_new_candidate(String Skill1, String Skill2, String Skill3) throws Throwable {
+		 Assert.assertEquals(Skill1.length()>0, false);
+		 Assert.assertEquals(Skill2.length()>0, false);
+		 Assert.assertEquals(Skill3.length()>0, false);
+		 common.clickOnCloseBtn();
 	}
-		
 		
 //		9
 		
 		@Given("^click on Team tab and add one new team member by clicking on Add button for agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-		public void click_on_Team_tab_and_add_one_new_team_member_by_clicking_on_Add_button_for_agency(String AgencyteammemberName, String AgencyteammemberemailId, String AgencyteammemberNo) throws Throwable {
+		public void click_on_Team_tab_and_add_one_new_team_member_by_clicking_on_Add_button_for_agency(String agyteam, String AgencyteammemberemailId, String AgencyteammemberNo) throws Throwable {
 
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			dashboardpage.openTeamPage();
-			Thread.sleep(3000);
-
+			Thread.sleep(1000);
 			teampage.AddTeamButton.click();
-			Thread.sleep(3000);
-			teampage.TeamMemberEmail.sendKeys(AgencyteammemberName);
-			teampage.TeamMemberName.sendKeys(AgencyteammemberemailId);
-			teampage.TeamMemberContactNumber.sendKeys(AgencyteammemberNo);
-			Thread.sleep(3000);
-			common.submitbtn.click();
-			System.out.println("\nNew team member get added by agency..");
-		}
+			Thread.sleep(1000);
+			teampage.TeamMemberEmail.sendKeys(agyteam);
+			Thread.sleep(2000);
+			common.find.click();
+//			teampage.TeamMemberName.sendKeys(AgencyteammemberemailId);
+//			teampage.TeamMemberContactNumber.sendKeys(AgencyteammemberNo);
+//			Thread.sleep(3000);
+			common.ClickSumbit();
+\		}
 
 		@Given("^click on Close button from Team Members window$")
 		public void click_on_Close_button_from_Team_Members_window() throws Throwable {

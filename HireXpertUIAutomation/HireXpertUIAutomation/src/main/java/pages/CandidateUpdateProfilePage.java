@@ -87,8 +87,8 @@ public class CandidateUpdateProfilePage extends baseclass {
 //	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
 //	public WebElement noticePeriodCheckbox;
 //		
-//	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
-//	public WebElement addSkillButton;
+	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
+	public WebElement addSkillButton;
 //	
 //	@FindBy(xpath = "//tr[2]//td[1]//input[1]")
 //	public WebElement skill2;
@@ -108,11 +108,11 @@ public class CandidateUpdateProfilePage extends baseclass {
 //	@FindBy(xpath = "//tr[3]//td[4]//button[1]")
 //	public WebElement skill3Delete;
 //	
-//	@FindBy(xpath = "//button[contains(text(),'Add Designation')]")
-//	public WebElement addRolesButton;
+	@FindBy(xpath = "//button[contains(text(),'Add Designation')]")
+	public WebElement addRolesButton;
 //	
-//	@FindBy(xpath = "//tr[2]//td[2]//button[1]")
-//	public WebElement role3Delete;	
+	@FindBy(xpath = "//span[text()='Desired Designations']//following::i")
+	public List<WebElement> deletedesignation;	
 //	
 //	@FindBy(xpath = "//div[@class='col-md-4']//div[@class='row']//div[1]//label[1]//span[2]")
 //	public WebElement notLookingForJobCheckbox;
@@ -419,11 +419,9 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 	}
 	
 	public void addTenRoles() throws InterruptedException {
-		
+		Thread.sleep(1000);
 		for(int i=1;i<=10;i++) {
-			
 			addRolesButton.click();
-			Thread.sleep(1000);
 		}
 	}
 	public void AssertDetailsOnCandidateProfile(String Username, String CandidateEmail, String profiletitle, String Name, String ContactNumber, String Designation, String Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String relocate) throws InterruptedException

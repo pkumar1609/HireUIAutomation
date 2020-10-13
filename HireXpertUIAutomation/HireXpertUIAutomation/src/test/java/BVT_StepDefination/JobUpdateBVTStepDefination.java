@@ -99,13 +99,10 @@ public class JobUpdateBVTStepDefination extends baseclass {
 
 	@Then("^click on Edit Job button to make changes in job$")
 	public void click_on_Edit_Job_button_to_make_changes_in_job() throws Throwable {
-		Thread.sleep(3000);
+
 		workbenchpage.clickonthreedot();
 		Thread.sleep(3000);
 		workbenchpage.editJobButton.click();
-		Thread.sleep(3000);
-		String title1 = driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/add-edit-job/div[1]/h5")).getText();
-		System.out.println("\nTitle of page: " + title1);
 	}
 
 	@Then("^again click on Edit Job button and observe the changes$")

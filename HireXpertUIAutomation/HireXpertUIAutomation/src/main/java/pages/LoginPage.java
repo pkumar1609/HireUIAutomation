@@ -87,7 +87,7 @@ public class LoginPage extends baseclass
 	{
 		Thread.sleep(2000);
 		Action.moveToElement(login).click().perform();
-		Thread.sleep(4000);
+		Thread.sleep(1000);
 		EmployerAgencySignInlink.click();
 	}
 	
