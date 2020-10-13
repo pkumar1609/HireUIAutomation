@@ -265,7 +265,7 @@ And Enter all details on register page "<Name>" "<CandidateEmail>" "<ContactNumb
 And Click on Job Seeker(Candidate) Sign In link
 And candidate enters valid credentials "<CandidateEmail>","<Password>"
 And click on update profile option
-#Then Enter all the personal and professional details of candidate "<title>" "<ContactNumber>" "<Date>" "<Country>" "<CityArea>" "<Name>" "<alternateemail>" "<alternateContact>" "<Gender>" "<City>" "<ZipCode>" "<currentorganization>" "<currentdesignation>" "<currentduration>" "<jobtype>" "<shift>" "<preferredcity>" "<searchkeyword>" "<industry>" "<experience>" "<expectedCTC>" "<residentialstatus>" "<OnNoticePeriod>" "<LastWorkingDay>" "<NoticePeriod>" "<CTC>" "<Communicationmode>" "<willingtotravel>" "<lookingforjob>" "<relocate>" "<cv>"
+Then Enter all the personal and professional details of candidate "<title>" "<ContactNumber>" "<Date>" "<Country>" "<CityArea>" "<Name>" "<alternateemail>" "<alternateContact>" "<Gender>" "<City>" "<ZipCode>" "<currentorganization>" "<currentdesignation>" "<currentduration>" "<jobtype>" "<shift>" "<preferredcity>" "<searchkeyword>" "<industry>" "<experience>" "<expectedCTC>" "<residentialstatus>" "<OnNoticePeriod>" "<LastWorkingDay>" "<NoticePeriod>" "<CTC>" "<Communicationmode>" "<willingtotravel>" "<lookingforjob>" "<relocate>" "<cv>"
 #And Click on save button
 #And click ok on success popup
 #Then Assert the personal and professional details of candidate

@@ -58,7 +58,20 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath = "//button[text()='Cancel']")
 	public WebElement cancel;
 	
+	@FindBy(xpath = "//span[text()='×']")
+	public WebElement crossIcon;
+		
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
+	
+	public void ClickonCrossIcon()
+	{
+		try
+		{
+			common.crossIcon.click();
+		}
+		catch(NoSuchElementException e)
+		{}
+	}
 	
 	public void clickOnSaveBtn() throws InterruptedException
 	{

@@ -20,6 +20,7 @@ import pages.CandidateDashboardPage;
 import pages.CandidateUpdateProfilePage;
 import pages.ChangePasswordPage;
 import pages.Commonfunction;
+import pages.CvStorePage;
 import pages.DashboardPage;
 import pages.EditCandidatePage;
 import pages.EditJobPage;
@@ -83,7 +84,8 @@ public class baseclass {
 	public static Actions Action;
 	public static ForgetPasswordPage forgetpasswordpage;
 	public static WebDriverWait explicitwait;
- 
+	public static CvStorePage cvstorepage;
+
 	
 	public baseclass() { 
 		
@@ -146,6 +148,8 @@ public class baseclass {
 		Action = new Actions(driver);
 		forgetpasswordpage=new ForgetPasswordPage();
 		explicitwait = new WebDriverWait(driver,80);
+		cvstorepage= new CvStorePage();
+
 
 	}
 	
