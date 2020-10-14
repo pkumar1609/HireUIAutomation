@@ -3,7 +3,7 @@ Feature: Job Management
 @BVT 
   Scenario Outline: To verify user is able to add and edit job for Employer and Agency login
   
-   Given User is on Home page of application
+    Given User is on Home page of application
     When title of page is HireXpert
     And click on Login link
     And enter valid user "<email address>" and "<password>" for registered employer and agency and click on Sign in button
@@ -27,9 +27,9 @@ Feature: Job Management
     
     
 Examples:
-|    email address            |  password  | JobTitle  | JobDesignation   | Industry    | MinSalary  | MaxSalary | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod | CityArea    | ZipCode |  JobSkill1 | JobSkill2 | JobNoticePeriod1 | OrganizationName |
-|  employermain01@gmail.com   |   12345    | SDET      | QA Analyst       | IT-Industry | 300000     | 500000    | 3      | 5      |   2            |  30             | Viman Nagar | 411014  | Agile      |  Java     |   60             |  EmpOrg          |
-|  agencymain01@gmail.com     |   12345    | QA Engg   | Tester           | IT-Industry | 300000     | 600000    | 2      | 3      | 2              |  45             | Kharadi     | 12345   |  Java      |  Agile    |   45             |  EmpOrg     |
+|    email address     |  password  | JobTitle  | JobDesignation   | Industry    | MinSalary  | MaxSalary | MinExp | MaxExp | NoOfInterviews | JobNoticePeriod | CityArea    | ZipCode |  JobSkill1 | JobSkill2 | JobNoticePeriod1 | OrganizationName |
+|  pemp@gmail.com      |   12345    | SDET      | QA Analyst       | IT-Industry | 300000     | 500000    | 3      | 5      |   2            |  30             | Viman Nagar | 411014  | Agile      |  Java     |   60             |  EmpOrg          |
+|  pagy@gmail.com      |   12345    | QA Engg   | Tester           | IT-Industry | 300000     | 600000    | 2      | 3      | 2              |  45             | Kharadi     | 12345   |  Java      |  Agile    |   45             |  EmpOrg     |
 
 
 #TC ID - 15,21,22,46,74,76,94

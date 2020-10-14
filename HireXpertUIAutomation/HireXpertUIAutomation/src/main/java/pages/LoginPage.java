@@ -153,11 +153,8 @@ public class LoginPage extends baseclass
 		password.sendKeys(Password);
 		Thread.sleep(3000);
 		signin.click();
+		common.clickOnCloseBtn();
 		identifyUserK();
-		if(dashboardpage.jobPopup.size()>0)
-		{
-			common.clickOnOKBtn();
-		}
 	}
     
     public void loginInAppWithTeamK() throws InterruptedException

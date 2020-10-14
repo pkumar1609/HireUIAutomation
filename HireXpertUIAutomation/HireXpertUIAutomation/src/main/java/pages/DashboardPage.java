@@ -12,9 +12,11 @@ import utilPackage.baseclass;
 
 public class DashboardPage extends baseclass {
 
+	@FindBy(xpath = "//a[contains(text(),'Hire ')]")
+	public WebElement hire;
 	
-	@FindBy(xpath = "//a[@href='#/ats/workbench']")
-	public WebElement workbench;
+	@FindBy(linkText = "Application Tracking")
+	public WebElement applicationTracking;
 	
 	@FindBy(xpath = "//a[contains(text(),'Employers')]")
 	public WebElement employers;
@@ -50,7 +52,8 @@ public class DashboardPage extends baseclass {
 	public void openWorkbenchPage() throws InterruptedException {
 		
 		Thread.sleep(2000);
-		executor.executeScript("arguments[0].click();",workbench);
+		Action.moveToElement(hire).click().perform();
+		executor.executeScript("arguments[0].click();",applicationTracking);
 		if(dashboardpage.jobPopup.size()>0)
 		{
 			common.clickOnOKBtn();
