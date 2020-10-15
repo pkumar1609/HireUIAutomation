@@ -270,7 +270,7 @@ public class taskBWT extends baseclass {
 		{
 			dashboardpage.openDashboardPage();
 			taskpage.ClickOnMyTask();
-	//		taskpage.reloadtask();
+			taskpage.reloadtask();
 			Thread.sleep(2000);
 			List<WebElement> markCompleteButton = driver.findElements(By.xpath("//a[@title='Complete']"));
 			int size= markCompleteButton.size();

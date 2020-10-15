@@ -3,6 +3,7 @@ package pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -30,7 +31,7 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath = "//a[contains(text(),'Interviews')]")
 	public WebElement interviews;
 	
-	@FindBy(xpath= "//a[text()=' Dashboard ']")
+	@FindBy(xpath= "//a[text()='Dashboard ']")
 	public WebElement dashboard ;
 	
 	@FindBy(xpath= "//a[contains(text(),'Job Applications')]")
@@ -61,6 +62,7 @@ public class DashboardPage extends baseclass {
 	}
 	
 	public void openEmployersPage() throws InterruptedException {
+		Action.moveToElement(dashboardpage.hire).click().perform();
 		Thread.sleep(4000);
 		employers.click();
 	}
@@ -69,11 +71,11 @@ public class DashboardPage extends baseclass {
 		
 //		wait.until(ExpectedConditions.elementToBeClickable(agencies));
 		Thread.sleep(2000);
-		agencies.click();
+		agencies.click(); 
 	}
 	
 	public void openTeamPage() throws InterruptedException {
-
+		Action.moveToElement(dashboardpage.hire).click().perform();
 		Thread.sleep(3000);
 		team.click();
 	}  
@@ -87,6 +89,11 @@ public class DashboardPage extends baseclass {
 	{
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",dashboard);
+		try {
+			common.clickOnCloseBtn();
+		}
+		catch(NoSuchElementException e)
+		{}
 	} 
 	
 	public void VerifyUserIsOnCorrectPage() {

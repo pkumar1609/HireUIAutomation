@@ -226,7 +226,7 @@ public class MarketplaceBvt extends baseclass {
 		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,profiletitle,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
 //		addcandidatepage.addSkill(level1, level2, level3, certificate1, certificate2, certificate3, certificateforskill1, certificateforskill2);
 		addcandidatepage.uploadResumeDocument();
-		common.clickOnSaveBtn();
+		common.clickOnSaveBtn(); 
 		addcandidatepage.checkCandidateALreadyPresent();
 	}
 //	@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
@@ -242,11 +242,11 @@ public class MarketplaceBvt extends baseclass {
 	
 	@And("^Login with another agency$")
 	public void login_with_another_agency() throws Throwable {
-		emailaddress.sendKeys(prop.getProperty("agyid2"));
-		password.sendKeys(prop.getProperty("pwd"));
+		loginpage.emailaddress.sendKeys("pagy1@gmail.com");
+		loginpage.password.sendKeys("12345");
 		Thread.sleep(2000);
-		executor.executeScript("arguments[0].click();",signin);
-		identifyUserK();
+		executor.executeScript("arguments[0].click();",loginpage.signin);
+		loginpage.identifyUserK();
 		if(dashboardpage.jobPopup != null)
 		{
 			common.clickOnOKBtn();

@@ -131,13 +131,14 @@ public class TeamPage extends baseclass {
 //			dropdown.selectByVisibleText("India");
 			common.ClickSumbit(); 
 			try
-			{ 
+			{
 				common.clickOnOKBtn();
-//				common.clickOnAddClosebtn();
-				System.out.println("these team member are already added");
+				System.out.println("this agency is already added");
 			}
-			catch(NoSuchElementException e)
-			{}
+			finally
+			{
+//				common.clickOnAddClosebtn();
+			}
 		}
 		common.clickOnAddClosebtn();
 		common.clickOnCloseBtn();

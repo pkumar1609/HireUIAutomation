@@ -1,6 +1,6 @@
 Feature: UserAccount Feature
 
-@TC47_51 @Bvtc @login
+@TC47_51 @Bvtc 
 Scenario: To verify whether the employer is able to add agency.
 
 Given User must be registered
@@ -17,7 +17,7 @@ And Click on Agencies tab
 Then Employer should be able to add Agency
 Then Newly added agency should be displayed in Agencies page
 And delete the added agency
-
+Then Close browser
 
 
 @TC48_52 @Bvtc @login
@@ -37,6 +37,7 @@ And Click on team tab
 Then Newly added team member should be displayed in team page
 Then the employer with which you have logged in should display in team tab by default
 And delete the added team
+Then Close browser
 
 @TC49_53 @Bvtc @login
 Scenario: To verify whether the Agency is able to add and delete employer
@@ -55,6 +56,7 @@ And Click on Employer tab
 Then Agency should be able to add Employer
 And  delete the added employer
 Then deleted employer should not be display on page
+Then Close browser
 
 
 @TC50_54 @Bvtc @login
@@ -76,7 +78,7 @@ Then Agency should be able to add team
 Then Newly added team member should be displayed in team page
 And delete the added team
 Then deleted user should not be display on page
-
+Then Close browser
 
 #Regression Test Cases
 

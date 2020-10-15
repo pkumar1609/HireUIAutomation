@@ -69,8 +69,9 @@ public class AgenciesPage extends baseclass {
 	}
 	public void Clickagencybtn() throws InterruptedException
 	{
+		Action.moveToElement(dashboardpage.hire).click().perform();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(dashboardpage.agencies));
-		dashboardpage.openAgenciesPage();
+		dashboardpage.openAgenciesPage(); 
 	}
 	
 	public void ClickAddbtn() throws InterruptedException
@@ -86,7 +87,7 @@ public class AgenciesPage extends baseclass {
 	{
 		agencyName.clear();
 		agencyName.sendKeys(data.get("Name"));
-		empname=data.get("Name");
+		empname=data.get("Name"); 
 		agencyEmail.clear();
 		agencyEmail.sendKeys(data.get("Email"));
 		agencyContactNumber.clear();
@@ -99,12 +100,10 @@ public class AgenciesPage extends baseclass {
 		try
 		{
 			common.clickOnOKBtn();
-//			common.clickOnAddClosebtn();
 			System.out.println("this agency is already added");
 		}
-		catch(NoSuchElementException e)
-		{
-		}
+		finally
+		{}
 	}
 	common.clickOnAddClosebtn();
 	common.clickOnCloseBtn();

@@ -122,14 +122,14 @@ public class EmployersPage extends baseclass {
 			select.selectByVisibleText("India");
 			common.ClickSumbit();
 			try
-			{ 
+			{
 				common.clickOnOKBtn();
-				
-				System.out.println("these employer member are already added");
+				System.out.println("this agency is already added");
 			}
-			catch(NoSuchElementException e)
-			{}
-			
+			finally
+			{
+//				common.clickOnAddClosebtn();
+			}
 		}
 		common.clickOnAddClosebtn();
 		common.clickOnCloseBtn();

@@ -55,7 +55,7 @@ public class loginstepdefination extends baseclass {
 	public void click_on_Agencies_tab() throws InterruptedException  {
 		agenciespage.Clickagencybtn();
 	}
-
+ 
 	@And("^Click on add Button Fill all the mandatory details for agency$")
 		public void fill_all_the_mandatory_detail(DataTable credentials) throws InterruptedException  {
 		agenciespage.enterAllDetails(credentials);
@@ -92,7 +92,7 @@ public class loginstepdefination extends baseclass {
 	@Then("^the employer with which you have logged in should display in team tab by default$")
 	public void the_employer_with_which_you_have_logged_in_should_display_in_team_tab_by_default()  
 	{
-		ele = driver.getPageSource().contains(prop.getProperty("name"));
+		ele = driver.getPageSource().contains(prop.getProperty("loginid"));
 		Assert.assertEquals(ele, true);
 	}
 	

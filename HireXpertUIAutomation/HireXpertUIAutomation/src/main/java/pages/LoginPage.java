@@ -136,15 +136,13 @@ public class LoginPage extends baseclass
     public void loginInAppWithEmpK() throws InterruptedException {
 		
 		emailaddress.sendKeys(prop.getProperty("loginid"));
-		password.sendKeys(prop.getProperty("pwd"));
+		password.sendKeys("12345");
 //		explicitwait.until(ExpectedConditions.elementToBeClickable(signin));
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		signin.click();
+		common.clickOnCloseBtn();
 		identifyUserK(); 
-		if(dashboardpage.jobPopup.size()>0)
-		{
-			common.clickOnOKBtn();
-		}
+
 	}
     
     public void loginIn(String Username, String Password) throws InterruptedException {
@@ -153,34 +151,29 @@ public class LoginPage extends baseclass
 		password.sendKeys(Password);
 		Thread.sleep(3000);
 		signin.click();
-		common.clickOnCloseBtn();
+		common.clickOnCloseBtn(); 
 		identifyUserK();
 	}
     
     public void loginInAppWithTeamK() throws InterruptedException
 	{
-		emailaddress.sendKeys(prop.getProperty("teamid"));
-		password.sendKeys(prop.getProperty("pwd"));
+		emailaddress.sendKeys("pe1@gmail.com");
+		password.sendKeys("12345");
 		Thread.sleep(4000);
 		signin.click();
+		common.clickOnCloseBtn();
 		identifyUserK();
-		if(dashboardpage.jobPopup.size()>0)
-		{
-			common.clickOnOKBtn();
-		}
+		
 	}
 
 	public void loginInAppWithAgyK() throws InterruptedException
 	{
 		emailaddress.sendKeys(prop.getProperty("agyid"));
-		password.sendKeys(prop.getProperty("pwd"));
+		password.sendKeys("12345");
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",signin);
+		common.clickOnCloseBtn();
 		identifyUserK();
-		if(dashboardpage.jobPopup.size()>0)
-		{
-			common.clickOnOKBtn();
-		}
 	}
 	
 //	public void loginInAppWithAgy2K() throws InterruptedException
@@ -209,10 +202,11 @@ public class LoginPage extends baseclass
 	
 	public void loginInAppWithAgyTeamK() throws InterruptedException
 	{
-		emailaddress.sendKeys(prop.getProperty("agyteamid"));
-		password.sendKeys(prop.getProperty("pwd"));
+		emailaddress.sendKeys("pa1@gmail.com");
+		password.sendKeys("12345");
 		Thread.sleep(3000);
 		signin.click();
+		common.clickOnCloseBtn();
 		identifyUserK();
 	}
 	 

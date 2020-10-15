@@ -66,7 +66,7 @@ public class AddingCandidate extends baseclass{
 		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,profiletitle,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
 		addcandidatepage.addSkill(level1, level2, level3,certificate1, certificate2,certificate3,certificateforskill1, certificateforskill2);
 		addcandidatepage.uploadResumeDocument();
-		common.clickOnSaveBtn();
+		common.clickOnSaveBtn(); 
 		addcandidatepage.checkCandidateALreadyPresent();
 	}
 	
@@ -89,7 +89,7 @@ public class AddingCandidate extends baseclass{
 		editcandidatepage.AssertCandidatedetails(Username, CandidateEmail, profiletitle, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode);
 		editcandidatepage.AssertprobabiltyFields(Salaryoffered, distance, permanentAddress, relocate);
 		candidatecardsectionpage.assertskill(Skill1,Skill2,Skill3,level1, level2, level3,certificate1, certificate2,certificate3,certificateforskill1, certificateforskill2);	
-	}
+	} 
 
 	@When("^click on Schedule Interview icon from candidate card$")
 	public void click_on_Schedule_Interview_icon_from_candidate_card() throws Throwable {

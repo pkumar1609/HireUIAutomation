@@ -46,7 +46,7 @@ boolean emp;
 	@When("^click on Share With Agency button and select the Share checkbox present in front of the \"([^\"]*)\" to share the job$")
 	public void click_on_Share_With_Agency_button_and_select_the_Share_checkbox_present_in_front_of_the_to_share_the_job(String agyEmailId) throws Throwable {	
 	
-		sharewithagencypage.shareWithAgency(agyEmailId);	
+		sharewithagencypage.shareWithAgency(agyEmailId);	 
 	}
 	
 	@When("^click on Yes button from confirmation popup and click on Close button from Share Job window$")
@@ -109,7 +109,7 @@ boolean emp;
 		addcandidatepage.emailField.sendKeys(CandEmailId);
 		addcandidatepage.FindButton.click();
 	}
-	
+	 
 	@Then("^Blocked agency should not be able to add candidate for the job and error message message should display and he should be able to see all candidate status which are added for that job$")
 	public void blocked_agency_should_not_be_able_to_add_candidate_for_the_job_and_error_message_message_should_display_and_he_should_be_able_to_see_all_candidate_status_which_are_added_for_that_job() throws Throwable {
 		

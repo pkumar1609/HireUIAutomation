@@ -24,7 +24,7 @@ And Click on close button
 And Go to dashboard
 And Click on Add task button and enter all details employer
 |Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|task1       |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+|task1              |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 And the task should display for employer
 And Logout from App
 And Click on Employer-Agency Signin link
@@ -179,7 +179,7 @@ And Click on close button
 
 Examples:
 |Username      |Password|task    |team|Assignto|note                             |editedtask|editednote          |
-#|pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task8     |complete before 1 pm|
+|pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task8     |complete before 1 pm|
 |pagy@gmail.com|12345  |task11  |pagy|pa1      |Task should complete before time |task8     |complete before 1 pm|
 
 
@@ -214,7 +214,7 @@ And Click on close button
 
 Examples:
 |Username      |Password|task    |team|Assignto|note                             |editedtask|editednote          |
-#|pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task11     |complete before 1 pm|
+|pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task11     |complete before 1 pm|
 |pagy@gmail.com|12345   |task11  |pagy|pa1     |Task should complete before time |task11     |complete before 1 pm|
 
 

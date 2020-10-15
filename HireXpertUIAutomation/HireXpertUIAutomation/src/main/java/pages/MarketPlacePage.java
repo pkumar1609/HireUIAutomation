@@ -48,10 +48,10 @@ public class MarketPlacePage extends baseclass {
 	@FindBy(xpath ="//Select[@formcontrolname='ReplacementPeriod']")
 	public WebElement replacementPeriod;
 
-	@FindBy(xpath ="//a[text()=' Marketplace']")
+	@FindBy(xpath ="//a[text()='Marketplace']")
 	public WebElement marketPlaceTab;
 	
-	@FindBy(xpath ="//a[text()=' Marketplace']")
+	@FindBy(xpath ="//a[text()='Marketplace']")
 	public WebElement agymarketPlaceTab;
 	
 	@FindBy(xpath ="//select[@id='jobDropdown']")
@@ -302,7 +302,7 @@ public class MarketPlacePage extends baseclass {
 		invoicePeriod.getText().contentEquals(data.get("Invoice Period"));
 		paymentCycle.getText().contentEquals(data.get("Payment Cycle"));
 		replacementPeriod.getText().contentEquals(data.get("Replacement Period"));
-		jobfield.getText().contentEquals(prop.getProperty("jobname"));
+		jobfield.getText().contentEquals(addjobpage.jobname);
 		employerfield.getText().contentEquals(data.get("Employer"));
 		agencyfield.getText().contentEquals(data.get("Agency"));
 		String status= agyStatus.getAttribute("value");

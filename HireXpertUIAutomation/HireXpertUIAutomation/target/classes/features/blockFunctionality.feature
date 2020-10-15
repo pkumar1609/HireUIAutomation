@@ -7,20 +7,21 @@ Feature: Job Management
     
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
-    And enter valid "<username>" and "<password>" for registered employer and click on Sign in button
+    And enter valid "<username>" and "<Password>" for registered employer and click on Sign in button
     And Click on Agencies tab
     And Agency should be added previously
     |Name  |Email             | contact  |
 	|pagy  |pagy@gmail.com    | 1234564  |
-	And Click on close button
     And Go to workbench
    	And Add job
 	|title		      |agytitle          |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-	|developer 1      |agynew developer |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
+	|developer 3     |agynew developer |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
     And Select a added job
     And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 
     And again click on Share With Agency button and select the Block/Unblock checkbox present in front of the agency "<agyEmailId>" with whom you shared the job    
-    And logout with employer and login with Agency "<agyEmailId>" and "<passward>" valid credentials which you blocked on Share Job page 
+   	And Logout from App
+    And Click on Employer-Agency Signin link	
+	And Employer enters valid credentials "<agyEmailId>","<Password>"
 	And Go to workbench
 	And Select a added job    
 	And Click on add candidate
@@ -35,7 +36,7 @@ Feature: Job Management
  
  
  Examples:
- |username           |password  |agyEmailId	   |CandidateEmail    |Team|Teamid       |ContactNumber  |
+ |username           |Password  |agyEmailId	   |CandidateEmail    |Team|Teamid       |ContactNumber  |
  |pemp@gmail.com     |12345     |pagy@gmail.com|pratik@gmail.com  |pa1 |pa1@gmail.com|689498595      |
 
 #TC ID - 61,65,66,384
@@ -47,7 +48,7 @@ Feature: Job Management
     
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
-    And enter valid "<username>" and "<password>" for registered employer and click on Sign in button
+    And enter valid "<username>" and "<Password>" for registered employer and click on Sign in button
 	Given team member should be added
 	|Name|         Email   | contact  |Nameagy   |    Emailagy     | contactagy  |
 	|pe1 | pe1@gmail.com   | 1234564  | pa1      | pa1@gmail.com   |1234556      |
@@ -55,14 +56,14 @@ Feature: Job Management
 	And Go to workbench
 	And Add job
 	|title		     |agytitle          |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-	|new1 developer  |newagy1job   |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
+	|new3 developer  |newagy3job      |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
 	And Select a added job
     And click on Share With Team button and select the Share checkbox present in front of the team member "<team>"
 	And click on Yes button from confirmation popup and now select the Block/Unblock checkbox present in front of the team member 
  	And Click on close button
   	And Logout from App
 	And Click on Employer-Agency Signin link
-    And enter valid "<teamId>" and "<password>" for registered employer and click on Sign in button
+    And enter valid "<teamId>" and "<Password>" for registered employer and click on Sign in button
     And Go to workbench
     And Select a added job
     And click on Add Candidate button
@@ -71,7 +72,7 @@ Feature: Job Management
     And close the browser
     
 Examples:
-|username         |   password   |team|teamId         |CandEmailId    |
+|username         |   Password   |team|teamId         |CandEmailId    |
 |pemp@gmail.com   |    12345     |pe1 |pe1@gmail.com  |can12@gmail.com|
 |pagy@gmail.com   |    12345     |pa1 |pa1@gmail.com  |can13@gmail.com|
 

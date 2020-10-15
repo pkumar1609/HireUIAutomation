@@ -34,7 +34,7 @@ Feature: Interview Management
     And click on Interviews tab
     And Select the filters for which you want candidate interview details and click on Search button "<scheduleon1>"
     Then Interview details should be reflect according to the filter applied
-    And click on close job button and delete the job
+#    And click on close job button and delete the job
     And close the browser
     
    Examples: 
