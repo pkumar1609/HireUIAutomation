@@ -1,6 +1,6 @@
 Feature: Marketplace Feature
 
-@TC351 @Bvtc @market
+@TC351 @BVT @market
 Scenario: To verify the functionality to share job with market place.
 Given User must be registered
 When title of login page is Home
@@ -88,7 +88,7 @@ Then status should display as employer signed
 
 
 
-@TC363_375 @Bvtc @market
+@TC363_375 @BVT @market
 Scenario Outline: To check the functionality of Review request and add candidate
 Given User must be registered
 And Click on Employer-Agency Signin link

@@ -173,9 +173,8 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	@Then("^Verify that user get an alert message as \"([^\"]*)\" for adding more than ten skills$")
 	public void verify_that_user_get_an_alert_message_as_for_adding_more_than_ten_skills(String ExpectedErrorMessage) throws Throwable {
 
-		Thread.sleep(3000);
-    String ActualAlertMessage = driver.findElement(By.xpath("//h6[@id='alertlineheight']")).getText();
-    
+	Thread.sleep(3000);
+    String ActualAlertMessage = driver.findElement(By.xpath("//h6[@id='alertlineheight']")).getText();   
     Assert.assertEquals(ExpectedErrorMessage, ActualAlertMessage);
 		
 	}

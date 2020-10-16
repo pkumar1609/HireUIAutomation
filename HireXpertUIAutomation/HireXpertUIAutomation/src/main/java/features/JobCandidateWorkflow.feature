@@ -1,5 +1,20 @@
 Feature: Hirexpert Job Candidate Workflow feature
 
+@cleamup
+Scenario Outline: cleanup
+
+Given User must be registered
+When title of login page is Home
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials "<Username>","<Password>"
+And Go to Workbench 
+And close all job  
+Examples:
+|Username      |Password|
+#|pemp@gmail.com|12345   |
+|pagy@gmail.com|12345   |
+
+
 @BVT @JCWF1
 Scenario Outline: Verify the functionality of Add, Edit & Delete Candidate with Employer login
 
@@ -7,8 +22,7 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-And Go to Workbench 
-#And close all job    
+And Go to Workbench     
 And Add job
 |title  |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
 |JCWF 1 |JCWF agy 1 | developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
@@ -21,13 +35,11 @@ And Make the changes in "<contactnumber1>" field
 And Click on save button to save the update details
 Then click on Delete Candidate icon on Candidate card "<Name>"
 And Verify candidate is displayed on workbench after deleting
-#And click on close job button and delete the job
-#And click on ok button
-#And click on employer tab and delete the employer if login as agency
+
 
 Examples: 
 |Username       |Password |		CandidateEmail      |  Name   |    ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber1   |
-#|pemp@gmail.com | 12345   | candidate14@gmail.com   | Can14   |   9125671966     |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       |
+|pemp@gmail.com | 12345   | candidate14@gmail.com   | Can14   |   9125671966     |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       |
 |pagy@gmail.com | 12345   | candidate14@gmail.com   | Can14   |   9125671966     |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       |
 
   
@@ -47,8 +59,8 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to Workbench 
 And Add job
-|title  |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
-|JCWF 2 |JCWF agy 2 | developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
+|title   |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
+|JCWf 12345 |JCWF agy 2 | developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
 And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<profiletitle>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
@@ -85,7 +97,7 @@ And click on close button
 
 Examples:
 |Username       |Password |		CandidateEmail      |  Name   |    ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber1   | QUESTION1     | QMARKS1 | ANSWER1 | ANSWER2 | MARKS1 | MARKS2 | QUESTION2    | QMARKS2 | ANSWER3 | ANSWER4 | MARKS3 | MARKS4 |QUESTION3  | QMARKS3 | ANSWER5 | ANSWER6     | MARKS5 | MARKS6 | cuttoffpercentage | rejectionpercentage | question      | OrganizationName |
-|pemp@gmail.com | 12345   | candidate14@gmail.com   | Can14   |   9125671966      |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789        | NP Negotiable |  50     |  Yes    |   No    |  30    |  20    |Can Relocate? | 50      |  Yes    |  No     |  50    |   0    | Work Exp  |  100    | Fresher | Experienced | 50     |  50    |   80              |      20             | NP Negotiable |  EmpOrg          |
+|pemp@gmail.com | 12345   | hirecan14@gmail.com     | hirecan14   |   9125671966      |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789        | NP Negotiable |  50     |  Yes    |   No    |  30    |  20    |Can Relocate? | 50      |  Yes    |  No     |  50    |   0    | Work Exp  |  100    | Fresher | Experienced | 50     |  50    |   80              |      20             | NP Negotiable |  EmpOrg          |
 
 #TC :- 120, 122, 138, 234 [Job Candidate Workflow BVT TC]
 #TC :- 136 [Job Candidate Workflow Regression TC]
@@ -119,19 +131,11 @@ And click on submit
 And Click on screening tab
 Then verify the status of candidate 
 And click on close button
-#And click on close job button and delete the job
-#And click on ok button
-#And click on employer tab and delete the employer if login as agency
+
 
 Examples:
 |Username       |Password |		CandidateEmail      |  Name   |    ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber1   | QUESTION1     | QMARKS1 | ANSWER1 | ANSWER2 | MARKS1 | MARKS2 | QUESTION2    | QMARKS2 | ANSWER3 | ANSWER4 | MARKS3 | MARKS4 |QUESTION3  | QMARKS3 | ANSWER5 | ANSWER6     | MARKS5 | MARKS6 | cuttoffpercentage | rejectionpercentage | question      | OrganizationName |
 |pemp@gmail.com | 12345   | candidate14@gmail.com   | Can14   |   9125671966      |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789        | NP Negotiable |  50     |  Yes    |   No    |  30    |  20    |Can Relocate? | 50      |  Yes    |  No     |  50    |   0    | Work Exp  |  100    | Fresher | Experienced | 50     |  50    |   80              |      20             | NP Negotiable |  EmpOrg          |
-
-
-#Examples:
-#
-#| JobTitle | JobDesignation   | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1 |  JobSkill2 |      CandidateEmail       |  Name     |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode | Salaryoffered | distance | permanentAddress | relocate | QUESTION1      | QMARKS1  | ANSWER1 | ANSWER2 | MARKS1  | MARKS2 | cuttoffpercentage | rejectionpercentage | OrganizationName |
-#| Engineer | Test Engineer    | IT-Software | 2      | 3      |  500000    | 600000    | 3              |    60            | Agile      |    Java    |candidate0011@gmail.com    | can0011   |   912349699666   |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000        | 4        | No               | No       |  NP Negotiable |  100     |  Yes    |   No    |  100    |  0     |   80              |      20             | EmpOrg           |
 
 #TC ID :- 125 [Job Candidate Workflow BVT TC]
 
@@ -180,9 +184,7 @@ Examples:
 #Change interview date and time
 # If DB clear, register the agency first = agencymain01@gmail.com. otherwise no change required
   
-  
-  
- 
+
 #REGRESSION TCs
 
 @Regression @reg1
@@ -237,15 +239,9 @@ And click on Personal & Professional tab
 And set looking for job as No
 And Click on save btn
 And click on ok button
-
-
 Examples:
 |Username      |Teamid         |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
 |pemp@gmail.com|pe1@gmail.com  |12345    |hirecan19@gmail.com |jr software developer|hirecan19|7896485538    |Sr.developer  |14/02/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
-
-#Examples:
-#|Username		|Password| JobTitle  | JobDesignation   | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1  |  JobSkill2 |   CandidateEmail      |  Name        |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate| password | LastWorkingDay | Skill1 | Skill2 | ExpertiseLevel |  OrganizationName |
-#|pemp@gmail.com |12345   | Engineer1 | Test Engineer    | IT-Software | 2      | 3      |  500000    | 600000    | 3              |    60            | Agile       |   Java     |  hirecan16@gmail.com  | hirecan15    |   89562799666    |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 12345    | 1/9/2020       | Java   | Java   |  Expert        |  talentxpert      |
 
 # TC :- 25,64,104,129,296        [Job candidate Workflow Regression TC] 
 # TC :- 36,37,38,39,92,228,229   [Job Candidate Workbench BVT TC ]
@@ -426,39 +422,13 @@ And verify candidate card is displaying or not in New column "<Name>"
 And Click on add candidate
 And Enter All details of "<CandidateEmail1>","<profiletitle>","<Name1>","<ContactNumber1>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
 And verify candidate card is displaying or not in New column "<Name>"
-
-	
-#Given Open browser
-#And click on Login link
-#When click on Employer-Agency SignIn link
-#And login with Employer credential
-#And click on ok button
-#And Go to Workbench 
-#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
-#And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-#And click on Add Candidate button
-#And Enter valid "<CandidateEmail>" 
-#And click on find button 
-#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
-#And upload candidate resume and click on save button
-#And if confirmation popup is displayed click on ok button
-#And Click on Add Candidate button
-#And Enter valid "<CandidateEmail1>" 
-#And click on find button 
-#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
-#And upload candidate resume and click on save button
-#And if confirmation popup is displayed click on ok button
-
 And move both candidates in Interview Pending one column
 And Click on Reject Candidate icon from candidate card and reject that candidate "<Name>"
 Then Observe candidate get moved in Rejected column automatically
 And Click on Reject Candidate icon from candidate card for second candidate "<Name1>"
 And click on No from confirmation popup and observe
 Then both candidates should not display in same column
-#And click on close job button and delete the job
-#And click on ok button
-#And click on employer tab and delete the employer if login as agency
-#And close the browser
+
 
 Examples:
 |Username       |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |ContactNumber1|Name1    |
@@ -476,7 +446,7 @@ Examples:
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
 
-@Regression @reg6
+@Regression @reg6 
 Scenario Outline: To verify the functionality of Upload Resume on emp/agy profile
 	
 Given User must be registered
@@ -492,23 +462,6 @@ And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
 And verify candidate card is displaying or not in New column "<Name>"	
-	
-#Given Open browser
-#And click on Login link
-#When click on Employer-Agency SignIn link
-#And login with Employer credential
-#And click on ok button
-#And Go to Workbench 
-#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
-#And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-#And click on Add Candidate button
-#And Enter valid "<CandidateEmail>" 
-#And click on find button 
-#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
-#And upload candidate resume in document format
-#And Click on Save Button 
-#And if confirmation popup is displayed click on ok button
-
 And Click on Edit Candidate icon on candidate card "<Name>"
 And upload candidate resume in zip file format
 And verify the error message displayed as "Only .pdf, .docx , .txt and .doc format files are supported."
@@ -526,10 +479,7 @@ And verify the error message displayed as "Only .pdf, .docx , .txt and .doc form
 And click on ok button
 And Click on save button for edit candidate
 And if confirmation popup is displayed click on ok button
-#And click on close job button and delete the job
-#And click on ok button
-#And click on employer tab and delete the employer if login as agency
-#And close the browser
+
 
 Examples: 
 |Username            |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
@@ -537,46 +487,7 @@ Examples:
 |pagy@gmail.com      |12345    |hirecan22@gmail.com |jr software developer|hirecan22|7896485538    |Sr.developer  |14/02/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
 
-
-#Given Open browser
-#And click on Login link
-#When click on Employer-Agency SignIn link 
-#And login with Agency credential
-#And click on ok button
-#And Go to Workbench 
-#And click on Add Job button and fill all mandatory details on Add Job popup window "<JobTitle>" "<Industry>" "<JobDesignation>" "<MinSalary>" "<MaxSalary>" "<MinExp>" "<MaxExp>" "<NoOfInterviews>" "<CityArea>" "<ZipCode>" "<JobNoticePeriod>" "<JobSkill1>" "<JobSkill2>" 
-#And Select the same job from job drop down "<JobTitle>" "<OrganizationName>"
-#And click on Add Candidate button
-#And Enter valid "<CandidateEmail>" 
-#And click on find button 
-#And fill all the information "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>", "<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>" and "<relocate>"
-#And upload candidate resume in document format
-#And Click on Save Button 
-#And if confirmation popup is displayed click on ok button
-#And Click on Edit Candidate icon on candidate card "<Name>"
-#And upload candidate resume in zip file format
-#And verify the error message displayed as "Only .pdf, .docx , .txt and .doc format files are supported."
-#And click on ok button
-#And upload candidate resume in pdf file format
-#And Click on save button for edit candidate
-#And if confirmation popup is displayed click on ok button
-#And Click on Edit Candidate icon on candidate card "<Name>"
-#And upload candidate resume in text file format
-#And Click on save button for edit candidate
-#And if confirmation popup is displayed click on ok button
-#And Click on Edit Candidate icon on candidate card "<Name>"
-#And upload candidate resume in PNG file format
-#And verify the error message displayed as "Only .pdf, .docx , .txt and .doc format files are supported."
-#And click on ok button
-#And Click on save button for edit candidate
-#And if confirmation popup is displayed click on ok button
-#And click on close job button and delete the job
-#And click on ok button
-#And click on employer tab and delete the employer if login as agency
-#And close the browser
-
-
-@Regression @reg7 
+@Regression @reg7 @run
 Scenario Outline: To verify the functionality of Upload Resume on candidate profile
 	
 Given User must be registered
@@ -585,7 +496,6 @@ When title of login page is Home
 And click on Job Seeker(Candidate) Sign In link
 And enter candidate email and password "<CandidateEmail>" "<Password>" 
 And click on Signin button
-#And click on ok button of confirmation popup
 And Click on Profile tab
 Then verify the Auto Populated fields on candidate update profile popup window "<Username>","<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<relocate>"
 And upload candidate resume in document format
@@ -616,7 +526,7 @@ Examples:
 # Change the candidate name & candidate email every time
 
 
-@Regression @reg8
+@Regression @reg8 @run
  Scenario Outline: To verify user is able to update skills and No. of Interviews for the job with Employer login
 	
 Given Open browser
@@ -624,23 +534,20 @@ When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to Workbench
-#And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
-#|title		     |agytitle     |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-#|JCFW 11         |JCFW agy 11  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
+And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
+|title		     |agytitle     |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
+|JCFW 11         |JCFW agy 11  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
 And Select a added job
-#And Click on add candidate
-#And Enter All details of "<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
-#And verify candidate card is displaying or not in New column "<Name>"	
-#And click on Edit Job button to update skills and number of interview
-#And select number of interview except previously selected number "<NoOfInterviews1>"
-#And click on submit button
-#And again click on Edit Job button and observe the number of interviews "<NoOfInterviews1>"
-#And click on Add Skill button and add one new skill "<Skill4>"
+And Click on add candidate
+And Enter All details of "<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
+And verify candidate card is displaying or not in New column "<Name>"	
+And click on Edit Job button to update skills and number of interview
+And select number of interview except previously selected number "<NoOfInterviews1>"
+And click on submit button
+And again click on Edit Job button and observe the number of interviews "<NoOfInterviews1>"
+And click on Add Skill button and add one new skill "<Skill4>"
 And Click on Edit Candidate icon on candidate card "<Name>"
 Then Newly Added skills should be reflect in candidate profile which are already added for that job "<Skill4>"
-#And click on close job button and delete the job
-#And click on ok button
-#And click on employer tab and delete the employer if login as agency
 And close the browser
 
 Examples: 
@@ -656,7 +563,7 @@ Examples:
     # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
     
 
-@Regression @reg9
+@Regression @reg9 @run
 Scenario Outline: To verify deleted skill on Candidate Details page and when employer is adding new candidate for the job
   
 Given Open browser
@@ -690,9 +597,6 @@ And Enter valid "<CandidateEmail1>"
 And click on find button 
 And click on ok button
 Then observe deleted job skill should not show when employer is going to add new candidate "<Skill1>" "<Skill2>" "<Skill3>"
-#And click on close job button and delete the job
-#And click on ok button
-#And click on employer tab and delete the employer if login as agency
 And close the browser
 
 Examples: 
@@ -708,7 +612,7 @@ Examples:
    # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
    
 
-@Regression @reg10
+@Regression @reg10 @run
 Scenario Outline: Verify the functionality of adding a candidate to the job that is shared by agency team member
     
 Given Open browser
@@ -738,19 +642,12 @@ And close the browser
 Examples:
 |    email address    |  Password  |agyteam      |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |
 |  pagy@gmail.com     |   12345    |pa1@gmail.com|hirecan27@gmail.com |jr software developer|hirecan27|9875866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com|   
-    
-  
-#     Examples:
-#|    email address            |  password  | AgencyteammemberemailId  | AgencyteammemberName    |  AgencyteammemberNo | JobTitle | JobDesignation | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary  | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 | OrganizationName  |  CandidateEmail      |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate |
-#|  agencymain01@gmail.com     |   12345    | teamagencymain@gmail.com |      TeamAgencymain     |  852963741          | SDET     | QA Analyst     | IT-Industry | 3      | 5      | 300000     |  500000    |   2            |    60           | Agile     | Java      | EmpOrg            |   tina01@gmail.com   | Tina01     |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No      |   
-#       
-    
-  
+
 #Reg TC ID: 239  [Job candidate workfloww Regression TC]
 
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
-@Regression @reg11
+@Regression @reg11 @run
 Scenario Outline: Verify functionality of bell icon on candidate card.
 
 Given Open browser
@@ -764,25 +661,16 @@ And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<
 And Select a added job
 And Click on add candidate
 And Enter All details of except the expertise level "<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
-#And Keep expertise level as Not answer "<ExpertiseLevel1>" "<ExpertiseLevel2>"
-#And Click on Save Button
 Then The candidate whose skill expert level is set as Not answer for that candidate card there should show bell icon
 And Click on Edit Candidate icon on candidate card "<Name>"
 And select different expertise level for the skill which is having expert level as not answer "<level1>" "<level2>"
 And Click on save button for edit candidate
 Then when user set expertise level other than Not answer in edit candidate at that time bell icon should removed from candidate card
-And click on close job button and delete the job
-And click on ok button
-And click on employer tab and delete the employer if login as agency
 
 Examples: 
 |Username            |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |
 |pemp@gmail.com      |12345    |hirecan30@gmail.com |jr software developer|hirecan30|9545866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Not Answered     | Not Answered | Expert | Mandatory |Preferred |Optional  |No          |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com|   
-
-#Examples:
-#   | JobTitle | JobDesignation | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary  | NoOfInterviews | JobNoticePeriod | JobSkill1 | JobSkill2 | OrganizationName |    CandidateEmail       |  Name   |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|   contactnumber   | ExpertiseLevel1 | ExpertiseLevel2 | expertiselevel1 | expertiselevel2 |
-#   | Engineer | Test Engineer  | IT-Software | 2      | 3      |500000      | 700000     | 3              | 60              | Agile     | Java      | EmpOrg           | candidate02@gmail.com   | Can02   |   912349699666   |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | 1234567891        | Not Answered    |  Not Answered   |  Expert         | Intermediate    |
-#  
+ 
 #  TC :- 374  [Job candidate workfloww Regression TC]
 
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
