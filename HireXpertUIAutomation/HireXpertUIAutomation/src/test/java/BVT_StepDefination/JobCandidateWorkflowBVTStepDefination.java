@@ -249,7 +249,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 
 		Thread.sleep(3000);
 		workbenchpage.verifyCollectAnswericonT();
-	}
+	} 
 
 
 	@When("^Login with Employer credential Who already have a Job added and a candidate added to that job$")
