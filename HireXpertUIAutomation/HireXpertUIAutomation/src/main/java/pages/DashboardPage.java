@@ -40,7 +40,7 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath= "//h6[contains(text(),'Hey there, looks like you haven’t added a job as features work best when used with a job, You can add a job by clicking Add Job button.')]")
 	public List<WebElement> jobPopup;
 	
-	@FindBy(xpath= "//a[contains(text(),' CV Store ')]")
+	@FindBy(xpath= "//a[contains(text(),'CV Store ')] ")
 	public WebElement cvStrore ;
 	
 	public DashboardPage() {

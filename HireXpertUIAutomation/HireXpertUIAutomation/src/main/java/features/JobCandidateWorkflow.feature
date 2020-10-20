@@ -190,9 +190,7 @@ Examples:
 @Regression @reg1
 Scenario Outline: To verify the functionality of Update Profile page of candidate
 
-
 Given User must be registered
-
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"

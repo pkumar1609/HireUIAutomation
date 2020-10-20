@@ -27,13 +27,13 @@ public class CvStorePage extends baseclass{
 	@FindBy(xpath= "//input[@aria-activedescendant='a878acf831c5-8']")
 	public WebElement designation ;
 	
-	@FindBy(xpath= "//input[@aria-activedescendant='aeb03b55bd56-0']")
+	@FindBy(xpath= "//body/div[1]/app-root[1]/div[1]/div[1]/div[1]/cvstore[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/label[1]/ng-select[1]/div[1]/div[1]/div[2]/input[1]")
 	public WebElement mandatorySkills ;
 	
-	@FindBy(xpath= "//input[@aria-activedescendant='afd2df071abe-0']")
+	@FindBy(xpath= "//body/div[1]/app-root[1]/div[1]/div[1]/div[1]/cvstore[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/label[1]/ng-select[1]/div[1]/div[1]/div[2]/input[1]")
 	public WebElement  preferredSkills;
 	
-	@FindBy(xpath= "//input[@aria-activedescendant='aaf0684c796a-1']")
+	@FindBy(xpath= "//body/div[1]/app-root[1]/div[1]/div[1]/div[1]/cvstore[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[6]/label[1]/ng-select[1]/div[1]/div[1]/div[2]/input[1]")
 	public WebElement  optionalSkills;
 	
 	@FindBy(xpath= "//input[@placeholder='Min Exp']")
@@ -85,31 +85,18 @@ public class CvStorePage extends baseclass{
 		Thread.sleep(1000);
 		this.jobs.click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//option[contains(text(),' "+jobs+"')]")).click();
-		Assert.assertEquals(this.designation.getAttribute("value"), designation);
-		Assert.assertEquals(this.mandatorySkills.getAttribute("value"), mandatorySkills);
-		Assert.assertEquals(this.preferredSkills.getAttribute("value"), preferredSkills);
-		Assert.assertEquals(this.optionalSkills.getAttribute("value"), optionalSkills);
-		Assert.assertEquals(this.minExp.getAttribute("value"), minexp);
-		Assert.assertEquals(this.maxExp.getAttribute("value"), maxexp);
-//		Assert.assertEquals(this.salary.getAttribute("value"), salary);
-		Assert.assertEquals(this.city.getAttribute("value"), city);
-//		Assert.assertEquals(this.noticePeriod.getAttribute("value"), noticeperiod);
-
-		Thread.sleep(2000);
-		common.crossIcon.click();
-		this.designation.sendKeys(designation);
-		common.ClickonCrossIcon();
-		this.mandatorySkills.sendKeys(mandatorySkills);
-		common.ClickonCrossIcon();
-		this.preferredSkills.sendKeys(preferredSkills);
-		this.optionalSkills.sendKeys(optionalSkills);
-		this.minExp.sendKeys(minexp);
-		this.maxExp.sendKeys(maxexp);
-		this.salary.sendKeys(salary);
-		this.noticePeriod.sendKeys(noticeperiod);
-		this.city.sendKeys(city);
-//		this.updatedBefore.sendKeys(up);
+		driver.findElement(By.xpath("//option[contains(text(),'Software developer 3')]")).click();
+		Assert.assertEquals(driver.findElement(By.xpath("//span[@class='ng-value-label']")).getText(), designation);
 		
+		Assert.assertEquals(driver.findElement(By.xpath("(//span[@class='ng-value-label'])[2]")).getText(), mandatorySkills);
+		Assert.assertEquals(driver.findElement(By.xpath("(//span[@class='ng-value-label'])[3]")).getText(), preferredSkills);
+		Assert.assertEquals(driver.findElement(By.xpath("(//span[@class='ng-value-label'])[4]")).getText(), optionalSkills);
+		Assert.assertEquals(this.minExp.getAttribute("value"), minexp); 
+		Assert.assertEquals(this.maxExp.getAttribute("value"), maxexp);
+		Assert.assertEquals(this.salary.getAttribute("value"), salary);
+		select=new Select(this.city);
+		Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), city);
+//		Assert.assertEquals(this.noticePeriod.getAttribute("value"), noticeperiod);
+	
 	}
 }
