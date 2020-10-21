@@ -92,8 +92,8 @@ public class CvStorePage extends baseclass{
 		Assert.assertEquals(driver.findElement(By.xpath("(//span[@class='ng-value-label'])[3]")).getText(), preferredSkills);
 		Assert.assertEquals(driver.findElement(By.xpath("(//span[@class='ng-value-label'])[4]")).getText(), optionalSkills);
 		Assert.assertEquals(this.minExp.getAttribute("value"), minexp); 
-		Assert.assertEquals(this.maxExp.getAttribute("value"), maxexp);
-		Assert.assertEquals(this.salary.getAttribute("value"), salary);
+		Assert.assertEquals(this.maxExp.getAttribute("value"), maxexp); 
+		Assert.assertEquals(this.salary.getAttribute("value"), salary); 
 		select=new Select(this.city);
 		Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), city);
 //		Assert.assertEquals(this.noticePeriod.getAttribute("value"), noticeperiod);

@@ -185,7 +185,7 @@ public class WorkbenchPage extends baseclass {
 	public void verifyCollectAnswericonT() {
 				
 		List<WebElement> collectanswericon = driver.findElements(By.xpath("//button[@title='Collect Answer']"));
-		Assert.assertEquals(collectanswericon.size()>0, true);
+		Assert.assertEquals(collectanswericon.size()>0, false);
 	}
 	
 	public void verifyQuestionnarieScreeningTabT() {

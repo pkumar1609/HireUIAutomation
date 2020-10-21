@@ -1,6 +1,6 @@
 Feature: Task Feature
 
-@TC264_266  @BVT @TaskBVT 
+@TC264_266  @BVT 
 Scenario Outline: Verify functionality of adding general task and particular task from Employer login
 
 Given User must be registered
@@ -50,7 +50,7 @@ Examples:
 |pemp@gmail.com|12345   |
 
 
-@TC265_267  @BVT @TaskBVT
+@TC265_267  @BVT 
 Scenario Outline: Verify agency can add general task and particular task.
 Given User must be registered
 When title of login page is Home
@@ -160,7 +160,7 @@ Examples:
 
 
 
-@TC302 @BVT 
+@TC302 @BVT @TaskBVT
 Scenario Outline: verify the functionality of edit for general tasks
 Given User must be registered
 When title of login page is Home
@@ -183,7 +183,7 @@ Examples:
 |pagy@gmail.com|12345  |task11  |pagy|pa1      |Task should complete before time |task8     |complete before 1 pm|
 
 
-@TC305 @BVT 
+@TC305 @BVT @TaskBVT
 Scenario Outline: verify the functionality of edit for particular tasks
 Given User must be registered
 When title of login page is Home
@@ -215,7 +215,7 @@ And Click on close button
 Examples:
 |Username      |Password|task    |team|Assignto|note                             |editedtask|editednote          |
 |pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task11     |complete before 1 pm|
-|pagy@gmail.com|12345   |task11  |pagy|pa1     |Task should complete before time |task11     |complete before 1 pm|
+#|pagy@gmail.com|12345   |task11  |pagy|pa1     |Task should complete before time |task11     |complete before 1 pm|
 
 
 @TC294 @TaskBVT @Bvtc

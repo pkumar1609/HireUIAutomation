@@ -35,10 +35,6 @@ public class cvStrorestepDefination extends baseclass {
 	    cvstorepage.FillBasicFilterValues(jobs, designation, mandatorySkills, preferredSkills, optionalSkills, minexp, maxexp, salary, noticeperiod, city);
 	}
 
-	@When("^click on search button$")
-	public void click_on_search_button() throws Throwable {
-	    common.clickOnSearchBtn();
-	}
 
 	@Then("^verify the result of basic filter$")
 	public void verify_the_result_of_basic_filter() throws Throwable {
@@ -57,7 +53,7 @@ public class cvStrorestepDefination extends baseclass {
 
 	@Then("^click on search button$")
 	public void click_on_search_button() throws Throwable {
-	    
+		 common.clickOnSearchBtn();
 	}
 
 	@Then("^verify the result of advance filter$")
