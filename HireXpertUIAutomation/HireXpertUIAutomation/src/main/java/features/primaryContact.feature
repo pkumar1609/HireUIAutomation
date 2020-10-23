@@ -10,7 +10,7 @@ Feature: Job Management
     And Go to workbench
 	And Add job
 	|title		    |agytitle       |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|Employer|
-	|primary123     |primaryagy job |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			    |Hirexpert   |rahitech       |pemp    |
+	|primary     |primaryagy job |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			    |Hirexpert   |rahitech       |pemp    |
 	And Select a added job
     And team member should be added
 	|Name|         Email   | contact  |Nameagy  |         Emailagy  |team  |agyteam |
@@ -31,7 +31,7 @@ Feature: Job Management
 Examples:
 |   email address    |  password  |Team|Teamid       |contact |anotherteam|thridteam|
 |pemp@gmail.com      |   12345    |pe1 |pe1@gmail.com|16546856|pe2        |pe3@gmail.com|
-|pagy@gmail.com      |   12345    |pa1 |pa1@gmail.com|98598695|pa2        |pa3@gmail.com|
+#|pagy@gmail.com      |   12345    |pa1 |pa1@gmail.com|98598695|pa2        |pa3@gmail.com|
 
     
 #TC ID - 68,69,93

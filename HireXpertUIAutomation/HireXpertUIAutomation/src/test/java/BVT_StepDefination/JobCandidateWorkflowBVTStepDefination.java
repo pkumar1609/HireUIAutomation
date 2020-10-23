@@ -1,10 +1,12 @@
 package BVT_StepDefination;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.java.en.Given;
@@ -248,7 +250,8 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void collect_Answer_icon_should_reflect_on_candidates_card_for_giving_answers() throws Throwable {
 
 		Thread.sleep(3000);
-		workbenchpage.verifyCollectAnswericonT();
+		List<WebElement> collectanswericon = driver.findElements(By.xpath("//button[@title='Collect Answer']"));
+		Assert.assertEquals(collectanswericon.size()>0, false);
 	} 
 
 
@@ -405,8 +408,8 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	@When("^Verify Collect Answer icon when no questionary is added for that job$")
 	public void verify_Collect_Answer_icon_when_no_questionary_is_added_for_that_job() throws Throwable {
 	    
-		workbenchpage.verifyCollectAnswericonT();
-	}
+		List<WebElement> collectanswericon = driver.findElements(By.xpath("//button[@title='Collect Answer']"));
+		Assert.assertEquals(collectanswericon.size()>0, false);	}
 	
 
 	@Then("^Click on  Collect Answers icon on candidate card$")

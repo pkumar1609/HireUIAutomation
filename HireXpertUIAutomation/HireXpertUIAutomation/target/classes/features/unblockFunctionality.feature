@@ -7,14 +7,14 @@ Feature: Job Management
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
     And enter valid "<Username>" and "<Password>" for registered employer and click on Sign in button
-    And Click on Agencies tab
-    And Agency should be added previously
-    |Name  |Email             | contact  |
-	|pagy  |pagy@gmail.com    | 1234564  |
+#    And Click on Agencies tab
+#    And Agency should be added previously
+#    |Name  |Email             | contact  |
+#	|pagy  |pagy@gmail.com    | 1234564  |
     And Go to workbench
 	And Add job
 	|title	|agytitle    |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-	|job4   |job1agy     |developer|IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |
+	|job5   |job1agy     |developer|IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |
 	And Select a added job
     And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 
     And click on the Block/Unblock to unblock checkbox present in front of agency whom you shared the job "<agyEmailId>"
@@ -42,14 +42,14 @@ Feature: Job Management
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
     And enter valid "<Username>" and "<Password>" for registered employer and click on Sign in button
-  	Given team member should be added
-	|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-	|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-	|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  | 
+#  	Given team member should be added
+#	|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+#	|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+#	|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  | 
    	And Go to workbench
 	And Add job
 	|title      |agytitle      |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-	|jobupdate  |jobupdateagy  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |	
+	|job6  |job6agy  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |	
 	And Select a added job
     And click on Share With Team button and select the Share checkbox present in front of the team member "<Teamid>"
     And click on the Block/Unblock to unblock checkbox present in front of team with whom you shared the job "<Teamid>"

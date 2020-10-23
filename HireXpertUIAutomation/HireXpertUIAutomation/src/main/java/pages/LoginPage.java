@@ -140,7 +140,7 @@ public class LoginPage extends baseclass
 //		explicitwait.until(ExpectedConditions.elementToBeClickable(signin));
 		Thread.sleep(2000);
 		signin.click();
-		common.clickOnCloseBtn();
+//		common.clickOnCloseBtn();
 		identifyUserK(); 
 
 	}
@@ -151,7 +151,7 @@ public class LoginPage extends baseclass
 		password.sendKeys(Password);
 		Thread.sleep(3000);
 		signin.click();
-		common.clickOnCloseBtn(); 
+//		common.clickOnCloseBtn(); 
 		identifyUserK();
 	}
     
@@ -161,7 +161,7 @@ public class LoginPage extends baseclass
 		password.sendKeys("12345");
 		Thread.sleep(4000);
 		signin.click();
-		common.clickOnCloseBtn();
+//		common.clickOnCloseBtn();
 		identifyUserK();
 		
 	}
@@ -172,7 +172,7 @@ public class LoginPage extends baseclass
 		password.sendKeys("12345");
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",signin);
-		common.clickOnCloseBtn();
+//		common.clickOnCloseBtn();
 		identifyUserK();
 	}
 	
@@ -206,7 +206,7 @@ public class LoginPage extends baseclass
 		password.sendKeys("12345");
 		Thread.sleep(3000);
 		signin.click();
-		common.clickOnCloseBtn();
+//		common.clickOnCloseBtn();
 		identifyUserK();
 	}
 	 

@@ -11,8 +11,8 @@ And Go to Workbench
 And close all job  
 Examples:
 |Username      |Password|
-|pemp@gmail.com|12345   |
-#|pagy@gmail.com|12345   |
+#|pemp@gmail.com|12345   |
+|pagy@gmail.com|12345   |
 
 
 @BVT @JCWF1
@@ -59,8 +59,8 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to Workbench 
 And Add job
-|title      |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
-|JCWf 31    |JCWF agy 2 | developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
+|title             |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
+|JCWfquestionary   |JCWF agy 2 | developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
 And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<profiletitle>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"

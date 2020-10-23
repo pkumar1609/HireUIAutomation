@@ -127,8 +127,6 @@ public class TeamPage extends baseclass {
 			TeamMemberEmail.sendKeys(data.get("Email"));
 			TeamMemberContactNumber.clear();
 			TeamMemberContactNumber.sendKeys(data.get("contact"));
-//			Select dropdown = new Select(countryid);
-//			dropdown.selectByVisibleText("India");
 			common.ClickSumbit(); 
 			try
 			{
@@ -137,10 +135,10 @@ public class TeamPage extends baseclass {
 			}
 			catch(NoSuchElementException e)
 			{
-//				common.clickOnAddClosebtn();
+				common.clickOnAddClosebtn();
 			}
 		}
-		common.clickOnAddClosebtn();
+//		common.clickOnAddClosebtn();
 		common.clickOnCloseBtn();
 	 }
 	
