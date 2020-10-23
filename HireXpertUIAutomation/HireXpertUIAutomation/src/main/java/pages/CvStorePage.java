@@ -80,12 +80,12 @@ public class CvStorePage extends baseclass{
 	
 
 	
-	public void FillBasicFilterValues(String jobs, String designation, String mandatorySkills, String preferredSkills, String optionalSkills, String minexp, String maxexp, String salary, String noticeperiod, String city) throws InterruptedException
+	public void FillBasicFilterValues(String jobs, String designation, String mandatorySkills, String preferredSkills, String optionalSkills, String minexp, String maxexp, String salary, String noticeperiod, String City) throws InterruptedException
 	{
 		Thread.sleep(1000);
 		this.jobs.click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//option[contains(text(),'Software developer 3')]")).click();
+		driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).click();
 		Assert.assertEquals(driver.findElement(By.xpath("//span[@class='ng-value-label']")).getText(), designation);
 		
 		Assert.assertEquals(driver.findElement(By.xpath("(//span[@class='ng-value-label'])[2]")).getText(), mandatorySkills);
@@ -95,8 +95,10 @@ public class CvStorePage extends baseclass{
 		Assert.assertEquals(this.maxExp.getAttribute("value"), maxexp); 
 		Assert.assertEquals(this.salary.getAttribute("value"), salary); 
 		select=new Select(this.city);
-		Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), city);
-//		Assert.assertEquals(this.noticePeriod.getAttribute("value"), noticeperiod);
+		select.selectByVisibleText(City);
+		
+		
+		//Assert.assertEquals(this.noticePeriod.getAttribute("value"), noticeperiod);
 	
 	}
 }
