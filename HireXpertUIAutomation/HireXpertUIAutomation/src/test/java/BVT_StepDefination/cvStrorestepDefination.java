@@ -27,33 +27,10 @@ public class cvStrorestepDefination extends baseclass {
 	    select=new Select(cvstorepage.filterType);
 	    select.selectByVisibleText(" Basic Filters ");
 	}
-	
-	@When("^Add job \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-	public void add_jobskill_and(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3, DataTable credentials) throws Throwable {
-		addjobpage.addjob(credentials);
-		addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3);		
-		common.ClickSumbit();
-	} 
-	
+
 	@When("^enter all value in basic filter fields \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void enter_all_value_in_basic_filter_fields(String jobs, String designation, String mandatorySkills, String preferredSkills, String optionalSkills, String minexp, String maxexp, String salary, String noticeperiod, String city) throws Throwable {
 	    cvstorepage.FillBasicFilterValues(jobs, designation, mandatorySkills, preferredSkills, optionalSkills, minexp, maxexp, salary, noticeperiod, city);
-	}
-
-
-	@Then("^verify the result of basic filter$")
-	public void verify_the_result_of_basic_filter() throws Throwable {
-	    
-	}
-
-	@Then("^Now select the advance filter from filter drop down$")
-	public void now_select_the_advance_filter_from_filter_drop_down() throws Throwable {
-	    
-	}
-
-	@Then("^enter all value in advance filter fields$")
-	public void enter_all_value_in_advance_filter_fields() throws Throwable {
-	    
 	}
 
 	@Then("^click on search button$")
@@ -61,14 +38,29 @@ public class cvStrorestepDefination extends baseclass {
 		 common.clickOnSearchBtn();
 	}
 
-	@Then("^verify the result of advance filter$")
-	public void verify_the_result_of_advance_filter() throws Throwable {
-
+	@When("^Add job with All details \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+	public void add_job_with_All_details_and(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3, DataTable credentials) throws Throwable {
+		addjobpage.addjob(credentials);
+		addjobpage.extraInfoOfJob(credentials);
+		addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3);		
+		common.ClickSumbit();
 	}
 
 	@Then("^verify the result of basic filter \"([^\"]*)\"$")
 	public void verify_the_result_of_basic_filter(String Name) throws Throwable {
+		common.clickOnOKBtn();
 		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'"+Name+"')]")).isDisplayed(), true);
+	}
+	
+	@Then("^Now select the advance filter from filter drop down$")
+	public void now_select_the_advance_filter_from_filter_drop_down() throws Throwable {
+		select=new Select(cvstorepage.filterType);
+	    select.selectByVisibleText(" Advance Filters ");
+	}
+	
+	@Then("^enter all value in advance filter fields \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void enter_all_value_in_advance_filter_fields(String jobs, String designation, String mandatorySkills, String preferredSkills, String optionalSkills, String minexp, String maxexp, String salary, String noticeperiod, String City, String updatedOn, String industry, String overBudget, String OnNoticePeriod, String CityArea, String Gender, String minage, String maxage, String jobtype, String shift) throws Throwable {
+		cvstorepage.advancedFilter(jobs, designation, mandatorySkills, preferredSkills, optionalSkills, minexp, maxexp, salary, noticeperiod, City, updatedOn, industry, overBudget, OnNoticePeriod, CityArea, Gender, minage, maxage, jobtype, shift);		
 	}
 	
 	@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")

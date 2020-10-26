@@ -57,6 +57,39 @@ public class CvStorePage extends baseclass{
 	@FindBy(xpath= "//button[text()=' Reset']")
 	public WebElement reset ;
 	
+	@FindBy(xpath= "//select[@formcontrolname='IndustryId']")
+	public WebElement industry ;
+	
+	@FindBy(xpath= "//select[@formcontrolname='IsBudgetConsidered']")
+	public WebElement includeOverBudget;
+	
+	@FindBy(xpath= "//select[@formcontrolname='IsServingNoticePeriod']")
+	public WebElement onNoticePeriod ;
+	
+	@FindBy(xpath= "//select[@formcontrolname='CityAreaId']")
+	public WebElement  cityArea;
+	
+	@FindBy(xpath= "//select[@formcontrolname='Gender']")
+	public WebElement gender;
+//	
+//	@FindBy(xpath= "")
+//	public WebElement  ;
+//	
+//	@FindBy(xpath= "")
+//	public WebElement  ;
+//	
+//	@FindBy(xpath= "")
+//	public WebElement  ;
+//	
+//	@FindBy(xpath= "")
+//	public WebElement  ;
+//	
+//	@FindBy(xpath= "")
+//	public WebElement  ;
+//	
+//	@FindBy(xpath= "")
+//	public WebElement  ;
+//	
 //	@FindBy(xpath= "")
 //	public WebElement  ;
 //	
@@ -79,7 +112,6 @@ public class CvStorePage extends baseclass{
 //	public WebElement  ;
 	
 
-	
 	public void FillBasicFilterValues(String jobs, String designation, String mandatorySkills, String preferredSkills, String optionalSkills, String minexp, String maxexp, String salary, String noticeperiod, String City) throws InterruptedException
 	{
 		Thread.sleep(1000);
@@ -96,9 +128,38 @@ public class CvStorePage extends baseclass{
 		Assert.assertEquals(this.salary.getAttribute("value"), salary); 
 		select=new Select(this.city);
 		select.selectByVisibleText(City);
-		
-		
-		//Assert.assertEquals(this.noticePeriod.getAttribute("value"), noticeperiod);
+//		Assert.assertEquals(this.noticePeriod.getAttribute("value"), noticeperiod);
 	
+	}
+
+	
+	public void advancedFilter(String jobs, String designation, String mandatorySkills, String preferredSkills, String optionalSkills, String minexp, String maxexp, String salary, String noticeperiod, String City, String updatedOn, String industry, String overBudget, String OnNoticePeriod, String CityArea, String Gender, String minage, String maxage, String jobtype, String shift) throws InterruptedException
+	{
+		Thread.sleep(1000);
+		this.jobs.click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).click();
+		Assert.assertEquals(driver.findElement(By.xpath("//span[@class='ng-value-label']")).getText(), designation);		
+		Assert.assertEquals(driver.findElement(By.xpath("(//span[@class='ng-value-label'])[2]")).getText(), mandatorySkills);
+		Assert.assertEquals(driver.findElement(By.xpath("(//span[@class='ng-value-label'])[3]")).getText(), preferredSkills);
+		Assert.assertEquals(driver.findElement(By.xpath("(//span[@class='ng-value-label'])[4]")).getText(), optionalSkills);
+		Assert.assertEquals(this.minExp.getAttribute("value"), minexp); 
+		Assert.assertEquals(this.maxExp.getAttribute("value"), maxexp); 
+		Assert.assertEquals(this.salary.getAttribute("value"), salary); 
+		select=new Select(this.city);
+		select.selectByVisibleText(City);
+		select=new Select (this.industry);
+		Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), industry); 
+		select=new Select (this.includeOverBudget);
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), overBudget); 
+		Assert.assertEquals(this.onNoticePeriod.getAttribute("value"), OnNoticePeriod); 
+		Assert.assertEquals(this.cityArea.getAttribute("value"), CityArea); 
+		Assert.assertEquals(this.gender.getAttribute("value"), Gender); 
+		Assert.assertEquals(addjobpage.minAge.getAttribute("value"), minage); 
+		Assert.assertEquals(addjobpage.maxAge.getAttribute("value"), maxage); 
+		Assert.assertEquals(addjobpage.jobType.getAttribute("value"), jobtype); 
+		Assert.assertEquals(addjobpage.Shift.getAttribute("value"), shift); 
+
+		
 	}
 }
