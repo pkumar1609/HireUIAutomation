@@ -12,6 +12,7 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.CandidateCardSectionPage;
 import utilPackage.baseclass;
 
 public class AddingCandidate extends baseclass{
@@ -44,8 +45,8 @@ public class AddingCandidate extends baseclass{
 	@When("^Add job \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
 	public void add_jobskill_and(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3, DataTable credentials) throws Throwable {
 		addjobpage.addjob(credentials);
-//		addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3);		
-//		common.ClickSumbit();
+		addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3);		
+		common.ClickSumbit();
 	}
 
 	@When("^Select a added job$")
@@ -88,8 +89,14 @@ public class AddingCandidate extends baseclass{
 	public void assert_the_candidate_details_and(String Username,String CandidateEmail,String profiletitle,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String certificate1, String certificate2, String certificate3,String certificateforskill1, String certificateforskill2) throws Throwable {
 		editcandidatepage.AssertCandidatedetails(Username, CandidateEmail, profiletitle, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode);
 		editcandidatepage.AssertprobabiltyFields(Salaryoffered, distance, permanentAddress, relocate);
-		candidatecardsectionpage.assertskill(Skill1,Skill2,Skill3,level1, level2, level3,certificate1, certificate2,certificate3,certificateforskill1, certificateforskill2);	
+		editcandidatepage.assertSkill(Skill1,Skill2,Skill3,level1, level2, level3,certificate1, certificate2,certificate3,certificateforskill1, certificateforskill2);	
 	} 
+	
+	@When("^Assert the details on candidate details icon\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+	public void assert_the_details_on_candidate_details_icon_and(String Username,String CandidateEmail,String profiletitle,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String certificate1, String certificate2, String certificate3,String certificateforskill1, String certificateforskill2) throws Throwable {
+	    candidatecardsectionpage.AssertDetailsOnCandidateDetails(Username, CandidateEmail, profiletitle, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
+	    candidatecardsectionpage.assertskill(Skill1, Skill2, Skill3, level1, level2, level3, certificate1, certificate2, certificate3, certificateforskill1, certificateforskill2);
+	}
 
 	@When("^click on Schedule Interview icon from candidate card$")
 	public void click_on_Schedule_Interview_icon_from_candidate_card() throws Throwable {
@@ -106,7 +113,7 @@ public class AddingCandidate extends baseclass{
 	@When("^verify candidate card is displaying or not in New column \"([^\"]*)\"$")
 	public void verify_candidate_card_is_displaying_or_not_in_New_column(String Name) throws Throwable {		
 		WebElement drag=driver.findElement(By.cssSelector("div.item-box.cdk-drag"));
-		WebElement drop=driver.findElement(By.xpath("(//th[text()=' New ']//following::div[@class='item-list cdk-drop-list'])[2]"));
+		WebElement drop=driver.findElement(By.xpath("(//th[text()=' New ']//following::div[@class='cdk-drop-list item-list'])[2]"));
 		Action.clickAndHold(drag).moveToElement(drop).release(drop);
 		Action.build().perform();
 		driver.findElement(By.xpath("//th[text()=' New ']//following::span[text()=' "+Name+"']")).isDisplayed();

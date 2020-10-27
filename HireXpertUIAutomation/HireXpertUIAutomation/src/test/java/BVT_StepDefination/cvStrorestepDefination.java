@@ -62,7 +62,13 @@ public class cvStrorestepDefination extends baseclass {
 	public void enter_all_value_in_advance_filter_fields(String jobs, String designation, String mandatorySkills, String preferredSkills, String optionalSkills, String minexp, String maxexp, String salary, String noticeperiod, String City, String updatedOn, String industry, String overBudget, String OnNoticePeriod, String CityArea, String Gender, String minage, String maxage, String jobtype, String shift) throws Throwable {
 		cvstorepage.advancedFilter(jobs, designation, mandatorySkills, preferredSkills, optionalSkills, minexp, maxexp, salary, noticeperiod, City, updatedOn, industry, overBudget, OnNoticePeriod, CityArea, Gender, minage, maxage, jobtype, shift);		
 	}
-	
+
+	@Then("^verify the result of advance filter \"([^\"]*)\"$")
+	public void verify_the_result_of_advance_filter(String Name) throws Throwable {
+		common.clickOnOKBtn();
+		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'"+Name+"')]")).isDisplayed(), true);
+	}
+
 	@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
 	public void enter_All_details_of_and(String CandidateEmail,String profiletitle,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2,String remark3,String certificateforskill1, String certificateforskill2) throws Throwable {
 		workbenchpage.enterEmailId(CandidateEmail);

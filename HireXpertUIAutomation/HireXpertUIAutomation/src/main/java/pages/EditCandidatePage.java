@@ -217,7 +217,9 @@ public class EditCandidatePage extends baseclass {
 		Assert.assertEquals(addcandidatepage.designation.get(0).getAttribute("value"), Designation);
 		Assert.assertEquals(addcandidatepage.gender.getAttribute("value"),Gender);
 		Assert.assertEquals(addcandidatepage.communicationMode.getAttribute("value"), Communicationmode);
-		Assert.assertEquals(driver.findElement(By.xpath("(//input[@placeholder='Select Date']//following::p)[1]")).getText(), Date);
+		Assert.assertEquals(addcandidatepage.date.getAttribute("value"),Date);
+
+
 		select=new Select(addcandidatepage.onNoticePeriod);
 		Assert.assertEquals(select.getFirstSelectedOption().getText(),OnNoticePeriod);
 		if(OnNoticePeriod.contentEquals("Yes"))

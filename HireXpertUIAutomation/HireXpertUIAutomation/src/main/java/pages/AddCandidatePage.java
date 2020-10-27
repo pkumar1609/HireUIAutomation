@@ -43,7 +43,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//span[text()='Today']")
 	public WebElement todayDate;
 	
-	@FindBy(xpath = "//input[@placeholder='Select Date']")
+	@FindBy(xpath = "(//input[@placeholder='Select Date'])[1]")
 	public WebElement date;
 	
 	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")

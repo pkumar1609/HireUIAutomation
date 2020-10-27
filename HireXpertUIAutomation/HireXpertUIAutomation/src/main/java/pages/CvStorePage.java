@@ -135,6 +135,8 @@ public class CvStorePage extends baseclass{
 	
 	public void advancedFilter(String jobs, String designation, String mandatorySkills, String preferredSkills, String optionalSkills, String minexp, String maxexp, String salary, String noticeperiod, String City, String updatedOn, String industry, String overBudget, String OnNoticePeriod, String CityArea, String Gender, String minage, String maxage, String jobtype, String shift) throws InterruptedException
 	{
+		
+		//job details assert
 		Thread.sleep(1000);
 		this.jobs.click();
 		Thread.sleep(1000);
@@ -151,15 +153,27 @@ public class CvStorePage extends baseclass{
 		select=new Select (this.industry);
 		Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), industry); 
 		select=new Select (this.includeOverBudget);
-		Assert.assertEquals(select.getFirstSelectedOption().getText(), overBudget); 
-		Assert.assertEquals(this.onNoticePeriod.getAttribute("value"), OnNoticePeriod); 
-		Assert.assertEquals(this.cityArea.getAttribute("value"), CityArea); 
-		Assert.assertEquals(this.gender.getAttribute("value"), Gender); 
+		Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), overBudget); 
 		Assert.assertEquals(addjobpage.minAge.getAttribute("value"), minage); 
 		Assert.assertEquals(addjobpage.maxAge.getAttribute("value"), maxage); 
-		Assert.assertEquals(addjobpage.jobType.getAttribute("value"), jobtype); 
-		Assert.assertEquals(addjobpage.Shift.getAttribute("value"), shift); 
-
+		select=new Select (addjobpage.jobType);
+		Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), jobtype);	
+		select=new Select (addjobpage.Shift);
+		Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), shift);	
+		
+//		candidate detail set
+		select=new Select (this.onNoticePeriod);
+		select.selectByVisibleText(OnNoticePeriod);
+		if(OnNoticePeriod.contentEquals("Yes"))
+		{
+			this.noticePeriod.clear();
+		}
+		select=new Select (this.cityArea);	
+		select.selectByVisibleText(CityArea);	
+		select=new Select (this.gender);	
+		select.selectByVisibleText(Gender);	
+		
+		
 		
 	}
 }

@@ -11,7 +11,6 @@ import org.testng.Assert;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import utilPackage.baseclass;
 
 public class AddingCandidate extends baseclass{
@@ -102,11 +101,10 @@ public class AddingCandidate extends baseclass{
 		scheduleinterviewpage.scheduleInterview(credentials);
 	}
 	
-	
 	@When("^verify candidate card is displaying or not in New column \"([^\"]*)\"$")
 	public void verify_candidate_card_is_displaying_or_not_in_New_column(String Name) throws Throwable {		
 		WebElement drag=driver.findElement(By.cssSelector("div.item-box.cdk-drag"));
-		WebElement drop=driver.findElement(By.xpath("(//th[text()=' New ']//following::div[@class='item-list cdk-drop-list'])[2]"));
+		WebElement drop=driver.findElement(By.xpath("//th[text()=' New ']//following::div[@id='cdk-drop-list-94']"));
 		Action.clickAndHold(drag).moveToElement(drop).release(drop);
 		Action.build().perform();
 		driver.findElement(By.xpath("//th[text()=' New ']//following::span[text()=' "+Name+"']")).isDisplayed();
