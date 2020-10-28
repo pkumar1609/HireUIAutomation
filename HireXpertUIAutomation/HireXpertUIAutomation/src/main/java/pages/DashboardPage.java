@@ -69,7 +69,7 @@ public class DashboardPage extends baseclass {
 	
 	public void openAgenciesPage() throws InterruptedException {
 		
-//		wait.until(ExpectedConditions.elementToBeClickable(agencies));
+		Action.moveToElement(dashboardpage.hire).click().perform();
 		Thread.sleep(2000);
 		agencies.click(); 
 	}

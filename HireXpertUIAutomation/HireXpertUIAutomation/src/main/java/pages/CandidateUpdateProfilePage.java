@@ -117,7 +117,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 //	@FindBy(xpath = "//div[@class='col-md-4']//div[@class='row']//div[1]//label[1]//span[2]")
 //	public WebElement notLookingForJobCheckbox;
 
-	@FindBy(xpath = "//a[@title='Skills & Roles Details']")
+	@FindBy(xpath = "//a[@title='Skills & Designation']")
 	public WebElement SkillsInformation;
 	
 	@FindBy(xpath = "//a[@title='Personal & Professional Details']")
@@ -430,7 +430,7 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 		Assert.assertEquals(addcandidatepage.title.getAttribute("value"), profiletitle);
 		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),CandidateEmail);
 		Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"),ContactNumber);
-		Assert.assertEquals(this.dateOfBirth.getAttribute("value"),Date); 
+//		Assert.assertEquals(this.dateOfBirth.getAttribute("value"),Date); 
 		se = new Select (this.countryId);
 		WebElement option = se.getFirstSelectedOption();
 		Assert.assertEquals(option.getText()," "+Country+" ");
@@ -447,7 +447,7 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 		Assert.assertEquals(select.getFirstSelectedOption().getText(),OnNoticePeriod);
 		if(OnNoticePeriod.contentEquals("Yes"))
 		{
-		Assert.assertEquals(addcandidatepage.lastWorkingDay.getText(), LastWorkingDay);
+		Assert.assertEquals(addcandidatepage.lastWorkingDay.getAttribute("value"), LastWorkingDay);
 		}
 		else
 		{
@@ -464,35 +464,34 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
      
 	}
 	
-	public void AssertSkillonSkillAndRolesTab(DataTable credentials) throws InterruptedException
+	public void AssertSkillonSkillAndRolesTab(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String certificate1, String certificate2, String certificate3, String certificateforskill1 ,String certificateforskill2, String Designation) throws InterruptedException
 	{
-	 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-	   {
+	   
 		this.clickonskillsInformation();
 		Thread.sleep(4000); 
-		Assert.assertEquals(this.skills.get(0).getAttribute("value"), data.get("Skill1"));
-		Assert.assertEquals(this.skills.get(1).getAttribute("value"), data.get("Skill2"));	
-		Assert.assertEquals(this.skills.get(2).getAttribute("value"), data.get("Skill3"));	
+		Assert.assertEquals(this.skills.get(0).getAttribute("value"), Skill1);
+		Assert.assertEquals(this.skills.get(1).getAttribute("value"), Skill2);	
+		Assert.assertEquals(this.skills.get(2).getAttribute("value"), Skill3);	
 		select=new Select(this.expertiselevel.get(0));
-		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+data.get("level1")+" ");
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level1+" ");
 		select=new Select(this.expertiselevel.get(1));
-		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+data.get("level2")+" ");
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level2+" ");
 		select=new Select(this.expertiselevel.get(2));
-		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+data.get("level3")+" ");
-		if(data.get("certificate1").contentEquals("Yes"))
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level3+" ");
+		if(certificate1.contentEquals("Yes"))
 		{
-		Assert.assertEquals(addcandidatepage.certificate.get(0).getAttribute("value"), data.get("certificateforskill1"));	
+		Assert.assertEquals(addcandidatepage.certificate.get(0).getAttribute("value"), certificateforskill1);	
 		}
-		if(data.get("certificate2").contentEquals("Yes"))
+		if(certificate2.contentEquals("Yes"))
 		{
-		Assert.assertEquals(addcandidatepage.certificate.get(1).getAttribute("value"), data.get("certificateforskill2"));	
+		Assert.assertEquals(addcandidatepage.certificate.get(1).getAttribute("value"), certificateforskill2);	
 		}
-		if(data.get("certificate3").contentEquals("Yes"))
+		if(certificate3.contentEquals("Yes"))
 		{
-		Assert.assertEquals(addcandidatepage.certificate.get(2).getAttribute("value"), data.get("certificateforskill1"));	
+		Assert.assertEquals(addcandidatepage.certificate.get(2).getAttribute("value"), certificateforskill1);	
 		}
-		Assert.assertEquals(this.role.getAttribute("value"),addjobpage.jobRole);
-	}
+		Assert.assertEquals(this.role.getAttribute("value"),Designation);
+	
 }
 	
 	public void addQualificationDetails(DataTable credentials) throws InterruptedException

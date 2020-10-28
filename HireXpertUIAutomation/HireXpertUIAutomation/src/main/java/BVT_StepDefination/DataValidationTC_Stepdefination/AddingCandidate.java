@@ -138,6 +138,7 @@ public class AddingCandidate extends baseclass{
 	@Given("^Click on close button$")
 	public void click_on_close_button() throws Throwable {
 	    common.clickOnCloseBtn();
+	    common.clickOnConfirmYes();
 	}
 
 	@When("^Click on edit close button$")
@@ -363,8 +364,6 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Mandatory Skills']//following::span[text()='"+data.get("Skill1")+" ("+data.get("level1")+") ']")).isDisplayed(), true);			
 		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Preferred Skills ']//following::span[text()='"+data.get("Skill2")+" ("+data.get("level1")+") ']")).isDisplayed(), true);
 		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Optional Skills ']//following::span[text()='"+data.get("Skill3")+" ("+data.get("level3")+") ']")).isDisplayed(), true);
-
-
 		
 	}
 }

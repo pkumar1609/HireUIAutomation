@@ -106,7 +106,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//label[@class='check mt-4']//span[@class='checkmark']")
 	public WebElement OnNoticePeriodCheckbox;
 	
-	@FindBy(xpath = "(//button[@aria-label='Open Calendar'])[2]")
+	@FindBy(xpath = "(//input[@placeholder='Select Date'])[2]")
 	public WebElement lastWorkingDay;
 	
 	@FindBy(id = "ECTC")

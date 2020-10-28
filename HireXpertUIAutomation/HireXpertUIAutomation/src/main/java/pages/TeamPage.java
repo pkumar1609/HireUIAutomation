@@ -127,18 +127,17 @@ public class TeamPage extends baseclass {
 			TeamMemberEmail.sendKeys(data.get("Email"));
 			TeamMemberContactNumber.clear();
 			TeamMemberContactNumber.sendKeys(data.get("contact"));
-			common.ClickSumbit(); 
+			common.ClickSumbit();
 			try
 			{
 				common.clickOnOKBtn();
-				System.out.println("this agency is already added");
 			}
 			catch(NoSuchElementException e)
 			{
-				common.clickOnAddClosebtn();
+				teampage.clickOnAddBtnK();
 			}
 		}
-//		common.clickOnAddClosebtn();
+		common.clickOnAddClosebtn();
 		common.clickOnCloseBtn();
 	 }
 	

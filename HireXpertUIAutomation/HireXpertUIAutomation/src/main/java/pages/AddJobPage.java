@@ -41,7 +41,6 @@ public AddJobPage()
 	public boolean emp;
 	public String selectJob;
 	public String industryname;
-	public String jobRole;
 	public String allOptions;
 	
 	
@@ -463,7 +462,7 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 				System.out.println("Selected job: "+jobname);
 				title.sendKeys(data.get("agytitle"));
 				select =new Select(employerId);
-				List<WebElement> options = select.getOptions();		
+				List<WebElement> options = select.getOptions();
 				if(options.size()>0)
 				{
 					try {

@@ -74,6 +74,7 @@ public class AddingCandidate extends baseclass{
 	@When("^get the logged in user details$")
 	public void get_the_logged_in_user_details() throws Throwable {
 	    updateprofilepopuppage.getDetails();
+	    common.clickOnConfirmYes();
 	}
 	
 	
@@ -97,7 +98,13 @@ public class AddingCandidate extends baseclass{
 	    candidatecardsectionpage.AssertDetailsOnCandidateDetails(Username, CandidateEmail, profiletitle, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
 	    candidatecardsectionpage.assertskill(Skill1, Skill2, Skill3, level1, level2, level3, certificate1, certificate2, certificate3, certificateforskill1, certificateforskill2);
 	}
-
+	
+	@When("^Assert the details on candidate profile page \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
+	public void assert_the_details_on_candidate_profile_page_and(String Username,String CandidateEmail,String profiletitle,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String certificate1, String certificate2, String certificate3,String certificateforskill1, String certificateforskill2) throws Throwable {
+		candidateupdateprofilepage.AssertDetailsOnCandidateProfile(Username, CandidateEmail, profiletitle, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, relocate);
+		candidateupdateprofilepage.AssertSkillonSkillAndRolesTab(Skill1, Skill2, Skill3, level1, level2, level3, certificate1, certificate2, certificate3, certificateforskill1, certificateforskill2, Designation);
+	}
+	
 	@When("^click on Schedule Interview icon from candidate card$")
 	public void click_on_Schedule_Interview_icon_from_candidate_card() throws Throwable {
 		Thread.sleep(3000);
@@ -144,6 +151,12 @@ public class AddingCandidate extends baseclass{
 		sharewithteampage.canSeeAllCandidate(Teamid);
 	}
 
+	@Given("^Click on close button and confirm Yes button$")
+	public void click_on_close_button_and_confirm_Yes_button() throws Throwable {
+		common.clickOnCloseBtn();
+		common.clickOnConfirmYes();
+	}
+	
 	@Given("^Click on close button$")
 	public void click_on_close_button() throws Throwable {
 	    common.clickOnCloseBtn();
@@ -243,7 +256,8 @@ public void click_on_Edit_view_job_button() throws Throwable {
    {
 		Thread.sleep(2000);
 		workbenchpage.editJobButton.click(); 
-   }else
+   }
+   else
    {
 	   Thread.sleep(2000);
 	   workbenchpage.viewJobButton.click();
@@ -268,6 +282,13 @@ public void add_job_with_all_details_and(String Skill1, String Skill2, String Sk
 	addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3);		
 	common.ClickSumbit();
 }
+
+@Given("^agency should be added$")
+public void agency_should_be_added(DataTable credentials) throws Throwable {
+	dashboardpage.openAgenciesPage();
+	agenciespage.enterAllDetails(credentials);
+}
+
 
 
 //Onmarketplace####
@@ -377,6 +398,29 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 		
 	}
 }
+
+	@Then("^Assert the details on job board page \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void assert_the_details_on_job_board_page(String designation, String industry, String jobrole, String organisation, String qualification, String country, String city, String location, String zipcode, String budget, String cashBenefit, String minexp, String maxexp, String jobType, String noticePeriod, String noofvacancies, String Shift, String ShiftTimings, String totalinterviews, String considerRelocation, String Skill1, String Skill2, String Skill3, String level1, String level2, String level3) throws Throwable {
+		Assert.assertEquals(driver.findElement(By.xpath("//h5[text()='"+addjobpage.jobname+"']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' "+data.get("organisation")+"']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' "+data.get("designation")+"']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//p[text()=' "+data.get("location")+", "+data.get("city")+", "+data.get("country")+" - "+data.get("zipcode")+"']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//p[text()=' "+data.get("noofvacancies")+" Openings ']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//p[text()=' "+data.get("minexp")+" - "+data.get("maxexp")+" Years']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//p[text()=' "+data.get("budget")+" PA ']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Industry']//following::td[text()='"+data.get("industry")+"']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Job Role']//following::td[text()='"+data.get("jobrole")+"']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Qualification']//following::td[text()='"+data.get("qualification")+"']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Cash Benefit']//following::td[text()='"+data.get("cashBenefit")+"']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Job Type']//following::td[text()='"+data.get("jobType")+"']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Shift']//following::td[text()='"+data.get("Shift")+" ("+data.get("ShiftTimings")+")']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Notice Period']//following::td[text()='"+data.get("Shift")+" Days ']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Total Interviews']//following::td[text()='"+data.get("totalinterviews")+"']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Mandatory Skills']//following::span[text()='"+data.get("Skill1")+" ("+data.get("level1")+") ']")).isDisplayed(), true);			
+		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Preferred Skills ']//following::span[text()='"+data.get("Skill2")+" ("+data.get("level1")+") ']")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Optional Skills ']//following::span[text()='"+data.get("Skill3")+" ("+data.get("level3")+") ']")).isDisplayed(), true);
+
+	}
 //@candidatedetails
 
 	@When("^Click register link$")
