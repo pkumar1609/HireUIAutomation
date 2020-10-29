@@ -459,8 +459,7 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 		Assert.assertEquals(communication.getText(),Communicationmode);
 		se = new Select (this.readyToRelocate);
 		Assert.assertEquals(se.getFirstSelectedOption().getText(),relocate);			
-		common.clickOnSaveBtn();
-		common.clickOnOKBtn();
+		
      
 	}
 	

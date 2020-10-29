@@ -116,18 +116,14 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 
 	@When("^Enter valid \"([^\"]*)\"$")
 	public void enter_valid(String CandidateEmail) throws Throwable {
-
-		Thread.sleep(3000);
-		
+		Thread.sleep(3000);		
 		addcandidatepage.EntercandidateemailT(CandidateEmail);
-
 	}
 	
 	@When("^upload candidate resume$")
-    public void upload_candidate_resume() throws Throwable {
-  
+    public void upload_candidate_resume() throws Throwable {  
 	Thread.sleep(3000);
-   addcandidatepage.uploadResumeDocumentT();
+    addcandidatepage.uploadResumeDocumentT();
   }
 
 	@When("^Click on save button to save the update details$")
@@ -250,8 +246,8 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void collect_Answer_icon_should_reflect_on_candidates_card_for_giving_answers() throws Throwable {
 
 		Thread.sleep(3000);
-		List<WebElement> collectanswericon = driver.findElements(By.xpath("//button[@title='Collect Answer']"));
-		Assert.assertEquals(collectanswericon.size()>0, false);
+		WebElement collectanswericon = driver.findElement(By.xpath("//button[@title='Collect Answer']"));
+		Assert.assertEquals(collectanswericon.isDisplayed(), false);
 	} 
 
 
@@ -385,7 +381,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void click_on_delete_icon_to_delete_any_one_of_question() throws InterruptedException  {
 		
 		Thread.sleep(3000);
-		addquestionarypage.questionaryDeleteIcon.click();
+		common.deletebtn.get(0).click();
 	}
 	
 	
@@ -394,15 +390,14 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	   
 		Thread.sleep(3000);
 		addquestionarypage.DeleteQuestionnarie.click();
-		addquestionarypage.yesConfirmDeleteQuestionnarie.click();
-	}
-
+		common.clickOnConfirmYes();
+		}
+		
 	@When("^click on ReloadCandidate button$")
 	public void click_on_ReloadCandidate_button() throws Throwable {
 	    
 		Thread.sleep(3000);
 		workbenchpage.ReloadCandidateButton.click();
-
 	}
 	
 	@When("^Verify Collect Answer icon when no questionary is added for that job$")

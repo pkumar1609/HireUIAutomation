@@ -155,7 +155,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 	@Then("^Click on Profile tab$")
 	public void click_on_Profile_tab() throws Throwable {
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		candidateupdateprofilepage.profileTab.click();
 		
 	}
@@ -418,6 +418,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		
 		Select se = new Select(addcandidatepage.LookingforJobfield);
 		se.selectByVisibleText("No");
+		addcandidatepage.noticePeriod.sendKeys("25");
 	}
 
 	@Then("^logout as candidate and login as same employer$")
@@ -1121,7 +1122,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	@Then("^delete all added skills$")
 	public void delete_all_added_skills() throws Throwable {
 		Thread.sleep(1000);
-		for(int i=0; i<addjobpage.deleteSkill.size(); i++)
+		for(int i=0; i<addjobpage.deleteSkill.size()+1; i++)
 		{
 			Thread.sleep(1000);
 			addjobpage.deleteSkill.get(i).click();
@@ -1130,6 +1131,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 	@Then("^observe deleted job skill should not show when employer is going to add new candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void observe_deleted_job_skill_should_not_show_when_employer_is_going_to_add_new_candidate(String Skill1, String Skill2, String Skill3) throws Throwable {
+		 
 		 Assert.assertEquals(Skill1.length()>0, false);
 		 Assert.assertEquals(Skill2.length()>0, false);
 		 Assert.assertEquals(Skill3.length()>0, false);
@@ -1733,7 +1735,9 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		@Then("^verify the Auto Populated fields on candidate update profile popup window \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 		public void verify_the_Auto_Populated_fields_on_candidate_update_profile_popup_window(String Username, String CandidateEmail, String profiletitle, String Name, String ContactNumber, String Designation, String Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String relocate) throws Throwable {
 		    candidateupdateprofilepage.AssertDetailsOnCandidateProfile(Username, CandidateEmail, profiletitle, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode,relocate);
-
+		    addjobpage.functionalArea.sendKeys("java");
+		    common.clickOnSaveBtn();
+			common.clickOnOKBtn();
 		}
 	}
 	

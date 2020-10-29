@@ -1,6 +1,7 @@
 package pages;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -60,6 +61,9 @@ public class Commonfunction extends baseclass {
 	
 	@FindBy(xpath = "//span[text()='×']")
 	public WebElement crossIcon;
+	
+	@FindBy(xpath="//button[@class='btn btn-outline-danger']")
+	public List<WebElement> deletebtn;
 		
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
 	
