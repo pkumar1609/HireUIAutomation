@@ -15,7 +15,7 @@ Examples:
 |pagy@gmail.com|12345   |
 
 
-@BVT @JCWF1
+@BVT @JCWF
 Scenario Outline: Verify the functionality of Add, Edit & Delete Candidate with Employer login
 
 Given User must be registered
@@ -24,8 +24,8 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to Workbench     
 And Add job
-|title  |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
-|JCWF 1 |JCWF agy 1 | developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
+|title  |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|functionalArea|
+|JCWF 1 |JCWF agy 1 | developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|java|
 And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<profiletitle>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
@@ -49,7 +49,7 @@ Examples:
 #otherwise no change required
 
   
-@BVT @JCWF2
+@BVT @JCWF3
 Scenario Outline: Verify the functionality of Add Questionary, Edit question on questionary page and delete Questionary by Delete Questionnaire button and Delete icon.
 
 Given User must be registered
@@ -59,8 +59,8 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to Workbench 
 And Add job
-|title             |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
-|JCWfquestionary   |JCWF agy 2 | developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
+|title             |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|functionalArea|
+|JCWfquestionary1  |JCWF agy 2 | developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|java|
 And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<profiletitle>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
@@ -105,7 +105,7 @@ Examples:
 # If DB clear, register the employer first = employermain01@gmail.com. otherwise no change required
 
  
-@BVT @JCWF3
+@BVT @JCWF
 Scenario Outline: Verify the functionality of Screening tab 
 
 Given User must be registered
@@ -115,8 +115,8 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to Workbench 
 And Add job
-|title  |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
-|JCWF 3 |JCWF agy 3 | developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
+|title  |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|functionalArea|
+|JCWF 3 |JCWF agy 3 | developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|java|
 And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<profiletitle>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
@@ -143,7 +143,7 @@ Examples:
 
 
 
-@BVT @JCWF4
+@BVT @JCWF
 Scenario Outline: To verify that Questionnarie and Screening tab not displayed when log in with Agency and To verify 'Interviewer'dropdown 
 on Schedule interview popup when login with Agency
 
@@ -155,8 +155,8 @@ And Employer enters valid credentials "<Username>","<Password>"
 And Go to Workbench 
 #And close all job    
 And Add job
-|title  |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
-|JCWF 4 |JCWF agy 4 | developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
+|title  |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|functionalArea|
+|JCWF 4 |JCWF agy 4 | developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|java|
 And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<profiletitle>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
@@ -196,8 +196,8 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to Workbench
 And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
-|title		    |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-|JCFW 5         |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
+|title		    |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
+|JCFW 5         |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
 And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
@@ -256,8 +256,8 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to Workbench
 And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
-|title		    |agytitle    |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-|JCFW 6         |JCFW agy 6  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
+|title		    |agytitle    |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
+|JCFW 6         |JCFW agy 6  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
 And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"

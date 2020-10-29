@@ -33,6 +33,11 @@ public class MarketplaceBvt extends baseclass {
 	boolean emp;
 	boolean b;
 	
+	@When("^user enters valid credentials \"([^\"]*)\",\"([^\"]*)\"$")
+	public void user_enters_valid_credentials(String Username, String Password) throws Throwable {
+		loginpage.loginIn(Username, Password);
+	}
+	
 	@And("^Select a added job$")
 	public void select_a_added_job() throws Throwable {
 		
@@ -135,7 +140,7 @@ public class MarketplaceBvt extends baseclass {
 
 	@And("^Select that job in filter on job proposal section$")
 	public void select_that_job_in_filter_on_job_proposal_section() throws Throwable {
-		marketplacepage.selectjob();
+		workbenchpage.selectJobK();
 	}
 
 	@And("^Click on reject button of that proposal$")

@@ -50,6 +50,9 @@ public AddJobPage()
 	@FindBy(xpath = "//input[@formcontrolname='Designation']")
 	public WebElement designation;
 	
+	@FindBy(xpath ="//input[@placeholder='Enter Functional Area']")
+	public WebElement functionalArea;
+	
 	@FindBy(xpath = "//input[@formcontrolname='Industry']")
 	public WebElement industry;
 	
@@ -503,6 +506,7 @@ public void addJobforEmployerandAgency(String JobTitle, String Industry, String 
 			}
 			Thread.sleep(1000);
 			designation.sendKeys(data.get("designation"));
+			functionalArea.sendKeys(data.get("functionalArea"));
 			this.industry.sendKeys(data.get("industry"));
 			industryname= data.get("industry");		
 			minsal.sendKeys(data.get("minsal"));

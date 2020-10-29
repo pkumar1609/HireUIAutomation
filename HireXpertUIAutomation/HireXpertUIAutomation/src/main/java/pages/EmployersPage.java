@@ -126,9 +126,9 @@ public class EmployersPage extends baseclass {
 				common.clickOnOKBtn();
 				System.out.println("this agency is already added");
 			}
-			finally
+			catch(NoSuchElementException e)
 			{
-//				common.clickOnAddClosebtn();
+				employerspage.ClickAddBtn();
 			}
 		}
 		common.clickOnAddClosebtn();

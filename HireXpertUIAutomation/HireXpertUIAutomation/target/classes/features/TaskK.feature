@@ -1,6 +1,6 @@
 Feature: Task Feature
 
-@TC264_266  @BVT 
+@TC264_266  @BVT @TaskBVT
 Scenario Outline: Verify functionality of adding general task and particular task from Employer login
 
 Given User must be registered
@@ -8,14 +8,14 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-#Given team member should be added
-#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+Given team member should be added
+|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Add job
-|title    |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|
-|abc      |developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|
+|title    |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|functionalArea|
+|abc      |developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|java|
 And Select a added job
 And Share job with team member
 |EmpTeam|Agyteam|
@@ -45,25 +45,26 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And Login with team member
 Then Task should also display for employer team member
+
 Examples:
 |Username      |Password|
 |pemp@gmail.com|12345   |
 
 
-@TC265_267  @BVT 
+@TC265_267  @BVT @TaskBVT
 Scenario Outline: Verify agency can add general task and particular task.
 Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-#And team member should be added
-#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+And team member should be added
+|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Add job
-|agytitle        |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-|agencyjobtask2  |developer   |IT software|java developer |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert   |rahitech       |
+|agytitle        |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
+|agencyjobtask2  |developer   |IT software|java developer |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert   |rahitech       |java|
 And Select a added job
 And Share job with team member
 |EmpTeam|Agyteam|
@@ -120,7 +121,7 @@ Then Delete the task
 Examples:
 |Username      |Password|
 |pemp@gmail.com|12345   |
-|pagy@gmail.com|12345   |
+#|pagy@gmail.com|12345   |
 
 
 @TC282 @BVT @TaskBVT
@@ -129,10 +130,10 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-#And team member should be added
-#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+And team member should be added
+|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Select a job
 And Share job with team member
@@ -156,7 +157,7 @@ Then Delete the task
 Examples:
 |Username      |Password|
 |pemp@gmail.com|12345   |
-|pagy@gmail.com|12345   |
+#|pagy@gmail.com|12345   |
 
 
 
@@ -189,10 +190,10 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-#And team member should be added
-#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+And team member should be added
+|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Select a job
 And Share job with team member
@@ -215,7 +216,7 @@ And Click on close button
 Examples:
 |Username      |Password|task    |team|Assignto|note                             |editedtask|editednote          |
 |pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task11     |complete before 1 pm|
-#|pagy@gmail.com|12345   |task11  |pagy|pa1     |Task should complete before time |task11     |complete before 1 pm|
+|pagy@gmail.com|12345   |task11  |pagy|pa1     |Task should complete before time |task11     |complete before 1 pm|
 
 
 @TC294 @TaskBVT @Bvtc

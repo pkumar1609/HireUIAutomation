@@ -133,8 +133,9 @@ public class DashboardPage extends baseclass {
 	  	   }
     }
 	
-	public void clickonJobApplicationLInk() {
-		
+	public void clickonJobApplicationLInk() throws InterruptedException {
+		Action.moveToElement(dashboardpage.hire).click().perform();
+		Thread.sleep(2000);
 		JobApplication.click();
 		
 		

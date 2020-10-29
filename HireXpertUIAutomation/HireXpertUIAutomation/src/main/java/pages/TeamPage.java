@@ -158,12 +158,12 @@ public class TeamPage extends baseclass {
 			common.ClickSumbit();
 			try
 			{ 
-				common.okbtn.isDisplayed();
 				common.clickOnOKBtn();
-//				common.clickOnAddClosebtn();
 			}
 			catch(NoSuchElementException e)
-			{}
+			{
+				teampage.clickOnAddBtnK();
+			}
 		}	
 		common.clickOnAddClosebtn();
 		common.clickOnCloseBtn();

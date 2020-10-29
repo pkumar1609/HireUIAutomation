@@ -13,8 +13,8 @@ Feature: Job Management
 #	|pagy  |pagy@gmail.com    | 1234564  |
     And Go to workbench
 	And Add job
-	|title	|agytitle    |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-	|job5   |job1agy     |developer|IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |
+	|title	|agytitle    |designation  |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
+	|job5   |job1agy     |developer    |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			     |Hirexpert   |rahitech       |java|
 	And Select a added job
     And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 
     And click on the Block/Unblock to unblock checkbox present in front of agency whom you shared the job "<agyEmailId>"
@@ -48,8 +48,8 @@ Feature: Job Management
 #	|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  | 
    	And Go to workbench
 	And Add job
-	|title      |agytitle      |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-	|job6  |job6agy  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |	
+	|title |agytitle      |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
+	|job6  |job6agy       |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |	java|
 	And Select a added job
     And click on Share With Team button and select the Share checkbox present in front of the team member "<Teamid>"
     And click on the Block/Unblock to unblock checkbox present in front of team with whom you shared the job "<Teamid>"
@@ -66,9 +66,9 @@ Feature: Job Management
     And close the browser
     
 Examples:
-|Username      |Teamid         |Password |CandidateEmail      |profiletitle          |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
-|pemp@gmail.com|pe1@gmail.com  |12345    |hirecan11@gmail.com |jr software developer |hirecan11|9890685538    |Sr.developer  |14/02/1995      |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
-|pagy@gmail.com|pa1@gmail.com  |12345    |hirecan12@gmail.com |jr software developer 1|hirecan12|78950685538  |Sr.developer  |14/02/1995      |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
+|Username      |Teamid         |Password |CandidateEmail      |profiletitle           |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
+|pemp@gmail.com|pe1@gmail.com  |12345    |hirecan30@gmail.com |jr software developer  |hirecan30|9890685538    |Sr.developer  |14/02/1995      |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
+|pagy@gmail.com|pa1@gmail.com  |12345    |hirecan31@gmail.com |jr software developer 1|hirecan31|78950685538  |Sr.developer  |14/02/1995      |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
 
 

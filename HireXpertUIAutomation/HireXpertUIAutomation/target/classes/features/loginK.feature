@@ -1,6 +1,6 @@
 Feature: UserAccount Feature
 
-@TC47_51 @Bvtc 
+@TC47_51 @Bvtc @login
 Scenario: To verify whether the employer is able to add agency.
 
 Given User must be registered

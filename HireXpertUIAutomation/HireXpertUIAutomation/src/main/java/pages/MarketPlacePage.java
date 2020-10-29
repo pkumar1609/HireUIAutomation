@@ -180,14 +180,7 @@ public class MarketPlacePage extends baseclass {
 		
 	}
 	
-	public void selectjob() throws InterruptedException
-	{
-		Thread.sleep(2000);
-		select=new Select(jobdropdown);
-		select.selectByVisibleText(addjobpage.jobname+" - Active");
-		common.clickOnSearchBtn();
-	}
-	
+
 	public void ClickOnRejectBtn() throws InterruptedException
 	{
 //		job =addjobpage.jobname1;

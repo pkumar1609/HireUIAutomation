@@ -9,8 +9,8 @@ Feature: Job Management
     And enter valid "<email address>" and "<password>" for registered employer and click on Sign in button
     And Go to workbench
 	And Add job
-	|title		    |agytitle       |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|Employer|
-	|primary     |primaryagy job |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			    |Hirexpert   |rahitech       |pemp    |
+	|title		    |agytitle       |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|Employer|functionalArea|
+	|primary        |primaryagy job |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			    |Hirexpert   |rahitech       |pemp    |java|
 	And Select a added job
     And team member should be added
 	|Name|         Email   | contact  |Nameagy  |         Emailagy  |team  |agyteam |

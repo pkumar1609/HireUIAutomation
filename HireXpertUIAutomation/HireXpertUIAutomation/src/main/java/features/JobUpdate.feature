@@ -8,8 +8,8 @@ Feature: Job Management
 	And Employer enters valid credentials
 	And Go to workbench
 	And Add job
-	|title		    |agytitle		    |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|
-	|UX developer12 |UXagy developer12  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |
+	|title		    |agytitle		    |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
+	|UX developer12 |UXagy developer12  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			    |Hirexpert   |rahitech       |java|
 	And Select a added job
     And click on Edit Job button to make changes in job
     And make any changes in the job "<JobNoticePeriod1>"
