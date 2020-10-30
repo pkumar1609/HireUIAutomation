@@ -144,6 +144,11 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		registerpage.clickJobseekerCandidateSignInlinklink();
     	Thread.sleep(5000);
     	registerpage.loginwithnewcandidate(CandidateEmail, password);
+    	try
+    	{
+    		common.clickOnOKBtn();
+    	}
+    	catch(NoSuchElementException e){}
 	}
 	
 	@Then("^click on ok button of confirmation popup$")
@@ -155,7 +160,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 	@Then("^Click on Profile tab$")
 	public void click_on_Profile_tab() throws Throwable {
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		candidateupdateprofilepage.profileTab.click();
 		
 	}
@@ -418,7 +423,8 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		
 		Select se = new Select(addcandidatepage.LookingforJobfield);
 		se.selectByVisibleText("No");
-		addcandidatepage.noticePeriod.sendKeys("25");
+		addjobpage.functionalArea.sendKeys("java");
+		
 	}
 
 	@Then("^logout as candidate and login as same employer$")
@@ -582,6 +588,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		se.selectByVisibleText("Yes");
 		Thread.sleep(2000);
 		addcandidatepage.calenderIcon.get(2).click();
+		Thread.sleep(2000);
 		common.enterdate(LastWorkingDay);
 	}
 	

@@ -247,9 +247,16 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 
 		Thread.sleep(3000);
 		WebElement collectanswericon = driver.findElement(By.xpath("//button[@title='Collect Answer']"));
-		Assert.assertEquals(collectanswericon.isDisplayed(), false);
+		Assert.assertEquals(collectanswericon.isDisplayed(), true);
 	} 
+	
 
+	@Then("^Collect Answer icon should not reflect on candidates card for giving answers$")
+	public void collect_Answer_icon_should_not_reflect_on_candidates_card_for_giving_answers() throws Throwable {
+		Thread.sleep(3000);
+		WebElement collectanswericon = driver.findElement(By.xpath("//button[@title='Collect Answer']"));
+		Assert.assertEquals(collectanswericon.isDisplayed(), false);
+	}
 
 	@When("^Login with Employer credential Who already have a Job added and a candidate added to that job$")
 	public void login_with_Employer_credential_Who_already_have_a_Job_added_and_a_candidate_added_to_that_job() throws Throwable {
@@ -381,7 +388,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void click_on_delete_icon_to_delete_any_one_of_question() throws InterruptedException  {
 		
 		Thread.sleep(3000);
-		common.deletebtn.get(0).click();
+		common.deletebtn.get(1).click();
 	}
 	
 	

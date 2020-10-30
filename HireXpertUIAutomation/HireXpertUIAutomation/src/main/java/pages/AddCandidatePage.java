@@ -100,7 +100,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//select[@formcontrolname='Gender']")
 	public WebElement gender;
 	
-	@FindBy(id = "NoticePeriod")
+	@FindBy(xpath = "//input[@formcontrolname='NoticePeriod']")
 	public WebElement noticePeriod;
 	
 	@FindBy(xpath = "//label[@class='check mt-4']//span[@class='checkmark']")
