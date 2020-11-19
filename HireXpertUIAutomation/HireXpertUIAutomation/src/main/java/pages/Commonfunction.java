@@ -108,7 +108,7 @@ public class Commonfunction extends baseclass {
 	
 	public void clickOnOKBtn() throws InterruptedException
 	{
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		okbtn.click();
 	}
 	
@@ -162,7 +162,7 @@ public class Commonfunction extends baseclass {
 			driver.findElement(By.xpath("//button[@class='headerlabelbtn monthlabel']")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//div[text()='"+monthName+"']")).click();
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 			driver.findElement(By.xpath("//span[text()='"+day+"']")).click();
 		}    
 	 

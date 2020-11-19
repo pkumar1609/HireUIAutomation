@@ -43,6 +43,10 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath= "//a[contains(text(),'CV Store ')] ")
 	public WebElement cvStrore ;
 	
+	@FindBy(xpath= "//a[contains(text(),'Task Management')] ")
+	public WebElement taskManagemnet ;
+	
+	
 	public DashboardPage() {
 		
 		PageFactory.initElements(driver, this);
@@ -55,10 +59,6 @@ public class DashboardPage extends baseclass {
 		Thread.sleep(2000);
 		Action.moveToElement(hire).click().perform();
 		executor.executeScript("arguments[0].click();",applicationTracking);
-		if(dashboardpage.jobPopup.size()>0)
-		{
-			common.clickOnOKBtn();
-		}
 	}
 	
 	public void openEmployersPage() throws InterruptedException {

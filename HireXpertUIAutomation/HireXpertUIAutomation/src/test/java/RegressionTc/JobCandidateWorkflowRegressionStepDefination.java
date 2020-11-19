@@ -5,9 +5,11 @@ import java.util.List;
 import org.testng.Assert;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.DataTable;
@@ -228,8 +230,6 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 	@Then("^click on ok button$")
 	public void click_on_ok_button() throws Throwable {
-	    
-		Thread.sleep(5000);
 		common.clickOnOKBtn();
 	}
 	
@@ -544,8 +544,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		Thread.sleep(3000);
 		addcandidatepage.noticePeriod.clear();
 		Thread.sleep(3000);
-		addcandidatepage.noticePeriod.sendKeys("45");
-		
+		addcandidatepage.noticePeriod.sendKeys("45");		
 	}
 
 
@@ -798,9 +797,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 	@Then("^Collect Answer icon should reflect on candidates card for giving answers$")
 	public void collect_Answer_icon_should_reflect_on_candidates_card_for_giving_answers() throws Throwable {
-
-		Thread.sleep(3000);
-		workbenchpage.verifyCollectAnswericonT();
+		Assert.assertEquals(driver.findElement(By.xpath("//button[@title='Collect Answer']")).isDisplayed(), true);
 	}
 	
 	@When("^Click on Reject Candidate icon from candidate card to reject the candidate \"([^\"]*)\"$")
@@ -822,16 +819,14 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	public void move_both_candidates_in_Interview_Pending_one_column() throws Throwable {
 
 
-		WebElement drag1 = driver.findElement(By.xpath("(//div[@class='item-box cdk-drag'])[1]")); //candidate card 1
-		WebElement drop = driver.findElement(By.xpath("(//td[@id='jobStatusColumn'])[3]")); // interview peneding column 1
-		WebElement drag2 = driver.findElement(By.xpath("(//div[@class='item-box cdk-drag'])[2]")); //candidate card 1
+		WebElement drag1 = candidatecardsectionpage.candidateCard.get(0);
+		WebElement drop = driver.findElement(By.xpath("(//td[@id='jobStatusColumn'])[4]")); // interview peneding column 1
+		WebElement drag2 = candidatecardsectionpage.candidateCard.get(1);
+		Action.clickAndHold(drag1).moveToElement(drop).release(drop);
+		Action.build().perform();
 		
-		Actions action = new Actions(driver);
-		action.clickAndHold(drag1).moveToElement(drop).release(drop).perform();
-		Thread.sleep(5000);
-		
-		action.clickAndHold(drag2).moveToElement(drop).release(drop).perform();
-		Thread.sleep(3000);
+		Action.clickAndHold(drag2).moveToElement(drop).release(drop);
+		Action.build().perform();
 		
 	}
 
@@ -1129,9 +1124,11 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	@Then("^delete all added skills$")
 	public void delete_all_added_skills() throws Throwable {
 		Thread.sleep(1000);
-		for(int i=0; i<addjobpage.deleteSkill.size()+1; i++)
+        executor.executeScript("window.scrollBy(0,500)", "");
+		int deleteSkillSize=addjobpage.deleteSkill.size();
+		System.out.println("deleteSkillSize  "+deleteSkillSize);
+		for(int i=0; i<=deleteSkillSize; i++)
 		{
-			Thread.sleep(1000);
 			addjobpage.deleteSkill.get(i).click();
 		}
 	}
@@ -1605,21 +1602,32 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		@When("^Drag the candidate card from that column to rejected column$")
 		public void drag_the_candidate_card_from_that_column_to_rejected_column1() throws Throwable {
 
-	      Thread.sleep(3000);
-	      
-	      candidatecardsectionpage.dragCandidateCardfromNewtoRejectColumn();
+			   WebElement drag = candidatecardsectionpage.candidateCard;
+			   WebElement drop1 = candidatecardsectionpage.InterviewPendingthreecolumn;
+			   WebElement dropa=candidatecardsectionpage.allColumn.get(6);
+			   WebElement dropb=candidatecardsectionpage.allColumn.get(9);
+			   int getRejectedColumnLocation=candidatecardsectionpage.allColumn.size()-1;
+			   WebElement drop2 = candidatecardsectionpage.allColumn.get(getRejectedColumnLocation);
+			
+//			   Action.clickAndHold(drag).moveToElement(drop1).release(drop1);
+//			   Action.build().perform();
+			   Action.clickAndHold(drag);
+			   JavascriptExecutor js = (JavascriptExecutor)driver;
+		       js.executeScript("arguments[0].scrollIntoView(true);", drop2);
+		       Action.clickAndHold(drag).moveToElement(drop2).release(drop2).perform();
+
 		}
 
-		@When("^confirmation popup should diplay \"([^\"]*)\" with Yes and No button and click on Yes buton$")
-		public void confirmation_popup_should_diplay_with_Yes_and_No_button_and_click_on_Yes_buton(String ActualcomfirmationMessage, String ExpectedconfirmationMessage) throws Throwable {
-		    
-			Thread.sleep(3000);
-			String ActualcomfirmationMessage1 = driver.findElement(By.xpath("//div[@id='archiveMessage']")).getText();
-			Assert.assertEquals(ExpectedconfirmationMessage, ActualcomfirmationMessage1);
+		
+		@When("^confirmation popup should diplay with Yes and No button and click on Yes buton \"([^\"]*)\"$")
+		public void confirmation_popup_should_diplay_with_Yes_and_No_button_and_click_on_Yes_buton(String Name) throws Throwable {
+			Assert.assertEquals("Are you sure you want to reject "+Name+" ?", driver.findElement(By.xpath("//h6[@class='text-center mb-0 alert-message']")).getText());
 			Thread.sleep(3000);
 			common.clickOnConfirmYes();
 		}
+		
 
+		
 		@When("^select the reason of rejection and cick on submit button$")
 		public void select_the_reason_of_rejection_and_cick_on_submit_button() throws Throwable {
 		    
@@ -1632,24 +1640,24 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 		@Then("^drag the candidate card from rejected column to any other column$")
 		public void drag_the_candidate_card_from_rejected_column_to_any_other_column() throws Throwable {
-		    
+			Thread.sleep(5000);
+		    executor.executeScript("window.scrollBy(5000,0)", "");		    
+			WebElement drag = candidatecardsectionpage.candidateCard;
+//			int locationOfJoinedColumn=candidatecardsectionpage.allColumn.size()-3;
+			WebElement drop = driver.findElement(By.xpath("(//td[@class='TableCard' and @id='jobStatusColumn'])[8]"));		   		
+//		    executor.executeScript("arguments[0].scrollIntoView(true);", drag);
+		    Actions action = new Actions(driver);
+//			explicitwait.until(ExpectedConditions.elementToBeClickable(drag));
 			Thread.sleep(3000);
-			candidatecardsectionpage.dragCandidateCardfromRejectColumntoJoinedColumn();
-			
+			action.clickAndHold(drag).moveToElement(drop).release(drop);
+//			action.dragAndDrop(drag, drop).build();
+			action.perform();			
 		}
-
-		@Then("^add a team member to employer$")
-		public void add_a_team_member_to_employer() throws Throwable {
-		    
-			Thread.sleep(3000);
-			dashboardpage.openTeamPage();
-			Thread.sleep(3000);
-			teampage.clickOnAddBtnK();
-			Thread.sleep(3000);
-			teampage.fillTeamMemberDetails();
-			Thread.sleep(3000);
-			common.ClickSumbit();
-			
+//
+		
+		@Then("^Add team member$")
+		public void add_team_member(DataTable credentials) throws Throwable {
+			teampage.verifyTeamAdded(credentials);
 		}
 
 		@Then("^logout with employer and login as employer team member$")

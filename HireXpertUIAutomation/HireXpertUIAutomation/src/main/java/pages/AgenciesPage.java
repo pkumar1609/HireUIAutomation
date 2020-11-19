@@ -65,13 +65,13 @@ public class AgenciesPage extends baseclass {
 	{
 		String Title = driver.getTitle();
 		Assert.assertEquals(Title, "HireXpert");
-		
 	}
+	
 	public void Clickagencybtn() throws InterruptedException
 	{
 		Action.moveToElement(dashboardpage.hire).click().perform();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(dashboardpage.agencies));
-		dashboardpage.openAgenciesPage(); 
+		dashboardpage.openAgenciesPage();
 	}
 	
 	public void ClickAddbtn() throws InterruptedException

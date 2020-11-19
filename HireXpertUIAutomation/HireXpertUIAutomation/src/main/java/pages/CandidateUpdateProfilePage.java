@@ -312,7 +312,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//button[text()=' Declaration ']")
 	public WebElement declaration;
 	
-	@FindBy(xpath = "//div[@class='ngx-editor-textarea']")
+	@FindBy(xpath = "//div[@class='fake_textarea']")
 	public WebElement textArea;
 	
 	public CandidateUpdateProfilePage() {
@@ -541,7 +541,7 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 			 }
 	}
 	
-	public void fillAllskillsAndDesignationDetails(String designation,DataTable credentials) throws InterruptedException
+	public void fillAllskillsAndDesignationDetails(String currentdesignation,DataTable credentials) throws InterruptedException
 	{
 		int i=0;
 			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
@@ -551,10 +551,10 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 					skills.get(i).sendKeys(data.get("skill"));
 					expertiselevel.get(i).sendKeys(data.get("Expertiselevel"));
 					certificate.get(i).sendKeys(data.get("certificate"));
-					addcandidatepage.designation.get(i).sendKeys(data.get("designation"));
 				}
 				i++;
 			 }
+			Assert.assertEquals(addcandidatepage.designation.get(0).getAttribute("value"), currentdesignation);
 //			addcandidatepage.designation.clear();
 //			addcandidatepage.designation.sendKeys(designation);
 //			Thread.sleep(4000); 
@@ -626,10 +626,10 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 			 {
 				Thread.sleep(2000);	
 				this.date.get(0).click();
-				this.enterdate(data.get("fromDate"));
+				common.enterdate(data.get("fromDate"));
 				Thread.sleep(2000);	
 				this.date.get(1).click();
-				this.enterdate(data.get("toDate"));
+				common.enterdate(data.get("toDate"));
 				addcandidatepage.title.sendKeys(data.get("title"));
 				this.organization.get(0).sendKeys(data.get("organization"));
 				this.technologies.sendKeys(data.get("technologies"));
@@ -682,31 +682,32 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 	public void fillAllAdditinalDetails() throws InterruptedException
 	{
 		Thread.sleep(5000);
-		this.coverLetter.click();
-		textArea.sendKeys(prop.getProperty("Coverletter"));	
-		common.clickOnSaveBtn();
-		common.clickOnOKBtn();
-		this.achievements.click();
-		textArea.sendKeys(prop.getProperty("acheivment"));	
-		common.clickOnSaveBtn();
-		common.clickOnOKBtn();
-		this.testimonials.click();
-		textArea.sendKeys(prop.getProperty("testimonals"));	
-		common.clickOnSaveBtn();
-		common.clickOnOKBtn();
-		this.references.click();
-		textArea.sendKeys(prop.getProperty("refresnces"));
-		common.clickOnSaveBtn();
-		common.clickOnOKBtn();
-		this.extracurricular.click();
-		textArea.sendKeys(prop.getProperty("extracurriculam"));	
-		common.clickOnSaveBtn();
-		common.clickOnOKBtn();
-		this.profileSummary.click();
-		textArea.sendKeys(prop.getProperty("profilesummary"));	
-		common.clickOnSaveBtn();
-		common.clickOnOKBtn();
+//		this.coverLetter.click();
+//		textArea.sendKeys(prop.getProperty("Coverletter"));	
+//		common.clickOnSaveBtn();
+//		common.clickOnOKBtn();
+//		this.achievements.click();
+//		textArea.sendKeys(prop.getProperty("acheivment"));	
+//		common.clickOnSaveBtn();
+//		common.clickOnOKBtn();
+//		this.testimonials.click();
+//		textArea.sendKeys(prop.getProperty("testimonals"));	
+//		common.clickOnSaveBtn();
+//		common.clickOnOKBtn();
+//		this.references.click();
+//		textArea.sendKeys(prop.getProperty("refresnces"));
+//		common.clickOnSaveBtn();
+//		common.clickOnOKBtn();
+//		this.extracurricular.click();
+//		textArea.sendKeys(prop.getProperty("extracurriculam"));	
+//		common.clickOnSaveBtn();
+//		common.clickOnOKBtn();
+//		this.profileSummary.click();
+//		textArea.sendKeys(prop.getProperty("profilesummary"));	
+//		common.clickOnSaveBtn();
+//		common.clickOnOKBtn();
 		this.declaration.click();
+		textArea.clear();
 		textArea.sendKeys(prop.getProperty("declaration"));	
 		common.clickOnSaveBtn();
 		common.clickOnOKBtn();

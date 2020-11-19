@@ -211,13 +211,11 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 
 	@When("^close all job$")
 	public void close_all_job() throws Throwable {
-		 Thread.sleep(2000);	
-	     List<WebElement> allJobs = driver.findElements(By.xpath("//option"));	 	 
-	     select = new Select(workbenchpage.jobDropDown);
-	     
-	     for(int i=1; i<=allJobs.size(); i++)
-	     {		
-	    	 Thread.sleep(2000);		 
+		 Thread.sleep(2000);			 
+//	     List<WebElement> allJobs = driver.findElements(By.xpath("//option"));	 	 
+	     select = new Select(workbenchpage.jobDropDown);     
+	     for(int i=1; i<=select.getOptions().size(); i++)
+	     {			 
 	    	 select.selectByIndex(i);
 	    	 workbenchpage.clickOnCloseJobButton();
 	     } 

@@ -29,8 +29,10 @@ public class CandidateCardSectionPage extends baseclass {
 	@FindBy(xpath = "//div[@class='col-md-12 pl-0 pr-0']//div[@class='col-md-10 pr-0']")
 	public WebElement assignTo;
 	
-	@FindBy(xpath = "//div[@class='item-box cdk-drag']")
+	@FindBy(css = "div.item-box.cdk-drag")
 	public WebElement candidateCard;
+	
+	//div[@class='item-box cdk-drag']
 	
 	@FindBy(xpath = "//body//td[1]")
 	public WebElement firstColumn;
@@ -92,10 +94,14 @@ public class CandidateCardSectionPage extends baseclass {
 	@FindBy(xpath = "//div[@id='cdk-drop-list-129']")
 	public WebElement joinedcolumn;
 	
-	@FindBy(xpath = "//div[@id='cdk-drop-list-138']")
+	@FindBy(xpath = "//td[@class='TableCard' and @id='jobStatusColumn'][4]")
 	public WebElement InterviewPendingthreecolumn;
 	
+	@FindBy(xpath = "//td[@class='TableCard' and @id='jobStatusColumn']")
+	public List<WebElement> allColumn;
 	
+	@FindBy(xpath = "//button[@id='EditCandidate']")
+	public WebElement editCandidate;
 		
 	
 	
@@ -162,10 +168,12 @@ public class CandidateCardSectionPage extends baseclass {
 	
 	public void dragAndDropCardToThirdColumn() throws InterruptedException {
 		
-		WebElement drag = candidateCard;
-		WebElement drop = thirdColumn;
+		WebElement drag = candidateCard.get(0);
+		WebElement drop=driver.findElement(By.xpath("//td[@class='TableCard' and @id='jobStatusColumn'][4]"));
 		
 		action = new Actions(driver);
+		executor.executeScript("scrollTo(3000,0);");  
+
 		action.clickAndHold(drag).moveToElement(drop).release(drop).perform();
 		Thread.sleep(3000);
 	}
@@ -180,32 +188,18 @@ public class CandidateCardSectionPage extends baseclass {
 		Thread.sleep(3000);
 	}
    
-   public void dragCandidateCardfromNewtoRejectColumn () {
-		
-	   WebElement drag = candidateCard;
-	   WebElement drop1 = InterviewPendingthreecolumn;
-		WebElement drop2 = rejectcolumn;
-	   
-		Actions action = new Actions(driver);
-		action.clickAndHold(drag).moveToElement(drop1).release(drop1).perform();
-		
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("window.scrollBy(1000,0)");               // scrolling horizontally
-	
-		action.clickAndHold(drag).moveToElement(drop2).release(drop2).perform();
-	
-	}
+//   public void dragCandidateCardfromNewtoRejectColumn () {
+//		
+//	   
+//	
+//	}
    
-   public void dragCandidateCardfromRejectColumntoJoinedColumn () {
-		
-	   WebElement drag = candidateCard;
-		WebElement drop = joinedcolumn;
-	   
-		Actions action = new Actions(driver);
-		action.clickAndHold(drag).moveToElement(drop).release(drop).perform();
-	
-		
-	}
+//   public void dragCandidateCardfromRejectColumntoJoinedColumn () {
+//		
+//	   
+//	
+//		
+//	}
 	
 	public void verifyChangeAssignToField() throws InterruptedException {
 		

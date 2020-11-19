@@ -195,15 +195,16 @@ When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to workbench
-And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
-|title  			   |agytitle 				   |designation |industry   |organization|qualification|country|city|location |zipcode|address    |noofvacancies|minexp|maxexp|minsal|maxsal|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|   functionalArea|                                                                 
-|marketplacevalidation |marketplacevalidation agy  |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30   |4			    |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |java|
+And Add job with all details"<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
+|title                    |agytitle                      |designation |industry   |organization|qualification|country|city|location |zipcode|address    |noofvacancies|minexp|maxexp|minsal|maxsal|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|functionalArea|                                                            
+|Marketplacejobvalidation |Marketplacejobvalidation agy  |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30   |4			    |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |java|
 And Select a added job
 And Click on share job with market place
 And Click on Employer marketplace tab 
 And Click on shared job
-And Assert the job details on job title 
-|<designation>|<industry>|<organisation>|<qualification>|<country>|<city>|<location>|<minexp>|<maxexp>|<jobType>|<noticePeriod>|<noofvacancies>|<considerRelocation>|<Skill1>|<Skill2>|<Skill3>|<level1>|<level2>|<level3>|<Weightage1>|<Weightage2>|<Weightage3>|<certificate1>|<certificate2>|<certificate3>|<remark1>|<remark2>|<remark3>|
+And Assert the job details on job title "<Skill1>" "<Skill2>" "<Skill3>" "<level1>" "<level2>" "<level3>" "<Weightage1>" "<Weightage2>" "<Weightage3>" "<certificate1>" "<certificate2>" "<certificate3>" "<remark1>" "<remark2>" "<remark3>"
+|title                    |agytitle                      |designation |industry   |organization|qualification|country|city|location |zipcode|address    |noofvacancies|minexp|maxexp|minsal|maxsal|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|functionalArea|                                                            
+|Marketplacejobvalidation |Marketplacejobvalidation agy  |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30   |4			    |20          | Contractual Full Time |yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |java|
 And Click on close button
 And Logout from App
 And Click on Employer-Agency Signin link
@@ -215,12 +216,13 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<agencyname>","<Password>"
 And Go to agency marketplace tab
 And Click on job displaying in marketplace job section
-And Assert the job details on job title 
-|<designation>|<industry>|<organisation>|<qualification>|<country>|<city>|<location>|<minexp>|<maxexp>|<jobType>|<noticePeriod>|<noofvacancies>|<considerRelocation>|<Skill1>|<Skill2>|<Skill3>|<level1>|<level2>|<level3>|<Weightage1>|<Weightage2>|<Weightage3>|<certificate1>|<certificate2>|<certificate3>|<remark1>|<remark2>|<remark3>|
+And Assert the job details on job title "<Skill1>" "<Skill2>" "<Skill3>" "<level1>" "<level2>" "<level3>" "<Weightage1>" "<Weightage2>" "<Weightage3>" "<certificate1>" "<certificate2>" "<certificate3>" "<remark1>" "<remark2>" "<remark3>"
+|title                    |agytitle                      |designation |industry   |organization|qualification|country|city|location |zipcode|address    |noofvacancies|minexp|maxexp|minsal|maxsal|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|functionalArea|                                                            
+|Marketplacejobvalidation |Marketplacejobvalidation agy  |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30   |4			    |20          | Contractual Full Time |yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |java|
 And Click on close button
 Examples:
-|Username      |agencyname    |Teamid        |Password|designation |industry   |organisation|qualification|country|city|location |minexp|maxexp|jobType                |noticePeriod|noofvacancies|totalinterviews|considerRelocation|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
-|pemp@gmail.com|pagy@gmail.com|pe1@gmail.com |12345   |Developer   |IT software|Talentxpert |BE           |India  |Pune|pune     |1     |2     | Contractual Full Time |20          |2            |4			  |Yes         		 |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
+|Username      |agencyname    |Teamid        |Password|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
+|pemp@gmail.com|pagy@gmail.com|pe1@gmail.com |12345   |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
 
 @onjobboard
@@ -232,10 +234,10 @@ When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to workbench
-And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
-|title    |agytitle 	 |designation |industry   |organization|qualification|country|city|location |zipcode|address    |noofvacancies|minexp|maxexp|minsal|maxsal|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|    functionalArea|                                                                
-|job1board |jobboard agy  |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30   |4			    |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |java|
-And Select a added job
+And Add job with all details"<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
+|title                    |agytitle                      |designation |industry   |organization|qualification|country|city|location |zipcode|address    |noofvacancies|minexp|maxexp|minsal|maxsal|cashBenefit|minAge|maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|functionalArea|                                                            
+|job1boardjobvalidation   |jobboardjobvalidation agy      |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30   |4			    |20          | Contractual Full Time |Yes			      |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |java|
+#And Select a added job
 And Logout from App
 And Click on Employer-Agency Signin link
 And login as a support user
@@ -244,10 +246,12 @@ And Click on approve
 And Logout as a support user
 And Click on more jobs
 And Click on view job details button
-Then Assert the details on job board page "<designation>" "<industry>" "<jobrole>" "<organisation>""<qualification>" "<country>" "<city>" "<location>" "<zipcode>" "<budget>" "<cashBenefit>" "<minexp>" "<maxexp>" "<jobType>" "<noticePeriod>" "<noofvacancies>" "<Shift>" "<ShiftTimings>" "<totalinterviews>" "<considerRelocation>" "<Skill1>" "<Skill2>" "<Skill3>" "<level1>" "<level2>" "<level3>"
+And Assert the job details on job board "<Skill1>" "<Skill2>" "<Skill3>" "<level1>" "<level2>" "<level3>" "<Weightage1>" "<Weightage2>" "<Weightage3>" "<certificate1>" "<certificate2>" "<certificate3>" "<remark1>" "<remark2>" "<remark3>"
+|title                    |agytitle                    |designation |industry   |organization|qualification|country|city|location |zipcode|address    |noofvacancies|minexp|maxexp|minsal|maxsal|cashBenefit|minAge |maxAge|totalinterviews|noticePeriod|jobType                |considerRelocation|OverBudget|Shift          |ShiftTimings|FromEmail     |FromEmailagy  |EmailSubject  |Employer|emporganzation|functionalArea|                                                            
+|job1boardjobvalidation   |jobboardjobvalidation agy   |Developer   |IT software|talentxpert |BE           |India  |Pune|pune     |442001 |viman nagar|2            |1     |2     |400000|800000|400000     |25     |30    |4			   |20          | Contractual Full Time |Yes			   |No        | Mid-Day Shift |9-5         |pemp@gmail.com|pagy@gmail.com|want candidate|pemp    |dsfsdfdsfs    |java|
 
 Examples:
-|Username      |agencyname    |Teamid        |Password|jobrole       |designation |industry   |organisation|qualification|country|city|location |zipcode|minexp|maxexp|budget|cashBenefit|jobType                |noticePeriod|noofvacancies|totalinterviews|considerRelocation|Shift 		  |ShiftTimings|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
+|Username      |agencyname    |Teamid        |Password|jobrole       |designation |industry   |organisation|cc|country|city|location |zipcode|minexp|maxexp|budget|cashBenefit|jobType                |noticePeriod|noofvacancies|totalinterviews|considerRelocation|Shift 		  |ShiftTimings|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
 |pemp@gmail.com|pagy@gmail.com|pe1@gmail.com |12345   |java developer|Developer   |IT software|Talentxpert |BE           |India  |Pune|pune     |442001 |1     |2     |400000|400000     |Contractual Full Time  |20          |2            |4			    |Yes         	   |Mid-Day Shift |9-5         |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
 
@@ -258,61 +262,60 @@ Examples:
 Scenario Outline: validate the candidate details when candidate login himself and add profile details
 	
 Given User must be registered
-
 When title of login page is Home
 And Click register link
 And Enter all details on register page "<Name>" "<CandidateEmail>" "<ContactNumber>" "<UserType>" "<timezone>" "<country>"
 And Click on Job Seeker(Candidate) Sign In link
 And candidate enters valid credentials "<CandidateEmail>","<Password>"
 And click on update profile option
-Then Enter all the personal and professional details of candidate "<title>" "<ContactNumber>" "<Date>" "<Country>" "<CityArea>" "<Name>" "<alternateemail>" "<alternateContact>" "<Gender>" "<City>" "<ZipCode>" "<currentorganization>" "<currentdesignation>" "<currentduration>" "<jobtype>" "<shift>" "<preferredcity>" "<searchkeyword>" "<industry>" "<experience>" "<expectedCTC>" "<residentialstatus>" "<OnNoticePeriod>" "<LastWorkingDay>" "<NoticePeriod>" "<CTC>" "<Communicationmode>" "<willingtotravel>" "<lookingforjob>" "<relocate>" "<cv>"
-#And Click on save button
-#And click ok on success popup
-#Then Assert the personal and professional details of candidate
-#|Username      |Teamid        |Password|CandidateEmail      |title				   |Name      |alternateemail     |ContactNumber |alternateContact|UserType |timezone			    |country|currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date         |Gender  |OnNoticePeriod|LastWorkingDay |NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel  |lookingforjob|relocate|cv     |
-#|pemp@gmail.com|pe1@gmail.com |12345   |hirecan14@gmail.com |Sr.software engineer  |hirecan14 |hirecan14@yahoo.com|8596685538    |2586355555      |Candidate|Indian Standard Time    | India |Accenture          |Sr.developer       |2   			|Contractual Full Time|Evening Shift|Pune         |14-Sep-2020  |Female  |Yes           |25-Dec-2020    |25          |can13        |IT software|1.7       |700000|800000     |Nagpur|sita bardi |248966 |Call             |Citizen          |Yes		     	 |No           |No   |CV.docx|
-#And click on qualification tab
-#And Fill all the qualification details 
-#|Major    |year|grade |college        |university|country|degree  |
-#|Research |2021|90    |CUJB      	  |cambridge |USA    |Ph.D    |
-#|MBA  	  |2019|95    |BD college     |Nagpur    |India  |Master  |
-#|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|
-#|Science  |2013|79    |New English    |Nagpur    |India  |12	  |
-#|CBSE     |2011|80    |MVM            |Nagpur    |India  |10	  |
-#And Click on save button
-#And click ok on success popup
-#Then Assert the qualification details
-#|Major    |year|grade |college        |university|country|degree  |
-#|Research |2021|90    |CUJB      	  |cambridge |USA    |Ph.D    |
-#|MBA  	  |2019|95    |BD college     |Nagpur    |India  |Master  |
-#|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|
-#|Science  |2013|79    |New English    |Nagpur    |India  |12	  |
-#|CBSE     |2011|80    |MVM            |Nagpur    |India  |10	  |
-#And Click on work experience tab
-#And fill all work experience details
-#|organization|fromMonth|fromYear|toMonth|toYear|designation	  |city  |country|
-#|wipro       |JAN      |2020    |NOV    |2020  |Software Engineer|Nagpur|India  |
-#|persistant  |FEB      |2019    |APR    |2019  |Software Engineer|Nagpur|India  |
-#|Dell        |MAR      |2018    |DEC    |2018  |Software Engineer|Nagpur|India  |
-#And Click on save button
-#And click ok on success popup
-#Then Assert work experience details
-#|organization|fromMonth|fromYear|toMonth|toYear|designation		 |city  |country|
-#|wipro       |JAN      |2020    |NOV    |2020  |Software Engineer|Nagpur|India  |
-#|persistant  |FEB      |2019    |APR    |2019  |Software Engineer|Nagpur|India  |
-#|Dell        |MAR      |2018    |DEC    |2018  |Software Engineer|Nagpur|India  |
+Then Enter all the personal and professional details of candidate "<profiletitle>" "<CandidateEmail>" "<ContactNumber>" "<Date>" "<country>" "<CityArea>" "<Name>" "<alternateemail>" "<alternateContact>" "<Gender>" "<City>" "<ZipCode>" "<currentorganization>" "<functionalArea>" "<currentdesignation>" "<currentduration>" "<jobtype>" "<shift>" "<preferredcity>" "<searchkeyword>" "<industry>" "<experience>" "<expectedCTC>" "<residentialstatus>" "<OnNoticePeriod>" "<LastWorkingDay>" "<NoticePeriod>" "<CTC>" "<Communicationmode>" "<willingtotravel>" "<lookingforjob>" "<relocate>" "<cv>"
+And Click on save button
+And click ok on success popup
+And click on qualification tab
+And click on update profile option
+Then Assert the personal and professional details of candidate "<profiletitle>" "<CandidateEmail>" "<ContactNumber>" "<Date>" "<country>" "<CityArea>" "<Name>" "<alternateemail>" "<alternateContact>" "<Gender>" "<City>" "<ZipCode>" "<currentorganization>" "<functionalArea>" "<currentdesignation>" "<currentduration>" "<jobtype>" "<shift>" "<preferredcity>" "<searchkeyword>" "<industry>" "<experience>" "<expectedCTC>" "<residentialstatus>" "<OnNoticePeriod>" "<LastWorkingDay>" "<NoticePeriod>" "<CTC>" "<Communicationmode>" "<willingtotravel>" "<lookingforjob>" "<relocate>" "<cv>"
+And click on qualification tab
+And Fill all the qualification details
+|Major    |year|grade |college        |university|country|degree  |
+|Research |2021|90    |CUJB      	  |cambridge |USA    |Ph.D    |
+|MBA  	  |2019|95    |BD college     |Nagpur    |India  |Master  |
+|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|
+|Science  |2013|79    |New English    |Nagpur    |India  |12	  |
+|CBSE     |2011|80    |MVM            |Nagpur    |India  |10	  |
+And Click on save button
+And click ok on success popup
+Then Assert the qualification details
+|Major    |year|grade |college        |university|country|degree  |
+|Research |2021|90    |CUJB      	  |cambridge |USA    |Ph.D    |
+|MBA  	  |2019|95    |BD college     |Nagpur    |India  |Master  |
+|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|
+|Science  |2013|79    |New English    |Nagpur    |India  |12	  |
+|CBSE     |2011|80    |MVM            |Nagpur    |India  |10	  |
+And Click on work experience tab
+And fill all work experience details
+|organization|fromMonth|fromYear|toMonth|toYear|designation	     |city  |country|
+|wipro       |JAN      |2020    |NOV    |2020  |Software Engineer|Nagpur|India  |
+|persistant  |FEB      |2019    |APR    |2019  |Software Engineer|Nagpur|India  |
+|Dell        |MAR      |2018    |DEC    |2018  |Software Engineer|Nagpur|India  |
+And Click on save button
+And click ok on success popup
+Then Assert work experience details
+|organization|fromMonth|fromYear|toMonth|toYear|designation		 |city  |country|
+|wipro       |JAN      |2020    |NOV    |2020  |Software Engineer|Nagpur|India  |
+|persistant  |FEB      |2019    |APR    |2019  |Software Engineer|Nagpur|India  |
+|Dell        |MAR      |2018    |DEC    |2018  |Software Engineer|Nagpur|India  |
 And Click on skills and designation
-And fill all skills and designation details "sr.Test Engineer"
+And fill all skills and designation details "<currentdesignation>"
 |skill		  |Expertiselevel |certificate  |designation      | 
-|JAVA         |Basic Knowledge|sun microsoft|sr.Test Engineer |
+|JAVA         |Expert		  |sun microsoft|sr.Test Engineer |
 |advanced java|Intermediate   |ad. java  	|Java Developer   |
-|JavaScript   | Expert        |javaScript	|Tester           |
+|JavaScript   |Basic Knowledge|javaScript	|Tester           |
 And save the changes
-Then Assert skills and designation "sr.Test Engineer"
+Then Assert skills and designation "<currentdesignation>"
 |skill		  |Expertiselevel |certificate  |designation      | 
-|JAVA         |Basic Knowledge|sun microsoft|sr.Test Engineer |
+|JAVA         |Expert		  |sun microsoft|sr.Test Engineer |
 |advanced java|Intermediate   |ad. java  	|Java Developer   |		      
-|JavaScript   | Expert        |javaScript	|Tester           |		 
+|JavaScript   |Basic Knowledge|javaScript	|Tester           |		 
 And Click on certificate tab
 And fill all certificate details
 |certificate      |year|grade |issuing Authority|country|
@@ -342,32 +345,32 @@ Then Assert the languages details
 And Click on Visa Tab
 And Fill All the deatils of visa 
 |country	|VisaType    |ValidUpto     |
-|USA		|Work Visa   |28-Oct-2030   |
-|Singapore	|Student Visa|30-Apr-2025	|
-|Australia	|Tourist Visa|1-Jan-2023    |
+|USA		|Work Visa   |28/10/2030   |
+|Singapore	|Student Visa|30/04/2025	|
+|Australia	|Tourist Visa|01/12/2023    |
 And Click on save button
 And click ok on success popup
 Then Assert the visa details
-|country	|VisaType    |ValidUpto     |
-|USA		|Work Visa   |28-Oct-2030   |
-|Singapore	|Student Visa|30-Apr-2025	|
-|Australia	|Tourist Visa|1-Jan-2023    |
+|country	|VisaType    |ValidUpto   |
+|USA		|Work Visa   |28/10/2030  |
+|Singapore	|Student Visa|30/04/2025  |
+|Australia	|Tourist Visa|01/12/2023  |
 And Click on Experience details tab
 And Fill all experience details
 |title   |organization|fromDate   |toDate     |technologies |client|
-|paypal  |talentxpert |20-Jan-2020|21-Sep-2020|Java selenium|Alexu |
+|paypal  |talentxpert |20/01/2020 |21/09/2020 |Java selenium|Alexu |
 And Click on save button
 And click ok on success popup
 Then Asert the experirnce deatils
 |title   |organization|fromDate   |toDate     |technologies |client|
-|paypal  |talentxpert |20-Jan-2020|21-Sep-2020|Java selenium|Alexu |
-
-
+|paypal  |talentxpert |20/01/2020 |21/09/2020 |Java selenium|Alexu |
 
 Examples: 
-|Username      |Teamid        |Password|CandidateEmail      |profiletitle	       |Name      |alternateemail     |ContactNumber |alternateContact|UserType |timezone			    |country|currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date         |Gender  |OnNoticePeriod|LastWorkingDay |NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel  |lookingforjob|relocate|cv                                  |
-|pemp@gmail.com|pe1@gmail.com |12345   |hirecan14@gmail.com |Sr.software engineer  |hirecan14 |hirecan14@yahoo.com|8596685538    |2586355555      |Candidate|Indian Standard Time    | India |Accenture          |Sr.developer       |2   			|Contractual Full Time|Evening Shift|Pune         |14-Sep-2020  |Female  |Yes           |25-Dec-2020    |25          |can13        |IT software|1.7       |700000|800000     |Nagpur|sita bardi |248966 |Call             |Citizen          |Yes		     	 |No           |No      |C:\\Users\\TLP33\\Documents\\CV.docx|
+|Username      |Teamid        |Password|CandidateEmail      |profiletitle	       |Name      |alternateemail     |ContactNumber  |alternateContact|UserType |timezone			    |country|currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date         |Gender  |OnNoticePeriod|LastWorkingDay |NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel  |lookingforjob|relocate|cv                                  |functionalArea|
+|pemp@gmail.com|pe1@gmail.com |12345   |hirecan43@gmail.com |Sr.software engineer  |hirecan43 |hirecan43@yahoo.com|88996685538    |9846355555      |Candidate|Indian Standard Time  | India |Accenture          |Sr.developer       |2   			|Contractual Full Time|Evening Shift|Pune         |14/09/2020   |Female  |Yes           |25/12/2020    |25          |hirecan43        |IT software|1.7       |700000|800000     |Nagpur|sita bardi |248966 |Call             |Citizen          |Yes		     	 |No           |No      |C:\\Users\\TLP33\\Documents\\CV.docx|java|
 
+#change the email id,name,contact numbeer and search keyword
+#Note:- below scenario require same candidate email id as above 
 
 @training 
 Scenario Outline: validate the candidate details when candidate login himself and add profile details
@@ -375,43 +378,41 @@ Scenario Outline: validate the candidate details when candidate login himself an
 Given User must be registered
 
 When title of login page is Home
-#And Click register link
-And Enter all details on register page "<Name>" "<CandidateEmail>" "<ContactNumber>" "<UserType>" "<timezone>" "<country>"
 And Click on Job Seeker(Candidate) Sign In link
 And candidate enters valid credentials "<CandidateEmail>","<Password>"
 And click on update profile option
-#And clck on training tab
-#And fill all training details
-#|title1               |experirence|reamrk1      |title2                   |attendedYear|remark2    			 |
-#|robotic              |1		  |electronics  |antrupeurnship           |2020        |independent 		 |
-#|Java workshop        |5		  |java langauge|logical skill development|2017        |develop logical skill|
-#|langauge fundamentals|4		  |c,c++        |It Workshop              |2015		   |it firm conducted	 |
-#And save the changes
-#Then Assert the training deatils
-#|title1               |experirence|reamrk1      |title2                   |attendedYear|remark2    			 |
-#|robotic              |1		  |electronics  |antrupeurnship           |2020        |independent 		 |
-#|Java workshop        |5		  |java langauge|logical skill development|2017        |develop logical skill|
-#|langauge fundamentals|4		  |c,c++        |It Workshop              |2015		   |it firm conducted	 |
-#And click on social links tab
-#And fill all social link details
-#|title     |link                                 |
-#|linkedin  |https://www.linkedin.com/in/riya     |
-#|naukri    |https://www.naukri.com/profile-job s |
-#|Facebook  |https://www.Facebook.com/profile-jobs|
-#And Click on save button
-#And click ok on success popup
-#Then Assert the social link details
-#|title     |link                                 |
-#|linkedin  |https://www.linkedin.com/in/riya     |
-#|naukri    |https://www.naukri.com/profile-job s |
-#|Facebook  |https://www.Facebook.com/profile-jobs|
+And clck on training tab
+And fill all training details
+|title1               |experirence|reamrk1      |title2                   |attendedYear|remark2    			 |
+|robotic              |1		  |electronics  |antrupeurnship           |2020        |independent 		 |
+|Java workshop        |5		  |java langauge|logical skill development|2017        |develop logical skill|
+|langauge fundamentals|4		  |c,c++        |It Workshop              |2015		   |it firm conducted	 |
+And save the changes
+Then Assert the training deatils
+|title1               |experirence|reamrk1      |title2                   |attendedYear|remark2    			 |
+|robotic              |1		  |electronics  |antrupeurnship           |2020        |independent 		 |
+|Java workshop        |5		  |java langauge|logical skill development|2017        |develop logical skill|
+|langauge fundamentals|4		  |c,c++        |It Workshop              |2015		   |it firm conducted	 |
+And click on social links tab
+And fill all social link details
+|title     |link                                 |
+|linkedin  |https://www.linkedin.com/in/riya     |
+|naukri    |https://www.naukri.com/profile-job s |
+|Facebook  |https://www.Facebook.com/profile-jobs|
+And Click on save button
+And click ok on success popup
+Then Assert the social link details
+|title     |link                                 |
+|linkedin  |https://www.linkedin.com/in/riya     |
+|naukri    |https://www.naukri.com/profile-job s |
+|Facebook  |https://www.Facebook.com/profile-jobs|
 And Click on Aditional Details tab
-#And fill all Aditional details
+And fill all Aditional details
 Then Assert the additional details
 
 Examples: 
 |Username      |Password|CandidateEmail     |
-|pemp@gmail.com|12345   |hirecan14@gmail.com|
+|pemp@gmail.com|12345   |hirecan43@gmail.com|
 
 @assertonemp
 Scenario Outline: validate the candidate details when employer added candidate who register himself (with all profile details)

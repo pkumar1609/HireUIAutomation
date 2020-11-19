@@ -30,7 +30,7 @@ public class TaskPage extends baseclass {
 	PageFactory.initElements(driver, this);
 	}
  
-	String addedtask;
+	public String addedtask;
 	public String assignto;
 	boolean emp;
 	boolean b;

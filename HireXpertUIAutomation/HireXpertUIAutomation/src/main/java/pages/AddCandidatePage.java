@@ -16,15 +16,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import cucumber.api.java.After;
 import freemarker.ext.jsp.TaglibFactory.ClearMetaInfTldSource;
 import utilPackage.baseclass;
 
 public class AddCandidatePage extends baseclass {
 	
-
+	public String nameOfCan;
+	Robot rb;
+	public String datebelowField;
+	private static boolean isreporterrunning;
+	
 	@FindBy(xpath = "//h5[@class='modal-title w-100']")
 	public WebElement pageTitle;
 	
@@ -151,9 +157,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//input[@formcontrolname='CVUpload']")
 	public WebElement cv;
 	
-	public String nameOfCan;
-	Robot rb;
-	public String datebelowField;
+	
 	public AddCandidatePage() {
 		
 		PageFactory.initElements(driver, this);
@@ -230,6 +234,7 @@ public class AddCandidatePage extends baseclass {
 			se.selectByVisibleText(OnNoticePeriod);
 			if(OnNoticePeriod.contentEquals("Yes"))
 			{
+				explicitwait.until(ExpectedConditions.elementToBeClickable(addcandidatepage.calenderIcon.get(2)));
 				addcandidatepage.calenderIcon.get(2).click();			
 				common.enterdate(LastWorkingDay);
 				
@@ -402,7 +407,12 @@ public class AddCandidatePage extends baseclass {
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
 		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\RequestControlPopUp (1).png"); // CV Path of Trupti's system
 	}
-
+	
+	@After("@TaskBVT")
+	public void report()
+	{	
+		
+	}
 
 
 }

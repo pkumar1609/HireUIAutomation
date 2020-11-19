@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.java.en.Given;
@@ -63,7 +64,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	@When("^Click on Edit Candidate icon on candidate card \"([^\"]*)\"$")
 	public void click_on_Edit_Candidate_icon_on_candidate_card(String Name) throws Throwable {
 	    
-		Thread.sleep(5000);
+		explicitwait.until(ExpectedConditions.elementToBeClickable(candidatecardsectionpage.editCandidate));
 		candidatecardsectionpage.clickOnEditCandidateIcon(Name);
 	}
 

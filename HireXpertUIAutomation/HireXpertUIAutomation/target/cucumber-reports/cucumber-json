@@ -1,0 +1,691 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 2226300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MarketplaceBvt.setup()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1914900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "loginstepdefination.setup()"
+            }
+          }
+        ],
+        "line": 73,
+        "name": "To verify general and Job task displaying on task management page",
+        "description": "",
+        "id": "task-management;to-verify-general-and-job-task-displaying-on-task-management-page;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 9878984800,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "User must be registered",
+            "match": {
+              "location": "loginstepdefination.user_must_be_registered()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 11609900,
+              "status": "passed"
+            },
+            "line": 47,
+            "name": "title of login page is Home",
+            "match": {
+              "location": "loginstepdefination.title_of_login_page_is_Home()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3414507400,
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "Click on Employer-Agency Signin link",
+            "match": {
+              "location": "loginstepdefination.click_on_Employer_Agency_Signin_link()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8640917400,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "Employer enters valid credentials \"pemp@gmail.com\",\"12345\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "pemp@gmail.com",
+                  "offset": 35
+                },
+                {
+                  "val": "12345",
+                  "offset": 52
+                }
+              ],
+              "location": "taskBWT.employer_enters_valid_credentials(String,String)"
+            },
+            "matchedColumns": [
+              0,
+              2
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 29264247300,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "team member should be added",
+            "match": {
+              "location": "taskBWT.team_member_should_be_added(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Name",
+                  "Email",
+                  "contact",
+                  "Nameagy",
+                  "Emailagy",
+                  "contactagy",
+                  "team",
+                  "agyteam"
+                ],
+                "line": 51
+              },
+              {
+                "cells": [
+                  "pe1",
+                  "pe1@gmail.com",
+                  "1234564",
+                  "pa1",
+                  "pa1@gmail.com",
+                  "1234556",
+                  "pe1",
+                  "pa1"
+                ],
+                "line": 52
+              },
+              {
+                "cells": [
+                  "pe2",
+                  "pe2@gmail.com",
+                  "1234564",
+                  "pa2",
+                  "pa2@gmail.com",
+                  "1234566",
+                  "pe1",
+                  "pa1"
+                ],
+                "line": 53
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2501610900,
+              "status": "passed"
+            },
+            "line": 54,
+            "name": "Go to Workbench",
+            "match": {
+              "location": "JobCandidateWorkflowBVTStepDefination.go_to_Workbench()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 59926982800,
+              "status": "passed"
+            },
+            "line": 55,
+            "name": "Add job with All details \"JAVA\",\"advanced java\",\"JavaScript\",\"Basic Knowledge\",\"Intermediate\",\"Expert\",\"Mandatory\",\"Preferred\",\"Optional\",\"Yes\",\"No\",\"No\",\"provide certificate\",\"spring,hybernet\" and \"advanced version\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "JAVA",
+                  "offset": 26
+                },
+                {
+                  "val": "advanced java",
+                  "offset": 33
+                },
+                {
+                  "val": "JavaScript",
+                  "offset": 49
+                },
+                {
+                  "val": "Basic Knowledge",
+                  "offset": 62
+                },
+                {
+                  "val": "Intermediate",
+                  "offset": 80
+                },
+                {
+                  "val": "Expert",
+                  "offset": 95
+                },
+                {
+                  "val": "Mandatory",
+                  "offset": 104
+                },
+                {
+                  "val": "Preferred",
+                  "offset": 116
+                },
+                {
+                  "val": "Optional",
+                  "offset": 128
+                },
+                {
+                  "val": "Yes",
+                  "offset": 139
+                },
+                {
+                  "val": "No",
+                  "offset": 145
+                },
+                {
+                  "val": "No",
+                  "offset": 150
+                },
+                {
+                  "val": "provide certificate",
+                  "offset": 155
+                },
+                {
+                  "val": "spring,hybernet",
+                  "offset": 177
+                },
+                {
+                  "val": "advanced version",
+                  "offset": 199
+                }
+              ],
+              "location": "cvStrorestepDefination.add_job_with_All_details_and(String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,DataTable)"
+            },
+            "matchedColumns": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "title",
+                  "agytitle",
+                  "designation",
+                  "industry",
+                  "organization",
+                  "qualification",
+                  "country",
+                  "city",
+                  "location",
+                  "zipcode",
+                  "address",
+                  "noofvacancies",
+                  "minexp",
+                  "maxexp",
+                  "minsal",
+                  "maxsal",
+                  "cashBenefit",
+                  "minAge",
+                  "maxAge",
+                  "totalinterviews",
+                  "noticePeriod",
+                  "jobType",
+                  "considerRelocation",
+                  "OverBudget",
+                  "Shift",
+                  "ShiftTimings",
+                  "FromEmail",
+                  "FromEmailagy",
+                  "EmailSubject",
+                  "Employer",
+                  "emporganzation",
+                  "functionalArea"
+                ],
+                "line": 56
+              },
+              {
+                "cells": [
+                  "taskmanagementjob1",
+                  "taskmanagementjob1 agy",
+                  "Developer",
+                  "IT software",
+                  "talentxpert",
+                  "BE",
+                  "India",
+                  "Pune",
+                  "pune",
+                  "442001",
+                  "viman nagar",
+                  "2",
+                  "1",
+                  "2",
+                  "400000",
+                  "800000",
+                  "400000",
+                  "25",
+                  "30",
+                  "4",
+                  "20",
+                  "Permanent Full Time",
+                  "Yes",
+                  "No",
+                  "Day Shift",
+                  "9-5",
+                  "pemp@gmail.com",
+                  "pagy@gmail.com",
+                  "want candidate",
+                  "pemp",
+                  "dsfsdfdsfs",
+                  "Java"
+                ],
+                "line": 57
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4256867900,
+              "status": "passed"
+            },
+            "line": 58,
+            "name": "Select a added job",
+            "match": {
+              "location": "MarketplaceBvt.select_a_added_job()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3184580100,
+              "status": "passed"
+            },
+            "line": 59,
+            "name": "Click on add candidate",
+            "match": {
+              "location": "MarketplaceBvt.click_on_add_candidate()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 70539935100,
+              "status": "passed"
+            },
+            "line": 60,
+            "name": "Enter All details of \"hirecan58@gmail.com\",\"Developer\",\"hirecan58\",\"7885685538\",\"Developer\",\"14/2/1995\",\"Female\",\"Yes\",\"25\",\"01/09/2021\",\"1.5\",\"800000\",\"800000\",\"India\",\"wardha\",\"Arvi naka\",\"455966\",\"Call\",\"800000\",\"4\",\"No\",\"No\",\"JAVA\",\"advanced java\",\"JavaScript\",\"Basic Knowledge\",\"Intermediate\",\"Expert\",\"Mandatory\",\"Preferred\",\"Optional\",\"Yes\",\"No\",\"No\",\"provide certificate\",\"spring,hybernet\",\"advanced version\",\"sun microsoft\"and\"advanced version\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "hirecan58@gmail.com",
+                  "offset": 22
+                },
+                {
+                  "val": "Developer",
+                  "offset": 44
+                },
+                {
+                  "val": "hirecan58",
+                  "offset": 56
+                },
+                {
+                  "val": "7885685538",
+                  "offset": 68
+                },
+                {
+                  "val": "Developer",
+                  "offset": 81
+                },
+                {
+                  "val": "14/2/1995",
+                  "offset": 93
+                },
+                {
+                  "val": "Female",
+                  "offset": 105
+                },
+                {
+                  "val": "Yes",
+                  "offset": 114
+                },
+                {
+                  "val": "25",
+                  "offset": 120
+                },
+                {
+                  "val": "01/09/2021",
+                  "offset": 125
+                },
+                {
+                  "val": "1.5",
+                  "offset": 138
+                },
+                {
+                  "val": "800000",
+                  "offset": 144
+                },
+                {
+                  "val": "800000",
+                  "offset": 153
+                },
+                {
+                  "val": "India",
+                  "offset": 162
+                },
+                {
+                  "val": "wardha",
+                  "offset": 170
+                },
+                {
+                  "val": "Arvi naka",
+                  "offset": 179
+                },
+                {
+                  "val": "455966",
+                  "offset": 191
+                },
+                {
+                  "val": "Call",
+                  "offset": 200
+                },
+                {
+                  "val": "800000",
+                  "offset": 207
+                },
+                {
+                  "val": "4",
+                  "offset": 216
+                },
+                {
+                  "val": "No",
+                  "offset": 220
+                },
+                {
+                  "val": "No",
+                  "offset": 225
+                },
+                {
+                  "val": "JAVA",
+                  "offset": 230
+                },
+                {
+                  "val": "advanced java",
+                  "offset": 237
+                },
+                {
+                  "val": "JavaScript",
+                  "offset": 253
+                },
+                {
+                  "val": "Basic Knowledge",
+                  "offset": 266
+                },
+                {
+                  "val": "Intermediate",
+                  "offset": 284
+                },
+                {
+                  "val": "Expert",
+                  "offset": 299
+                },
+                {
+                  "val": "Mandatory",
+                  "offset": 308
+                },
+                {
+                  "val": "Preferred",
+                  "offset": 320
+                },
+                {
+                  "val": "Optional",
+                  "offset": 332
+                },
+                {
+                  "val": "Yes",
+                  "offset": 343
+                },
+                {
+                  "val": "No",
+                  "offset": 349
+                },
+                {
+                  "val": "No",
+                  "offset": 354
+                },
+                {
+                  "val": "provide certificate",
+                  "offset": 359
+                },
+                {
+                  "val": "spring,hybernet",
+                  "offset": 381
+                },
+                {
+                  "val": "advanced version",
+                  "offset": 399
+                },
+                {
+                  "val": "sun microsoft",
+                  "offset": 418
+                },
+                {
+                  "val": "advanced version",
+                  "offset": 436
+                }
+              ],
+              "location": "cvStrorestepDefination.enter_All_details_of_and(String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String)"
+            },
+            "matchedColumns": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8593662300,
+              "status": "passed"
+            },
+            "line": 61,
+            "name": "move the candidate card from potential candidate to Schedule Interview column",
+            "match": {
+              "location": "TaskManagemnet.move_the_candidate_card_from_potential_candidate_to_Schedule_Interview_column()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3176874800,
+              "status": "passed"
+            },
+            "line": 62,
+            "name": "Go to Task Management tab",
+            "match": {
+              "location": "TaskManagemnet.go_to_Task_Management_tab()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 243182400,
+              "status": "passed"
+            },
+            "line": 63,
+            "name": "Schedule interview task should display on task Management page \"hirecan58\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "hirecan58",
+                  "offset": 64
+                }
+              ],
+              "location": "TaskManagemnet.schedule_interview_task_should_display_on_task_Management_page(String)"
+            },
+            "matchedColumns": [
+              5
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2329398400,
+              "status": "passed"
+            },
+            "line": 64,
+            "name": "Go to Workbench",
+            "match": {
+              "location": "JobCandidateWorkflowBVTStepDefination.go_to_Workbench()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4170830800,
+              "status": "passed"
+            },
+            "line": 65,
+            "name": "Select a added job",
+            "match": {
+              "location": "MarketplaceBvt.select_a_added_job()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8513460900,
+              "status": "passed"
+            },
+            "line": 66,
+            "name": "move the candidate card from Schedule Interview column to pending interview column",
+            "match": {
+              "location": "TaskManagemnet.move_the_candidate_card_from_Schedule_Interview_column_to_pending_interview_column()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3152331600,
+              "status": "passed"
+            },
+            "line": 67,
+            "name": "Go to Task Management tab",
+            "match": {
+              "location": "TaskManagemnet.go_to_Task_Management_tab()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 216902300,
+              "status": "passed"
+            },
+            "line": 68,
+            "name": "pending interview task should display on task Management page \"hirecan58\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "hirecan58",
+                  "offset": 63
+                }
+              ],
+              "location": "TaskManagemnet.pending_interview_task_should_display_on_task_Management_page(String)"
+            },
+            "matchedColumns": [
+              5
+            ],
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 42,
+            "name": "@TaskManagement2"
+          }
+        ]
+      }
+    ],
+    "name": "Task Management",
+    "description": "",
+    "id": "task-management",
+    "keyword": "Feature",
+    "uri": "C:/Users/TLP33/Documents/GitHub/HireUIAutomation/HireXpertUIAutomation/HireXpertUIAutomation/src/main/java/features/TaskManagement.feature"
+  }
+]

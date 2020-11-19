@@ -167,7 +167,7 @@ public class WorkbenchPage extends baseclass {
 		Thread.sleep(4000);
 		jobDropDown.click();
 		driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).click();
-//		driver.findElement(By.xpath("//option[contains(text(),' Software developer II  - Hirexpert -  Active ')]")).click();
+//		driver.findElement(By.xpath("//option[contains(text(),' JCFW 12')]")).click();
 
 	}
 	

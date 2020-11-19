@@ -1,6 +1,7 @@
 package DataValidationTC_Stepdefination;
 import java.util.Map;
 
+import org.apache.maven.surefire.util.ScanResult;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -8,14 +9,22 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import com.aventstack.extentreports.gherkin.model.Scenario;
+
 import cucumber.api.DataTable;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pages.CandidateCardSectionPage;
+import customReports.CustomExtentReporter;
 import utilPackage.baseclass;
 
+@SuppressWarnings(value = "deprecation")
 public class AddingCandidate extends baseclass{
+	
+	private static CustomExtentReporter customExtentReporter;
+	private static boolean isReporterRunning;
 	
 	@Given("^User must be registered$")
 	public void user_must_be_registered() throws Throwable {
@@ -128,6 +137,7 @@ public class AddingCandidate extends baseclass{
 
 	@When("^Click on Edit Candidate icon on candidate card \"([^\"]*)\"$")
 	public void click_on_Edit_Candidate_icon_on_candidate_card(String Name) throws Throwable {
+		
 		candidatecardsectionpage.clickOnEditCandidateIcon(Name);
 	}
 
@@ -306,13 +316,6 @@ public void click_on_Employer_marketplace_tab() throws Throwable {
 	 marketplacepage.ClickOnMarketPlaceTab();
 }
 
-@When("^Assert the job details on job title$")
-public void assert_the_job_details_on_job_title(DataTable credentials) throws Throwable {
-	marketplacepage.assertjobdetails(credentials);
-}
-
-
-
 @When("^login as a support user$")
 public void login_as_a_support_user() throws Throwable {
 	  loginpage.loginInAppWithSupport();
@@ -355,6 +358,12 @@ public void click_on_job_displaying_in_marketplace_job_section() throws Throwabl
 	Thread.sleep(3000);
    driver.findElement(By.xpath("//a[text()='"+addjobpage.jobname+"']")).click();
 }
+
+@When("^Assert the job details on job title \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+public void assert_the_job_details_on_job_title(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3, DataTable credentials) throws Throwable {
+	marketplacepage.assertjobdetails(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3, credentials);
+	}
+
 //@jobboard
 
 @When("^Click on more jobs$")
@@ -363,64 +372,50 @@ public void click_on_more_jobs() throws Throwable {
     driver.findElement(By.xpath("(//a[text()='More Jobs..'])[1]")).click();
 }
 
-@When("^Click on view job details button$")
-public void click_on_view_job_details_button() throws Throwable {
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//h6[contains(text(),'"+addjobpage.jobname+"')]//following::button[text()='Job Details ']")).click();
-}
+	@When("^Click on view job details button$")
+	public void click_on_view_job_details_button() throws Throwable {
+		Thread.sleep(2000);
+		WebElement e1 = driver.findElement(By.xpath("//h6[contains(text(), '"+addjobpage.jobname+"')]//following::button[text()='Job Details ']"));
+				JavascriptExecutor jse = (JavascriptExecutor)driver;
+				jse.executeScript("arguments[0].scrollIntoView();", e1);
+				Thread.sleep(2000);
+				e1.click();
 
-@Then("^Assert the details on job board page$")
-public void assert_the_details_on_job_board_page(DataTable credentials) throws Throwable {
-	Thread.sleep(3000);
-	for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-	{
-		System.out.println("designation"+data.get("designation"));
-		 Assert.assertEquals(driver.findElement(By.xpath("//h5[text()='"+addjobpage.jobname+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' "+data.get("organisation")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' "+data.get("designation")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//p[text()=' "+data.get("location")+", "+data.get("city")+", "+data.get("country")+" - "+data.get("zipcode")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//p[text()=' "+data.get("noofvacancies")+" Openings ']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//p[text()=' "+data.get("minexp")+" - "+data.get("maxexp")+" Years']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//p[text()=' "+data.get("budget")+" PA ']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Industry']//following::td[text()='"+data.get("industry")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Job Role']//following::td[text()='"+data.get("jobrole")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Qualification']//following::td[text()='"+data.get("qualification")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Cash Benefit']//following::td[text()='"+data.get("cashBenefit")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Job Type']//following::td[text()='"+data.get("jobType")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Shift']//following::td[text()='"+data.get("Shift")+" ("+data.get("ShiftTimings")+")']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Notice Period']//following::td[text()='"+data.get("Shift")+" Days ']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Total Interviews']//following::td[text()='"+data.get("totalinterviews")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Mandatory Skills']//following::span[text()='"+data.get("Skill1")+" ("+data.get("level1")+") ']")).isDisplayed(), true);			
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Preferred Skills ']//following::span[text()='"+data.get("Skill2")+" ("+data.get("level1")+") ']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Optional Skills ']//following::span[text()='"+data.get("Skill3")+" ("+data.get("level3")+") ']")).isDisplayed(), true);
+//				jse.executeScript("window.scrollTo(0,document.body.scr‌​ollHeight);");
 
-
-		
+//				jse.executeScript("arguments[0].click();", e1);
+				
+//		Action.moveToElement(e1).build().perform();
 	}
-}
+	
+	@When("^Assert the job details on job board \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void assert_the_job_details_on_job_board(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3, DataTable credentials) throws Throwable {
+		 Thread.sleep(3000);
+		 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		 { 			 
+		 Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'job1boardjobvalidation')]")).isDisplayed(), true);
+		 Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'job1boardjobvalidation')]//following::p[@title='Organization Name']")).getText(), data.get("organization"));
+		 Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'job1boardjobvalidation')]//following::div[@title='Location']//span")).getText(), data.get("location")+", "+data.get("city")+", "+data.get("country")+" - "+data.get("zipcode"));
+		 Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'job1boardjobvalidation')]//following::p[@title='Experience']")).getText(), data.get("minexp")+" to "+data.get("maxexp")+" Years");
+		 Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'job1boardjobvalidation')]//following::p[@title='Notice Period']")).getText(), data.get("noticePeriod")+" Days");
+		 Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'job1boardjobvalidation')]//following::p[@title='Salary']")).getText(), data.get("minsal")+" - "+data.get("maxsal")+" PA");
+		 Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'job1boardjobvalidation')]//following::p[@title='Industry']")).getText(), data.get("industry"));
+		 Assert.assertEquals(driver.findElement(By.xpath("(//h6[contains(text(),'job1boardjobvalidation')]//following::td[text()='Designation']//following::td)[1]")).getText(),data.get("designation") );
+		 Assert.assertEquals(driver.findElement(By.xpath("(//h6[contains(text(),'job1boardjobvalidation')]//following::td[text()='Job Type']//following::td)[1]")).getText(), data.get("jobType"));
+		 Assert.assertEquals(driver.findElement(By.xpath("(//h6[contains(text(),'job1boardjobvalidation')]//following::td[text()='Mandatory Skills']//following::span)[1]")).getText(), Skill1+" ("+level1+")");
+		 Assert.assertEquals(driver.findElement(By.xpath("(//h6[contains(text(),'job1boardjobvalidation')]//following::td[text()='Preferred Skills']//following::span)[1]")).getText(), Skill2+" ("+level2+")");
+		 Assert.assertEquals(driver.findElement(By.xpath("(//h6[contains(text(),'job1boardjobvalidation')]//following::td[text()='Optional Skills']//following::span)[1]")).getText(), Skill3+" ("+level3+")");
+		 Assert.assertEquals(driver.findElement(By.xpath("(//h6[contains(text(),'job1boardjobvalidation')]//following::td[text()='Age']//following::td)[1]")).getText(), data.get("minAge")+"-"+data.get("maxAge")+" Years");
+		 Assert.assertEquals(driver.findElement(By.xpath("(//h6[contains(text(),'job1boardjobvalidation')]//following::td[text()='Shift']//following::td)[1]")).getText(), data.get("Shift")+" ("+data.get("ShiftTimings")+")");
+		 Assert.assertEquals(driver.findElement(By.xpath("(//h6[contains(text(),'job1boardjobvalidation')]//following::td[text()='Cash Benefit']//following::td)[1]")).getText(), data.get("cashBenefit"));
+		 Assert.assertEquals(driver.findElement(By.xpath("(//h6[contains(text(),'job1boardjobvalidation')]//following::td[text()='Total Interviews']//following::td)[1]")).getText(), data.get("totalinterviews"));
+		 Assert.assertEquals(driver.findElement(By.xpath("(//h6[contains(text(),'job1boardjobvalidation')]//following::td[text()='Qualification']//following::td)[1]")).getText(), data.get("qualification"));
 
-	@Then("^Assert the details on job board page \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void assert_the_details_on_job_board_page(String designation, String industry, String jobrole, String organisation, String qualification, String country, String city, String location, String zipcode, String budget, String cashBenefit, String minexp, String maxexp, String jobType, String noticePeriod, String noofvacancies, String Shift, String ShiftTimings, String totalinterviews, String considerRelocation, String Skill1, String Skill2, String Skill3, String level1, String level2, String level3) throws Throwable {
-		Assert.assertEquals(driver.findElement(By.xpath("//h5[text()='"+addjobpage.jobname+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' "+data.get("organisation")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//h6[text()=' "+data.get("designation")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//p[text()=' "+data.get("location")+", "+data.get("city")+", "+data.get("country")+" - "+data.get("zipcode")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//p[text()=' "+data.get("noofvacancies")+" Openings ']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//p[text()=' "+data.get("minexp")+" - "+data.get("maxexp")+" Years']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//p[text()=' "+data.get("budget")+" PA ']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Industry']//following::td[text()='"+data.get("industry")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Job Role']//following::td[text()='"+data.get("jobrole")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Qualification']//following::td[text()='"+data.get("qualification")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Cash Benefit']//following::td[text()='"+data.get("cashBenefit")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Job Type']//following::td[text()='"+data.get("jobType")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Shift']//following::td[text()='"+data.get("Shift")+" ("+data.get("ShiftTimings")+")']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Notice Period']//following::td[text()='"+data.get("Shift")+" Days ']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Total Interviews']//following::td[text()='"+data.get("totalinterviews")+"']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Mandatory Skills']//following::span[text()='"+data.get("Skill1")+" ("+data.get("level1")+") ']")).isDisplayed(), true);			
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Preferred Skills ']//following::span[text()='"+data.get("Skill2")+" ("+data.get("level1")+") ']")).isDisplayed(), true);
-		 Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Optional Skills ']//following::span[text()='"+data.get("Skill3")+" ("+data.get("level3")+") ']")).isDisplayed(), true);
 
+		 }
 	}
+
+
 //@candidatedetails
 
 	@When("^Click register link$")
@@ -444,28 +439,27 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 			common.clickOnCloseBtn();
 			common.clickOnConfirmYes();
 		}
-		
 	}
 
-		@Then("^Enter all the personal and professional details of candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-		public void enter_all_the_personal_and_professional_details_of_candidate(String title, String ContactNumber, String Date, String Country, String CityArea, String Name, String alternateemail, String alternateContact, String Gender, String City, String ZipCode, String currentorganization, String currentdesignation, String currentduration, String jobtype, String shift, String preferredcity, String searchkeyword, String industry, String experience, String expectedCTC, String residentialstatus, String OnNoticePeriod,String LastWorkingDay, String NoticePeriod, String CTC, String Communicationmode, String willingtotravel, String lookingforjob, String relocate, String cv) throws Throwable {
+		@Then("^Enter all the personal and professional details of candidate \"([^\"]*)\" \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+		public void enter_all_the_personal_and_professional_details_of_candidate(String profiletitle, String CandidateEmail , String ContactNumber, String Date, String Country, String CityArea, String Name, String alternateemail, String alternateContact, String Gender, String City, String ZipCode, String currentorganization,String functionalArea, String currentdesignation, String currentduration, String jobtype, String shift, String preferredcity, String searchkeyword, String industry, String experience, String expectedCTC, String residentialstatus, String OnNoticePeriod,String LastWorkingDay, String NoticePeriod, String CTC, String Communicationmode, String willingtotravel, String lookingforjob, String relocate, String cv) throws Throwable {
 			Thread.sleep(4000);
-			addcandidatepage.title.sendKeys(title);
-			Assert.assertEquals(addcandidatepage.title.getAttribute("value"), title);
-//			addcandidatepage.contactNumber.sendKeys(ContactNumber);
+			addcandidatepage.title.sendKeys(profiletitle);
+			Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"), CandidateEmail);
+			Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), ContactNumber);
 			Thread.sleep(2000);
-			addcandidatepage.calenderIcon.click();
-//			driver.findElement(By.xpath("//span[text()='"+Date+"']")).click();
-			candidateupdateprofilepage.enterdate(Date);
+			addcandidatepage.calenderIcon.get(0).click();
+			common.enterdate(Date);
 			addcandidatepage.countryId.sendKeys(Country);
 			addcandidatepage.cityArea.sendKeys(CityArea);
-//			addcandidatepage.name.sendKeys(Name);
-			addcandidatepage.alternateEmail.sendKeys(alternateemail);	
+			Assert.assertEquals(addcandidatepage.name.getAttribute("value"), Name);
+			addcandidatepage.alternateEmail.sendKeys(alternateemail);
 			addcandidatepage.alternateContact.sendKeys(alternateContact);
 			addcandidatepage.gender.sendKeys(Gender);
 			addcandidatepage.city.sendKeys(City);
 			addcandidatepage.zipCode.sendKeys(ZipCode);
 			candidateupdateprofilepage.CurrentOrganization.sendKeys(currentorganization);
+			addjobpage.functionalArea.sendKeys(functionalArea);
 			candidateupdateprofilepage.currentDesignation.sendKeys(currentdesignation);
 			candidateupdateprofilepage.currentDuration.sendKeys(currentduration);			
 			Thread.sleep(3000);
@@ -494,10 +488,8 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 			if(OnNoticePeriod.contentEquals("Yes"))
 			{
 				Thread.sleep(5000);
-				addcandidatepage.lastWorkingDay.click();
-//				driver.findElement(By.xpath("//span[text()='"+LastWorkingDay+"']")).click();
-				candidateupdateprofilepage.enterdate(LastWorkingDay);
-//				addcandidatepage.datebelowField = driver.findElement(By.xpath("(//div[@class='text-info'])[2]")).getText();
+				addcandidatepage.calenderIcon.get(1).click();
+				common.enterdate(LastWorkingDay);
 			}	
 			else
 			{
@@ -548,8 +540,8 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 
 
 		@When("^fill all skills and designation details \"([^\"]*)\"$")
-		public void fill_all_skills_and_designation_details(String designation, DataTable credentials) throws Throwable {
-			candidateupdateprofilepage.fillAllskillsAndDesignationDetails(designation, credentials);
+		public void fill_all_skills_and_designation_details(String currentdesignation, DataTable credentials) throws Throwable {
+			candidateupdateprofilepage.fillAllskillsAndDesignationDetails(currentdesignation, credentials);
 
 		}
 		
@@ -591,64 +583,62 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 			candidateupdateprofilepage.experienceTab.click();
 		}
 
-		@When("^Fill all experience details$")
+		
+		@Then("^Fill all experience details$")
 		public void fill_all_experience_details(DataTable credentials) throws Throwable {
 			candidateupdateprofilepage.fillAllExperirenceDetails(credentials);
 		}
 		
-		@Then("^Assert the personal and professional details of candidate$")
-		public void assert_the_personal_and_professional_details_of_candidate(DataTable credentials) throws Throwable {
+		@Then("^Assert the personal and professional details of candidate \"([^\"]*)\" \\\"([^\\\"]*)\\\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+		public void assert_the_personal_and_professional_details_of_candidate(String profiletitle,String CandidateEmail,  String ContactNumber, String Date, String Country, String CityArea, String Name, String alternateemail, String alternateContact, String Gender, String City, String ZipCode, String currentorganization, String functionalArea, String currentdesignation, String currentduration, String jobtype, String shift, String preferredcity, String searchkeyword, String industry, String experience, String expectedCTC, String residentialstatus, String OnNoticePeriod,String LastWorkingDay, String NoticePeriod, String CTC, String Communicationmode, String willingtotravel, String lookingforjob, String relocate, String cv) throws Throwable {
 			Thread.sleep(4000);
-			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
-			{
-			Assert.assertEquals(addcandidatepage.title.getAttribute("value"), data.get("title"));	
-			Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"), data.get("CandidateEmail"));		
-			Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), data.get("ContactNumber"));		
-			Assert.assertEquals(driver.findElement(By.xpath("(//input[@placeholder='Select Date']//following::p)[1]")).getText(), data.get("Date"));
+			Assert.assertEquals(addcandidatepage.title.getAttribute("value"), profiletitle);	
+			Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"), CandidateEmail);		
+			Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), ContactNumber);		
+			Assert.assertEquals(addcandidatepage.date.getAttribute("value"), Date);
 			select=new Select(addcandidatepage.countryId);
-			Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+data.get("country")+" ");
-			Assert.assertEquals(addcandidatepage.cityArea.getAttribute("value"), data.get("CityArea"));	
-			Assert.assertEquals(addcandidatepage.name.getAttribute("value"), data.get("Name"));	
-			Assert.assertEquals(addcandidatepage.alternateEmail.getAttribute("value"), data.get("alternateemail"));	
-			Assert.assertEquals(addcandidatepage.alternateContact.getAttribute("value"), data.get("alternateContact"));	
-			Assert.assertEquals(addcandidatepage.gender.getAttribute("value"), data.get("Gender"));	
-			Assert.assertEquals(addcandidatepage.city.getAttribute("value"), data.get("City"));	
-			Assert.assertEquals(addcandidatepage.zipCode.getAttribute("value"), data.get("ZipCode"));	
-			Assert.assertEquals(candidateupdateprofilepage.CurrentOrganization.getAttribute("value"), data.get("currentorganization"));	
-			Assert.assertEquals(candidateupdateprofilepage.designation.get(0).getAttribute("value"), data.get("currentdesignation"));	
-			Assert.assertEquals(candidateupdateprofilepage.currentDuration.getAttribute("value"), data.get("currentduration"));	
-			Assert.assertEquals(driver.findElement(By.xpath("(//ng-select[@placeholder='Select JobType']//span)[1]")).getText(), data.get("jobtype"));
-			Assert.assertEquals(driver.findElement(By.xpath("(//ng-select[@placeholder='Select Shift']//span)[1]")).getText(), data.get("shift"));
-			Assert.assertEquals(driver.findElement(By.xpath("(//ng-select[@placeholder='Enter Preferred Cities']//span)[1]")).getText(), data.get("preferredcity"));
-//			Assert.assertEquals(candidateupdateprofilepage.preferredCity.getAttribute("value"), data.get("preferredcity"));	
-			Assert.assertEquals(candidateupdateprofilepage.searchKeywords.getAttribute("value"), data.get("searchkeyword"));	
-			Assert.assertEquals(addcandidatepage.industry.getAttribute("value"), data.get("industry"));	
-			Assert.assertEquals(addcandidatepage.experienceInYears.getAttribute("value"), data.get("experience"));	
-			Assert.assertEquals(addcandidatepage.expectedCTC.getAttribute("value"), data.get("expectedCTC"));	
-			Assert.assertEquals(candidateupdateprofilepage.residentialStatus.getAttribute("value"), data.get("residentialstatus"));	
-//			Assert.assertEquals(addcandidatepage.onNoticePeriod.getAttribute("value"), data.get(""));	
+			Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), Country);
+			Assert.assertEquals(addcandidatepage.cityArea.getAttribute("value"), CityArea);	
+			Assert.assertEquals(addcandidatepage.name.getAttribute("value"), Name);	
+			Assert.assertEquals(addcandidatepage.alternateEmail.getAttribute("value"), alternateemail);	
+			Assert.assertEquals(addcandidatepage.alternateContact.getAttribute("value"), alternateContact);	
+			Assert.assertEquals(addcandidatepage.gender.getAttribute("value"), Gender);	
+			Assert.assertEquals(addcandidatepage.city.getAttribute("value"), City);	
+			Assert.assertEquals(addcandidatepage.zipCode.getAttribute("value"), ZipCode);	
+			Assert.assertEquals(candidateupdateprofilepage.CurrentOrganization.getAttribute("value"), currentorganization);	
+			Assert.assertEquals(addjobpage.functionalArea.getAttribute("value"), functionalArea);	
+			Assert.assertEquals(candidateupdateprofilepage.designation.get(0).getAttribute("value"), currentdesignation);	
+			Assert.assertEquals(candidateupdateprofilepage.currentDuration.getAttribute("value"), currentduration);	
+			Assert.assertEquals(driver.findElement(By.xpath("(//ng-select[@placeholder='Select JobType']//span)[1]")).getText(), jobtype);
+			Assert.assertEquals(driver.findElement(By.xpath("(//ng-select[@placeholder='Select Shift']//span)[1]")).getText(), shift);
+			Assert.assertEquals(driver.findElement(By.xpath("(//ng-select[@placeholder='Enter Preferred Cities']//span)[1]")).getText(), preferredcity);
+			Assert.assertEquals(candidateupdateprofilepage.searchKeywords.getAttribute("value"), searchkeyword);	
+			Assert.assertEquals(addcandidatepage.industry.getAttribute("value"), industry);	
+			Assert.assertEquals(addcandidatepage.experienceInYears.getAttribute("value"), experience);	
+			Assert.assertEquals(addcandidatepage.expectedCTC.getAttribute("value"), expectedCTC);	
+			Assert.assertEquals(candidateupdateprofilepage.residentialStatus.getAttribute("value"), residentialstatus);	
 			select=new Select(addcandidatepage.onNoticePeriod);
 			WebElement option = select.getFirstSelectedOption();
-			Assert.assertEquals(option.getText(),data.get("OnNoticePeriod"));
-			if(data.get("OnNoticePeriod").contentEquals("Yes"))
+			Assert.assertEquals(option.getText(),OnNoticePeriod);
+			if(OnNoticePeriod.contentEquals("Yes"))
 			{
-			Assert.assertEquals(driver.findElement(By.xpath("(//input[@placeholder='Select Date'])[2]//following::p")).getText(), data.get("LastWorkingDay"));
+			Assert.assertEquals(addcandidatepage.lastWorkingDay.getAttribute("value").strip(), LastWorkingDay);
 			}
 			else
 			{
-			Assert.assertEquals(addcandidatepage.noticePeriod.getAttribute("value"), data.get("NoticePeriod"));
+			Assert.assertEquals(addcandidatepage.noticePeriod.getAttribute("value"), NoticePeriod);
 			}
-			Assert.assertEquals(addcandidatepage.ctc.getAttribute("value"), data.get("CTC"));	
-			Assert.assertEquals(addcandidatepage.communicationMode.getAttribute("value"), data.get("Communicationmode"));	
+			Assert.assertEquals(addcandidatepage.ctc.getAttribute("value"), CTC);	
+			Assert.assertEquals(addcandidatepage.communicationMode.getAttribute("value"), Communicationmode);	
 			select=new Select(candidateupdateprofilepage.willingToTravel);
-			Assert.assertEquals(select.getFirstSelectedOption().getText(), data.get("willingtotravel"));
+			Assert.assertEquals(select.getFirstSelectedOption().getText(), willingtotravel);
 			select=new Select(addcandidatepage.LookingforJobfield);
-			Assert.assertEquals(select.getFirstSelectedOption().getText(), data.get("lookingforjob"));
+			Assert.assertEquals(select.getFirstSelectedOption().getText(), lookingforjob);
 			select=new Select(candidateupdateprofilepage.readyToRelocate);
-			Assert.assertEquals(select.getFirstSelectedOption().getText(), data.get("relocate"));
-			Assert.assertEquals(driver.findElement(By.xpath("(//input[@formcontrolname='CVUpload']//following::label)[1]")).getText(), data.get("cv"));	
-			}
+			Assert.assertEquals(select.getFirstSelectedOption().getText(), relocate);
+			Assert.assertEquals("C:\\Users\\TLP33\\Documents\\"+driver.findElement(By.xpath("(//input[@formcontrolname='CVUpload']//following::label)[1]")).getText(), cv);				
 		}
+
 
 		@Then("^Assert the qualification details$")
 		public void assert_the_qualification_details(DataTable credentials) throws Throwable {
@@ -693,7 +683,7 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 	}
 		
 		@Then("^Assert skills and designation \"([^\"]*)\"$")
-		public void assert_skills_and_designation(String arg1, DataTable credentials) throws Throwable {
+		public void assert_skills_and_designation(String currentdesignation, DataTable credentials) throws Throwable {
 			int i=0;
 			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
 			  {
@@ -702,8 +692,7 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 					Assert.assertEquals(candidateupdateprofilepage.skills.get(i).getAttribute("value"), data.get("skill"));
 					select=new Select(candidateupdateprofilepage.expertiselevel.get(i));
 					Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), data.get("Expertiselevel"));
-					Assert.assertEquals(candidateupdateprofilepage.certificate.get(i).getAttribute("value"), data.get("certificate"));
-					Assert.assertEquals(addcandidatepage.designation.get(i).getAttribute("value"), data.get("designation"));
+					Assert.assertEquals(candidateupdateprofilepage.certificate.get(i).getAttribute("value"), data.get("certificate"));					
 				}
 				i++;
 			 }
@@ -866,18 +855,18 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 		@Then("^Assert the additional details$")
 		public void assert_the_additional_detaails() throws Throwable {
 			Thread.sleep(5000);
-			candidateupdateprofilepage.coverLetter.click();
-			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("Coverletter"));
-			candidateupdateprofilepage.achievements.click();
-			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("acheivment"));
-			candidateupdateprofilepage.testimonials.click();
-			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("testimonals"));
-			candidateupdateprofilepage.references.click();
-			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("refresnces"));
-			candidateupdateprofilepage.extracurricular.click();
-			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("extracurriculam"));
-			candidateupdateprofilepage.profileSummary.click();
-			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("profilesummary"));
+//			candidateupdateprofilepage.coverLetter.click();
+//			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("Coverletter"));
+//			candidateupdateprofilepage.achievements.click();
+//			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("acheivment"));
+//			candidateupdateprofilepage.testimonials.click();
+//			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("testimonals"));
+//			candidateupdateprofilepage.references.click();
+//			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("refresnces"));
+//			candidateupdateprofilepage.extracurricular.click();
+//			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("extracurriculam"));
+//			candidateupdateprofilepage.profileSummary.click();
+//			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("profilesummary"));
 			candidateupdateprofilepage.declaration.click();
 			Assert.assertEquals(candidateupdateprofilepage.textArea.getText(), prop.getProperty("declaration"));
 
@@ -903,4 +892,31 @@ public void assert_the_details_on_job_board_page(DataTable credentials) throws T
 		
 		}
 		
+		
+//		@Before()
+//		public void beforeScenario(Scenario scenario)
+//		{
+//			if(!this.isReporterRunning)
+//			{
+//				customExtentReporter= new CustomExtentReporter("C:\\Users\\TLP33\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\target\\extentReport.html");
+//				isReporterRunning=true;
+//			}
+//		}
+//		
+//		//@After
+//		public void teardown(Scenario scenario) {
+//			if(scenario.isFailed()){
+//				captureScreenShot(scenario);
+//			}
+//			if(driver != null){
+//		    	driver.quit(); // it will close all the window and stop the web driver
+//		    }
+//		}
+//		
+//		private void captureScreenShot(Scenario scenario) {
+//			int random = (int)(Math.random() * 1000);
+//			services.getGenericHelper().takeScrenShot("Screenshot", "src" + random +".png");
+//			scenario.embed(services.getGenericHelper().takeScrenShot(), "image/png");
+//		}
+//		
 }
