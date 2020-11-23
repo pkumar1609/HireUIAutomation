@@ -99,7 +99,6 @@ public class b_unblockFunctionalitySteps extends baseclass {
 
 	}
 
-
 	@Then("^click on Add Candidate button$")
 	public void click_on_Add_Candidate_button() throws Throwable {
 		workbenchpage.clickOnAddCandidate();

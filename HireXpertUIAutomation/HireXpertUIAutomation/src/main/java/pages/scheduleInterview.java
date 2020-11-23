@@ -58,8 +58,8 @@ public class scheduleInterview extends baseclass {
 	@FindBy(xpath = "//input[@formcontrolname='Location']")
 	public WebElement Location;
 	
-	@FindBy(xpath = "(//button[@aria-label='Open Calendar'])[2]")
-	public WebElement calendarIcon;
+	@FindBy(xpath = "(//input[@placeholder='Select Date']//following::button)[1]")
+	public WebElement ScheduleOnCalendarIcon;
 	
 	@FindBy(xpath = "//button[@aria-label='Next Month']")
 	public WebElement nextMonth;
@@ -128,7 +128,7 @@ public class scheduleInterview extends baseclass {
 				driver.findElement(By.xpath("//div[contains(text(),'Select All')]")).click();
 				interviewerDropDown.click();
 				Thread.sleep(2000);
-				calendarIcon.click();
+				ScheduleOnCalendarIcon.click();
 				Thread.sleep(2000);
 				driver.findElement(By.xpath("//span[text()='"+data.get("ScheduleOn")+"']")).click();				
 				hours.sendKeys(data.get("Hour"));
@@ -142,7 +142,7 @@ public class scheduleInterview extends baseclass {
 				Location.sendKeys(data.get("Location"));	
 				common.submitbtn.isEnabled();
 				common.ClickSumbit();
-				Thread.sleep(2000);
+//				Thread.sleep(2000);
 //				interviewDate=driver.findElement(By.xpath("(//p[@class='mb-1'])[3]")).getText();
 			}
 	 }

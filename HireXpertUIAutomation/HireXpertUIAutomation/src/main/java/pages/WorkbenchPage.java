@@ -166,7 +166,10 @@ public class WorkbenchPage extends baseclass {
 
 		Thread.sleep(4000);
 		jobDropDown.click();
-		driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).click();
+		WebElement element = driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]"));
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		explicitwait.until(ExpectedConditions.elementToBeClickable(element));
+		element.click();
 //		driver.findElement(By.xpath("//option[contains(text(),' JCFW 12')]")).click();
 
 	}
