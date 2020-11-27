@@ -1,5 +1,7 @@
 package utilPackage;
 
+import java.awt.AWTException;
+import java.awt.Robot;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,6 +39,7 @@ import pages.RegisterPage;
 import pages.ScreeningPage;
 import pages.ShareWithAgencyPage;
 import pages.ShareWithTeamPage;
+import pages.TaskManagementPage;
 import pages.TaskPage;
 import pages.TeamPage;
 import pages.UpdateProfilePopupPage;
@@ -70,7 +73,7 @@ public class baseclass {
 	public static ArrayList<String> ar= new ArrayList<String>();
 	public static int size;
 	public static ArrayList<String> ar1= new ArrayList<String>();
-	public JavascriptExecutor executor=(JavascriptExecutor)driver;
+	public static JavascriptExecutor executor;
 	public static Select select;
 	public static TaskPage taskpage;
 	public static MarketPlacePage marketplacepage;
@@ -85,6 +88,8 @@ public class baseclass {
 	public static ForgetPasswordPage forgetpasswordpage;
 	public static WebDriverWait explicitwait;
 	public static CvStorePage cvstorepage;
+	public static Robot rb;
+	public static TaskManagementPage taskmanagementpage;
 
 	
 	public baseclass() { 
@@ -92,7 +97,7 @@ public class baseclass {
 		try 
 		{ 
 			prop = new Properties();
-			FileInputStream fis = new FileInputStream("C:\\Users\\TLP33\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
+			FileInputStream fis = new FileInputStream("C:\\Users\\admin\\AppData\\Local\\Jenkins.jenkins\\workspace\\UI Automation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
 			prop.load(fis);	
 		}
 		catch(IOException e) {
@@ -100,7 +105,7 @@ public class baseclass {
 		}
 	}
 	
-	public static void initialization() throws IOException {
+	public static void initialization() throws IOException, AWTException {
 		
 		String browsername = prop.getProperty("browser");
 		
@@ -148,8 +153,10 @@ public class baseclass {
 		Action = new Actions(driver);
 		forgetpasswordpage=new ForgetPasswordPage();
 		explicitwait = new WebDriverWait(driver,80);
+		executor=(JavascriptExecutor)driver;
 		cvstorepage= new CvStorePage();
-
+		rb =new Robot();
+		taskmanagementpage= new TaskManagementPage();
 
 	}
 	
