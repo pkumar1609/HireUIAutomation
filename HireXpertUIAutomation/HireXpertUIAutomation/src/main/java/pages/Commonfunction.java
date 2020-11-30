@@ -167,17 +167,5 @@ public class Commonfunction extends baseclass {
 			Thread.sleep(4000);
 			driver.findElement(By.xpath("//span[text()='"+day+"']")).click();
 		}    
-	 
-	
-//	public String displaydateFormate(String date)
-//	{	
-//		String[] values = date.split("-");
-//        day = Integer.parseInt(values[0]);
-//        month = String.valueOf(values[1]);   
-//        year = Integer.parseInt(values[2]);
-//		
-//	    }    
-//		return DisplayDate= day+"/"+month+"/"+year;
-//	}
 
 }

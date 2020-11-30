@@ -73,7 +73,7 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
 
 		 Thread.sleep(3000); 
-			addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
+//			addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
 						
 	}
 	
@@ -438,7 +438,7 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 		addcandidatepage.uploadResumeDocumentT();
 		
 		Thread.sleep(3000);
-		addcandidatepage.Enterexpertilevel(ExpertiseLevel1, ExpertiseLevel2);
+//		addcandidatepage.Enterexpertilevel(ExpertiseLevel1, ExpertiseLevel2);
 		
 	}
 	

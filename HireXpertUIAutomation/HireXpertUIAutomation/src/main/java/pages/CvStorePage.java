@@ -74,43 +74,6 @@ public class CvStorePage extends baseclass{
 	
 	@FindBy(xpath= "//a[text()='View Details']")
 	public WebElement viewDetails ;
-//	
-//	@FindBy(xpath= "")
-//	public WebElement  ;
-//	
-//	@FindBy(xpath= "")
-//	public WebElement  ;
-//	
-//	@FindBy(xpath= "")
-//	public WebElement  ;
-//	
-//	@FindBy(xpath= "")
-//	public WebElement  ;
-//	
-//	@FindBy(xpath= "")
-//	public WebElement  ;
-//	
-//	@FindBy(xpath= "")
-//	public WebElement  ;
-//	
-//	@FindBy(xpath= "")
-//	public WebElement  ;
-//	
-//	@FindBy(xpath= "")
-//	public WebElement  ;
-//	
-//	@FindBy(xpath= "")
-//	public WebElement  ;
-//	
-//	@FindBy(xpath= "")
-//	public WebElement  ;
-//	
-//	@FindBy(xpath= "")
-//	public WebElement  ;
-//	
-//	@FindBy(xpath= "")
-//	public WebElement  ;
-	
 
 	public void FillBasicFilterValues(String jobs, String designation, String mandatorySkills, String preferredSkills, String optionalSkills, String minexp, String maxexp, String salary, String noticeperiod, String City) throws InterruptedException
 	{

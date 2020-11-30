@@ -11,8 +11,8 @@ And Go to Workbench
 And close all job  
 Examples:
 |Username      |Password|
-#|pemp@gmail.com|12345   |
-|pagy@gmail.com|12345   |
+|pemp@gmail.com|12345   |
+#|pagy@gmail.com|12345   |
 
 
 @BVT @JCWF
@@ -422,39 +422,39 @@ Examples:
 ## If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 #
 #
-#@Regression @reg6 
-#Scenario Outline: To verify the functionality of Upload Resume on emp/agy profile
-#	
-#Given User must be registered
-#
-#When title of login page is Home
-#And Click on Employer-Agency Signin link
-#And Employer enters valid credentials "<Username>","<Password>"
-#And Go to Workbench
-#And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
-#|title		     |agytitle     |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-#|JCFW 10         |JCFW Agy 10  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
-#And Select a added job
-#And Click on add candidate
-#And Enter All details of "<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
-#And verify candidate card is displaying or not in New column "<Name>"	
-#And Click on Edit Candidate icon on candidate card "<Name>"
-#And upload candidate resume in zip file format
-#And verify the error message displayed as "Only .pdf, .docx , .txt and .doc format files are supported."
-#And click on ok button
-#And upload candidate resume in pdf file format
-#And Click on save button for edit candidate
-#And if confirmation popup is displayed click on ok button
-#And Click on Edit Candidate icon on candidate card "<Name>"
-#And upload candidate resume in text file format
-#And Click on save button for edit candidate
-#And if confirmation popup is displayed click on ok button
-#And Click on Edit Candidate icon on candidate card "<Name>"
-#And upload candidate resume in PNG file format
-#And verify the error message displayed as "Only .pdf, .docx , .txt and .doc format files are supported."
-#And click on ok button
-#And Click on save button for edit candidate
-#And if confirmation popup is displayed click on ok button
+@Regression @reg6 
+Scenario Outline: To verify the functionality of Upload Resume on emp/agy profile
+	
+Given User must be registered
+
+When title of login page is Home
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials "<Username>","<Password>"
+And Go to Workbench
+And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
+|title		     |agytitle     |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
+|JCFW 10         |JCFW Agy 10  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
+And Select a added job
+And Click on add candidate
+And Enter All details of "<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
+And verify candidate card is displaying or not in New column "<Name>"	
+And Click on Edit Candidate icon on candidate card "<Name>"
+And upload candidate resume in zip file format
+And verify the error message displayed as "Only .pdf, .docx , .txt and .doc format files are supported."
+And click on ok button
+And upload candidate resume in pdf file format
+And Click on save button for edit candidate
+And if confirmation popup is displayed click on ok button
+And Click on Edit Candidate icon on candidate card "<Name>"
+And upload candidate resume in text file format
+And Click on save button for edit candidate
+And if confirmation popup is displayed click on ok button
+And Click on Edit Candidate icon on candidate card "<Name>"
+And upload candidate resume in PNG file format
+And verify the error message displayed as "Only .pdf, .docx , .txt and .doc format files are supported."
+And click on ok button
+And Click on save button for edit candidate
+And if confirmation popup is displayed click on ok button
 #
 #
 #Examples: 

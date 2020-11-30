@@ -210,13 +210,7 @@ public AddJobPage()
 	
 	@FindBy(xpath = "//input[@formcontrolname='IsCertificateNeeded']")
 	public List<WebElement> isCertificateNeeded;
-	
 
-	
-	
-
-	
-	
 	public void validateJobPageTitle() {
 		
 		String jobpagetitle = driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/add-edit-job/div[1]/h5")).getText();
@@ -239,21 +233,7 @@ public AddJobPage()
 		employerOrganizationName.sendKeys("EmployerOrg");
 	}
 	
-	
-//	public void fillDetails() throws InterruptedException {
-//		
-//		title.sendKeys("Automation1");
-//		designation.sendKeys("Automation engineer");
-//		industry.sendKeys("IT Company Pvt. Ltd.");
-//		jobrole.sendKeys("Automation engineer");
-//		location.sendKeys("Bombay");
-//		budget.sendKeys("400000");
-//		minexp.sendKeys("0");
-//		maxexp.sendKeys("2");
-//		noOfInterviews();
-//		click.click();
-//		Thread.sleep(2000);
-//	}
+
 	
 public void filljobDetails(String JobTitle,String Industry, String JobDesignation, String MinSalary , String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod) throws InterruptedException {
 		
@@ -333,109 +313,12 @@ public void addNewSkill3() {
 		employerContactNumber.sendKeys("215245554");
 	}
 	
-	public void employerDropDown() {
-		
-		se = new Select(employer);
-		se.selectByVisibleText("Trupti1");
-	}
-	
-	public void clickOnSubmitButton() {
-		
-		common.submitbtn.click();
-	}
-	
-	
-public void addJobforEmployerandAgency(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws InterruptedException{
-		
-		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
-		if(dynamicElement.size() != 0){
-			
-		 //If list size is non-zero, element is present
-			System.out.println("\nUser logged in as Employer..");
-			
-			Thread.sleep(3000);
+//	public void employerDropDown() {
+//		
+//		se = new Select(employer);
+//		se.selectByVisibleText("Trupti1");
+//	}
 
-			workbenchpage.AddJob();
-			
-			Thread.sleep(3000);
-			
-			addjobpage.filljobDetails(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod);
-			
-			Thread.sleep(3000);
-			
-			addjobpage.addNewSkill1(JobSkill1);
-			
-			Thread.sleep(3000);
-			
-			addjobpage.addNewSkill2(JobSkill2);
-			
-			Thread.sleep(3000);
-			
-			addjobpage.deleteSkill3.click();
-			
-			Thread.sleep(3000);
-			
-			common.submitbtn.click();
-
-		}
-		
-		else{
-			
-		 //Else if size is 0, then element is not present
-			System.out.println("\nUser logged in as Agency..");
-			
-			Thread.sleep(3000);
-
-			workbenchpage.AddJob();
-			
-			Thread.sleep(3000);
-			
-			addjobpage.filljobDetails(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod);
-			
-			Thread.sleep(3000);
-			
-			addjobpage.addNewSkill1(JobSkill1);
-			
-			Thread.sleep(3000);
-			
-			addjobpage.addNewSkill2(JobSkill2);
-			
-			Thread.sleep(3000);
-			
-			addjobpage.deleteSkill3.click();
-			
-			Thread.sleep(2000);
-			
-			addjobpage.clickaddemployericon();
-			
-			Thread.sleep(3000);
-			
-			addjobpage.fillEmployerDetailsPlusIcon();
-			
-			Thread.sleep(3000);
-			
-			driver.findElement(By.xpath("/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")).click();
-			
-			Thread.sleep(1000);
-			
-			addjobpage.employerDropDown();
-			
-	        Thread.sleep(3000);
-	        
-	        addjobpage.enteremployerorganizationname();
-			
-			Thread.sleep(3000);
-			
-			common.submitbtn.click();
-
-		
-		}
-	
-	}
-
-
-
-	
 	public void addjob(DataTable credentials) throws InterruptedException
 	{ 
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))

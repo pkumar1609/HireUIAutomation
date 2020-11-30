@@ -64,9 +64,8 @@ public class addjobsteps extends baseclass{
 	
 	@When("^click on submit button$")
 	public void click_on_submit_button() throws Throwable {
-	    
-		addjobpage.clickOnSubmitButton();
 		Thread.sleep(3000);
+		common.submitbtn.click();		
 	}
 
 	@Then("^Job should get successfully added and Job should be visible in Job drop down$")

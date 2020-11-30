@@ -184,19 +184,7 @@ public class CandidateCardSectionPage extends baseclass {
 		action.clickAndHold(drag).moveToElement(drop).release(drop).perform();
 		Thread.sleep(3000);
 	}
-   
-//   public void dragCandidateCardfromNewtoRejectColumn () {
-//		
-//	   
-//	
-//	}
-   
-//   public void dragCandidateCardfromRejectColumntoJoinedColumn () {
-//		
-//	   
-//	
-//		
-//	}
+
 	
 	public void verifyChangeAssignToField() throws InterruptedException {
 		

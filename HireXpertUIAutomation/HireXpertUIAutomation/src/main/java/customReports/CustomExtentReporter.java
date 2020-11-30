@@ -49,10 +49,11 @@
 //		}
 //	}
 //	
-//	private String getErrorMessage(Scenario scenario) {
-//		List<Result> testResultList = null;
-//		List<Result> failedStepList = null;
-//		
+////	private String getErrorMessage(Scenario scenario) {
+////		List<Result> testResultList = null;
+////		List<Result> failedStepList = null;
+////	
+////		
 ////		try {
 ////			 Field stepResults = scenario.getClass().getDeclaredField("stepResults");
 ////			 stepResults.setAccessible(true);

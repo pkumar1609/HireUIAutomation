@@ -5,12 +5,12 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions
 (
-features="C:\\Users\\TLP33\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\features\\JobCandidateWorkflow.feature",
-glue= {"RegressionTc"},
+features="C:\\Users\\TLP33\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\features",
+glue= {"BVT_StepDefination"},
 dryRun= false,
 monochrome= true,
 plugin = {"html:target/cucumber-reports", "json:target/cucumber-reports/cucumber-json"},
-tags=("@reg9")
+tags=("@JCWF")
 )
 public class TestRunner
 {};

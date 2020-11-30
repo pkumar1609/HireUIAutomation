@@ -65,11 +65,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		Thread.sleep(2000);
 		common.closebtn.click();
 	}
-	
-//	@When("^observe the interview date and time displayed on candidate card below Assign To field$")
-//	public void observe_the_interview_date_and_time_displayed_on_candidate_card_below_Assign_To_field() throws Throwable {
-//		Assert.assertEquals(candidatecardsectionpage.candidateCardInterviewDetails.getText(), common.displaydateFormate(date););
-//	}
+
 	@Then("^Click on Reload job button$")
 	public void click_on_Reload_job_button() throws Throwable {
 	   Thread.sleep(3000);
@@ -167,13 +163,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 
 	
 	
-	@When("^click on Add Job button and fill all mandatory details on Add Job popup window \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
-
-		Thread.sleep(3000);
-		addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
-		
-	}
+	
 
 
 	@Then("^Interview details should be reflect according to the filter applied$")
@@ -184,15 +174,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		Thread.sleep(1000);
 		common.clickOnCloseBtn();
 	}
-	
-//	@When("^fill all the information \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-//	public void fill_all_the_information_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String  Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String  CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String Salaryoffered, String distance, String permanentAddress, String relocate) throws Throwable {
-//
-//		Thread.sleep(3000);
-//		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
-//		
-//
-//	}
+
 	
 	@Then("^click on close job button and delete the job$")
 	public void click_on_close_job_button_and_delete_the_job() throws Throwable {

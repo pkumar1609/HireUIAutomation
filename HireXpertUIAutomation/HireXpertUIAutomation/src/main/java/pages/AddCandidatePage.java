@@ -325,16 +325,16 @@ public class AddCandidatePage extends baseclass {
 		  	se.selectByVisibleText(ExpertiseLevel2);
 	}
         
-        public void EnterexpertilevelofskillasNotanswered(String ExpertiseLevel1, String ExpertiseLevel2) {
-    		
-    		se = new Select (expertiseLevel1);
-    	  	se.selectByVisibleText(ExpertiseLevel1);
-    	  	
-    	  	se = new Select (expertiseLevel2);
-    	  	se.selectByVisibleText(ExpertiseLevel2);
-    		
-    	}
-        
+//        public void EnterexpertilevelofskillasNotanswered(String ExpertiseLevel1, String ExpertiseLevel2) {
+//    		
+//    		se = new Select (expertiseLevel1);
+//    	  	se.selectByVisibleText(ExpertiseLevel1);
+//    	  	
+//    	  	se = new Select (expertiseLevel2);
+//    	  	se.selectByVisibleText(ExpertiseLevel2);
+//    		
+//    	}
+    
         public void probabilitypopupwhileaddingcandidate() {
         	
         	{         
@@ -358,11 +358,11 @@ public class AddCandidatePage extends baseclass {
         	}
 
 
-	public void clickUploadResumeField() {
-		
-		uploadResumeField.click();
-	}
-	
+//	public void clickUploadResumeField() {
+//		
+//		uploadResumeField.click();
+//	}
+//	
      public void clickonFindbtn() {
 		
 		FindButton.click();

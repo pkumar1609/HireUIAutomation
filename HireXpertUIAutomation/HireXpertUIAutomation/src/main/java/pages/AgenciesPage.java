@@ -112,9 +112,6 @@ public class AgenciesPage extends baseclass {
 //		common.clickOnConfirmYes();	
 //	}
 	
-
-		
-
 	
 	public void enterAgyNameInSearchSection(DataTable credentials)
 	{
