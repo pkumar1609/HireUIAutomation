@@ -1,20 +1,6 @@
 package BVT_StepDefination;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
-
-import cucumber.api.DataTable;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import pages.Commonfunction;
 import utilPackage.baseclass;
-import utilPackage.utilclass;
 
 public class candidateProfile extends baseclass {
 	

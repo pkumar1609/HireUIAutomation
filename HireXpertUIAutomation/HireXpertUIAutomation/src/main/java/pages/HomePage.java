@@ -19,7 +19,6 @@ public class HomePage extends baseclass {
 public HomePage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 		
 	public void clickonMoreJobsLink() {

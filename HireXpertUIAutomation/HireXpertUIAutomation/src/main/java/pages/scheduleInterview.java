@@ -3,8 +3,6 @@ package pages;
 import java.util.Map;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -52,7 +50,7 @@ public class scheduleInterview extends baseclass {
 	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div[1]/div/div/div[1]/div/div/h6")
 	public WebElement scheduledInterviewLeftTitle;
 	
-	@FindBy(xpath = "//*[@id=\"style-5\"]/div/div[1]/div/div/div[3]/div/button[1]")
+	@FindBy(xpath = "(//button[@title='Edit Interview'])[2]")
 	public WebElement editInterviewIcon;
 	
 	@FindBy(xpath = "//input[@formcontrolname='Location']")
@@ -75,7 +73,6 @@ public class scheduleInterview extends baseclass {
 	public scheduleInterview() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	
 	public void SelectinterviewerT(String interviewer) {
@@ -118,7 +115,7 @@ public class scheduleInterview extends baseclass {
 		 se.selectByVisibleText(timezone1);
 	}
 	 
-	 public void scheduleInterview(DataTable credentials) throws InterruptedException
+	 public void scheduleInterviewOfCandidate(DataTable credentials) throws InterruptedException
 	 {
 		 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 			{

@@ -143,7 +143,7 @@ And User should able to search agency team
 
 
 
- @reglogin
+ @reglogin @3
 Scenario Outline: To verify Error message for character limit for both agency and employer
 Given User must be registered
 When title of login page is Home
@@ -158,7 +158,7 @@ Then Error message should show only after exceeding character limit
 Examples:
 |Username      |Password |Name                                                            |
 |pemp@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
-|pagy@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
+#|pagy@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
 
 
 

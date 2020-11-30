@@ -1,17 +1,12 @@
 package BVT_StepDefination;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
+
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
-import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -19,7 +14,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 import utilPackage.baseclass;
-import utilPackage.utilclass;
 
 public class a_blockFunctionalitySteps extends baseclass {
 @Before( "@bvt_agencyblock,@bvt_teamblock,@bvt_agencyunblock,@bvt_teamunblock")
@@ -66,7 +60,7 @@ boolean emp;
 		Thread.sleep(1000);
 		sharewithteampage.searchField.clear();
 		sharewithteampage.searchField.sendKeys(agyEmailId);
-		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
+		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected())
 		{
 		}
 		else

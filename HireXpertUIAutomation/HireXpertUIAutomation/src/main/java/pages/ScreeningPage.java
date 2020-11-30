@@ -8,21 +8,12 @@ import utilPackage.baseclass;
 
 public class ScreeningPage extends baseclass {
 
-	
-	
 	@FindBy(xpath = "//td[contains(text(),'Failed')]")
 	public WebElement candidatestatus;
 	
-	
-	
-	
-	
-	
-	
-	public ScreeningPage() {     //constructor
+	public ScreeningPage()
+	{    
 		PageFactory.initElements(driver, this);
-		
-		this.driver = driver;
 	}
 	
 	

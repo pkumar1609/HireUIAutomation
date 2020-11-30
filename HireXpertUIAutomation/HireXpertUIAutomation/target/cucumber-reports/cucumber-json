@@ -3,75 +3,55 @@
     "line": 1,
     "elements": [
       {
-        "before": [
-          {
-            "result": {
-              "duration": 2226300,
-              "status": "passed"
-            },
-            "match": {
-              "location": "MarketplaceBvt.setup()"
-            }
-          },
-          {
-            "result": {
-              "duration": 1914900,
-              "status": "passed"
-            },
-            "match": {
-              "location": "loginstepdefination.setup()"
-            }
-          }
-        ],
-        "line": 73,
-        "name": "To verify general and Job task displaying on task management page",
+        "line": 576,
+        "name": "To verify deleted skill on Candidate Details page and when employer is adding new candidate for the job",
         "description": "",
-        "id": "task-management;to-verify-general-and-job-task-displaying-on-task-management-page;;2",
+        "id": "hirexpert-job-candidate-workflow-feature;to-verify-deleted-skill-on-candidate-details-page-and-when-employer-is-adding-new-candidate-for-the-job;;2",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 9878984800,
+              "duration": 12025491900,
               "status": "passed"
             },
-            "line": 45,
-            "name": "User must be registered",
+            "line": 541,
+            "name": "Open browser",
             "match": {
-              "location": "loginstepdefination.user_must_be_registered()"
+              "location": "JobCandidateWorkflowRegressionStepDefination.open_browser()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 11609900,
+              "duration": 8111700,
               "status": "passed"
             },
-            "line": 47,
+            "line": 542,
             "name": "title of login page is Home",
             "match": {
-              "location": "loginstepdefination.title_of_login_page_is_Home()"
+              "location": "TC77_79_95.title_of_login_page_is_Home()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 3414507400,
+              "duration": 3273108000,
               "status": "passed"
             },
-            "line": 48,
+            "line": 543,
             "name": "Click on Employer-Agency Signin link",
             "match": {
-              "location": "loginstepdefination.click_on_Employer_Agency_Signin_link()"
+              "location": "TC77_79_95.click_on_Employer_Agency_Signin_link()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 8640917400,
+              "duration": 7741558200,
               "status": "passed"
             },
-            "line": 49,
+            "line": 544,
             "name": "Employer enters valid credentials \"pemp@gmail.com\",\"12345\"",
             "match": {
               "arguments": [
@@ -84,150 +64,97 @@
                   "offset": 52
                 }
               ],
-              "location": "taskBWT.employer_enters_valid_credentials(String,String)"
+              "location": "taskRegression.employer_enters_valid_credentials(String,String)"
             },
             "matchedColumns": [
               0,
-              2
+              1
             ],
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 29264247300,
+              "duration": 5314288700,
               "status": "passed"
             },
-            "line": 50,
-            "name": "team member should be added",
-            "match": {
-              "location": "taskBWT.team_member_should_be_added(DataTable)"
-            },
-            "rows": [
-              {
-                "cells": [
-                  "Name",
-                  "Email",
-                  "contact",
-                  "Nameagy",
-                  "Emailagy",
-                  "contactagy",
-                  "team",
-                  "agyteam"
-                ],
-                "line": 51
-              },
-              {
-                "cells": [
-                  "pe1",
-                  "pe1@gmail.com",
-                  "1234564",
-                  "pa1",
-                  "pa1@gmail.com",
-                  "1234556",
-                  "pe1",
-                  "pa1"
-                ],
-                "line": 52
-              },
-              {
-                "cells": [
-                  "pe2",
-                  "pe2@gmail.com",
-                  "1234564",
-                  "pa2",
-                  "pa2@gmail.com",
-                  "1234566",
-                  "pe1",
-                  "pa1"
-                ],
-                "line": 53
-              }
-            ],
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 2501610900,
-              "status": "passed"
-            },
-            "line": 54,
+            "line": 545,
             "name": "Go to Workbench",
             "match": {
-              "location": "JobCandidateWorkflowBVTStepDefination.go_to_Workbench()"
+              "location": "JobCandidateWorkflowRegressionStepDefination.go_to_Workbench()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 59926982800,
+              "duration": 47585542300,
               "status": "passed"
             },
-            "line": 55,
-            "name": "Add job with All details \"JAVA\",\"advanced java\",\"JavaScript\",\"Basic Knowledge\",\"Intermediate\",\"Expert\",\"Mandatory\",\"Preferred\",\"Optional\",\"Yes\",\"No\",\"No\",\"provide certificate\",\"spring,hybernet\" and \"advanced version\"",
+            "line": 546,
+            "name": "Add job \"JAVA\",\"advanced java\",\"JavaScript\",\"Basic Knowledge\",\"Intermediate\",\"Expert\",\"Mandatory\",\"Preferred\",\"Optional\",\"Yes\",\"No\",\"No\",\"provide certificate\",\"spring,hybernet\" and \"advanced version\"",
             "match": {
               "arguments": [
                 {
                   "val": "JAVA",
-                  "offset": 26
+                  "offset": 9
                 },
                 {
                   "val": "advanced java",
-                  "offset": 33
+                  "offset": 16
                 },
                 {
                   "val": "JavaScript",
-                  "offset": 49
+                  "offset": 32
                 },
                 {
                   "val": "Basic Knowledge",
-                  "offset": 62
+                  "offset": 45
                 },
                 {
                   "val": "Intermediate",
-                  "offset": 80
+                  "offset": 63
                 },
                 {
                   "val": "Expert",
-                  "offset": 95
+                  "offset": 78
                 },
                 {
                   "val": "Mandatory",
-                  "offset": 104
+                  "offset": 87
                 },
                 {
                   "val": "Preferred",
-                  "offset": 116
+                  "offset": 99
                 },
                 {
                   "val": "Optional",
-                  "offset": 128
+                  "offset": 111
                 },
                 {
                   "val": "Yes",
-                  "offset": 139
+                  "offset": 122
                 },
                 {
                   "val": "No",
-                  "offset": 145
+                  "offset": 128
                 },
                 {
                   "val": "No",
-                  "offset": 150
+                  "offset": 133
                 },
                 {
                   "val": "provide certificate",
-                  "offset": 155
+                  "offset": 138
                 },
                 {
                   "val": "spring,hybernet",
-                  "offset": 177
+                  "offset": 160
                 },
                 {
                   "val": "advanced version",
-                  "offset": 199
+                  "offset": 182
                 }
               ],
-              "location": "cvStrorestepDefination.add_job_with_All_details_and(String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,DataTable)"
+              "location": "JobCandidateWorkflowRegressionStepDefination.add_jobskill_and(String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,DataTable)"
             },
             "matchedColumns": [
               32,
@@ -237,7 +164,7 @@
               36,
               37,
               38,
-              39,
+              24,
               25,
               26,
               27,
@@ -253,270 +180,241 @@
                   "agytitle",
                   "designation",
                   "industry",
-                  "organization",
-                  "qualification",
-                  "country",
-                  "city",
                   "location",
-                  "zipcode",
-                  "address",
-                  "noofvacancies",
+                  "budget",
                   "minexp",
                   "maxexp",
                   "minsal",
                   "maxsal",
-                  "cashBenefit",
-                  "minAge",
-                  "maxAge",
+                  "Name",
+                  "Email",
+                  "contact",
                   "totalinterviews",
-                  "noticePeriod",
-                  "jobType",
-                  "considerRelocation",
-                  "OverBudget",
-                  "Shift",
-                  "ShiftTimings",
-                  "FromEmail",
-                  "FromEmailagy",
-                  "EmailSubject",
-                  "Employer",
-                  "emporganzation",
+                  "organization",
+                  "agyorganization",
                   "functionalArea"
                 ],
-                "line": 56
+                "line": 547
               },
               {
                 "cells": [
-                  "taskmanagementjob1",
-                  "taskmanagementjob1 agy",
-                  "Developer",
+                  "JCFW 9B",
+                  "JCFW Agy 13",
+                  "developer",
                   "IT software",
-                  "talentxpert",
-                  "BE",
-                  "India",
-                  "Pune",
                   "pune",
-                  "442001",
-                  "viman nagar",
-                  "2",
+                  "400000",
                   "1",
                   "2",
-                  "400000",
+                  "450000",
                   "800000",
-                  "400000",
-                  "25",
-                  "30",
-                  "4",
-                  "20",
-                  "Permanent Full Time",
-                  "Yes",
-                  "No",
-                  "Day Shift",
-                  "9-5",
-                  "pemp@gmail.com",
-                  "pagy@gmail.com",
-                  "want candidate",
-                  "pemp",
-                  "dsfsdfdsfs",
-                  "Java"
+                  "pe1",
+                  "pe1@gmail.com",
+                  "1234564",
+                  "2",
+                  "Hirexpert",
+                  "rahitech",
+                  "java"
                 ],
-                "line": 57
+                "line": 548
               }
             ],
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 4256867900,
+              "duration": 4237915400,
               "status": "passed"
             },
-            "line": 58,
+            "line": 549,
             "name": "Select a added job",
             "match": {
-              "location": "MarketplaceBvt.select_a_added_job()"
+              "location": "taskRegression.select_a_added_job()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 3184580100,
+              "duration": 3099777300,
               "status": "passed"
             },
-            "line": 59,
+            "line": 550,
             "name": "Click on add candidate",
             "match": {
-              "location": "MarketplaceBvt.click_on_add_candidate()"
+              "location": "taskRegression.click_on_add_candidate()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 70539935100,
+              "duration": 68867587100,
               "status": "passed"
             },
-            "line": 60,
-            "name": "Enter All details of \"hirecan58@gmail.com\",\"Developer\",\"hirecan58\",\"7885685538\",\"Developer\",\"14/2/1995\",\"Female\",\"Yes\",\"25\",\"01/09/2021\",\"1.5\",\"800000\",\"800000\",\"India\",\"wardha\",\"Arvi naka\",\"455966\",\"Call\",\"800000\",\"4\",\"No\",\"No\",\"JAVA\",\"advanced java\",\"JavaScript\",\"Basic Knowledge\",\"Intermediate\",\"Expert\",\"Mandatory\",\"Preferred\",\"Optional\",\"Yes\",\"No\",\"No\",\"provide certificate\",\"spring,hybernet\",\"advanced version\",\"sun microsoft\"and\"advanced version\"",
+            "line": 551,
+            "name": "Enter All details of \"hirecan27@gmail.com\",\"jr software developer\",\"hirecan27\",\"9875866385\",\"Sr.developer\",\"19/04/1995\",\"Female\",\"No\",\"25\",\"1/9/2021\",\"1.5\",\"800000\",\"800000\",\"India\",\"wardha\",\"Arvi naka\",\"455966\",\"Call\",\"800000\",\"4\",\"No\",\"No\",\"JAVA\",\"advanced java\",\"JavaScript\",\"Basic Knowledge\",\"Intermediate\",\"Expert\",\"Mandatory\",\"Preferred\",\"Optional\",\"Yes\",\"No\",\"No\",\"provide certificate\",\"spring,hybernet\",\"advanced version\",\"sun microsoft\"and\"advanced version\"",
             "match": {
               "arguments": [
                 {
-                  "val": "hirecan58@gmail.com",
+                  "val": "hirecan27@gmail.com",
                   "offset": 22
                 },
                 {
-                  "val": "Developer",
+                  "val": "jr software developer",
                   "offset": 44
                 },
                 {
-                  "val": "hirecan58",
-                  "offset": 56
-                },
-                {
-                  "val": "7885685538",
+                  "val": "hirecan27",
                   "offset": 68
                 },
                 {
-                  "val": "Developer",
-                  "offset": 81
+                  "val": "9875866385",
+                  "offset": 80
                 },
                 {
-                  "val": "14/2/1995",
+                  "val": "Sr.developer",
                   "offset": 93
                 },
                 {
-                  "val": "Female",
-                  "offset": 105
+                  "val": "19/04/1995",
+                  "offset": 108
                 },
                 {
-                  "val": "Yes",
-                  "offset": 114
+                  "val": "Female",
+                  "offset": 121
+                },
+                {
+                  "val": "No",
+                  "offset": 130
                 },
                 {
                   "val": "25",
-                  "offset": 120
+                  "offset": 135
                 },
                 {
-                  "val": "01/09/2021",
-                  "offset": 125
+                  "val": "1/9/2021",
+                  "offset": 140
                 },
                 {
                   "val": "1.5",
-                  "offset": 138
+                  "offset": 151
                 },
                 {
                   "val": "800000",
-                  "offset": 144
+                  "offset": 157
                 },
                 {
                   "val": "800000",
-                  "offset": 153
+                  "offset": 166
                 },
                 {
                   "val": "India",
-                  "offset": 162
+                  "offset": 175
                 },
                 {
                   "val": "wardha",
-                  "offset": 170
+                  "offset": 183
                 },
                 {
                   "val": "Arvi naka",
-                  "offset": 179
+                  "offset": 192
                 },
                 {
                   "val": "455966",
-                  "offset": 191
+                  "offset": 204
                 },
                 {
                   "val": "Call",
-                  "offset": 200
+                  "offset": 213
                 },
                 {
                   "val": "800000",
-                  "offset": 207
-                },
-                {
-                  "val": "4",
-                  "offset": 216
-                },
-                {
-                  "val": "No",
                   "offset": 220
                 },
                 {
+                  "val": "4",
+                  "offset": 229
+                },
+                {
                   "val": "No",
-                  "offset": 225
+                  "offset": 233
+                },
+                {
+                  "val": "No",
+                  "offset": 238
                 },
                 {
                   "val": "JAVA",
-                  "offset": 230
+                  "offset": 243
                 },
                 {
                   "val": "advanced java",
-                  "offset": 237
+                  "offset": 250
                 },
                 {
                   "val": "JavaScript",
-                  "offset": 253
-                },
-                {
-                  "val": "Basic Knowledge",
                   "offset": 266
                 },
                 {
+                  "val": "Basic Knowledge",
+                  "offset": 279
+                },
+                {
                   "val": "Intermediate",
-                  "offset": 284
+                  "offset": 297
                 },
                 {
                   "val": "Expert",
-                  "offset": 299
+                  "offset": 312
                 },
                 {
                   "val": "Mandatory",
-                  "offset": 308
+                  "offset": 321
                 },
                 {
                   "val": "Preferred",
-                  "offset": 320
+                  "offset": 333
                 },
                 {
                   "val": "Optional",
-                  "offset": 332
+                  "offset": 345
                 },
                 {
                   "val": "Yes",
-                  "offset": 343
+                  "offset": 356
                 },
                 {
                   "val": "No",
-                  "offset": 349
+                  "offset": 362
                 },
                 {
                   "val": "No",
-                  "offset": 354
+                  "offset": 367
                 },
                 {
                   "val": "provide certificate",
-                  "offset": 359
+                  "offset": 372
                 },
                 {
                   "val": "spring,hybernet",
-                  "offset": 381
+                  "offset": 394
                 },
                 {
                   "val": "advanced version",
-                  "offset": 399
+                  "offset": 412
                 },
                 {
                   "val": "sun microsoft",
-                  "offset": 418
+                  "offset": 431
                 },
                 {
                   "val": "advanced version",
-                  "offset": 436
+                  "offset": 449
                 }
               ],
-              "location": "cvStrorestepDefination.enter_All_details_of_and(String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String)"
+              "location": "JobCandidateWorkflowRegressionStepDefination.enter_All_details_of_and(String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String)"
             },
             "matchedColumns": [
+              2,
               3,
               4,
               5,
@@ -554,138 +452,341 @@
               37,
               38,
               39,
-              40,
+              40
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 102039200,
+              "status": "passed"
+            },
+            "line": 552,
+            "name": "verify candidate card is displaying or not in New column \"hirecan27\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "hirecan27",
+                  "offset": 58
+                }
+              ],
+              "location": "taskRegression.verify_candidate_card_is_displaying_or_not_in_New_column(String)"
+            },
+            "matchedColumns": [
+              4
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4310273600,
+              "status": "passed"
+            },
+            "line": 553,
+            "name": "Click on Candidate name from candidate card and observe the skills",
+            "match": {
+              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Candidate_name_from_candidate_card_and_observe_the_skills()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4118980300,
+              "status": "passed"
+            },
+            "line": 554,
+            "name": "click on Close button from candidate Details page",
+            "match": {
+              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Close_button_from_candidate_Details_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 13310254300,
+              "status": "passed"
+            },
+            "line": 555,
+            "name": "click on Edit Job button to make changes in job",
+            "match": {
+              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Edit_Job_button_to_make_changes_in_job()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2098402600,
+              "status": "passed"
+            },
+            "line": 556,
+            "name": "Delete one skill from Skills section",
+            "match": {
+              "location": "JobCandidateWorkflowRegressionStepDefination.delete_one_skill_from_Skills_section()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3092046700,
+              "status": "passed"
+            },
+            "line": 557,
+            "name": "click on submit button",
+            "match": {
+              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_submit_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8099567400,
+              "status": "passed"
+            },
+            "line": 558,
+            "name": "Click on Edit Candidate icon on candidate card \"hirecan27\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "hirecan27",
+                  "offset": 48
+                }
+              ],
+              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Edit_Candidate_icon_on_candidate_card(String)"
+            },
+            "matchedColumns": [
+              4
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 131013800,
+              "status": "passed"
+            },
+            "line": 559,
+            "name": "observe deleted skill not displayed \"JavaScript\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "JavaScript",
+                  "offset": 37
+                }
+              ],
+              "location": "JobCandidateWorkflowRegressionStepDefination.observe_deleted_skill_not_displayed(String)"
+            },
+            "matchedColumns": [
+              26
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3097538800,
+              "status": "passed"
+            },
+            "line": 560,
+            "name": "click on Close button from Edit Candidate page",
+            "match": {
+              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Close_button_from_Edit_Candidate_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4265957800,
+              "status": "passed"
+            },
+            "line": 561,
+            "name": "Click on Candidate name from candidate card and observe the skills",
+            "match": {
+              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Candidate_name_from_candidate_card_and_observe_the_skills()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 62900,
+              "status": "passed"
+            },
+            "line": 562,
+            "name": "deleted skills should display on Candidate Details page \"JavaScript\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "JavaScript",
+                  "offset": 57
+                }
+              ],
+              "location": "JobCandidateWorkflowRegressionStepDefination.deleted_skills_should_display_on_Candidate_Details_page(String)"
+            },
+            "matchedColumns": [
+              26
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 4066877500,
+              "status": "passed"
+            },
+            "line": 563,
+            "name": "click on Close button from candidate Details page",
+            "match": {
+              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Close_button_from_candidate_Details_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 13298797200,
+              "status": "passed"
+            },
+            "line": 564,
+            "name": "click on Edit Job button to make changes in job",
+            "match": {
+              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Edit_Job_button_to_make_changes_in_job()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1134215500,
+              "error_message": "java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1\r\n\tat java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)\r\n\tat java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)\r\n\tat java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)\r\n\tat java.base/java.util.Objects.checkIndex(Objects.java:372)\r\n\tat java.base/java.util.ArrayList.get(ArrayList.java:458)\r\n\tat java.base/jdk.internal.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)\r\n\tat com.sun.proxy.$Proxy21.get(Unknown Source)\r\n\tat RegressionTc.JobCandidateWorkflowRegressionStepDefination.delete_all_added_skills(JobCandidateWorkflowRegressionStepDefination.java:1129)\r\n\tat ✽.And delete all added skills(C:/Users/TLP33/Documents/GitHub/HireUIAutomation/HireXpertUIAutomation/HireXpertUIAutomation/src/main/java/features/JobCandidateWorkflow.feature:565)\r\n",
+              "status": "failed"
+            },
+            "line": 565,
+            "name": "delete all added skills",
+            "match": {
+              "location": "JobCandidateWorkflowRegressionStepDefination.delete_all_added_skills()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 566,
+            "name": "click on submit button",
+            "match": {
+              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_submit_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 567,
+            "name": "Click on add candidate",
+            "match": {
+              "location": "taskRegression.click_on_add_candidate()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 568,
+            "name": "Enter valid \"hirecan26@gmail.com\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "hirecan26@gmail.com",
+                  "offset": 13
+                }
+              ],
+              "location": "JobCandidateWorkflowRegressionStepDefination.enter_valid(String)"
+            },
+            "matchedColumns": [
               41
             ],
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 8593662300,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 61,
-            "name": "move the candidate card from potential candidate to Schedule Interview column",
+            "line": 569,
+            "name": "click on find button",
             "match": {
-              "location": "TaskManagemnet.move_the_candidate_card_from_potential_candidate_to_Schedule_Interview_column()"
+              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_find_button()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 3176874800,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 62,
-            "name": "Go to Task Management tab",
+            "line": 570,
+            "name": "click on ok button",
             "match": {
-              "location": "TaskManagemnet.go_to_Task_Management_tab()"
+              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_ok_button()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 243182400,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 63,
-            "name": "Schedule interview task should display on task Management page \"hirecan58\"",
+            "line": 571,
+            "name": "observe deleted job skill should not show when employer is going to add new candidate \"JAVA\" \"advanced java\" \"JavaScript\"",
             "match": {
               "arguments": [
                 {
-                  "val": "hirecan58",
-                  "offset": 64
+                  "val": "JAVA",
+                  "offset": 87
+                },
+                {
+                  "val": "advanced java",
+                  "offset": 94
+                },
+                {
+                  "val": "JavaScript",
+                  "offset": 110
                 }
               ],
-              "location": "TaskManagemnet.schedule_interview_task_should_display_on_task_Management_page(String)"
+              "location": "JobCandidateWorkflowRegressionStepDefination.observe_deleted_job_skill_should_not_show_when_employer_is_going_to_add_new_candidate(String,String,String)"
             },
             "matchedColumns": [
-              5
+              24,
+              25,
+              26
             ],
             "keyword": "Then "
           },
           {
             "result": {
-              "duration": 2329398400,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 64,
-            "name": "Go to Workbench",
+            "line": 572,
+            "name": "close the browser",
             "match": {
-              "location": "JobCandidateWorkflowBVTStepDefination.go_to_Workbench()"
+              "location": "JobCandidateWorkflowRegressionStepDefination.close_the_browser()"
             },
             "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 4170830800,
-              "status": "passed"
-            },
-            "line": 65,
-            "name": "Select a added job",
-            "match": {
-              "location": "MarketplaceBvt.select_a_added_job()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 8513460900,
-              "status": "passed"
-            },
-            "line": 66,
-            "name": "move the candidate card from Schedule Interview column to pending interview column",
-            "match": {
-              "location": "TaskManagemnet.move_the_candidate_card_from_Schedule_Interview_column_to_pending_interview_column()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3152331600,
-              "status": "passed"
-            },
-            "line": 67,
-            "name": "Go to Task Management tab",
-            "match": {
-              "location": "TaskManagemnet.go_to_Task_Management_tab()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 216902300,
-              "status": "passed"
-            },
-            "line": 68,
-            "name": "pending interview task should display on task Management page \"hirecan58\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "hirecan58",
-                  "offset": 63
-                }
-              ],
-              "location": "TaskManagemnet.pending_interview_task_should_display_on_task_Management_page(String)"
-            },
-            "matchedColumns": [
-              5
-            ],
-            "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "line": 42,
-            "name": "@TaskManagement2"
+            "line": 538,
+            "name": "@run"
+          },
+          {
+            "line": 538,
+            "name": "@Regression"
+          },
+          {
+            "line": 538,
+            "name": "@reg9"
           }
         ]
       }
     ],
-    "name": "Task Management",
+    "name": "Hirexpert Job Candidate Workflow feature",
     "description": "",
-    "id": "task-management",
+    "id": "hirexpert-job-candidate-workflow-feature",
     "keyword": "Feature",
-    "uri": "C:/Users/TLP33/Documents/GitHub/HireUIAutomation/HireXpertUIAutomation/HireXpertUIAutomation/src/main/java/features/TaskManagement.feature"
+    "uri": "C:/Users/TLP33/Documents/GitHub/HireUIAutomation/HireXpertUIAutomation/HireXpertUIAutomation/src/main/java/features/JobCandidateWorkflow.feature"
   }
 ]

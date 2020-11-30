@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 
 import utilPackage.baseclass;
 
@@ -50,18 +49,10 @@ public class JobApplicationsPage extends baseclass{
 	public WebElement addtojobBtn;
 	
 	
-	
-	
-	
-	
-	
-	
 
-
-public JobApplicationsPage() {
+	public JobApplicationsPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	
 	public void selectjob(String Job) {
@@ -160,7 +151,7 @@ public JobApplicationsPage() {
 		
 		WebElement location = driver.findElement(By.xpath("//p[contains(text(),'"+CandidateCityArea+","+" "+CandidateCity+","+" "+CandidateCountry+" "+"-"+" "+ZipCode+"')]"));
 		
-		WebElement experience = driver.findElement(By.xpath("(//p[contains(text(),'" +CandidateExperience+" "+"Years"+ "')])[2]"));
+//		WebElement experience = driver.findElement(By.xpath("(//p[contains(text(),'" +CandidateExperience+" "+"Years"+ "')])[2]"));
 		
 		WebElement ctc = driver.findElement(By.xpath("(//p[contains(text(),'" +CandidateCTC+" "+"PA"+" "+"(CTC)"+ "')])[2]"));
 				

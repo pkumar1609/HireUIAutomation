@@ -1,7 +1,5 @@
 package BVT_StepDefination;
 
-import static org.testng.Assert.assertEquals;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 

@@ -1,22 +1,13 @@
 package BVT_StepDefination;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
-
-import cucumber.api.DataTable;
-import cucumber.api.java.After;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utilPackage.baseclass;
-import utilPackage.utilclass;
 
 public class b_unblockFunctionalitySteps extends baseclass {
 	
@@ -45,16 +36,15 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job(String agyEmailId) throws Throwable {
 		sharewithagencypage.searchField.clear();
 		sharewithagencypage.searchField.sendKeys(agyEmailId);
-		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
-		{
-		}
+		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected())
+		{}
 		else
 		{
 			Thread.sleep(2000);
 			sharewithagencypage.blockUnblockCheckbox.click();
 			common.clickOnConfirmYes();
 		}
-		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected())
+		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected())
 		{
 			Thread.sleep(2000);
 			sharewithagencypage.blockUnblockCheckbox.click();
@@ -66,7 +56,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 		public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_team_with_the_agency_with_whom_you_shared_the_job(String team) throws Throwable {
 			sharewithagencypage.searchField.clear();
 			sharewithagencypage.searchField.sendKeys(team);
-			if(driver.findElement(By.xpath("(//label[@class='check'])[4]")).isSelected())
+			if(driver.findElement(By.xpath("(//label[@class='check'])[3]")).isSelected())
 			{
 			}
 			else
@@ -76,7 +66,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 				common.clickOnConfirmYes();
 			}
 			
-			if(driver.findElement(By.xpath("(//input[@type='checkbox'])[4]")).isSelected())
+			if(driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected())
 			{
 				Thread.sleep(3000);
 				sharewithagencypage.blockUnblockCheckbox.click();
@@ -88,7 +78,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	@Then("^Employer should be able to unblock the agency$")
 	public void employer_should_be_able_to_unblock_the_agency() throws Throwable {
 		
-		boolean isUnblock = driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).isSelected();
+		boolean isUnblock = driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected();
 		Assert.assertEquals(false, isUnblock);
 		
 	}
@@ -259,7 +249,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	
 	@Then("^User should be able to unblock the team member$")
 	public void User_should_be_able_to_unblock_the_team_member() throws Throwable {
-	    
+	    Thread.sleep(2000);
 		boolean isblock = driver.findElement(By.xpath("(//label[@class='check'])[4]")).isSelected();
 		Assert.assertEquals(false, isblock);
 	}

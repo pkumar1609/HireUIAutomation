@@ -1,10 +1,5 @@
 package RegressionTc;
 
-import org.openqa.selenium.By;
-
-
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import utilPackage.baseclass;
 
 public class BelliconOnCandidateCard extends baseclass {

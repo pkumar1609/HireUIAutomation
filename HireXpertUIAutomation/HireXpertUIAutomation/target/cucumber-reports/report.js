@@ -1,895 +1,1118 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("DataValidation.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("C:/Users/TLP33/Documents/GitHub/HireUIAutomation/HireXpertUIAutomation/HireXpertUIAutomation/src/main/java/features/JobCandidateWorkflow.feature");
 formatter.feature({
   "line": 1,
-  "name": "Data validation",
+  "name": "Hirexpert Job Candidate Workflow feature",
   "description": "",
-  "id": "data-validation",
+  "id": "hirexpert-job-candidate-workflow-feature",
   "keyword": "Feature"
 });
 formatter.scenarioOutline({
   "comments": [
     {
-      "line": 256,
-      "value": "########Candidate data validation########"
+      "line": 534,
+      "value": "#Reg TC ID: 112,324 [Job candidate workfloww Regression TC]"
+    },
+    {
+      "line": 535,
+      "value": "# If DB clear, register the employer \u0026 agency first, employermain01@gmail.com \u0026 agencymain01@gmail.com . otherwise no change required"
     }
   ],
-  "line": 259,
-  "name": "validate the candidate details when candidate login himself and add profile details",
+  "line": 539,
+  "name": "To verify deleted skill on Candidate Details page and when employer is adding new candidate for the job",
   "description": "",
-  "id": "data-validation;validate-the-candidate-details-when-candidate-login-himself-and-add-profile-details",
+  "id": "hirexpert-job-candidate-workflow-feature;to-verify-deleted-skill-on-candidate-details-page-and-when-employer-is-adding-new-candidate-for-the-job",
   "type": "scenario_outline",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 258,
-      "name": "@candidatedetails"
+      "line": 538,
+      "name": "@Regression"
+    },
+    {
+      "line": 538,
+      "name": "@reg9"
+    },
+    {
+      "line": 538,
+      "name": "@run"
     }
   ]
 });
 formatter.step({
-  "line": 261,
-  "name": "User must be registered",
+  "line": 541,
+  "name": "Open browser",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 263,
+  "line": 542,
   "name": "title of login page is Home",
   "keyword": "When "
 });
 formatter.step({
-  "comments": [
-    {
-      "line": 264,
-      "value": "#And Click register link"
-    },
-    {
-      "line": 265,
-      "value": "#And Enter all details on register page \"\u003cName\u003e\" \"\u003cCandidateEmail\u003e\" \"\u003cContactNumber\u003e\" \"\u003cUserType\u003e\" \"\u003ctimezone\u003e\" \"\u003ccountry\u003e\""
-    }
-  ],
-  "line": 266,
-  "name": "Click on Job Seeker(Candidate) Sign In link",
+  "line": 543,
+  "name": "Click on Employer-Agency Signin link",
   "keyword": "And "
 });
 formatter.step({
-  "line": 267,
-  "name": "candidate enters valid credentials \"\u003cCandidateEmail\u003e\",\"\u003cPassword\u003e\"",
+  "line": 544,
+  "name": "Employer enters valid credentials \"\u003cUsername\u003e\",\"\u003cPassword\u003e\"",
   "keyword": "And "
 });
 formatter.step({
-  "line": 268,
-  "name": "click on update profile option",
+  "line": 545,
+  "name": "Go to Workbench",
   "keyword": "And "
 });
 formatter.step({
-  "comments": [
-    {
-      "line": 269,
-      "value": "#Then Enter all the personal and professional details of candidate \"\u003ctitle\u003e\" \"\u003cContactNumber\u003e\" \"\u003cDate\u003e\" \"\u003cCountry\u003e\" \"\u003cCityArea\u003e\" \"\u003cName\u003e\" \"\u003calternateemail\u003e\" \"\u003calternateContact\u003e\" \"\u003cGender\u003e\" \"\u003cCity\u003e\" \"\u003cZipCode\u003e\" \"\u003ccurrentorganization\u003e\" \"\u003ccurrentdesignation\u003e\" \"\u003ccurrentduration\u003e\" \"\u003cjobtype\u003e\" \"\u003cshift\u003e\" \"\u003cpreferredcity\u003e\" \"\u003csearchkeyword\u003e\" \"\u003cindustry\u003e\" \"\u003cexperience\u003e\" \"\u003cexpectedCTC\u003e\" \"\u003cresidentialstatus\u003e\" \"\u003cOnNoticePeriod\u003e\" \"\u003cLastWorkingDay\u003e\" \"\u003cNoticePeriod\u003e\" \"\u003cCTC\u003e\" \"\u003cCommunicationmode\u003e\" \"\u003cwillingtotravel\u003e\" \"\u003clookingforjob\u003e\" \"\u003crelocate\u003e\" \"\u003ccv\u003e\""
-    },
-    {
-      "line": 270,
-      "value": "#And Click on save button"
-    },
-    {
-      "line": 271,
-      "value": "#And click ok on success popup"
-    },
-    {
-      "line": 272,
-      "value": "#Then Assert the personal and professional details of candidate"
-    },
-    {
-      "line": 273,
-      "value": "#|Username      |Teamid        |Password|CandidateEmail      |title\t\t\t\t   |Name     |alternateemail     |ContactNumber |alternateContact|UserType |timezone\t\t\t    |country|currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date         |Gender    |OnNoticePeriod|LastWorkingDay|NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel    |lookingforjob|relocate|cv     |"
-    },
-    {
-      "line": 274,
-      "value": "#|pemp@gmail.com|pe1@gmail.com |12345   |hirecan13@gmail.com |Sr.software engineer |hirecan13 |hirecan13@yahoo.com|7895885538    |8555855555      |Candidate|Indian Standard Time    | India |Accenture          |Sr.developer       |2   \t\t\t|Contractual Full Time|Evening Shift|Pune         |14-Sep-2020  |Female    |Yes           |25-Dec-2020   |25          |can13        |IT software|1.7       |700000|800000     |Nagpur|sita bardi |248966 |Call             |Citizen          |Yes\t\t     \t |No           |No      |CV.docx|"
-    },
-    {
-      "line": 275,
-      "value": "#And click on qualification tab"
-    },
-    {
-      "line": 276,
-      "value": "#And Fill all the qualification details"
-    },
-    {
-      "line": 277,
-      "value": "#|Major    |year|grade |college        |university|country|degree  |"
-    },
-    {
-      "line": 278,
-      "value": "#|Research |2021|90    |CUJB      \t  |cambridge |USA    |Ph.D    |"
-    },
-    {
-      "line": 279,
-      "value": "#|MBA  \t  |2019|95    |BD college     |Nagpur    |India  |Master  |"
-    },
-    {
-      "line": 280,
-      "value": "#|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|"
-    },
-    {
-      "line": 281,
-      "value": "#|Science  |2013|79    |New English    |Nagpur    |India  |12\t  |"
-    },
-    {
-      "line": 282,
-      "value": "#|CBSE     |2011|80    |MVM            |Nagpur    |India  |10\t  |"
-    },
-    {
-      "line": 283,
-      "value": "#And Click on save button"
-    },
-    {
-      "line": 284,
-      "value": "#And click ok on success popup"
-    },
-    {
-      "line": 285,
-      "value": "#Then Assert the qualification details"
-    },
-    {
-      "line": 286,
-      "value": "#|Major    |year|grade |college        |university|country|degree  |"
-    },
-    {
-      "line": 287,
-      "value": "#|Research |2021|90    |CUJB      \t  |cambridge |USA    |Ph.D    |"
-    },
-    {
-      "line": 288,
-      "value": "#|MBA  \t  |2019|95    |BD college     |Nagpur    |India  |Master  |"
-    },
-    {
-      "line": 289,
-      "value": "#|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|"
-    },
-    {
-      "line": 290,
-      "value": "#|Science  |2013|79    |New English    |Nagpur    |India  |12\t  |"
-    },
-    {
-      "line": 291,
-      "value": "#|CBSE     |2011|80    |MVM            |Nagpur    |India  |10\t  |"
-    }
-  ],
-  "line": 292,
-  "name": "Click on work experience tab",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 293,
-  "name": "fill all work experience details",
+  "line": 546,
+  "name": "Add job \"\u003cSkill1\u003e\",\"\u003cSkill2\u003e\",\"\u003cSkill3\u003e\",\"\u003clevel1\u003e\",\"\u003clevel2\u003e\",\"\u003clevel3\u003e\",\"\u003cWeightage1\u003e\",\"\u003cWeightage2\u003e\",\"\u003cWeightage3\u003e\",\"\u003ccertificate1\u003e\",\"\u003ccertificate2\u003e\",\"\u003ccertificate3\u003e\",\"\u003cremark1\u003e\",\"\u003cremark2\u003e\" and \"\u003cremark3\u003e\"",
   "rows": [
     {
       "cells": [
-        "organization",
-        "fromMonth",
-        "fromYear",
-        "toMonth",
-        "toYear",
+        "title",
+        "agytitle",
         "designation",
-        "city",
-        "country"
+        "industry",
+        "location",
+        "budget",
+        "minexp",
+        "maxexp",
+        "minsal",
+        "maxsal",
+        "Name",
+        "Email",
+        "contact",
+        "totalinterviews",
+        "organization",
+        "agyorganization",
+        "functionalArea"
       ],
-      "line": 294
+      "line": 547
     },
     {
       "cells": [
-        "wipro",
-        "JAN",
-        "2018",
-        "NOV",
-        "2018",
-        "Software engineer",
-        "nagpur",
-        "India"
+        "JCFW 9B",
+        "JCFW Agy 13",
+        "developer",
+        "IT software",
+        "pune",
+        "400000",
+        "1",
+        "2",
+        "450000",
+        "800000",
+        "pe1",
+        "pe1@gmail.com",
+        "1234564",
+        "2",
+        "Hirexpert",
+        "rahitech",
+        "java"
       ],
-      "line": 295
-    },
-    {
-      "cells": [
-        "persistant",
-        "FEB",
-        "2019",
-        "APR",
-        "2019",
-        "Software engineer",
-        "nagpur",
-        "India"
-      ],
-      "line": 296
-    },
-    {
-      "cells": [
-        "Dell",
-        "MAR",
-        "2020",
-        "DEC",
-        "2020",
-        "Software engineer",
-        "nagpur",
-        "India"
-      ],
-      "line": 297
+      "line": 548
     }
   ],
   "keyword": "And "
 });
 formatter.step({
-  "line": 298,
-  "name": "Click on save button",
+  "line": 549,
+  "name": "Select a added job",
   "keyword": "And "
 });
 formatter.step({
-  "line": 299,
-  "name": "click ok on success popup",
+  "line": 550,
+  "name": "Click on add candidate",
   "keyword": "And "
 });
 formatter.step({
-  "line": 300,
-  "name": "Assert work experience details",
-  "rows": [
-    {
-      "cells": [
-        "organization",
-        "fromMonth",
-        "fromYear",
-        "toMonth",
-        "toYear",
-        "designation",
-        "city",
-        "country"
-      ],
-      "line": 301
-    },
-    {
-      "cells": [
-        "wipro",
-        "JAN",
-        "2018",
-        "NOV",
-        "2018",
-        "Software engineer",
-        "nagpur",
-        "India"
-      ],
-      "line": 302
-    },
-    {
-      "cells": [
-        "persistant",
-        "FEB",
-        "2019",
-        "APR",
-        "2019",
-        "Software engineer",
-        "nagpur",
-        "India"
-      ],
-      "line": 303
-    },
-    {
-      "cells": [
-        "Dell",
-        "MAR",
-        "2020",
-        "DEC",
-        "2020",
-        "Software engineer",
-        "nagpur",
-        "India"
-      ],
-      "line": 304
-    }
-  ],
+  "line": 551,
+  "name": "Enter All details of \"\u003cCandidateEmail\u003e\",\"\u003cprofiletitle\u003e\",\"\u003cName\u003e\",\"\u003cContactNumber\u003e\",\"\u003cDesignation\u003e\",\"\u003cDate\u003e\",\"\u003cGender\u003e\",\"\u003cOnNoticePeriod\u003e\",\"\u003cNoticePeriod\u003e\",\"\u003cLastWorkingDay\u003e\",\"\u003cexperience\u003e\",\"\u003cCTC\u003e\",\"\u003cexpectedCTC\u003e\",\"\u003cCountry\u003e\",\"\u003cCity\u003e\",\"\u003cCityArea\u003e\",\"\u003cZipCode\u003e\",\"\u003cCommunicationmode\u003e\",\"\u003cSalaryoffered\u003e\",\"\u003cdistance\u003e\",\"\u003cpermanentAddress\u003e\",\"\u003crelocate\u003e\",\"\u003cSkill1\u003e\",\"\u003cSkill2\u003e\",\"\u003cSkill3\u003e\",\"\u003clevel1\u003e\",\"\u003clevel2\u003e\",\"\u003clevel3\u003e\",\"\u003cWeightage1\u003e\",\"\u003cWeightage2\u003e\",\"\u003cWeightage3\u003e\",\"\u003ccertificate1\u003e\",\"\u003ccertificate2\u003e\",\"\u003ccertificate3\u003e\",\"\u003cremark1\u003e\",\"\u003cremark2\u003e\",\"\u003cremark3\u003e\",\"\u003ccertificateforskill1\u003e\"and\"\u003ccertificateforskill2\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 552,
+  "name": "verify candidate card is displaying or not in New column \"\u003cName\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 553,
+  "name": "Click on Candidate name from candidate card and observe the skills",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 554,
+  "name": "click on Close button from candidate Details page",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 555,
+  "name": "click on Edit Job button to make changes in job",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 556,
+  "name": "Delete one skill from Skills section",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 557,
+  "name": "click on submit button",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 558,
+  "name": "Click on Edit Candidate icon on candidate card \"\u003cName\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 559,
+  "name": "observe deleted skill not displayed \"\u003cSkill3\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 560,
+  "name": "click on Close button from Edit Candidate page",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 561,
+  "name": "Click on Candidate name from candidate card and observe the skills",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 562,
+  "name": "deleted skills should display on Candidate Details page \"\u003cSkill3\u003e\"",
   "keyword": "Then "
 });
+formatter.step({
+  "line": 563,
+  "name": "click on Close button from candidate Details page",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 564,
+  "name": "click on Edit Job button to make changes in job",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 565,
+  "name": "delete all added skills",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 566,
+  "name": "click on submit button",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 567,
+  "name": "Click on add candidate",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 568,
+  "name": "Enter valid \"\u003cCandidateEmail1\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 569,
+  "name": "click on find button",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 570,
+  "name": "click on ok button",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 571,
+  "name": "observe deleted job skill should not show when employer is going to add new candidate \"\u003cSkill1\u003e\" \"\u003cSkill2\u003e\" \"\u003cSkill3\u003e\"",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 572,
+  "name": "close the browser",
+  "keyword": "And "
+});
 formatter.examples({
-  "comments": [
-    {
-      "line": 305,
-      "value": "#And Click on skills and designation"
-    },
-    {
-      "line": 306,
-      "value": "#And fill all skills and designation details \"Sr.Test engineer\""
-    },
-    {
-      "line": 307,
-      "value": "#|skill\t\t  |Expertiselevel |certificate  |"
-    },
-    {
-      "line": 308,
-      "value": "#|JAVA         |Basic Knowledge|sun microsoft|"
-    },
-    {
-      "line": 309,
-      "value": "#|advanced java|Intermediate   |ad. java  \t|"
-    },
-    {
-      "line": 310,
-      "value": "#|Javascript   | Expert        |javaScript\t|"
-    },
-    {
-      "line": 311,
-      "value": "#And Click on save button"
-    },
-    {
-      "line": 312,
-      "value": "#And click ok on success popup"
-    },
-    {
-      "line": 313,
-      "value": "#And Click on certificate tab"
-    },
-    {
-      "line": 314,
-      "value": "#And fill all certificate details"
-    },
-    {
-      "line": 315,
-      "value": "#|certificate      |year|grade|issuing Authority|country|"
-    },
-    {
-      "line": 316,
-      "value": "#|best performance |2018|A    |Wipro pvt ltd    |India  |"
-    },
-    {
-      "line": 317,
-      "value": "#|cudos            |2019|A    |Dell pvt ltd     |India  |"
-    },
-    {
-      "line": 318,
-      "value": "#|Employee of month|2020|A    |Dell pvt ltd     |India  |"
-    },
-    {
-      "line": 319,
-      "value": "#And Click on save button"
-    },
-    {
-      "line": 320,
-      "value": "#And click ok on success popup"
-    },
-    {
-      "line": 321,
-      "value": "#And Click on languages tab"
-    },
-    {
-      "line": 322,
-      "value": "#And Fill all language details"
-    },
-    {
-      "line": 323,
-      "value": "#|language|proficiency\t\t\t\t\t\t|certificate            |"
-    },
-    {
-      "line": 324,
-      "value": "#|English | Professional working proficiency |Certificate of merit   |"
-    },
-    {
-      "line": 325,
-      "value": "#|French  | Limited working proficiency      |Certificate of merit   |"
-    },
-    {
-      "line": 326,
-      "value": "#|spanish |  Elementary proficiency          |Certificate of persuing|"
-    },
-    {
-      "line": 327,
-      "value": "#And Click on save button"
-    },
-    {
-      "line": 328,
-      "value": "#And click ok on success popup"
-    },
-    {
-      "line": 329,
-      "value": "#And Click on Visa Tab"
-    },
-    {
-      "line": 330,
-      "value": "#And Fill All the deatils of visa"
-    },
-    {
-      "line": 331,
-      "value": "#|country\t|VisaType    |ValidUpto     |year|month|"
-    },
-    {
-      "line": 332,
-      "value": "#|USA\t\t|Work Visa   |28-Oct-2030   |2030|Oct  |"
-    },
-    {
-      "line": 333,
-      "value": "#|Singapore\t|Student Visa|30-Apr-2025\t|2025|Apr  |"
-    },
-    {
-      "line": 334,
-      "value": "#|Australia\t|Tourist Visa|1-Jan-2023    |2023|Jan  |"
-    },
-    {
-      "line": 335,
-      "value": "#And Click on save button"
-    },
-    {
-      "line": 336,
-      "value": "#And click ok on success popup"
-    },
-    {
-      "line": 337,
-      "value": "#And Click on Experience details tab"
-    },
-    {
-      "line": 338,
-      "value": "#And Fill all experience details"
-    },
-    {
-      "line": 339,
-      "value": "#|title   |organization|fromDate   |toDate     |technologies |client|"
-    },
-    {
-      "line": 340,
-      "value": "#|paypal  |talentxpert |20-Jan-2020|21-Sep-2020|Java selenium|Alexu |"
-    },
-    {
-      "line": 341,
-      "value": "#And Click on save button"
-    },
-    {
-      "line": 342,
-      "value": "#And click ok on success popup"
-    }
-  ],
-  "line": 346,
+  "line": 574,
   "name": "",
   "description": "",
-  "id": "data-validation;validate-the-candidate-details-when-candidate-login-himself-and-add-profile-details;",
+  "id": "hirexpert-job-candidate-workflow-feature;to-verify-deleted-skill-on-candidate-details-page-and-when-employer-is-adding-new-candidate-for-the-job;",
   "rows": [
     {
       "cells": [
         "Username",
-        "Teamid",
         "Password",
         "CandidateEmail",
-        "title",
+        "profiletitle",
         "Name",
-        "alternateemail",
         "ContactNumber",
-        "alternateContact",
-        "UserType",
-        "timezone",
-        "country",
-        "currentorganization",
-        "currentdesignation",
-        "currentduration",
-        "jobtype",
-        "shift",
-        "preferredcity",
+        "Designation",
         "Date",
         "Gender",
         "OnNoticePeriod",
-        "LastWorkingDay",
         "NoticePeriod",
-        "searchkeyword",
-        "industry",
+        "LastWorkingDay",
         "experience",
         "CTC",
         "expectedCTC",
+        "Country",
         "City",
         "CityArea",
         "ZipCode",
         "Communicationmode",
-        "residentialstatus",
-        "willingtotravel",
-        "lookingforjob",
+        "Salaryoffered",
+        "distance",
+        "permanentAddress",
         "relocate",
-        "cv"
+        "Skill1",
+        "Skill2",
+        "Skill3",
+        "level1",
+        "level2",
+        "level3",
+        "Weightage1",
+        "Weightage2",
+        "Weightage3",
+        "certificate1",
+        "certificate2",
+        "certificate3",
+        "remark1",
+        "remark2",
+        "remark3",
+        "certificateforskill1",
+        "certificateforskill2",
+        "CandidateEmail1"
       ],
-      "line": 347,
-      "id": "data-validation;validate-the-candidate-details-when-candidate-login-himself-and-add-profile-details;;1"
+      "line": 575,
+      "id": "hirexpert-job-candidate-workflow-feature;to-verify-deleted-skill-on-candidate-details-page-and-when-employer-is-adding-new-candidate-for-the-job;;1"
     },
     {
       "cells": [
         "pemp@gmail.com",
-        "pe1@gmail.com",
         "12345",
-        "hirecan13@gmail.com",
-        "Sr.software engineer",
-        "hirecan13",
-        "hirecan13@yahoo.com",
-        "7895885538",
-        "8555855555",
-        "Candidate",
-        "Indian Standard Time",
-        "India",
-        "Accenture",
+        "hirecan27@gmail.com",
+        "jr software developer",
+        "hirecan27",
+        "9875866385",
         "Sr.developer",
-        "2",
-        "Contractual Full Time",
-        "Evening Shift",
-        "Pune",
-        "14-Sep-2020",
+        "19/04/1995",
         "Female",
-        "Yes",
+        "No",
         "25",
-        "25-Dec-2020",
-        "can13",
-        "IT software",
-        "1.7",
-        "700000",
+        "1/9/2021",
+        "1.5",
         "800000",
-        "Nagpur",
-        "sita bardi",
-        "248966",
+        "800000",
+        "India",
+        "wardha",
+        "Arvi naka",
+        "455966",
         "Call",
-        "Citizen",
+        "800000",
+        "4",
+        "No",
+        "No",
+        "JAVA",
+        "advanced java",
+        "JavaScript",
+        "Basic Knowledge",
+        "Intermediate",
+        "Expert",
+        "Mandatory",
+        "Preferred",
+        "Optional",
         "Yes",
         "No",
         "No",
-        "C:\\Users\\TLP33\\Documents\\CV.docx"
+        "provide certificate",
+        "spring,hybernet",
+        "advanced version",
+        "sun microsoft",
+        "advanced version",
+        "hirecan26@gmail.com"
       ],
-      "line": 348,
-      "id": "data-validation;validate-the-candidate-details-when-candidate-login-himself-and-add-profile-details;;2"
+      "line": 576,
+      "id": "hirexpert-job-candidate-workflow-feature;to-verify-deleted-skill-on-candidate-details-page-and-when-employer-is-adding-new-candidate-for-the-job;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.scenario({
-  "line": 348,
-  "name": "validate the candidate details when candidate login himself and add profile details",
+  "line": 576,
+  "name": "To verify deleted skill on Candidate Details page and when employer is adding new candidate for the job",
   "description": "",
-  "id": "data-validation;validate-the-candidate-details-when-candidate-login-himself-and-add-profile-details;;2",
+  "id": "hirexpert-job-candidate-workflow-feature;to-verify-deleted-skill-on-candidate-details-page-and-when-employer-is-adding-new-candidate-for-the-job;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 258,
-      "name": "@candidatedetails"
+      "line": 538,
+      "name": "@run"
+    },
+    {
+      "line": 538,
+      "name": "@Regression"
+    },
+    {
+      "line": 538,
+      "name": "@reg9"
     }
   ]
 });
 formatter.step({
-  "line": 261,
-  "name": "User must be registered",
+  "line": 541,
+  "name": "Open browser",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 263,
+  "line": 542,
   "name": "title of login page is Home",
   "keyword": "When "
 });
 formatter.step({
-  "comments": [
-    {
-      "line": 264,
-      "value": "#And Click register link"
-    },
-    {
-      "line": 265,
-      "value": "#And Enter all details on register page \"\u003cName\u003e\" \"\u003cCandidateEmail\u003e\" \"\u003cContactNumber\u003e\" \"\u003cUserType\u003e\" \"\u003ctimezone\u003e\" \"\u003ccountry\u003e\""
-    }
-  ],
-  "line": 266,
-  "name": "Click on Job Seeker(Candidate) Sign In link",
+  "line": 543,
+  "name": "Click on Employer-Agency Signin link",
   "keyword": "And "
 });
 formatter.step({
-  "line": 267,
-  "name": "candidate enters valid credentials \"hirecan13@gmail.com\",\"12345\"",
+  "line": 544,
+  "name": "Employer enters valid credentials \"pemp@gmail.com\",\"12345\"",
+  "matchedColumns": [
+    0,
+    1
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 545,
+  "name": "Go to Workbench",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 546,
+  "name": "Add job \"JAVA\",\"advanced java\",\"JavaScript\",\"Basic Knowledge\",\"Intermediate\",\"Expert\",\"Mandatory\",\"Preferred\",\"Optional\",\"Yes\",\"No\",\"No\",\"provide certificate\",\"spring,hybernet\" and \"advanced version\"",
+  "matchedColumns": [
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "rows": [
+    {
+      "cells": [
+        "title",
+        "agytitle",
+        "designation",
+        "industry",
+        "location",
+        "budget",
+        "minexp",
+        "maxexp",
+        "minsal",
+        "maxsal",
+        "Name",
+        "Email",
+        "contact",
+        "totalinterviews",
+        "organization",
+        "agyorganization",
+        "functionalArea"
+      ],
+      "line": 547
+    },
+    {
+      "cells": [
+        "JCFW 9B",
+        "JCFW Agy 13",
+        "developer",
+        "IT software",
+        "pune",
+        "400000",
+        "1",
+        "2",
+        "450000",
+        "800000",
+        "pe1",
+        "pe1@gmail.com",
+        "1234564",
+        "2",
+        "Hirexpert",
+        "rahitech",
+        "java"
+      ],
+      "line": 548
+    }
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 549,
+  "name": "Select a added job",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 550,
+  "name": "Click on add candidate",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 551,
+  "name": "Enter All details of \"hirecan27@gmail.com\",\"jr software developer\",\"hirecan27\",\"9875866385\",\"Sr.developer\",\"19/04/1995\",\"Female\",\"No\",\"25\",\"1/9/2021\",\"1.5\",\"800000\",\"800000\",\"India\",\"wardha\",\"Arvi naka\",\"455966\",\"Call\",\"800000\",\"4\",\"No\",\"No\",\"JAVA\",\"advanced java\",\"JavaScript\",\"Basic Knowledge\",\"Intermediate\",\"Expert\",\"Mandatory\",\"Preferred\",\"Optional\",\"Yes\",\"No\",\"No\",\"provide certificate\",\"spring,hybernet\",\"advanced version\",\"sun microsoft\"and\"advanced version\"",
   "matchedColumns": [
     2,
-    3
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
   ],
   "keyword": "And "
 });
 formatter.step({
-  "line": 268,
-  "name": "click on update profile option",
-  "keyword": "And "
-});
-formatter.step({
-  "comments": [
-    {
-      "line": 269,
-      "value": "#Then Enter all the personal and professional details of candidate \"\u003ctitle\u003e\" \"\u003cContactNumber\u003e\" \"\u003cDate\u003e\" \"\u003cCountry\u003e\" \"\u003cCityArea\u003e\" \"\u003cName\u003e\" \"\u003calternateemail\u003e\" \"\u003calternateContact\u003e\" \"\u003cGender\u003e\" \"\u003cCity\u003e\" \"\u003cZipCode\u003e\" \"\u003ccurrentorganization\u003e\" \"\u003ccurrentdesignation\u003e\" \"\u003ccurrentduration\u003e\" \"\u003cjobtype\u003e\" \"\u003cshift\u003e\" \"\u003cpreferredcity\u003e\" \"\u003csearchkeyword\u003e\" \"\u003cindustry\u003e\" \"\u003cexperience\u003e\" \"\u003cexpectedCTC\u003e\" \"\u003cresidentialstatus\u003e\" \"\u003cOnNoticePeriod\u003e\" \"\u003cLastWorkingDay\u003e\" \"\u003cNoticePeriod\u003e\" \"\u003cCTC\u003e\" \"\u003cCommunicationmode\u003e\" \"\u003cwillingtotravel\u003e\" \"\u003clookingforjob\u003e\" \"\u003crelocate\u003e\" \"\u003ccv\u003e\""
-    },
-    {
-      "line": 270,
-      "value": "#And Click on save button"
-    },
-    {
-      "line": 271,
-      "value": "#And click ok on success popup"
-    },
-    {
-      "line": 272,
-      "value": "#Then Assert the personal and professional details of candidate"
-    },
-    {
-      "line": 273,
-      "value": "#|Username      |Teamid        |Password|CandidateEmail      |title\t\t\t\t   |Name     |alternateemail     |ContactNumber |alternateContact|UserType |timezone\t\t\t    |country|currentorganization|currentdesignation |currentduration|jobtype              |shift        |preferredcity|Date         |Gender    |OnNoticePeriod|LastWorkingDay|NoticePeriod|searchkeyword|industry   |experience|CTC   |expectedCTC|City  |CityArea   |ZipCode|Communicationmode|residentialstatus|willingtotravel    |lookingforjob|relocate|cv     |"
-    },
-    {
-      "line": 274,
-      "value": "#|pemp@gmail.com|pe1@gmail.com |12345   |hirecan13@gmail.com |Sr.software engineer |hirecan13 |hirecan13@yahoo.com|7895885538    |8555855555      |Candidate|Indian Standard Time    | India |Accenture          |Sr.developer       |2   \t\t\t|Contractual Full Time|Evening Shift|Pune         |14-Sep-2020  |Female    |Yes           |25-Dec-2020   |25          |can13        |IT software|1.7       |700000|800000     |Nagpur|sita bardi |248966 |Call             |Citizen          |Yes\t\t     \t |No           |No      |CV.docx|"
-    },
-    {
-      "line": 275,
-      "value": "#And click on qualification tab"
-    },
-    {
-      "line": 276,
-      "value": "#And Fill all the qualification details"
-    },
-    {
-      "line": 277,
-      "value": "#|Major    |year|grade |college        |university|country|degree  |"
-    },
-    {
-      "line": 278,
-      "value": "#|Research |2021|90    |CUJB      \t  |cambridge |USA    |Ph.D    |"
-    },
-    {
-      "line": 279,
-      "value": "#|MBA  \t  |2019|95    |BD college     |Nagpur    |India  |Master  |"
-    },
-    {
-      "line": 280,
-      "value": "#|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|"
-    },
-    {
-      "line": 281,
-      "value": "#|Science  |2013|79    |New English    |Nagpur    |India  |12\t  |"
-    },
-    {
-      "line": 282,
-      "value": "#|CBSE     |2011|80    |MVM            |Nagpur    |India  |10\t  |"
-    },
-    {
-      "line": 283,
-      "value": "#And Click on save button"
-    },
-    {
-      "line": 284,
-      "value": "#And click ok on success popup"
-    },
-    {
-      "line": 285,
-      "value": "#Then Assert the qualification details"
-    },
-    {
-      "line": 286,
-      "value": "#|Major    |year|grade |college        |university|country|degree  |"
-    },
-    {
-      "line": 287,
-      "value": "#|Research |2021|90    |CUJB      \t  |cambridge |USA    |Ph.D    |"
-    },
-    {
-      "line": 288,
-      "value": "#|MBA  \t  |2019|95    |BD college     |Nagpur    |India  |Master  |"
-    },
-    {
-      "line": 289,
-      "value": "#|BE       |2017|85    |DMIETR college |Nagpur    |India  |Bachelor|"
-    },
-    {
-      "line": 290,
-      "value": "#|Science  |2013|79    |New English    |Nagpur    |India  |12\t  |"
-    },
-    {
-      "line": 291,
-      "value": "#|CBSE     |2011|80    |MVM            |Nagpur    |India  |10\t  |"
-    }
-  ],
-  "line": 292,
-  "name": "Click on work experience tab",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 293,
-  "name": "fill all work experience details",
-  "rows": [
-    {
-      "cells": [
-        "organization",
-        "fromMonth",
-        "fromYear",
-        "toMonth",
-        "toYear",
-        "designation",
-        "city",
-        "country"
-      ],
-      "line": 294
-    },
-    {
-      "cells": [
-        "wipro",
-        "JAN",
-        "2018",
-        "NOV",
-        "2018",
-        "Software engineer",
-        "nagpur",
-        "India"
-      ],
-      "line": 295
-    },
-    {
-      "cells": [
-        "persistant",
-        "FEB",
-        "2019",
-        "APR",
-        "2019",
-        "Software engineer",
-        "nagpur",
-        "India"
-      ],
-      "line": 296
-    },
-    {
-      "cells": [
-        "Dell",
-        "MAR",
-        "2020",
-        "DEC",
-        "2020",
-        "Software engineer",
-        "nagpur",
-        "India"
-      ],
-      "line": 297
-    }
+  "line": 552,
+  "name": "verify candidate card is displaying or not in New column \"hirecan27\"",
+  "matchedColumns": [
+    4
   ],
   "keyword": "And "
 });
 formatter.step({
-  "line": 298,
-  "name": "Click on save button",
+  "line": 553,
+  "name": "Click on Candidate name from candidate card and observe the skills",
   "keyword": "And "
 });
 formatter.step({
-  "line": 299,
-  "name": "click ok on success popup",
+  "line": 554,
+  "name": "click on Close button from candidate Details page",
   "keyword": "And "
 });
 formatter.step({
-  "line": 300,
-  "name": "Assert work experience details",
-  "rows": [
-    {
-      "cells": [
-        "organization",
-        "fromMonth",
-        "fromYear",
-        "toMonth",
-        "toYear",
-        "designation",
-        "city",
-        "country"
-      ],
-      "line": 301
-    },
-    {
-      "cells": [
-        "wipro",
-        "JAN",
-        "2018",
-        "NOV",
-        "2018",
-        "Software engineer",
-        "nagpur",
-        "India"
-      ],
-      "line": 302
-    },
-    {
-      "cells": [
-        "persistant",
-        "FEB",
-        "2019",
-        "APR",
-        "2019",
-        "Software engineer",
-        "nagpur",
-        "India"
-      ],
-      "line": 303
-    },
-    {
-      "cells": [
-        "Dell",
-        "MAR",
-        "2020",
-        "DEC",
-        "2020",
-        "Software engineer",
-        "nagpur",
-        "India"
-      ],
-      "line": 304
-    }
+  "line": 555,
+  "name": "click on Edit Job button to make changes in job",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 556,
+  "name": "Delete one skill from Skills section",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 557,
+  "name": "click on submit button",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 558,
+  "name": "Click on Edit Candidate icon on candidate card \"hirecan27\"",
+  "matchedColumns": [
+    4
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 559,
+  "name": "observe deleted skill not displayed \"JavaScript\"",
+  "matchedColumns": [
+    26
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 560,
+  "name": "click on Close button from Edit Candidate page",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 561,
+  "name": "Click on Candidate name from candidate card and observe the skills",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 562,
+  "name": "deleted skills should display on Candidate Details page \"JavaScript\"",
+  "matchedColumns": [
+    26
   ],
   "keyword": "Then "
 });
+formatter.step({
+  "line": 563,
+  "name": "click on Close button from candidate Details page",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 564,
+  "name": "click on Edit Job button to make changes in job",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 565,
+  "name": "delete all added skills",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 566,
+  "name": "click on submit button",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 567,
+  "name": "Click on add candidate",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 568,
+  "name": "Enter valid \"hirecan26@gmail.com\"",
+  "matchedColumns": [
+    41
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 569,
+  "name": "click on find button",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 570,
+  "name": "click on ok button",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 571,
+  "name": "observe deleted job skill should not show when employer is going to add new candidate \"JAVA\" \"advanced java\" \"JavaScript\"",
+  "matchedColumns": [
+    24,
+    25,
+    26
+  ],
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 572,
+  "name": "close the browser",
+  "keyword": "And "
+});
 formatter.match({
-  "location": "AddingCandidate.user_must_be_registered()"
+  "location": "JobCandidateWorkflowRegressionStepDefination.open_browser()"
 });
 formatter.result({
-  "duration": 38351368200,
+  "duration": 12025491900,
   "status": "passed"
 });
 formatter.match({
-  "location": "AddingCandidate.title_of_login_page_is_Home()"
+  "location": "TC77_79_95.title_of_login_page_is_Home()"
 });
 formatter.result({
-  "duration": 7593100,
+  "duration": 8111700,
   "status": "passed"
 });
 formatter.match({
-  "location": "AddingCandidate.click_on_Job_Seeker_Candidate_Sign_In_link()"
+  "location": "TC77_79_95.click_on_Employer_Agency_Signin_link()"
 });
 formatter.result({
-  "duration": 5242353100,
+  "duration": 3273108000,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "hirecan13@gmail.com",
-      "offset": 36
+      "val": "pemp@gmail.com",
+      "offset": 35
     },
     {
       "val": "12345",
+      "offset": 52
+    }
+  ],
+  "location": "taskRegression.employer_enters_valid_credentials(String,String)"
+});
+formatter.result({
+  "duration": 7741558200,
+  "status": "passed"
+});
+formatter.match({
+  "location": "JobCandidateWorkflowRegressionStepDefination.go_to_Workbench()"
+});
+formatter.result({
+  "duration": 5314288700,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "JAVA",
+      "offset": 9
+    },
+    {
+      "val": "advanced java",
+      "offset": 16
+    },
+    {
+      "val": "JavaScript",
+      "offset": 32
+    },
+    {
+      "val": "Basic Knowledge",
+      "offset": 45
+    },
+    {
+      "val": "Intermediate",
+      "offset": 63
+    },
+    {
+      "val": "Expert",
+      "offset": 78
+    },
+    {
+      "val": "Mandatory",
+      "offset": 87
+    },
+    {
+      "val": "Preferred",
+      "offset": 99
+    },
+    {
+      "val": "Optional",
+      "offset": 111
+    },
+    {
+      "val": "Yes",
+      "offset": 122
+    },
+    {
+      "val": "No",
+      "offset": 128
+    },
+    {
+      "val": "No",
+      "offset": 133
+    },
+    {
+      "val": "provide certificate",
+      "offset": 138
+    },
+    {
+      "val": "spring,hybernet",
+      "offset": 160
+    },
+    {
+      "val": "advanced version",
+      "offset": 182
+    }
+  ],
+  "location": "JobCandidateWorkflowRegressionStepDefination.add_jobskill_and(String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,DataTable)"
+});
+formatter.result({
+  "duration": 47585542300,
+  "status": "passed"
+});
+formatter.match({
+  "location": "taskRegression.select_a_added_job()"
+});
+formatter.result({
+  "duration": 4237915400,
+  "status": "passed"
+});
+formatter.match({
+  "location": "taskRegression.click_on_add_candidate()"
+});
+formatter.result({
+  "duration": 3099777300,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "hirecan27@gmail.com",
+      "offset": 22
+    },
+    {
+      "val": "jr software developer",
+      "offset": 44
+    },
+    {
+      "val": "hirecan27",
+      "offset": 68
+    },
+    {
+      "val": "9875866385",
+      "offset": 80
+    },
+    {
+      "val": "Sr.developer",
+      "offset": 93
+    },
+    {
+      "val": "19/04/1995",
+      "offset": 108
+    },
+    {
+      "val": "Female",
+      "offset": 121
+    },
+    {
+      "val": "No",
+      "offset": 130
+    },
+    {
+      "val": "25",
+      "offset": 135
+    },
+    {
+      "val": "1/9/2021",
+      "offset": 140
+    },
+    {
+      "val": "1.5",
+      "offset": 151
+    },
+    {
+      "val": "800000",
+      "offset": 157
+    },
+    {
+      "val": "800000",
+      "offset": 166
+    },
+    {
+      "val": "India",
+      "offset": 175
+    },
+    {
+      "val": "wardha",
+      "offset": 183
+    },
+    {
+      "val": "Arvi naka",
+      "offset": 192
+    },
+    {
+      "val": "455966",
+      "offset": 204
+    },
+    {
+      "val": "Call",
+      "offset": 213
+    },
+    {
+      "val": "800000",
+      "offset": 220
+    },
+    {
+      "val": "4",
+      "offset": 229
+    },
+    {
+      "val": "No",
+      "offset": 233
+    },
+    {
+      "val": "No",
+      "offset": 238
+    },
+    {
+      "val": "JAVA",
+      "offset": 243
+    },
+    {
+      "val": "advanced java",
+      "offset": 250
+    },
+    {
+      "val": "JavaScript",
+      "offset": 266
+    },
+    {
+      "val": "Basic Knowledge",
+      "offset": 279
+    },
+    {
+      "val": "Intermediate",
+      "offset": 297
+    },
+    {
+      "val": "Expert",
+      "offset": 312
+    },
+    {
+      "val": "Mandatory",
+      "offset": 321
+    },
+    {
+      "val": "Preferred",
+      "offset": 333
+    },
+    {
+      "val": "Optional",
+      "offset": 345
+    },
+    {
+      "val": "Yes",
+      "offset": 356
+    },
+    {
+      "val": "No",
+      "offset": 362
+    },
+    {
+      "val": "No",
+      "offset": 367
+    },
+    {
+      "val": "provide certificate",
+      "offset": 372
+    },
+    {
+      "val": "spring,hybernet",
+      "offset": 394
+    },
+    {
+      "val": "advanced version",
+      "offset": 412
+    },
+    {
+      "val": "sun microsoft",
+      "offset": 431
+    },
+    {
+      "val": "advanced version",
+      "offset": 449
+    }
+  ],
+  "location": "JobCandidateWorkflowRegressionStepDefination.enter_All_details_of_and(String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String)"
+});
+formatter.result({
+  "duration": 68867587100,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "hirecan27",
       "offset": 58
     }
   ],
-  "location": "AddingCandidate.candidate_enters_valid_credentials(String,String)"
+  "location": "taskRegression.verify_candidate_card_is_displaying_or_not_in_New_column(String)"
 });
 formatter.result({
-  "duration": 50280358400,
+  "duration": 102039200,
   "status": "passed"
 });
 formatter.match({
-  "location": "AddingCandidate.click_on_update_profile_option()"
+  "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Candidate_name_from_candidate_card_and_observe_the_skills()"
 });
 formatter.result({
-  "duration": 4339944400,
+  "duration": 4310273600,
   "status": "passed"
 });
 formatter.match({
-  "location": "AddingCandidate.click_on_work_experience_tab()"
+  "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Close_button_from_candidate_Details_page()"
 });
 formatter.result({
-  "duration": 3098177500,
-  "error_message": "org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element \u003ca _ngcontent-xyn-c9\u003d\"\" class\u003d\"btn Cbtn-primary optbtn mr-1 profilebtn\" routerlink\u003d\"experiencedetails\" routerlinkactive\u003d\"btnMain\" title\u003d\"Professional Work Experience\" href\u003d\"#/candidate/candidateprofile/experiencedetails\"\u003e...\u003c/a\u003e is not clickable at point (941, 106). Other element would receive the click: \u003cdiv _ngcontent-xyn-c2\u003d\"\" class\u003d\"ngx-overlay loading-foreground\" style\u003d\"background-color: rgba(40, 40, 40, 0.8); border-radius: 0px;\"\u003e...\u003c/div\u003e\n  (Session info: chrome\u003d85.0.4183.121)\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027DESKTOP-6IM5GGG\u0027, ip: \u0027192.168.43.34\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002712.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 85.0.4183.121, chrome: {chromedriverVersion: 85.0.4183.87 (cd6713ebf92fa..., userDataDir: C:\\Users\\TLP33\\AppData\\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60254}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}\nSession ID: 15f7307b328985d4d41f6fab7528050b\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)\r\n\tat com.sun.proxy.$Proxy18.click(Unknown Source)\r\n\tat DataValidationTC_Stepdefination.AddingCandidate.click_on_work_experience_tab(AddingCandidate.java:482)\r\n\tat ✽.And Click on work experience tab(DataValidation.feature:292)\r\n",
+  "duration": 4118980300,
+  "status": "passed"
+});
+formatter.match({
+  "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Edit_Job_button_to_make_changes_in_job()"
+});
+formatter.result({
+  "duration": 13310254300,
+  "status": "passed"
+});
+formatter.match({
+  "location": "JobCandidateWorkflowRegressionStepDefination.delete_one_skill_from_Skills_section()"
+});
+formatter.result({
+  "duration": 2098402600,
+  "status": "passed"
+});
+formatter.match({
+  "location": "JobCandidateWorkflowRegressionStepDefination.click_on_submit_button()"
+});
+formatter.result({
+  "duration": 3092046700,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "hirecan27",
+      "offset": 48
+    }
+  ],
+  "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Edit_Candidate_icon_on_candidate_card(String)"
+});
+formatter.result({
+  "duration": 8099567400,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "JavaScript",
+      "offset": 37
+    }
+  ],
+  "location": "JobCandidateWorkflowRegressionStepDefination.observe_deleted_skill_not_displayed(String)"
+});
+formatter.result({
+  "duration": 131013800,
+  "status": "passed"
+});
+formatter.match({
+  "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Close_button_from_Edit_Candidate_page()"
+});
+formatter.result({
+  "duration": 3097538800,
+  "status": "passed"
+});
+formatter.match({
+  "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Candidate_name_from_candidate_card_and_observe_the_skills()"
+});
+formatter.result({
+  "duration": 4265957800,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "JavaScript",
+      "offset": 57
+    }
+  ],
+  "location": "JobCandidateWorkflowRegressionStepDefination.deleted_skills_should_display_on_Candidate_Details_page(String)"
+});
+formatter.result({
+  "duration": 62900,
+  "status": "passed"
+});
+formatter.match({
+  "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Close_button_from_candidate_Details_page()"
+});
+formatter.result({
+  "duration": 4066877500,
+  "status": "passed"
+});
+formatter.match({
+  "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Edit_Job_button_to_make_changes_in_job()"
+});
+formatter.result({
+  "duration": 13298797200,
+  "status": "passed"
+});
+formatter.match({
+  "location": "JobCandidateWorkflowRegressionStepDefination.delete_all_added_skills()"
+});
+formatter.result({
+  "duration": 1134215500,
+  "error_message": "java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1\r\n\tat java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)\r\n\tat java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)\r\n\tat java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)\r\n\tat java.base/java.util.Objects.checkIndex(Objects.java:372)\r\n\tat java.base/java.util.ArrayList.get(ArrayList.java:458)\r\n\tat java.base/jdk.internal.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)\r\n\tat com.sun.proxy.$Proxy21.get(Unknown Source)\r\n\tat RegressionTc.JobCandidateWorkflowRegressionStepDefination.delete_all_added_skills(JobCandidateWorkflowRegressionStepDefination.java:1129)\r\n\tat ✽.And delete all added skills(C:/Users/TLP33/Documents/GitHub/HireUIAutomation/HireXpertUIAutomation/HireXpertUIAutomation/src/main/java/features/JobCandidateWorkflow.feature:565)\r\n",
   "status": "failed"
 });
 formatter.match({
-  "location": "AddingCandidate.fill_all_work_experience_details(DataTable)"
+  "location": "JobCandidateWorkflowRegressionStepDefination.click_on_submit_button()"
 });
 formatter.result({
   "status": "skipped"
 });
 formatter.match({
-  "location": "AddingCandidate.click_on_save_button()"
+  "location": "taskRegression.click_on_add_candidate()"
 });
 formatter.result({
   "status": "skipped"
 });
 formatter.match({
-  "location": "AddingCandidate.click_ok_on_success_popup()"
+  "arguments": [
+    {
+      "val": "hirecan26@gmail.com",
+      "offset": 13
+    }
+  ],
+  "location": "JobCandidateWorkflowRegressionStepDefination.enter_valid(String)"
 });
 formatter.result({
   "status": "skipped"
 });
 formatter.match({
-  "location": "AddingCandidate.assert_work_experience_details(DataTable)"
+  "location": "JobCandidateWorkflowRegressionStepDefination.click_on_find_button()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "location": "JobCandidateWorkflowRegressionStepDefination.click_on_ok_button()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "JAVA",
+      "offset": 87
+    },
+    {
+      "val": "advanced java",
+      "offset": 94
+    },
+    {
+      "val": "JavaScript",
+      "offset": 110
+    }
+  ],
+  "location": "JobCandidateWorkflowRegressionStepDefination.observe_deleted_job_skill_should_not_show_when_employer_is_going_to_add_new_candidate(String,String,String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "location": "JobCandidateWorkflowRegressionStepDefination.close_the_browser()"
 });
 formatter.result({
   "status": "skipped"

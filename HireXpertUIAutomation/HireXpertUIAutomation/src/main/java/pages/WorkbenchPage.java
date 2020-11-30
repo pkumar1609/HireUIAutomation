@@ -1,11 +1,7 @@
 package pages;
 
 import java.util.List;
-
-import java.util.Map;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -14,8 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
-import cucumber.api.DataTable;
 import utilPackage.baseclass;
 
 public class WorkbenchPage extends baseclass {
@@ -127,7 +121,6 @@ public class WorkbenchPage extends baseclass {
 	public WorkbenchPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	
 	public void AddJob() throws InterruptedException {
@@ -170,8 +163,7 @@ public class WorkbenchPage extends baseclass {
 		executor.executeScript("arguments[0].scrollIntoView(true);", element);
 		explicitwait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();
-//		driver.findElement(By.xpath("//option[contains(text(),' JCFW 12')]")).click();
-
+//		driver.findElement(By.xpath("//option[contains(text(),'Interview Job 3')]")).click();
 	}
 	
 	public void clickonthreedot() throws InterruptedException {

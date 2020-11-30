@@ -1,7 +1,6 @@
 package pages;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
@@ -16,7 +15,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
-import cucumber.runtime.Utils;
 import utilPackage.baseclass;
 
 public class MarketPlacePage extends baseclass {
@@ -25,7 +23,6 @@ public class MarketPlacePage extends baseclass {
 	{
 	  super();
       PageFactory.initElements(driver, this);
-      this.driver = driver;
 //      job =addjobpage.jobname;
 //      System.out.println("construtor of marketplace job "+job);
 	}

@@ -1,26 +1,20 @@
 package BVT_StepDefination;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.expectThrows;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
+
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pages.DashboardPage;
 import utilPackage.baseclass;
-import utilPackage.utilclass;
 
 public class TaskManagemnet extends baseclass{
 	
@@ -85,7 +79,7 @@ public class TaskManagemnet extends baseclass{
 	
 	@Then("^fill all interview details and click on Submit button$")
 	public void fill_all_interview_details_and_click_on_Submit_button(DataTable credentials) throws Throwable {
-	  scheduleinterviewpage.scheduleInterview(credentials);
+	  scheduleinterviewpage.scheduleInterviewOfCandidate(credentials);
 	}
 	
 	@Then("^Schedule interview task should display in Done column of task Management page \"([^\"]*)\"$")
@@ -142,6 +136,39 @@ public class TaskManagemnet extends baseclass{
 		executor.executeScript("arguments[0].scrollIntoView(true);", element);
 		Assert.assertEquals(element.isDisplayed(), true);
 	}
+	
+//	job offered
+	
+	@Then("^move the card from offering job column to job offered column$")
+	public void move_the_card_from_offering_job_column_to_job_offered_column() throws Throwable {
+		
+		Thread.sleep(2000);	  
+		WebElement drag = candidatecardsectionpage.candidateCard;
+		WebElement drop = driver.findElement(By.xpath("//td[12]"));		   		
+	    Actions action = new Actions(driver);
+		Thread.sleep(3000);
+		action.clickAndHold(drag);
+		executor.executeScript("window.scrollBy(10000,0)", "");
+		action.moveToElement(drop).release(drop).perform();
+	}
 
+	@Then("^job offered task should display in new column \"([^\"]*)\"$")
+	public void job_offered_task_should_display_in_new_column(String arg1) throws Throwable {
+		WebElement element = driver.findElement(By.xpath("//td[2]//span[text()='Job offered to "+arg1+" for job "+addjobpage.jobname+".']"));
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		Assert.assertEquals(element.isDisplayed(), true);
+	}
+	
+	@Then("^click on job offered task$")
+	public void click_on_job_offered_task() throws Throwable {
+		executor.executeScript("arguments[0].click()", driver.findElement(By.xpath("//td[2]//a[text()='Job Offered']")));
+	}
+
+	@Then("^job offered task should display in done column \"([^\"]*)\"$")
+	public void job_offered_task_should_display_in_done_column(String arg1) throws Throwable {
+		WebElement element = driver.findElement(By.xpath("//td[6]//span[text()='Job offered to "+arg1+" for job "+addjobpage.jobname+".']"));
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		Assert.assertEquals(element.isDisplayed(), true);
+	}
 }
 

@@ -13,13 +13,13 @@ import cucumber.api.java.en.When;
 import org.testng.Assert;
 import utilPackage.baseclass;
 
-public class TC77_79_95 extends baseclass{
+public class UserAccount extends baseclass{
 	
 	String empname;
 	boolean error;
 	boolean b;
 	
-	public TC77_79_95() throws IOException 
+	public UserAccount() throws IOException 
 	{
 		super();
 	}

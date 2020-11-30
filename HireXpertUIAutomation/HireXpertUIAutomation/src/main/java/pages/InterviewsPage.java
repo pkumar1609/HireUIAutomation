@@ -35,7 +35,6 @@ public class InterviewsPage extends baseclass {
 	public InterviewsPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	
 	public void selectAgencyJob() {

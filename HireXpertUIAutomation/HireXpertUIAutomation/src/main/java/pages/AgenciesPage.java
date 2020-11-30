@@ -1,16 +1,14 @@
 package pages;
 
-import java.util.ArrayList;
+
 import java.util.Map;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import cucumber.api.DataTable;
 import utilPackage.baseclass;
@@ -44,9 +42,7 @@ public class AgenciesPage extends baseclass {
 	
 	public AgenciesPage() 
 	{
-		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	
 	public void clickOnAddButton() throws InterruptedException {
@@ -124,7 +120,7 @@ public class AgenciesPage extends baseclass {
 	{
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-		wait.until(ExpectedConditions.elementToBeClickable(search));
+		explicitwait.until(ExpectedConditions.elementToBeClickable(search));
 		search.sendKeys(data.get("Name"));
 		ele=data.get("Name");
 		}

@@ -14,7 +14,7 @@ Feature: Job Management
     And Go to workbench
 	And Add job
 	|title	|agytitle    |designation  |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-	|job5   |job1agy     |developer    |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			     |Hirexpert   |rahitech       |java|
+	|Job5   |Job1agy     |developer    |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			     |Hirexpert   |rahitech       |java|
 	And Select a added job
     And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 
     And click on the Block/Unblock to unblock checkbox present in front of agency whom you shared the job "<agyEmailId>"
@@ -49,7 +49,7 @@ Feature: Job Management
    	And Go to workbench
 	And Add job
 	|title |agytitle      |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-	|job6  |job6agy       |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |	java|
+	|Job6  |Job6agy       |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |	java|
 	And Select a added job
     And click on Share With Team button and select the Share checkbox present in front of the team member "<Teamid>"
     And click on the Block/Unblock to unblock checkbox present in front of team with whom you shared the job "<Teamid>"

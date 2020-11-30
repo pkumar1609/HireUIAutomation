@@ -1,27 +1,17 @@
 package runnerPackage;
 import org.junit.runner.RunWith;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-
-
-import org.testng.annotations.Test;
-
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
-import cucumber.api.testng.CucumberFeatureWrapper;
-import cucumber.api.testng.TestNGCucumberRunner;
-
 @RunWith(Cucumber.class)
 @CucumberOptions
 (
-features="C:\\Users\\TLP33\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\features",
-glue= {"DataValidationTC_Stepdefination"},
+features="C:\\Users\\TLP33\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\features\\JobCandidateWorkflow.feature",
+glue= {"RegressionTc"},
 dryRun= false,
-monochrome = true,
-plugin = {"html:target/cucumber-reports"},
-tags=("@candidatedetails")
+monochrome= true,
+plugin = {"html:target/cucumber-reports", "json:target/cucumber-reports/cucumber-json"},
+tags=("@reg9")
 )
 public class TestRunner
-{}
+{};
+//@block,@unblock,@jobupdate,@interview,@invalid,@JCWF,@market,@primary

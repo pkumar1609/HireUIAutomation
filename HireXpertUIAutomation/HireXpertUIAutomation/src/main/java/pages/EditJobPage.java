@@ -2,7 +2,7 @@ package pages;
 
 import java.util.Map;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -29,18 +29,17 @@ public class EditJobPage extends baseclass {
 	public EditJobPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	
-	public void updateJobDetails(String Budget1, String Noticeperiod ) throws InterruptedException {
-		
-		addjobpage.budget.clear();
-		addjobpage.budget.sendKeys(Budget1);  //updating budget
-		Thread.sleep(1000);
-		addjobpage.noticePeriod.clear();
-		addjobpage.noticePeriod.sendKeys(Noticeperiod);  //updating notice period
-		Thread.sleep(1000);
-	}
+//	public void updateJobDetails(String Budget1, String Noticeperiod ) throws InterruptedException {
+//		
+//		addjobpage.budget.clear();
+//		addjobpage.budget.sendKeys(Budget1);  //updating budget
+//		Thread.sleep(1000);
+//		addjobpage.noticePeriod.clear();
+//		addjobpage.noticePeriod.sendKeys(Noticeperiod);  //updating notice period
+//		Thread.sleep(1000);
+//	}
 	
 	public void updateNoOfInterviews() {
 		

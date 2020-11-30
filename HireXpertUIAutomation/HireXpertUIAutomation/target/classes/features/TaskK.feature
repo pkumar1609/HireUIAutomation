@@ -15,7 +15,7 @@ Given team member should be added
 And Go to workbench
 And Add job
 |title    |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|functionalArea|
-|abc      |developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|java|
+|Abc      |developer   |IT software|java developer |pune     |400000 |1     |2     |400000|500000|4|talentxpert|java|
 And Select a added job
 And Share job with team member
 |EmpTeam|Agyteam|
@@ -45,6 +45,7 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And Login with team member
 Then Task should also display for employer team member
+#Then Close browser
 
 Examples:
 |Username      |Password|
@@ -64,7 +65,7 @@ And team member should be added
 And Go to workbench
 And Add job
 |agytitle        |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-|agencyjobtask2  |developer   |IT software|java developer |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert   |rahitech       |java|
+|Agencyjobtask2  |developer   |IT software|java developer |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert   |rahitech       |java|
 And Select a added job
 And Share job with team member
 |EmpTeam|Agyteam|
@@ -94,6 +95,7 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And Login with team member
 Then Task should also display for agency team member 
+#Then Close browser
 Examples:
 |Username      |Password|
 |pagy@gmail.com|12345   |
@@ -118,6 +120,7 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 Then Delete the task
+
 Examples:
 |Username      |Password|
 |pemp@gmail.com|12345   |

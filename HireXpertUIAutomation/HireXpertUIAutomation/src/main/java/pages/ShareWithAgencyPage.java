@@ -1,14 +1,9 @@
 package pages;
 
-import java.util.Map;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import cucumber.api.DataTable;
 import utilPackage.baseclass;
 
 public class ShareWithAgencyPage extends baseclass {
@@ -34,7 +29,6 @@ public class ShareWithAgencyPage extends baseclass {
 	public ShareWithAgencyPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	
 //	public void searchAgency() {
@@ -64,9 +58,7 @@ public class ShareWithAgencyPage extends baseclass {
 		common.clickOnConfirmYes();
 		}
 		catch(NoSuchElementException e)
-		{
-			
-		}
+		{}
 	
 	}
 

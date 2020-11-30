@@ -1,15 +1,13 @@
 package pages;
 
-import java.awt.Desktop.Action;
-import java.io.IOException;
-import java.util.Map;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.JobReviewPage;
-import cucumber.api.DataTable;
+
 
 import utilPackage.baseclass;
 

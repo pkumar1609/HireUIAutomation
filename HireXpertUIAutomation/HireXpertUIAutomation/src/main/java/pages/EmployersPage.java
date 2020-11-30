@@ -66,7 +66,6 @@ public class EmployersPage extends baseclass {
 	public EmployersPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	
 	public void searchEmployer() {
@@ -151,7 +150,7 @@ public class EmployersPage extends baseclass {
 	{
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-		wait.until(ExpectedConditions.elementToBeClickable(searchfield));
+		explicitwait.until(ExpectedConditions.elementToBeClickable(searchfield));
 		searchfield.sendKeys(data.get("Name"));
 		ele=data.get("Name");
 		}

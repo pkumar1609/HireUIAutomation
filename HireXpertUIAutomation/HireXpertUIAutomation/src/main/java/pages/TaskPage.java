@@ -1,16 +1,11 @@
 package pages;
 
 
-import static org.testng.Assert.assertEquals;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.testng.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,7 +31,7 @@ public class TaskPage extends baseclass {
 	boolean b;
 	String title;
 	String a;
-	ArrayList lst[];
+//	ArrayList lst[];
 	String Sharedteam;
 	public List<WebElement> list;
 	public int sizeOfShareWithTeam=0;
@@ -84,7 +79,7 @@ public class TaskPage extends baseclass {
 	@FindBy(xpath="//strong[text()=addedtask]")
 	public WebElement taskname;
 	
-	@FindBy(xpath="//button[text()=' Reload Tasks']")
+	@FindBy(xpath="(//i[@class='fa fa-refresh'])[3]")
 	private WebElement reloadtaskbtn;
 	
 	@FindBy(xpath="//h5[text()=' Error']")

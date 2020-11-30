@@ -11,7 +11,6 @@ public class TaskManagementPage extends baseclass {
 	public TaskManagementPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	@FindBy(xpath = "//input[@placeholder='Search here']")
 	public WebElement searchHere;

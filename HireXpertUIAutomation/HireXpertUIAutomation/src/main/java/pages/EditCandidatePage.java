@@ -1,9 +1,6 @@
 package pages;
 
 import org.testng.Assert;
-
-import cucumber.api.DataTable;
-
 import java.awt.AWTException;
 
 import java.awt.Robot;
@@ -11,7 +8,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.util.List;
-import java.util.Map;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -20,7 +17,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-//import junit.framework.Assert;
 import utilPackage.baseclass;
 import utilPackage.utilclass;
 
@@ -49,7 +45,6 @@ public class EditCandidatePage extends baseclass {
 	public EditCandidatePage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	
 	public void EnterContactNumberT(String contactnumber) throws InterruptedException {

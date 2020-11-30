@@ -1,6 +1,6 @@
 package pages;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -73,8 +73,6 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	
 	public RegisterPage() {     //constructor
 		PageFactory.initElements(driver, this);
-		
-		this.driver = driver;
 	}
 	
 	

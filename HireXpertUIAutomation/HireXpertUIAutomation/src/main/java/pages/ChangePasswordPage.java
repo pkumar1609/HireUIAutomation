@@ -20,7 +20,6 @@ public class ChangePasswordPage extends baseclass {
 	public ChangePasswordPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	
 	public void EnterCurrentPassword (String password) {

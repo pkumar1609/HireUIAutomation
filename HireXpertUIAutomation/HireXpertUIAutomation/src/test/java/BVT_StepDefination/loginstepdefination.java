@@ -2,8 +2,6 @@ package BVT_StepDefination;
 
 import java.io.IOException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import cucumber.api.DataTable;
 import cucumber.api.java.Before;
@@ -70,7 +68,7 @@ public class loginstepdefination extends baseclass {
 	@Then("^Newly added agency should be displayed in Agencies page$")
 	public void newly_added_agency_should_be_displayed_in_Agencies_page() throws InterruptedException {
 		boolean ele=driver.getPageSource().contains(agenciespage.empname);
-		Assert.assertEquals(true, true);
+		Assert.assertEquals(ele, true);
 	}
 	
 	@And("^Click on team tab$")

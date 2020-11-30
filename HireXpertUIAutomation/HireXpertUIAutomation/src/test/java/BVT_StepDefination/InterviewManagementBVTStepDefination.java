@@ -1,18 +1,13 @@
 package BVT_StepDefination;
 
-import java.util.List;
+
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
-import cucumber.api.DataTable;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pages.InterviewsPage;
 import utilPackage.baseclass;
 
 public class InterviewManagementBVTStepDefination extends baseclass {
@@ -39,7 +34,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		Thread.sleep(1000);
 		scheduleinterviewpage.title.sendKeys(Title);
 		Thread.sleep(1000);
-		scheduleinterviewpage.calendarIcon.click();
+		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
 		common.enterdate(Scheduleon);
 		Thread.sleep(1000);
 		scheduleinterviewpage.hours.sendKeys(Hour);
@@ -99,14 +94,15 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 
 	@When("^click on Edit Interview icon in front of interview details like date and time$")
 	public void click_on_Edit_Interview_icon_in_front_of_interview_details_like_date_and_time() throws Throwable {
-	    
+		Thread.sleep(1000);
 		candidatecardsectionpage.candidateCardEditInterview.click();
-		Thread.sleep(3000);
+		
 	}
 	
 	@When("^make some changes in interview details and click on Submit button \"([^\"]*)\" \"([^\"]*)\"$")
 	public void make_some_changes_in_interview_details_and_click_on_Submit_button(String hour, String duration) throws Throwable {
-
+		Thread.sleep(2000);
+		scheduleinterviewpage.editInterviewIcon.click();
 		scheduleinterviewpage.hours.clear();
 		scheduleinterviewpage.hours.sendKeys(hour);
 		Thread.sleep(1000);
@@ -120,20 +116,18 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	@Then("^User should be able to update scheduled interview details and updated details should display properly$")
 	public void user_should_be_able_to_update_scheduled_interview_details_and_updated_details_should_display_properly() throws Throwable {
 		
-		System.out.println("\nUser able to update the scheduled interview details from Edit Interview icon of candidate card..");
 	}
 
 	@Then("^click on Edit Interview icon present on the left corner just beside of Cancel Interview icon$")
 	public void click_on_Edit_Interview_icon_present_on_the_left_corner_just_beside_of_Cancel_Interview_icon() throws Throwable {
-	    
-		scheduleinterviewpage.editInterviewIcon.click();
-		Thread.sleep(2000);
+		Thread.sleep(4000); 
+		executor.executeScript("arguments[0].click();", scheduleinterviewpage.editInterviewIcon);
 	}
 	
 	@Then("^make some changes and click on Submit button \"([^\"]*)\"$")
 	public void make_some_changes_and_click_on_Submit_button(String scheduleon1) throws Throwable {	    
-		Thread.sleep(2000);
-		scheduleinterviewpage.calendarIcon.click();
+		Thread.sleep(4000);		
+		executor.executeScript("arguments[0].click();", scheduleinterviewpage.ScheduleOnCalendarIcon);
 		common.enterdate(scheduleon1);
 		common.ClickSumbit();
 	}
@@ -142,21 +136,27 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	public void updated_details_should_display_properly(String scheduleon1) throws Throwable {
 		Assert.assertEquals(candidatecardsectionpage.candidateCardInterviewDetails.getText().substring(0, candidatecardsectionpage.candidateCardInterviewDetails.getText().indexOf(',')), scheduleon1);
 	}
+	
+	
+	@Then("^now click on Schedule interview icon on candiadte card$")
+	public void now_click_on_Schedule_interview_icon_on_candiadte_card() throws Throwable {
+		Thread.sleep(1000);
+		executor.executeScript("arguments[0].click();", candidatecardsectionpage.scheduleInterview);
+
+	}
 
 	@Then("^click on Interviews tab$")
-	public void click_on_Interviews_tab() throws Throwable {
-	    
+	public void click_on_Interviews_tab() throws Throwable {	    
 		dashboardpage.openInterviewsPage();
 		Thread.sleep(3000);
 	}
 	
-
 	@Then("^Select the filters for which you want candidate interview details and click on Search button \"([^\"]*)\"$")
 	public void select_the_filters_for_which_you_want_candidate_interview_details_and_click_on_Search_button(String scheduleon1) throws Throwable {
 		Select se = new Select(interviewspage.jobDropdown);
 		se.selectByVisibleText(addjobpage.jobname);
 		Thread.sleep(2000);
-		scheduleinterviewpage.calendarIcon.click();
+		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
 		common.enterdate(scheduleon1);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("(//button[@aria-label='Open Calendar'])[3]")).click();

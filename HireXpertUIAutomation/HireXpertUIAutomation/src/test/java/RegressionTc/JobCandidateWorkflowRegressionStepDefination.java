@@ -9,14 +9,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pages.RegisterPage;
 import utilPackage.baseclass;
 
 public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
@@ -177,18 +175,6 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 
 	
-	@Then("^Select the On Notice Period field and set Last working day on Update Profile page$")
-	public void select_the_On_Notice_Period_field_and_set_Last_working_day_on_Update_Profile_page() throws Throwable {
-		select = new Select (addcandidatepage.onNoticePeriod);
-		se.selectByVisibleText("Yes");
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("(//button[@aria-label='Open Calendar'])[2]")).click();
-		Thread.sleep(1000);
-		common.enterdate(LastWorkingDay);
-		//candidateupdateprofilepage.lastWorkingDay.sendKeys(LastWorkingDay);
-		Thread.sleep(2000);
-
-	}
 	
 	@Then("^Select the On Notice Period field and set Last working day on Update Profile page \"([^\"]*)\",\"([^\"]*)\"$")
 	public void select_the_On_Notice_Period_field_and_set_Last_working_day_on_Update_Profile_page(String OnNoticePeriod, String LastWorkingDay) throws Throwable {
@@ -736,14 +722,14 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	@Then("^Observe candidate get moved in Rejected column automatically$")
 	public void observe_candidate_get_moved_in_Rejected_column_automatically() throws Throwable {
 	    
-		
+
 	}
 
 	@Then("^Now move that candidate from Rejected column to any other column and observe$")
 	public void now_move_that_candidate_from_Rejected_column_to_any_other_column_and_observe() throws Throwable {
-
+//		executor.executeScript("scrollTo(3000,0);"); 
+		executor.executeScript("arguments[0].scrollIntoView(true);", candidatecardsectionpage.candidateCard);
 		candidatecardsectionpage.dragAndDropCardToThirdColumn();
-		System.out.println("\nCard get moved to another column..");
 	}
 
 	@Then("^Click on Questionnaire tab$")
@@ -808,20 +794,17 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		Thread.sleep(3000);
 		candidatecardsectionpage.selectRejectReason();
 		
-		
 	}
 
 //5
-
-
 
 	@When("^move both candidates in Interview Pending one column$")
 	public void move_both_candidates_in_Interview_Pending_one_column() throws Throwable {
 
 
-		WebElement drag1 = candidatecardsectionpage.candidateCard.get(0);
+		WebElement drag1 = candidatecardsectionpage.candidateCard;
 		WebElement drop = driver.findElement(By.xpath("(//td[@id='jobStatusColumn'])[4]")); // interview peneding column 1
-		WebElement drag2 = candidatecardsectionpage.candidateCard.get(1);
+		WebElement drag2 = candidatecardsectionpage.candidateCard;
 		Action.clickAndHold(drag1).moveToElement(drop).release(drop);
 		Action.build().perform();
 		
@@ -1159,7 +1142,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 //			teampage.TeamMemberContactNumber.sendKeys(AgencyteammemberNo);
 //			Thread.sleep(3000);
 			common.ClickSumbit();
-\		}
+		}
 
 		@Given("^click on Close button from Team Members window$")
 		public void click_on_Close_button_from_Team_Members_window() throws Throwable {
@@ -1320,15 +1303,25 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			Thread.sleep(3000);
 			addcandidatepage.Enterexpertilevel(expertiselevel1, expertiselevel2);
 		}
-
+		
+		@When("^enter as expertise level as \"([^\"]*)\"$")
+		public void enter_as_expertise_level_as(String arg1) throws Throwable 
+		{
+			Thread.sleep(1000);
+			candidatecardsectionpage.editCandidate.click();
+			executor.executeScript("window.scrollBy(0,2000)");		
+			for(int i=0;i<3;i++)
+			{
+			select= new Select(addcandidatepage.expertiselevel.get(i));
+		    select.selectByIndex(i);
+			}		
+			executor.executeScript("arguments[0].click();", driver.findElement(By.xpath("(//button[text()='Save'])[2]")));
+		}
 
 		@Then("^The candidate whose skill expert level is set as Not answer for that candidate card there should show bell icon$")
 		public void the_candidate_whose_skill_expert_level_is_set_as_Not_answer_for_that_candidate_card_there_should_show_bell_icon() throws Throwable {
-
-			Thread.sleep(3000);
-			
-			candidatecardsectionpage.verifyBellIconOnCandidateCard();
-		
+			Thread.sleep(3000);			
+			candidatecardsectionpage.verifyBellIconOnCandidateCard();		
 		}
 
 		
@@ -1341,25 +1334,20 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 
 		@Then("^when user set expertise level other than Not answer in edit candidate at that time bell icon should removed from candidate card$")
-		public void when_user_set_expertise_level_other_than_Not_answer_in_edit_candidate_at_that_time_bell_icon_should_removed_from_candidate_card() throws Throwable {
-		    
-	         Thread.sleep(3000);
-			
-			candidatecardsectionpage.verifyBellIconOnCandidateCard();
+		public void when_user_set_expertise_level_other_than_Not_answer_in_edit_candidate_at_that_time_bell_icon_should_removed_from_candidate_card() throws Throwable {		    
+			List<WebElement> bellicon = driver.findElements(By.xpath("//span[@title='Skill information is missing']"));
+			Assert.assertEquals(bellicon.size()>0, false);
 		}
 
 		@When("^click on save button$")
-		public void click_on_save_button() throws Throwable {
-		    
+		public void click_on_save_button() throws Throwable {		    
 			Thread.sleep(3000);
 		    driver.findElement(By.xpath("(//button[text()='Save'])[2]")).click();
 		    Thread.sleep(3000);
 			common.clickOnConfirmYes();
 		}
-		
-		
-//	11
-		
+			
+//	11	
 		@Given("^Open browser$")
 		public void open_browser() throws Throwable {
 		    
@@ -1467,20 +1455,13 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			 addcandidatepage.clickonFindbtn();
 		}
 		
-//		@Then("^fill all the information \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-//		public void fill_all_the_information_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String  Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String  CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String Salaryoffered, String distance, String permanentAddress, String relocate) throws Throwable {
-//		    
-//			Thread.sleep(3000);
-//			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
-//			
-//		   
-//		}
+
 		
 		@When("^fill all the information \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-		public void fill_all_the_information_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String  Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String  CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String Salaryoffered, String distance, String permanentAddress, String relocate) throws Throwable {
+		public void fill_all_the_information_and(String profiletitle, String CandidateEmail, String Name, String ContactNumber, String Designation, String  Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String  CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String Salaryoffered, String distance, String permanentAddress, String relocate) throws Throwable {
 
 			Thread.sleep(3000);
-			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
+			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, profiletitle, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
 			Thread.sleep(3000);
 			addcandidatepage.uploadResumeDocumentT();
 
@@ -1603,14 +1584,11 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		public void drag_the_candidate_card_from_that_column_to_rejected_column1() throws Throwable {
 
 			   WebElement drag = candidatecardsectionpage.candidateCard;
-			   WebElement drop1 = candidatecardsectionpage.InterviewPendingthreecolumn;
-			   WebElement dropa=candidatecardsectionpage.allColumn.get(6);
-			   WebElement dropb=candidatecardsectionpage.allColumn.get(9);
+//			   WebElement drop1 = candidatecardsectionpage.InterviewPendingthreecolumn;
+//			   WebElement dropa=candidatecardsectionpage.allColumn.get(6);
+//			   WebElement dropb=candidatecardsectionpage.allColumn.get(9);
 			   int getRejectedColumnLocation=candidatecardsectionpage.allColumn.size()-1;
 			   WebElement drop2 = candidatecardsectionpage.allColumn.get(getRejectedColumnLocation);
-			
-//			   Action.clickAndHold(drag).moveToElement(drop1).release(drop1);
-//			   Action.build().perform();
 			   Action.clickAndHold(drag);
 			   JavascriptExecutor js = (JavascriptExecutor)driver;
 		       js.executeScript("arguments[0].scrollIntoView(true);", drop2);
@@ -1750,7 +1728,26 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		@Then("^verify the Auto Populated fields on candidate update profile popup window \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 		public void verify_the_Auto_Populated_fields_on_candidate_update_profile_popup_window(String Username, String CandidateEmail, String profiletitle, String Name, String ContactNumber, String Designation, String Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String relocate) throws Throwable {
 		    candidateupdateprofilepage.AssertDetailsOnCandidateProfile(Username, CandidateEmail, profiletitle, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode,relocate);
-		    addjobpage.functionalArea.sendKeys("java");
+		    
+		    
+		}
+		
+		@Then("^Add mandatory details on candidate profile page and save the details \"([^\"]*)\" \"([^\"]*)\"$")
+		public void add_mandatory_details_on_candidate_profile_page(String shift, String jobtype) throws Throwable {
+			if(addjobpage.functionalArea.getAttribute("value").isEmpty())
+			{
+				addjobpage.functionalArea.sendKeys("java");
+			}
+			if(candidateupdateprofilepage.Shift.getText().isEmpty())
+			{
+				candidateupdateprofilepage.Shift.sendKeys(shift);
+				driver.findElement(By.xpath("//span[contains(text(),'"+shift+"')]")).click();
+			}
+			if(candidateupdateprofilepage.jobType.getText().isEmpty())
+			{
+				candidateupdateprofilepage.jobType.sendKeys(jobtype);
+				driver.findElement(By.xpath("//span[contains(text(),'"+jobtype+"')]")).click();
+			}		
 		    common.clickOnSaveBtn();
 			common.clickOnOKBtn();
 		}

@@ -1,6 +1,6 @@
 package pages;
 
-import java.util.List;
+
 import java.util.Map;
 
 import org.openqa.selenium.By;
@@ -8,8 +8,6 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import cucumber.api.DataTable;
@@ -179,7 +177,7 @@ public class TeamPage extends baseclass {
 	
 	public void closeTeamPage()
 	{
-		executor.executeScript("arguments[0].click();",common.clo);
+		executor.executeScript("arguments[0].click();",common.closebtn);
 	}
 	
 	//is team member present?

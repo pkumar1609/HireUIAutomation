@@ -2,19 +2,14 @@ package BVT_StepDefination;
 
 import java.util.List;
 
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 
 import cucumber.api.DataTable;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utilPackage.baseclass;
-import utilPackage.utilclass;
 
 public class addjobsteps extends baseclass{
 
@@ -347,46 +342,46 @@ public class addjobsteps extends baseclass{
 		Thread.sleep(5000);
 	}
 	
-	@When("^click on Workbench tab and click on Add Job button and fill all mandatory details on Add Job popup window for agency team member$")
-	public void click_on_Workbench_tab_and_click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window_for_agency_team_member(DataTable dt) throws Throwable {
-	    
-		dashboardpage.openWorkbenchPage();
-		Thread.sleep(3000);
-		
-		List<List<String>> data = dt.raw();
-		Select se;
-		
-		workbenchpage.AddJob();
-		Thread.sleep(2000);
-		addjobpage.validateJobPageTitle();
-		
-		addjobpage.title.sendKeys(data.get(0).get(0));
-		addjobpage.designation.sendKeys(data.get(0).get(1));
-		addjobpage.industry.sendKeys(data.get(0).get(2));
-		addjobpage.jobrole.sendKeys(data.get(0).get(3));
-		addjobpage.location.sendKeys(data.get(0).get(4));
-		addjobpage.budget.sendKeys(data.get(0).get(5));
-		addjobpage.minexp.sendKeys(data.get(0).get(6));
-		addjobpage.maxexp.sendKeys(data.get(0).get(7));
-		se = new Select(addjobpage.totalinterviews);
-		se.selectByVisibleText(data.get(0).get(8));
-		
-		Thread.sleep(1000);
-		addjobpage.addNewSkill1();
-		addjobpage.addNewSkill2();
-		
-		Thread.sleep(2000);
-		addjobpage.employerplusicon.click();
-		Thread.sleep(3000);
-		addjobpage.fillEmployerDetailsPlusIcon();
-		
-		driver.findElement(By.xpath("/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")).click(); // submit button
-		System.out.println("Agency added new employer for the job..");
-		
-		Thread.sleep(3000);
-		addjobpage.employerDropDown();
-		Thread.sleep(2000);
-	}
+//	@When("^click on Workbench tab and click on Add Job button and fill all mandatory details on Add Job popup window for agency team member$")
+//	public void click_on_Workbench_tab_and_click_on_Add_Job_button_and_fill_all_mandatory_details_on_Add_Job_popup_window_for_agency_team_member(DataTable dt) throws Throwable {
+//	    
+//		dashboardpage.openWorkbenchPage();
+//		Thread.sleep(3000);
+//		
+//		List<List<String>> data = dt.raw();
+//		Select se;
+//		
+//		workbenchpage.AddJob();
+//		Thread.sleep(2000);
+//		addjobpage.validateJobPageTitle();
+//		
+//		addjobpage.title.sendKeys(data.get(0).get(0));
+//		addjobpage.designation.sendKeys(data.get(0).get(1));
+//		addjobpage.industry.sendKeys(data.get(0).get(2));
+//		addjobpage.jobrole.sendKeys(data.get(0).get(3));
+//		addjobpage.location.sendKeys(data.get(0).get(4));
+//		addjobpage.budget.sendKeys(data.get(0).get(5));
+//		addjobpage.minexp.sendKeys(data.get(0).get(6));
+//		addjobpage.maxexp.sendKeys(data.get(0).get(7));
+//		se = new Select(addjobpage.totalinterviews);
+//		se.selectByVisibleText(data.get(0).get(8));
+//		
+//		Thread.sleep(1000);
+//		addjobpage.addNewSkill1();
+//		addjobpage.addNewSkill2();
+//		
+//		Thread.sleep(2000);
+//		addjobpage.employerplusicon.click();
+//		Thread.sleep(3000);
+//		addjobpage.fillEmployerDetailsPlusIcon();
+//		
+//		driver.findElement(By.xpath("/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")).click(); // submit button
+//		System.out.println("Agency added new employer for the job..");
+//		
+//		Thread.sleep(3000);
+//		addjobpage.employerDropDown();
+//		Thread.sleep(2000);
+//	}
 	
 	
 	

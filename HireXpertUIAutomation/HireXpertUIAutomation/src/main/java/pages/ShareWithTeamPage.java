@@ -1,6 +1,5 @@
 package pages;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -55,7 +54,6 @@ public class ShareWithTeamPage extends baseclass {
 	public ShareWithTeamPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	
 	public void canSeeAllCandidate(String Teamid) throws InterruptedException {

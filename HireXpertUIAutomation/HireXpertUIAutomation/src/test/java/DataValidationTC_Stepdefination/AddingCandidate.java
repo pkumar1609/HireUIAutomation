@@ -1,30 +1,26 @@
 package DataValidationTC_Stepdefination;
 import java.util.Map;
 
-import org.apache.maven.surefire.util.ScanResult;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import com.aventstack.extentreports.gherkin.model.Scenario;
 
 import cucumber.api.DataTable;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import customReports.CustomExtentReporter;
 import utilPackage.baseclass;
 
-@SuppressWarnings(value = "deprecation")
 public class AddingCandidate extends baseclass{
 	
-	private static CustomExtentReporter customExtentReporter;
-	private static boolean isReporterRunning;
+//	private static CustomExtentReporter customExtentReporter;
+//	private static boolean isReporterRunning;
 	
 	@Given("^User must be registered$")
 	public void user_must_be_registered() throws Throwable {
@@ -122,7 +118,7 @@ public class AddingCandidate extends baseclass{
 
 	@When("^fill all interview details and click on Submit button$")
 	public void fill_all_interview_details_and_click_on_Submit_button(DataTable credentials) throws Throwable {
-		scheduleinterviewpage.scheduleInterview(credentials);
+		scheduleinterviewpage.scheduleInterviewOfCandidate(credentials);
 	}
 	
 	
@@ -219,14 +215,14 @@ public void click_on_update_profile_option() throws Throwable {
 }
 
 @When("^Assert the details on candidate profile page$")
-public void assert_the_details_on_candidate_profile_page(DataTable arg1) throws Throwable {
-	candidateupdateprofilepage.AssertDetailsOnCandidateProfile(arg1);
+public void assert_the_details_on_candidate_profile_page(String Username, String CandidateEmail, String profiletitle, String Name, String ContactNumber, String Designation, String Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String relocate) throws Throwable {
+	candidateupdateprofilepage.AssertDetailsOnCandidateProfile(Username, CandidateEmail, profiletitle, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, relocate);
 
 }
 
 @When("^Assert the Skills on candidate profile page$")
-public void assert_the_Skills_on_candidate_profile_page(DataTable arg1) throws Throwable {
-	candidateupdateprofilepage.AssertSkillonSkillAndRolesTab(arg1);
+public void assert_the_Skills_on_candidate_profile_page(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String certificate1, String certificate2, String certificate3, String certificateforskill1 ,String certificateforskill2, String Designation) throws Throwable {
+	candidateupdateprofilepage.AssertSkillonSkillAndRolesTab(Skill1, Skill2, Skill3, level1, level2, level3, certificate1, certificate2, certificate3, certificateforskill1, certificateforskill2, Designation);;
 
 }
 

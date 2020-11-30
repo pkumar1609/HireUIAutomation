@@ -5,19 +5,15 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pages.CandidateCardSectionPage;
 import utilPackage.baseclass;
 
 public class taskRegression extends baseclass{
@@ -160,10 +156,10 @@ public class taskRegression extends baseclass{
 		taskpage.validateTaskAfterMarkCompletedEmp();
 	} 
 
-	@And("^login as third employer team \"([^\"]*)\"$")
-	public void login_as_third_employer_team(String teamid2) throws Throwable {
-		loginpage.loginInAppWithTeam2(teamid2);
-	}
+//	@And("^login as third employer team \"([^\"]*)\"$")
+//	public void login_as_third_employer_team(String teamid2) throws Throwable {
+//		loginpage.loginInAppWithTeam2(teamid2);
+//	}
 
 	@And("^third user should not able to put task in progress$")
 	public void third_user_should_not_able_to_put_task_in_progress() throws Throwable {
@@ -252,8 +248,7 @@ public class taskRegression extends baseclass{
 	@And("^again move the card to next column$")
 	public void again_move_the_card_to_next_column() throws Throwable {
 		Thread.sleep(4000);
-		action.clickAndHold(driver.findElement(By.cssSelector("div.item-box.cdk-drag"))).moveToElement(driver.findElement(By.xpath("//td[@id='jobStatusColumn' and @class='TableCard'] [3]"))).release().build().perform();
-
+		Action.clickAndHold(driver.findElement(By.cssSelector("div.item-box.cdk-drag"))).moveToElement(driver.findElement(By.xpath("//td[@id='jobStatusColumn' and @class='TableCard'] [3]"))).release().build().perform();
 	} 
 
 	@And("^verify the Auto generated task is getting deleted or not$")

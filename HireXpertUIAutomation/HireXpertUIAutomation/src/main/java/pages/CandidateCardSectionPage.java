@@ -1,17 +1,14 @@
 package pages;
 
-import static org.testng.Assert.assertEquals;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import org.testng.Assert;
@@ -103,7 +100,8 @@ public class CandidateCardSectionPage extends baseclass {
 	@FindBy(xpath = "//button[@id='EditCandidate']")
 	public WebElement editCandidate;
 		
-	
+	@FindBy(xpath = "//button[@title='Schedule Interview']")
+	public WebElement scheduleInterview;
 	
 	Actions action;
 	Select se;
@@ -113,7 +111,6 @@ public class CandidateCardSectionPage extends baseclass {
 	public CandidateCardSectionPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	} 
 	
 	public void clickOnEyeIcon(String Name) throws InterruptedException {
@@ -168,7 +165,7 @@ public class CandidateCardSectionPage extends baseclass {
 	
 	public void dragAndDropCardToThirdColumn() throws InterruptedException {
 		
-		WebElement drag = candidateCard.get(0);
+		WebElement drag = candidateCard;
 		WebElement drop=driver.findElement(By.xpath("//td[@class='TableCard' and @id='jobStatusColumn'][4]"));
 		
 		action = new Actions(driver);
@@ -280,48 +277,13 @@ public class CandidateCardSectionPage extends baseclass {
 			return true;
 	}
 	
-//	public void verifyRejectedColumnData() {
-//		
-//		List<WebElement> allHeadersOfTable = driver.findElements(By.xpath("//*[@id=\"style-5\"]/div/table/thead/tr/th/text()")); //retrieving all table headers
-//		
-//		System.out.println("\nTotal headers found: " + allHeadersOfTable.size());
-//		System.out.println("All headers of table are :");
-//		for(WebElement header:allHeadersOfTable) {
-//			
-//			System.out.print(header.getText());
-//		}
-//		
-//		for(WebElement header:allHeadersOfTable) {
-//			
-//			String HeaderName = header.getText();
-//			
-//			if(HeaderName.equals("Rejected ")) {
-//				
-//				System.out.println("\nRejected column found..");
-//			}
-//			else {
-//				
-//				System.out.println("\nRejected column not found..");
-//			}
-//		}
-//	}
-	
-	
+		
 	public void verifyBellIconOnCandidateCard () {
 		
 		List<WebElement> bellicon = driver.findElements(By.xpath("//span[@title='Skill information is missing']"));
-         if(bellicon.size() != 0){
-			
-			System.out.println("Bell icon is present on candidate card as the expertise level for skills is not answered.");
-		}
-			
-		else
-		{
-			System.out.println("Bell icon is not present on candidate card as the expertise level for skills is answered.");
-	    }
+		Assert.assertEquals(bellicon.size()>0, true);
 	}
 
-	
 	public void AssertDetailsOnCandidateDetails(String Username, String CandidateEmail,String profiletitle, String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException
 	{
 		Assert.assertEquals(driver.findElement(By.xpath("//h4[text()='"+Name+"']")).isDisplayed(), true);

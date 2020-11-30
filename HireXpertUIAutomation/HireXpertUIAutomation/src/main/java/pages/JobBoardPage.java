@@ -70,7 +70,6 @@ public class JobBoardPage extends baseclass {
 public JobBoardPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 
 public void selectfilterType() {
@@ -309,40 +308,26 @@ public void verifyTheJobDataOnJobBoard (String JobTitle, String OrganizationName
 	boolean noticeperiodactual = noticeperiod.isDisplayed();
 	Assert.assertEquals(noticeperiodactual, true);
 
-	
 }
 
 
-public void  verifyJobDetailsOnJobBoardAfterclickingOnJobDetails(String Title, String Designation,String Location, String City, String Country,String MinExp, String MaxExp, String Budget, String Industry, String JobRole) {
-	
-	WebElement title = driver.findElement(By.xpath("//h5[contains(text(),'"+Title+"')]"));
-	
-	WebElement designation = driver.findElement(By.xpath("//h6[contains(text(),'"+Designation+"')]"));
-	
-	WebElement location = driver.findElement(By.xpath("(//p[contains(text(),'"+Location+","+" "+City+","+" "+Country+"')])[2]"));
-	
-	WebElement experience = driver.findElement(By.xpath("(//p[contains(text(),'"+MinExp+" "+"to" +" "+MaxExp+" "+"Years"+"')])[2]"));
-	
-	WebElement budget = driver.findElement(By.xpath("(//p[contains(text(),'"+Budget+" "+"PA"+"')])[2]"));
-	
-	WebElement industry = driver.findElement(By.xpath("//td[contains(text(),'"+Industry+"')]"));
-	
-	WebElement jobrole = driver.findElement(By.xpath("//td[text()='"+JobRole+"']"));
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-}
+//public void  verifyJobDetailsOnJobBoardAfterclickingOnJobDetails(String Title, String Designation,String Location, String City, String Country,String MinExp, String MaxExp, String Budget, String Industry, String JobRole) {
+//	
+//	WebElement title = driver.findElement(By.xpath("//h5[contains(text(),'"+Title+"')]"));
+//	
+//	WebElement designation = driver.findElement(By.xpath("//h6[contains(text(),'"+Designation+"')]"));
+//	
+//	WebElement location = driver.findElement(By.xpath("(//p[contains(text(),'"+Location+","+" "+City+","+" "+Country+"')])[2]"));
+//	
+//	WebElement experience = driver.findElement(By.xpath("(//p[contains(text(),'"+MinExp+" "+"to" +" "+MaxExp+" "+"Years"+"')])[2]"));
+//	
+//	WebElement budget = driver.findElement(By.xpath("(//p[contains(text(),'"+Budget+" "+"PA"+"')])[2]"));
+//	
+//	WebElement industry = driver.findElement(By.xpath("//td[contains(text(),'"+Industry+"')]"));
+//	
+//	WebElement jobrole = driver.findElement(By.xpath("//td[text()='"+JobRole+"']"));
+//	
+//}
 	
 	
 	

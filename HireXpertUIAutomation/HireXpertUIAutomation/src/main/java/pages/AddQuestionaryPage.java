@@ -75,7 +75,6 @@ public class AddQuestionaryPage extends baseclass {
 	public AddQuestionaryPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	
 	public void AddQuestionT(String Question) {

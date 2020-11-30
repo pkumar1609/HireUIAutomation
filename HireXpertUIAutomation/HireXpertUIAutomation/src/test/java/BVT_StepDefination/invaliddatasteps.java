@@ -2,11 +2,7 @@ package BVT_StepDefination;
 
 import java.awt.AWTException;
 import java.io.IOException;
-import java.util.List;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

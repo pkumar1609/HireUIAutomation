@@ -3,25 +3,17 @@ package pages;
 
 import java.awt.AWTException;
 import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import cucumber.api.java.After;
-import freemarker.ext.jsp.TaglibFactory.ClearMetaInfTldSource;
+
 import utilPackage.baseclass;
 
 public class AddCandidatePage extends baseclass {
@@ -29,7 +21,7 @@ public class AddCandidatePage extends baseclass {
 	public String nameOfCan;
 	Robot rb;
 	public String datebelowField;
-	private static boolean isreporterrunning;
+//	private static boolean isreporterrunning;
 	
 	@FindBy(xpath = "//h5[@class='modal-title w-100']")
 	public WebElement pageTitle;
@@ -161,7 +153,6 @@ public class AddCandidatePage extends baseclass {
 	public AddCandidatePage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	
 	public void validatePageTitle() {
@@ -174,7 +165,7 @@ public class AddCandidatePage extends baseclass {
 		
 		name.sendKeys("c023");
 		contactNumber.sendKeys("2559825845");
-		designation.sendKeys("software tester");
+		designation.get(0).sendKeys("software tester");
 		noticePeriod.sendKeys("30");
 		cityArea.sendKeys("Pune");
 	}
@@ -186,9 +177,9 @@ public class AddCandidatePage extends baseclass {
 	
 	Select se;
 
-	private String ExpertiseLevel1;
-
-	private String ExpertiseLevel2;
+//	private String ExpertiseLevel1;
+//
+//	private String ExpertiseLevel2;
 	
 	
 	public void EnterAllMandatoryfieldsT(String CandidateEmail,String profiletitle,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException, AWTException {
@@ -234,8 +225,7 @@ public class AddCandidatePage extends baseclass {
 			se.selectByVisibleText(OnNoticePeriod);
 			if(OnNoticePeriod.contentEquals("Yes"))
 			{
-				explicitwait.until(ExpectedConditions.elementToBeClickable(addcandidatepage.calenderIcon.get(2)));
-				addcandidatepage.calenderIcon.get(2).click();			
+				executor.executeScript("arguments[0].click()", addcandidatepage.calenderIcon.get(2));
 				common.enterdate(LastWorkingDay);
 				
 //				this.lastWorkingDay.clear();
@@ -408,11 +398,7 @@ public class AddCandidatePage extends baseclass {
 		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\RequestControlPopUp (1).png"); // CV Path of Trupti's system
 	}
 	
-	@After("@TaskBVT")
-	public void report()
-	{	
-		
-	}
+
 
 
 }

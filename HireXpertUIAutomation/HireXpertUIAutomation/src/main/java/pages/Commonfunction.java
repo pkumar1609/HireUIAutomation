@@ -8,7 +8,6 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utilPackage.baseclass;
@@ -19,7 +18,6 @@ public class Commonfunction extends baseclass {
 	{
 		super();
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 	
 	public String DisplayDate;
@@ -64,6 +62,9 @@ public class Commonfunction extends baseclass {
 	
 	@FindBy(xpath="//button[@class='btn btn-outline-danger']")
 	public List<WebElement> deletebtn;
+	
+	@FindBy(xpath="//button[text()='Logout']")
+	public WebElement logout;
 		
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
 	
@@ -154,9 +155,9 @@ public class Commonfunction extends baseclass {
 		    case 11: monthName="Nov";  
 		    break;    
 		    case 12: monthName="Dec";  
-		    break; 
+		    break;
 			}
-	        Thread.sleep(1000);		
+	        Thread.sleep(1000);	
 			driver.findElement(By.xpath("//button[@class='headerlabelbtn yearlabel']")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//div[text()='"+year+"']")).click();

@@ -3,7 +3,6 @@ package pages;
 import java.awt.event.KeyEvent;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -16,7 +15,6 @@ public class CvStorePage extends baseclass{
 	
 	public CvStorePage() {	
 	PageFactory.initElements(driver, this);
-	this.driver = driver;
 	}
 	
 	@FindBy(xpath= "//select[@id='jobDropdown' and @class='form-control']")

@@ -1,5 +1,6 @@
 package BVT_StepDefination;
 
+import java.awt.AWTException;
 import java.io.IOException;
 import java.util.List;
 
@@ -18,7 +19,7 @@ import utilPackage.baseclass;
 public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	
 	@Given("^Open the browser$")
-	public void open_the_browser() throws IOException  {
+	public void open_the_browser() throws IOException, AWTException  {
 		
 		baseclass.initialization();
 	}
@@ -155,10 +156,10 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	
 	
 	@When("^fill all the information \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-	public void fill_all_the_information_and(String CandidateEmail, String Name, String ContactNumber, String Designation, String  Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String  CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String Salaryoffered, String distance, String permanentAddress, String relocate) throws Throwable {
+	public void fill_all_the_information_and(String profiletitle,String CandidateEmail, String Name, String ContactNumber, String Designation, String  Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String  CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String Salaryoffered, String distance, String permanentAddress, String relocate) throws Throwable {
 
 		Thread.sleep(3000);
-		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
+		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, profiletitle, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);;
 		Thread.sleep(3000);
 		addcandidatepage.uploadResumeDocumentT();
 	}
@@ -546,7 +547,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		}
 
 	@Given("^Open browser$")
-	public void open_browser() throws IOException {
+	public void open_browser() throws IOException, AWTException {
 		
 		baseclass.initialization(); 
 	}
@@ -633,7 +634,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 
 	
 	@When("^Add Candidate to that job \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
-	public void add_Candidate_to_that_job_and(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay, String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
+	public void add_Candidate_to_that_job_and(String profiletitle,String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay, String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
 	    
 		Thread.sleep(3000);
 		workbenchpage.addCandidateButton.click();
@@ -642,7 +643,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		Thread.sleep(3000);
 		addcandidatepage.FindButton.click();
 		Thread.sleep(3000);
-		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
+		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, profiletitle, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
 		Thread.sleep(3000);
 //		addcandidatepage.clickUploadResumeField();
 //		Thread.sleep(3000);
@@ -652,7 +653,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 //		common.clickOnConfirmYes();
 	}
 
-
+	
 
 }
 

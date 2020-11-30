@@ -1,18 +1,10 @@
 package BVT_StepDefination;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
-import cucumber.api.DataTable;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utilPackage.baseclass;
-import utilPackage.utilclass;
 
 public class c_primaryContact extends baseclass {
 

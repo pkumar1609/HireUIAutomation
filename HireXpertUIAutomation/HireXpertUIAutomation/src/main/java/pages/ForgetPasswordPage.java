@@ -24,7 +24,7 @@ public class ForgetPasswordPage  extends baseclass {
      public ForgetPasswordPage() {
 		
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
+
 	}
 	
 	public void EnterNonregisteredEmailid(String emailid) {

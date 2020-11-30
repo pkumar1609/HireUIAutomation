@@ -2,10 +2,8 @@ package pages;
 
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,11 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.DataTable;
-import okio.Options;
-
-import org.testng.Assert;
 import utilPackage.baseclass;
-import utilPackage.utilclass;
 
 
 public class AddJobPage extends baseclass {
@@ -26,7 +20,6 @@ public AddJobPage()
     {
 	 	super();
 		PageFactory.initElements(driver, this);
-		this.driver = driver;
 	}
 
 	public int flag;

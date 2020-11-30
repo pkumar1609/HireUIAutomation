@@ -1,7 +1,5 @@
 package pages;
 
-import java.util.List;
-
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -65,8 +63,7 @@ public class LoginPage extends baseclass
 	
 	@FindBy(xpath = "//li[@id='login']")
 	public WebElement login;
-	
-	
+
 	public String username;
 	public String user;
 	public boolean b;
@@ -77,7 +74,6 @@ public class LoginPage extends baseclass
 	public LoginPage() {
 		
 		PageFactory.initElements(driver, this);
-//		this.driver = driver;
 		
 		Action = new Actions(driver);
 	    explicitwait=new WebDriverWait(driver,80);
@@ -217,7 +213,7 @@ public class LoginPage extends baseclass
 		Action.moveToElement(profile).click().perform();
 		executor.executeScript("arguments[0].click();",Logout);
 		Thread.sleep(2000);
-		common.cancel.click();
+		common.logout.click();
 	}
 	
 	public void identifyUserK() throws InterruptedException
