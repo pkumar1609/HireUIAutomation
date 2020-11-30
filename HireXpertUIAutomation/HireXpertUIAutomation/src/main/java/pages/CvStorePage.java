@@ -13,7 +13,7 @@ import utilPackage.baseclass;
 
 public class CvStorePage extends baseclass{
 	
-	public CvStorePage() {	
+	public CvStorePage() {
 	PageFactory.initElements(driver, this);
 	}
 	
@@ -111,7 +111,6 @@ public class CvStorePage extends baseclass{
 		this.jobs.click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//option[contains(text(),'Cv Strore job 2')]")).click();
-
 //		driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).click();
 		Assert.assertEquals(driver.findElement(By.xpath("//span[@class='ng-value-label']")).getText(), designation);		
 		Assert.assertEquals(driver.findElement(By.xpath("(//span[@class='ng-value-label'])[2]")).getText(), mandatorySkills);
@@ -125,7 +124,7 @@ public class CvStorePage extends baseclass{
 		select=new Select (this.includeOverBudget);
 		Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), overBudget); 
 		Assert.assertEquals(addjobpage.minAge.getAttribute("value"), minage); 
-		Assert.assertEquals(addjobpage.maxAge.getAttribute("value"), maxage); 
+		Assert.assertEquals(addjobpage.maxAge.getAttribute("value"), maxage);
 		select=new Select (addjobpage.jobType);
 		Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), jobtype);	
 		select=new Select (addjobpage.Shift);
@@ -143,7 +142,7 @@ public class CvStorePage extends baseclass{
 	}
 	public void assertCandidateDetails(String CandidateEmail,String profiletitle,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String jobtype,String shift,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2,String remark3,String certificateforskill1, String certificateforskill2) throws InterruptedException
 	{
-		Assert.assertEquals(driver.findElement(By.xpath("(//h6[@class='mb-0'])[2]")).getText().strip(), Name);
+		  Assert.assertEquals(driver.findElement(By.xpath("(//h6[@class='mb-0'])[2]")).getText().strip(), Name);
 		  Assert.assertEquals(driver.findElement(By.xpath("//h6[@title='Title']")).getText().strip(), profiletitle);
 		  Assert.assertEquals(driver.findElement(By.xpath("(//p[@title='Designation'])[2]")).getText().strip(), Designation+" (IT software)");
 		  Assert.assertEquals(driver.findElement(By.xpath("(//p[@title='Location'])[2]")).getText().strip(), CityArea+", "+City+", "+Country+" - "+ZipCode);
@@ -163,9 +162,7 @@ public class CvStorePage extends baseclass{
 		  Assert.assertEquals(driver.findElement(By.xpath("(//strong[text()='Mode of Communication ']//following::td)[1]")).getText().strip(), Communicationmode);
 		  Assert.assertEquals(driver.findElement(By.xpath("(//strong[text()='Job Type']//following::td)[1]")).getText().strip(),jobtype);
 		  Assert.assertEquals(driver.findElement(By.xpath("(//strong[text()='Gender ']//following::td)[1]")).getText().strip(),Gender );
-		  Assert.assertEquals(driver.findElement(By.xpath("(//strong[text()='Shift ']//following::td)[1]")).getText().strip(), shift);
-		 
-		  
+		  Assert.assertEquals(driver.findElement(By.xpath("(//strong[text()='Shift ']//following::td)[1]")).getText().strip(), shift);	  
 		  Assert.assertEquals(driver.findElement(By.xpath("(//strong[text()='Skills']//following::td)[1]")).getText().strip(),Skill1 );
 		  Assert.assertEquals(driver.findElement(By.xpath("(//strong[text()='Skills']//following::td)[2]")).getText().strip(),Skill1 );
 		  Assert.assertEquals(driver.findElement(By.xpath("(//strong[text()='Skills']//following::td)[3]")).getText().strip(), level1);
@@ -192,7 +189,6 @@ public class CvStorePage extends baseclass{
 		  if(certificate2.equals("Yes"))
 		  {
 			  Assert.assertEquals(driver.findElement(By.xpath("(//strong[text()='Skills']//following::td)[10]")).getText().strip(), certificateforskill2);
-
 		  }
 		  if(certificate3.equals("Yes"))
 		  {
@@ -201,5 +197,3 @@ public class CvStorePage extends baseclass{
 		  
 		}
 	}
-	
-	

@@ -100,8 +100,7 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 		Registerlink.click();
 	}
 	
-   public void clickLogin() {
-		
+   public void clickLogin() {		
 		loginlink.click();
 	}
 	

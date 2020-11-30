@@ -135,20 +135,9 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 	@Then("^logout as employer and login as new candidate added by employer \"([^\"]*)\" \"([^\"]*)\"$")
 	public void logout_as_employer_and_login_as_new_candidate_added_by_employer(String CandidateEmail, String password) throws Throwable {
-
-		Thread.sleep(5000);
-		workbenchpage.ClickonLogout();
-		Thread.sleep(5000);
-		registerpage.clickLogin();
-		Thread.sleep(5000);
-		registerpage.clickJobseekerCandidateSignInlinklink();
-    	Thread.sleep(5000);
-    	registerpage.loginwithnewcandidate(CandidateEmail, password);
-    	try
-    	{
-    		common.clickOnOKBtn();
-    	}
-    	catch(NoSuchElementException e){}
+		loginpage.logoutFromAppK();
+		loginpage.ClickOnEmployerAgencySigninLink();
+		registerpage.loginwithnewcandidate(CandidateEmail, password);
 	}
 	
 	@Then("^click on ok button of confirmation popup$")
