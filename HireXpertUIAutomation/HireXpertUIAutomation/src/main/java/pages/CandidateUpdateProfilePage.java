@@ -381,7 +381,7 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 		this.clickonskillsInformation();
 		Thread.sleep(4000); 
 		Assert.assertEquals(this.skills.get(0).getAttribute("value"), Skill1);
-		Assert.assertEquals(this.skills.get(1).getAttribute("value"), Skill2);	
+		Assert.assertEquals(this.skills.get(1).getAttribute("value"), Skill2);
 		Assert.assertEquals(this.skills.get(2).getAttribute("value"), Skill3);	
 		select=new Select(this.expertiselevel.get(0));
 		Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level1+" ");

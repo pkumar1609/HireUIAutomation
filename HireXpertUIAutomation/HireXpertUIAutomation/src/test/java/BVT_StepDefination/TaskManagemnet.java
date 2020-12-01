@@ -143,12 +143,13 @@ public class TaskManagemnet extends baseclass{
 	public void move_the_card_from_offering_job_column_to_job_offered_column() throws Throwable {
 		
 		Thread.sleep(2000);	  
+		executor.executeScript("window.scrollBy(20000,0)", "");
 		WebElement drag = candidatecardsectionpage.candidateCard;
 		WebElement drop = driver.findElement(By.xpath("//td[12]"));		   		
 	    Actions action = new Actions(driver);
 		Thread.sleep(3000);
 		action.clickAndHold(drag);
-		executor.executeScript("window.scrollBy(10000,0)", "");
+		executor.executeScript("arguments[0].scrollIntoView()", drop);
 		action.moveToElement(drop).release(drop).perform();
 	}
 
@@ -170,5 +171,130 @@ public class TaskManagemnet extends baseclass{
 		executor.executeScript("arguments[0].scrollIntoView(true);", element);
 		Assert.assertEquals(element.isDisplayed(), true);
 	}
+	
+//	candidate joined task
+	
+	@Then("^move the card from job offered column to joined column$")
+	public void move_the_card_from_job_offered_column_to_joined_column() throws Throwable {
+		Thread.sleep(2000);	  
+		executor.executeScript("window.scrollBy(20000,0)", "");
+		WebElement drag = candidatecardsectionpage.candidateCard;
+		WebElement drop = driver.findElement(By.xpath("//td[13]"));		   		
+	    Actions action = new Actions(driver);
+		Thread.sleep(3000);
+		action.clickAndHold(drag);
+		executor.executeScript("arguments[0].scrollIntoView()", drop);
+		action.moveToElement(drop).release(drop).perform();
+	}
+
+	@Then("^candidate joined task should display in new column \"([^\"]*)\"$")
+	public void candidate_joined_task_should_display_in_new_column(String arg1) throws Throwable {
+		WebElement element = driver.findElement(By.xpath("//td[2]//span[text()='"+arg1+" joined for job "+addjobpage.jobname+".']"));
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		Assert.assertEquals(element.isDisplayed(), true);
+	}
+	
+	@Then("^click on candidate joined task$")
+	public void click_on_candidate_joined_task() throws Throwable {
+		executor.executeScript("arguments[0].click()", driver.findElement(By.xpath("//td[2]//a[text()='Candidate Joined']")));
+	}
+	
+	@Then("^candidate joined task should display in done column \"([^\"]*)\"$")
+	public void candidate_joined_task_should_display_in_done_column(String arg1) throws Throwable {
+		WebElement element = driver.findElement(By.xpath("//td[6]//span[text()='"+arg1+" joined for job "+addjobpage.jobname+".']"));
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		Assert.assertEquals(element.isDisplayed(), true);
+	}
+	
+	// Refused to joined
+	
+	@Then("^move the card joined column to refused to joined column$")
+	public void move_the_card_joined_column_to_refused_to_joined_column() throws Throwable {
+		Thread.sleep(2000);	  
+		executor.executeScript("window.scrollBy(20000,0)", "");
+		WebElement drag = candidatecardsectionpage.candidateCard;
+		WebElement drop = driver.findElement(By.xpath("//td[14]"));		   		
+	    Actions action = new Actions(driver);
+		Thread.sleep(3000);
+		action.clickAndHold(drag);
+		executor.executeScript("arguments[0].scrollIntoView()", drop);
+		action.moveToElement(drop).release(drop).perform();
+	}
+
+	@Then("^Refused to joined task should display in new column \"([^\"]*)\"$")
+	public void refused_to_joined_task_should_display_in_new_column(String arg1) throws Throwable {
+		WebElement element = driver.findElement(By.xpath("//td[2]//span[text()='"+arg1+" refused to join for job "+addjobpage.jobname+".']"));
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		Assert.assertEquals(element.isDisplayed(), true);
+	}
+
+	@Then("^click on Refused to joined task$")
+	public void click_on_Refused_to_joined_task() throws Throwable {
+		executor.executeScript("arguments[0].click()", driver.findElement(By.xpath("//td[2]//a[text()='Refused To Joined']")));
+
+	}
+
+	@Then("^Refused to joined task should display in done column \"([^\"]*)\"$")
+	public void refused_to_joined_task_should_display_in_done_column(String arg1) throws Throwable {
+		WebElement element = driver.findElement(By.xpath("//td[6]//span[text()='"+arg1+" refused to join for job "+addjobpage.jobname+".']"));
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		Assert.assertEquals(element.isDisplayed(), true);
+	}
+	
+//	@TaskManagement5
+	
+	@When("^Share job with agency \"([^\"]*)\"$")
+	public void share_job_with_agency(String arg1) throws Throwable {
+		sharewithagencypage.shareWithAgency(arg1);
+	}
+
+	@When("^move candidate card to reject column$")
+	public void move_candidate_card_to_reject_column() throws Throwable {
+		Thread.sleep(2000);	  
+		executor.executeScript("window.scrollBy(20000,0)", "");
+		WebElement drag = candidatecardsectionpage.candidateCard;
+		WebElement drop = driver.findElement(By.xpath("//td[15]"));		   		
+	    Actions action = new Actions(driver);
+		Thread.sleep(3000);
+		action.clickAndHold(drag);
+		executor.executeScript("arguments[0].scrollIntoView()", drop);
+		action.moveToElement(drop).release(drop).perform();
+	}
+
+	@When("^confirmation popup should diplay with Yes and No button and click on Yes buton \"([^\"]*)\"$")
+	public void confirmation_popup_should_diplay_with_Yes_and_No_button_and_click_on_Yes_buton(String arg1) throws Throwable {
+		Assert.assertEquals("Are you sure you want to reject "+Name+" ?", driver.findElement(By.xpath("//h6[@class='text-center mb-0 alert-message']")).getText());
+		Thread.sleep(3000);
+		common.clickOnConfirmYes();
+	}
+
+	@When("^select the reason of rejection and cick on submit button$")
+	public void select_the_reason_of_rejection_and_cick_on_submit_button() throws Throwable {
+		Thread.sleep(3000);
+		workbenchpage.selectCandidateRejectionReason();
+		
+		Thread.sleep(1000);
+		common.ClickSumbit();
+	}
+
+	@When("^Candidate rejected task should display in new column \"([^\"]*)\"$")
+	public void reject_task_should_display_in_new_column(String arg1) throws Throwable {
+		WebElement element = driver.findElement(By.xpath("//td[2]//span[text()='"+arg1+" has been rejected for job Developer with reason Did Not Come For Interview by pemp.']"));
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		Assert.assertEquals(element.isDisplayed(), true);
+	}
+
+	@When("^click on candidate Rejected task$")
+	public void click_on_candidate_Rejected_task() throws Throwable {
+		executor.executeScript("arguments[0].click()", driver.findElement(By.xpath("//td[2]//a[text()='Candidate Rejected']")));
+	}
+	
+	@When("^Candidate rejected task should display in done column \"([^\"]*)\"$")
+	public void reject_task_should_display_in_d_column(String arg1) throws Throwable {
+		WebElement element = driver.findElement(By.xpath("//td[6]//span[text()='"+arg1+" has been rejected for job Developer with reason Did Not Come For Interview by pemp.']"));
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		Assert.assertEquals(element.isDisplayed(), true);
+	}
+	
 }
 

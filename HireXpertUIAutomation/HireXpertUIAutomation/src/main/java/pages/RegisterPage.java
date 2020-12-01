@@ -390,9 +390,10 @@ public void verifythefieldsonregisterdialogbox () {
     	   Signinbtn.click();
        }
        
-       public void loginwithnewcandidate(String CandidateEmail, String password) {
+       public void loginwithnewcandidate(String CandidateEmail, String password) throws InterruptedException {
     	   Emailaddress.sendKeys(CandidateEmail);
     	   Password.sendKeys(password);
+    	   Thread.sleep(2000);
     	   Signinbtn.click();
        }
      

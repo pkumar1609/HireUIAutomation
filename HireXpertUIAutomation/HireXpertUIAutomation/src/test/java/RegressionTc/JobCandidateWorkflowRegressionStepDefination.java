@@ -136,7 +136,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	@Then("^logout as employer and login as new candidate added by employer \"([^\"]*)\" \"([^\"]*)\"$")
 	public void logout_as_employer_and_login_as_new_candidate_added_by_employer(String CandidateEmail, String password) throws Throwable {
 		loginpage.logoutFromAppK();
-		loginpage.ClickOnEmployerAgencySigninLink();
+		homepage.clickJobseekerCandidateSignInlinklink();
 		registerpage.loginwithnewcandidate(CandidateEmail, password);
 	}
 	
@@ -183,7 +183,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	    
 		Select se = new Select(editcandidatepage.onnoticePeriod);
 		se.selectByVisibleText("Yes");
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("(//button[@aria-label='Open Calendar'])[3]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[@class='datevalue currmonth']//span[contains(text(),'30')]")).click();
