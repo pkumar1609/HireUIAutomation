@@ -22,7 +22,7 @@ import pages.CandidateDashboardPage;
 import pages.CandidateUpdateProfilePage;
 import pages.ChangePasswordPage;
 import pages.Commonfunction;
-//import pages.CvStorePage;
+import pages.CvStorePage;
 import pages.DashboardPage;
 import pages.EditCandidatePage;
 import pages.EditJobPage;
@@ -87,7 +87,7 @@ public class baseclass {
 	public static Actions Action;
 	public static ForgetPasswordPage forgetpasswordpage;
 	public static WebDriverWait explicitwait;
-//	public static CvStorePage cvstorepage;
+	public static CvStorePage cvstorepage;
 	public static Robot rb;
 	public static TaskManagementPage taskmanagementpage;
 
@@ -154,7 +154,7 @@ public class baseclass {
 		forgetpasswordpage=new ForgetPasswordPage();
 		explicitwait = new WebDriverWait(driver,80);
 		executor=(JavascriptExecutor)driver;
-//		cvstorepage= new CvStorePage();
+		cvstorepage= new CvStorePage();
 		rb =new Robot();
 		taskmanagementpage= new TaskManagementPage();
 	}
