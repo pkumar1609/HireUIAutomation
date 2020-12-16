@@ -33,7 +33,7 @@ public class AgenciesPage extends baseclass {
 	@FindBy(xpath="//button[@title='Delete']")
 	static WebElement deletebtn;
 	
-	@FindBy(xpath="//input[@placeholder='Search']")
+	@FindBy(xpath="//input[@placeholder='Search here' and @name='search']")
 	static WebElement search;
 
 	public String namevalidate;
@@ -65,7 +65,7 @@ public class AgenciesPage extends baseclass {
 	
 	public void Clickagencybtn() throws InterruptedException
 	{
-		Action.moveToElement(dashboardpage.hire).click().perform();
+		Action.moveToElement(dashboardpage.recruitment).click().perform();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(dashboardpage.agencies));
 		dashboardpage.openAgenciesPage();
 	}
@@ -113,11 +113,12 @@ public class AgenciesPage extends baseclass {
 //	}
 	
 	
-	public void enterAgyNameInSearchSection(DataTable credentials)
+	public void enterAgyNameInSearchSection(DataTable credentials) throws InterruptedException
 	{
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
-		explicitwait.until(ExpectedConditions.elementToBeClickable(search));
+		Thread.sleep(2000);
+//		explicitwait.until(ExpectedConditions.visibilityOf(search));
 		search.sendKeys(data.get("Name"));
 		ele=data.get("Name");
 		}

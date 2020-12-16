@@ -1,6 +1,6 @@
 Feature: Marketplace Feature
 
-@TC351 @BVT @market
+#@TC351 @BVT @market
 Scenario Outline: To verify the functionality to share job with market place.
 Given User must be registered
 When title of login page is Home
@@ -99,8 +99,8 @@ And Click on Employer-Agency Signin link
 And user enters valid credentials "<Employer>","<Password>"
 And Go to workbench
 And Add job
-|title		    |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-|Uxn11 Developer  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
+|title		     |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
+|Uxn12 Developer  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
 And Select a added job
 And Click on share job with market place
 And change information and click on submit

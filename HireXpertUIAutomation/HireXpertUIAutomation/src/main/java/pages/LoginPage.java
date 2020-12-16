@@ -142,13 +142,20 @@ public class LoginPage extends baseclass
 	}
     
     public void loginIn(String Username, String Password) throws InterruptedException {
-		
+	
 		emailaddress.sendKeys(Username);
 		password.sendKeys(Password);
 		Thread.sleep(3000);
 		signin.click();
 //		common.clickOnCloseBtn(); 
+		try
+		{
+			common.clickOnOKBtn();
+		}
+		catch(NoSuchElementException e)
+		{}
 		identifyUserK();
+		
 	}
     
     public void loginInAppWithTeamK() throws InterruptedException

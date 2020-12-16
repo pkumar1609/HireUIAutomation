@@ -46,8 +46,8 @@ public class ShareWithTeamPage extends baseclass {
 	@FindBy(id = "confirmModalBtn")
 	public WebElement yesButtonRadioButton;
 	
-	@FindBy(xpath = "//td[8]//label[1]//span[1]")
-	public WebElement blockUnblockCheckbox;
+	@FindBy(xpath = "//input[@name='jobProviderTeamToShareJob.JobProviderId']//following::span[@class='checkmark CheckBoxM']")
+	public WebElement blockUnblockCheckboxTeam;
 	
 
 	
@@ -309,11 +309,6 @@ public class ShareWithTeamPage extends baseclass {
 		}
 		else {
 			return true;
-		}
-			
+		}			
 	}
-	
-	 
-	
-
 }

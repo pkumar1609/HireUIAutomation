@@ -17,8 +17,14 @@ public class WorkbenchPage extends baseclass {
 	
 	public String organisation;
 	
-	@FindBy(xpath = "//button[contains(text(),'Add Job')]")
-	public WebElement addjob;
+	@FindBy(xpath = "//button[text()=' Job']")
+	public WebElement job;
+	
+	@FindBy(xpath = "//button[text()=' Candidate']")
+	public WebElement candidate;
+	
+	@FindBy(xpath = "//button[text()='Add Job']")
+	public WebElement addJob;
 	
 	@FindBy(id = "jobDropdown")
 	public WebElement jobDropDown;
@@ -26,10 +32,13 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[contains(text(),' View Job ')]")
 	public WebElement viewJobButton;
 	
+	@FindBy(xpath = "//button[text()=' Share Job']")
+	public WebElement shareJob;
+	
 	@FindBy(xpath = "//button[contains(text(),'Share With Agency')]")
 	public WebElement shareWithAgencyButton;
 	
-	@FindBy(xpath = "//button[contains(text(),'Add Candidate')]")
+	@FindBy(xpath = "//button[text()=' Add Candidate']")
 	public WebElement addCandidateButton; 
 	
 	@FindBy(xpath = "//button[@title='Share With Team']")
@@ -89,9 +98,8 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Reload Candidate']")
 	public WebElement ReloadCandidateButton;
 	
-	@FindBy(xpath = "//button[@title='Reload Job']")
+	@FindBy(xpath = "//button[text()=' Reload Job']")
 	public WebElement ReloadJobButton;
-	
 	
 	@FindBy(xpath = "//select[@formcontrolname='AssignedToName']")
 	public WebElement filtersAssignToList;
@@ -110,7 +118,7 @@ public class WorkbenchPage extends baseclass {
 	String nameOfCan;
 	public String username;
 	public boolean emp;
-	public String job;
+//	public String job;
 	
 	public void addTaskBtn() throws InterruptedException
 	{
@@ -124,29 +132,30 @@ public class WorkbenchPage extends baseclass {
 	}
 	
 	public void AddJob() throws InterruptedException {
-		Thread.sleep(6000);
-		addjob.click();
+		Thread.sleep(2000);
+		job.click();
+		addJob.click();
 	}
 	
 	public Select se;
 	
-	public void selectJob() throws InterruptedException {
-		Thread.sleep(2000);
-		se = new Select(jobDropDown);
-		se.selectByIndex(1);
-		Thread.sleep(2000);
-		if(emp==true)
-		{
-		Thread.sleep(2000);
-		workbenchpage.threeDot.click();
-		editJobButton.click();
-		Thread.sleep(2000);
-		job= addjobpage.title.getAttribute("value");
-		common.clickOnCloseBtn();
-		System.out.println(job);
-		}
-		
-	}
+//	public void selectJob() throws InterruptedException {
+//		Thread.sleep(2000);
+//		se = new Select(jobDropDown);
+//		se.selectByIndex(1);
+//		Thread.sleep(2000);
+//		if(emp==true)
+//		{
+//		Thread.sleep(2000);
+//		workbenchpage.threeDot.click();
+//		editJobButton.click();
+//		Thread.sleep(2000);
+//		job= addjobpage.title.getAttribute("value");
+//		common.clickOnCloseBtn();
+//		System.out.println(job);
+//		}
+//		
+//	}
 	
 	public void selectjobT(String JobTitle, String OrganizationName) throws InterruptedException {
   		
@@ -156,7 +165,6 @@ public class WorkbenchPage extends baseclass {
 	}
 	
 	public void selectJobK() throws InterruptedException {
-
 		Thread.sleep(4000);
 		jobDropDown.click();
 		WebElement element = driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]"));
@@ -166,14 +174,14 @@ public class WorkbenchPage extends baseclass {
 //		driver.findElement(By.xpath("//option[contains(text(),'Interview Job 3')]")).click();
 	}
 	
-	public void clickonthreedot() throws InterruptedException {
-		
+	public void clickonthreedot() throws InterruptedException {	
 		Thread.sleep(4000);
 		threeDot.click();
 	}
 	
-	public void clickonAddQuestionarybtn() {
-		
+	public void clickonAddQuestionarybtn() throws InterruptedException {
+		Thread.sleep(4000);
+		job.click();
 		AddQuestionarybtn.click();
 	}
 	
@@ -236,13 +244,14 @@ public class WorkbenchPage extends baseclass {
 	public void clickOnAddCandidate() throws InterruptedException
 	{
 		Thread.sleep(3000);
+		candidate.click();
 		addCandidateButton.click();
 	}
 	
 	public void clickOnAgreementbtn() throws InterruptedException
 	{
-		workbenchpage.clickonthreedot();
 		Thread.sleep(2000);
+		workbenchpage.shareJob.click();		
 		agreementbtn.click();
 	}
 	
@@ -255,8 +264,9 @@ public class WorkbenchPage extends baseclass {
 //		nameOfCan= name.getText();
 	}
 	
-	public void clickReloadCandidateButton() {
-		
+	public void clickReloadCandidateButton() throws InterruptedException {
+		Thread.sleep(1000);
+		candidate.click();
 		ReloadCandidateButton.click();
 	}
 	

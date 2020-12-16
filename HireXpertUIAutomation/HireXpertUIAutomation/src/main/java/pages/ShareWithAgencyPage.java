@@ -31,24 +31,12 @@ public class ShareWithAgencyPage extends baseclass {
 		PageFactory.initElements(driver, this);
 	}
 	
-//	public void searchAgency() {
-//		
-//		String expectedEmail = prop.getProperty("agencyemail");
-//		searchField.click();
-//		searchField.sendKeys(expectedEmail);
-//	}
-	
-//	public void searchAgencyOwner() {
-//		
-//		String expectedEmail = prop.getProperty("agencyemail2");
-//		searchField.click();
-//		searchField.sendKeys(expectedEmail);
-//	}
 	
 	public void shareWithAgency(String agyEmailId) throws InterruptedException
 	{
-		workbenchpage.clickonthreedot();
-		Thread.sleep(2000); 
+		Thread.sleep(1000); 
+		workbenchpage.shareJob.click();
+		Thread.sleep(1000); 
 		workbenchpage.shareWithAgencyButton.click();
 		sharewithteampage.searchField.sendKeys(agyEmailId);
 		Thread.sleep(2000);
@@ -63,47 +51,3 @@ public class ShareWithAgencyPage extends baseclass {
 	}
 
 }
-//	public void isAgencyPresent(DataTable credentials) throws InterruptedException
-//	{
-//		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-//		{
-//		workbenchpage.clickonthreedot();
-//		shareWithAgency.click();
-//		teamMemberName= data.get("Email");
-//		String teammemberpresent= "//td[text()='" +teamMemberName+ "']";
-//		try 
-//		{
-//			driver.findElement(By.xpath(teammemberpresent)).isDisplayed();
-//			teampage.closeTeamPage();
-//		}
-//		catch(NoSuchElementException e)
-//		{
-//			agenciespage.enterAllDetails(credentials);			
-//			teampage.closeTeamPage();
-//		}
-//		}
-//	}
-// }
-
-
-
-
-//workbenchpage.clickonthreedot();
-//Thread.sleep(2000);
-//workbenchpage.shareWithAgencyButton.click();
-//Thread.sleep(3000);
-//sharewithteampage.searchField.click();
-//sharewithteampage.searchField.sendKeys(username);
-//Thread.sleep(2000);
-//
-//sharewithagencypage.shareCheckbox.click();
-//Thread.sleep(1000);
-//try
-// {
-//	common.confimYes.isDisplayed();
-//	common.clickOnConfirmYes();
-//}
-//	catch(NoSuchElementException e )
-//{
-//	
-//}

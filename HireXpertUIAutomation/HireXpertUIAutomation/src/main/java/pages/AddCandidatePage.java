@@ -182,7 +182,7 @@ public class AddCandidatePage extends baseclass {
 //	private String ExpertiseLevel2;
 	
 	
-	public void EnterAllMandatoryfieldsT(String CandidateEmail,String profiletitle,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException, AWTException {
+	public void EnterAllMandatoryfieldsT(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException, AWTException {
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),'Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
 		if(dynamicElement.size() != 0)
@@ -192,7 +192,7 @@ public class AddCandidatePage extends baseclass {
 			Thread.sleep(2000);
 			nameOfCan=name.getAttribute("value");
 			salaryOffered.sendKeys(Salaryoffered);
-			this.distance.sendKeys(distance);
+//			this.distance.sendKeys(distance);
 			se = new Select (isPermanentAddress);
 			se.selectByVisibleText(permanentAddress);
 			se = new Select (isReadyToRelocateToJobLocation);
@@ -210,8 +210,8 @@ public class AddCandidatePage extends baseclass {
 		else
 		{
 			System.out.println("Candidate is not present in system and you need to enter candidate details");
-			title.clear();
-			title.sendKeys(profiletitle);
+//			title.clear();
+//			title.sendKeys(profiletitle);
 			name.sendKeys(Name); 
 			nameOfCan=name.getAttribute("value");
 			contactNumber.sendKeys(ContactNumber);
@@ -251,7 +251,7 @@ public class AddCandidatePage extends baseclass {
 			se = new Select (communicationMode);
 		  	se.selectByVisibleText(Communicationmode);
 			Assert.assertEquals(communicationMode.getAttribute("value"), Communicationmode);
-			this.distance.sendKeys(distance);
+//			this.distance.sendKeys(distance);
 			se = new Select (isPermanentAddress);
 			se.selectByVisibleText(permanentAddress);
 			se = new Select (isReadyToRelocateToJobLocation);
@@ -316,13 +316,15 @@ public class AddCandidatePage extends baseclass {
 		{}
 	} 
 
-        public void Enterexpertilevel (String ExpertiseLevel1, String ExpertiseLevel2 ) {
+        public void Enterexpertilevel (String ExpertiseLevel1, String ExpertiseLevel2 ,String ExpertiseLevel2) {
         		
-        	se = new Select (expertiseLevel1);
-		  	se.selectByVisibleText(ExpertiseLevel1);
+        	select = new Select (expertiselevel.get(0));
+        	select.selectByVisibleText(" "+ExpertiseLevel1+" ");
+        	select = new Select (expertiselevel.get(1));
+        	select.selectByVisibleText(" "+ExpertiseLevel2+" ");
+        	select = new Select (expertiselevel.get(2));
+        	select.selectByVisibleText(" "+ExpertiseLevel3+" ");
 		  	
-		  	se = new Select (expertiseLevel2);
-		  	se.selectByVisibleText(ExpertiseLevel2);
 	}
         
 //        public void EnterexpertilevelofskillasNotanswered(String ExpertiseLevel1, String ExpertiseLevel2) {

@@ -47,7 +47,7 @@ public class TeamPage extends baseclass {
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-list-jobprovider/div[3]/button")
 	public WebElement closeButton;
 	
-	@FindBy(xpath = "//input[@placeholder='Search']")
+	@FindBy(xpath = "//input[@placeholder='Search here' and @name='search']")
 	public WebElement searchField;
 	
 	@FindBy(xpath = "//button[@title='Agencies']")
@@ -167,10 +167,11 @@ public class TeamPage extends baseclass {
 		common.clickOnCloseBtn();
 	}
 	
-	public void deleteteamK() throws InterruptedException
+	public void deleteteamK(String team) throws InterruptedException
 	{
 		Thread.sleep(2000); 
-		driver.findElement(By.xpath("//td[text()='"+teampage.namevalidate+"']//following::button[@title='Delete']")).click();
+		searchField.sendKeys(team);
+		deletebtn.click();
 		confimYesDelete.click();
 		
 	} 
@@ -200,8 +201,7 @@ public class TeamPage extends baseclass {
 		Thread.sleep(4000);
 		searchField.sendKeys(data.get("Name"));
 		ele=data.get("Name");
-		System.out.println(ele);
-		
+		System.out.println(ele);		
 		}
 	}
 	

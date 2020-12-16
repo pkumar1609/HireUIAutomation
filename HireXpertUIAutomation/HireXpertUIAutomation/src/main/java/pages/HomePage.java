@@ -11,7 +11,7 @@ public class HomePage extends baseclass {
 	@FindBy(linkText = "More Jobs..")
 	public WebElement MoreJobsLink;
 	
-	@FindBy(linkText="Job Seeker(Candidate) Sign In")
+	@FindBy(xpath="//a[text()=' Job Seeker(Candidate) Sign In']")
 	public WebElement JobseekerCandidateSignInlink;
 	
 	

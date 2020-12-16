@@ -112,7 +112,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 
            Thread.sleep(3000);
 
-           workbenchpage.selectJob();
+           workbenchpage.selectJobK();
 	}
 
 
@@ -159,7 +159,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void fill_all_the_information_and(String profiletitle,String CandidateEmail, String Name, String ContactNumber, String Designation, String  Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String  CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String Salaryoffered, String distance, String permanentAddress, String relocate) throws Throwable {
 
 		Thread.sleep(3000);
-		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, profiletitle, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);;
+		addcandidatepage.EnterAllMandatoryfields
 		Thread.sleep(3000);
 		addcandidatepage.uploadResumeDocumentT();
 	}
@@ -167,7 +167,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	@When("^if confirmation popup is displayed click on ok button$")
 	public void if_confirmation_popup_is_displayed_click_on_ok_button() throws Throwable {
 
-		Thread.sleep(3000);
+		Thread.sleep(3000); 
 		addcandidatepage.probabilitypopupwhileaddingcandidate();
 	}
 
@@ -290,8 +290,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void click_on_Questionnaire_tab() throws InterruptedException {
 		
 		Thread.sleep(3000);
-		workbenchpage.clickonthreedot();
-		Thread.sleep(4200);
+		workbenchpage.job.click();
 		workbenchpage.clickonAddQuestionarybtn();
 	}
 	
@@ -406,6 +405,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void click_on_ReloadCandidate_button() throws Throwable {
 	    
 		Thread.sleep(3000);
+		workbenchpage.candidate.click();
 		workbenchpage.ReloadCandidateButton.click();
 	}
 	
@@ -485,8 +485,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void click_on_Add_Questionnaire() throws InterruptedException {
 		
 		Thread.sleep(3000);
-		workbenchpage.clickonthreedot();
-		Thread.sleep(3000);
+		workbenchpage.job.click();
 		workbenchpage.AddQuestionarybtn.click();
 	}
 	
@@ -520,9 +519,8 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	@When("^Click on screening tab$")
 	public void click_on_screening_tab() throws Throwable {
 
-		Thread.sleep(3000);
-		workbenchpage.clickonthreedot();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
+		workbenchpage.job.click();
         workbenchpage.ClickonScreeningBtn();
 	}
 
@@ -603,31 +601,16 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void fill_all_mandatory_details(String title, String scheduleon, String hour, String minute, String interviewduration, String timezone) throws Throwable {
 		
 		Thread.sleep(3000);
-		Thread.sleep(1000);
 		scheduleinterviewpage.title.sendKeys(title);
-		Thread.sleep(1000);
-		scheduleinterviewpage.ScheduleInterviewOnT();
-		Thread.sleep(1000);
+		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
+		common.enterdate(scheduleon);
 		scheduleinterviewpage.hours.sendKeys(hour);
-		Thread.sleep(1000);
 		scheduleinterviewpage.minutes.sendKeys(minute);
-		Thread.sleep(1000);
-		
 		Select se = new Select(scheduleinterviewpage.duration);
 		se.selectByVisibleText(interviewduration);
-		
-		Thread.sleep(1000);
 		se = new Select(scheduleinterviewpage.timezone);
 		se.selectByVisibleText(timezone);
-		
-		Thread.sleep(1000);
-		scheduleinterviewpage.interviewerDropDown.click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[contains(text(),'Select All')]")).click();
-		Thread.sleep(1000);
-		scheduleinterviewpage.interviewerDropDown.click();
-		
-		Thread.sleep(1000);
+//		scheduleinterviewpage.interviewerDropDown.click();
 		common.ClickSumbit();
 
 	}
@@ -643,7 +626,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		Thread.sleep(3000);
 		addcandidatepage.FindButton.click();
 		Thread.sleep(3000);
-		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, profiletitle, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
+		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
 		Thread.sleep(3000);
 //		addcandidatepage.clickUploadResumeField();
 //		Thread.sleep(3000);

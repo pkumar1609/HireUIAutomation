@@ -66,6 +66,10 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath="//button[text()='Logout']")
 	public WebElement logout;
 		
+	@FindBy(xpath="//input[@name= 'search-id']")
+	public WebElement searchField;
+	
+	
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
 	
 	public void ClickonCrossIcon()
@@ -166,6 +170,43 @@ public class Commonfunction extends baseclass {
 			driver.findElement(By.xpath("//div[text()='"+monthName+"']")).click();
 			Thread.sleep(4000);
 			driver.findElement(By.xpath("//span[text()='"+day+"']")).click();
-		}    
+		}
+	
+	public String displayDate(String Date)
+	{
+		String[] values = Date.split("/");
+        int day = Integer.parseInt(values[0]);
+        int month = Integer.valueOf(values[1]);   
+        int year = Integer.parseInt(values[2]);
+        switch(month){    
+	    case 1: monthName= "Jan";  
+	    break;    
+	    case 2: monthName="Feb";  
+	    break;    
+	    case 3: monthName="Mar";  
+	    break;    
+	    case 4: monthName="Apr";  
+	    break;    
+	    case 5: monthName="May";  
+	    break;    
+	    case 6: monthName="Jun";  
+	    break;    
+	    case 7: monthName="Jul";  
+	    break;    
+	    case 8: monthName="Aug";  
+	    break;    
+	    case 9: monthName="Sep";  
+	    break;    
+	    case 10: monthName="Oct";  
+	    break;    
+	    case 11: monthName="Nov";  
+	    break;    
+	    case 12: monthName="Dec";  
+	    break;
+        }
+		return day+"-"+monthName+"-"+year;
+		
+	}
 
 }
+

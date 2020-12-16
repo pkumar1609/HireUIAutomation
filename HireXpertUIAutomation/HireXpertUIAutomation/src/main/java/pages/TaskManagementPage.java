@@ -15,5 +15,10 @@ public class TaskManagementPage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Search here']")
 	public WebElement searchHere;
 	
+	@FindBy(xpath = "//select[@id='TaskType']")
+	public WebElement taskType;
+	
+	@FindBy(xpath = "//button[text()=' Reload Tasks']")
+	public WebElement reloadTask;
 	
 }

@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
 import cucumber.api.DataTable;
 import cucumber.api.java.After;
 import cucumber.api.java.en.And;
@@ -89,7 +91,8 @@ public class taskBWT extends baseclass {
 
 	@And("^Select a job$")
 	public void select_a_job_and_click_on_add_task_button() throws Throwable {
-		workbenchpage.selectJob();
+		select = new Select(workbenchpage.jobDropDown);
+		select.selectByIndex(1);
 	} 
 	
 	

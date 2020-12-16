@@ -122,8 +122,8 @@ boolean emp;
 	
 	@Then("^click on Share With Team button and add new team by clicking on Add button on Share Job page \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void click_on_Share_With_Team_button_and_add_new_team_by_clicking_on_Add_button_on_Share_Job_page(String team,String teamId,String ContactNumber) throws Throwable {
-		  		workbenchpage.clickonthreedot();
 				Thread.sleep(3000);
+				workbenchpage.shareJob.click();		
 				workbenchpage.shareWithTeamButton.click();
 		
 				sharewithteampage.clickOnAddButton();
@@ -188,9 +188,8 @@ boolean emp;
 
 	@Given("^click on Share With Team button and select the Share checkbox present in front of the team member \"([^\"]*)\"$")
 	public void click_on_Share_With_Team_button_and_select_the_Share_checkbox_present_in_front_of_the_team_member(String team) throws Throwable {
-		
-		workbenchpage.clickonthreedot();
 		Thread.sleep(3000);
+		workbenchpage.shareJob.click();		
 		workbenchpage.shareWithTeamButton.click();
 		sharewithteampage.searchField.sendKeys(team);
 		Thread.sleep(2000);
@@ -211,8 +210,8 @@ boolean emp;
 		}
 		else
 		{
-			Thread.sleep(2000);
-			sharewithteampage.blockUnblockCheckbox.click();
+			Thread.sleep(3000);
+			sharewithteampage.blockUnblockCheckboxTeam.click();
 			common.clickOnConfirmYes();
 		}
 	}

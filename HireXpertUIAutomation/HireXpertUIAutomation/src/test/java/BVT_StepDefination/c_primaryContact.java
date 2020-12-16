@@ -63,8 +63,8 @@ public class c_primaryContact extends baseclass {
 	
 	@Then("^user should able to change the primary contact only when the job is shared with the team member to whom user wants to make primary contact \"([^\"]*)\"$")
 	public void user_should_able_to_change_the_primary_contact_only_when_the_job_is_shared_with_the_team_member_to_whom_user_wants_to_make_primary_contact(String thridteam) throws Throwable {
-		workbenchpage.clickonthreedot();
 		Thread.sleep(3000);
+		workbenchpage.shareJob.click();		
 		workbenchpage.shareWithTeamButton.click();
 		sharewithteampage.searchField.clear();
 		sharewithteampage.searchField.sendKeys(thridteam);

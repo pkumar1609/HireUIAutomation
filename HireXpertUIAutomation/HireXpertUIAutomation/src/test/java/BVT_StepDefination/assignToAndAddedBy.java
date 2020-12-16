@@ -141,7 +141,7 @@ public class assignToAndAddedBy extends baseclass {
 	    
 		dashboardpage.openWorkbenchPage();
 		Thread.sleep(3000);
-		workbenchpage.selectJob();
+		workbenchpage.selectJobK();
 		Thread.sleep(3000);
 	}
 	

@@ -80,7 +80,7 @@ public class TaskPage extends baseclass {
 	public WebElement taskname;
 	
 	@FindBy(xpath="(//i[@class='fa fa-refresh'])[3]")
-	private WebElement reloadtaskbtn;
+	private WebElement reloadtaskbtn; 
 	
 	@FindBy(xpath="//h5[text()=' Error']")
 	private WebElement error;
@@ -441,7 +441,7 @@ public class TaskPage extends baseclass {
 	public void shareWithTeam(DataTable credentials) throws InterruptedException
 	{
 		Thread.sleep(3000);
-		workbenchpage.threeDot.click();
+		workbenchpage.shareJob.click();
 		shareWithTeam.click();
 		this.emp=loginpage.b; 
 		if(emp==true)
@@ -453,7 +453,7 @@ public class TaskPage extends baseclass {
 			String xpathforshare= "(//td[text()='"+data.get("EmpTeam")+"']//following::span[@class='checkmark CheckBoxM'])[1]";
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(xpathforshare)).click();
-			}
+			}	
 		}
 		else 
 		{
@@ -464,8 +464,7 @@ public class TaskPage extends baseclass {
 			String xpathforshare= "(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[1]";
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(xpathforshare)).click();
-			}
-			
+			}			
 		}
 			try
 			{
@@ -476,6 +475,4 @@ public class TaskPage extends baseclass {
 			{}
 //	common.clickOnCloseBtn();
 	}
-	
-
 }

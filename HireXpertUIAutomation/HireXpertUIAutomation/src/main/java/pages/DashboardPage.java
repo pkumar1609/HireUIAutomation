@@ -12,8 +12,8 @@ import utilPackage.baseclass;
 
 public class DashboardPage extends baseclass {
 
-	@FindBy(xpath = "//a[contains(text(),'Hire ')]")
-	public WebElement hire;
+	@FindBy(xpath = "//a[text()='Recruitment ']")
+	public WebElement recruitment;
 	
 	@FindBy(linkText = "Application Tracking")
 	public WebElement applicationTracking;
@@ -42,9 +42,11 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath= "//a[contains(text(),'CV Store ')] ")
 	public WebElement cvStrore ;
 	
-	@FindBy(xpath= "//a[contains(text(),'Task Management')] ")
-	public WebElement taskManagemnet ;
+	@FindBy(xpath= "//a[text()='Task']")
+	public WebElement task ;
 	
+	@FindBy(xpath= "//a[contains(text(),'Invoices')]")
+	public WebElement invoice ;
 	
 	public DashboardPage() {
 		
@@ -55,31 +57,33 @@ public class DashboardPage extends baseclass {
 	public void openWorkbenchPage() throws InterruptedException {
 		
 		Thread.sleep(2000);
-		Action.moveToElement(hire).click().perform();
+		Action.moveToElement(recruitment).click().perform();
 		executor.executeScript("arguments[0].click();",applicationTracking);
 	}
 	
 	public void openEmployersPage() throws InterruptedException {
-		Action.moveToElement(dashboardpage.hire).click().perform();
+		Action.moveToElement(dashboardpage.recruitment).click().perform();
 		Thread.sleep(4000);
 		employers.click();
 	}
 	
 	public void openAgenciesPage() throws InterruptedException {
 		
-		Action.moveToElement(dashboardpage.hire).click().perform();
+		Action.moveToElement(dashboardpage.recruitment).click().perform();
 		Thread.sleep(2000);
 		agencies.click(); 
 	}
 	
 	public void openTeamPage() throws InterruptedException {
-		Action.moveToElement(dashboardpage.hire).click().perform();
+		Action.moveToElement(dashboardpage.recruitment).click().perform();
 		Thread.sleep(3000);
 		team.click();
 	}  
 	 
-	public void openInterviewsPage() 
+	public void openInterviewsPage() throws InterruptedException 
 	{
+		Action.moveToElement(dashboardpage.recruitment).click().perform();
+		Thread.sleep(3000);
 		interviews.click();
 	}
 	
@@ -132,12 +136,9 @@ public class DashboardPage extends baseclass {
     }
 	
 	public void clickonJobApplicationLInk() throws InterruptedException {
-		Action.moveToElement(dashboardpage.hire).click().perform();
+		Action.moveToElement(dashboardpage.recruitment).click().perform();
 		Thread.sleep(2000);
-		JobApplication.click();
-		
-		
-		
+		JobApplication.click();		
 	}
 
 }

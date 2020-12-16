@@ -136,6 +136,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	@Then("^logout as employer and login as new candidate added by employer \"([^\"]*)\" \"([^\"]*)\"$")
 	public void logout_as_employer_and_login_as_new_candidate_added_by_employer(String CandidateEmail, String password) throws Throwable {
 		loginpage.logoutFromAppK();
+		Action.moveToElement(loginpage.login).perform();
 		homepage.clickJobseekerCandidateSignInlinklink();
 		registerpage.loginwithnewcandidate(CandidateEmail, password);
 	}
@@ -423,7 +424,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		dashboardpage.openWorkbenchPage();
 		
 		 Thread.sleep(3000);
-         workbenchpage.selectJob();
+         workbenchpage.selectJobK();
 	
 	}
 
@@ -485,7 +486,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	@When("^select job from Jobs drop down and observe Add Candidate button$")
 	public void select_job_from_Jobs_drop_down_and_observe_Add_Candidate_button() throws Throwable {
 	    
-		workbenchpage.selectJob();
+		workbenchpage.selectJobK();
 	    Thread.sleep(3000);
 	    boolean value = workbenchpage.addCandidateButton.isEnabled();
 	    if(value == true) {
@@ -959,17 +960,15 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	public void click_on_Job_drop_down_and_select_recently_added_job() throws Throwable {
 
 		Thread.sleep(3000);
-		workbenchpage.selectJob();
+		workbenchpage.selectJobK();
 	}
 
 	@Given("^click on Edit Job button to update skills and number of interview$")
 	public void click_on_Edit_Job_button_to_update_skills_and_number_of_interview() throws Throwable {
 
 		Thread.sleep(3000);
-		workbenchpage.clickonthreedot();
-		Thread.sleep(3000);
+		workbenchpage.job.click();
 		workbenchpage.editJobButton.click();
-		Thread.sleep(3000);
 	}
 
 	@When("^select number of interview except previously selected number \"([^\"]*)\"$")
@@ -984,7 +983,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	public void again_click_on_Edit_Job_button_and_observe_the_number_of_interviews(String NoOfInterview1) throws Throwable {
 		
 		Thread.sleep(2000);
-		workbenchpage.clickonthreedot();
+		workbenchpage.job.click();
 		workbenchpage.editJobButton.click();
 		select = new Select(addjobpage.totalinterviews);
 		Assert.assertEquals(select.getFirstSelectedOption().getAttribute("value"), NoOfInterview1);
@@ -1168,7 +1167,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			Thread.sleep(3000);
 			dashboardpage.openWorkbenchPage();
 			Thread.sleep(3000);
-			workbenchpage.selectJob();
+			workbenchpage.selectJobK();
 		}
 
 		@Then("^new candidate should get added in New column$")
@@ -1201,58 +1200,30 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			Thread.sleep(3000);
 			common.clickOnCloseBtn();
 		}
-
-		
-		//10
-		
-		
-//		@When("^Add a new Job as employer with at list one skill \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-//		public void add_a_new_Job_as_employer_with_at_list_one_skill(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String Jobskill1, String JobSkill2) throws Throwable {
-//		    
-//			Thread.sleep(3000);
-//
-//			workbenchpage.AddJob();
-//			
-//			Thread.sleep(3000);
-//			
-//			 addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
-//				
-//			Thread.sleep(3000);
-//			
-//			addjobpage.addNewSkill1(Jobskill1);
-//			
-//			Thread.sleep(3000);
-//			
-//	        addjobpage.addNewSkill2(JobSkill2);
-//	        
-//	        Thread.sleep(3000);
-//			
-//			//addjobpage.deleteSkills();         // Delete 2nd skill
-//			
-//			Thread.sleep(3000);
-//			
-//			addjobpage.deleteSkill3.click();   // Delete 3rd skill
-//			
-//			Thread.sleep(3000);
-//			
-//			common.submitbtn.click();
-//
-//			
-//		}
 		
 		@When("^upload candidate resume$")
 	    public void upload_candidate_resume() throws Throwable {
 	  
 		Thread.sleep(3000);
-	   addcandidatepage.uploadResumeDocumentT();
-	  }
+	    addcandidatepage.uploadResumeDocumentT();
+	    }
 
-		@When("^Enter basic details of candidate \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-		public void enter_basic_details_of_candidate(String CandidateEmail,String profiletitle,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
+		@When("^Enter basic details of candidate \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+		public void enter_basic_details_of_candidate(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
 			workbenchpage.enterEmailId(CandidateEmail);
-			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,profiletitle,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
+			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
 			addcandidatepage.uploadResumeDocument();
 			common.clickOnSaveBtn();
+			addcandidatepage.checkCandidateALreadyPresent();
+		}
+		
+		@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
+		public void enter_All_details_of_and(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2,String remark3,String certificateforskill1, String certificateforskill2) throws Throwable {
+			workbenchpage.enterEmailId(CandidateEmail);
+			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
+			addcandidatepage.addSkill(level1, level2, level3,certificate1, certificate2,certificate3,certificateforskill1, certificateforskill2);
+			addcandidatepage.uploadResumeDocument();
+			common.clickOnSaveBtn(); 
 			addcandidatepage.checkCandidateALreadyPresent();
 		}
 		
@@ -1294,25 +1265,35 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		}
 		
 		@When("^enter as expertise level as \"([^\"]*)\"$")
-		public void enter_as_expertise_level_as(String arg1) throws Throwable 
-		{
+		public void enter_as_expertise_level_as(String arg1) throws Throwable {
+		   for(int i=0;i<3;i++)
+		   {
+			   select= new Select(addcandidatepage.expertiselevel.get(i)); 
+			   select.selectByIndex(0);
+		   }
+		}
+		
+		@Then("^select different expertise level for the skill which is having expert level as not answer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+		public void select_different_expertise_level_for_the_skill_which_is_having_expert_level_as_not_answer(String expertiseLevel, String expertiseLeve2, String expertiseLeve3) throws Throwable {
 			Thread.sleep(1000);
 			candidatecardsectionpage.editCandidate.click();
-			executor.executeScript("window.scrollBy(0,2000)");		
-			for(int i=0;i<3;i++)
-			{
-			select= new Select(addcandidatepage.expertiselevel.get(i));
-		    select.selectByIndex(i);
-			}		
+			executor.executeScript("window.scrollBy(0,4000)");		
+			Thread.sleep(4000);
+			select= new Select(addcandidatepage.expertiselevel.get(0));
+			select.selectByVisibleText(" "+expertiseLevel+" ");					
+			select= new Select(addcandidatepage.expertiselevel.get(1));
+			select.selectByVisibleText(" "+expertiseLevel+" ");		
+			select= new Select(addcandidatepage.expertiselevel.get(2));
+			select.selectByVisibleText(" "+expertiseLevel+" ");			    
 			executor.executeScript("arguments[0].click();", driver.findElement(By.xpath("(//button[text()='Save'])[2]")));
 		}
+
 
 		@Then("^The candidate whose skill expert level is set as Not answer for that candidate card there should show bell icon$")
 		public void the_candidate_whose_skill_expert_level_is_set_as_Not_answer_for_that_candidate_card_there_should_show_bell_icon() throws Throwable {
 			Thread.sleep(3000);			
 			candidatecardsectionpage.verifyBellIconOnCandidateCard();		
 		}
-
 		
 		@When("^Click on Edit Candidate icon on candidate card \"([^\"]*)\"$")
 		public void click_on_Edit_Candidate_icon_on_candidate_card(String Name) throws Throwable {
@@ -1422,7 +1403,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		    
 			 Thread.sleep(3000);
 
-	         workbenchpage.selectJob();
+	         workbenchpage.selectJobK();
 			
 		}
 
@@ -1516,57 +1497,6 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			workbenchpage.clickOnAddCandidate();
 		}
 
-
-
-
-
-//		@When("^Add a new Job as agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-//		public void add_a_new_Job_as_agency(String JobTitle, String JobDesignation, String Industry, String JobRole, String JobLocation, String JobBudget, String MinExp, String MaxExp, String NoOfInterviews, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
-//		   
-//			Thread.sleep(3000);
-//
-//			workbenchpage.AddJob();
-//			
-//			Thread.sleep(3000);
-//			
-////			addjobpage.filljobDetails(Title, Designation, Industry, JobRole, Location, Budget, MinExp, MaxExp, NoOfInterviews);
-//			
-//			addjobpage.filljobDetails(JobTitle, JobDesignation, Industry, JobRole, JobLocation, JobBudget, MinExp, MaxExp, NoOfInterviews, JobNoticePeriod);
-//			
-//			Thread.sleep(3000);
-//			
-//			addjobpage.addNewSkill1(JobSkill1);
-//			
-//			Thread.sleep(3000);
-//			
-//			addjobpage.addNewSkill2(JobSkill2);
-//			
-//			Thread.sleep(3000);
-//			
-//			addjobpage.deleteSkill3.click();
-//			
-//			Thread.sleep(2000);
-//			
-//			addjobpage.employerplusicon.click();
-//			
-//			Thread.sleep(3000);
-//			
-//			addjobpage.fillEmployerDetailsPlusIcon();
-//			
-//			Thread.sleep(3000);
-//			
-//			driver.findElement(By.xpath("/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")).click();
-//			
-//			Thread.sleep(1000);
-//			
-//			addjobpage.employerDropDown();
-//			
-//	        Thread.sleep(3000);
-//			
-//			common.submitbtn.click();
-//
-//
-//		}
 		
 		@When("^Drag the candidate card from that column to rejected column$")
 		public void drag_the_candidate_card_from_that_column_to_rejected_column1() throws Throwable {
@@ -1651,10 +1581,10 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		}
 
 		@Then("^delete the team member$")
-		public void delete_the_team_member() throws Throwable {
+		public void delete_the_team_member(String team) throws Throwable {
 		   
 			Thread.sleep(3000);
-			teampage.deleteteamK();
+			teampage.deleteteamK(team);
 			
 		}
 
@@ -1694,10 +1624,10 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	        registerpage.agencylogin();
 		}
 		
-		@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
-		public void enter_All_details_of_and(String CandidateEmail,String profiletitle,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2,String remark3,String certificateforskill1, String certificateforskill2) throws Throwable {
+		@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
+		public void enter_All_details_of_and(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2,String remark3,String certificateforskill1, String certificateforskill2) throws Throwable {
 			workbenchpage.enterEmailId(CandidateEmail);
-			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,profiletitle,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
+			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
 			addcandidatepage.addSkill(level1, level2, level3, certificate1, certificate2, certificate3, certificateforskill1, certificateforskill2);
 			addcandidatepage.uploadResumeDocument();
 			common.clickOnSaveBtn();
@@ -1721,7 +1651,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		}
 		
 		@Then("^Add mandatory details on candidate profile page and save the details \"([^\"]*)\" \"([^\"]*)\"$")
-		public void add_mandatory_details_on_candidate_profile_page(String shift, String jobtype) throws Throwable {
+		public void add_mandatory_details_on_candidate_profile_page(String jobtype, String shift) throws Throwable {
 			if(addjobpage.functionalArea.getAttribute("value").isEmpty())
 			{
 				addjobpage.functionalArea.sendKeys("java");

@@ -70,7 +70,7 @@ public AddJobPage()
 	@FindBy(xpath = "//input[@placeholder='Enter Qualification']")
 	public WebElement qualification;
 	
-	@FindBy(xpath = "//button[contains(text(),' Add Skill ')]")
+	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
 	public WebElement addskillbutton;
 	
 	@FindBy(xpath = "//th[text()='Job Skills']//following::i[@class='fa fa-trash']")
@@ -421,9 +421,10 @@ public void addNewSkill3() {
 		this.qualification.sendKeys(data.get("qualification"));
 		this.country.sendKeys(data.get("country"));
 		this.city.sendKeys(data.get("city"));
+		cityArea.clear();
 		cityArea.sendKeys(data.get("location"));
 		this.zipcode.sendKeys(data.get("zipcode"));
-		address.clear();
+//		address.clear();
 		this.address.sendKeys(data.get("address"));
 		noofvacancies.clear();
 		noofvacancies.sendKeys(data.get("noofvacancies"));
@@ -446,6 +447,7 @@ public void addNewSkill3() {
 
 	public void addSkills(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2, String remark3) throws InterruptedException
 	{
+		executor.executeScript("arguments[0].scrollIntoView();", addskillbutton);
 		for(int i=0;i<3;i++)	
 		{
 			Thread.sleep(4000);

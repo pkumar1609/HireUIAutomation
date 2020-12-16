@@ -134,8 +134,9 @@ public class EmployersPage extends baseclass {
 		common.clickOnCloseBtn();
 	}
 
-	public void deleteUser() throws InterruptedException
+	public void deleteUser(String team) throws InterruptedException
 	{
+		searchfield.sendKeys(team);
 		Thread.sleep(4000);
 		deleteEmployer.click();
 		confimYes.click();	

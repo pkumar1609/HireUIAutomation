@@ -42,7 +42,7 @@ public class taskRegression extends baseclass{
 
 	@And("^Select a job$")
 	public void select_a_job() throws Throwable {
-		workbenchpage.selectJob();
+		workbenchpage.selectJobK();
 	}
 	
 	@And("^Select a added job$")

@@ -15,22 +15,30 @@ public class b_unblockFunctionalitySteps extends baseclass {
 
 //@bvt_agencyunblock:
 	
-	@Then("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void enter_All_details_of_and(String CandidateEmail,String profiletitle, String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
+//	@Then("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+//	public void enter_All_details_of_and(String CandidateEmail,String profiletitle, String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
+//		workbenchpage.enterEmailId(CandidateEmail);
+//		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,profiletitle,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
+//		addcandidatepage.uploadResumeDocument();
+//		common.clickOnSaveBtn();
+//		try
+//		{
+//		common.clickOnConfirmYes();
+//		}
+//		catch(NoSuchElementException e)	
+//		{}
+//		addcandidatepage.checkCandidateALreadyPresent();
+//	}
+	
+	@Then("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
+	public void enter_All_details_of_and(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2,String remark3,String certificateforskill1, String certificateforskill2) throws Throwable {
 		workbenchpage.enterEmailId(CandidateEmail);
-		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,profiletitle,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
+		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
+		addcandidatepage.addSkill(level1, level2, level3,certificate1, certificate2,certificate3,certificateforskill1, certificateforskill2);
 		addcandidatepage.uploadResumeDocument();
-		common.clickOnSaveBtn();
-		try
-		{
-		common.clickOnConfirmYes();
-		}
-		catch(NoSuchElementException e)	
-		{}
+		common.clickOnSaveBtn(); 
 		addcandidatepage.checkCandidateALreadyPresent();
 	}
-	
-
 	
 	@When("^click on the Block/Unblock to unblock checkbox present in front of agency whom you shared the job \\\"([^\\\"]*)\\\"$")
 	public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job(String agyEmailId) throws Throwable {
@@ -56,7 +64,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 		public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_team_with_the_agency_with_whom_you_shared_the_job(String team) throws Throwable {
 			sharewithagencypage.searchField.clear();
 			sharewithagencypage.searchField.sendKeys(team);
-			if(driver.findElement(By.xpath("(//label[@class='check'])[3]")).isSelected())
+			if(driver.findElement(By.xpath("(//label[@class='check'])[5]")).isSelected())
 			{
 			}
 			else
@@ -66,7 +74,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 				common.clickOnConfirmYes();
 			}
 			
-			if(driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected())
+			if(driver.findElement(By.xpath("(//label[@class='check'])[5]")).isSelected())
 			{
 				Thread.sleep(3000);
 				sharewithagencypage.blockUnblockCheckbox.click();

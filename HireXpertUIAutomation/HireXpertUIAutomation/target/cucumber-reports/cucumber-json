@@ -3,31 +3,29 @@
     "line": 1,
     "elements": [
       {
-        "line": 242,
-        "name": "To verify the functionality of Update Profile page of candidate",
+        "line": 621,
+        "name": "Verify functionality of bell icon on candidate card.",
         "description": "",
-        "id": "hirexpert-job-candidate-workflow-feature;to-verify-the-functionality-of-update-profile-page-of-candidate;;2",
+        "id": "hirexpert-job-candidate-workflow-feature;verify-functionality-of-bell-icon-on-candidate-card.;;2",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 10003816300,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 193,
-            "name": "User must be registered",
+            "line": 601,
+            "name": "Open browser",
             "match": {
-              "location": "UserAccount.user_must_be_registered()"
+              "location": "JobCandidateWorkflowRegressionStepDefination.open_browser()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 12581300,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 194,
+            "line": 602,
             "name": "title of login page is Home",
             "match": {
               "location": "UserAccount.title_of_login_page_is_Home()"
@@ -36,10 +34,9 @@
           },
           {
             "result": {
-              "duration": 3223912900,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 195,
+            "line": 603,
             "name": "Click on Employer-Agency Signin link",
             "match": {
               "location": "UserAccount.click_on_Employer_Agency_Signin_link()"
@@ -48,10 +45,9 @@
           },
           {
             "result": {
-              "duration": 7700211700,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 196,
+            "line": 604,
             "name": "Employer enters valid credentials \"pemp@gmail.com\",\"12345\"",
             "match": {
               "arguments": [
@@ -68,16 +64,15 @@
             },
             "matchedColumns": [
               0,
-              2
+              1
             ],
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 5255587900,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 197,
+            "line": 605,
             "name": "Go to Workbench",
             "match": {
               "location": "JobCandidateWorkflowRegressionStepDefination.go_to_Workbench()"
@@ -86,11 +81,10 @@
           },
           {
             "result": {
-              "duration": 47289008200,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 198,
-            "name": "Add job \"JAVA\",\"advanced java\",\"JavaScript\",\"Basic Knowledge\",\"Intermediate\",\"Expert\",\"Mandatory\",\"Preferred\",\"Optional\",\"Yes\",\"No\",\"No\",\"provide certificate\",\"spring,hybernet\" and \"advanced version\"",
+            "line": 606,
+            "name": "Add job \"JAVA\",\"advanced java\",\"JavaScript\",\"Basic Knowledge\",\"Intermediate\",\"Expert\",\"Mandatory\",\"Preferred\",\"Optional\",\"No\",\"No\",\"No\",\"provide certificate\",\"spring,hybernet\" and \"advanced version\"",
             "match": {
               "arguments": [
                 {
@@ -130,28 +124,28 @@
                   "offset": 111
                 },
                 {
-                  "val": "Yes",
+                  "val": "No",
                   "offset": 122
                 },
                 {
                   "val": "No",
-                  "offset": 128
+                  "offset": 127
                 },
                 {
                   "val": "No",
-                  "offset": 133
+                  "offset": 132
                 },
                 {
                   "val": "provide certificate",
-                  "offset": 138
+                  "offset": 137
                 },
                 {
                   "val": "spring,hybernet",
-                  "offset": 160
+                  "offset": 159
                 },
                 {
                   "val": "advanced version",
-                  "offset": 182
+                  "offset": 181
                 }
               ],
               "location": "JobCandidateWorkflowRegressionStepDefination.add_jobskill_and(String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,DataTable)"
@@ -164,7 +158,7 @@
               36,
               37,
               38,
-              39,
+              24,
               25,
               26,
               27,
@@ -177,6 +171,7 @@
               {
                 "cells": [
                   "title",
+                  "agytitle",
                   "designation",
                   "industry",
                   "location",
@@ -193,11 +188,12 @@
                   "agyorganization",
                   "functionalArea"
                 ],
-                "line": 199
+                "line": 607
               },
               {
                 "cells": [
-                  "JCFW 5A",
+                  "JCFW 14",
+                  "JCFWagy 14",
                   "developer",
                   "IT software",
                   "pune",
@@ -214,18 +210,16 @@
                   "rahitech",
                   "java"
                 ],
-                "line": 200
+                "line": 608
               }
             ],
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 5103780400,
-              "error_message": "org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element \u003cselect _ngcontent-rji-c281\u003d\"\" id\u003d\"jobDropdown\" class\u003d\"form-control ng-untouched ng-pristine ng-valid\"\u003e...\u003c/select\u003e is not clickable at point (262, 114). Other element would receive the click: \u003cngb-modal-window role\u003d\"dialog\" tabindex\u003d\"-1\" aria-modal\u003d\"true\" class\u003d\"AlertMsgModal d-block fade modal show\"\u003e...\u003c/ngb-modal-window\u003e\n  (Session info: chrome\u003d86.0.4240.198)\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027DESKTOP-6IM5GGG\u0027, ip: \u0027127.0.0.1\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002712.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 86.0.4240.198, chrome: {chromedriverVersion: 85.0.4183.87 (cd6713ebf92fa..., userDataDir: C:\\Users\\TLP33\\AppData\\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:56232}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}\nSession ID: bd04cc053d63117ff4873797c3f5deea\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)\r\n\tat com.sun.proxy.$Proxy20.click(Unknown Source)\r\n\tat pages.WorkbenchPage.selectJobK(WorkbenchPage.java:161)\r\n\tat RegressionTc.taskRegression.select_a_added_job(taskRegression.java:50)\r\n\tat ✽.And Select a added job(C:/Users/TLP33/Documents/GitHub/HireUIAutomation/HireXpertUIAutomation/HireXpertUIAutomation/src/main/java/features/JobCandidateWorkflow.feature:201)\r\n",
-              "status": "failed"
+              "status": "skipped"
             },
-            "line": 201,
+            "line": 609,
             "name": "Select a added job",
             "match": {
               "location": "taskRegression.select_a_added_job()"
@@ -236,7 +230,7 @@
             "result": {
               "status": "skipped"
             },
-            "line": 202,
+            "line": 610,
             "name": "Click on add candidate",
             "match": {
               "location": "taskRegression.click_on_add_candidate()"
@@ -247,171 +241,167 @@
             "result": {
               "status": "skipped"
             },
-            "line": 203,
-            "name": "Enter All details of \"hirecan11@gmail.com\",\"jr software developer\",\"hirecan11\",\"9899648538\",\"Sr.developer\",\"14/02/1995\",\"Female\",\"Yes\",\"25\",\"01/09/2021\",\"1.5\",\"800000\",\"800000\",\"India\",\"wardha\",\"Arvi naka\",\"455966\",\"Call\",\"800000\",\"4\",\"No\",\"No\",\"JAVA\",\"advanced java\",\"JavaScript\",\"Basic Knowledge\",\"Intermediate\",\"Expert\",\"Mandatory\",\"Preferred\",\"Optional\",\"Yes\",\"No\",\"No\",\"provide certificate\",\"spring,hybernet\",\"advanced version\",\"sun microsoft\"and\"advanced version\"",
+            "line": 611,
+            "name": "Enter All details of \"hirecan30@gmail.com\",\"hirecan30\",\"9545866385\",\"Sr.developer\",\"19/04/1995\",\"Female\",\"No\",\"25\",\"1/9/2021\",\"1.5\",\"800000\",\"800000\",\"India\",\"wardha\",\"Arvi naka\",\"455966\",\"Call\",\"800000\",\"4\",\"No\",\"No\",\"JAVA\",\"advanced java\",\"JavaScript\",\"Basic Knowledge\",\"Intermediate\",\"Expert\",\"Mandatory\",\"Preferred\",\"Optional\",\"No\",\"No\",\"No\",\"provide certificate\",\"spring,hybernet\",\"advanced version\",\"sun microsoft\"and\"advanced version\"",
             "match": {
               "arguments": [
                 {
-                  "val": "hirecan11@gmail.com",
+                  "val": "hirecan30@gmail.com",
                   "offset": 22
                 },
                 {
-                  "val": "jr software developer",
+                  "val": "hirecan30",
                   "offset": 44
                 },
                 {
-                  "val": "hirecan11",
-                  "offset": 68
-                },
-                {
-                  "val": "9899648538",
-                  "offset": 80
+                  "val": "9545866385",
+                  "offset": 56
                 },
                 {
                   "val": "Sr.developer",
-                  "offset": 93
+                  "offset": 69
                 },
                 {
-                  "val": "14/02/1995",
-                  "offset": 108
+                  "val": "19/04/1995",
+                  "offset": 84
                 },
                 {
                   "val": "Female",
-                  "offset": 121
+                  "offset": 97
                 },
                 {
-                  "val": "Yes",
-                  "offset": 130
+                  "val": "No",
+                  "offset": 106
                 },
                 {
                   "val": "25",
-                  "offset": 136
+                  "offset": 111
                 },
                 {
-                  "val": "01/09/2021",
-                  "offset": 141
+                  "val": "1/9/2021",
+                  "offset": 116
                 },
                 {
                   "val": "1.5",
-                  "offset": 154
+                  "offset": 127
                 },
                 {
                   "val": "800000",
-                  "offset": 160
+                  "offset": 133
                 },
                 {
                   "val": "800000",
-                  "offset": 169
+                  "offset": 142
                 },
                 {
                   "val": "India",
-                  "offset": 178
+                  "offset": 151
                 },
                 {
                   "val": "wardha",
-                  "offset": 186
+                  "offset": 159
                 },
                 {
                   "val": "Arvi naka",
-                  "offset": 195
+                  "offset": 168
                 },
                 {
                   "val": "455966",
-                  "offset": 207
+                  "offset": 180
                 },
                 {
                   "val": "Call",
-                  "offset": 216
+                  "offset": 189
                 },
                 {
                   "val": "800000",
-                  "offset": 223
+                  "offset": 196
                 },
                 {
                   "val": "4",
-                  "offset": 232
+                  "offset": 205
                 },
                 {
                   "val": "No",
-                  "offset": 236
+                  "offset": 209
                 },
                 {
                   "val": "No",
-                  "offset": 241
+                  "offset": 214
                 },
                 {
                   "val": "JAVA",
-                  "offset": 246
+                  "offset": 219
                 },
                 {
                   "val": "advanced java",
-                  "offset": 253
+                  "offset": 226
                 },
                 {
                   "val": "JavaScript",
-                  "offset": 269
+                  "offset": 242
                 },
                 {
                   "val": "Basic Knowledge",
-                  "offset": 282
+                  "offset": 255
                 },
                 {
                   "val": "Intermediate",
-                  "offset": 300
+                  "offset": 273
                 },
                 {
                   "val": "Expert",
-                  "offset": 315
+                  "offset": 288
                 },
                 {
                   "val": "Mandatory",
-                  "offset": 324
+                  "offset": 297
                 },
                 {
                   "val": "Preferred",
-                  "offset": 336
+                  "offset": 309
                 },
                 {
                   "val": "Optional",
-                  "offset": 348
-                },
-                {
-                  "val": "Yes",
-                  "offset": 359
+                  "offset": 321
                 },
                 {
                   "val": "No",
-                  "offset": 365
+                  "offset": 332
                 },
                 {
                   "val": "No",
-                  "offset": 370
+                  "offset": 337
+                },
+                {
+                  "val": "No",
+                  "offset": 342
                 },
                 {
                   "val": "provide certificate",
-                  "offset": 375
+                  "offset": 347
                 },
                 {
                   "val": "spring,hybernet",
-                  "offset": 397
+                  "offset": 369
                 },
                 {
                   "val": "advanced version",
-                  "offset": 415
+                  "offset": 387
                 },
                 {
                   "val": "sun microsoft",
-                  "offset": 434
+                  "offset": 406
                 },
                 {
                   "val": "advanced version",
-                  "offset": 452
+                  "offset": 424
                 }
               ],
-              "location": "JobCandidateWorkflowRegressionStepDefination.enter_All_details_of_and(String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String)"
+              "location": "JobCandidateWorkflowRegressionStepDefination.enter_All_details_of_and(String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String)"
             },
             "matchedColumns": [
-              3,
+              2,
               4,
               5,
               6,
@@ -448,278 +438,59 @@
               37,
               38,
               39,
-              40,
-              41
+              40
             ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 612,
+            "name": "enter as expertise level as \"Not Answered\"",
+            "match": {},
             "keyword": "And "
           },
           {
             "result": {
               "status": "skipped"
             },
-            "line": 204,
-            "name": "verify candidate card is displaying or not in New column \"hirecan11\"",
+            "line": 613,
+            "name": "The candidate whose skill expert level is set as Not answer for that candidate card there should show bell icon",
             "match": {
-              "arguments": [
-                {
-                  "val": "hirecan11",
-                  "offset": 58
-                }
-              ],
-              "location": "taskRegression.verify_candidate_card_is_displaying_or_not_in_New_column(String)"
+              "location": "JobCandidateWorkflowRegressionStepDefination.the_candidate_whose_skill_expert_level_is_set_as_Not_answer_for_that_candidate_card_there_should_show_bell_icon()"
             },
-            "matchedColumns": [
-              5
-            ],
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 205,
-            "name": "logout as employer and login as new candidate added by employer \"hirecan11@gmail.com\" \"12345\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "hirecan11@gmail.com",
-                  "offset": 65
-                },
-                {
-                  "val": "12345",
-                  "offset": 87
-                }
-              ],
-              "location": "JobCandidateWorkflowRegressionStepDefination.logout_as_employer_and_login_as_new_candidate_added_by_employer(String,String)"
-            },
-            "matchedColumns": [
-              2,
-              3
-            ],
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "comments": [
-              {
-                "line": 206,
-                "value": "#And click on ok button of confirmation popup"
-              }
-            ],
-            "line": 207,
-            "name": "Click on Profile tab",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Profile_tab()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 208,
-            "name": "verify the Auto Populated fields on candidate update profile popup window \"pemp@gmail.com\",\"hirecan11@gmail.com\",\"jr software developer\",\"hirecan11\",\"9899648538\",\"Sr.developer\",\"14/02/1995\",\"Female\",\"Yes\",\"25\",\"01/09/2021\",\"1.5\",\"800000\",\"800000\",\"India\",\"wardha\",\"Arvi naka\",\"455966\",\"Call\",\"No\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "pemp@gmail.com",
-                  "offset": 75
-                },
-                {
-                  "val": "hirecan11@gmail.com",
-                  "offset": 92
-                },
-                {
-                  "val": "jr software developer",
-                  "offset": 114
-                },
-                {
-                  "val": "hirecan11",
-                  "offset": 138
-                },
-                {
-                  "val": "9899648538",
-                  "offset": 150
-                },
-                {
-                  "val": "Sr.developer",
-                  "offset": 163
-                },
-                {
-                  "val": "14/02/1995",
-                  "offset": 178
-                },
-                {
-                  "val": "Female",
-                  "offset": 191
-                },
-                {
-                  "val": "Yes",
-                  "offset": 200
-                },
-                {
-                  "val": "25",
-                  "offset": 206
-                },
-                {
-                  "val": "01/09/2021",
-                  "offset": 211
-                },
-                {
-                  "val": "1.5",
-                  "offset": 224
-                },
-                {
-                  "val": "800000",
-                  "offset": 230
-                },
-                {
-                  "val": "800000",
-                  "offset": 239
-                },
-                {
-                  "val": "India",
-                  "offset": 248
-                },
-                {
-                  "val": "wardha",
-                  "offset": 256
-                },
-                {
-                  "val": "Arvi naka",
-                  "offset": 265
-                },
-                {
-                  "val": "455966",
-                  "offset": 277
-                },
-                {
-                  "val": "Call",
-                  "offset": 286
-                },
-                {
-                  "val": "No",
-                  "offset": 293
-                }
-              ],
-              "location": "JobCandidateWorkflowRegressionStepDefination.verify_the_Auto_Populated_fields_on_candidate_update_profile_popup_window(String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String)"
-            },
-            "matchedColumns": [
-              0,
-              3,
-              4,
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              24
-            ],
             "keyword": "Then "
           },
           {
             "result": {
               "status": "skipped"
             },
-            "line": 209,
-            "name": "Select the On Notice Period field and set Last working day on Update Profile page \"Yes\",\"01/09/2021\"",
+            "line": 614,
+            "name": "Click on Edit Candidate icon on candidate card \"hirecan30\"",
             "match": {
               "arguments": [
                 {
-                  "val": "Yes",
-                  "offset": 83
-                },
-                {
-                  "val": "01/09/2021",
-                  "offset": 89
+                  "val": "hirecan30",
+                  "offset": 48
                 }
               ],
-              "location": "JobCandidateWorkflowRegressionStepDefination.select_the_On_Notice_Period_field_and_set_Last_working_day_on_Update_Profile_page(String,String)"
+              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Edit_Candidate_icon_on_candidate_card(String)"
             },
             "matchedColumns": [
-              10,
-              12
+              4
             ],
             "keyword": "And "
           },
           {
             "result": {
-              "status": "skipped"
+              "status": "undefined"
             },
-            "line": 210,
-            "name": "set looking for job as yes",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.set_looking_for_job_as_yes()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 211,
-            "name": "Click on save btn",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_save_btn()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 212,
-            "name": "click on ok button",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_ok_button()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 213,
-            "name": "click on Skills \u0026 Roles tab",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Skills_Roles_tab()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 214,
-            "name": "add skill, expertise level and certificate \"JAVA\" \"Basic Knowledge\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "JAVA",
-                  "offset": 44
-                },
-                {
-                  "val": "Basic Knowledge",
-                  "offset": 51
-                }
-              ],
-              "location": "JobCandidateWorkflowRegressionStepDefination.add_skill_expertise_level_and_certificate(String,String)"
-            },
+            "line": 615,
+            "name": "select different expertise level for the skill which is having expert level as not answer \"Basic Knowledge\" \"Intermediate\" \"Intermediate\"",
+            "match": {},
             "matchedColumns": [
-              25,
+              27,
               28
             ],
             "keyword": "And "
@@ -728,35 +499,10 @@
             "result": {
               "status": "skipped"
             },
-            "line": 215,
-            "name": "add same skill, expertise level and certificate \"JAVA\" \"Basic Knowledge\"",
+            "line": 616,
+            "name": "Click on save button for edit candidate",
             "match": {
-              "arguments": [
-                {
-                  "val": "JAVA",
-                  "offset": 49
-                },
-                {
-                  "val": "Basic Knowledge",
-                  "offset": 56
-                }
-              ],
-              "location": "JobCandidateWorkflowRegressionStepDefination.add_same_skill_expertise_level_and_certificate(String,String)"
-            },
-            "matchedColumns": [
-              25,
-              28
-            ],
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 216,
-            "name": "Click on save btn for skill",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_save_btn_for_skill()"
+              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_save_button_for_edit_candidate()"
             },
             "keyword": "And "
           },
@@ -764,287 +510,26 @@
             "result": {
               "status": "skipped"
             },
-            "line": 217,
-            "name": "Verify that user get an alert message as \"Same skill entered more than one time.\" for adding duplicate skills",
+            "line": 617,
+            "name": "when user set expertise level other than Not answer in edit candidate at that time bell icon should removed from candidate card",
             "match": {
-              "arguments": [
-                {
-                  "val": "Same skill entered more than one time.",
-                  "offset": 42
-                }
-              ],
-              "location": "JobCandidateWorkflowRegressionStepDefination.verify_that_user_get_an_alert_message_as_for_adding_duplicate_skills(String)"
+              "location": "JobCandidateWorkflowRegressionStepDefination.when_user_set_expertise_level_other_than_Not_answer_in_edit_candidate_at_that_time_bell_icon_should_removed_from_candidate_card()"
             },
             "keyword": "Then "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 218,
-            "name": "click on ok button",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_ok_button()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 219,
-            "name": "delete duplicate skill",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.delete_duplicate_skill()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 220,
-            "name": "click on ok button",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_ok_button()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 221,
-            "name": "Now Click on Add Skill button to add more than ten skills",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.now_Click_on_Add_Skill_button_to_add_more_than_ten_skills()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 222,
-            "name": "Verify that user get an alert message as \"Skills adding limit is 10.\" for adding more than ten skills",
-            "match": {
-              "arguments": [
-                {
-                  "val": "Skills adding limit is 10.",
-                  "offset": 42
-                }
-              ],
-              "location": "JobCandidateWorkflowRegressionStepDefination.verify_that_user_get_an_alert_message_as_for_adding_more_than_ten_skills(String)"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 223,
-            "name": "click on ok button",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_ok_button()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 224,
-            "name": "click on Delete Skill button in front of any skill for candidate",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Delete_Skill_button_in_front_of_any_skill_for_candidate()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 225,
-            "name": "click on Add Designation button",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Add_Designation_button()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 226,
-            "name": "add duplicate designation \"Sr.developer\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "Sr.developer",
-                  "offset": 27
-                }
-              ],
-              "location": "JobCandidateWorkflowRegressionStepDefination.add_duplicate_designation(String)"
-            },
-            "matchedColumns": [
-              7
-            ],
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 227,
-            "name": "Click on save btn for designation",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_save_btn_for_designation()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 228,
-            "name": "Verify that user get an alert message as \"Same designation entered more than one time.\" for adding duplicate designations",
-            "match": {
-              "arguments": [
-                {
-                  "val": "Same designation entered more than one time.",
-                  "offset": 42
-                }
-              ],
-              "location": "JobCandidateWorkflowRegressionStepDefination.verify_that_user_get_an_alert_message_as_for_adding_duplicate_designations(String)"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 229,
-            "name": "click on ok button",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_ok_button()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 230,
-            "name": "delete duplicate designation",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.delete_duplicate_designation()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 231,
-            "name": "Now Click on Add designation button to add more than ten designation",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.now_Click_on_Add_designation_button_to_add_more_than_ten_designation()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "comments": [
-              {
-                "line": 232,
-                "value": "#And Click on save btn for designation"
-              }
-            ],
-            "line": 233,
-            "name": "Verify that user get an alert message as \"Designations adding limit is 10.\" for adding more than ten designation",
-            "match": {
-              "arguments": [
-                {
-                  "val": "Designations adding limit is 10.",
-                  "offset": 42
-                }
-              ],
-              "location": "JobCandidateWorkflowRegressionStepDefination.verify_that_user_get_an_alert_message_as_for_adding_more_than_ten_designation(String)"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 234,
-            "name": "click on ok button",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_ok_button()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "comments": [
-              {
-                "line": 235,
-                "value": "#And click on Delete designation button in front of any designation for candidate"
-              }
-            ],
-            "line": 236,
-            "name": "click on Personal \u0026 Professional tab",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Personal_Professional_tab()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 237,
-            "name": "set looking for job as No",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.set_looking_for_job_as_No()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 238,
-            "name": "Click on save btn",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_save_btn()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 239,
-            "name": "click on ok button",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_ok_button()"
-            },
-            "keyword": "And "
           }
         ],
         "tags": [
           {
-            "line": 190,
-            "name": "@reg1"
+            "line": 598,
+            "name": "@run"
           },
           {
-            "line": 190,
+            "line": 598,
             "name": "@Regression"
+          },
+          {
+            "line": 598,
+            "name": "@reg11"
           }
         ]
       }

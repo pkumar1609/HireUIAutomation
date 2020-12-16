@@ -94,14 +94,13 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	public void click_on_Job_drop_down_and_select_recently_added_job() throws Throwable {
 	    
 		Thread.sleep(3000);
-		workbenchpage.selectJob();
+		workbenchpage.selectJobK();
 	}
 
 	@Then("^click on Edit Job button to make changes in job$")
 	public void click_on_Edit_Job_button_to_make_changes_in_job() throws Throwable {
-
-		workbenchpage.clickonthreedot();
 		Thread.sleep(3000);
+		workbenchpage.job.click();	
 		workbenchpage.editJobButton.click();
 	}
 

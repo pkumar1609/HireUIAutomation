@@ -94,11 +94,12 @@ public class loginstepdefination extends baseclass {
 		Assert.assertEquals(ele, true);
 	}
 	
-	@And("^delete the added team$")
-	public void delete_the_added_team() throws InterruptedException  {
-		teampage.deleteteamK();
-	}
+
 	
+	@Then("^delete the added team \"([^\"]*)\"$")
+	public void delete_the_added_team(String team) throws Throwable {
+		teampage.deleteteamK(team);
+	}
 	@And("^agency enters valid credentials$")
 	public void agency_enters_valid_credentials() throws InterruptedException {
 		loginpage.loginInAppWithAgyK();
@@ -128,11 +129,13 @@ public class loginstepdefination extends baseclass {
 
 
 	
-	@And("^delete the added employer$")
-	public void delete_the_added_employer() throws InterruptedException {
+
+
+	@Then("^delete the added employer \"([^\"]*)\"$")
+	public void delete_the_added_employer(String team) throws Throwable {
 		Thread.sleep(1000);	
-		employerspage.deleteUser();
-        }
+		employerspage.deleteUser(team);
+	}
 
 	@Then("^deleted employer should not be display on page$")
 	public void deleted_employer_should_not_be_display_on_page() throws Throwable {
@@ -140,10 +143,10 @@ public class loginstepdefination extends baseclass {
 //		Assert.assertEquals(isEmployerPresent, false);
 	}
 	
-	@Then("^delete the added agency$")
-	public void delete_the_added_agency() throws Throwable {
+	@Then("^delete the added agency \\\"([^\\\"]*)\\\"$")
+	public void delete_the_added_agency(String agency) throws Throwable {
 		Thread.sleep(1000);	
-		employerspage.deleteUser();
+		employerspage.deleteUser(agency);
 	}
 	
 	@Then("^Agency should be able to add team$")

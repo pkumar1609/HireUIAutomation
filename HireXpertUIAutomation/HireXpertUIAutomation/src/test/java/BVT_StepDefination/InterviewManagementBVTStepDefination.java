@@ -4,6 +4,7 @@ package BVT_StepDefination;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import cucumber.api.java.en.Then;
@@ -31,16 +32,12 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	@When("^fill all interview details and click on Submit button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void fill_all_interview_details_and_click_on_Submit_button(String Title, String Scheduleon, String Hour, String Minute, String Duration, String TimeZone) throws Throwable {
 	    
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		scheduleinterviewpage.title.sendKeys(Title);
-		Thread.sleep(1000);
 		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
 		common.enterdate(Scheduleon);
-		Thread.sleep(1000);
 		scheduleinterviewpage.hours.sendKeys(Hour);
-		Thread.sleep(1000);
 		scheduleinterviewpage.minutes.sendKeys(Minute);
-		Thread.sleep(1000);
 		
 		Select se = new Select(scheduleinterviewpage.duration);
 		se.selectByVisibleText(Duration);
@@ -62,7 +59,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	
 	@When("^click on close button from Interview details page$")
 	public void click_on_close_button_from_Interview_details_page() throws Throwable {
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		common.closebtn.click();
 	}
 
@@ -100,12 +97,11 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		Thread.sleep(2000);
 		scheduleinterviewpage.editInterviewIcon.click();
 		scheduleinterviewpage.hours.clear();
-		scheduleinterviewpage.hours.sendKeys(hour);
-		Thread.sleep(1000);
+		scheduleinterviewpage.hours.sendKeys(hour);		
 		Select se = new Select(scheduleinterviewpage.duration);
 		se.selectByVisibleText(duration);
+		Thread.sleep(1000);
 		common.submitbtn.click();
-		Thread.sleep(3000);
 	}
 	
 	
@@ -114,16 +110,17 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		
 	}
 
-	@Then("^click on Edit Interview icon present on the left corner just beside of Cancel Interview icon$")
-	public void click_on_Edit_Interview_icon_present_on_the_left_corner_just_beside_of_Cancel_Interview_icon() throws Throwable {
-		Thread.sleep(4000); 
-		executor.executeScript("arguments[0].click();", scheduleinterviewpage.editInterviewIcon);
+	@Then("^click on Edit Interview icon present on the left corner just beside of Cancel Interview icon \"([^\"]*)\"$")
+	public void click_on_Edit_Interview_icon_present_on_the_left_corner_just_beside_of_Cancel_Interview_icon(String title) throws Throwable {
+		Thread.sleep(5000); 	
+		driver.findElement(By.xpath("//h6[text()='"+title+"']//following::button[@title='Edit Interview']")).click();
 	}
 	
 	@Then("^make some changes and click on Submit button \"([^\"]*)\"$")
 	public void make_some_changes_and_click_on_Submit_button(String scheduleon1) throws Throwable {	    
 		Thread.sleep(4000);		
-		executor.executeScript("arguments[0].click();", scheduleinterviewpage.ScheduleOnCalendarIcon);
+		driver.findElement(By.xpath("//button[@aria-label='Clear Date']")).click();
+		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
 		common.enterdate(scheduleon1);
 		common.ClickSumbit();
 	}
@@ -149,32 +146,35 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	
 	@Then("^Select the filters for which you want candidate interview details and click on Search button \"([^\"]*)\"$")
 	public void select_the_filters_for_which_you_want_candidate_interview_details_and_click_on_Search_button(String scheduleon1) throws Throwable {
-		Select se = new Select(interviewspage.jobDropdown);
-		se.selectByVisibleText(addjobpage.jobname);
-		Thread.sleep(2000);
-		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
-		common.enterdate(scheduleon1);
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("(//button[@aria-label='Open Calendar'])[3]")).click();
-		common.enterdate(scheduleon1);
-		Thread.sleep(2000);
-		interviewspage.searchButton.click();
+//		Select se = new Select(interviewspage.jobDropdown);
+//		se.selectByVisibleText(addjobpage.jobname);
+//		Thread.sleep(2000);
+//		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
+//		common.enterdate(scheduleon1);
+//		Thread.sleep(2000);
+//		driver.findElement(By.xpath("(//button[@aria-label='Open Calendar'])[3]")).click();
+//		common.enterdate(scheduleon1);
+//		Thread.sleep(2000);
+//		interviewspage.searchButton.click();
+		common.searchField.sendKeys(scheduleon1);
 	}
-
 	
-	
-	
-
-
-	@Then("^Interview details should be reflect according to the filter applied$")
-	public void interview_details_should_be_reflect_according_to_the_filter_applied() throws Throwable {
-	    
-		Thread.sleep(1000);
-		interviewspage.findInterviewDetails();
-		Thread.sleep(1000);
-		common.clickOnCloseBtn();
+	@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
+	public void enter_All_details_of_and(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2,String remark3,String certificateforskill1, String certificateforskill2) throws Throwable {
+		workbenchpage.enterEmailId(CandidateEmail);
+		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
+		addcandidatepage.addSkill(level1, level2, level3,certificate1, certificate2,certificate3,certificateforskill1, certificateforskill2);
+		addcandidatepage.uploadResumeDocument();
+		common.clickOnSaveBtn(); 
+		addcandidatepage.checkCandidateALreadyPresent();
 	}
+	
+	@Then("^Interview details should be reflect according to the filter applied \"([^\"]*)\" \"([^\"]*)\"$")
+	public void interview_details_should_be_reflect_according_to_the_filter_applied(String scheduleOn, String Name) throws Throwable {
+		String date=common.displayDate(scheduleOn);
+		Assert.assertEquals(driver.findElement(By.xpath("//th[text()=' "+date+" ']//following::h6[contains(text(),' "+Name+"')]")).isDisplayed(), true);
 
+	}
 	
 	@Then("^click on close job button and delete the job$")
 	public void click_on_close_job_button_and_delete_the_job() throws Throwable {

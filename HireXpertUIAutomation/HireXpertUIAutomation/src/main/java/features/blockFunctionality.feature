@@ -1,6 +1,6 @@
 Feature: Job Management
 
-@bvt_agencyblock @block @Bvtc
+#@bvt_agencyblock @block @Bvtc
   Scenario Outline: Verify the Block functionality for Agency with Employer login
   
  	Given User is on Home page of application
