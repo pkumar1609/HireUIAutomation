@@ -1,6 +1,6 @@
 Feature: UserAccount Feature
 
-@TC47_51 @Bvtc @login
+@TC47_51 @BVT @login
 Scenario: To verify whether the employer is able to add agency.
 
 Given User must be registered
@@ -20,7 +20,7 @@ And delete the added agency "pagy1"
 Then Close browser
 
 
-@TC48_52 @Bvtc @login
+@TC48_52 @BVT @login
 Scenario: To verify whether the employer is able to add team
 
 Given User must be registered
@@ -39,7 +39,7 @@ Then the employer with which you have logged in should display in team tab by de
 And delete the added team "pe2"
 Then Close browser
 
-@TC49_53 @Bvtc @login
+@TC49_53 @BVT @login
 Scenario: To verify whether the Agency is able to add and delete employer
 
 Given User must be registered
@@ -59,7 +59,7 @@ Then deleted employer should not be display on page
 Then Close browser
 
 
-@TC50_54 @Bvtc @login
+@TC50_54 @BVT @login
 Scenario: To verify whether the Agency is able to add and delete team
 
 Given User must be registered

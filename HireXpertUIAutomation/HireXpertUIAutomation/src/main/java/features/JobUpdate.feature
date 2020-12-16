@@ -1,4 +1,4 @@
-Feature: Job Management
+Feature: Job Update
 
 @BVT @jobupdate
   Scenario Outline: To verify user is able to add and edit job for Employer and Agency login

@@ -1,4 +1,4 @@
-Feature: Hirexpert Job Candidate Workflow feature
+Feature: Job Candidate Workflow feature
 
 @cleanup
 Scenario Outline: cleanup
@@ -15,7 +15,7 @@ Examples:
 |pagy@gmail.com|12345   |
 
 
-@BVT @JCWF1
+@BVT @JCWF
 Scenario Outline: Verify the functionality of Add, Edit & Delete Candidate with Employer login
 
 Given User must be registered
@@ -105,7 +105,7 @@ Examples:
 # If DB clear, register the employer first = employermain01@gmail.com. otherwise no change required
 
  
-@BVT @JCWF3 
+@BVT @JCWF
 Scenario Outline: Verify the functionality of Screening tab 
 
 Given User must be registered
@@ -143,7 +143,7 @@ Examples:
 
 
 
-@BVT @JCWF4
+@BVT @JCWF
 Scenario Outline: To verify that Questionnarie and Screening tab not displayed when log in with Agency and To verify 'Interviewer'dropdown 
 on Schedule interview popup when login with Agency
 
