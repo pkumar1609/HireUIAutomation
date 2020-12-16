@@ -3,56 +3,86 @@
     "line": 1,
     "elements": [
       {
-        "line": 621,
-        "name": "Verify functionality of bell icon on candidate card.",
+        "comments": [
+          {
+            "line": 42,
+            "value": "#    |pemp@gmail.com | 12345   | hirecan15@gmail.com    | hirecan15   |   9125671966     |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     | 30 Minutes |   (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 45 Minutes | 21/12/2020 |25/12/2020  |"
+          }
+        ],
+        "before": [
+          {
+            "result": {
+              "duration": 2066900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MarketplaceBvt.setup()"
+            }
+          },
+          {
+            "result": {
+              "duration": 1591600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "loginstepdefination.setup()"
+            }
+          }
+        ],
+        "line": 43,
+        "name": "To verify the functionality of scheduled interview with Employer and Agency login",
         "description": "",
-        "id": "hirexpert-job-candidate-workflow-feature;verify-functionality-of-bell-icon-on-candidate-card.;;2",
+        "id": "interview-management;to-verify-the-functionality-of-scheduled-interview-with-employer-and-agency-login;;2",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "status": "skipped"
+              "duration": 8185489700,
+              "status": "passed"
             },
-            "line": 601,
-            "name": "Open browser",
+            "line": 5,
+            "name": "User must be registered",
             "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.open_browser()"
+              "location": "loginstepdefination.user_must_be_registered()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 7075700,
+              "status": "passed"
             },
-            "line": 602,
+            "line": 7,
             "name": "title of login page is Home",
             "match": {
-              "location": "UserAccount.title_of_login_page_is_Home()"
+              "location": "loginstepdefination.title_of_login_page_is_Home()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 3304078500,
+              "status": "passed"
             },
-            "line": 603,
+            "line": 8,
             "name": "Click on Employer-Agency Signin link",
             "match": {
-              "location": "UserAccount.click_on_Employer_Agency_Signin_link()"
+              "location": "loginstepdefination.click_on_Employer_Agency_Signin_link()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 50630944400,
+              "status": "passed"
             },
-            "line": 604,
-            "name": "Employer enters valid credentials \"pemp@gmail.com\",\"12345\"",
+            "line": 9,
+            "name": "Employer enters valid credentials \"pagy@gmail.com\",\"12345\"",
             "match": {
               "arguments": [
                 {
-                  "val": "pemp@gmail.com",
+                  "val": "pagy@gmail.com",
                   "offset": 35
                 },
                 {
@@ -60,7 +90,7 @@
                   "offset": 52
                 }
               ],
-              "location": "taskRegression.employer_enters_valid_credentials(String,String)"
+              "location": "taskBWT.employer_enters_valid_credentials(String,String)"
             },
             "matchedColumns": [
               0,
@@ -70,474 +100,198 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 6282449700,
+              "status": "passed"
             },
-            "line": 605,
-            "name": "Go to Workbench",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.go_to_Workbench()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 606,
-            "name": "Add job \"JAVA\",\"advanced java\",\"JavaScript\",\"Basic Knowledge\",\"Intermediate\",\"Expert\",\"Mandatory\",\"Preferred\",\"Optional\",\"No\",\"No\",\"No\",\"provide certificate\",\"spring,hybernet\" and \"advanced version\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "JAVA",
-                  "offset": 9
-                },
-                {
-                  "val": "advanced java",
-                  "offset": 16
-                },
-                {
-                  "val": "JavaScript",
-                  "offset": 32
-                },
-                {
-                  "val": "Basic Knowledge",
-                  "offset": 45
-                },
-                {
-                  "val": "Intermediate",
-                  "offset": 63
-                },
-                {
-                  "val": "Expert",
-                  "offset": 78
-                },
-                {
-                  "val": "Mandatory",
-                  "offset": 87
-                },
-                {
-                  "val": "Preferred",
-                  "offset": 99
-                },
-                {
-                  "val": "Optional",
-                  "offset": 111
-                },
-                {
-                  "val": "No",
-                  "offset": 122
-                },
-                {
-                  "val": "No",
-                  "offset": 127
-                },
-                {
-                  "val": "No",
-                  "offset": 132
-                },
-                {
-                  "val": "provide certificate",
-                  "offset": 137
-                },
-                {
-                  "val": "spring,hybernet",
-                  "offset": 159
-                },
-                {
-                  "val": "advanced version",
-                  "offset": 181
-                }
-              ],
-              "location": "JobCandidateWorkflowRegressionStepDefination.add_jobskill_and(String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,DataTable)"
-            },
-            "matchedColumns": [
-              32,
-              33,
-              34,
-              35,
-              36,
-              37,
-              38,
-              24,
-              25,
-              26,
-              27,
-              28,
-              29,
-              30,
-              31
-            ],
-            "rows": [
+            "comments": [
               {
-                "cells": [
-                  "title",
-                  "agytitle",
-                  "designation",
-                  "industry",
-                  "location",
-                  "budget",
-                  "minexp",
-                  "maxexp",
-                  "minsal",
-                  "maxsal",
-                  "Name",
-                  "Email",
-                  "contact",
-                  "totalinterviews",
-                  "organization",
-                  "agyorganization",
-                  "functionalArea"
-                ],
-                "line": 607
+                "line": 10,
+                "value": "#    And Go to Workbench"
               },
               {
-                "cells": [
-                  "JCFW 14",
-                  "JCFWagy 14",
-                  "developer",
-                  "IT software",
-                  "pune",
-                  "400000",
-                  "1",
-                  "2",
-                  "450000",
-                  "800000",
-                  "pe1",
-                  "pe1@gmail.com",
-                  "1234564",
-                  "2",
-                  "Hirexpert",
-                  "rahitech",
-                  "java"
-                ],
-                "line": 608
+                "line": 11,
+                "value": "#\tAnd Add job"
+              },
+              {
+                "line": 12,
+                "value": "#\t|title          |agytitle        |designation  |industry   |jobrole         |location     |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|functionalArea|"
+              },
+              {
+                "line": 13,
+                "value": "#\t|Interview Job  |Interview Agy Job| developer   |IT software|java developer  |Viman nagar  |400000 |1     |2     |400000|500000|4|talentxpert|java|"
+              },
+              {
+                "line": 14,
+                "value": "#\tAnd Select a added job"
+              },
+              {
+                "line": 15,
+                "value": "#\tAnd Click on add candidate"
+              },
+              {
+                "line": 16,
+                "value": "#\tAnd Enter All details of \"\u003cCandidateEmail\u003e\",\"\u003cName\u003e\",\"\u003cContactNumber\u003e\",\"\u003cDesignation\u003e\",\"\u003cDate\u003e\",\"\u003cGender\u003e\",\"\u003cOnNoticePeriod\u003e\",\"\u003cNoticePeriod\u003e\",\"\u003cLastWorkingDay\u003e\",\"\u003cexperience\u003e\",\"\u003cCTC\u003e\",\"\u003cexpectedCTC\u003e\",\"\u003cCountry\u003e\",\"\u003cCity\u003e\",\"\u003cCityArea\u003e\",\"\u003cZipCode\u003e\",\"\u003cCommunicationmode\u003e\",\"\u003cSalaryoffered\u003e\",\"\u003cdistance\u003e\",\"\u003cpermanentAddress\u003e\",\"\u003crelocate\u003e\",\"\u003cSkill1\u003e\",\"\u003cSkill2\u003e\",\"\u003cSkill3\u003e\",\"\u003clevel1\u003e\",\"\u003clevel2\u003e\",\"\u003clevel3\u003e\",\"\u003cWeightage1\u003e\",\"\u003cWeightage2\u003e\",\"\u003cWeightage3\u003e\",\"\u003ccertificate1\u003e\",\"\u003ccertificate2\u003e\",\"\u003ccertificate3\u003e\",\"\u003cremark1\u003e\",\"\u003cremark2\u003e\",\"\u003cremark3\u003e\",\"\u003ccertificateforskill1\u003e\"and\"\u003ccertificateforskill2\u003e\""
+              },
+              {
+                "line": 17,
+                "value": "#    And observe candidate is getting added in New column"
+              },
+              {
+                "line": 18,
+                "value": "#    And click on Schedule Interview icon from candidate card"
+              },
+              {
+                "line": 19,
+                "value": "#    And fill all interview details and click on Submit button \"\u003cTitle\u003e\" \"\u003cscheduleon\u003e\" \"\u003cHour\u003e\" \"\u003cMinute\u003e\" \"\u003cDuration\u003e\" \"\u003cTimeZone\u003e\""
+              },
+              {
+                "line": 20,
+                "value": "#    And click on close button from Interview details page"
+              },
+              {
+                "line": 21,
+                "value": "#    And Click on Reload job button"
+              },
+              {
+                "line": 22,
+                "value": "#    And observe the interview date and time displayed on candidate card below Assign To field \"\u003cscheduleon\u003e\""
+              },
+              {
+                "line": 23,
+                "value": "#    And click on Reload Candidate button and observe"
+              },
+              {
+                "line": 24,
+                "value": "#    And click on Edit Interview icon in front of interview details like date and time"
+              },
+              {
+                "line": 25,
+                "value": "#    And make some changes in interview details and click on Submit button \"\u003chour\u003e\" \"\u003cduration\u003e\""
+              },
+              {
+                "line": 26,
+                "value": "#    Then User should be able to update scheduled interview details and updated details should display properly"
+              },
+              {
+                "line": 27,
+                "value": "#    And click on close button from Interview details page"
+              },
+              {
+                "line": 28,
+                "value": "#    And now click on Schedule interview icon on candiadte card"
+              },
+              {
+                "line": 29,
+                "value": "#    And click on Edit Interview icon present on the left corner just beside of Cancel Interview icon \"\u003cTitle\u003e\""
+              },
+              {
+                "line": 30,
+                "value": "#    And make some changes and click on Submit button \"\u003cscheduleon1\u003e\""
+              },
+              {
+                "line": 31,
+                "value": "#    And click on close button from Interview details page"
+              },
+              {
+                "line": 32,
+                "value": "#    And click on Reload Candidate button and observe"
+              },
+              {
+                "line": 33,
+                "value": "#    And observe the interview date and time displayed on candidate card below Assign To field \"\u003cscheduleon1\u003e\""
+              },
+              {
+                "line": 34,
+                "value": "#    And click on Reload Candidate button and observe"
               }
+            ],
+            "line": 35,
+            "name": "click on Interviews tab",
+            "match": {
+              "location": "InterviewManagementBVTStepDefination.click_on_Interviews_tab()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 13742205400,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "Select the filters for which you want candidate interview details and click on Search button \"25/12/2020\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "25/12/2020",
+                  "offset": 94
+                }
+              ],
+              "location": "InterviewManagementBVTStepDefination.select_the_filters_for_which_you_want_candidate_interview_details_and_click_on_Search_button(String)"
+            },
+            "matchedColumns": [
+              32
             ],
             "keyword": "And "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 66533400,
+              "status": "passed"
             },
-            "line": 609,
-            "name": "Select a added job",
-            "match": {
-              "location": "taskRegression.select_a_added_job()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 610,
-            "name": "Click on add candidate",
-            "match": {
-              "location": "taskRegression.click_on_add_candidate()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 611,
-            "name": "Enter All details of \"hirecan30@gmail.com\",\"hirecan30\",\"9545866385\",\"Sr.developer\",\"19/04/1995\",\"Female\",\"No\",\"25\",\"1/9/2021\",\"1.5\",\"800000\",\"800000\",\"India\",\"wardha\",\"Arvi naka\",\"455966\",\"Call\",\"800000\",\"4\",\"No\",\"No\",\"JAVA\",\"advanced java\",\"JavaScript\",\"Basic Knowledge\",\"Intermediate\",\"Expert\",\"Mandatory\",\"Preferred\",\"Optional\",\"No\",\"No\",\"No\",\"provide certificate\",\"spring,hybernet\",\"advanced version\",\"sun microsoft\"and\"advanced version\"",
+            "line": 37,
+            "name": "Interview details should be reflect according to the filter applied \"25/12/2020\" \"hirecan16\"",
             "match": {
               "arguments": [
                 {
-                  "val": "hirecan30@gmail.com",
-                  "offset": 22
-                },
-                {
-                  "val": "hirecan30",
-                  "offset": 44
-                },
-                {
-                  "val": "9545866385",
-                  "offset": 56
-                },
-                {
-                  "val": "Sr.developer",
+                  "val": "25/12/2020",
                   "offset": 69
                 },
                 {
-                  "val": "19/04/1995",
-                  "offset": 84
-                },
-                {
-                  "val": "Female",
-                  "offset": 97
-                },
-                {
-                  "val": "No",
-                  "offset": 106
-                },
-                {
-                  "val": "25",
-                  "offset": 111
-                },
-                {
-                  "val": "1/9/2021",
-                  "offset": 116
-                },
-                {
-                  "val": "1.5",
-                  "offset": 127
-                },
-                {
-                  "val": "800000",
-                  "offset": 133
-                },
-                {
-                  "val": "800000",
-                  "offset": 142
-                },
-                {
-                  "val": "India",
-                  "offset": 151
-                },
-                {
-                  "val": "wardha",
-                  "offset": 159
-                },
-                {
-                  "val": "Arvi naka",
-                  "offset": 168
-                },
-                {
-                  "val": "455966",
-                  "offset": 180
-                },
-                {
-                  "val": "Call",
-                  "offset": 189
-                },
-                {
-                  "val": "800000",
-                  "offset": 196
-                },
-                {
-                  "val": "4",
-                  "offset": 205
-                },
-                {
-                  "val": "No",
-                  "offset": 209
-                },
-                {
-                  "val": "No",
-                  "offset": 214
-                },
-                {
-                  "val": "JAVA",
-                  "offset": 219
-                },
-                {
-                  "val": "advanced java",
-                  "offset": 226
-                },
-                {
-                  "val": "JavaScript",
-                  "offset": 242
-                },
-                {
-                  "val": "Basic Knowledge",
-                  "offset": 255
-                },
-                {
-                  "val": "Intermediate",
-                  "offset": 273
-                },
-                {
-                  "val": "Expert",
-                  "offset": 288
-                },
-                {
-                  "val": "Mandatory",
-                  "offset": 297
-                },
-                {
-                  "val": "Preferred",
-                  "offset": 309
-                },
-                {
-                  "val": "Optional",
-                  "offset": 321
-                },
-                {
-                  "val": "No",
-                  "offset": 332
-                },
-                {
-                  "val": "No",
-                  "offset": 337
-                },
-                {
-                  "val": "No",
-                  "offset": 342
-                },
-                {
-                  "val": "provide certificate",
-                  "offset": 347
-                },
-                {
-                  "val": "spring,hybernet",
-                  "offset": 369
-                },
-                {
-                  "val": "advanced version",
-                  "offset": 387
-                },
-                {
-                  "val": "sun microsoft",
-                  "offset": 406
-                },
-                {
-                  "val": "advanced version",
-                  "offset": 424
+                  "val": "hirecan16",
+                  "offset": 82
                 }
               ],
-              "location": "JobCandidateWorkflowRegressionStepDefination.enter_All_details_of_and(String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String,String)"
+              "location": "InterviewManagementBVTStepDefination.interview_details_should_be_reflect_according_to_the_filter_applied(String,String)"
             },
             "matchedColumns": [
-              2,
-              4,
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              29,
-              30,
-              31,
               32,
-              33,
-              34,
-              35,
-              36,
-              37,
-              38,
-              39,
-              40
+              3
             ],
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 612,
-            "name": "enter as expertise level as \"Not Answered\"",
-            "match": {},
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 613,
-            "name": "The candidate whose skill expert level is set as Not answer for that candidate card there should show bell icon",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.the_candidate_whose_skill_expert_level_is_set_as_Not_answer_for_that_candidate_card_there_should_show_bell_icon()"
-            },
             "keyword": "Then "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 5672003100,
+              "status": "passed"
             },
-            "line": 614,
-            "name": "Click on Edit Candidate icon on candidate card \"hirecan30\"",
+            "line": 38,
+            "name": "close the browser",
             "match": {
-              "arguments": [
-                {
-                  "val": "hirecan30",
-                  "offset": 48
-                }
-              ],
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_Edit_Candidate_icon_on_candidate_card(String)"
-            },
-            "matchedColumns": [
-              4
-            ],
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 615,
-            "name": "select different expertise level for the skill which is having expert level as not answer \"Basic Knowledge\" \"Intermediate\" \"Intermediate\"",
-            "match": {},
-            "matchedColumns": [
-              27,
-              28
-            ],
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 616,
-            "name": "Click on save button for edit candidate",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.click_on_save_button_for_edit_candidate()"
+              "location": "invaliddatasteps.close_the_browser()"
             },
             "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 617,
-            "name": "when user set expertise level other than Not answer in edit candidate at that time bell icon should removed from candidate card",
-            "match": {
-              "location": "JobCandidateWorkflowRegressionStepDefination.when_user_set_expertise_level_other_than_Not_answer_in_edit_candidate_at_that_time_bell_icon_should_removed_from_candidate_card()"
-            },
-            "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "line": 598,
-            "name": "@run"
-          },
-          {
-            "line": 598,
+            "line": 3,
             "name": "@Regression"
           },
           {
-            "line": 598,
-            "name": "@reg11"
+            "line": 3,
+            "name": "@interview"
+          },
+          {
+            "line": 3,
+            "name": "@BVT"
           }
         ]
       }
     ],
-    "name": "Hirexpert Job Candidate Workflow feature",
+    "name": "Interview Management",
     "description": "",
-    "id": "hirexpert-job-candidate-workflow-feature",
+    "id": "interview-management",
     "keyword": "Feature",
-    "uri": "C:/Users/TLP33/Documents/GitHub/HireUIAutomation/HireXpertUIAutomation/HireXpertUIAutomation/src/main/java/features/JobCandidateWorkflow.feature"
+    "uri": "InterviewManagement.feature"
   }
 ]

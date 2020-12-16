@@ -316,7 +316,7 @@ public class AddCandidatePage extends baseclass {
 		{}
 	} 
 
-        public void Enterexpertilevel (String ExpertiseLevel1, String ExpertiseLevel2 ,String ExpertiseLevel2) {
+        public void Enterexpertilevel (String ExpertiseLevel1, String ExpertiseLevel2 ,String ExpertiseLevel3) {
         		
         	select = new Select (expertiselevel.get(0));
         	select.selectByVisibleText(" "+ExpertiseLevel1+" ");
@@ -327,15 +327,6 @@ public class AddCandidatePage extends baseclass {
 		  	
 	}
         
-//        public void EnterexpertilevelofskillasNotanswered(String ExpertiseLevel1, String ExpertiseLevel2) {
-//    		
-//    		se = new Select (expertiseLevel1);
-//    	  	se.selectByVisibleText(ExpertiseLevel1);
-//    	  	
-//    	  	se = new Select (expertiseLevel2);
-//    	  	se.selectByVisibleText(ExpertiseLevel2);
-//    		
-//    	}
     
         public void probabilitypopupwhileaddingcandidate() {
         	
@@ -360,11 +351,6 @@ public class AddCandidatePage extends baseclass {
         	}
 
 
-//	public void clickUploadResumeField() {
-//		
-//		uploadResumeField.click();
-//	}
-//	
      public void clickonFindbtn() {
 		
 		FindButton.click();
@@ -400,7 +386,4 @@ public class AddCandidatePage extends baseclass {
 		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\RequestControlPopUp (1).png"); // CV Path of Trupti's system
 	}
 	
-
-
-
 }

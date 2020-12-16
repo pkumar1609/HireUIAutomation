@@ -22,7 +22,7 @@ public class InterviewsPage extends baseclass {
 	@FindBy(xpath = "(//input[@placeholder='Select Date'])[2]")
 	public WebElement todate;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-interview/div[2]/form/div/div[7]/button")
+	@FindBy(xpath = "//button[@title='Reload Interviews']")
 	public WebElement searchButton;
 	
 	@FindBy(xpath = "(//button[@aria-label='Clear Date'])[1]")

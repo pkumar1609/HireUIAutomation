@@ -4,7 +4,6 @@ package BVT_StepDefination;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import cucumber.api.java.en.Then;
@@ -146,17 +145,12 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	
 	@Then("^Select the filters for which you want candidate interview details and click on Search button \"([^\"]*)\"$")
 	public void select_the_filters_for_which_you_want_candidate_interview_details_and_click_on_Search_button(String scheduleon1) throws Throwable {
-//		Select se = new Select(interviewspage.jobDropdown);
-//		se.selectByVisibleText(addjobpage.jobname);
-//		Thread.sleep(2000);
-//		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
-//		common.enterdate(scheduleon1);
-//		Thread.sleep(2000);
-//		driver.findElement(By.xpath("(//button[@aria-label='Open Calendar'])[3]")).click();
-//		common.enterdate(scheduleon1);
-//		Thread.sleep(2000);
-//		interviewspage.searchButton.click();
-		common.searchField.sendKeys(scheduleon1);
+		Thread.sleep(2000);
+		scheduleinterviewpage.clearDate.click();
+		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
+		common.enterdate(scheduleon1);
+		Thread.sleep(2000);
+		interviewspage.searchButton.click();
 	}
 	
 	@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")

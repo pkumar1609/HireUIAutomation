@@ -65,6 +65,9 @@ public class scheduleInterview extends baseclass {
 	@FindBy(xpath = "//button[@aria-label='Previous Month']")
 	public WebElement previousMonth;
 	
+	@FindBy(xpath = "//button[@aria-label='Clear Date']")
+	public WebElement clearDate;
+	
 	Select se;
 	
 
