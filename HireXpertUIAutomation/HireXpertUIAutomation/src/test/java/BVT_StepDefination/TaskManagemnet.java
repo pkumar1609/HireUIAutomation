@@ -1,6 +1,7 @@
 package BVT_StepDefination;
 
 
+
 import java.io.IOException;
 
 import org.openqa.selenium.By;
@@ -22,10 +23,91 @@ public class TaskManagemnet extends baseclass{
 	{
 		super();
 	}
+	//job task
+		
+	@Given("^the task should display for logged in user on dashboard page with \"([^\"]*)\" Status$")
+	public void the_task_should_display_for_logged_in_user_on_dashboard_page_with_Status(String status) throws Throwable {
+		Thread.sleep(2000);
+		if(taskpage.assignto.equals(loginpage.logedinuser))
+		{
+		Assert.assertEquals(driver.findElement(By.xpath("//th[text()='Task Title']//following::p[text()='"+taskpage.addedtask+"']")).isDisplayed(), true);
+	    Assert.assertEquals(driver.findElement(By.xpath("//th[text()='Task Title']//following::p[text()='"+taskpage.addedtask+"']//following::p[3]")).getText().strip(), status);
+		}
+	}
+
+	@Given("^the task should display for logged in user on Task Management page in \"([^\"]*)\" column$")
+	public void the_task_should_display_for_logged_in_user_on_Task_Management_page_in_column(String status) throws Throwable {
+		Assert.assertEquals(driver.findElement(By.xpath("//th[contains(text(),'"+status+"')]//following::span[text()='"+taskpage.addedtask+"']")).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath("//th[contains(text(),'"+status+"')]//following::span[text()='"+taskpage.addedtask+"']//following::p[1]")).getText().strip(), addjobpage.jobname);
+		Assert.assertEquals(driver.findElement(By.xpath("//th[contains(text(),'"+status+"')]//following::span[text()='"+taskpage.addedtask+"']//following::p[2]")).getText().strip(), taskpage.assignto);
+	}
+
+	@Then("^Task should also display for logged in user team member on dashboard page with \"([^\"]*)\" Status$")
+	public void task_should_also_display_for_logged_in_user_team_member_on_dashboard_page_with_Status(String status) throws Throwable {
+		if(taskpage.assignto.equals(loginpage.logedinuser))
+		{
+		Assert.assertEquals(driver.findElement(By.xpath("//th[text()='Task Title']//following::p[text()='"+taskpage.addedtask+"']")).isDisplayed(), true);
+	    Assert.assertEquals(driver.findElement(By.xpath("//th[text()='Task Title']//following::p[text()='"+taskpage.addedtask+"']//following::p[3]")).getText().strip(), status);
+		}
+	}
+
+	@Then("^the task should display for logged in user team member on Task Management page in \"([^\"]*)\" column$")
+	public void the_task_should_display_for_logged_in_user_team_member_on_Task_Management_page_in_column(String status) throws Throwable {
+		Assert.assertEquals(driver.findElement(By.xpath("//th[contains(text(),'"+status+"')]//following::span[text()='"+taskpage.addedtask+"']")).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath("//th[contains(text(),'"+status+"')]//following::span[text()='"+taskpage.addedtask+"']//following::p[1]")).getText().strip(), addjobpage.jobname);
+		Assert.assertEquals(driver.findElement(By.xpath("//th[contains(text(),'"+status+"')]//following::span[text()='"+taskpage.addedtask+"']//following::p[2]")).getText().strip(), taskpage.assignto);
+		}
+
+	@Given("^move the task card from \"([^\"]*)\" to \"([^\"]*)\" column$")
+	public void move_the_task_card_from_to_column(String column1, String column2) throws Throwable {
+		Thread.sleep(2000);	 
+		WebElement drag = candidatecardsectionpage.candidateCard;
+		WebElement drop = null;
+		if(column2.equals("Blocked"))
+		{
+		 drop= driver.findElement(By.xpath("//td[3]"));		 
+		}
+		if(column2.equals("Accepted"))
+		{
+		 drop = driver.findElement(By.xpath("//td[4]"));		 
+		}
+		if(column2.equals("Inprogress"))
+		{
+		 drop = driver.findElement(By.xpath("//td[5]"));		 
+		}
+		if(column2.equals("Done"))
+		{
+		 drop = driver.findElement(By.xpath("//td[6]"));		 
+		}
+	    Actions action = new Actions(driver);
+		Thread.sleep(3000);
+		action.clickAndHold(drag);
+		executor.executeScript("arguments[0].scrollIntoView()", drop);
+		action.moveToElement(drop).release(drop).perform();
+	}
 	
-	@Given("^Go to Task Management tab$")
+	@Given("^the task should not display for logged in user on dashboard page with \"([^\"]*)\" Status$")
+	public void the_task_should_not_display_for_logged_in_user_on_dashboard_page_with_Status(String arg1) throws Throwable {
+		Assert.assertEquals(driver.findElements(By.xpath("//th[text()='Task Title']//following::p[text()='"+taskpage.addedtask+"']")).size()>0, false);
+	}
+
+	@Given("^Reload the task$")
+	public void reload_the_task() throws Throwable {
+	    taskpage.reloadtask();
+	    driver.navigate().refresh();
+	}
+	
+	@When("^Apply the filter of task as \"([^\"]*)\" type$")
+	public void apply_the_filter_of_task_as_type(String type) throws Throwable {	  
+	  select=new Select(taskmanagementpage.taskType);
+	  select.selectByVisibleText(type);
+	  common.clickOnSearchBtn();
+	}
+//----------------------------------------------------------------------------------------
+	
+@Given("^Go to Task Management tab$")
 	public void go_to_Task_Management_tab() throws Throwable {
-//	driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
+//		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		Action.moveToElement(dashboardpage.recruitment).click().perform();
 		Thread.sleep(3000);
 		dashboardpage.task.click();
@@ -444,7 +526,8 @@ public class TaskManagemnet extends baseclass{
 	@When("^Go to invoice tab$")
 	public void go_to_invoice_tab() throws Throwable {
 		Action.moveToElement(dashboardpage.recruitment).click().perform();
-		executor.executeScript("arguments[0].click();",dashboardpage.invoice);
+		Thread.sleep(2000);
+		dashboardpage.invoice.click();
 	}
 
 	@When("^move the invoice card from pending invoice to paid invoice$")
@@ -457,6 +540,7 @@ public class TaskManagemnet extends baseclass{
 		action.clickAndHold(drag);
 		executor.executeScript("arguments[0].scrollIntoView()", drop);
 		action.moveToElement(drop).release(drop).perform();
+		Thread.sleep(2000);	
 	}
 
 	@When("^Pending invoice task should display in done column \"([^\"]*)\"$")
@@ -478,6 +562,7 @@ public class TaskManagemnet extends baseclass{
 		action.clickAndHold(drag);
 		executor.executeScript("arguments[0].scrollIntoView()", drop);
 		action.moveToElement(drop).release(drop).perform();
+		Thread.sleep(2000);	
 	}
 
 	@When("^Invoice Payment task should display in new column \"([^\"]*)\"$")
@@ -497,6 +582,7 @@ public class TaskManagemnet extends baseclass{
 		action.clickAndHold(drag);
 		executor.executeScript("arguments[0].scrollIntoView()", drop);
 		action.moveToElement(drop).release(drop).perform();
+		Thread.sleep(2000);	
 	}
 	
 	@When("^click on Yes button on Confirmation popup$")
@@ -506,7 +592,27 @@ public class TaskManagemnet extends baseclass{
 
 	@When("^Invoice Payment task should display in done column \"([^\"]*)\"$")
 	public void invoice_Payment_task_should_display_in_done_column(String arg1) throws Throwable {
-		WebElement element = driver.findElement(By.xpath("//td[6]//span[contains(text(),\"Please verify invoice payment is Paid for '"+arg1+"' for job '"+addjobpage.jobname+"'\")]"));
+		WebElement element = driver.findElement(By.xpath("//td[5]//span[contains(text(),\"Please verify invoice payment is Paid for '"+arg1+"' for job '"+addjobpage.jobname+"'\")]"));
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		Assert.assertEquals(element.isDisplayed(), true);
+	}
+	
+	
+//	Marketplace Task
+	
+
+	@Then("^Proposal Received task should display in \"([^\"]*)\" column with agency name \"([^\"]*)\"$")
+	public void proposal_Received_task_should_display_in_column_with_agency_name(String status, String agencyEmail) throws Throwable {
+		CharSequence agencyName = agencyEmail.subSequence(0, agencyEmail.indexOf("@"));
+		WebElement element = null;
+		if(status.contentEquals("New"))
+		{
+		element = driver.findElement(By.xpath("//td[2]//span[text()='Received proposal from "+agencyName+" for job "+addjobpage.jobname+", please have a look on this proposal.']"));
+		}
+		else if(status.contentEquals("Done"))
+		{
+		element = driver.findElement(By.xpath("//td[6]//span[text()='Received proposal from "+agencyName+" for job "+addjobpage.jobname+", please have a look on this proposal.']"));
+		}
 		executor.executeScript("arguments[0].scrollIntoView(true);", element);
 		Assert.assertEquals(element.isDisplayed(), true);
 	}
