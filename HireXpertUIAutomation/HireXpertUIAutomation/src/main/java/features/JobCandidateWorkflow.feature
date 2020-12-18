@@ -11,11 +11,11 @@ And Go to Workbench
 And close all job  
 Examples:
 |Username      |Password|
-#|pemp@gmail.com|12345   |
+|pemp@gmail.com|12345   |
 |pagy@gmail.com|12345   |
 
 
-@BVT @JCWF
+@BVTC @JCWF
 Scenario Outline: Verify the functionality of Add, Edit & Delete Candidate with Employer login
 
 Given User must be registered
@@ -49,7 +49,7 @@ Examples:
 #otherwise no change required
 
   
-@BVT @JCWF @Questionary
+@BVTC @JCWF @Questionary
 Scenario Outline: Verify the functionality of Add Questionary, Edit question on questionary page and delete Questionary by Delete Questionnaire button and Delete icon.
 
 Given User must be registered
@@ -105,7 +105,7 @@ Examples:
 # If DB clear, register the employer first = employermain01@gmail.com. otherwise no change required
 
  
-@BVT @JCWF
+@BVTC @JCWF
 Scenario Outline: Verify the functionality of Screening tab 
 
 Given User must be registered
@@ -143,7 +143,7 @@ Examples:
 
 
 
-@BVT @JCWF
+@BVTC @JCWF
 Scenario Outline: To verify that Questionnarie and Screening tab not displayed when log in with Agency and To verify 'Interviewer'dropdown 
 on Schedule interview popup when login with Agency
 

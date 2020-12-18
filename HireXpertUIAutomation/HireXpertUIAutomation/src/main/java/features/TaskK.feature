@@ -1,5 +1,116 @@
-#Feature: Task Feature
-#
+Feature: Task 
+
+@task
+Scenario Outline: Verify functionality of adding job task 
+
+Given User must be registered
+
+When title of login page is Home
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials "<Username>","<Password>"
+Given team member should be added
+|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+And Go to workbench
+And Add job
+|title              |agytitle             |designation         |industry   |jobrole   |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|functionalArea|
+|Marketing Trainee  |Marketing Trainee Agy|marketing trainee   |IT software|trainee   |pune     |400000 |1     |2     |400000|500000|4|talentxpert|java|
+And Select a added job
+And Share job with team member
+|EmpTeam|Agyteam|
+|pe1    |pa1    |
+And Click on close button
+And Click on Add task button and enter all details employer
+|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task for job       |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And Go to dashboard
+And the task should display for logged in user on dashboard page with "New" Status
+And Go to Task Management tab
+And the task should display for logged in user on Task Management page in "New" column
+And Logout from App
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials "<team>","<Password>"
+Then Task should also display for logged in user team member on dashboard page with "New" Status
+And Go to Task Management tab
+And the task should display for logged in user team member on Task Management page in "New" column
+Then Close browser
+Examples:
+|Username      |Password|team		  |
+|pemp@gmail.com|12345   |pe1@gmail.com|
+|pagy@gmail.com|12345   |pa1@gmail.com|
+
+
+#Change the task name for employer,agency
+@task2
+Scenario Outline: To Verify status of task changed as we move card from one column to anathor on task mangemnet page 
+
+Given User must be registered
+
+When title of login page is Home
+And Click on Employer-Agency Signin link
+And Employer enters valid credentials "<Username>","<Password>"
+And Go to workbench
+And Add job
+|title                 |agytitle               |designation         |industry   |jobrole   |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|functionalArea|
+|Statuschecking Task   |Statuschecking Task Agy|marketing trainee   |IT software|trainee   |pune     |400000 |1     |2     |400000|500000|4|talentxpert|java|
+And Select a added job
+And Click on Add task button and enter all details employer
+|Title for emp                         |teamField |AssignTo  |note                             |employer            |team      |teamid               |Title for agy               |agyteamField |agyAssignTo  |agynote                             |agency           |agyteam   |agyteamid            |
+|task for job Statuschecking Task      |pemp      |pemp      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |Statuschecking123 Task Agy  |pagy         |pagy         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+And Go to dashboard
+And Reload the task
+And the task should display for logged in user on dashboard page with "New" Status
+And Go to Task Management tab
+And Apply the filter of task as " General " type
+And the task should display for logged in user on Task Management page in "New" column
+
+And move the task card from "New" to "Blocked" column
+And Go to dashboard
+And Reload the task
+And the task should display for logged in user on dashboard page with "Blocked" Status
+And Go to Task Management tab
+And Apply the filter of task as " General " type
+And the task should display for logged in user on Task Management page in "Blocked" column
+
+And move the task card from "Blocked" to "Accepted" column
+And Go to dashboard
+And Reload the task
+And the task should display for logged in user on dashboard page with "Accepted" Status
+And Go to Task Management tab
+And Apply the filter of task as " General " type
+And the task should display for logged in user on Task Management page in "Accepted" column
+
+And move the task card from "Accepted" to "Inprogress" column
+And Go to dashboard
+And Reload the task
+And the task should display for logged in user on dashboard page with "Inprogress" Status
+And Go to Task Management tab
+And Apply the filter of task as " General " type
+And the task should display for logged in user on Task Management page in "Inprogress" column
+
+And move the task card from "Inprogress" to "Done" column
+And Go to dashboard
+And Reload the task
+And the task should not display for logged in user on dashboard page with "Done" Status
+And Go to Task Management tab
+And Apply the filter of task as " General " type
+And the task should display for logged in user on Task Management page in "Done" column
+Then Close browser
+
+Examples:
+|Username      |Password|team		  |
+#|pemp@gmail.com|12345   |pe1@gmail.com|
+|pagy@gmail.com|12345   |pa1@gmail.com|
+
+
+
+
+
+
+
+
+
+
 #@TC264_266  @BVT @TaskBVT
 #Scenario Outline: Verify functionality of adding general task and particular task from Employer login
 #
@@ -682,4 +793,9 @@
 #|Username      |Password|CandidateEmail        |Name    |ContactNumber|Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea     |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|
 #|pemp@gmail.com|12345   |vishwani@gmail.com    |vishvani|8956652538   |jr.developer  |04/08/1999      |Female  |No            |25          |2.0       |400000|800000     |India  |wardha|Arvi naka    |455966 |Call             |800000       |4       |No              |No      |
 #|pagy@gmail.com|12345   |Shivani@gmail.com     |shivani |8552222222   |jr.developer  |08/09/1999      |Female  |No            |28          |7.0       |800000|800000     |India  |wardha|pawnar naka  |852966 |Call             |900000       |1       |No              |No      |
-#
+
+
+
+
+
+

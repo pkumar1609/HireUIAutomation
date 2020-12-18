@@ -1,6 +1,6 @@
 Feature: Marketplace Feature
 
-#@TC351 @BVT @market
+#@TC351 @BVTC @market
 Scenario Outline: To verify the functionality to share job with market place.
 Given User must be registered
 When title of login page is Home
@@ -62,37 +62,9 @@ Examples:
 |Employer	   |Password |Agency        |Agency2        |
 |pemp@gmail.com|12345    |kagy@gmail.com|pagy1@gmail.com|
 
-#TC 351,359,357
+#TC 351,359,357, 361
 
-#@TC361 @BVT
-#Scenario: To check the functionality of Review request
-#Given User must be registered
-#And Click on Employer-Agency Signin link
-#Given Job must be share to market place
-#|Commission Percentage|Invoice Period|Payment Cycle|Replacement Period|
-#|8.33                 |30 Days       |60 Days      |90 Days           |
-#And Logout from App
-#And Click on Employer-Agency Signin link
-#And agency enters valid credentials
-#And Go to agency marketplace tab
-#And Click on Apply button of job
-#And Logout from App
-#And Click on Employer-Agency Signin link
-#And Employer enters valid credentials
-#And click on Employer marketplace tab
-#And Select that job in filter on job proposal section
-#And Click on Review button
-#And Now click on accept and sign button
-#Then the status should be change as Employer signed
-#And Logout from App
-#And Click on Employer-Agency Signin link
-#And agency enters valid credentials
-#And Go to agency marketplace tab
-#Then status should display as employer signed
-
-
-
-@TC363_375 @BVT @market
+@TC363_375 @BVTC @market
 Scenario Outline: To check the functionality of Review request and add candidate
 Given User must be registered
 And Click on Employer-Agency Signin link
@@ -125,6 +97,7 @@ And click on Employer marketplace tab
 And Select that job in filter on job proposal section
 And Click on Review button
 And Now click on accept and sign button
+
 And Logout from App
 And Click on Employer-Agency Signin link
 And user enters valid credentials "<Agency>","<Password>"

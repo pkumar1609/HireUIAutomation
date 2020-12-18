@@ -1,6 +1,6 @@
 Feature: Job Update
 
-@BVT @jobupdate
+@BVTC @jobupdate
   Scenario Outline: To verify user is able to add and edit job for Employer and Agency login
   
     Given User must be registered

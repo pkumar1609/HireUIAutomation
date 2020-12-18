@@ -1,6 +1,6 @@
 Feature: Interview Management
 
-@BVT @Regression @interview
+@BVTC @Regression @interview
 	Scenario Outline: To verify the functionality of scheduled interview with Employer and Agency login
 	Given User must be registered
 

@@ -30,6 +30,7 @@ import pages.EmployersPage;
 import pages.ForgetPasswordPage;
 import pages.HomePage;
 import pages.InterviewsPage;
+import pages.InvoicePage;
 import pages.JobApplicationsPage;
 import pages.JobBoardPage;
 import pages.JobReviewPage;
@@ -90,14 +91,14 @@ public class baseclass {
 	public static CvStorePage cvstorepage;
 	public static Robot rb;
 	public static TaskManagementPage taskmanagementpage;
+	public static InvoicePage invoicepage;
 
-	
 	public baseclass() { 
 		
 		try 
 		{ 
 			prop = new Properties();
-			FileInputStream fis = new FileInputStream("C:\\Users\\admin\\AppData\\Local\\Jenkins.jenkins\\workspace\\UI Automation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
+			FileInputStream fis = new FileInputStream("C:\\Users\\TLP33\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
 			prop.load(fis);	
 		}
 		catch(IOException e) {
@@ -111,7 +112,7 @@ public class baseclass {
 		
 		if(browsername.equals("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","C:\\Users\\TLP33\\Downloads\\selenium\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
 		driver.manage().window().maximize();
@@ -157,5 +158,6 @@ public class baseclass {
 		cvstorepage= new CvStorePage();
 		rb =new Robot();
 		taskmanagementpage= new TaskManagementPage();
+		invoicepage= new InvoicePage();
 	}
 }

@@ -276,18 +276,15 @@ public void ClickonScreeningBtn() {
 	}
 
 
-		public void clickOnCloseJobButton() throws InterruptedException {
-
-				clickonthreedot();
-				Thread.sleep(2000);
-				closejobbtn.click();
-				common.clickOnConfirmYes();
-				}
-
+	public void clickOnCloseJobButton() throws InterruptedException
+	{
+		Thread.sleep(2000);
+		job.click();
+		closejobbtn.click();
+		common.clickOnConfirmYes();
+	}
 	 
-public void verifyCandidateAddedDisplayedOnWorkbenchOrNot () {
-	
-	
+	public void verifyCandidateAddedDisplayedOnWorkbenchOrNot () {
 	{         
 	  try   
 	  {    
