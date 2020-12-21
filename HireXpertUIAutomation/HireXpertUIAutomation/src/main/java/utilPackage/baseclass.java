@@ -98,7 +98,7 @@ public class baseclass {
 		try 
 		{ 
 			prop = new Properties();
-			FileInputStream fis = new FileInputStream("C:\\Users\\TLP33\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
+			FileInputStream fis = new FileInputStream("C:\\Users\\admin\\AppData\\Local\\Jenkins.jenkins\\workspace\\UI Automation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
 			prop.load(fis);	
 		}
 		catch(IOException e) {
@@ -114,7 +114,7 @@ public class baseclass {
 		{
 			System.setProperty("webdriver.chrome.driver","C:\\Users\\TLP33\\Downloads\\selenium\\chromedriver.exe");
 			driver = new ChromeDriver();
-		}
+		}	
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(utilclass.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
