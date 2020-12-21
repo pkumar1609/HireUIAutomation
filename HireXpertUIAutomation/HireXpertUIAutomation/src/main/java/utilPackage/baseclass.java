@@ -98,7 +98,8 @@ public class baseclass {
 		try 
 		{ 
 			prop = new Properties();
-			FileInputStream fis = new FileInputStream("C:\\Users\\admin\\AppData\\Local\\Jenkins.jenkins\\workspace\\UI Automation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
+			FileInputStream fis = new FileInputStream("C:\\Users\\admin\\AppData\\Local\\Jenkins.jenkins\\workspace\\UI Automation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties"
+);
 			prop.load(fis);	
 		}
 		catch(IOException e) {
@@ -112,7 +113,7 @@ public class baseclass {
 		
 		if(browsername.equals("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver","C:\\Users\\TLP33\\Downloads\\selenium\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}	
 		driver.manage().window().maximize();
