@@ -13,7 +13,7 @@ import utilPackage.baseclass;
 public class JobUpdateBVTStepDefination extends baseclass {
 
 	
-//1
+//
 	
 	@When("^title of page is HireXpert$")
 	public void title_of_page_is_HireXpert() throws Throwable {

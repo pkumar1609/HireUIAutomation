@@ -15,205 +15,216 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
-  
+ 
   <build>
 
-		<plugins>
-			<plugin>
+<plugins>
+<!-- <plugin>
 
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
-				<configuration>
-					<suiteXmlFiles>
-						<suiteXmlFile>${SuiteFileName}</suiteXmlFile>
-					</suiteXmlFiles>
-					
-				</configuration>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-surefire-plugin</artifactId>
+<version>2.12.4</version>
+<configuration>
+<suiteXmlFiles>
+<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+</suiteXmlFiles>
+</configuration>
 
-			</plugin>
+</plugin> -->
 
-			<plugin>
+<plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>2.20</version>
+      <configuration>
+        <testFailureIgnore>true</testFailureIgnore>
+     </configuration>
+</plugin>
 
-			<groupId>org.apache.maven.plugins</groupId>
-    			<artifactId>maven-compiler-plugin</artifactId>
-    			<version>3.8.0</version>
-    			<configuration>
-        			<release>7</release>
-        			<fork>true</fork>
-					<executable>C:\Program Files\Java\jdk-15.0.1\bin\javac.exe</executable>
-    			</configuration>
+<plugin>
+
+<groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.0</version>
+    <configuration>
+        <!-- <release>7</release> -->
+        <release>11</release>
+        <fork>true</fork>
+<executable>C:\Program Files\Java\jdk-15.0.1\bin\javac.exe</executable>
+<source>1.8</source>
+        <target>1.8</target>
+    </configuration>
+</plugin>
 
 
-			</plugin>
-			
-		<!-- 	<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
 
-					<fork>true</fork>
-					<executable>C:\Program Files\Java\jdk-15.0.1\bin\javac.exe</executable>
-				</configuration>
-				</plugin> -->
+<!-- <plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-compiler-plugin</artifactId>
+<version>3.1</version>
+<configuration>
 
-			<plugin>
+<fork>true</fork>
+<executable>C:\Program Files\Java\jdk-15.0.1\bin\javac.exe</executable>
+</configuration>
+</plugin> -->
 
-				<groupId>net.masterthought</groupId>
-				<artifactId>maven-cucumber-reporting</artifactId>
-				<version>3.15.0</version>
+<plugin>
 
-				<executions>
-					<execution>
-						<id>execute</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<outputDirectory></outputDirectory>
-							<cucumberOutput></cucumberOutput>
+<groupId>net.masterthought</groupId>
+<artifactId>maven-cucumber-reporting</artifactId>
+<version>3.15.0</version>
 
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+<executions>
+<execution>
+<id>execute</id>
+<phase>verify</phase>
+<goals>
+<goal>generate</goal>
+</goals>
+<configuration>
+<outputDirectory></outputDirectory>
+<cucumberOutput></cucumberOutput>
 
-		</plugins>
+</configuration>
+</execution>
+</executions>
+</plugin>
 
-	</build>
+</plugins>
+
+</build>
 
   <dependencies>
-  
+ 
    
     <dependency>
-  		<groupId>org.seleniumhq.selenium</groupId>
-		<artifactId>selenium-java</artifactId>
-		<version>3.141.59</version>
-  	</dependency>
-  	
-  	<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-chrome-driver</artifactId>
-			<version>3.141.59</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-java</artifactId>
-			<version>1.2.5</version>
-			<scope>test</scope>
-		</dependency>
-		
-		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>1.2.5</version>
-			<scope>test</scope>
-		</dependency>
-		
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-		
-		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-jvm-deps</artifactId>
-			<version>1.0.5</version>
-			<scope>test</scope>
-		</dependency>
-		
-		<dependency>
-    		<groupId>info.cukes</groupId>
-    		<artifactId>cucumber-testng</artifactId>
-    		<version>1.2.5</version>
-		</dependency>
-		
-		<dependency>
-    		<groupId>com.aventstack</groupId>
-    		<artifactId>extentreports</artifactId>
-    		<version>4.0.6</version>
-		</dependency>
+  <groupId>org.seleniumhq.selenium</groupId>
+<artifactId>selenium-java</artifactId>
+<version>3.141.59</version>
+  </dependency>
+ 
+  <dependency>
+<groupId>org.seleniumhq.selenium</groupId>
+<artifactId>selenium-chrome-driver</artifactId>
+<version>3.141.59</version>
+</dependency>
 
-		<dependency>
-    		<groupId>org.freemarker</groupId>
-    		<artifactId>freemarker</artifactId>
-    		<version>2.3.23</version>
-		</dependency>
+<dependency>
+<groupId>info.cukes</groupId>
+<artifactId>cucumber-java</artifactId>
+<version>1.2.5</version>
+<scope>test</scope>
+</dependency>
 
-		<dependency>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-surefire-plugin</artifactId>
-			<version>2.19.1</version>
-		</dependency>
-		
-		<dependency> 
-  			<groupId>org.apache.commons</groupId>
-  			<artifactId>commons-io</artifactId> 
-  			<version>1.3.2</version> 
-		</dependency>
+<dependency>
+<groupId>info.cukes</groupId>
+<artifactId>cucumber-junit</artifactId>
+<version>1.2.5</version>
+<scope>test</scope>
+</dependency>
 
- 		<dependency>
+<dependency>
+<groupId>junit</groupId>
+<artifactId>junit</artifactId>
+<version>4.12</version>
+<scope>test</scope>
+</dependency>
+
+<dependency>
+<groupId>info.cukes</groupId>
+<artifactId>cucumber-jvm-deps</artifactId>
+<version>1.0.5</version>
+<scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>info.cukes</groupId>
+    <artifactId>cucumber-testng</artifactId>
+    <version>1.2.5</version>
+</dependency>
+
+<dependency>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>4.0.6</version>
+</dependency>
+
+<dependency>
+    <groupId>org.freemarker</groupId>
+    <artifactId>freemarker</artifactId>
+    <version>2.3.23</version>
+</dependency>
+
+<dependency>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-surefire-plugin</artifactId>
+<version>2.19.1</version>
+</dependency>
+
+<dependency>
+  <groupId>org.apache.commons</groupId>
+  <artifactId>commons-io</artifactId>
+  <version>1.3.2</version>
+</dependency>
+
+  <dependency>
              <groupId>org.apache.poi</groupId>
              <artifactId>poi</artifactId>
              <version>3.9</version>
-      	</dependency>
-      	
-      	<dependency>
+      </dependency>
+     
+      <dependency>
              <groupId>org.apache.poi</groupId>
              <artifactId>poi-ooxml</artifactId>
              <version>3.9</version>
-      	</dependency>
-      
-     	 <dependency>
+      </dependency>
+     
+      <dependency>
              <groupId>org.apache.poi</groupId>
              <artifactId>poi-ooxml-schemas</artifactId>
              <version>3.9</version>
-      	</dependency>
-      	
-      	<dependency>
+      </dependency>
+     
+      <dependency>
              <groupId>org.apache.poi</groupId>
              <artifactId>poi-scratchpad</artifactId>
              <version>3.9</version>
-      	</dependency>
-      	
-      	<dependency>
+      </dependency>
+     
+      <dependency>
              <groupId>org.apache.poi</groupId>
              <artifactId>ooxml-schemas</artifactId>
              <version>1.1</version>
-      	</dependency>
-      
-      	<dependency>
+      </dependency>
+     
+      <dependency>
              <groupId>org.apache.poi</groupId>
              <artifactId>openxml4j</artifactId>
              <version>1.0-beta</version>
-      	</dependency>
-      
-      	<dependency>
-   			 <groupId>log4j</groupId>
-    		<artifactId>log4j</artifactId>
-    		<version>1.2.17</version>
-		</dependency>
-	
-		<dependency>
-			 <groupId>com.vimalselvam</groupId>
-			 <artifactId>cucumber-extentsreport</artifactId>
-			 <version>3.0.2</version>
-		</dependency>
-		
-	<!-- cucumber.api.result -->
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-core</artifactId>
-			<version>4.2.4</version>
-		</dependency>
+      </dependency>
+     
+      <dependency>
+    <groupId>log4j</groupId>
+    <artifactId>log4j</artifactId>
+    <version>1.2.17</version>
+</dependency>
 
-		
+<dependency>
+<groupId>com.vimalselvam</groupId>
+<artifactId>cucumber-extentsreport</artifactId>
+<version>3.0.2</version>
+</dependency>
+
+<!-- cucumber.api.result -->
+<dependency>
+<groupId>io.cucumber</groupId>
+<artifactId>cucumber-core</artifactId>
+<version>4.2.4</version>
+</dependency>
+
+
   </dependencies>
-  
-  
+ 
+ 
 </project>

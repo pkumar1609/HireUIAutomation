@@ -31,7 +31,7 @@ public class loginstepdefination extends baseclass {
 	
 	@Given("^User must be registered$")
 	public void user_must_be_registered() throws Throwable {    
-		baseclass.initialization();
+		initialization();
 	} 
  
 	@When("^title of login page is Home$")
