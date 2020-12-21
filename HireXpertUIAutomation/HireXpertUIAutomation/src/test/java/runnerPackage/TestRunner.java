@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 (
 features="C:\\Users\\admin\\AppData\\Local\\Jenkins.jenkins\\workspace\\UI Automation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\features",
 glue= {"BVT_StepDefination"},
-dryRun= true,
+dryRun= false,
 monochrome= true,
 //plugin = {"html:target/cucumber-reports", "json:target/cucumber-reports/cucumber-json"},
 //plugin = {"pretty",
