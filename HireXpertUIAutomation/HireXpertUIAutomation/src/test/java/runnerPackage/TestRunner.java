@@ -13,12 +13,10 @@ monochrome= true,
 //plugin = {"pretty",
 //        "html:target/cucumber-reports/cucumber.html",
 //        "json:target/cucumber-reports/cucumber.json"},
-
 plugin = {"pretty",
         "html:target/cucumber-reports","json:target/cucumber.json","junit:C:/Users/admin/AppData/Local/Jenkins.jenkins/workspace/UI Automation/HireXpertUIAutomation/HireXpertUIAutomation/target/cucumber-reports/Cucumber.xml"},
-tags=("@login")
+tags=("@market")
 )
-
 public class TestRunner
 {};
 //@block,@unblock,@jobupdate,@interview,@invalid,@JCWF,@market,@primary
