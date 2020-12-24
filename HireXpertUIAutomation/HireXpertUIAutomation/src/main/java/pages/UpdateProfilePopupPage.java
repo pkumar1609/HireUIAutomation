@@ -1,11 +1,14 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import utilPackage.baseclass;
 
@@ -13,6 +16,7 @@ public class UpdateProfilePopupPage extends baseclass {
 	
 	public String Contact;
 	public String Organization;
+	public String datebelowField;
 	
 	@FindBy(xpath="//input[@id='Name']")
 	public WebElement Name;
@@ -30,7 +34,7 @@ public class UpdateProfilePopupPage extends baseclass {
 	public WebElement AgencyEmployerEmail;
 	
 	@FindBy(xpath="//input[@placeholder='Enter Contact Number']")
-	public WebElement ContactNumber;
+	public WebElement contactNumber;
 	
 	@FindBy(xpath="//input[@formcontrolname='contactNumber']")
 	public WebElement AgencyEmployerContactNumber;
@@ -50,6 +54,12 @@ public class UpdateProfilePopupPage extends baseclass {
 	@FindBy(xpath="//input[@id='CTC']")
 	public WebElement CTCperAnnum;
 	
+	@FindBy(xpath="//ng-select[@formcontrolname='Shift']//input")
+	public WebElement Shift;
+	
+	@FindBy(xpath="//ng-select[@formcontrolname='JobType']//input")
+	public WebElement JobType;
+	
 	@FindBy(xpath="//textarea[@id='agencyaddress']")
 	public WebElement Address;
 	
@@ -66,7 +76,10 @@ public class UpdateProfilePopupPage extends baseclass {
 	public WebElement Title;
 	
 	@FindBy(xpath="//input[@formcontrolname='Designation']")
-	public WebElement Designation;
+	public WebElement designation;
+	
+	@FindBy(xpath="//input[@formcontrolname='FunctionalArea']")
+	public WebElement FunctionalArea;
 	
 	@FindBy(xpath="//input[@id='NoticePeriod']")
 	public WebElement Noticeperiod;
@@ -74,14 +87,14 @@ public class UpdateProfilePopupPage extends baseclass {
 	@FindBy(xpath="//input[@formcontrolname='IndustryId']")
 	public WebElement Industry;
 	
-	@FindBy(xpath="//input[@formcontrolname='CurrentCity']")
+	@FindBy(xpath="//input[@placeholder='Enter City']")
 	public WebElement CityofCandidate;
 	
 	@FindBy(xpath="//input[@formcontrolname='CityId']")
 	public WebElement City;
 	
 	@FindBy(xpath="//select[@formcontrolname='Gender']")
-	public WebElement Gender;
+	public WebElement Gender1;
 	
 	@FindBy(xpath="/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-candidate-profile[1]/div[2]/div[1]/div[1]/form[1]/div[2]/div[3]/table[1]/tbody[1]/tr[1]/td[4]/button[1]")
 	public WebElement DeleteCandidateSkill1;
@@ -118,6 +131,28 @@ public class UpdateProfilePopupPage extends baseclass {
 	
 	@FindBy(xpath="//button[contains(text(),'Save')]")
 	public WebElement Savebutton;
+	
+	@FindBy(xpath = "//select[@formcontrolname='CountryId']")
+	public WebElement countryId;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Current Designation']")
+	public WebElement currentDesignation;
+	
+	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
+	public WebElement onNoticePeriod;
+	
+	@FindBy(xpath = "//button[@aria-label='Open Calendar']")
+	public List<WebElement> calenderIcon;
+	
+	@FindBy(xpath = "//input[@id='ECTC']")
+	public WebElement ectc;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Location']")
+	public WebElement cityArea;
+	
+	@FindBy(xpath = "//input[@id='ZipCode']")
+	public WebElement zipCode;
+	
 	
 	//Initializing the Page objects
 	
@@ -218,19 +253,31 @@ public class UpdateProfilePopupPage extends baseclass {
 	    City.sendKeys(AgencyCity);
 	}
 		
-	public void UpdateProfileCandidate (String title, String designation, String noticeperiod, String CandidateCity, String industry, String gender) {
+	public void UpdateProfileCandidate (String title1, String Designation, String functionalArea, String shift, String jobType, String NoticePeriod, String industry, String CandidateCity, String gender1, String experience, String CTC, String expectedCTC, String CityArea) throws InterruptedException {
 				
-		Title.sendKeys(title);
-		Designation.sendKeys(designation);
-		Designation.click();
-		Noticeperiod.sendKeys(noticeperiod);
+		Title.sendKeys(title1);
+		designation.sendKeys(Designation);
+		designation.click();
+		FunctionalArea.sendKeys(functionalArea);
+		Shift.sendKeys(shift);
+		driver.findElement(By.xpath("//span[contains(text(),'Day Shift')]")).click();
+		JobType.sendKeys(jobType);
+		driver.findElement(By.xpath("//span[contains(text(),'Permanent Full Time')]")).click();
+		Noticeperiod.sendKeys(NoticePeriod);
 		Industry.sendKeys(industry);
 		Industry.click();
 		CityofCandidate.sendKeys(CandidateCity);
+		Thread.sleep(3000);
 		CityofCandidate.click();
-				
-		Select select = new Select (Gender);
-		select.selectByVisibleText(gender);
+		ExperienceinYears.clear();
+		ExperienceinYears.sendKeys(experience);
+		CTCperAnnum.clear();
+		CTCperAnnum.sendKeys(CTC);
+		ectc.sendKeys(expectedCTC);
+		cityArea.sendKeys(CityArea);
+	
+		Select select = new Select (Gender1);
+		select.selectByVisibleText(gender1);
 	}
 		
 	public void DeleteCandidateSkillsandRoles() {
@@ -419,104 +466,50 @@ public class UpdateProfilePopupPage extends baseclass {
 	       }
  }
 
-    
-    public void VerifyAutoPopulatedFieldsOnUpdateCandidateProfile () {
+    Select se;
+    public void VerifyAutoPopulatedFieldsOnUpdateCandidateProfile (String CandidateEmail, String CandidateName, String ContactNumber) throws InterruptedException {
  	   
- 	   if (Title.getAttribute("value").isEmpty()) {
- 		   
- 		   System.out.println("Title field is blank and it is not autopopulated");
- 	   }else {
- 		   
- 		   System.out.println("Title field is autopopulated on Update Profile Popup Window");
- 	   }
- 	   
- 	   if (Name.getAttribute("value").isEmpty()) {
- 		   
-            System.out.println("Name field is blank and it is not autopopulated");
- 	   }else {
- 		   
-    		   System.out.println("Name field is autopopulated on Update Profile Popup Window");
- 	   }
- 	   
- 	   if (Email.getAttribute("value").isEmpty()) {
-		   
-		         System.out.println("Email field is blank and it is not autopopulated");
-	       }else {
-		   
-	    	System.out.println("Email field is autopopulated on Update Profile Popup Window");
-	       }
- 	   
- 	   if (ContactNumber.getAttribute("value").isEmpty()) {
-   		   
-		          System.out.println("ContactNumber field is blank and it is not autopopulated");
-	       }else {
-		   
-	    	   System.out.println("ContactNumber field is autopopulated on Update Profile Popup Window");
-	       }
-
- 	   if (Designation.getAttribute("value").isEmpty()) {
- 		   
-          System.out.println("Designation field is blank and it is not autopopulated");
-	       }else {
-		   
-		         System.out.println("Designation field is autopopulated on Update Profile Popup Window");
-	       }
-      
- 	   if (Noticeperiod.getAttribute("value").isEmpty()) {
-           
-		         System.out.println("NoticePeriod field is blank and it is not autopopulated");
-	       }else {
-		   
-	    	   System.out.println("NoticePeriod field is autopopulated on Update Profile Popup Window");
-	       }
-
- 	   if (Industry.getAttribute("value").isEmpty()) {
-           
-		        System.out.println("Industry field is blank and it is not autopopulated");
-	       }else {
-		   
-	    	   System.out.println("Industry field is autopopulated on Update Profile Popup Window");   
-	       }
-
- 	   if (Country.getAttribute("value").isEmpty()) {
-           
-		        System.out.println("Country field is blank and it is not autopopulated");
-	       }else {
-		   
-	    	   System.out.println("Country field is autopopulated on Update Profile Popup Window");
-	       }
-       
- 	   if (CityofCandidate.getAttribute("value").isEmpty()) {
-           
-		         System.out.println("City field is blank and it is not autopopulated");
-	       }else {
-		   
-	    	   System.out.println("City field is autopopulated on Update Profile Popup Window");
-	       }
-
- 	   if (Gender.getAttribute("value").isEmpty()) {
-           
-		         System.out.println("Gender field is blank and it is not autopopulated");
-	       }else {
-		   
-	    	   System.out.println("Gender field is autopopulated on Update Profile Popup Window");
-	       }
-
- 	   if (ExperienceinYears.getAttribute("value").isEmpty()) {
-           
-		        System.out.println("Experience (in Years)field is blank and it is not autopopulated");
-	       }else {
-		   
-	    	   System.out.println("Experience (in Years) field is autopopulated as 0 on Update Profile Popup Window");
-	       }
-	   
- 	   if (CTCperAnnum.getAttribute("value").isEmpty()) {
-           
-		        System.out.println("CTC (Per Annum) field is blank and it is not autopopulated");
-	       }else {
-		   
-	    	   System.out.println("CTC (Per Annum) field is autopopulated as 0 on Update Profile Popup Window");
-	       }  
+    	Thread.sleep(3500);
+		//Assert.assertEquals(addcandidatepage.title.getAttribute("value"), title1);
+//		Title.sendKeys(title1);
+		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),CandidateEmail);
+		Assert.assertEquals(addcandidatepage.name.getAttribute("value"),CandidateName);
+		Assert.assertEquals(updateprofilepopuppage.contactNumber.getAttribute("value"),ContactNumber);
+//		currentDesignation.sendKeys(Designation);
+//		currentDesignation.click();
+//		driver.findElement(By.xpath("//span[contains(text(),'Software Tester')]")).click();
+//		Select select = new Select (Gender1);
+//		select.selectByVisibleText(gender1);
+//		select=new Select(updateprofilepopuppage.onNoticePeriod);
+//		Assert.assertEquals(select.getFirstSelectedOption().getText(),OnNoticePeriod);
+//		Thread.sleep(3000);
+//		//Noticeperiod.sendKeys(NoticePeriod);
+//		Industry.sendKeys(industry);
+//		Industry.click();
+////		CityofCandidate.sendKeys(CandidateCity);
+////		Thread.sleep(3000);
+////		CityofCandidate.click();
+////		Shift.sendKeys(shift);
+////		driver.findElement(By.xpath("//span[contains(text(),'Day Shift')]")).click();
+////		JobType.sendKeys(jobType);
+////		driver.findElement(By.xpath("//span[contains(text(),'Permanent Full Time')]")).click();
+//		ExperienceinYears.clear();
+//		ExperienceinYears.sendKeys(experience);
+//		CTCperAnnum.clear();
+//		CTCperAnnum.sendKeys(CTC);
+//		se = new Select (this.countryId);
+//		WebElement option = se.getFirstSelectedOption();
+//		Assert.assertEquals(option.getText()," "+Country+" ");
+//		Assert.assertEquals(updateprofilepopuppage.CityofCandidate.getAttribute("value"),CandidateCity);
+//		CityofCandidate.click();
+		//Assert.assertEquals(updateprofilepopuppage.FunctionalArea.getAttribute("value"),functionalArea);
+		//FunctionalArea.sendKeys(functionalArea);
+//		Assert.assertEquals(this.dateOfBirth.getAttribute("value"),Date); 
+//		Assert.assertEquals(this.cityArea.getAttribute("value"),CityArea);
+//		Assert.assertEquals(addcandidatepage.zipCode.getAttribute("value"),ZipCode);
+//		Assert.assertEquals(addcandidatepage.industry.getAttribute("value"),addjobpage.industryname);	
+//		Assert.assertEquals(this.ectc.getAttribute("value"),expectedCTC);
+		
  }
     
     public void getDetails() throws InterruptedException
@@ -527,7 +520,7 @@ public class UpdateProfilePopupPage extends baseclass {
 		Thread.sleep(2000);
 		loginpage.updateProfile.click();
 		Thread.sleep(4000);
-    	Contact= ContactNumber.getAttribute("value");
+    	Contact= contactNumber.getAttribute("value");
     	System.out.println("contact is "+Contact);
     	Organization=OrganizationName.getAttribute("value");
     	System.out.println("Organization is "+Organization);

@@ -4,6 +4,7 @@ package BVT_StepDefination;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -81,14 +82,12 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 
 	}
 	
-
-
-	
 	@When("^Update candidate profile \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void update_candidate_profile(String title, String designation, String noticeperiod, String CandidateCity, String industry, String gender, String expertiselevel) throws Throwable {
+	public void update_candidate_profile(String title1, String Designation, String functionalArea, String shift, String jobType, String NoticePeriod, String industry, String CandidateCity, String gender1, String experience, String CTC, String expectedCTC, String CityArea, String expertiselevel) throws InterruptedException {
+
 	   
         Thread.sleep(3000);
-        updateprofilepopuppage.UpdateProfileCandidate(title, designation, noticeperiod,industry, CandidateCity, gender);
+        updateprofilepopuppage.UpdateProfileCandidate(title1, Designation, functionalArea, shift, jobType, NoticePeriod,industry, CandidateCity, gender1, experience, CTC, expectedCTC, CityArea);
 		Thread.sleep(3000);
 		updateprofilepopuppage.DeleteCandidateSkillsandRoles();
 		Thread.sleep(3000);
@@ -162,7 +161,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	@Then("^click on ok button$")
 	public void click_on_ok_button() throws Throwable {
 	    
-		
+		Thread.sleep(3000);
 		common.clickOnOKBtn();
 	}
 
@@ -513,31 +512,25 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 				registerpage.enterCandidateEmailandPassword(CandidateEmail, password);
 
 			}
-
-			@Then("^verify the Auto Populated fields on candidate update profile popup window \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-			public void verify_the_Auto_Populated_fields_on_candidate_update_profile_popup_window(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7, String arg8, String arg9, String arg10, String arg11, String arg12, String arg13, String arg14, String arg15, String arg16, String arg17, String arg18) throws Throwable {
-				Thread.sleep(3000);
-				updateprofilepopuppage.VerifyAutoPopulatedFieldsOnUpdateCandidateProfile();
-			}
 			
-//			@Then("^verify the Auto Populated fields on candidate update profile popup window$")
-//			public void verify_the_Auto_Populated_fields_on_candidate_update_profile_popup_window() throws Throwable {
-//			    
-//				Thread.sleep(3000);
-//				updateprofilepopuppage.VerifyAutoPopulatedFieldsOnUpdateCandidateProfile();
-//			}
-
-			@Then("^Update Candidate Profile \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-			public void update_Candidate_Profile(String title, String designation, String noticeperiod, String CandidateCity, String industry, String gender, String expertiselevel) throws Throwable {
+			@Then("^verify the Auto Populated fields on candidate update profile popup window  \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+			public void verify_the_Auto_Populated_fields_on_candidate_update_profile_popup_window(String CandidateEmail, String CandidateName, String ContactNumber) throws Throwable {
 			    
-		        Thread.sleep(3000);
-		        updateprofilepopuppage.UpdateProfileCandidate(title, designation, noticeperiod, industry, CandidateCity, gender);
+				Thread.sleep(3000);
+				updateprofilepopuppage.VerifyAutoPopulatedFieldsOnUpdateCandidateProfile(CandidateEmail,CandidateName,ContactNumber);
+
+			}
+		
+			@Then("^Update Candidate Profile \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+			public void update_Candidate_Profile(String title1, String Designation, String functionalArea, String shift, String jobType, String NoticePeriod, String industry, String CandidateCity, String gender1, String experience, String CTC, String expectedCTC, String CityArea, String expertiselevel) throws Throwable {
+				Thread.sleep(3000);
+		        updateprofilepopuppage.UpdateProfileCandidate(title1, Designation, functionalArea, shift, jobType, NoticePeriod, industry, CandidateCity, gender1, experience, CTC, expectedCTC, CityArea);
 //		        Thread.sleep(3000);
 //		        addcandidatepage.clickUploadResumeField();
 		        Thread.sleep(3000);
 		        addcandidatepage.uploadResumeDocumentT();
 			}
-			
+
 //			@Then("^click on ok button of confirmation popup$")
 //			public void click_on_ok_button_of_confirmation_popup() throws Throwable {
 //

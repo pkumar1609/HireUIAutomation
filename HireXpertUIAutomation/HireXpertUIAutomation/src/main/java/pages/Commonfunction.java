@@ -54,8 +54,8 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath = "//button[text()='Find']")
 	public WebElement find;
 	
-	@FindBy(xpath = "//button[text()='Cancel']")
-	public WebElement cancel;
+	@FindBy(xpath = "//button[text()='Logout']")
+	public WebElement log_out;
 	
 	@FindBy(xpath = "//span[text()='×']")
 	public WebElement crossIcon;

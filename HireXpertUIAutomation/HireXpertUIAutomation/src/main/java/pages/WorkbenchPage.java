@@ -228,7 +228,7 @@ public class WorkbenchPage extends baseclass {
 		action.moveToElement(we).perform();
 		Logout.click();
 		Thread.sleep(2000);
-		common.cancel.click();
+		common.log_out.click();
 
 	}
 	
