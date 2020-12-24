@@ -38,7 +38,7 @@ public class TeamPage extends baseclass {
 	@FindBy(xpath="//select[@formcontrolname='CountryId']")
 	public WebElement countryid;
 	
-	@FindBy(xpath="//button[@title='Delete']")
+	@FindBy(xpath="//button[@class='btn btn-outline-danger mr-2']")
 	public WebElement deletebtn;
 	
 	@FindBy(xpath="//button[@id='confirmModalBtn']")

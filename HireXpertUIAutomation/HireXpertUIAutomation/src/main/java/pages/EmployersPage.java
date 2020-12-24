@@ -20,7 +20,7 @@ public class EmployersPage extends baseclass {
 	@FindBy(xpath = "//input[@name='search']")
 	public WebElement searchfield;
 	
-	@FindBy(xpath = "//button[@title='Delete']")
+	@FindBy(xpath = "//button[@class='btn btn-outline-danger mr-2']")
 	public WebElement deleteEmployer;
 	
 	public String namevalidate;
