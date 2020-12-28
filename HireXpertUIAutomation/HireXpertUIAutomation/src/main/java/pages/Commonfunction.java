@@ -22,7 +22,7 @@ public class Commonfunction extends baseclass {
 	
 	public String DisplayDate;
 	public String monthName;
-	
+	public int shareFlag;
 	
 	@FindBy(xpath="//button[@id='confirmModalBtn']")
 	public WebElement confimYes;

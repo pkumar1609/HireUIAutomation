@@ -39,19 +39,25 @@ public class b_unblockFunctionalitySteps extends baseclass {
 		addcandidatepage.checkCandidateALreadyPresent();
 	}
 	
-	@When("^click on the Block/Unblock to unblock checkbox present in front of agency whom you shared the job \\\"([^\\\"]*)\\\"$")
-	public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job(String agyEmailId) throws Throwable {
+	@When("^Block the agency \"([^\"]*)\"$")
+	public void block_the_agency(String agency) throws Throwable {
 		sharewithagencypage.searchField.clear();
-		sharewithagencypage.searchField.sendKeys(agyEmailId);
-		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected())
-		{}
-		else
+		sharewithagencypage.searchField.sendKeys(agency);
+		boolean isBlockUnblockSelected=sharewithagencypage.isBlockUnblockSelected.isSelected();
+		if(isBlockUnblockSelected==false)
 		{
 			Thread.sleep(2000);
 			sharewithagencypage.blockUnblockCheckbox.click();
 			common.clickOnConfirmYes();
 		}
-		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected())
+	}
+	
+	@When("^click on the Block/Unblock to unblock checkbox present in front of agency whom you shared the job \\\"([^\\\"]*)\\\"$")
+	public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job(String agyEmailId) throws Throwable {
+		sharewithagencypage.searchField.clear();
+		sharewithagencypage.searchField.sendKeys(agyEmailId);
+		boolean isBlockUnblockSelected=sharewithagencypage.isBlockUnblockSelected.isSelected();
+		if(isBlockUnblockSelected==true)
 		{
 			Thread.sleep(2000);
 			sharewithagencypage.blockUnblockCheckbox.click();
@@ -164,11 +170,12 @@ public class b_unblockFunctionalitySteps extends baseclass {
 //		Thread.sleep(2000);
 //	}
 
-	@Then("^Unblocked agency should be able to add candidate$")
-	public void unblocked_agency_should_be_able_to_add_candidate() throws Throwable {
-//	    Asser
+
+	@Then("^Unblocked agency should be able add candidate \"([^\"]*)\"$")
+	public void unblocked_agency_should_be_able_add_candidate(String Name) throws Throwable {
+		boolean candidateDisplay = driver.findElement(By.xpath("//span[text()=' "+Name+"']")) != null;
+		Assert.assertEquals(true, candidateDisplay);
 	}
-	
 	
 //
 //	@Then("^close the browser$")
@@ -352,6 +359,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	public void unblocked_team_member_should_be_able_add_candidate(String Name) throws Throwable {
 		boolean candidateDisplay = driver.findElement(By.xpath("//span[text()=' "+Name+"']")) != null;
 		Assert.assertEquals(true, candidateDisplay);
+		common.clickOnOKBtn();
 	} 
 	
 	

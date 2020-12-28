@@ -418,6 +418,21 @@ else{
 	common.clickOnCloseBtn();
 }
 }
+
+public void deleteJob() throws InterruptedException
+{
+	dashboardpage.openWorkbenchPage();
+	Thread.sleep(2000);
+	workbenchpage.jobDropDown.click();
+	List<WebElement> element = driver.findElements(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]"));
+	if(element.size()>0)
+	{
+		Thread.sleep(2000);
+		element.get(0).click();
+		workbenchpage.clickOnCloseJobButton();
+	}
+	workbenchpage.clickOnCloseJobButton();
+}
 }
 
 

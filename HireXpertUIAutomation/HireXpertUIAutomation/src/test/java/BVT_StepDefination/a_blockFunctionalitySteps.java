@@ -1,12 +1,15 @@
 package BVT_StepDefination;
 
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -53,17 +56,13 @@ boolean emp;
 
 	@When("^again click on Share With Agency button and select the Block/Unblock checkbox present in front of the agency \"([^\"]*)\" with whom you shared the job$")
 	public void again_click_on_Share_With_Agency_button_and_select_the_Block_Unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job(String agyEmailId) throws Throwable {
-//		Thread.sleep(4000);
-//		workbenchpage.clickonthreedot();
-//		workbenchpage.shareWithAgencyButton.click();
 		
 		Thread.sleep(1000);
 		sharewithteampage.searchField.clear();
 		sharewithteampage.searchField.sendKeys(agyEmailId);
-		if(driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected())
-		{
-		}
-		else
+		boolean isBlockUnblockSelected=sharewithagencypage.isBlockUnblockSelected.isSelected();
+		System.out.println(isBlockUnblockSelected);
+		if(isBlockUnblockSelected==false)
 		{
 			Thread.sleep(1000);
 			sharewithagencypage.blockUnblockCheckbox.click();
@@ -173,6 +172,7 @@ boolean emp;
 	public void user_should_able_to_search_team_member_and_blocked_agency_should_not_able_to_share_job_with_any_team_members_and_error_message_should_display() throws Throwable {
 	    
 			Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'You are blocked by employer so you can not share this job anymore.')]")).isDisplayed(), true);
+			common.clickOnOKBtn();
 	}
 
 	
@@ -200,15 +200,13 @@ boolean emp;
 		}
 		catch(NoSuchElementException e)
 	    {}
+		common.shareFlag=1;
 	}
 	
 	@When("^click on Yes button from confirmation popup and now select the Block/Unblock checkbox present in front of the team member$")
 	public void click_on_Yes_button_from_confirmation_popup_and_now_select_the_Block_Unblock_checkbox_present_in_front_of_the_team_member() throws Throwable {
-	  
-	    if(driver.findElement(By.xpath("(//input[@type='checkbox'])[4]")).isSelected())
-		{
-		}
-		else
+	  boolean isBlockUnblockSelcted=sharewithteampage.isBlockUnblockSelected.isSelected();
+	    if(isBlockUnblockSelcted==false)
 		{
 			Thread.sleep(3000);
 			sharewithteampage.blockUnblockCheckboxTeam.click();
@@ -237,14 +235,35 @@ boolean emp;
 	@Then("^Blocked team member should not be able to add candidate$")
 	public void blocked_team_member_should_not_be_able_to_add_candidate() throws Throwable {
 		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'You are blocked by your team owner for this job so you can not add more candidate now.')]")).isDisplayed(), true);   
+		common.clickOnOKBtn();
 	}
 	
-//	@After("@bvt_teamblock, @bvt_agencyblock")
-//	public void tearDown() throws InterruptedException
-//	{
-//		dashboardpage.openWorkbenchPage();
-//		workbenchpage.selectJobK();
-//		workbenchpage.clickOnCloseJobButton();
-//	}
+	@Then("^Click on close button and confirm Yes button$")
+	public void click_on_close_button_and_confirm_Yes_button() throws Throwable {
+	  common.clickOnCloseBtn();
+	  common.clickOnConfirmYes();
+	}
 
+	@After("@jobworkflow,@bvt_teamblock")
+	public void Endtest() throws InterruptedException
+	{
+		workbenchpage.deleteJob();
+		if(loginpage.logedinuser=="pemp" || loginpage.logedinuser=="pe1" && common.shareFlag==1)
+		{
+			loginpage.logoutFromAppK();
+			loginpage.ClickOnEmployerAgencySigninLink();
+			loginpage.loginIn("pagy@gmail.com", "12345");
+			workbenchpage.deleteJob();
+		}
+		else if(loginpage.logedinuser=="pagy" || loginpage.logedinuser=="pa1" & common.shareFlag==1)
+		{
+			loginpage.logoutFromAppK();
+			loginpage.ClickOnEmployerAgencySigninLink();
+			loginpage.loginIn("pemp@gmail.com", "12345");
+			workbenchpage.deleteJob();
+		}
+		
+		Thread.sleep(1000);
+		driver.quit();	
+	}
 }

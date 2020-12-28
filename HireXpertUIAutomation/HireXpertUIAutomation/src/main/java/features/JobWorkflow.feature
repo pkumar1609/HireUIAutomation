@@ -1,6 +1,6 @@
 Feature: Job Workflow
 
-	@bvt_agencyblock @block @BVTC
+	@bvt_agencyblock @block @BVTC @jobworkflow
   	Scenario Outline: Verify the Block functionality for Agency with Employer login
   
  	Given User is on Home page of application
@@ -19,7 +19,7 @@ Feature: Job Workflow
     And Select a added job
     And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 
     And again click on Share With Agency button and select the Block/Unblock checkbox present in front of the agency "<agyEmailId>" with whom you shared the job    
-   	And Logout from App
+   And Logout from App
     And Click on Employer-Agency Signin link	
 	And Employer enters valid credentials "<agyEmailId>","<Password>"
 	And Go to workbench
@@ -32,8 +32,7 @@ Feature: Job Workflow
     And search for "<Teamid>" team member and select the Share checkbox present in front of the agency team member to share the job with team member
     And click on Yes button from confirmation popup and observe
     Then user should able to search team member and blocked agency should not able to share job with any team members and error message should display
-    And close the browser
- 
+ 	And Click on close button
 	 
 	 Examples:
 	 |username           |Password  |agyEmailId	   |CandidateEmail    |Team|Teamid       |ContactNumber  |
@@ -41,7 +40,7 @@ Feature: Job Workflow
 
 #TC ID - 61,65,66,384
  
-	@bvt_teamblock @block @BVTC
+	@bvt_teamblock @block @BVTC @jobworkflow
 	Scenario Outline: Verify the Block functionality for team member with Employer and Agency login
   
   	Given User is on Home page of application
@@ -69,16 +68,16 @@ Feature: Job Workflow
     And click on Add Candidate button
     And enter "<CandEmailId>"of candidate and click on Find button and observe
     Then Blocked team member should not be able to add candidate
-    And close the browser
+    And Click on close button and confirm Yes button
     
 	Examples:
 	|username         |   Password   |team|teamId         |CandEmailId    |
-	|pemp@gmail.com   |    12345     |pe1 |pe1@gmail.com  |can12@gmail.com|
+#	|pemp@gmail.com   |    12345     |pe1 |pe1@gmail.com  |can12@gmail.com|
 	|pagy@gmail.com   |    12345     |pa1 |pa1@gmail.com  |can13@gmail.com|
 	
 	#TC ID - 67,72,73
 
-	@bvt_agencyunblock @BVTC @unblock
+	@bvt_agencyunblock @BVTC @unblock @jobworkflow
     Scenario Outline: Verify the Unblock functionality for Agency with Employer login
   
   	Given User is on Home page of application   
@@ -94,7 +93,8 @@ Feature: Job Workflow
 	|title	|agytitle    |designation  |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
 	|Job5   |Job1agy     |developer    |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			     |Hirexpert   |rahitech       |java|
 	And Select a added job
-    And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 
+	And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 	
+	And Block the agency "<agyEmailId>"
     And click on the Block/Unblock to unblock checkbox present in front of agency whom you shared the job "<agyEmailId>"
     Then Employer should be able to unblock the agency
     And Click on close button
@@ -104,15 +104,14 @@ Feature: Job Workflow
 	And Go to workbench
 	And Select a added job
 	And click on Add Candidate button
-	And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<profiletitle>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
-    Then Unblocked agency should be able to add candidate
-    And close the browser
+	And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
+    Then Unblocked agency should be able add candidate "<Name>"
 
 	 Examples:
 	|Username      |agyEmailId    |Teamid         |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
 	|pemp@gmail.com|pagy@gmail.com|pe1@gmail.com  |12345    |hirecan08@gmail.com |jr software developer|hirecan08|9890685538    |Sr.developer  |14/02/1995      |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
-	@bvt_teamunblock @BVTC @unblock
+	@bvt_teamunblock @BVTC @unblock @jobworkflow
   	Scenario Outline: Verify the Unblock functionality for team member with Employer and Agency login
   
   	Given User is on Home page of application
@@ -127,7 +126,7 @@ Feature: Job Workflow
    	And Go to workbench
 	And Add job
 	|title  |agytitle       |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-	|Job62  |Job6agy2       |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |	java|
+	|Job6   |Job6agy       |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |	java|
 	And Select a added job
     And click on Share With Team button and select the Share checkbox present in front of the team member "<Teamid>"
     And click on the Block/Unblock to unblock checkbox present in front of team with whom you shared the job "<Teamid>"
@@ -141,7 +140,7 @@ Feature: Job Workflow
    	And Click on add candidate
 	And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
     Then Unblocked team member should be able add candidate "<Name>"
-    And close the browser
+    And Click on close button and confirm Yes button
     
 	Examples:
 	|Username      |Teamid         |Password |CandidateEmail      |profiletitle           |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
@@ -151,7 +150,7 @@ Feature: Job Workflow
 #TC ID - 236,237,238    
 
 
-	@BVTC @primary
+	@BVTC @primary @jobworkflow
     Scenario Outline: Verify user having only one primary contact with Employer and Agency login
   
   	Given User is on Home page of application 
@@ -176,8 +175,7 @@ Feature: Job Workflow
 	|Name|         Email   | contact  |Nameagy  |         Emailagy  |
 	|pe3 | pe3@gmail.com   | 1234564  |pa3      |pa3@gmail.com		|
 	And user should able to change the primary contact only when the job is shared with the team member to whom user wants to make primary contact "<thridteam>"
-	And close the browser
-    
+   
 	Examples:
 	|   email address    |  password  |Team|Teamid       |contact |anotherteam|thridteam|
 	|pemp@gmail.com      |   12345    |pe1 |pe1@gmail.com|16546856|pe2        |pe3@gmail.com|

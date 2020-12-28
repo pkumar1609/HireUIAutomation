@@ -200,12 +200,7 @@ public class AddCandidatePage extends baseclass {
 			this.expectedCTC.clear();
 			this.expectedCTC.sendKeys(expectedCTC);
 			Thread.sleep(2000);
-//			if(OnNoticePeriod.contentEquals("Yes"))
-//			{			
-//			this.lastWorkingDay.clear();
-//			this.lastWorkingDay.sendKeys(LastWorkingDay);
-//			this.datebelowField = driver.findElement(By.xpath("(//div[@class='text-info'])[2]")).getText();
-//			}
+/
 		}	
 		else
 		{

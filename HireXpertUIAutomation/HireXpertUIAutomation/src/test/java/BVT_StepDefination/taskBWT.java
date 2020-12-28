@@ -265,32 +265,6 @@ public class taskBWT extends baseclass {
 	}
 	}
 	
-		@After("@TaskBVT")
-		public void Endtest() throws InterruptedException
-		{
-			dashboardpage.openDashboardPage();
-			taskpage.ClickOnMyTask();
-			taskpage.reloadtask();
-			Thread.sleep(2000);
-			List<WebElement> markCompleteButton = driver.findElements(By.xpath("//a[@title='Complete']"));
-			int size= markCompleteButton.size();
-			for(int i=0;i<size;i++)
-			{
-				Thread.sleep(3000);
-				markCompleteButton.get(i).click();
-			}
-			taskpage.ClickOnTeamTask();
-			Thread.sleep(2000);
-			taskpage.reloadtask();
-			Thread.sleep(2000);
-			List<WebElement> markCompleteButton1 = driver.findElements(By.xpath("//a[@title='Complete']"));
-			int size1= markCompleteButton1.size();
-			System.out.println(size1);
-			for(int i=0;i<size1;i++)
-			{
-				Thread.sleep(3000);
-				markCompleteButton1.get(i).click();
-			}
-		}
+		
 	
 	}

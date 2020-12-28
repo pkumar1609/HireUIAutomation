@@ -114,7 +114,7 @@ public void sign_in_button_should_not_get_enabled_without_entering_email_address
 @Then("^close the browser$")
 public void close_the_browser() throws Throwable {
     
-	Thread.sleep(5000);
+	Thread.sleep(1000);
 	driver.quit();
 }
 

@@ -12,9 +12,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.WorkbenchPage;
 import utilPackage.baseclass;
 
 public class TaskManagemnet extends baseclass{
@@ -615,6 +617,16 @@ public class TaskManagemnet extends baseclass{
 		}
 		executor.executeScript("arguments[0].scrollIntoView(true);", element);
 		Assert.assertEquals(element.isDisplayed(), true);
+	}
+	
+	
+	
+	@After("@task")
+	public void Endtest() throws InterruptedException
+	{
+		dashboardpage.openWorkbenchPage();
+		workbenchpage.selectJobK();
+		workbenchpage.clickOnCloseJobButton();
 	}
 }
 

@@ -13,11 +13,15 @@ public class ShareWithAgencyPage extends baseclass {
 	String Sharedteam;
 	String teamMemberName;
 	
+	
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	public WebElement searchField;
 	
 	@FindBy(xpath = "//span[@class='checkmark CheckBoxM']")
 	public WebElement shareCheckbox;
+	
+	@FindBy(xpath = "(//input[@type='checkbox'])[3]")
+	public WebElement isBlockUnblockSelected;
 	
 	@FindBy(xpath = "(//span[@class='checkmark CheckBoxM'])[2]")
 	public WebElement blockUnblockCheckbox;
@@ -47,7 +51,7 @@ public class ShareWithAgencyPage extends baseclass {
 		}
 		catch(NoSuchElementException e)
 		{}
-	
+		common.shareFlag=1;
 	}
 
 }

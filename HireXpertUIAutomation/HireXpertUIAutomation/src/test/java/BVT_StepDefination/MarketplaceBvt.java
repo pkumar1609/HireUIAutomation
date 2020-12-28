@@ -1,12 +1,15 @@
 package BVT_StepDefination;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import cucumber.api.DataTable;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -255,4 +258,42 @@ public class MarketplaceBvt extends baseclass {
 		select.selectByVisibleText(addjobpage.jobname+" - Active" );
 	
 	}
+	
+	@Then("^delete the added job$")
+	public void delete_the_added_job() throws Throwable {
+		dashboardpage.openWorkbenchPage();
+		workbenchpage.selectJobK();
+		workbenchpage.clickOnCloseJobButton();
+	}
+	
+	@After("@market")
+	public void Endtest() throws InterruptedException
+	{		
+		loginpage.logoutFromAppK();
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginIn("pagy@gmail.com", "12345");
+		dashboardpage.openWorkbenchPage();
+		Thread.sleep(4000);
+		workbenchpage.jobDropDown.click();
+		List<WebElement> element = driver.findElements(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]"));
+		if(element.size()>0)
+		{
+			Thread.sleep(2000);
+			element.get(0).click();
+			workbenchpage.clickOnCloseJobButton();
+		}
+		loginpage.logoutFromAppK();
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginIn("pemp@gmail.com", "12345");
+		Thread.sleep(4000);
+		workbenchpage.jobDropDown.click();
+		if(element.size()>0)
+		{
+			Thread.sleep(2000);
+			element.get(0).click();
+			workbenchpage.clickOnCloseJobButton();
+		}
+	}
+	
+	
 }
