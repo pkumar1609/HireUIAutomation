@@ -77,8 +77,7 @@ boolean emp;
 	    
 		workbenchpage.ClickonLogout();
 		Thread.sleep(3000);
-		common.cancel.click();
-		
+		common.logout.click();
 		registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(3000);
 		loginpage.emailaddress.sendKeys(agyEmailId);

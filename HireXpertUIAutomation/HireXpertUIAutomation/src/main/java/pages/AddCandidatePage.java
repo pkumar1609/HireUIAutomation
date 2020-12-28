@@ -200,7 +200,6 @@ public class AddCandidatePage extends baseclass {
 			this.expectedCTC.clear();
 			this.expectedCTC.sendKeys(expectedCTC);
 			Thread.sleep(2000);
-/
 		}	
 		else
 		{

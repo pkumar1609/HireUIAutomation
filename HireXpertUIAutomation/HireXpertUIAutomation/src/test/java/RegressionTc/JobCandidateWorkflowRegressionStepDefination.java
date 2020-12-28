@@ -155,13 +155,12 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		
 	}
 
-	@Then("^verify the Auto Populated fields on candidate update profile popup window$")
-	public void verify_the_Auto_Populated_fields_on_candidate_update_profile_popup_window() throws Throwable {
-	    
-		Thread.sleep(3000);
-		updateprofilepopuppage.VerifyAutoPopulatedFieldsOnUpdateCandidateProfile();
-		
-	}
+//	@Then("^verify the Auto Populated fields on candidate update profile popup window$")
+//	public void verify_the_Auto_Populated_fields_on_candidate_update_profile_popup_window() throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//		updateprofilepopuppage.VerifyAutoPopulatedFieldsOnUpdateCandidateProfile(CandidateEmail, CandidateName, ContactNumber);
+//	}
 
 
 	
