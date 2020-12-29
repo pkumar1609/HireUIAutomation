@@ -1,6 +1,6 @@
 Feature: Task 
 
-@task
+@task @BVTC
 Scenario Outline: Verify functionality of adding job task 
 
 Given User must be registered
@@ -41,7 +41,7 @@ Examples:
 
 
 #Change the task name for employer,agency
-@task2
+@task2 @BVTC
 Scenario Outline: To Verify status of task changed as we move card from one column to anathor on task mangemnet page 
 
 Given User must be registered

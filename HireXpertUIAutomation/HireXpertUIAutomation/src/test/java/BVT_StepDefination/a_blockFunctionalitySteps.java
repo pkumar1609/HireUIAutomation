@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
@@ -83,8 +82,7 @@ boolean emp;
 		loginpage.emailaddress.sendKeys(agyEmailId);
 		loginpage.password.sendKeys("12345");
 		Thread.sleep(5000);
-		loginpage.signin.click();
-		
+		loginpage.signin.click();		
 	}
 
 	@When("^click on Workbench tab and select the job for which agency is blocked$")
@@ -243,26 +241,32 @@ boolean emp;
 	  common.clickOnConfirmYes();
 	}
 
-	@After("@jobworkflow,@bvt_teamblock")
+	@After("@interview")
 	public void Endtest() throws InterruptedException
 	{
 		workbenchpage.deleteJob();
-		if(loginpage.logedinuser=="pemp" || loginpage.logedinuser=="pe1" && common.shareFlag==1)
+		if((loginpage.logedinuser=="pemp" || loginpage.logedinuser=="pa1") && common.shareFlag==1)
 		{
 			loginpage.logoutFromAppK();
 			loginpage.ClickOnEmployerAgencySigninLink();
 			loginpage.loginIn("pagy@gmail.com", "12345");
 			workbenchpage.deleteJob();
 		}
-		else if(loginpage.logedinuser=="pagy" || loginpage.logedinuser=="pa1" & common.shareFlag==1)
+		else if((loginpage.logedinuser=="pagy" || loginpage.logedinuser=="pe1" ) && common.shareFlag==1)
 		{
 			loginpage.logoutFromAppK();
 			loginpage.ClickOnEmployerAgencySigninLink();
 			loginpage.loginIn("pemp@gmail.com", "12345");
 			workbenchpage.deleteJob();
-		}
-		
+		}		
+		if (addjobpage.jobAddedByEmp==false)
+		{
+			loginpage.logoutFromAppK();
+			loginpage.ClickOnEmployerAgencySigninLink();
+			loginpage.loginIn("pemp@gmail.com", "12345");
+			workbenchpage.deleteJob();
+		}		
 		Thread.sleep(1000);
 		driver.quit();	
-	}
+	}	
 }

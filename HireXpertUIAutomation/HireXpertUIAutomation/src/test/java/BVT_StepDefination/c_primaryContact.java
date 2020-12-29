@@ -40,7 +40,7 @@ public class c_primaryContact extends baseclass {
 	    common.clickOnConfirmYes();
 	}
 	
-	@When("^try to make that team member as primary contact \"([^\"]*)\"$")
+	@When("^try to make another team member as primary contact \"([^\"]*)\"$")
 	public void try_to_make_that_team_member_as_primary_contact(String team) throws Throwable {
 		
 		sharewithteampage.searchField.clear();

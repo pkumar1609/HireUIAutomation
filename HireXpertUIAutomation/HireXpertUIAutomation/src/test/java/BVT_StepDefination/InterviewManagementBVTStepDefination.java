@@ -4,6 +4,7 @@ package BVT_StepDefination;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import cucumber.api.java.en.Then;
@@ -28,31 +29,37 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		workbenchpage.scheduleInterview.click();
 	}
 
-	@When("^fill all interview details and click on Submit button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void fill_all_interview_details_and_click_on_Submit_button(String Title, String Scheduleon, String Hour, String Minute, String Duration, String TimeZone) throws Throwable {
+	@When("^fill all interview details and click on Submit button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void fill_all_interview_details_and_click_on_Submit_button(String Title, String Scheduleon, String Hour, String Minute, String Duration, String TimeZone, String interviewerName, String interviewerEmail) throws Throwable {
 	    
 		Thread.sleep(4000);
 		scheduleinterviewpage.title.sendKeys(Title);
 		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
 		common.enterdate(Scheduleon);
 		scheduleinterviewpage.hours.sendKeys(Hour);
-		scheduleinterviewpage.minutes.sendKeys(Minute);
-		
+		scheduleinterviewpage.minutes.sendKeys(Minute);		
 		Select se = new Select(scheduleinterviewpage.duration);
-		se.selectByVisibleText(Duration);
-		
+		se.selectByVisibleText(Duration);	
 		Thread.sleep(1000);
 		se = new Select(scheduleinterviewpage.timezone);
 		se.selectByVisibleText(TimeZone);
+		Thread.sleep(1000);
+//	    int size=common.deletebtn.size();
+//	    System.out.println(size);
 		
+		for(WebElement ele :common.deletebtn)
+		{
+			Thread.sleep(1000);
+			executor.executeScript("arguments[0].click();", ele);
+			Thread.sleep(1000);
+		}
+		if(common.okbtn != null)
+		{
+			common.clickOnOKBtn();
+		}
 		Thread.sleep(1000);
-		scheduleinterviewpage.interviewerDropDown.click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[contains(text(),'Select All')]")).click();
-		Thread.sleep(1000);
-		scheduleinterviewpage.interviewerDropDown.click();
-		
-		Thread.sleep(1000);
+		scheduleinterviewpage.interviewerName.sendKeys(interviewerName);
+		scheduleinterviewpage.interviewerEmail.sendKeys(interviewerEmail);			
 		common.ClickSumbit();
 	}
 	

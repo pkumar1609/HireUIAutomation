@@ -20,8 +20,11 @@ public class scheduleInterview extends baseclass {
 	@FindBy(id = "title")
 	public WebElement title;
 	
-	@FindBy(id = "statusMultiselectDropdown")
-	public WebElement interviewerDropDown;
+	@FindBy(xpath = "//input[@formcontrolname='Name' and @placeholder='Enter Name']")
+	public WebElement interviewerName;
+	
+	@FindBy(xpath = "//input[@formcontrolname='Email' and @placeholder='Enter Email']")
+	public WebElement interviewerEmail;
 	
 	@FindBy(xpath="/html/body/ngb-modal-window/div/div/app-candidate-interview-info/div[2]/div/div[2]/form/div/div[2]/ng-multiselect-dropdown/div/div[2]/ul[2]/li/div")
 	public WebElement SelectInterviewer;
@@ -78,12 +81,12 @@ public class scheduleInterview extends baseclass {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void SelectinterviewerT(String interviewer) {
-		
-		interviewerDropDown.click();
-		SelectInterviewer.click(); 
-		interviewerDropDown.click();
-	}
+//	public void SelectinterviewerT(String interviewer) {
+//		
+//		interviewerDropDown.click();
+//		SelectInterviewer.click(); 
+//		interviewerDropDown.click();
+//	}
 	
 	 public void EnterInterviewTitleT(String title1) {
 			
@@ -123,10 +126,20 @@ public class scheduleInterview extends baseclass {
 		 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 			{
 				title.sendKeys(data.get("Title"));
-				Thread.sleep(3000);
-				interviewerDropDown.click();
-				driver.findElement(By.xpath("//div[contains(text(),'Select All')]")).click();
-				interviewerDropDown.click();
+				Thread.sleep(2000);
+				for(WebElement ele :common.deletebtn)
+				{
+					Thread.sleep(1000);
+					executor.executeScript("arguments[0].click();", ele);
+					Thread.sleep(1000);
+				}
+				if(common.okbtn != null)
+				{
+					common.clickOnOKBtn();
+				}
+				Thread.sleep(1000);	
+				scheduleinterviewpage.interviewerName.sendKeys(data.get(""));
+				scheduleinterviewpage.interviewerEmail.sendKeys(data.get(""));
 				Thread.sleep(2000);
 				ScheduleOnCalendarIcon.click();
 				Thread.sleep(2000);

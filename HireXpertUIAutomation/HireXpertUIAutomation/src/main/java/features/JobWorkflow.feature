@@ -129,6 +129,7 @@ Feature: Job Workflow
 	|Job6   |Job6agy       |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |	java|
 	And Select a added job
     And click on Share With Team button and select the Share checkbox present in front of the team member "<Teamid>"
+    And Block the team "<Teamid>"
     And click on the Block/Unblock to unblock checkbox present in front of team with whom you shared the job "<Teamid>"
     Then User should be able to unblock the team member
     And Click on close button
@@ -140,7 +141,6 @@ Feature: Job Workflow
    	And Click on add candidate
 	And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
     Then Unblocked team member should be able add candidate "<Name>"
-    And Click on close button and confirm Yes button
     
 	Examples:
 	|Username      |Teamid         |Password |CandidateEmail      |profiletitle           |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
@@ -168,14 +168,14 @@ Feature: Job Workflow
 	|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|pe1   |pa1	    |
     And click on Share With Team button and select the Share checkbox present in front of the team member "<Teamid>"
     And Click on primary contact
-    And try to make that team member as primary contact "<anotherteam>"
+    And try to make another team member as primary contact "<anotherteam>" 
     Then user should not able to make multiple team members as primary contact "<Teamid>"
     And Click on close button
 	And team member should be added
 	|Name|         Email   | contact  |Nameagy  |         Emailagy  |
 	|pe3 | pe3@gmail.com   | 1234564  |pa3      |pa3@gmail.com		|
 	And user should able to change the primary contact only when the job is shared with the team member to whom user wants to make primary contact "<thridteam>"
-   
+    And Click on close button
 	Examples:
 	|   email address    |  password  |Team|Teamid       |contact |anotherteam|thridteam|
 	|pemp@gmail.com      |   12345    |pe1 |pe1@gmail.com|16546856|pe2        |pe3@gmail.com|

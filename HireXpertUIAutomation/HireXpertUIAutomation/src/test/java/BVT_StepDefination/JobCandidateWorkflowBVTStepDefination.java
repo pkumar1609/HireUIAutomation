@@ -255,8 +255,8 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	@Then("^Collect Answer icon should not reflect on candidates card for giving answers$")
 	public void collect_Answer_icon_should_not_reflect_on_candidates_card_for_giving_answers() throws Throwable {
 		Thread.sleep(3000);
-		WebElement collectanswericon = driver.findElement(By.xpath("//button[@title='Collect Answer']"));
-		Assert.assertEquals(collectanswericon.isDisplayed(), false);
+		boolean collectanswericon = driver.findElements(By.xpath("//button[@title='Collect Answer']")).size()>0;
+		Assert.assertEquals(collectanswericon, false);
 	}
 
 	@When("^Login with Employer credential Who already have a Job added and a candidate added to that job$")
@@ -289,7 +289,6 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void click_on_Questionnaire_tab() throws InterruptedException {
 		
 		Thread.sleep(3000);
-		workbenchpage.job.click();
 		workbenchpage.clickonAddQuestionarybtn();
 	}
 	
@@ -589,15 +588,15 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		common.clickOnCloseBtn();
 	}
 
-	@When("^Click interviewer from Interviewer drop down \"([^\"]*)\"$")
-	public void Click_interviewer_from_Interviewer_drop_down(String interviewer) throws Throwable {
-	    
-		Thread.sleep(3000);
-		scheduleinterviewpage.SelectinterviewerT(interviewer);
-	}
+//	@When("^Click interviewer from Interviewer drop down \"([^\"]*)\"$")
+//	public void Click_interviewer_from_Interviewer_drop_down(String interviewer) throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//		scheduleinterviewpage.SelectInterviewer;
+//	}
 
-	@When("^Fill all mandatory details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void fill_all_mandatory_details(String title, String scheduleon, String hour, String minute, String interviewduration, String timezone) throws Throwable {
+	@When("^Fill all mandatory details \\\"([^\\\"]*)\\\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void fill_all_mandatory_details(String title, String scheduleon, String hour, String minute, String interviewduration, String timezone, String interviewer) throws Throwable {
 		
 		Thread.sleep(3000);
 		scheduleinterviewpage.title.sendKeys(title);
@@ -610,6 +609,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		se = new Select(scheduleinterviewpage.timezone);
 		se.selectByVisibleText(timezone);
 //		scheduleinterviewpage.interviewerDropDown.click();
+		
 		common.ClickSumbit();
 
 	}

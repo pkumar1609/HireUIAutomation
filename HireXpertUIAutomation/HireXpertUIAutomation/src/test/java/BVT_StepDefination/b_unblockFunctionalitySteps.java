@@ -67,27 +67,30 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	
 		@When("^click on the Block/Unblock to unblock checkbox present in front of team with whom you shared the job \\\"([^\\\"]*)\\\"$")
 		public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_team_with_the_agency_with_whom_you_shared_the_job(String team) throws Throwable {
-			sharewithagencypage.searchField.clear();
-			sharewithagencypage.searchField.sendKeys(team);
-			if(driver.findElement(By.xpath("(//label[@class='check'])[5]")).isSelected())
+			sharewithteampage.searchField.clear();
+			sharewithteampage.searchField.sendKeys(team);
+			boolean isBlockUnblockSelected=sharewithteampage.isBlockUnblockSelected.isSelected();
+			if(isBlockUnblockSelected==true)
 			{
-			}
-			else
-			{
-				Thread.sleep(3000);
-				sharewithagencypage.blockUnblockCheckbox.click();
-				common.clickOnConfirmYes();
-			}
-			
-			if(driver.findElement(By.xpath("(//label[@class='check'])[5]")).isSelected())
-			{
-				Thread.sleep(3000);
-				sharewithagencypage.blockUnblockCheckbox.click();
+				Thread.sleep(2000);
+				sharewithteampage.blockUnblockCheckboxTeam.click();
 				common.clickOnConfirmYes();
 			}
 		}
 
-
+		@Then("^Block the team \"([^\"]*)\"$")
+		public void block_the_team(String team) throws Throwable {
+			sharewithteampage.searchField.clear();
+			sharewithteampage.searchField.sendKeys(team);
+			boolean isBlockUnblockSelected=sharewithteampage.isBlockUnblockSelected.isSelected();
+			if(isBlockUnblockSelected==false)
+			{
+				Thread.sleep(2000);
+				sharewithteampage.blockUnblockCheckboxTeam.click();
+				common.clickOnConfirmYes();
+			}
+		}
+		
 	@Then("^Employer should be able to unblock the agency$")
 	public void employer_should_be_able_to_unblock_the_agency() throws Throwable {
 		
@@ -359,7 +362,7 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	public void unblocked_team_member_should_be_able_add_candidate(String Name) throws Throwable {
 		boolean candidateDisplay = driver.findElement(By.xpath("//span[text()=' "+Name+"']")) != null;
 		Assert.assertEquals(true, candidateDisplay);
-		common.clickOnOKBtn();
+		
 	} 
 	
 	

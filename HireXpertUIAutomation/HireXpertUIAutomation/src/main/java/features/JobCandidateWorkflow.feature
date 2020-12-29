@@ -15,7 +15,7 @@ Examples:
 |pagy@gmail.com|12345   |
 
 
-@BVTC @JCWF
+@BVTC @JCWF1
 Scenario Outline: Verify the functionality of Add, Edit & Delete Candidate with Employer login
 
 Given User must be registered
@@ -49,7 +49,7 @@ Examples:
 #otherwise no change required
 
   
-@BVTC @JCWF @Questionary
+@BVTC @JCWF2 @Questionary
 Scenario Outline: Verify the functionality of Add Questionary, Edit question on questionary page and delete Questionary by Delete Questionnaire button and Delete icon.
 
 Given User must be registered
@@ -93,7 +93,6 @@ And Click on Questionnaire tab
 And Click on Delete Questionnarie button
 And click on ReloadCandidate button
 Then Collect Answer icon should not reflect on candidates card for giving answers 
-And click on close button
 
 Examples:
 |Username       |Password |		CandidateEmail      |  Name   |    ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber1   | QUESTION1     | QMARKS1 | ANSWER1 | ANSWER2 | MARKS1 | MARKS2 | QUESTION2    | QMARKS2 | ANSWER3 | ANSWER4 | MARKS3 | MARKS4 |QUESTION3  | QMARKS3 | ANSWER5 | ANSWER6     | MARKS5 | MARKS6 | cuttoffpercentage | rejectionpercentage | question      | OrganizationName |
@@ -105,7 +104,7 @@ Examples:
 # If DB clear, register the employer first = employermain01@gmail.com. otherwise no change required
 
  
-@BVTC @JCWF
+@BVTC @JCWF3
 Scenario Outline: Verify the functionality of Screening tab 
 
 Given User must be registered
@@ -143,31 +142,30 @@ Examples:
 
 
 
-@BVTC @JCWF
-Scenario Outline: To verify that Questionnarie and Screening tab not displayed when log in with Agency and To verify 'Interviewer'dropdown 
-on Schedule interview popup when login with Agency
-
-Given User must be registered
-
-When title of login page is Home
-And Click on Employer-Agency Signin link
-And Employer enters valid credentials "<Username>","<Password>"
-And Go to Workbench 
-#And close all job    
-And Add job
-|title  |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|functionalArea|
-|Jcwf 4 |Jcwfagy 4 | developer   |IT software|java developer |Pune     |400000 |1     |2     |400000|500000|4|talentxpert|java|
-And Select a added job
-And Click on add candidate
-And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
-And observe candidate is getting added in New column
-And Verify that Questionnarie and Screening tab is not displayed when login with Agency
-And Click on Schedule interview icon 
-And Click interviewer from Interviewer drop down "<interviewer>"
-And Fill all mandatory details "<title>" "<scheduleon>" "<hour>" "<minute>" "<interviewduration>" "<timezone>"
-And click on submit
-And click on close button
-#And click on close job button and delete the job
+#@BVTC @JCWF4
+#Scenario Outline: To verify that Questionnarie and Screening tab not displayed when log in with Agency and To verify 'Interviewer'dropdown 
+#on Schedule interview popup when login with Agency
+#
+#Given User must be registered
+#
+#When title of login page is Home
+#And Click on Employer-Agency Signin link
+#And Employer enters valid credentials "<Username>","<Password>"
+#And Go to Workbench 
+##And close all job    
+#And Add job
+#|title  |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|functionalArea|
+#|Jcwf 4 |Jcwfagy 4 | developer   |IT software|java developer |Pune     |400000 |1     |2     |400000|500000|4|talentxpert|java|
+#And Select a added job
+#And Click on add candidate
+#And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
+#And observe candidate is getting added in New column
+#And Verify that Questionnarie and Screening tab is not displayed when login with Agency
+#And Click on Schedule interview icon 
+##And Click interviewer from Interviewer drop down "<interviewer>"
+#And Fill all mandatory details "<title>" "<scheduleon>" "<hour>" "<minute>" "<interviewduration>" "<timezone>" "<interviewer>"
+#And click on submit
+#And click on close button
 
 Examples:
 |Username       |Password |		CandidateEmail      |  Name   |    ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber1   | interviewer | title     | scheduleon  | hour | minute | interviewduration | timezone                                       |
