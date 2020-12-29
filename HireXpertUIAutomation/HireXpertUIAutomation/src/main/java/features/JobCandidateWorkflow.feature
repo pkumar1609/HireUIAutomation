@@ -49,7 +49,7 @@ Examples:
 #otherwise no change required
 
   
-@BVTC @JCWFbvt @Questionary
+@BVTC @JCWFbvt @Questionary @JCWF
 Scenario Outline: Verify the functionality of Add Questionary, Edit question on questionary page and delete Questionary by Delete Questionnaire button and Delete icon.
 
 Given User must be registered
@@ -104,7 +104,7 @@ Examples:
 # If DB clear, register the employer first = employermain01@gmail.com. otherwise no change required
 
  
-@BVTC @JCWFbvt
+@BVTC @JCWFbvt @JCWF
 Scenario Outline: Verify the functionality of Screening tab 
 
 Given User must be registered
