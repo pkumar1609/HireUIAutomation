@@ -35,10 +35,10 @@ Feature: Interview Management
     And click on Interviews tab
     And Select the filters for which you want candidate interview details and click on Search button "<scheduleon1>"
     Then Interview details should be reflect according to the filter applied "<scheduleon1>" "<Name>"
-    And close the browser
+
     
    Examples: 
-    |Username       |Password |		CandidateEmail      |  Name       |    ContactNumber |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber   | Title      | Hour | Minute |  Duration  | TimeZone                     					    | hour | duration   | scheduleon |scheduleon1 |interviewerName|interviewerEmail|
+    |Username       |Password |		CandidateEmail      |  Name       |    ContactNumber |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber   | Title      | Hour | Minute |  Duration  | TimeZone                     					    | hour | duration   | scheduleon   |scheduleon1 |interviewerName|interviewerEmail|
     |pemp@gmail.com | 12345   | hirecan15@gmail.com     | hirecan15   |   9125671966     |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     | 30 Minutes |   (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 45 Minutes | 1/1/2021   |3/1/2021  |pe1			  |pe1@gmail.com   |
     |pagy@gmail.com | 12345   | hirecan16@gmail.com     | hirecan16   |   9125671966     |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     | 30 Minutes |   (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 45 Minutes | 1/1/2021   |3/1/2021  |pe1            |pe1@gmail.com   |
 

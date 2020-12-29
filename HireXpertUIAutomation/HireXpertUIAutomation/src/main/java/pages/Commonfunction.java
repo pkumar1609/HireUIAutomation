@@ -162,6 +162,7 @@ public class Commonfunction extends baseclass {
 		    break;
 			}
 	        Thread.sleep(1000);	
+	        driver.findElement(By.xpath("//button[@aria-label='Next Month']")).click();
 			driver.findElement(By.xpath("//button[@class='headerlabelbtn yearlabel']")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//div[text()='"+year+"']")).click();
@@ -169,7 +170,7 @@ public class Commonfunction extends baseclass {
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//div[text()='"+monthName+"']")).click();
 			Thread.sleep(4000);
-			driver.findElement(By.xpath("//span[text()='"+day+"']")).click();
+			driver.findElement(By.xpath("//td//span[text()='"+day+"']")).click();
 		}
 	
 	public String displayDate(String Date)
