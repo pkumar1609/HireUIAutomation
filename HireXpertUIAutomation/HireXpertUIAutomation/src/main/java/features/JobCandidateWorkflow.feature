@@ -15,7 +15,7 @@ Examples:
 |pagy@gmail.com|12345   |
 
 
-@BVTC @JCWF1
+@BVTC @JCWF @JCWFbvt
 Scenario Outline: Verify the functionality of Add, Edit & Delete Candidate with Employer login
 
 Given User must be registered
@@ -49,7 +49,7 @@ Examples:
 #otherwise no change required
 
   
-@BVTC @JCWF2 @Questionary
+@BVTC @JCWFbvt @Questionary
 Scenario Outline: Verify the functionality of Add Questionary, Edit question on questionary page and delete Questionary by Delete Questionnaire button and Delete icon.
 
 Given User must be registered
@@ -104,7 +104,7 @@ Examples:
 # If DB clear, register the employer first = employermain01@gmail.com. otherwise no change required
 
  
-@BVTC @JCWF
+@BVTC @JCWFbvt
 Scenario Outline: Verify the functionality of Screening tab 
 
 Given User must be registered
