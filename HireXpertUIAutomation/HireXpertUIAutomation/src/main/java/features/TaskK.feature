@@ -21,8 +21,8 @@ And Share job with team member
 |pe1    |pa1    |
 And Click on close button
 And Click on Add task button and enter all details employer
-|Title for emp      |teamField |AssignTo |note                             |employer            |team      |teamid               |Title for agy    |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
-|task for job       |pemp      |pe1      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |particular task  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+|Title for emp  |Title for agy|teamField |AssignTo |note                             |employer   |team      |teamid         |agyteamField |agyAssignTo |agynote                             |agency           |agyteam   |agyteamid            |
+|task 1         |taskagy 2    |pemp      |pe1      |Task should complete before time |pemp       |pe1       |pe1@gmail.com  |pagy         |pa1         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 And Go to dashboard
 And the task should display for logged in user on dashboard page with "New" Status
 And Go to Task Management tab
@@ -37,11 +37,12 @@ Then Close browser
 Examples:
 |Username      |Password|team		  |
 |pemp@gmail.com|12345   |pe1@gmail.com|
-|pagy@gmail.com|12345   |pa1@gmail.com|
+#|pagy@gmail.com|12345   |pa1@gmail.com|
 
 
 #Change the task name for employer,agency
-@task2 @BVTC
+
+#@task @BVTC
 Scenario Outline: To Verify status of task changed as we move card from one column to anathor on task mangemnet page 
 
 Given User must be registered
@@ -55,8 +56,8 @@ And Add job
 |Statuschecking Task   |Statuschecking Task Agy|marketing trainee   |IT software|trainee   |pune     |400000 |1     |2     |400000|500000|4|talentxpert|java|
 And Select a added job
 And Click on Add task button and enter all details employer
-|Title for emp                         |teamField |AssignTo  |note                             |employer            |team      |teamid               |Title for agy               |agyteamField |agyAssignTo  |agynote                             |agency           |agyteam   |agyteamid            |
-|task for job Statuschecking Task      |pemp      |pemp      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |Statuschecking123 Task Agy  |pagy         |pagy         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
+|Title for emp|teamField |AssignTo  |note                             |employer            |team      |teamid               |Title for agy               |agyteamField |agyAssignTo  |agynote                             |agency           |agyteam   |agyteamid            |
+|task 2       |pemp      |pemp      |Task should complete before time |pemp    		    |pe1       |pe1@gmail.com        |Taskagy 2  |pagy         |pagy         |Task should complete before time    |pagy   		    |pa1       |pe1@gmail.com        |
 And Go to dashboard
 And Reload the task
 And the task should display for logged in user on dashboard page with "New" Status
@@ -99,7 +100,7 @@ Then Close browser
 
 Examples:
 |Username      |Password|team		  |
-#|pemp@gmail.com|12345   |pe1@gmail.com|
+|pemp@gmail.com|12345   |pe1@gmail.com|
 |pagy@gmail.com|12345   |pa1@gmail.com|
 
 

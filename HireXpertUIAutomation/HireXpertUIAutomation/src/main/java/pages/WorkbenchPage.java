@@ -427,8 +427,9 @@ public void deleteJob() throws InterruptedException
 	List<WebElement> element = driver.findElements(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]"));
 	if(element.size()>0)
 	{
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		element.get(0).click();
+		Thread.sleep(1000);
 		workbenchpage.clickOnCloseJobButton();
 	}
 }

@@ -15,7 +15,7 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath = "//a[text()='Recruitment ']")
 	public WebElement recruitment;
 	
-	@FindBy(linkText = "Application Tracking")
+	@FindBy(xpath = "//a[contains(text(),'Applicant Tracking')]")
 	public WebElement applicationTracking;
 	
 	@FindBy(xpath = "//a[contains(text(),'Employers')]")
@@ -56,9 +56,10 @@ public class DashboardPage extends baseclass {
 
 	public void openWorkbenchPage() throws InterruptedException {
 		
-		Thread.sleep(2000);
-		Action.moveToElement(recruitment).click().perform();
-		executor.executeScript("arguments[0].click();",applicationTracking);
+		Action.moveToElement(dashboardpage.recruitment).perform();
+		Thread.sleep(4000);
+		applicationTracking.click();
+		Thread.sleep(1000);
 	}
 	
 	public void openEmployersPage() throws InterruptedException {

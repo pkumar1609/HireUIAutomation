@@ -624,9 +624,8 @@ public class TaskManagemnet extends baseclass{
 	@After("@task")
 	public void Endtest() throws InterruptedException
 	{
-		dashboardpage.openWorkbenchPage();
-		workbenchpage.selectJobK();
-		workbenchpage.clickOnCloseJobButton();
+		workbenchpage.deleteJob();
+		
 	}
 }
 
