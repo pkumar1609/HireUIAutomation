@@ -82,7 +82,7 @@ Then Close browser
 
 #Regression Test Cases
 
-@TC77_79_95 @reglogin 
+@TC77_79_95 @login 
 Scenario: To verify search funtionality of Employer and team tab
 
 Given User must be registered
@@ -112,7 +112,7 @@ And Click on Search section and enter already existing employer team
 And User should able to search employer team
 
 
-@TC_78_80_95 @reglogin
+@TC_78_80_95 @login
 Scenario: To verify search funtionality of Agency and team tab
 
 Given User must be registered
@@ -147,7 +147,7 @@ And User should able to search agency team
 
 
 
-@reglogin @3
+@reglogin @3 @login
 Scenario Outline: To verify Error message for character limit for both agency and employer
 Given User must be registered
 When title of login page is Home
@@ -164,7 +164,29 @@ Examples:
 |pemp@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
 |pagy@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
 
-
+@BVTC @login
+  Scenario Outline: Verify that User is not able to Login with invalid credentials
+  
+    Given User is on Home page of application
+    
+    When title of page is HireXpert
+   	And Click on Employer-Agency Signin link
+    And enter invalid user email address and invalid password which is not registered "<username>" and "<password>"
+    Then User should not be able to login to application and error message should display 
+    And enter valid user email address and invalid password which is registered to application "<username>" and "<password>"
+    Then error message should display 
+    And now keep Email address field blank and tab 
+   	And observe error message for Email address field
+   	And keep password field blank and tab
+   	And observe error message for Password field
+   	Then Sign in button should not get enabled without entering email address or password and User should get error message for mandatory fields
+    And close the browser
+    
+#TC ID - 7,8,9  
+Examples:
+|username           |password |  
+|asdfghj@gmail.com  | asdfghj |
+|pemp@gmail.com     | asdfghj |
 
 
 

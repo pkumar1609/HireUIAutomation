@@ -241,7 +241,7 @@ boolean emp;
 	  common.clickOnConfirmYes();
 	}
 
-	@After("@interview")
+	@After("@BVTC")
 	public void Endtest() throws InterruptedException
 	{
 		workbenchpage.deleteJob();

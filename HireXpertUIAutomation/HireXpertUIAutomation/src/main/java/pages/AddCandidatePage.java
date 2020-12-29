@@ -353,31 +353,31 @@ public class AddCandidatePage extends baseclass {
 	public void uploadResumeDocument() throws AWTException {
 		
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP33\\Documents\\CV.docx");
+		upload.sendKeys("C:\\Selenium\\CV.docx");
 	}
 	
-	public void uploadResumeDocumentT() throws AWTException {  //Method for Trupti
+	public void uploadResumeDocumentT() throws AWTException { 
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\sample2.doc"); // CV Path of Trupti's system
+		upload.sendKeys("C:\\Selenium\\sample2.doc"); 
 	}
 	public void uploadResumeDocumentinZipformatT() throws AWTException {  //Method for Trupti
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\DVWA-master.zip"); // CV Path of Trupti's system
+		upload.sendKeys("C:\\Selenium\\DVWA-master.zip"); // CV Path of Trupti's system
 	}
 	
 	public void uploadResumeDocumentinPdfformatT() throws AWTException {  //Method for Trupti
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\komal[5_1_2019__6_1_2019].pdf"); // CV Path of Trupti's system
+		upload.sendKeys("C:\\Selenium\\Vimala_S__Bengaluru___Bangalore_7.06_yrs (2).pdf"); // CV Path of Trupti's system
 	}
 	
 	public void uploadResumeDocumentintextformatT() throws AWTException {  //Method for Trupti
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\sample.txt"); // CV Path of Trupti's system
+		upload.sendKeys("C:\\Selenium\\sample.txt"); // CV Path of Trupti's system
 	}
 
 	public void uploadResumeDocumentinPNGformatT() throws AWTException {  //Method for Trupti
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Users\\TLP33\\Downloads\\RequestControlPopUp (1).png"); // CV Path of Trupti's system
+		upload.sendKeys("C:\\Selenium\\RequestControlPopUp (1).png"); // CV Path of Trupti's system
 	}
 	
 }

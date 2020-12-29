@@ -16,7 +16,6 @@ import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pages.WorkbenchPage;
 import utilPackage.baseclass;
 
 public class TaskManagemnet extends baseclass{
@@ -135,7 +134,7 @@ public class TaskManagemnet extends baseclass{
 
 	@When("^Review Candidate task should display in new column \"([^\"]*)\"$")
 	public void review_Candidate_task_should_display_in_new_column(String arg1) throws Throwable {
-		WebElement element = driver.findElement(By.xpath("//td[2]//span[text()='Review candidate "+arg1+" CV for job "+addjobpage.jobname+"']"));
+		WebElement element = driver.findElement(By.xpath("//td[2]//span[contains(text(),'Review candidate "+arg1+" CV for job "+addjobpage.jobname+"')]"));
 		executor.executeScript("arguments[0].scrollIntoView(true);", element);
 		Assert.assertEquals(element.isDisplayed(), true);
 	}
@@ -154,7 +153,7 @@ public class TaskManagemnet extends baseclass{
 
 	@When("^Review Candidate task should display in done column \"([^\"]*)\"$")
 	public void review_Candidate_task_should_display_in_done_column(String arg1) throws Throwable {
-		WebElement element = driver.findElement(By.xpath("//td[6]//span[text()='Review candidate "+arg1+" CV for job "+addjobpage.jobname+"']"));
+		WebElement element = driver.findElement(By.xpath("//td[6]//span[contains(text(),'Review candidate "+arg1+" CV for job "+addjobpage.jobname+"')]"));
 		executor.executeScript("arguments[0].scrollIntoView(true);", element);
 		Assert.assertEquals(element.isDisplayed(), true);
 	}
@@ -223,7 +222,7 @@ public class TaskManagemnet extends baseclass{
 
 	@Then("^pending interview task should display in done columne \"([^\"]*)\"$")
 	public void pending_interview_task_should_display_in_done_columne(String arg1) throws Throwable {
-		Assert.assertEquals(driver.findElement(By.xpath("//td[6]//span[text()='Interview pending for candidate "+arg1+" for job "+addjobpage.jobname+"']")).isDisplayed(), true);	
+		Assert.assertEquals(driver.findElement(By.xpath("//td[6]//span[contains(text(),'Interview pending for candidate "+arg1+" for job "+addjobpage.jobname+"')]")).isDisplayed(), true);	
 
 	}
 	
@@ -621,7 +620,7 @@ public class TaskManagemnet extends baseclass{
 	
 	
 	
-	@After("@task")
+	@After("@TaskManagement1")
 	public void Endtest() throws InterruptedException
 	{
 		workbenchpage.deleteJob();

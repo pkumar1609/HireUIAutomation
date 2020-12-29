@@ -42,7 +42,7 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath= "//a[contains(text(),'CV Store ')] ")
 	public WebElement cvStrore ;
 	
-	@FindBy(xpath= "//a[text()='Task']")
+	@FindBy(xpath= "//a[text()='Tasks']")
 	public WebElement task ;
 	
 	@FindBy(xpath= "//a[contains(text(),'Invoice')]")

@@ -83,7 +83,7 @@ And click on ok button
 	# Change name, email of employer/agency/candidate
 
 
-	@Bvt
+	@Bvt @register
 	Scenario Outline: To verify the registration functionality of already registered user and to verify user is not able to add one user with multiple roles.
 	
 	Given User open browser
@@ -128,7 +128,7 @@ And click on ok button
 	# if db clear then register candidatemain01@gmail.com as candidate
 
   
-	 @Bvt
+	 @Bvt @register
 	Scenario Outline: Verify user should not be able to Login with old password after creating the new password
 	
 	Given User open browser
@@ -202,7 +202,7 @@ And click on ok button
 #	#Change name, email of agency & employer
 #	
 #	  
-	@Bvt @Regression1
+	@Bvt @Regression1 @register
 	Scenario Outline: Verify that Agency, Employer & Candidate is not able to continue without completing the profile. Also Agency, Employer $ Candidate is able to update profile.
 	
 	Given User open browser
@@ -294,7 +294,7 @@ And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<
 #	# Change name, email of employer/agency/candidate
 #
 #	
-@Regression
+@Regression @register
 	Scenario Outline: Forgot password functionality for not registered user
 	
 	Given User open browser

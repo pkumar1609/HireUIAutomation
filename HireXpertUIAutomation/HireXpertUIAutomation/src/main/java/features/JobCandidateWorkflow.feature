@@ -104,7 +104,7 @@ Examples:
 # If DB clear, register the employer first = employermain01@gmail.com. otherwise no change required
 
  
-@BVTC @JCWF3
+@BVTC @JCWF
 Scenario Outline: Verify the functionality of Screening tab 
 
 Given User must be registered
@@ -142,7 +142,7 @@ Examples:
 
 
 
-#@BVTC @JCWF4
+#@BVTC @JCWF4 
 #Scenario Outline: To verify that Questionnarie and Screening tab not displayed when log in with Agency and To verify 'Interviewer'dropdown 
 #on Schedule interview popup when login with Agency
 #
@@ -185,7 +185,7 @@ Examples:
 
 #REGRESSION TCs
 
-@Regression @reg1
+@Regression @reg1 @JCWF
 Scenario Outline: To verify the functionality of Update Profile page of candidate
 
 Given User must be registered
@@ -245,7 +245,7 @@ Examples:
 #change email id of candidate [enter candidate email id not presnet in system]
   
 #  change email id evrytime new one
-@Regression @reg2
+@Regression @reg2 @JCWF
 Scenario Outline: To verify the Notice Period field on candidate page 
 Given User must be registered
 
@@ -288,7 +288,7 @@ Examples:
 # Also check the last working day 
   
   
-@Regression @reg3
+@Regression @reg3 @JCWF
 Scenario Outline: Verify user is able to add comment for candidate
 
 Given User must be registered
@@ -323,7 +323,7 @@ Examples:
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
 
-@Regression @reg4
+@Regression @reg4 @JCWF
 Scenario Outline: Verify user able to move rejected candidate from Rejected column to any other column
 
 Given User must be registered
@@ -364,7 +364,7 @@ Examples:
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
 
-@Regression @reg5
+@Regression @reg5 @JCWF
 Scenario Outline: Verify one after one rejected candidate listed in Rejected Column
 
 Given User must be registered
@@ -401,7 +401,7 @@ Examples:
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
 
-@Regression @reg6 
+@Regression @reg6 @JCWF
 Scenario Outline: To verify the functionality of Upload Resume on emp/agy profile
 	
 Given User must be registered
@@ -442,7 +442,7 @@ Examples:
 |pagy@gmail.com      |12345    |hirecan22@gmail.com |jr software developer|hirecan22|7896485538    |Sr.developer  |14/02/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
 
-@Regression @reg7 @run
+@Regression @reg7 @run @JCWF
 Scenario Outline: To verify the functionality of Upload Resume on candidate profile
 	
 Given User must be registered
@@ -482,7 +482,7 @@ Examples:
 # Change the candidate name & candidate email every time
 
 
-@Regression @reg8 @run
+@Regression @reg8 @JCWF
  Scenario Outline: To verify user is able to update skills and No. of Interviews for the job with Employer login
 	
 Given Open browser
@@ -514,7 +514,7 @@ Examples:
     # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
     
 
-@Regression @reg9 @run
+@Regression @reg9 @JCWF
 Scenario Outline: To verify deleted skill on Candidate Details page and when employer is adding new candidate for the job
   
 Given Open browser
@@ -558,7 +558,7 @@ Examples:
    # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
    
 
-@Regression @reg10 @run
+@Regression @reg10 @JCWF
 Scenario Outline: Verify the functionality of adding a candidate to the job that is shared by agency team member
     
 Given Open browser
@@ -593,7 +593,7 @@ Examples:
 
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
-@Regression @reg11 @run
+@Regression @reg11 @JCWF
 Scenario Outline: Verify functionality of bell icon on candidate card.
 
 Given Open browser
@@ -622,7 +622,7 @@ Examples:
 
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
-@Regression @reg12 @run
+@Regression @reg12 @JCWF
 Scenario Outline: Verify there is asking reason when user manually drag the candidate card in rejection column from employer login, employer team member login, agency login, agency team member login
 
 Given Open browser
