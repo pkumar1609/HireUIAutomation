@@ -1,9 +1,7 @@
 package runnerPackage;
 import org.junit.runner.RunWith;
 import cucumber.api.CucumberOptions;
-import cucumber.api.java.After;
 import cucumber.api.junit.Cucumber;
-import utilPackage.baseclass;
 @RunWith(Cucumber.class)
 @CucumberOptions
 (
@@ -17,9 +15,9 @@ monochrome= true,
 //        "json:target/cucumber-reports/cucumber.json"},
 plugin = {"pretty",
         "html:target/cucumber-reports","json:target/cucumber.json", "junit:C:/Users/admin/AppData/Local/Jenkins.jenkins/workspace/UI Automation/HireXpertUIAutomation/HireXpertUIAutomation/target/cucumber-reports/Cucumber.xml"},
-tags=("@BVTC")
+tags=("@login,@register,@jobworkflow,@jobupdate,@interview,@JCWF,@market,@TaskManagement")
 )
 public class TestRunner
 {
 };
-//@block,@unblock,@jobupdate,@interview,@invalid,@JCWF,@market,@primary
+//@login,@register,@jobworkflow,@jobupdate,@interview,@JCWF,@market,@TaskManagement
