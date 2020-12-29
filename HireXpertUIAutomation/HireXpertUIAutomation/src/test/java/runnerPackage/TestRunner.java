@@ -7,7 +7,7 @@ import utilPackage.baseclass;
 @RunWith(Cucumber.class)
 @CucumberOptions
 (
-features="C:\\Users\\admin\\AppData\\Local\\Jenkins.jenkins\\workspace\\UI Automation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties",
+features="C:\\Users\\admin\\AppData\\Local\\Jenkins.jenkins\\workspace\\UI Automation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\features",
 glue= {"BVT_StepDefination"},
 dryRun= false,
 monochrome= true,
