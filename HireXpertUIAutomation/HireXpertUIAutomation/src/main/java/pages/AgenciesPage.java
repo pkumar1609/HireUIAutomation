@@ -65,8 +65,8 @@ public class AgenciesPage extends baseclass {
 	
 	public void Clickagencybtn() throws InterruptedException
 	{
-		Action.moveToElement(dashboardpage.recruitment).click().perform();
-		explicitwait.until(ExpectedConditions.elementToBeClickable(dashboardpage.agencies));
+//		Action.moveToElement(dashboardpage.recruitment).click().perform();
+//		explicitwait.until(ExpectedConditions.elementToBeClickable(dashboardpage.agencies));
 		dashboardpage.openAgenciesPage();
 	}
 	

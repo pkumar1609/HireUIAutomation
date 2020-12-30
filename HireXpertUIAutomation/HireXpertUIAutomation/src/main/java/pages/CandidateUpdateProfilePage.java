@@ -30,13 +30,13 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//span[text()='Desired Designations']//following::i")
 	public List<WebElement> deletedesignation;	
 
-	@FindBy(xpath = "//a[@title='Skills & Designation']")
+	@FindBy(xpath = "//a[contains(text(),' Skills & Designation')]")
 	public WebElement SkillsInformation;
 	
-	@FindBy(xpath = "//a[@title='Personal & Professional Details']")
+	@FindBy(xpath = "//a[@ngbtooltip='Personal & Professional Details']")
 	public WebElement personalprofessionalInformation;
 	
-	@FindBy(xpath = "//a[@title='Professional Work Experience']")
+	@FindBy(xpath = "//a[@ngbtooltip='Professional Work Experience']")
 	public WebElement workExperienceTab;
 	
 	@FindBy(xpath = "//a[@class='nav-link'][contains(text(),'Profile')]")
@@ -137,7 +137,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 //	certificate tab
 	
-	@FindBy(xpath = "//a[@title='Certificates Details']")
+	@FindBy(xpath = "//a[@ngbtooltip='Certificates Details']")
 	public WebElement certificateTab;
 	
 	@FindBy(xpath = "//input[@id='IssuingAuthority']")
@@ -145,7 +145,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 //	language tab
 	
-	@FindBy(xpath = "//a[@title='Languages Details']")
+	@FindBy(xpath = "//a[@ngbtooltip='Languages Details']")
 	public WebElement languageTab;
 	
 	@FindBy(xpath = "//input[@placeholder='Enter Language']")
@@ -156,7 +156,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 //	visa Tab
 	
-	@FindBy(xpath = "//a[@title='Visa Details']")
+	@FindBy(xpath = "//a[@ngbtooltip='Visa Details']")
 	public WebElement visaTab;
 	
 	@FindBy(xpath = "//input[@id='VisaType']")
@@ -167,7 +167,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 //	Experience details Tab
 	
-	@FindBy(xpath = "//a[@title='Experience Details']")
+	@FindBy(xpath = "//a[@ngbtooltip='Experience Details']")
 	public WebElement experienceTab;
 	
 	@FindBy(xpath = "//input[@placeholder='Enter Technologies']")
@@ -187,13 +187,13 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//input[@id='AttendedIn']")
 	public List<WebElement> attendedIn;
 	
-	@FindBy(xpath = "//a[@title='Trainings Details']")
+	@FindBy(xpath = "//a[@ngbtooltip='Trainings Details']")
 	public WebElement trainingsTab;
 	
 	
 // Social Link
 	
-	@FindBy(xpath = "//a[@title='Social Links Details']")
+	@FindBy(xpath = "//a[@ngbtooltip='Social Links Details']")
 	public WebElement sociallinkTab;
 	
 	@FindBy(xpath = "//input[@id='Link']")
@@ -201,7 +201,7 @@ public class CandidateUpdateProfilePage extends baseclass {
 	
 //Aditional tab
 	
-	@FindBy(xpath = "//a[@title='Additional Details']")
+	@FindBy(xpath = "//a[@ngbtooltip='Additional Details']")
 	public WebElement aditionalTab;
 	
 	@FindBy(xpath = "//button[text()=' Cover Letter ']")

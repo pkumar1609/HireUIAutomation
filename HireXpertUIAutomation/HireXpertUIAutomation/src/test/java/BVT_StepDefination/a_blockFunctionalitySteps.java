@@ -240,8 +240,8 @@ boolean emp;
 	  common.clickOnCloseBtn();
 	  common.clickOnConfirmYes();
 	}
-
-	@After("@login,@register,@jobworkflow,@jobupdate,@interview,@JCWF,@market,@TaskManagement")
+//	@jobworkflow,@jobupdate,@interview,@JCWF,@market,@TaskManagement
+	@After("@Regression")
 	public void Endtest() throws InterruptedException
 	{
 		workbenchpage.deleteJob();

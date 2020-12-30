@@ -257,12 +257,9 @@ public void filljobDetails(String JobTitle,String Industry, String JobDesignatio
 public void addtenSkills() throws InterruptedException {
 		
 		
-		Thread.sleep(3000);
-		
-		for(int i=0;i<=10;i++) {
-			
+			Thread.sleep(3000);
+			for(int i=0;i<10;i++) {
 			addskillbutton.click();
-
 		}
 	}
 

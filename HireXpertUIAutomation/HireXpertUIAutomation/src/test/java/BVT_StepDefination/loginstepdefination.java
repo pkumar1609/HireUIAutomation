@@ -293,14 +293,12 @@ public class loginstepdefination extends baseclass {
 	}
 	@When("^Check the character limit for fields with \"([^\"]*)\"$")
 	public void check_the_character_limit_for_fields_with(String Name) throws Throwable {
+		Thread.sleep(1000);
 		updateprofilepopuppage.AgencyEmployerName.clear();
 		updateprofilepopuppage.AgencyEmployerName.sendKeys(Name);
-		System.out.println(Name);
-		try {
-		error=driver.findElement(By.xpath("//div[contains(text(),'Name must be 3 - 64 alphabets.')]")).isDisplayed();}
-		catch(NoSuchElementException e)
-		{}
+		error=driver.findElements(By.xpath("//div[contains(text(),'Name must be 3 - 64 alphabets.')]")).size()>0;
 		Assert.assertEquals(error, false);
+		Thread.sleep(1000);
 		updateprofilepopuppage.AgencyEmployerName.clear();
 		updateprofilepopuppage.AgencyEmployerName.sendKeys(Name+"a");
 		Assert.assertEquals(true, driver.findElement(By.xpath("//div[contains(text(),'Name must be 3 - 64 alphabets.')]")).isDisplayed());
@@ -313,10 +311,7 @@ public class loginstepdefination extends baseclass {
 		teampage.clickOnAddBtnK();
 		teampage.TeamMemberName.clear();
 		teampage.TeamMemberName.sendKeys(Name);
-		try {
-		error=driver.findElement(By.xpath("//div[contains(text(),'Name must be 3 - 64 alphabets.')]")).isDisplayed();}
-		catch(NoSuchElementException e)
-		{}
+		error=driver.findElements(By.xpath("//div[contains(text(),'Name must be 3 - 64 alphabets.')]")).size()>0;
 		Assert.assertEquals(error, false);
 		teampage.TeamMemberName.clear();
 		teampage.TeamMemberName.sendKeys(Name+"a");

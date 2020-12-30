@@ -45,9 +45,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 
 	@Then("^click on Close button$")
 	public void click_on_Close_button() throws Throwable {
-	    
-		Thread.sleep(3000);
-		registerpage.Clickclosebtn();
+	    common.clickOnCloseBtn();
 	}
 
 	

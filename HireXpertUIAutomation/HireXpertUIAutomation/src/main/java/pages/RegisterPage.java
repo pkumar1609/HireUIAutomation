@@ -277,9 +277,7 @@ public void alreadyregisterUserdetails1(String usertype, String timezone, String
 		      OKbtn.click();
    }
 		
-         public void Clickclosebtn () {
-	
-	
+         public void Clickclosebtn () {	
 	         Closebtn.click();
   }
 		

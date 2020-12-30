@@ -59,11 +59,11 @@ And Go to agency marketplace tab
 Then status should display as employer signed
 Examples:
 |Employer	   |Password |Agency        |Agency2        |
-|pemp@gmail.com|12345    |kagy@gmail.com|pagy1@gmail.com|
+|pemp@gmail.com|12345    |pagy@gmail.com|pagy1@gmail.com|
 
 #TC 351,359,357, 361
 
-#@TC363_375 @BVTC @market
+@TC363_375 @BVTC @market
 Scenario Outline: To check the functionality of Review request and add candidate
 Given User must be registered
 And Click on Employer-Agency Signin link
@@ -134,5 +134,5 @@ Then All updated terms and condition should show for new agency
 
 Examples:
 |Employer	   |Password |Agency        |Agency2        |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
-|pemp@gmail.com|12345    |kagy@gmail.com|pagy1@gmail.com|hirecan08@gmail.com |jr software developer|hirecan08|9890685538    |Sr.developer  |14/02/1995      |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
+|pemp@gmail.com|12345    |pagy@gmail.com|pagy1@gmail.com|hirecan08@gmail.com |jr software developer|hirecan08|9890685538    |Sr.developer  |14/02/1995      |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 

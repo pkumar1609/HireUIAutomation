@@ -17,7 +17,7 @@ And Click on Agencies tab
 Then Employer should be able to add Agency
 Then Newly added agency should be displayed in Agencies page
 And delete the added agency "pagy1"
-Then Close browser
+And Close browser
 
 
 @TC48_52 @BVTC @login
@@ -37,7 +37,7 @@ And Click on team tab
 Then Newly added team member should be displayed in team page
 Then the employer with which you have logged in should display in team tab by default
 And delete the added team "pe2"
-Then Close browser
+And Close browser
 
 @TC49_53 @BVTC @login
 Scenario: To verify whether the Agency is able to add and delete employer
@@ -56,7 +56,7 @@ And Click on Employer tab
 Then Agency should be able to add Employer
 And  delete the added employer "pe2"
 Then deleted employer should not be display on page
-Then Close browser
+And Close browser
 
 
 @TC50_54 @BVTC @login
@@ -78,7 +78,7 @@ Then Agency should be able to add team
 Then Newly added team member should be displayed in team page
 And delete the added team "pa2"
 Then deleted user should not be display on page
-Then Close browser
+And Close browser
 
 #Regression Test Cases
 
@@ -108,9 +108,10 @@ And Click on add Button and Fill all the mandatory details for team
 And Click on team tab
 And Click on Search section and enter already existing employer team
 |Name|
-|pa1 |
+|pe1 |
 And User should able to search employer team
-
+And click on Close button
+And Close browser
 
 @TC_78_80_95 @login
 Scenario: To verify search funtionality of Agency and team tab
@@ -141,13 +142,13 @@ And Click on Search section and enter already existing agency team
 |Name|
 |pa1 |
 And User should able to search agency team
+And click on Close button
+And Close browser
 
 
 
 
-
-
-@reglogin @3 @login
+@login @error
 Scenario Outline: To verify Error message for character limit for both agency and employer
 Given User must be registered
 When title of login page is Home
@@ -158,13 +159,13 @@ And Check the character limit for fields with "<Name>"
 And Click on team tab
 And Click on Add button and fill "<Name>"
 Then Error message should show only after exceeding character limit
-
+And Close browser
 Examples:
 |Username      |Password |Name                                                            |
 |pemp@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
-|pagy@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
+#|pagy@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
 
-@BVTC @login
+@BVTC @login @invalid
   Scenario Outline: Verify that User is not able to Login with invalid credentials
   
     Given User is on Home page of application
@@ -180,7 +181,7 @@ Examples:
    	And keep password field blank and tab
    	And observe error message for Password field
    	Then Sign in button should not get enabled without entering email address or password and User should get error message for mandatory fields
-    And close the browser
+ 	And Close browser
     
 #TC ID - 7,8,9  
 Examples:
