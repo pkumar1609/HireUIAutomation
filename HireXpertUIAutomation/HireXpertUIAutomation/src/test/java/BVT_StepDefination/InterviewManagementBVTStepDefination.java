@@ -1,7 +1,5 @@
 package BVT_StepDefination;
 
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -172,6 +170,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	
 	@Then("^Interview details should be reflect according to the filter applied \"([^\"]*)\" \"([^\"]*)\"$")
 	public void interview_details_should_be_reflect_according_to_the_filter_applied(String scheduleOn, String Name) throws Throwable {
+		Thread.sleep(2000);
 		String date=common.displayDate(scheduleOn);
 		Assert.assertEquals(driver.findElement(By.xpath("//th[text()=' "+date+" ']//following::h6[contains(text(),' "+Name+"')]")).isDisplayed(), true);
 

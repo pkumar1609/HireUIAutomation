@@ -19,55 +19,7 @@ import utilPackage.baseclass;
 
 public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	
-////	@Given("^User open browser$")
-////	public void user_open_browser() throws Throwable {
-////	    
-////		baseclass.initialization();
-////	}
-//
-//	@Given("^click on Login link$")
-//	public void click_on_Login_link() throws Throwable {
-//	   
-//		Thread.sleep(5000);
-//		registerpage.clickLogin();
-//	}
-//	
-////	@When("^Click on Add Candidate button$")
-////	public void click_on_Add_Candidate_button() throws Throwable {
-////	    
-////		Thread.sleep(5000);
-////		workbenchpage.clickOnAddCandidate();
-////	}
-//
-//	@When("^enter email id of candidate which is not registered previously and click on Find button \"([^\"]*)\"$")
-//	public void enter_email_id_of_candidate_which_is_not_registered_previously_and_click_on_Find_button(String CandidateEmail) throws Throwable {
-//	    
-//     Thread.sleep(2000);
-//		
-//		addcandidatepage.EntercandidateemailT(CandidateEmail);
-//		Thread.sleep(2000);
-//		addcandidatepage.clickonFindbtn();
-//		
-//	}
-//
-//	@When("^upload candidate resume and click on save button$")
-//	public void upload_candidate_resume_and_click_on_save_button() throws Throwable {
-//	    
-//		Thread.sleep(3000);
-//		 addcandidatepage.uploadResumeDocumentT();
-//		 Thread.sleep(3000);
-//		common.clickOnSaveBtn();
-//
-//	}
-//	
-//	@When("^Click save button$")
-//	public void Click_on_save_button() throws InterruptedException  {
-//		
-//		Thread.sleep(3000);
-//       common.clickOnSaveBtn();
-//		
-//	}
-//	
+
 	@When("^Click on Save Button$")
 	public void click_on_Save_Button() throws InterruptedException  {
 		
@@ -79,8 +31,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		
 	}
 
-//
-//	
+	
 	@When("^Click on save button for edit candidate$")
 	public void click_on_save_button_for_edit_candidate() throws Throwable {
 
@@ -88,16 +39,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	       editcandidatepage.ClickOnSaveBtntoSavetheupdatedDetails();
 
 	}
-//
-////	@When("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-////	public void add_a_new_Job_as_employer(String JobTitle, String Industry, String JobDesignation, String MinSalary, String MaxSalary, String MinExp, String MaxExp, String NoOfInterviews, String CityArea, String ZipCode, String JobNoticePeriod, String JobSkill1, String JobSkill2) throws Throwable {
-////
-////		Thread.sleep(3000);
-////		addjobpage.addJobforEmployerandAgency(JobTitle, Industry, JobDesignation, MinSalary, MaxSalary, MinExp, MaxExp, NoOfInterviews, CityArea, ZipCode, JobNoticePeriod, JobSkill1, JobSkill2);
-////		
-////
-////	}
-	
+
 	@Then("^Click on save button to save the updated changes$")
 	public void click_on_save_button_to_save_the_updated_changes() throws Throwable {
 
@@ -106,9 +48,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			
 
 	}
-//
-//
-//	
+	
 	@When("^Click on save btn for skill$")
 	public void click_on_save_btn_for_skill() throws InterruptedException  {
 		
@@ -116,24 +56,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		driver.findElement(By.xpath("(//button[text()='Save'])[1]")).click();
 
 	}
-//	
-//	
-////	@When("^Click on save btn for role$")
-////	public void click_on_save_btn_for_role() throws InterruptedException  {
-////		
-////		Thread.sleep(3000);
-////		driver.findElement(By.xpath("(//button[text()='Save'])[2]")).click();
-////      
-////		
-////	}
-//
-//	@Then("^user should able to add new candidate and candidate should get added in New column$")
-//	public void user_should_able_to_add_new_candidate_and_candidate_should_get_added_in_New_column() throws Throwable {
-//	    
-//		Thread.sleep(3000);
-//		workbenchpage.verifyCandidateAddedDisplayedOnWorkbenchOrNot();
-//	}
-//
+
 	@Then("^logout as employer and login as new candidate added by employer \"([^\"]*)\" \"([^\"]*)\"$")
 	public void logout_as_employer_and_login_as_new_candidate_added_by_employer(String CandidateEmail, String password) throws Throwable {
 		loginpage.logoutFromAppK();
@@ -141,14 +64,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		homepage.clickJobseekerCandidateSignInlinklink();
 		registerpage.loginwithnewcandidate(CandidateEmail, password);
 	}
-//	
-//	@Then("^click on ok button of confirmation popup$")
-//	public void click_on_ok_button_of_confirmation_popup() throws Throwable {
-//	    
-//		Thread.sleep(3000);
-//		common.clickOnOKBtn();
-//	}
-//
+
 	@Then("^Click on Profile tab$")
 	public void click_on_Profile_tab() throws Throwable {
 		Thread.sleep(5000);
@@ -513,79 +429,50 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		common.clickNoButton();
 	}
 
-	@Then("^change the set notice period days$")
-	public void change_the_set_notice_period_days() throws Throwable {
-	   
+
+	
+	@Then("^Set on Notice period field as \"([^\"]*)\" and enter \"([^\"]*)\"$")
+	public void set_Notice_period_field_as_and_enter(String onNoticePerid, String lastworkingDay) throws Throwable {
+		Select se = new Select(addcandidatepage.onNoticePeriod);
+		se.selectByVisibleText(onNoticePerid);
+		System.out.println(onNoticePerid);
+		if(onNoticePerid.contentEquals("Yes"))
+		{			
+			Thread.sleep(2000);
+			addcandidatepage.calenderIcon.get(1).click();
+			Thread.sleep(2000);
+			common.enterdate(lastworkingDay);
+		}
+		else if(onNoticePerid.contentEquals("No"))
+		{
+			Thread.sleep(1000);
+			addcandidatepage.noticePeriod.sendKeys(lastworkingDay);
+		}
+	}
+	
+	@Then("^verify that on Notice period field is set as \"([^\"]*)\"$")
+	public void verify_that_Notice_period_field_is_set_as(String onNoticePeriod) throws Throwable {
+	    select =new Select(addcandidatepage.onNoticePeriod);
+		Assert.assertEquals(select.getFirstSelectedOption().getText().strip(), onNoticePeriod);
+	}
+	
+	@When("^change the set notice period days \"([^\"]*)\"$")
+	public void change_the_set_notice_period_days(String noticePeriod) throws Throwable {
 		Thread.sleep(3000);
 		addcandidatepage.noticePeriod.clear();
 		Thread.sleep(3000);
-		addcandidatepage.noticePeriod.sendKeys("45");		
+		addcandidatepage.noticePeriod.sendKeys(noticePeriod);
 	}
-//
-//
-//	@When("^login with Agency credential$")
-//	public void login_with_Agency_credential() throws Throwable {
-//	    
-//		Thread.sleep(3000);
-//		registerpage.agencylogin();
-//	}
-//
-//	@Then("^click on employer tab and delete the employer$")
-//	public void click_on_employer_tab_and_delete_the_employer() throws Throwable {
-//	    
-//		dashboardpage.openEmployersPage();
-//		Thread.sleep(3000);
-//		employerspage.searchEmployer();	
-//		Thread.sleep(2000);
-//		employerspage.deleteSearchedEmployer();
-//		Thread.sleep(2000);
-//		common.clickOnConfirmYes();
-//	}
-//	
-////	@Then("^set on notice period field as no and enter notice period days$")
-////	public void set_on_notice_period_field_as_no_and_enter_notice_period_days() throws Throwable {
-////
-////		Select se = new Select(addcandidatepage.OnNoticePeriodCheckbox);
-////		se.selectByVisibleText("No");
-////		Thread.sleep(5000);
-////		addcandidatepage.noticePeriod.clear();
-////		Thread.sleep(3000);
-////		addcandidatepage.noticePeriod.sendKeys("60");
-////		
-////	}
-//
-//	
-//
-	@Then("^Set Notice period field as yes and enter lastworking day \"([^\"]*)\"$")
-	public void set_Notice_period_field_as_yes_and_enter_lastworking_day(String LastWorkingDay) throws Throwable {
-		Select se = new Select(addcandidatepage.onNoticePeriod);
-		se.selectByVisibleText("Yes");
-		Thread.sleep(2000);
-		addcandidatepage.calenderIcon.get(2).click();
-		Thread.sleep(2000);
-		common.enterdate(LastWorkingDay);
+
+	@Then("^verify that notice period field is having updated notice period \"([^\"]*)\"$")
+	public void verify_that_notice_period_field_is_having_updated_notice_period(String NoticePeriod) throws Throwable {
+		Assert.assertEquals(addcandidatepage.noticePeriod.getAttribute("value"), NoticePeriod);
+
 	}
-	
-//
+
+
 ////3
-//	
-//	@When("^login with Employer credential$")
-//	public void login_with_Employer_credential() throws Throwable {
-//	   
-//		Thread.sleep(3000);
-//		registerpage.employerlogin();
-//		
-//	}
-//
-//	@When("^if confirmation popup is displayed click on ok button$")
-//	public void if_confirmation_popup_is_displayed_click_on_ok_button() throws Throwable {
-//
-//		Thread.sleep(3000);
-//		addcandidatepage.probabilitypopupwhileaddingcandidate();
-//	
-//	}
-//
-//
+
 	@When("^Add a comment greater than (\\d+) characters$")
 	public void add_a_comment_greater_than_characters(int arg1) throws Throwable {
 	    
@@ -793,9 +680,10 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		WebElement drag1 = candidatecardsectionpage.candidateCard;
 		WebElement drop = driver.findElement(By.xpath("(//td[@id='jobStatusColumn'])[4]")); // interview peneding column 1
 		WebElement drag2 = candidatecardsectionpage.candidateCard;
+		
 		Action.clickAndHold(drag1).moveToElement(drop).release(drop);
 		Action.build().perform();
-		
+		Thread.sleep(2000);
 		Action.clickAndHold(drag2).moveToElement(drop).release(drop);
 		Action.build().perform();
 		
@@ -824,6 +712,12 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		Thread.sleep(3000);
 		common.clickNoButton();
 
+	}
+	
+	@Then("^Click on show all rejected candidate checkbox$")
+	public void click_on_show_all_rejected_candidate_checkbox() throws Throwable {
+		Thread.sleep(2000);
+	    workbenchpage.showAllRejectedCandidates.click();
 	}
 
 	@Then("^both candidates should not display in same column$")

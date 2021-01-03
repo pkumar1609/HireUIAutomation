@@ -113,6 +113,9 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath="//i[@id='dropdownBasic1']") 
 	public WebElement threeDot;
 	
+	@FindBy(xpath="//div[text()='Show all rejected candidates']//following::div[@class='checkmark']") 
+	public WebElement showAllRejectedCandidates;
+	
 	public String jobname1;
 	public String jobname2;
 	String nameOfCan;

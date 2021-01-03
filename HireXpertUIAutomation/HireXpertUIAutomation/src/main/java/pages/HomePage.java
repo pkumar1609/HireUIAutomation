@@ -27,7 +27,9 @@ public HomePage() {
 	}
 	
 	public void clickJobseekerCandidateSignInlinklink() throws InterruptedException {
-	   Thread.sleep(3000);
+		Thread.sleep(2000);
+		Action.moveToElement(loginpage.login).click().perform();
+		Thread.sleep(1000);
 	   JobseekerCandidateSignInlink.click();
 	}	
 		

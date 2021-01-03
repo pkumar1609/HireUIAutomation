@@ -41,7 +41,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//span[text()='Today']")
 	public WebElement todayDate;
 	
-	@FindBy(xpath = "(//input[@placeholder='Select Date'])[1]")
+	@FindBy(xpath = "(//input[@placeholder='Select Date'])[2]")
 	public WebElement date;
 	
 	@FindBy(xpath = "//select[@formcontrolname='ServingNoticePeriod']")
@@ -104,7 +104,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//label[@class='check mt-4']//span[@class='checkmark']")
 	public WebElement OnNoticePeriodCheckbox;
 	
-	@FindBy(xpath = "(//input[@placeholder='Select Date'])[2]")
+	@FindBy(xpath = "(//input[@placeholder='Select Date'])[1]")
 	public WebElement lastWorkingDay;
 	
 	@FindBy(id = "ECTC")

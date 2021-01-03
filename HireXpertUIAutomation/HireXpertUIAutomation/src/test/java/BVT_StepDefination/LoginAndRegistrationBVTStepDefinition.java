@@ -235,7 +235,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	public void click_on_Job_Seeker_Candidate_Sign_In_link() throws Throwable {
 	    
 		Thread.sleep(3000);
-        homepage.JobseekerCandidateSignInlink.click();	
+        homepage.clickJobseekerCandidateSignInlinklink();	
 	}
 	
 	@When("^enter details of already registered candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")

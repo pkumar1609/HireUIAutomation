@@ -240,33 +240,36 @@ boolean emp;
 	  common.clickOnCloseBtn();
 	  common.clickOnConfirmYes();
 	}
-//	@jobworkflow,@jobupdate,@interview,@JCWF,@market,@TaskManagement
-	@After("@Regression")
+	
+	@After("@reg")
 	public void Endtest() throws InterruptedException
 	{
-		workbenchpage.deleteJob();
-		if((loginpage.logedinuser=="pemp" || loginpage.logedinuser=="pa1") && common.shareFlag==1)
+		if(addjobpage.addJobFlag==1)
 		{
-			loginpage.logoutFromAppK();
-			loginpage.ClickOnEmployerAgencySigninLink();
-			loginpage.loginIn("pagy@gmail.com", "12345");
 			workbenchpage.deleteJob();
+			if((loginpage.logedinuser=="pemp" || loginpage.logedinuser=="pa1") && common.shareFlag==1)
+			{
+				loginpage.logoutFromAppK();
+				loginpage.ClickOnEmployerAgencySigninLink();
+				loginpage.loginIn("pagy@gmail.com", "12345");
+				workbenchpage.deleteJob();
+			}
+			else if((loginpage.logedinuser=="pagy" || loginpage.logedinuser=="pe1" ) && common.shareFlag==1)
+			{
+				loginpage.logoutFromAppK();
+				loginpage.ClickOnEmployerAgencySigninLink();
+				loginpage.loginIn("pemp@gmail.com", "12345");
+				workbenchpage.deleteJob();
+			}		
+			if (addjobpage.jobAddedByEmp==false)
+			{
+				loginpage.logoutFromAppK();
+				loginpage.ClickOnEmployerAgencySigninLink();
+				loginpage.loginIn("pemp@gmail.com", "12345");
+				workbenchpage.deleteJob();
+			}	
 		}
-		else if((loginpage.logedinuser=="pagy" || loginpage.logedinuser=="pe1" ) && common.shareFlag==1)
-		{
-			loginpage.logoutFromAppK();
-			loginpage.ClickOnEmployerAgencySigninLink();
-			loginpage.loginIn("pemp@gmail.com", "12345");
-			workbenchpage.deleteJob();
-		}		
-		if (addjobpage.jobAddedByEmp==false)
-		{
-			loginpage.logoutFromAppK();
-			loginpage.ClickOnEmployerAgencySigninLink();
-			loginpage.loginIn("pemp@gmail.com", "12345");
-			workbenchpage.deleteJob();
-		}		
-		Thread.sleep(1000);
-		driver.quit();	
+	Thread.sleep(1000);
+	driver.quit();	
 	}	
 }

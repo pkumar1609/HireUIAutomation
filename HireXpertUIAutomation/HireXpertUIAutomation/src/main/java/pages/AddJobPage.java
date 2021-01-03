@@ -23,6 +23,7 @@ public AddJobPage()
 	}
 
 	public int flag;
+	public int addJobFlag=0;
 	public String selectedOrganization;
 	public String SelectedEmployer;
 	public boolean jobAddedByEmp;
@@ -318,10 +319,10 @@ public void addNewSkill3() {
 
 	public void addjob(DataTable credentials) throws InterruptedException
 	{ 
+		addJobFlag=1;
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{
+		{			
 			workbenchpage.AddJob();
-
 			if(loginpage.b==true)  
 			{
 				jobname=data.get("title");
