@@ -1,6 +1,6 @@
 Feature: HireXpert Login & Registration feature
 
-	@Bvt @Regression @register
+	@Bvt @Regression @register1
 	Scenario Outline: To verify the fields/button on Registration popup window and check functionality of Registration
 	
 	Given User open browser
@@ -23,7 +23,7 @@ Feature: HireXpert Login & Registration feature
 	And click on Signin button
 	And Update employer profile "<EmployerAddress>" "<EmployerOrganizationName>" "<EmployerWebsite>" "<EmployerCity>" 
 	And click on Submit button
-	And click on ok button
+#	And click on ok button
 	And Verify that user has redirected to correct page or not after filling the information in update profile 
 	And Verify the username by which user is login
 	
@@ -47,7 +47,7 @@ Feature: HireXpert Login & Registration feature
 	And click on Signin button
 	And Update agency profile"<AgencyAddress>" "<AgencyOrganizationName>" "<AgencyWebsite>" "<AgencyCity>" 
 	And click on Submit button
-	And click on ok button
+#	And click on ok button
 	And Verify that user has redirected to correct page or not after filling the information in update profile
 	And Verify the username by which user is login
 
@@ -76,14 +76,14 @@ And click on ok button
 	
 	Examples: 
 	| EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone                                                  | country | password    | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail      | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail    | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
-	| TXE14          |  txe11157@gmail.com   | 285248688             | Employer         | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi           | India   | 12345       | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age14        | age11114@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike14          | mike1114@gmail.com  | 369497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+	| TXE14          |  txe12225@gmail.com   | 285248688             | Employer         | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi           | India   | 12345       | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age14        | age12227@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike14          | mike1226@gmail.com  | 369497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
 	
 	#TC :- 4, 5, 12, 433
 
 	# Change name, email of employer/agency/candidate
 
 
-	@Bvt @register
+	@Bvt @register2
 	Scenario Outline: To verify the registration functionality of already registered user and to verify user is not able to add one user with multiple roles.
 	
 	Given User open browser
@@ -92,7 +92,7 @@ And click on ok button
 	And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 	And click on Submit button
 	And click on Yes button
-	Then User should get a error message as "User with 'txe11157@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
+	Then User should get a error message as "User with 'txe12225@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
 	And click on Close button
 	And Click on Yes button of confirmation popup
 	And Close the browser
@@ -102,7 +102,7 @@ And click on ok button
 	And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 		And click on Submit button
 	And click on Yes button
-	Then User should get a error message as "User with 'age11114@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
+	Then User should get a error message as "User with 'age12227@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
 	And click on Close button
 	And Click on Yes button of confirmation popup
 	And Close the browser
@@ -112,7 +112,7 @@ And click on ok button
 	And Select value from dropdown of "<employerusertype>" "<timezone>" "<country>"
 	And click on Submit button
 	And click on Yes button
-	Then User should get a error message as "User with 'mike1114@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
+	Then User should get a error message as "User with 'mike1226@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
 	And click on Close button
 	And Click on Yes button of confirmation popup
 	And Close the browser
@@ -120,7 +120,7 @@ And click on ok button
 	
 	Examples: 
 	   | employername    |   employeremail              | employercontactnumber   | candidateusertype  | timezone             | country |  agencyname   |   agencyemail             | agencycontactnumber  |   candidatename   |   candidateemail             | candidatecontactnumber  | employerusertype  |
-	   | employermain01  |  txe11157@gmail.com    | 211394644               | Candidate          | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi | India   | agencymain01  |  age11114@gmail.com  | 211314644            | candidatemain01   |  mike1114@gmail.com   | 123456456               | Employer          | 
+	   | employermain01  |  txe12225@gmail.com    | 211394644               | Candidate          | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi | India   | agencymain01  |  age12227@gmail.com  | 211314644            | candidatemain01   |  mike1226@gmail.com   | 123456456               | Employer          | 
 	   
 	#TC :- 6, 289
 	
@@ -128,7 +128,7 @@ And click on ok button
 	# if db clear then register candidatemain01@gmail.com as candidate
 
   
-	 @Bvt @register
+	 @Bvt @register3
 	Scenario Outline: Verify user should not be able to Login with old password after creating the new password
 	
 	Given User open browser
@@ -143,7 +143,7 @@ And click on ok button
 	And click on Signin button
 	And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<EmployerWebsite>" "<EmployerCity>"
 	And click on Submit button
-	And click on ok button
+#	And click on ok button
 	And Click on Change Password tab
 	And Enter the Current Password and New Password "<password>" "<newpassword>" "<confirmpassword>"
 	And click on Submit button
@@ -153,7 +153,7 @@ And click on ok button
 	And click on Login link
 	And click on Employer-Agency SignIn link
 	And login as employer with new password "<EmployerEmail>" "<newpassword>" 
-	And click on ok button
+#	And click on ok button
 	And click on logout tab
 	And click on Login link
 	And click on Employer-Agency SignIn link
@@ -173,7 +173,7 @@ And click on ok button
 	And click on Signin button
 	And Update Agency Profile  "<AgencyAddress>" "<AgencyOrganizationName>" "<AgencyWebsite>" "<AgencyCity>"
 	And click on Submit button
-	And click on ok button
+#	And click on ok button
 	And Click on Change Password tab
 	And Enter the Current Password and New Password "<password>" "<newpassword>" "<confirmpassword>"
 	And click on Submit button
@@ -183,7 +183,7 @@ And click on ok button
 	And click on Login link
 	And click on Employer-Agency SignIn link
 	And login as agency with new password "<AgencyEmail>" "<newpassword>" 
-	And click on ok button
+#	And click on ok button
 	And click on logout tab
 	And click on Login link
 	And click on Employer-Agency SignIn link
@@ -194,7 +194,7 @@ And click on ok button
 	Examples:
 	
 	| EmployerName  | EmployerEmail               | EmployerContactNumber | EmployerUserType | timezone                                         | country | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | password | newpassword | confirmpassword |  AgencyName  | AgencyEmail              | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity |
-	|CPemployer09   | cpemployer11122@gmail.com   | 565566625             |   Employer       |  (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency09   | CPagency00009@gmail.com  |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
+	|CPemployer09   | cpemployer17222@gmail.com   | 565566625             |   Employer       |  (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency09   | CPagency04809@gmail.com  |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
 	
 	
 #	#TC:- 81, 10
@@ -202,7 +202,7 @@ And click on ok button
 #	#Change name, email of agency & employer
 #	
 #	  
-	@Bvt @Regression1 @register
+	@Bvt @Regression1 @register4
 	Scenario Outline: Verify that Agency, Employer & Candidate is not able to continue without completing the profile. Also Agency, Employer $ Candidate is able to update profile.
 	
 	Given User open browser
@@ -228,7 +228,7 @@ And click on Employer-Agency SignIn link
 	And Verify that the critical fields on Update Agency Profile popup are not editable
 	And Update Agency Profile  "<AgencyAddress>" "<AgencyOrganizationName>" "<AgencyWebsite>" "<AgencyCity>"
 	And click on Submit button
-	And click on ok button
+#	And click on ok button
 And Click on Update Profile tab
 And Make changes in Agency profile "<organizationname>"
 	And click on Submit button
@@ -256,7 +256,7 @@ When click on Register link
 	And Verify that the critical fields on Update Employer Profile popup are not editable
 And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<EmployerWebsite>" "<EmployerCity>"
 	And click on Submit button
-	And click on ok button
+#	And click on ok button
 	And Click on Update Profile tab
 	And Make changes in Employer profile "<organizationname>"
 	And click on Submit button
@@ -287,14 +287,14 @@ And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<
 	Examples:
 
 	| AgencyName   | AgencyEmail               | AgencyContactNumber | AgencyUserType | timezone                                         | country | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity | organizationname | password |EmployerName  | EmployerEmail              | EmployerContactNumber | EmployerUserType | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | organizationname | CandidateName  | CandidateEmail             | ContactNumber | CandidateUserType     | Country |title1         | Designation     | NoticePeriod | industry    | CandidateCity | gender1 | expertiselevel | functionalArea|experience|CTC    |OnNoticePeriod|shift    |jobType            |noticeperiod|expectedCTC|CityArea|LastWorkingDay |
-	| UPAgency16   | upagency11127@gmail.com   | 5685263125          |   Agency       | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |UPEmployer16  | upemployer1567@gmail.com   | 565566625             |   Employer       | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      |UPCandidate16   | upcandidate0007@gmail.com  | 9564783126    | Candidate             | India   |Test Engineer  | Software Tester |   30         | IT-Software |  Pune         | Male    | Intermediate   |java           |2         |250000 |No            |Day Shift|Permanent Full Time|45          |350000     |Wakad   ||30/12/2020    |
+	| UPAgency16   | upagency16127@gmail.com   | 5685263125          |   Agency       | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |UPEmployer16  | upemployer185457@gmail.com   | 565566625             |   Employer       | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      |UPCandidate16   | upcandidate99007@gmail.com  | 9564783126    | Candidate             | India   |Test Engineer  | Software Tester |   30         | IT-Software |  Pune         | Male    | Intermediate   |java           |2         |250000 |No            |Day Shift|Permanent Full Time|45          |350000     |Wakad   ||30/12/2020    |
 
 #	
 #     #TC ID :- 84,85,31,35,17,87,57,19,86,34,91,60
 #	# Change name, email of employer/agency/candidate
 #
 #	
-@Regression @register
+@Regression @register5
 	Scenario Outline: Forgot password functionality for not registered user
 	
 	Given User open browser
@@ -302,12 +302,12 @@ And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<
 #	When click on Employer-Agency SignIn link
 	And Click on forgot password link
 	And Enter an email id which is not registered and click on submit button "<emailid>" 
-	Then Verify that user get an error message as "aa01bb@gmail.com is not registered with us. Please register first." or not
+	Then Verify that user get an error message as "aa07bb@gmail.com is not registered with us. Please register first." or not
 	
 	Examples:
 	
 	| emailid         |
-	|aa01bb@gmail.com |
+	|aa07bb@gmail.com |
 #	
 #	#TC:- 83
 #	
