@@ -29,6 +29,9 @@ public class Commonfunction extends baseclass {
 	
 	@FindBy(xpath="//button[@id='alertModalCloseBtn']")
 	public WebElement okbtn;
+	
+	@FindBy(xpath="//button[@id='alertModalCloseBtn']")
+	public List<WebElement> okbtnPopup;
 
 	@FindBy(xpath="//button[text()='Close']")
 	public WebElement closebtn;

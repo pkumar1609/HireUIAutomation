@@ -241,7 +241,7 @@ boolean emp;
 	  common.clickOnConfirmYes();
 	}
 	
-	@After("@reg")
+	@After("@reg11")
 	public void Endtest() throws InterruptedException
 	{
 		if(addjobpage.addJobFlag==1)

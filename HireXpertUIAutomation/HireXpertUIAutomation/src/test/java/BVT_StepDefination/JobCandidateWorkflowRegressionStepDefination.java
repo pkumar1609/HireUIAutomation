@@ -1,6 +1,5 @@
 package BVT_StepDefination;
 
-
 import java.util.List;
 import org.testng.Assert;
 
@@ -36,8 +35,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	public void click_on_save_button_for_edit_candidate() throws Throwable {
 
 		Thread.sleep(3000);
-	       editcandidatepage.ClickOnSaveBtntoSavetheupdatedDetails();
-
+		executor.executeScript("arguments[0].click();", driver.findElement(By.xpath("(//button[text()='Save'])[2]")));
 	}
 
 	@Then("^Click on save button to save the updated changes$")
@@ -872,21 +870,22 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	
 
 	@When("^again click on Edit Job button and observe the number of interviews \"([^\"]*)\"$")
-	public void again_click_on_Edit_Job_button_and_observe_the_number_of_interviews(String NoOfInterview1) throws Throwable {
-		
+	public void again_click_on_Edit_Job_button_and_observe_the_number_of_interviews(String NoOfInterview1) throws Throwable {		
 		Thread.sleep(2000);
 		workbenchpage.job.click();
 		workbenchpage.editJobButton.click();
 		select = new Select(addjobpage.totalinterviews);
 		Assert.assertEquals(select.getFirstSelectedOption().getAttribute("value"), NoOfInterview1);
 	}
+	
 	@When("^click on Add Skill button and add one new skill \"([^\"]*)\"$")
 	public void click_on_Add_Skill_button_and_add_one_new_skill(String skill4) throws Throwable {
 		Thread.sleep(1000);
-		addjobpage.addskillbutton.click();			
+		addjobpage.addskillbutton.click();	
 		addjobpage.addNewSkill1(skill4);		
 		common.ClickSumbit();
 	}
+	
 //	@Given("^click on submit button$")
 //	public void click_on_submit_button() throws Throwable {
 //
@@ -987,24 +986,20 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	}
 	
 	@Then("^delete all added skills$")
-	public void delete_all_added_skills() throws Throwable {
-		Thread.sleep(1000);
-        executor.executeScript("window.scrollBy(0,500)", "");
-		int deleteSkillSize=addjobpage.deleteSkill.size();
-		System.out.println("deleteSkillSize  "+deleteSkillSize);
-		for(int i=0; i<=deleteSkillSize; i++)
-		{
-			addjobpage.deleteSkill.get(i).click();
-		}
+	public void delete_all_added_skills() throws Throwable {	
+		List<WebElement> deletebtn = driver.findElements(By.xpath("//th[text()='Job Skills']//following::i[@class='fa fa-trash']"));
+		for(int i=0;i<deletebtn.size();i++)                        
+			{
+				WebElement btn = deletebtn.get(i);
+				Thread.sleep(3000);
+				btn.click(); 
+			}
 	}
 
 	@Then("^observe deleted job skill should not show when employer is going to add new candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void observe_deleted_job_skill_should_not_show_when_employer_is_going_to_add_new_candidate(String Skill1, String Skill2, String Skill3) throws Throwable {
 		 
-		 Assert.assertEquals(Skill1.length()>0, false);
-		 Assert.assertEquals(Skill2.length()>0, false);
-		 Assert.assertEquals(Skill3.length()>0, false);
-		 common.clickOnCloseBtn();
+		 Assert.assertEquals(addcandidatepage.jobskill.size()>0, false);
 	}
 //		
 ////		9
@@ -1153,7 +1148,15 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 ////			Thread.sleep(3000);
 ////			addcandidatepage.Enterexpertilevel(ExpertiseLevel1, ExpertiseLevel2, ExpertiseLevel3);;
 ////		}
-//		
+	
+	@When("^Enter All details except skills \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void enter_All_details_except_skills(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws Throwable {
+		workbenchpage.enterEmailId(CandidateEmail);
+		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
+		addcandidatepage.uploadResumeDocument();
+	}
+
+		
 		@When("^enter as expertise level as \"([^\"]*)\"$")
 		public void enter_as_expertise_level_as(String arg1) throws Throwable {
 		   for(int i=0;i<3;i++)
@@ -1165,17 +1168,15 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		
 		@Then("^select different expertise level for the skill which is having expert level as not answer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 		public void select_different_expertise_level_for_the_skill_which_is_having_expert_level_as_not_answer(String expertiseLevel, String expertiseLeve2, String expertiseLeve3) throws Throwable {
-			Thread.sleep(1000);
-			candidatecardsectionpage.editCandidate.click();
-			executor.executeScript("window.scrollBy(0,4000)");		
-			Thread.sleep(4000);
+			Thread.sleep(2000);
+			executor.executeScript("window.scrollBy(0,10000)");		
+			Thread.sleep(2000);
 			select= new Select(addcandidatepage.expertiselevel.get(0));
 			select.selectByVisibleText(" "+expertiseLevel+" ");					
 			select= new Select(addcandidatepage.expertiselevel.get(1));
 			select.selectByVisibleText(" "+expertiseLevel+" ");		
 			select= new Select(addcandidatepage.expertiselevel.get(2));
 			select.selectByVisibleText(" "+expertiseLevel+" ");			    
-			executor.executeScript("arguments[0].click();", driver.findElement(By.xpath("(//button[text()='Save'])[2]")));
 		}
 
 
@@ -1554,7 +1555,11 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			{
 				candidateupdateprofilepage.jobType.sendKeys(jobtype);
 				driver.findElement(By.xpath("//span[contains(text(),'"+jobtype+"')]")).click();
-			}		
+			}	
+			if(addcandidatepage.cv.getText().isEmpty())
+			{
+				addcandidatepage.cv.sendKeys("C:\\Selenium\\CV.docx");
+			}	
 		    common.clickOnSaveBtn();
 			common.clickOnOKBtn();
 		}

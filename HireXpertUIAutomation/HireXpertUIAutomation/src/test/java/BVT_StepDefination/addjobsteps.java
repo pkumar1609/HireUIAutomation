@@ -234,9 +234,9 @@ public class addjobsteps extends baseclass{
 
 	@Then("^click on Edit Job button to update skills and number of interview$")
 	public void click_on_Edit_Job_button_to_update_skills_and_number_of_interview() throws Throwable {
-	    
-		workbenchpage.editJobButton.click();
 		Thread.sleep(3000);
+		workbenchpage.job.click();
+		workbenchpage.editJobButton.click();		
 	}
 
 	@Then("^select number of interview except previously selected number$")

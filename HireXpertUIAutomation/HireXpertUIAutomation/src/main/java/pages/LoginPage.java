@@ -147,12 +147,12 @@ public class LoginPage extends baseclass
 		password.sendKeys(Password);
 		Thread.sleep(3000);
 		signin.click();
-//		try
-//		{
-//			common.clickOnOKBtn();
-//		}
-//		catch(NoSuchElementException e)
-//		{}
+		try
+		{
+			common.clickOnOKBtn();
+		}
+		catch(NoSuchElementException e)
+		{}
 		identifyUserK();
 		
 	}

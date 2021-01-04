@@ -116,7 +116,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(id = "salaryOffered")
 	public WebElement salaryOffered;
 	
-	@FindBy(xpath = "(//input[@placeholder='Skill']")  
+	@FindBy(xpath = "//input[@formcontrolname='Skill']")  
 	public List<WebElement> jobskill;
 	 
 	@FindBy(xpath = "//select[@formcontrolname='ExpertiseLevel']")  
