@@ -137,6 +137,7 @@ public class WorkbenchPage extends baseclass {
 	public void AddJob() throws InterruptedException {
 		Thread.sleep(3000);
 		job.click();
+		Thread.sleep(5000);
 		addJob.click();
 	}
 	
@@ -248,7 +249,7 @@ public class WorkbenchPage extends baseclass {
 	{
 		Thread.sleep(3000);
 		candidate.click();
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		addCandidateButton.click();
 	}
 	
@@ -427,15 +428,18 @@ else{
 public void deleteJob() throws InterruptedException
 {
 	dashboardpage.openWorkbenchPage();
-	Thread.sleep(4000);
+	Thread.sleep(5000);
 	workbenchpage.jobDropDown.click();
 	List<WebElement> element = driver.findElements(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]"));
 	if(element.size()>0)
 	{
-		Thread.sleep(1000);
-		element.get(0).click();
-		Thread.sleep(1000);
-		workbenchpage.clickOnCloseJobButton();
+		for(int i=0;i<element.size();i++)
+		{
+			Thread.sleep(3000);
+			element.get(i).click();
+			Thread.sleep(1000);
+			workbenchpage.clickOnCloseJobButton();
+		}		
 	}
 }
 }

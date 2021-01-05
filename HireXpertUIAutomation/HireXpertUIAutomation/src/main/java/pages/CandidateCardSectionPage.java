@@ -121,7 +121,7 @@ public class CandidateCardSectionPage extends baseclass {
 
 	public void clickOnEditCandidateIcon(String Name) throws InterruptedException {
 		editCandidateIcon="//span[text()=' "+Name+"']//following::button[@id='EditCandidate']";
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(editCandidateIcon)).click();
 	}
 	

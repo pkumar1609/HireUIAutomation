@@ -94,9 +94,9 @@ public class AgenciesPage extends baseclass {
 		select.selectByVisibleText("India");
 		common.ClickSumbit();
 		try
-		{
+		{		
+			Assert.assertEquals(driver.findElement(By.xpath("//h6")).getText(), "Job Provider with email id "+data.get("Email")+" already exists");
 			common.clickOnOKBtn();
-			System.out.println("this agency is already added");
 		}
 		finally
 		{}
