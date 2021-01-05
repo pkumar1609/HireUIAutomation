@@ -28,7 +28,10 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	@When("^Go to Workbench$")
 	public void go_to_Workbench() throws Throwable {
 		dashboardpage.openWorkbenchPage();
-		
+		if(common.okbtnPopup.size()>0)
+		{
+			common.clickOnOKBtn();
+		}
 	}
 
 //	@When("^Add a new Job as employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
