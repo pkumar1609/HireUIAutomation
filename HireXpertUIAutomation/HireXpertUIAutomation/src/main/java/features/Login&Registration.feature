@@ -16,7 +16,8 @@ Feature: HireXpert Login & Registration feature
 	And enter employer details "<EmployerName>" "<EmployerEmail>" "<EmployerContactNumber>" 
 	And Select value from dropdown for employer "<EmployerUserType>" "<timezone>" "<country>"
 	And click on Submit button
-	And User should get confirmation message and click on OK button
+	And User should get confirmation message
+	And click on ok button
 	And click on Login link
 	And click on Employer-Agency SignIn link
 	And enter employer email and password "<EmployerEmail>" "<password>" 
@@ -40,7 +41,8 @@ Feature: HireXpert Login & Registration feature
 	And enter agency details "<AgencyName>" "<AgencyEmail>" "<AgencyContactNumber>" 
 	And Select value from dropdown for agency "<AgencyUserType>" "<timezone>" "<country>"
 	And click on Submit button
-	And User should get confirmation message and click on OK button
+	And User should get confirmation message
+	And click on ok button
 	And click on Login link
 	And click on Employer-Agency SignIn link
 	And enter agency email and password "<AgencyEmail>" "<password>" 
@@ -65,18 +67,19 @@ Feature: HireXpert Login & Registration feature
 	And enter candidate details "<CandidateName>" "<CandidateEmail>" "<CandidateContactNumber>" 
 And Select value from dropdown for candidate "<CandidateUserType>" "<timezone>" "<country>"
 	And click on Submit button
-	And User should get confirmation message and click on OK button
+	And User should get confirmation message
+	And click on ok button
 	And click on Login link
 	And click on Job Seeker(Candidate) Sign In link
 	And enter candidate email and password "<CandidateEmail>" "<password>" 
 	And click on Signin button
-And click on ok button
+	And click on ok button
 	And Verify that user has redirected to correct page or not after filling the information in update profile
 	And Verify the username by which user is login
 	
 	Examples: 
 	| EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone                                                  | country | password    | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail      | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail    | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
-	| TXE14          |  txe12225@gmail.com   | 285248688             | Employer         | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi           | India   | 12345       | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age14        | age12227@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike14          | mike1226@gmail.com  | 369497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+	| TXE14          |  txe68412@gmail.com   | 285248688             | Employer         | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi           | India   | 12345       | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age14        | age66358@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike14          | mike158574@gmail.com  | 369497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
 	
 	#TC :- 4, 5, 12, 433
 
@@ -92,7 +95,7 @@ And click on ok button
 	And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 	And click on Submit button
 	And click on Yes button
-	Then User should get a error message as "User with 'txe12225@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
+	Then User should get a error message as "User with 'txe6868@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
 	And click on Close button
 	And Click on Yes button of confirmation popup
 	And Close the browser
@@ -102,7 +105,7 @@ And click on ok button
 	And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 		And click on Submit button
 	And click on Yes button
-	Then User should get a error message as "User with 'age12227@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
+	Then User should get a error message as "User with 'age6868@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
 	And click on Close button
 	And Click on Yes button of confirmation popup
 	And Close the browser
@@ -112,7 +115,7 @@ And click on ok button
 	And Select value from dropdown of "<employerusertype>" "<timezone>" "<country>"
 	And click on Submit button
 	And click on Yes button
-	Then User should get a error message as "User with 'mike1226@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
+	Then User should get a error message as "User with 'mike6868@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
 	And click on Close button
 	And Click on Yes button of confirmation popup
 	And Close the browser
@@ -120,7 +123,7 @@ And click on ok button
 	
 	Examples: 
 	   | employername    |   employeremail              | employercontactnumber   | candidateusertype  | timezone             | country |  agencyname   |   agencyemail             | agencycontactnumber  |   candidatename   |   candidateemail             | candidatecontactnumber  | employerusertype  |
-	   | employermain01  |  txe12225@gmail.com    | 211394644               | Candidate          | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi | India   | agencymain01  |  age12227@gmail.com  | 211314644            | candidatemain01   |  mike1226@gmail.com   | 123456456               | Employer          | 
+	   | employermain01  |  txe6868@gmail.com    | 211394644               | Candidate          | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi | India   | agencymain01  |  age6868@gmail.com  | 211314644            | candidatemain01   |  mike6868@gmail.com   | 123456456               | Employer          | 
 	   
 	#TC :- 6, 289
 	
@@ -136,7 +139,8 @@ And click on ok button
 	And enter employer details "<EmployerName>" "<EmployerEmail>" "<EmployerContactNumber>" 
 	And Select value from dropdown for employer "<EmployerUserType>" "<timezone>" "<country>"
 	And click on Submit button
-	And User should get confirmation message and click on OK button
+	And User should get confirmation message
+	And click on ok button
 	And click on Login link
 	And click on Employer-Agency SignIn link
 	And enter employer email and password "<EmployerEmail>" "<password>" 
@@ -166,7 +170,8 @@ And click on ok button
 	And enter Agency details "<AgencyName>" "<AgencyEmail>" "<AgencyContactNumber>" 
 	And Select value from dropdown for Agency "<AgencyUserType>" "<timezone>" "<country>"
 	And click on Submit button
-	And User should get confirmation message and click on OK button
+	And User should get confirmation message
+	And click on ok button
 	And click on Login link
 	And click on Employer-Agency SignIn link
 	And enter agency email and password "<AgencyEmail>" "<password>" 
@@ -194,7 +199,7 @@ And click on ok button
 	Examples:
 	
 	| EmployerName  | EmployerEmail               | EmployerContactNumber | EmployerUserType | timezone                                         | country | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | password | newpassword | confirmpassword |  AgencyName  | AgencyEmail              | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity |
-	|CPemployer09   | cpemployer17222@gmail.com   | 565566625             |   Employer       |  (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency09   | CPagency04809@gmail.com  |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
+	|CPemployer09   | cpemployer6868@gmail.com   | 565566625             |   Employer       |  (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency09   | CPagency6868@gmail.com  |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
 	
 	
 #	#TC:- 81, 10
@@ -210,7 +215,8 @@ And click on ok button
 	And enter agency details "<AgencyName>" "<AgencyEmail>" "<AgencyContactNumber>" 
 	And Select value from dropdown for agency "<AgencyUserType>" "<timezone>" "<country>"
 	And click on Submit button
-	And User should get confirmation message and click on OK button
+	And User should get confirmation message
+	And click on ok button
 	And click on Login link
 	And click on Employer-Agency SignIn link
 	And enter agency email and password "<AgencyEmail>" "<password>" 
@@ -238,7 +244,8 @@ When click on Register link
 	And enter employer details "<EmployerName>" "<EmployerEmail>" "<EmployerContactNumber>" 
 	And Select value from dropdown for employer "<EmployerUserType>" "<timezone>" "<country>"
 	And click on Submit button
-	And User should get confirmation message and click on OK button
+	And User should get confirmation message
+	And click on ok button
 	And click on Login link
 	And click on Employer-Agency SignIn link
 	And enter employer email and password "<EmployerEmail>" "<password>" 
@@ -266,7 +273,8 @@ And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<
 	And enter candidate details "<CandidateName>" "<CandidateEmail>" "<ContactNumber>" 
 	And Select value from dropdown for candidate "<CandidateUserType>" "<timezone>" "<country>"
 	And click on Submit button
-	And User should get confirmation message and click on OK button
+	And User should get confirmation message
+	And click on ok button
 	And click on Login link
 	And click on Job Seeker(Candidate) Sign In link
 	And enter candidate email and password "<CandidateEmail>" "<password>"
@@ -287,7 +295,7 @@ And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<
 	Examples:
 
 	| AgencyName   | AgencyEmail               | AgencyContactNumber | AgencyUserType | timezone                                         | country | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity | organizationname | password |EmployerName  | EmployerEmail              | EmployerContactNumber | EmployerUserType | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | organizationname | CandidateName  | CandidateEmail             | ContactNumber | CandidateUserType     | Country |title1         | Designation     | NoticePeriod | industry    | CandidateCity | gender1 | expertiselevel | functionalArea|experience|CTC    |OnNoticePeriod|shift    |jobType            |noticeperiod|expectedCTC|CityArea|LastWorkingDay |
-	| UPAgency16   | upagency16127@gmail.com   | 5685263125          |   Agency       | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |UPEmployer16  | upemployer185457@gmail.com   | 565566625             |   Employer       | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      |UPCandidate16   | upcandidate99007@gmail.com  | 9564783126    | Candidate             | India   |Test Engineer  | Software Tester |   30         | IT-Software |  Pune         | Male    | Intermediate   |java           |2         |250000 |No            |Day Shift|Permanent Full Time|45          |350000     |Wakad   ||30/12/2020    |
+	| UPAgency16   | upagency6868@gmail.com   | 5685263125          |   Agency       | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |UPEmployer16  | upemployer6868@gmail.com   | 565566625             |   Employer       | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      |UPCandidate16   | upcandidate6868@gmail.com  | 9564783126    | Candidate             | India   |Test Engineer  | Software Tester |   30         | IT-Software |  Pune         | Male    | Intermediate   |java           |2         |250000 |No            |Day Shift|Permanent Full Time|45          |350000     |Wakad   ||30/12/2020    |
 
 #	
 #     #TC ID :- 84,85,31,35,17,87,57,19,86,34,91,60
@@ -302,12 +310,12 @@ And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<
 #	When click on Employer-Agency SignIn link
 	And Click on forgot password link
 	And Enter an email id which is not registered and click on submit button "<emailid>" 
-	Then Verify that user get an error message as "aa07bb@gmail.com is not registered with us. Please register first." or not
+	Then Verify that user get an error message as "aa88bb@gmail.com is not registered with us. Please register first." or not
 	
 	Examples:
 	
 	| emailid         |
-	|aa07bb@gmail.com |
+	|aa88bb@gmail.com |
 #	
 #	#TC:- 83
 #	
