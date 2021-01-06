@@ -20,7 +20,22 @@ public class hooks extends baseclass{
 
 //	@jobworkflow,@jobupdate,@interview,@JCWF,@market,@TaskManagement
 	
-//	Logger log = LoggerHelper.getLogger(hooks.class);
+	@After()
+	public void screenShot(Scenario scenario) throws InterruptedException, IOException
+	{
+		System.out.println("inside after hook:"+rootFolder+"");
+
+		if (scenario.isFailed()) {
+
+			try {
+			    System.out.println(rootFolder+"/"+scenario.getName()+".png");
+				File screenshotFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			    FileUtils.copyFile(screenshotFile, new File(rootFolder+"/123.png"));
+			} catch (WebDriverException e) {
+				e.printStackTrace();
+			}
+		}
+	}	
 
 		@After("@jobworkflow,@jobupdate,@interview,@JCWF,@market")  
 		public void endTest() throws InterruptedException
@@ -54,33 +69,6 @@ public class hooks extends baseclass{
 	driver.quit();	
 	}	
 		
-		@After()
-		public void screenShot(Scenario scenario) throws InterruptedException, IOException
-		{
-			if (scenario.isFailed()) {
-
-				try {
-//					log.info(scenario.getName() + " is Failed");
-					
-//					final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-//					scenario.embed(screenshot, "image/png"); // ... and embed it in
-					
-					File screenshotFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-				    FileUtils.copyFile(screenshotFile, new File("c:\\Selenium\\hirexprt.png"));
-				    
-				} catch (WebDriverException e) {
-					e.printStackTrace();
-				}
-
-			}
-//			else {
-//				try {
-////					log.info(scenario.getName() + " is pass");
-//					scenario.embed(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES), "image/png");
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-		}		
+			
 }
 
