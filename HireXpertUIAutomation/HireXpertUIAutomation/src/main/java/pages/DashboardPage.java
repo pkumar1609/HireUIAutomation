@@ -7,6 +7,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import utilPackage.baseclass;
 
@@ -57,7 +58,7 @@ public class DashboardPage extends baseclass {
 	public void openWorkbenchPage() throws InterruptedException {
 		
 		Action.moveToElement(dashboardpage.recruitment).perform();
-		Thread.sleep(4000);
+		explicitwait.until(ExpectedConditions.elementToBeClickable(applicationTracking));
 		applicationTracking.click();
 		Thread.sleep(1000);
 	}

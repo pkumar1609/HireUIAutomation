@@ -8,6 +8,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utilPackage.baseclass;
@@ -117,7 +118,7 @@ public class Commonfunction extends baseclass {
 	
 	public void clickOnOKBtn() throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		okbtn.click();
 	}
 	
