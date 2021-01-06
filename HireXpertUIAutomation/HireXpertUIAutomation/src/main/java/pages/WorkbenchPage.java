@@ -17,7 +17,7 @@ public class WorkbenchPage extends baseclass {
 	
 	public String organisation;
 	
-	@FindBy(xpath = "//button[text()=' Job']")
+	@FindBy(xpath = "//button[@id='btnGroupDrop1']")
 	public WebElement job;
 	
 	@FindBy(xpath = "//button[text()=' Candidate']")
