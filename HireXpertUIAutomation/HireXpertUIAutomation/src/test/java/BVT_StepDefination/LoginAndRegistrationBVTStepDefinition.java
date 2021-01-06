@@ -4,7 +4,7 @@ package BVT_StepDefination;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
-
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -156,10 +156,10 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
      Assert.assertEquals(ExpectedErrorMessage, ActualErrorMessage );
 	}
 
-	@Then("^click on ok button$")
+	@And("^click on ok button$")
 	public void click_on_ok_button() throws Throwable {
 	    
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		common.clickOnOKBtn();
 	}
 
@@ -178,13 +178,18 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		common.ClickSumbit();
 	}
 
-	@When("^User should get confirmation message and click on OK button$")
-	public void user_should_get_confirmation_message_and_click_on_OK_button() throws Throwable {
-
+//	@When("^User should get confirmation message and click on OK button$")
+//	public void user_should_get_confirmation_message_and_click_on_OK_button() throws Throwable {
+//
+////		Thread.sleep(3000);
+//		common.clickOnOKBtn();
+//	}
+	
+	@And("^User should get confirmation message$")
+	public void user_should_get_confirmation_message() throws Throwable {
+		
 		Thread.sleep(3000);
 		common.clickOnConfirmYes();
-		Thread.sleep(3000);
-		common.clickOnOKBtn();
 	}
 
 	@When("^click on Signin button$")
@@ -229,7 +234,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	@When("^click on Employer-Agency SignIn link$")
 	public void click_on_Employer_Agency_SignIn_link() throws Throwable {
 
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		registerpage.clickEmployerAgencySignInlink();
 
 	}
@@ -283,7 +288,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	@When("^Verify that user has redirected to correct page or not after filling the information in update profile$")
 	public void verify_that_user_has_redirected_to_correct_page_or_not_after_filling_the_information_in_update_profile() throws Throwable {
 	    
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		dashboardpage.VerifyUserIsOnCorrectPage();
 		
 	}
@@ -291,7 +296,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	@When("^Verify the username by which user is login$")
 	public void Verify_the_username_by_which_user_is_login() throws Throwable {
 	    
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		workbenchpage.userNameProfile();
 		
 	}
@@ -627,7 +632,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 				@Given("^Click on forgot password link$")
 				public void click_on_forgot_password_link() throws Throwable {
 				    
-					Thread.sleep(1000);
+					Thread.sleep(3000);
 					forgetpasswordpage.ClickonForgetPasswordLink();
 				}
 				
