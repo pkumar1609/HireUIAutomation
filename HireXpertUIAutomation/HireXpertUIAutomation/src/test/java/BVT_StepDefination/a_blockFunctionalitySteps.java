@@ -34,9 +34,7 @@ boolean emp;
 
 	@When("^Agency should be added previously$")
 	public void agency_should_be_added_previously(DataTable credentials) throws Throwable {
-
-		agenciespage.enterAllDetails(credentials);
-	 
+		agenciespage.enterAllDetails(credentials);	 
 	}
 	
 	@When("^click on Share With Agency button and select the Share checkbox present in front of the \"([^\"]*)\" to share the job$")
@@ -60,7 +58,6 @@ boolean emp;
 		sharewithteampage.searchField.clear();
 		sharewithteampage.searchField.sendKeys(agyEmailId);
 		boolean isBlockUnblockSelected=sharewithagencypage.isBlockUnblockSelected.isSelected();
-		System.out.println(isBlockUnblockSelected);
 		if(isBlockUnblockSelected==false)
 		{
 			Thread.sleep(1000);

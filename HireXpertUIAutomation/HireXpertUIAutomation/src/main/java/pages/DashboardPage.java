@@ -58,9 +58,9 @@ public class DashboardPage extends baseclass {
 	public void openWorkbenchPage() throws InterruptedException {
 		
 		Action.moveToElement(dashboardpage.recruitment).perform();
-		explicitwait.until(ExpectedConditions.elementToBeClickable(applicationTracking));
+		Thread.sleep(5000);
 		applicationTracking.click();
-		Thread.sleep(1000);
+		
 	}
 	
 	public void openEmployersPage() throws InterruptedException {

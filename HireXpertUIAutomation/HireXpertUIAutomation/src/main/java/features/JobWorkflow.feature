@@ -19,7 +19,7 @@ Feature: Job Workflow
     And Select a added job
     And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 
     And again click on Share With Agency button and select the Block/Unblock checkbox present in front of the agency "<agyEmailId>" with whom you shared the job    
-   And Logout from App
+    And Logout from App
     And Click on Employer-Agency Signin link	
 	And Employer enters valid credentials "<agyEmailId>","<Password>"
 	And Go to workbench
