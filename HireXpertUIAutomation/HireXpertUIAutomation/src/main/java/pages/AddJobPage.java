@@ -259,7 +259,7 @@ public void addtenSkills() throws InterruptedException {
 		
 		
 			Thread.sleep(3000);
-			for(int i=0;i<=10;i++) {
+			for(int i=0;i<10;i++) {
 			addskillbutton.click();
 		}
 	}

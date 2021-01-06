@@ -138,7 +138,8 @@ public class WorkbenchPage extends baseclass {
 		Thread.sleep(5000);
 		job.click();
 		Thread.sleep(5000);
-		addJob.click();
+		executor.executeScript("arguments[0].click();",addJob);
+//		addJob.click();
 	}
 	
 	public Select se;

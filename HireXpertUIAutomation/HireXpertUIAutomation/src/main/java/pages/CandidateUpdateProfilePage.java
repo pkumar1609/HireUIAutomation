@@ -338,7 +338,7 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 	}
 	public void AssertDetailsOnCandidateProfile(String Username, String CandidateEmail, String profiletitle, String Name, String ContactNumber, String Designation, String Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String relocate) throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		Assert.assertEquals(addcandidatepage.title.getAttribute("value"), profiletitle);
 		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),CandidateEmail);
 		Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"),ContactNumber);
