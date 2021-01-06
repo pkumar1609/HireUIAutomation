@@ -22,10 +22,7 @@ public class hooks extends baseclass{
 	
 //	Logger log = LoggerHelper.getLogger(hooks.class);
 
-
-	
-	
-		@After("@reg1")  
+		@After("@jobworkflow,@jobupdate,@interview,@JCWF,@market")  
 		public void endTest() throws InterruptedException
 		{
 		if(addjobpage.addJobFlag==1)
@@ -69,8 +66,8 @@ public class hooks extends baseclass{
 //					scenario.embed(screenshot, "image/png"); // ... and embed it in
 					
 					File screenshotFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-				    FileUtils.copyFile(screenshotFile, new File("c:\\hirexprt.png"));
-				
+				    FileUtils.copyFile(screenshotFile, new File("c:\\Selenium\\hirexprt.png"));
+				    
 				} catch (WebDriverException e) {
 					e.printStackTrace();
 				}

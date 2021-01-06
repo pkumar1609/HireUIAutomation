@@ -136,7 +136,8 @@ public class WorkbenchPage extends baseclass {
 	
 	public void AddJob() throws InterruptedException {
 		Thread.sleep(5000);
-		job.click();
+//		job.click();
+		executor.executeScript("arguments[0].click();",job);
 		Thread.sleep(5000);
 		executor.executeScript("arguments[0].click();",addJob);
 //		addJob.click();
