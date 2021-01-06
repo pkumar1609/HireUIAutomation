@@ -259,7 +259,7 @@ public void addtenSkills() throws InterruptedException {
 		
 		
 			Thread.sleep(3000);
-			for(int i=0;i<10;i++) {
+			for(int i=0;i<=10;i++) {
 			addskillbutton.click();
 		}
 	}
@@ -318,8 +318,7 @@ public void addNewSkill3() {
 //	}
 
 	public void addjob(DataTable credentials) throws InterruptedException
-	{ 
-		addJobFlag=1;
+	{ 		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{			
 			workbenchpage.AddJob();
@@ -399,6 +398,7 @@ public void addNewSkill3() {
 					btn.click(); 
 				}
 	    }
+		addJobFlag=1;
     }
 	
 	

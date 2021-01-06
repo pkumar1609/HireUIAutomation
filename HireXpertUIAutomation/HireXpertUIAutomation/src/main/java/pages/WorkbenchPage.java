@@ -135,7 +135,7 @@ public class WorkbenchPage extends baseclass {
 	}
 	
 	public void AddJob() throws InterruptedException {
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		job.click();
 		Thread.sleep(5000);
 		addJob.click();
