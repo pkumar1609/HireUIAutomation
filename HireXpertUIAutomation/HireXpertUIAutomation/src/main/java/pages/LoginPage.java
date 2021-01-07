@@ -129,15 +129,13 @@ public class LoginPage extends baseclass
 		signin.click();
 	}
 	
-    public void loginInAppWithEmpK() throws InterruptedException {
+    public void login(String username) throws InterruptedException {
 		
-		emailaddress.sendKeys(prop.getProperty("loginid"));
+		emailaddress.sendKeys(username);
 		password.sendKeys("12345");
-//		explicitwait.until(ExpectedConditions.elementToBeClickable(signin));
 		Thread.sleep(2000);
 		signin.click();
-//		common.clickOnCloseBtn();
-		identifyUserK(); 
+
 
 	}
     
@@ -145,7 +143,7 @@ public class LoginPage extends baseclass
 	
 		emailaddress.sendKeys(Username);
 		password.sendKeys(Password);
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		signin.click();
 		try
 		{
@@ -167,7 +165,15 @@ public class LoginPage extends baseclass
 		identifyUserK();
 		
 	}
-
+	public void loginInAppWithEmpK() throws InterruptedException {
+		emailaddress.sendKeys(prop.getProperty("loginid"));
+		password.sendKeys("12345");
+		Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();",signin);
+//		common.clickOnCloseBtn();
+		identifyUserK();
+		
+	}
 	public void loginInAppWithAgyK() throws InterruptedException
 	{
 		emailaddress.sendKeys(prop.getProperty("agyid"));
@@ -178,18 +184,18 @@ public class LoginPage extends baseclass
 		identifyUserK();
 	}
 	
-//	public void loginInAppWithAgy2K() throws InterruptedException
-//	{
-//		emailaddress.sendKeys(prop.getProperty("agyid2"));
-//		password.sendKeys(prop.getProperty("pwd"));
-//		Thread.sleep(2000);
-//		executor.executeScript("arguments[0].click();",signin);
-//		identifyUserK();
-//		if(dashboardpage.jobPopup != null)
-//		{
-//			common.clickOnOKBtn();
-//		}
-//	}
+	public void loginInAppWithAgy2K() throws InterruptedException
+	{
+		emailaddress.sendKeys(prop.getProperty("agyid2"));
+		password.sendKeys(prop.getProperty("pwd"));
+		Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();",signin);
+		identifyUserK();
+		if(dashboardpage.jobPopup != null)
+		{
+			common.clickOnOKBtn();
+		}
+	}
 	 
 
 	public void loginInAppWithSupport() throws InterruptedException
@@ -243,4 +249,6 @@ public class LoginPage extends baseclass
 				}
 
 	}
+
+
 }

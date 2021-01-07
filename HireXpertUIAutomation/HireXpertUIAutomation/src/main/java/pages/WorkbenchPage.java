@@ -429,9 +429,11 @@ else{
 
 public void deleteJob() throws InterruptedException
 {
-	dashboardpage.openWorkbenchPage();
+	Action.moveToElement(dashboardpage.recruitment).perform();
 	Thread.sleep(5000);
-	workbenchpage.jobDropDown.click();
+	dashboardpage.applicationTracking.click();
+	Thread.sleep(5000);
+	executor.executeScript("arguments[0].click();", workbenchpage.jobDropDown);
 	List<WebElement> element = driver.findElements(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]"));
 	if(element.size()>0)
 	{

@@ -66,10 +66,10 @@ public class taskBWT extends baseclass {
 		loginpage.logoutFromAppK();
 	}
 
-	@And("^Login with employer team$")
-	public void login_as_employer_team() throws Throwable {
-	   loginpage.loginInAppWithTeamK();
-	}
+//	@And("^Login with employer team$")
+//	public void login_as_employer_team() throws Throwable {
+//	   loginpage.loginInAppWithTeamK();
+//	}
 
 	@And("^Task should also display for employer team member$")
 	public void task_should_also_display_for_team_member() throws Throwable {

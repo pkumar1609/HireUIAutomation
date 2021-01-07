@@ -60,6 +60,10 @@ public class DashboardPage extends baseclass {
 		Action.moveToElement(dashboardpage.recruitment).perform();
 		Thread.sleep(5000);
 		applicationTracking.click();
+		if(common.okbtnPopup.size()>0)
+		{
+			common.clickOnOKBtn();
+		}
 		
 	}
 	
@@ -72,7 +76,7 @@ public class DashboardPage extends baseclass {
 	public void openAgenciesPage() throws InterruptedException {
 		
 		Action.moveToElement(dashboardpage.recruitment).click().perform();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		agencies.click(); 
 	}
 	

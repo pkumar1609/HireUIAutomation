@@ -55,7 +55,7 @@ Feature: Job Workflow
 	And Go to workbench
 	And Add job
 	|title		     |agytitle          |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-	|New3 Developer  |Newagy3job        |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
+	|New Developer   |New8agyjob        |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
 	And Select a added job
     And click on Share With Team button and select the Share checkbox present in front of the team member "<team>"
 	And click on Yes button from confirmation popup and now select the Block/Unblock checkbox present in front of the team member 
@@ -72,7 +72,7 @@ Feature: Job Workflow
     
 	Examples:
 	|username         |   Password   |team|teamId         |CandEmailId    |
-#	|pemp@gmail.com   |    12345     |pe1 |pe1@gmail.com  |can12@gmail.com|
+	|pemp@gmail.com   |    12345     |pe1 |pe1@gmail.com  |can12@gmail.com|
 	|pagy@gmail.com   |    12345     |pa1 |pa1@gmail.com  |can13@gmail.com|
 	
 	#TC ID - 67,72,73
@@ -90,8 +90,8 @@ Feature: Job Workflow
 	|pagy  |pagy@gmail.com    | 1234564  |
     And Go to workbench
 	And Add job
-	|title	|agytitle    |designation  |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-	|Job5   |Job1agy     |developer    |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			     |Hirexpert   |rahitech       |java|
+	|title	        |designation  |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
+	|Jobworkflow5   |developer    |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			     |Hirexpert   |rahitech       |java|
 	And Select a added job
 	And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 	
 	And Block the agency "<agyEmailId>"
@@ -125,8 +125,8 @@ Feature: Job Workflow
 	|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  | 
    	And Go to workbench
 	And Add job
-	|title  |agytitle       |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-	|Job6   |Job6agy       |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |	java|
+	|title          |agytitle        |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
+	|Jobworkflow6   |Jobworkflow6agy |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |	java|
 	And Select a added job
     And click on Share With Team button and select the Share checkbox present in front of the team member "<Teamid>"
     And Block the team "<Teamid>"

@@ -209,9 +209,7 @@ boolean emp;
 	}
 	
 	@When("^logout with logged in user and login with team member \\\"([^\\\"]*)\\\",\\\"([^\\\"]*)\\\"valid credentials which you blocked on Share Job page$")
-	public void logout_with_logged_in_user_and_login_with_team_member_valid_credentials_which_you_blocked_on_Share_Job_page(String teamId, String password) throws Throwable {
-	    
-			
+	public void logout_with_logged_in_user_and_login_with_team_member_valid_credentials_which_you_blocked_on_Share_Job_page(String teamId, String password) throws Throwable {			
 			workbenchpage.ClickonLogout();
 			registerpage.clickEmployerAgencySignInlink();
 			Thread.sleep(3000);
