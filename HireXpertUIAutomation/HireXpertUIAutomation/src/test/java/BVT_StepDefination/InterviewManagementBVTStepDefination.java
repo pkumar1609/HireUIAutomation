@@ -75,7 +75,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	
 	@When("^observe the interview date and time displayed on candidate card below Assign To field \"([^\"]*)\"$")
 	public void observe_the_interview_date_and_time_displayed_on_candidate_card_below_Assign_To_field(String ScheduleOn) throws Throwable {
-		Thread.sleep(1000);
+		Thread.sleep(7000);
 		System.out.println(candidatecardsectionpage.candidateCardInterviewDetails.getText().substring(0, candidatecardsectionpage.candidateCardInterviewDetails.getText().indexOf(',')));
 		Assert.assertEquals(candidatecardsectionpage.candidateCardInterviewDetails.getText().substring(0, candidatecardsectionpage.candidateCardInterviewDetails.getText().indexOf(',')), ScheduleOn);
 	}
@@ -83,6 +83,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	@When("^click on Reload Candidate button and observe$")
 	public void click_on_Reload_Candidate_button_and_observe() throws Throwable {
 	    
+		Thread.sleep(3000);
 		workbenchpage.clickReloadCandidateButton();
 		Thread.sleep(3000);
 		String interview = candidatecardsectionpage.candidateCardInterviewDetails.getText();
