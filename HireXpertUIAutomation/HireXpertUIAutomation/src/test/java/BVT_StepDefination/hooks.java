@@ -37,7 +37,7 @@ public class hooks extends baseclass{
 //		}
 //	}	
 
-		@After("@market")  
+		@After("@jobworkflow,@jobupdate,@interview,@JCWF,@market")  
 		public void endTest() throws InterruptedException
 		{
 //			System.out.println(common.shareFlag+" : common.shareFlag ");

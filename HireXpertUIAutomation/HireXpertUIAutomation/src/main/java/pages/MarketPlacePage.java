@@ -116,7 +116,7 @@ public class MarketPlacePage extends baseclass {
 	{
 		String editjobproposalbtn = "//a[contains(text(),'" +addjobpage.jobname+ "')]//following::button[text()='Edit']" ;
 //	    explicitwait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(editjobproposalbtn))));
-	    Thread.sleep(2000);
+	    Thread.sleep(8000);
 		driver.findElement(By.xpath(editjobproposalbtn)).click();
 	}
 	
@@ -186,7 +186,8 @@ public class MarketPlacePage extends baseclass {
 		Thread.sleep(2000);
 		if(driver.findElement(By.xpath(rejectbtn)).isEnabled())
 		{
-		driver.findElement(By.xpath(rejectbtn)).click();
+		executor.executeScript("arguments[0].click();",driver.findElement(By.xpath(rejectbtn)));
+//		driver.findElement(By.xpath(rejectbtn)).click();
 		Thread.sleep(2000);
 		common.clickOnConfirmYes();
 		}
@@ -207,8 +208,9 @@ public class MarketPlacePage extends baseclass {
 	{
 		
 		String reviewbtnAgy= "//a[contains(text(),'" + addjobpage.jobname + "')]//following::button[text()='Review']";
-		Thread.sleep(4000);
-		driver.findElement(By.xpath(reviewbtnAgy)).click();	
+		Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();",driver.findElement(By.xpath(reviewbtnAgy)));
+//		driver.findElement(By.xpath(reviewbtnAgy)).click();	
 	}
 
 	
@@ -234,6 +236,7 @@ public class MarketPlacePage extends baseclass {
 	
 	{
 		workbenchpage.clickonthreedot();
+		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", sharewithmarketplacebtn);
 	}
 	
