@@ -20,22 +20,22 @@ public class hooks extends baseclass{
 
 //	@jobworkflow,@jobupdate,@interview,@JCWF,@market,@TaskManagement
 	
-	@After()
-	public void screenShot(Scenario scenario) throws InterruptedException, IOException
-	{
-		System.out.println("inside after hook:"+rootFolder+"");
-
-		if (scenario.isFailed()) {
-
-			try {
-			    System.out.println(rootFolder+"/"+scenario.getName()+".png");
-				File screenshotFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			    FileUtils.copyFile(screenshotFile, new File(rootFolder+"/123.png"));
-			} catch (WebDriverException e) {
-				e.printStackTrace();
-			}
-		}
-	}	
+//	@After()
+//	public void screenShot(Scenario scenario) throws InterruptedException, IOException
+//	{
+//		System.out.println("inside after hook:"+rootFolder+"");
+//
+//		if (scenario.isFailed()) {
+//
+//			try {
+//			    System.out.println(rootFolder+"/"+scenario.getName()+".png");
+//				File screenshotFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//			    FileUtils.copyFile(screenshotFile, new File(rootFolder+"/123.png"));
+//			} catch (WebDriverException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}	
 
 		@After("@jobworkflow,@jobupdate,@interview,@JCWF,@market")  
 		public void endTest() throws InterruptedException
