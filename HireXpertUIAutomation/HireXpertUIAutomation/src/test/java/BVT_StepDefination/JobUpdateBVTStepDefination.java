@@ -165,7 +165,10 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	public void now_Click_on_Add_Skill_button_to_add_more_than_ten_skills() throws Throwable {
 
 		
-		addjobpage.addtenSkills();
+		Thread.sleep(3000);
+		for(int i=0;i<=10;i++) {
+		addjobpage.addskillbutton.click();
+	}
 
 	}
 
