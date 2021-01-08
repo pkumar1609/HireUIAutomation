@@ -100,8 +100,9 @@ public class MarketPlacePage extends baseclass {
 	{
 		
 		explicitwait.until(ExpectedConditions.elementToBeClickable(acceptAndSign));
-		Thread.sleep(1000);
-		acceptAndSign.click();
+		Thread.sleep(5000);
+		executor.executeScript("arguments[0].click();",acceptAndSign);
+//		acceptAndSign.click();
 		common.clickOnConfirmYes();
 		common.clickOnOKBtn();
 		common.clickOnCloseBtn();

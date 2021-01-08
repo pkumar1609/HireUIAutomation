@@ -107,7 +107,7 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
    public void clickEmployerAgencySignInlink() throws InterruptedException {
 	    Actions action = new Actions(driver);
 		action.moveToElement(loginlink).click().perform();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		EmployerAgencySignInlink.click();
 	}
     

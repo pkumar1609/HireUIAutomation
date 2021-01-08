@@ -216,7 +216,7 @@ Then Verify that user get an alert message as "Same skill entered more than one 
 And click on ok button
 And delete duplicate skill
 And click on ok button
-And Now Click on Add Skill button to add more than ten skills
+And Now Click on Add Skill button to add more than ten skills for candidate
 Then Verify that user get an alert message as "Skills adding limit is 10." for adding more than ten skills
 And click on ok button
 And click on Delete Skill button in front of any skill for candidate

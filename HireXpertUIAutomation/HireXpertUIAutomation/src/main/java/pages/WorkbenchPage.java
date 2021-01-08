@@ -252,7 +252,9 @@ public class WorkbenchPage extends baseclass {
 		Thread.sleep(3000);
 		candidate.click();
 		Thread.sleep(5000);
-		addCandidateButton.click();
+		executor.executeScript("arguments[0].click();",addCandidateButton);
+		Thread.sleep(1000);
+//		addCandidateButton.click();
 	}
 	
 	public void clickOnAgreementbtn() throws InterruptedException
