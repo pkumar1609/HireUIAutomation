@@ -163,7 +163,7 @@ And Close browser
 Examples:
 |Username      |Password |Name                                                            |
 |pemp@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
-#|pagy@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
+|pagy@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
 
 @BVTC @login @invalid
   Scenario Outline: Verify that User is not able to Login with invalid credentials

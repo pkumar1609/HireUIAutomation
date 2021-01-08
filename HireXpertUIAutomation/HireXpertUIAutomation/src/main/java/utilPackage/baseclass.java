@@ -47,7 +47,7 @@ import pages.UpdateProfilePopupPage;
 import pages.WorkbenchPage;
 import pages.scheduleInterview;
 
-public class baseclass{
+public class baseclass extends SuperBase{
 	
 	public static WebDriver driver;
 	public static Properties prop;
