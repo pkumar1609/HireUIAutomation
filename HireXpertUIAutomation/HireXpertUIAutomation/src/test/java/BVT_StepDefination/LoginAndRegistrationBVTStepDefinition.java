@@ -22,7 +22,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	@When("^click on Register link$")
 	public void click_on_Register_link() throws Throwable {
 
-		Thread.sleep(4200);
+		Thread.sleep(3500);
 		registerpage.clickRegister();
 
 	}
