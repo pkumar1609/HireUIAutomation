@@ -64,7 +64,7 @@ public class addjobsteps extends baseclass{
 	
 	@When("^click on submit button$")
 	public void click_on_submit_button() throws Throwable {
-		Thread.sleep(3000);
+		Thread.sleep(4500);
 		common.submitbtn.click();		
 	}
 
