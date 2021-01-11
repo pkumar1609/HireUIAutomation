@@ -1,10 +1,10 @@
 Feature: HireXpert Login & Registration feature
 
-	@Bvt @Regression @register
+	@Bvt @Regression1 @register
 	Scenario Outline: To verify the fields/button on Registration popup window and check functionality of Registration
 	
 	Given User open browser
-	When click on Register link       
+	When click on Register link     
 	And verify the fields and buttons present on the register dialog box
 	And click on Close button
 	And Click on Yes button of confirmation popup
@@ -18,7 +18,7 @@ Feature: HireXpert Login & Registration feature
 	And Select value from dropdown for employer "<EmployerUserType>" "<timezone>" "<country>"
 	And click on Submit button
 	And User should get confirmation message
-	And click on ok button
+#	And click on ok button
 	And click on Login link
 	And click on Employer-Agency SignIn link
 	And enter employer email and password "<EmployerEmail>" "<password>" 
@@ -38,7 +38,7 @@ Feature: HireXpert Login & Registration feature
 	And enter agency details "<AgencyName>" "<AgencyEmail>" "<AgencyContactNumber>" 
 	And Select value from dropdown for agency "<AgencyUserType>" "<timezone>" "<country>"
 	And click on Close button
-      And Click on Yes button of confirmation popup 
+    And Click on Yes button of confirmation popup 
 	And click on Register link 
 	And enter agency details "<AgencyName>" "<AgencyEmail>" "<AgencyContactNumber>" 
 	And Select value from dropdown for agency "<AgencyUserType>" "<timezone>" "<country>"
@@ -51,7 +51,7 @@ Feature: HireXpert Login & Registration feature
 	And click on Signin button
 	And Update agency profile"<AgencyAddress>" "<AgencyOrganizationName>" "<AgencyWebsite>" "<AgencyCity>" 
 	And click on Submit button
-#	And click on ok button
+	And click on ok button
 	And Verify that user has redirected to correct page or not after filling the information in update profile
 	And Verify the username by which user is login
 

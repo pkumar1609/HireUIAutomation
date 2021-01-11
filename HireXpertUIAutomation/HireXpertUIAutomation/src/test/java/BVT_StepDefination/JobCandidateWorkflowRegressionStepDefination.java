@@ -715,7 +715,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	@Then("^Click on show all rejected candidate checkbox$")
 	public void click_on_show_all_rejected_candidate_checkbox() throws Throwable {
 		Thread.sleep(2000);
-	    workbenchpage.showAllRejectedCandidates.click();
+	    executor.executeScript("arguments[0].click();", workbenchpage.showAllRejectedCandidates);
 	}
 
 	@Then("^both candidates should not display in same column$")
@@ -875,7 +875,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		workbenchpage.job.click();
 		workbenchpage.editJobButton.click();
 		select = new Select(addjobpage.totalinterviews);
-		Assert.assertEquals(select.getFirstSelectedOption().getAttribute("value"), NoOfInterview1);
+		Assert.assertEquals(driver.findElement(By.xpath("//option[contains(text(),'"+NoOfInterview1+"')]")).getText(), NoOfInterview1);
 	}
 	
 	@When("^click on Add Skill button and add one new skill \"([^\"]*)\"$")

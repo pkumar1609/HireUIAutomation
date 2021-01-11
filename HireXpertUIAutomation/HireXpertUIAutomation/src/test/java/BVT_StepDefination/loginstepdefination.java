@@ -45,6 +45,7 @@ public class loginstepdefination extends baseclass {
 	
 	@And("^Click on Employer-Agency Signin link$")
 	public void click_on_Employer_Agency_Signin_link() throws Throwable {
+		driver.navigate().refresh();
 		loginpage.ClickOnEmployerAgencySigninLink();
 	} 
 	
