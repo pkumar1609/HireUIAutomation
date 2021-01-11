@@ -45,11 +45,12 @@ public class loginstepdefination extends baseclass {
 	
 	@And("^Click on Employer-Agency Signin link$")
 	public void click_on_Employer_Agency_Signin_link() throws Throwable {
-	    loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.ClickOnEmployerAgencySigninLink();
 	} 
 	
 	@And("^Employer enters valid credentials$")
 	public void Employer_enters_valid_credentials() throws InterruptedException{
+		Thread.sleep(3500);
 		loginpage.loginInAppWithEmpK();
 	}
 
@@ -60,6 +61,8 @@ public class loginstepdefination extends baseclass {
  
 	@And("^Click on add Button Fill all the mandatory details for agency$")
 		public void fill_all_the_mandatory_detail(DataTable credentials) throws InterruptedException  {
+		
+		Thread.sleep(3000);
 		agenciespage.enterAllDetails(credentials);
 	}
 	
