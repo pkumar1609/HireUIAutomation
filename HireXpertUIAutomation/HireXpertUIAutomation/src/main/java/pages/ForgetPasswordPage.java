@@ -32,8 +32,9 @@ public class ForgetPasswordPage  extends baseclass {
 		LoginEmailField.sendKeys(emailid);
 	}
 	
-	public void ClickonForgetPasswordLink () {
+	public void ClickonForgetPasswordLink () throws InterruptedException {
 		
+		Thread.sleep(3500);
 		ForgotPasswordLink.click();
 	}
 	
