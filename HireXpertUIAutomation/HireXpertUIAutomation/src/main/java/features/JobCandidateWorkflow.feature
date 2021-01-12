@@ -282,7 +282,6 @@ And Click on save button to save the updated changes
 And Click on Edit Candidate icon on candidate card "<Name>"
 And verify that on Notice period field is set as "Yes"
 
-
 Examples:
 |Username       |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|NoticePeriod1|LastWorkingDay  |experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|functionalArea|
 |pemp@gmail.com |12345    |hirecan60@gmail.com |jr software developer|hirecan60|9455866385    |Sr.developer  |14/02/1995      |Female  |No            |25          |45           |2/1/2021        |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |java|
@@ -585,11 +584,18 @@ And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<
 And Logout from App
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<email address>","<Password>"
-And click on Workbench tab
+And Go to Workbench
 And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
-And verify candidate card is displaying or not in New column "<Name>"	
+And verify candidate card is displaying or not in New column "<Name>"
+#after conditions
+#And Logout from App
+#And Click on Employer-Agency Signin link
+#And Employer enters valid credentials "<agyteam>","<Password>"	
+#And Go to Workbench
+#And Select a added job
+#And Close that job
 
 Examples:
 |    email address    |  Password  |agyteam      |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |

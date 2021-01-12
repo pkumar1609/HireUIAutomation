@@ -36,6 +36,7 @@ public class loginstepdefination extends baseclass {
 	@Given("^User must be registered$")
 	public void user_must_be_registered() throws Throwable {    
 		initialization();
+		driver.navigate().refresh();
 	} 
  
 	@When("^title of login page is Home$")
@@ -45,7 +46,7 @@ public class loginstepdefination extends baseclass {
 	
 	@And("^Click on Employer-Agency Signin link$")
 	public void click_on_Employer_Agency_Signin_link() throws Throwable {
-		driver.navigate().refresh();
+//		driver.navigate().refresh();
 		loginpage.ClickOnEmployerAgencySigninLink();
 	} 
 	

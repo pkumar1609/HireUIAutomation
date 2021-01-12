@@ -549,6 +549,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void open_browser() throws IOException, AWTException {
 		
 		baseclass.initialization(); 
+		driver.navigate().refresh();
 	}
 
 	

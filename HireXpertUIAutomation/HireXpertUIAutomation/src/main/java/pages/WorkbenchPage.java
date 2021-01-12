@@ -250,7 +250,8 @@ public class WorkbenchPage extends baseclass {
 	public void clickOnAddCandidate() throws InterruptedException
 	{
 		Thread.sleep(3000);
-		candidate.click();
+		executor.executeScript("arguments[0].click();", candidate);
+//		candidate.click();
 		Thread.sleep(5000);
 		executor.executeScript("arguments[0].click();",addCandidateButton);
 		Thread.sleep(1000);
@@ -275,7 +276,8 @@ public class WorkbenchPage extends baseclass {
 	
 	public void clickReloadCandidateButton() throws InterruptedException {
 		Thread.sleep(3000);
-		candidate.click();
+		executor.executeScript("arguments[0].click();",candidate);
+//		candidate.click();
 		Thread.sleep(2000);
 		ReloadCandidateButton.click();
 	}

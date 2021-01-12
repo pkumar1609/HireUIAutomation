@@ -3,6 +3,7 @@ package BVT_StepDefination;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import cucumber.api.java.en.Then;
@@ -75,8 +76,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	
 	@When("^observe the interview date and time displayed on candidate card below Assign To field \"([^\"]*)\"$")
 	public void observe_the_interview_date_and_time_displayed_on_candidate_card_below_Assign_To_field(String ScheduleOn) throws Throwable {
-		Thread.sleep(7000);
-		System.out.println(candidatecardsectionpage.candidateCardInterviewDetails.getText().substring(0, candidatecardsectionpage.candidateCardInterviewDetails.getText().indexOf(',')));
+		explicitwait.until(ExpectedConditions.visibilityOf(candidatecardsectionpage.candidateCardInterviewDetails));
 		Assert.assertEquals(candidatecardsectionpage.candidateCardInterviewDetails.getText().substring(0, candidatecardsectionpage.candidateCardInterviewDetails.getText().indexOf(',')), ScheduleOn);
 	}
 	
