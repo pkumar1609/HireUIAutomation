@@ -118,15 +118,11 @@ public class Commonfunction extends baseclass {
 	
 	public void clickOnOKBtn() throws InterruptedException
 	{
-		try
-		{
-		explicitwait.until(ExpectedConditions.visibilityOf(okbtn));
+
 		Thread.sleep(4000);
 		executor.executeScript("arguments[0].click();",okbtn);
 //		okbtn.click();
-		}
-		catch(NoSuchElementException e)
-		{}
+
 	}
 	
 	public void ClickSumbit() throws InterruptedException
