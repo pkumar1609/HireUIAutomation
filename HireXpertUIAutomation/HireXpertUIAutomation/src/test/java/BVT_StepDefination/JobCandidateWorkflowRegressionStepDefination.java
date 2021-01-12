@@ -1376,7 +1376,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		@Then("^Click on save btn$")
 		public void click_on_save_btn() throws Throwable {
 			
-			Thread.sleep(3000);
+			Thread.sleep(3000);			
             common.savebtn.click();
 		}
 //
