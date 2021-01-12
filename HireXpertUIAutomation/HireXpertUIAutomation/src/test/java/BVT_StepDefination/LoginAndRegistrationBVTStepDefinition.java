@@ -17,6 +17,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	public void user_open_browser() throws Throwable {
 	    
 		baseclass.initialization();
+		driver.navigate().refresh();
 	}
 
 	@When("^click on Register link$")
