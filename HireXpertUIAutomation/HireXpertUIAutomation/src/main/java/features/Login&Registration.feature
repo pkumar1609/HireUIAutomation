@@ -81,9 +81,9 @@ And Select value from dropdown for candidate "<CandidateUserType>" "<timezone>" 
 	And Verify the username by which user is login
 	
 	Examples: 
-	| EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone                                                  | country | password    | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail      | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail    | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
-	| TXE15          |  txe2101012545444523378031121@gmail.com   | 285248688             | Employer         | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi           | India   | 12345       | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age14        | age2101781834457230203111@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike15          | mike21017878045234320311@gmail.com  | 369497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
-	
+	| EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone                                                  | country | password    | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail        | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail      | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
+	| TXE15          |  txe9087@gmail.com    | 285248688             | Employer         | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi           | India   | 12345       | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age14        | age9087@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike15          | mike9087@gmail.com  | 369497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+
 	#TC :- 4, 5, 12, 433
 
 	# Change name, email of employer/agency/candidate
@@ -98,7 +98,7 @@ And Select value from dropdown for candidate "<CandidateUserType>" "<timezone>" 
 	And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 	And click on Submit button
 	And click on Yes button
-	Then User should get a error message as "User with 'txe2101012545444523378031121@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
+	Then User should get a error message as "User with 'txe9087@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
 	And click on Close button
 	And Click on Yes button of confirmation popup
 	And Close the browser
@@ -108,7 +108,7 @@ And Select value from dropdown for candidate "<CandidateUserType>" "<timezone>" 
 	And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 		And click on Submit button
 	And click on Yes button
-	Then User should get a error message as "User with 'age2101781834457230203111@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
+	Then User should get a error message as "User with 'age9087@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
 	And click on Close button
 	And Click on Yes button of confirmation popup
 	And Close the browser
@@ -118,15 +118,15 @@ And Select value from dropdown for candidate "<CandidateUserType>" "<timezone>" 
 	And Select value from dropdown of "<employerusertype>" "<timezone>" "<country>"
 	And click on Submit button
 	And click on Yes button
-	Then User should get a error message as "User with 'mike21017878045234320311@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
+	Then User should get a error message as "User with 'mike9087@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
 	And click on Close button
 	And Click on Yes button of confirmation popup
 	And Close the browser
 	
 	
 	Examples: 
-	   | employername    |   employeremail              | employercontactnumber   | candidateusertype  | timezone             | country |  agencyname   |   agencyemail             | agencycontactnumber  |   candidatename   |   candidateemail             | candidatecontactnumber  | employerusertype  |
-	   | employermain01  |  txe2101012545444523378031121@gmail.com    | 211394644               | Candidate          | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi | India   | agencymain01  |  age2101781834457230203111@gmail.com  | 211314644            | candidatemain01   |  mike21017878045234320311@gmail.com   | 123456456               | Employer          | 
+	   | employername    |   employeremail     | employercontactnumber   | candidateusertype  | timezone                                        | country  |  agencyname   |   agencyemail       | agencycontactnumber  |   candidatename   |   candidateemail      | candidatecontactnumber  | employerusertype  |
+	   | employermain01  |  txe9087@gmail.com  | 211394644               | Candidate          | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi | India    | agencymain01  |  age9087@gmail.com  | 211314644            | candidatemain01   |  mike9087@gmail.com   | 123456456               | Employer          | 
 	   
 	#TC :- 6, 289
 	
@@ -201,8 +201,8 @@ And Select value from dropdown for candidate "<CandidateUserType>" "<timezone>" 
 	
 	Examples:
 	
-	| EmployerName  | EmployerEmail               | EmployerContactNumber | EmployerUserType | timezone                                         | country | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | password | newpassword | confirmpassword |  AgencyName  | AgencyEmail              | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity |
-	|CPemployer09   | cpemployer2130123035243031@gmail.com   | 565566625             |   Employer       |  (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency09   | CPagency21010232354033431@gmail.com  |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
+	| EmployerName  | EmployerEmail              | EmployerContactNumber | EmployerUserType | timezone                                         | country | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | password | newpassword | confirmpassword |  AgencyName  | AgencyEmail              | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity |
+	|CPemployer09   | cpemployer9087@gmail.com   | 565566625             |   Employer       |  (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency09   | CPagency9087@gmail.com   |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
 	
 	
 #	#TC:- 81, 10
@@ -298,7 +298,7 @@ And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<
 	Examples:
 
 	| AgencyName   | AgencyEmail               | AgencyContactNumber | AgencyUserType | timezone                                         | country | AgencyAddress | AgencyOrganizationName | AgencyWebsite     | AgencyCity | organizationname | password |EmployerName  | EmployerEmail              | EmployerContactNumber | EmployerUserType | EmployerAddress | EmployerOrganizationName | EmployerWebsite     | EmployerCity | organizationname | CandidateName  | CandidateEmail             | ContactNumber | CandidateUserType     | Country |title1         | Designation     | NoticePeriod | industry    | CandidateCity | gender1 | expertiselevel | functionalArea|experience|CTC    |OnNoticePeriod|shift    |jobType            |noticeperiod|expectedCTC|CityArea|LastWorkingDay |
-	| UPAgency16   | upagency210102343345452032@gmail.com   | 5685263125          |   Agency       | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |UPEmployer16  | upemployer2101230235344345032@gmail.com   | 565566625             |   Employer       | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      |UPCandidate16   | upcandidate2101024332345345032@gmail.com  | 9564783126    | Candidate             | India   |Test Engineer  | Software Tester |   30         | IT-Software |  Pune         | Male    | Intermediate   |java           |2         |250000 |No            |Day Shift|Permanent Full Time|45          |350000     |Wakad   ||30/12/2020    |
+	| UPAgency16   | upagency9087@gmail.com    | 5685263125          |   Agency       | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |UPEmployer16  | upemployer9087@gmail.com   | 565566625             |   Employer       | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      |UPCandidate16   | upcandidate9087@gmail.com  | 9564783126    | Candidate             | India   |Test Engineer  | Software Tester |   30         | IT-Software |  Pune         | Male    | Intermediate   |java           |2         |250000 |No            |Day Shift|Permanent Full Time|45          |350000     |Wakad   ||30/12/2020    |
 
 #	
 #     #TC ID :- 84,85,31,35,17,87,57,19,86,34,91,60
@@ -313,12 +313,12 @@ And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<
 #	When click on Employer-Agency SignIn link
 	And Click on forgot password link
 	And Enter an email id which is not registered and click on submit button "<emailid>" 
-	Then Verify that user get an error message as "aa282828bb@gmail.com is not registered with us. Please register first." or not
+	Then Verify that user get an error message as "aa9087bb@gmail.com is not registered with us. Please register first." or not
 	
 	Examples:
 	
-	| emailid         |
-	|aa282828bb@gmail.com |
+	| emailid           |
+	|aa9087bb@gmail.com |
 #	
 #	#TC:- 83
 #	
