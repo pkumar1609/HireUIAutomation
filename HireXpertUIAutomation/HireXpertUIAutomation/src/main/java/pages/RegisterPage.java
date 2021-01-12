@@ -95,8 +95,9 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 		}
 		
 	   }
-	public void clickRegister() {
+	public void clickRegister() throws InterruptedException {
 		
+		Thread.sleep(3000);
 		Registerlink.click();
 	}
 	
@@ -107,7 +108,7 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
    public void clickEmployerAgencySignInlink() throws InterruptedException {
 	    Actions action = new Actions(driver);
 		action.moveToElement(loginlink).click().perform();
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 		EmployerAgencySignInlink.click();
 	}
     
