@@ -118,6 +118,7 @@ public class Commonfunction extends baseclass {
 	
 	public void clickOnOKBtn() throws InterruptedException
 	{
+		explicitwait.until(ExpectedConditions.visibilityOf(okbtn));
 		Thread.sleep(4000);
 		executor.executeScript("arguments[0].click();",okbtn);
 //		okbtn.click();
