@@ -143,7 +143,8 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	public void click_on_save_btn_for_designation() throws Throwable {
 
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("(//button[text()='Save'])[2]")).click();
+		executor.executeScript("arguments[0].click();",driver.findElement(By.xpath("(//button[text()='Save'])[2]")) );
+//		driver.findElement(By.xpath("(//button[text()='Save'])[2]")).click();
       
 	}
 
