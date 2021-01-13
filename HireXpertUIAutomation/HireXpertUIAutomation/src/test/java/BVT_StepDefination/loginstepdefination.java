@@ -116,7 +116,6 @@ public class loginstepdefination extends baseclass {
 
 	@And("^Click on Employer tab$")
 	public void click_on_Employer_tab() throws InterruptedException  {
-	
 		dashboardpage.openEmployersPage();
 	}
 	

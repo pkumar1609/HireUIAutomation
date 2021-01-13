@@ -14,7 +14,7 @@ public class invaliddatasteps extends baseclass{
 
 @Given("^User is on Home page of application$")
 public void user_is_on_Home_page_of_application() throws IOException, AWTException  {
-    
+	driver.navigate().refresh();
 	baseclass.initialization();
 }
 

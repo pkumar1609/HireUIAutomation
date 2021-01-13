@@ -38,7 +38,7 @@ public class Commonfunction extends baseclass {
 	public WebElement closebtn;
 	
 	@FindBy(xpath = "//button[@type='button'][text()='Close']")
-	public WebElement addClosebtn ;
+	public WebElement addClosebtn;
 	
 	@FindBy(xpath = "//button[text()='Save']")
 	public WebElement savebtn;

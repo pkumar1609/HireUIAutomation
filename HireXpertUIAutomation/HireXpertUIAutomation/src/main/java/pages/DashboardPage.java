@@ -68,27 +68,27 @@ public class DashboardPage extends baseclass {
 	}
 	
 	public void openEmployersPage() throws InterruptedException {
-		Action.moveToElement(dashboardpage.recruitment).click().perform();
+		Action.moveToElement(dashboardpage.recruitment).perform();
 		Thread.sleep(4000);
 		employers.click();
 	}
 	
 	public void openAgenciesPage() throws InterruptedException {
 		
-		Action.moveToElement(dashboardpage.recruitment).click().perform();
+		Action.moveToElement(dashboardpage.recruitment).perform();
 		Thread.sleep(4000);
 		agencies.click(); 
 	}
 	
 	public void openTeamPage() throws InterruptedException {
-		Action.moveToElement(dashboardpage.recruitment).click().perform();
+		Action.moveToElement(dashboardpage.recruitment).perform();
 		Thread.sleep(3000);
 		team.click();
 	}  
 	 
 	public void openInterviewsPage() throws InterruptedException 
 	{
-		Action.moveToElement(dashboardpage.recruitment).click().perform();
+		Action.moveToElement(dashboardpage.recruitment).perform();
 		Thread.sleep(3000);
 		interviews.click();
 	}
