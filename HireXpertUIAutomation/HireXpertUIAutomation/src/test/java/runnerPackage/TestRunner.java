@@ -15,9 +15,8 @@ monochrome= true,
 //        "json:target/cucumber-reports/cucumber.json"},
 plugin = {"pretty",
         "html:target/cucumber-reports","json:target/cucumber.json", "junit:C:/Users/admin/AppData/Local/Jenkins.jenkins/workspace/UI Automation/HireXpertUIAutomation/HireXpertUIAutomation/target/cucumber-reports/Cucumber.xml"},
-tags=("@login,@register,@jobworkflow,@jobupdate,@interview,@JCWF,@market")
+tags=("@login,@register")
 )
 public class TestRunner
-{
-};
+{};
 //@login,@register,@jobworkflow,@jobupdate,@interview,@JCWF,@market,@TaskManagement
