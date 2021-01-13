@@ -117,8 +117,8 @@ public class MarketPlacePage extends baseclass {
 	{
 		String editjobproposalbtn = "//a[contains(text(),'" +addjobpage.jobname+ "')]//following::button[text()='Edit']" ;
 //	    explicitwait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(editjobproposalbtn))));
-	    Thread.sleep(8000);
-		driver.findElement(By.xpath(editjobproposalbtn)).click();
+	    Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();",driver.findElement(By.xpath(editjobproposalbtn)) );
 	}
 	
 	
