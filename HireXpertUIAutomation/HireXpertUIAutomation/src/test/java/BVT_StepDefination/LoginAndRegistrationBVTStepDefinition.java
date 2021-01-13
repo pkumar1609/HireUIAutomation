@@ -133,6 +133,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	public void click_on_save_button() throws Throwable {
 	    
 		Thread.sleep(3000);
+		executor.executeScript("window.scrollBy(1000,0)");       
 		updateprofilepopuppage.Savebutton.click();
 	}
 	
