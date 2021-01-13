@@ -170,6 +170,12 @@ public class LoginPage extends baseclass
 		password.sendKeys("12345");
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",signin);
+		try
+		{
+			common.clickOnOKBtn();
+		}
+		catch(NoSuchElementException e)
+		{}
 //		common.clickOnCloseBtn();
 		identifyUserK();
 		
@@ -181,6 +187,12 @@ public class LoginPage extends baseclass
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",signin);
 //		common.clickOnCloseBtn();
+		try
+		{
+			common.clickOnOKBtn();
+		}
+		catch(NoSuchElementException e)
+		{}
 		identifyUserK();
 	}
 	
