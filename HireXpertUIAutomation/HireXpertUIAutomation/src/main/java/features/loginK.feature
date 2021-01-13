@@ -43,7 +43,6 @@ And Close browser
 Scenario: To verify whether the Agency is able to add and delete employer
 
 Given User must be registered
-
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And agency enters valid credentials
