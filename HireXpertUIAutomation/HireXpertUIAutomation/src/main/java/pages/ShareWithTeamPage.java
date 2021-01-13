@@ -52,6 +52,9 @@ public class ShareWithTeamPage extends baseclass {
 	@FindBy(xpath = "(//input[@type='checkbox'])[6]")
 	public WebElement isBlockUnblockSelected;
 	
+	@FindBy(xpath = "//select[@formcontrolname='teamId']")
+	public WebElement selectTeam;
+	
 	public ShareWithTeamPage() {
 		
 		PageFactory.initElements(driver, this);

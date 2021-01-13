@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.DataTable;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utilPackage.baseclass;
@@ -1186,6 +1187,18 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			Thread.sleep(3000);			
 			candidatecardsectionpage.verifyBellIconOnCandidateCard();		
 		}
+		
+		@Given("^Share job with agency owner \"([^\"]*)\"$")
+		public void share_job_with_agency_owner(String team) throws Throwable {
+		   Thread.sleep(3000);
+		   workbenchpage.shareJob.click();
+		   workbenchpage.shareWithTeamButton.click();		   
+		   select=new Select(sharewithteampage.selectTeam);
+		   select.selectByVisibleText(team);
+		   common.ClickSumbit();
+		   common.clickOnConfirmYes();
+		}
+		
 //		
 //		@When("^Click on Edit Candidate icon on candidate card \"([^\"]*)\"$")
 //		public void click_on_Edit_Candidate_icon_on_candidate_card(String Name) throws Throwable {

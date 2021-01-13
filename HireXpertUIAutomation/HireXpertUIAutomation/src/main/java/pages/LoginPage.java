@@ -135,8 +135,12 @@ public class LoginPage extends baseclass
 		password.sendKeys("12345");
 		Thread.sleep(2000);
 		signin.click();
-
-
+		try
+		{
+			common.clickOnOKBtn();
+		}
+		catch(NoSuchElementException e)
+		{}
 	}
     
     public void loginIn(String Username, String Password) throws InterruptedException {
