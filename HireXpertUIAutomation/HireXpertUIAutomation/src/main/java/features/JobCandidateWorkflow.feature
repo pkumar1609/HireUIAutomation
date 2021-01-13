@@ -573,7 +573,7 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<email address>","<Password>"
 Given team member should be added
 |Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+|pe1 | pe1@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234556      |pe1   |pa1     |
 And Logout from App
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<agyteam>","<Password>"
@@ -581,6 +581,8 @@ And click on Workbench tab
 And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
 |title		      |agytitle      |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
 |JCFW 142         |JCFW Agy 142  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
+
+
 And Logout from App
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<email address>","<Password>"
@@ -599,7 +601,7 @@ And verify candidate card is displaying or not in New column "<Name>"
 
 Examples:
 |    email address    |  Password  |agyteam      |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |
-|  pagy@gmail.com     |   12345    |pa1@gmail.com|hirecan27@gmail.com |jr software developer|hirecan27|9875866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com|   
+|  pagy@gmail.com     |   12345    |pa2@gmail.com|hirecan27@gmail.com |jr software developer|hirecan27|9875866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com|   
 
 #Reg TC ID: 239  [Job candidate workfloww Regression TC]
 

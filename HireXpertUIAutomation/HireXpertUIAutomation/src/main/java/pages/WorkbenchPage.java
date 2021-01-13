@@ -291,8 +291,8 @@ public void ClickonScreeningBtn() {
 	public void clickOnCloseJobButton() throws InterruptedException
 	{
 		Thread.sleep(2000);
-		job.click();
-		closejobbtn.click();
+		executor.executeScript("arguments[0].click();",job);
+		executor.executeScript("arguments[0].click();",closejobbtn);
 		common.clickOnConfirmYes();
 	}
 	 
