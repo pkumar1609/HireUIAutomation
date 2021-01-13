@@ -4,6 +4,7 @@ package pages;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -98,7 +99,7 @@ public class AgenciesPage extends baseclass {
 //			Assert.assertEquals(driver.findElement(By.xpath("//h6")).getText(), "Job Provider with email id "+data.get("Email")+" already exists");
 			common.clickOnOKBtn();
 		}
-		finally
+		catch(NoSuchElementException e)
 		{}
 	}
 	common.clickOnAddClosebtn();
