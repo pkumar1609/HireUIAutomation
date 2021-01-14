@@ -38,12 +38,9 @@ public class hooks extends baseclass{
 		}
 	}	
 
-		@After("@jobworkflow,@jobupdate,@interview,@JCWF,@market")  
+		@After("@reg")  
 		public void endTest() throws InterruptedException
-		{
-//			System.out.println(common.shareFlag+" : common.shareFlag ");
-//			System.out.println(addjobpage.addJobFlag+" : addjobpage.addJobFlag ");
-	
+		{	
 			loginpage.logoutFromAppK();
 			loginpage.ClickOnEmployerAgencySigninLink();
 			loginpage.login("pemp@gmail.com");
