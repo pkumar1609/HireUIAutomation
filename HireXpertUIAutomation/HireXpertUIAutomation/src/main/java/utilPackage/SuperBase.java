@@ -8,13 +8,13 @@ public class SuperBase {
 	
 	public static boolean isRootFolderCreated=false;
 	public static String rootFolder;
-	
+	public LocalDateTime now;
 	public SuperBase()
 	{
 		if(!isRootFolderCreated)
 		{
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd HHmmss");  
-			LocalDateTime now = LocalDateTime.now(); 
+			now = LocalDateTime.now(); 
 			String path="c:/FailedTCScreenshots/"+dtf.format(now)+"";
 			File theDir = new File(path);			
 			if (!theDir.exists())
