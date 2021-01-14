@@ -324,9 +324,8 @@ public void addNewSkill3() {
 			workbenchpage.AddJob();
 			if(loginpage.b==true)  
 			{
-				jobname=data.get("title");
-				System.out.println("Selected job: "+jobname);
-				title.sendKeys(jobname);
+				jobname=dtFormate.format(currentTime)+" Emp";
+				title.sendKeys(jobname);				
 				Organization.clear();
 				this.Organization.sendKeys(data.get("organization"));
 				jobAddedByEmp=true;
@@ -334,9 +333,8 @@ public void addNewSkill3() {
 			else
 			{
 				jobAddedByEmp=false;
-				jobname=data.get("agytitle");
-				System.out.println("Selected job: "+jobname);
-				title.sendKeys(data.get("agytitle"));
+				jobname=dtFormate.format(currentTime)+" Agy";
+				title.sendKeys(jobname);
 				select =new Select(employerId);
 				List<WebElement> options = select.getOptions();
 				if(options.size()>0)
