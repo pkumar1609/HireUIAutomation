@@ -4,6 +4,8 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -92,6 +94,8 @@ public class baseclass extends SuperBase{
 	public static Robot rb;
 	public static TaskManagementPage taskmanagementpage;
 	public static InvoicePage invoicepage;
+	public static DateTimeFormatter dtFormate;  
+	public static LocalDateTime currentTime; 
 
 	public baseclass() { 
 		
@@ -160,5 +164,7 @@ public class baseclass extends SuperBase{
 		rb =new Robot();
 		taskmanagementpage= new TaskManagementPage();
 		invoicepage= new InvoicePage();
+		dtFormate = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+		currentTime = LocalDateTime.now();
 	}
 }
