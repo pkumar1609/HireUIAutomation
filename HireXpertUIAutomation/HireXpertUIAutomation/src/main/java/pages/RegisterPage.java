@@ -1,6 +1,9 @@
 package pages;
 
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,9 +14,10 @@ import utilPackage.baseclass;
 
 public class RegisterPage extends baseclass{    //HomePage.java class is child of Testbase.java Class
 	
-	
-	//Page Factory / Object Repository 
-
+	public String registerdName;
+	public String registerdEmail;
+	public String registerdContact;
+	  
 	@FindBy(linkText="Register")
 	WebElement Registerlink;
 	
@@ -73,7 +77,7 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	
 	public RegisterPage() {     //constructor
 		PageFactory.initElements(driver, this);
-	}
+		}
 	
 	
 	//Actions
@@ -133,6 +137,18 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 			ContactNumber.sendKeys(EmployerContactNumber);
 		
 	}
+		
+		public void registerUser()
+		{				
+			DateTimeFormatter Contactformate = DateTimeFormatter.ofPattern("yyyyMMddHHmm");	
+//			currentTime = LocalDateTime.now();
+			registerdName=dtFormate.format(currentTime)+"abc";
+			Name.sendKeys(registerdName);
+			registerdEmail=dtFormate.format(currentTime)+"@gmail.com";
+			Email.sendKeys(registerdEmail);
+			registerdContact=Contactformate.format(currentTime);
+			ContactNumber.sendKeys(registerdContact);			
+		}
 		
 		public void registeremployerdetails (String EmployerName,String EmployerEmail, String EmployerContactNumber ) {
 			
@@ -233,15 +249,13 @@ public void alreadyregisterUserdetails1(String usertype, String timezone, String
 	 select3.selectByVisibleText(country);
 	}
 
-		public void enterEmployerEmailandPassword (String EmployerEmail, String password) {
+		public void enterEmployerEmailandPassword () throws InterruptedException {
 			
-			Emailaddress.clear();
+//			Emailaddress.clear();			
+			Emailaddress.sendKeys(registerdEmail);			
+//			Password.clear();			
+			Password.sendKeys("12345");
 			
-			Emailaddress.sendKeys(EmployerEmail);
-			
-			Password.clear();
-			
-			Password.sendKeys(password);
 		}
 		
        public void enterAgencyEmailandPassword (String AgencyEmail, String password) {
@@ -361,20 +375,20 @@ public void verifythefieldsonregisterdialogbox () {
     	   Password.sendKeys(password);
        }
        
-       public void Loginwithemployernewpassword(String EmployerEmail, String newpassword) {
+       public void Loginwithemployernewpassword(String newpassword) {
     	   
-    	   Emailaddress.sendKeys(EmployerEmail);
+    	   Emailaddress.sendKeys(registerdEmail);
     	   Password.sendKeys(newpassword);
        }
        
-     public void Loginwithemployeroldpassword(String EmployerEmail, String password) {
+     public void Loginwithemployeroldpassword(String password) {
     	   
-    	   Emailaddress.sendKeys(EmployerEmail);
+    	   Emailaddress.sendKeys(registerdEmail);
     	   Password.sendKeys(password);
        }
        
-       public void Loginwithagencynewpassword(String AgencyEmail, String newpassword) {
-    	   Emailaddress.sendKeys(AgencyEmail);
+       public void Loginwithagencynewpassword(String newpassword) {
+    	   Emailaddress.sendKeys(registerdEmail);
     	   Password.sendKeys(newpassword);
        }
        

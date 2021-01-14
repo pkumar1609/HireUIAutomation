@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -32,10 +34,13 @@ public class LoginPage extends baseclass
 	public WebElement userbtn;
 	
 	@FindBy(xpath= "//a[@title='Employer']")
-	public WebElement userbtnemp;
+	public List<WebElement> userbtnemp;
 	
 	@FindBy(xpath= "//a[@title='Agency']")
-	public WebElement userbtnagy;
+	public List<WebElement> userbtnagy;
+	
+	@FindBy(xpath= "//a[@title='Candidate']")
+	public List<WebElement> userbtnCandidate;
 	
 	@FindBy(xpath= "//a[@href='#']")
 	private WebElement logedinusername;
@@ -246,24 +251,43 @@ public class LoginPage extends baseclass
 	public void identifyUserK() throws InterruptedException
 	{
 				Action.moveToElement(profile).perform();
-				try
+				if(userbtnemp.size()>0)
 				{
-					Thread.sleep(2000);
-					userbtnemp.isDisplayed();	
-					Thread.sleep(2000);
-					logedinuser= userbtnemp.getText();
-					userbtnemp.click();
+					logedinuser= userbtnemp.get(0).getText();
+					userbtnemp.get(0).click();
 					b=true;
+					user="employer";
 				}
-				catch(NoSuchElementException e)
+				if(userbtnagy.size()>0)
 				{
+					logedinuser= userbtnagy.get(0).getText();
+					userbtnagy.get(0).click();
 					b=false;
-					logedinuser= userbtnagy.getText();
-					Thread.sleep(2000);
-					userbtnagy.click();	
+					user="agency";
 				}
-
+				if(userbtnCandidate.size()>0)
+				{
+					System.out.println("candidate");
+					logedinuser= userbtnCandidate.get(0).getText();
+					System.out.println("candidate :"+logedinuser);
+					userbtnCandidate.get(0).click();
+					user="candidate";	
+				}
+					
+					
+					
+//					Thread.sleep(2000);
+//					userbtnemp.isDisplayed();	
+//					Thread.sleep(2000);
+//
+//				}
+//				catch(NoSuchElementException e)
+//				{
+//					b=false;
+//					logedinuser= userbtnagy.getText();
+//					Thread.sleep(2000);
+//					userbtnagy.click();	
+//				}
+//
 	}
-
-
 }

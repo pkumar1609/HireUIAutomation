@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 
 import utilPackage.baseclass;
 
@@ -105,40 +106,22 @@ public class DashboardPage extends baseclass {
 	} 
 	
 	public void VerifyUserIsOnCorrectPage() {
-	  	   
-//	  	   if(agencies.isDisplayed() == true) {
-//	  		   
-//	  		   System.out.println("User is On Employer Dashboard");
-//	  	   }
-//	  	   
-//	  	   else if(employers.isDisplayed() == true) {
-//	  		   
-//	  		 System.out.println("User is On Agency Dashboard");
-//	  	   }
-//	  	   
-//	  	   else {
-//	  		   
-//	  		 System.out.println("User is On Candidate Dashboard");
-		
-		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
-		List<WebElement> dynamicElement1 = driver.findElements(By.xpath("//a[contains(text(),'Employers')]"));
-		if(dynamicElement.size() != 0){
-			
-			System.out.println("User is On Employer Dashboard");
-
-		}
-		
-		else if(dynamicElement1.size() !=0) {
-			
-			System.out.println("User is On Agency Dashboard");
-			
-		}
-		
-		else {
-			
-			System.out.println("User is On Candidate Dashboard");
-			
-	  	   }
+		Action.moveToElement(loginpage.profile).perform();
+	  	if(loginpage.user=="employer")   
+	  	{
+		Assert.assertEquals(loginpage.userbtnemp.get(0).isDisplayed(), true);
+		loginpage.userbtnemp.get(0).click();
+	  	}
+	  	else if(loginpage.user=="agency")
+	  	{
+	  	Assert.assertEquals(loginpage.userbtnagy.get(0).isDisplayed(), true);	
+	  	loginpage.userbtnagy.get(0).click();
+	  	}
+	  	else if(loginpage.user=="candidate")
+	  	{
+	  	Assert.assertEquals(loginpage.userbtnCandidate.get(0).isDisplayed(), true);	
+	  	loginpage.userbtnCandidate.get(0).click();
+	  	}  	
     }
 	
 	public void clickonJobApplicationLInk() throws InterruptedException {

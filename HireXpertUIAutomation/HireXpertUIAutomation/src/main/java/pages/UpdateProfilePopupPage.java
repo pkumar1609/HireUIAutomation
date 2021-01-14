@@ -469,12 +469,10 @@ public class UpdateProfilePopupPage extends baseclass {
     Select se;
     public void VerifyAutoPopulatedFieldsOnUpdateCandidateProfile (String CandidateEmail, String CandidateName, String ContactNumber) throws InterruptedException {
  	   
-    	Thread.sleep(3500);
-		//Assert.assertEquals(addcandidatepage.title.getAttribute("value"), title1);
-//		Title.sendKeys(title1);
-		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),CandidateEmail);
-		Assert.assertEquals(addcandidatepage.name.getAttribute("value"),CandidateName);
-		Assert.assertEquals(updateprofilepopuppage.contactNumber.getAttribute("value"),ContactNumber);
+//    	Thread.sleep(3500);
+//		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),registerpage.registerdEmail);
+//		Assert.assertEquals(addcandidatepage.name.getAttribute("value"),registerpage.registerdName);
+//		Assert.assertEquals(updateprofilepopuppage.contactNumber.getAttribute("value"),registerpage.registerdContact);
 //		currentDesignation.sendKeys(Designation);
 //		currentDesignation.click();
 //		driver.findElement(By.xpath("//span[contains(text(),'Software Tester')]")).click();
@@ -486,13 +484,13 @@ public class UpdateProfilePopupPage extends baseclass {
 //		//Noticeperiod.sendKeys(NoticePeriod);
 //		Industry.sendKeys(industry);
 //		Industry.click();
-////		CityofCandidate.sendKeys(CandidateCity);
-////		Thread.sleep(3000);
-////		CityofCandidate.click();
-////		Shift.sendKeys(shift);
-////		driver.findElement(By.xpath("//span[contains(text(),'Day Shift')]")).click();
-////		JobType.sendKeys(jobType);
-////		driver.findElement(By.xpath("//span[contains(text(),'Permanent Full Time')]")).click();
+//		CityofCandidate.sendKeys(CandidateCity);
+//		Thread.sleep(3000);
+//		CityofCandidate.click();
+//		Shift.sendKeys(shift);
+//		driver.findElement(By.xpath("//span[contains(text(),'Day Shift')]")).click();
+//		JobType.sendKeys(jobType);
+//		driver.findElement(By.xpath("//span[contains(text(),'Permanent Full Time')]")).click();
 //		ExperienceinYears.clear();
 //		ExperienceinYears.sendKeys(experience);
 //		CTCperAnnum.clear();
@@ -502,13 +500,14 @@ public class UpdateProfilePopupPage extends baseclass {
 //		Assert.assertEquals(option.getText()," "+Country+" ");
 //		Assert.assertEquals(updateprofilepopuppage.CityofCandidate.getAttribute("value"),CandidateCity);
 //		CityofCandidate.click();
-		//Assert.assertEquals(updateprofilepopuppage.FunctionalArea.getAttribute("value"),functionalArea);
-		//FunctionalArea.sendKeys(functionalArea);
+//		Assert.assertEquals(updateprofilepopuppage.FunctionalArea.getAttribute("value"),functionalArea);
+//		FunctionalArea.sendKeys(functionalArea);
 //		Assert.assertEquals(this.dateOfBirth.getAttribute("value"),Date); 
 //		Assert.assertEquals(this.cityArea.getAttribute("value"),CityArea);
 //		Assert.assertEquals(addcandidatepage.zipCode.getAttribute("value"),ZipCode);
 //		Assert.assertEquals(addcandidatepage.industry.getAttribute("value"),addjobpage.industryname);	
 //		Assert.assertEquals(this.ectc.getAttribute("value"),expectedCTC);
+
 		
  }
     

@@ -238,14 +238,14 @@ public class WorkbenchPage extends baseclass {
 
 	}
 	
-	public void userNameProfile() {
-		
-		WebElement we = profile;
-		Actions action = new Actions(driver);
-		action.moveToElement(we).perform();
-		username = userName.getText();
-		System.out.println("\nLogged in user: " + username);
-	}
+//	public void userNameProfile() {
+//		
+//		WebElement we = profile;
+//		Actions action = new Actions(driver);
+//		action.moveToElement(we).perform();
+//		username = userName.getText();
+//		System.out.println("\nLogged in user: " + username);
+//	}
 	
 	public void clickOnAddCandidate() throws InterruptedException
 	{
