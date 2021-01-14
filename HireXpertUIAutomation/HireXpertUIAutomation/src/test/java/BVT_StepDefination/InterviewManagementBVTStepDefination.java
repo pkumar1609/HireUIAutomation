@@ -100,7 +100,8 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	@When("^make some changes in interview details and click on Submit button \"([^\"]*)\" \"([^\"]*)\"$")
 	public void make_some_changes_in_interview_details_and_click_on_Submit_button(String hour, String duration) throws Throwable {
 		Thread.sleep(2000);
-		scheduleinterviewpage.editInterviewIcon.click();
+		executor.executeScript("arguments[0].click();",scheduleinterviewpage.editInterviewIcon);
+//		scheduleinterviewpage.editInterviewIcon.click();
 		scheduleinterviewpage.hours.clear();
 		scheduleinterviewpage.hours.sendKeys(hour);		
 		Select se = new Select(scheduleinterviewpage.duration);
