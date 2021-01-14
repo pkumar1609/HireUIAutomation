@@ -129,7 +129,8 @@ public class Commonfunction extends baseclass {
 	public void ClickSumbit() throws InterruptedException
 	{
 		Thread.sleep(4000);
-		submitbtn.click(); 
+		executor.executeScript("arguments[0].click();",submitbtn);
+//		submitbtn.click(); 
 	}
 	
 	public void clickNoButton() {
