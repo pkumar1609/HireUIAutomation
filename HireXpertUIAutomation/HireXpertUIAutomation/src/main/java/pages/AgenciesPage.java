@@ -100,7 +100,9 @@ public class AgenciesPage extends baseclass {
 			common.clickOnOKBtn();
 		}
 		catch(NoSuchElementException e)
-		{}
+		{
+			agenciespage.ClickAddbtn();
+		}
 	}
 	common.clickOnAddClosebtn();
 	common.clickOnCloseBtn();
