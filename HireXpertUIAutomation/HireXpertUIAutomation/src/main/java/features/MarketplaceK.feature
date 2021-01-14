@@ -59,7 +59,7 @@ And Go to agency marketplace tab
 Then status should display as employer signed
 Examples:
 |Employer	   |Password |Agency         |Agency2        |
-|pemp@gmail.com|12345    |pagy@gmail.com|pagy1@gmail.com|
+|pemp@gmail.com|12345    |kagy@gmail.com|pagy1@gmail.com|
 
 #TC 351,359,357, 361
 
