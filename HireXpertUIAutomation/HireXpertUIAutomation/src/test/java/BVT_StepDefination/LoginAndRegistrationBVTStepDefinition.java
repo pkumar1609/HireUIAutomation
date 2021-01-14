@@ -1,8 +1,12 @@
 
 package BVT_StepDefination;
 
-import org.junit.Assert;
+import org.testng.Assert;
+
+import static org.junit.Assert.assertArrayEquals;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -131,10 +135,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 
 	@When("^click on save button$")
 	public void click_on_save_button() throws Throwable {
-	    
-		Thread.sleep(3000);
-		executor.executeScript("window.scrollBy(1000,0)");       
-		updateprofilepopuppage.Savebutton.click();
+		executor.executeScript("arguments[0].click();",updateprofilepopuppage.Savebutton);
 	}
 	
 	@When("^enter all details and email id of a previously registered employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
@@ -143,6 +144,13 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		Thread.sleep(3000);
 		registerpage.registeremployerdetails(EmployerName, EmployerEmail, EmployerContactNumber);
 	}
+	//enter all details
+	
+	@When("^enter user details$")
+	public void enter_user_details() throws Throwable {
+		registerpage.registerUser();
+	}
+	
 
 	@When("^enter user type as the candidate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void enter_user_type_as_the_candidate(String usertype, String timezone, String country) throws Throwable {
@@ -158,10 +166,18 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
      Assert.assertEquals(ExpectedErrorMessage, ActualErrorMessage );
 	}
 
-	@And("^click on ok button$")
+	@And("^click on ok button if displayed$")
+	public void click_on_ok_button_displayed() throws Throwable {
+		try
+		{
+		common.clickOnOKBtn();}
+		catch(NoSuchElementException e)
+		{}	
+	}
+	
+	@When("^click on ok button$")
 	public void click_on_ok_button() throws Throwable {
-	    
-		Thread.sleep(4000);
+		
 		common.clickOnOKBtn();
 	}
 
@@ -199,9 +215,11 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 
 		Thread.sleep(3000);
 		registerpage.ClickSigninbtn();
-//		if(common.okbtnPopup.size()>0) {
-//			common.clickOnOKBtn();	
-//		}
+	}
+	
+	@When("^identify the loggedin User$")
+	public void identify_the_loggedin_User() throws Throwable {
+	   loginpage.identifyUserK();
 	}
 
 	@When("^enter agency details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
@@ -297,18 +315,15 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 
 	@When("^Verify the username by which user is login$")
 	public void Verify_the_username_by_which_user_is_login() throws Throwable {
-	    
-		Thread.sleep(4000);
-		workbenchpage.userNameProfile();
-		
+		Assert.assertEquals(loginpage.logedinuser, registerpage.registerdName);
 	}
 
-		@When("^enter employer details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-		public void enter_employer_details(String EmployerName, String EmployerEmail, String EmployerContactNumber) throws Throwable {
+	@When("^enter employer details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void enter_employer_details(String EmployerName, String EmployerEmail, String EmployerContactNumber) throws Throwable {
 		   
-			Thread.sleep(3000);
-			registerpage.registeremployerdetails(EmployerName, EmployerEmail, EmployerContactNumber);
-		}
+		Thread.sleep(3000);
+		registerpage.registeremployerdetails(EmployerName, EmployerEmail, EmployerContactNumber);
+	}
 
 		@When("^Select value from dropdown for employer \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 		public void select_value_from_dropdown_for_employer(String usertype, String timezone, String country) throws Throwable {
@@ -317,13 +332,12 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 			registerpage.alreadyregisterUserdetails1(usertype, timezone, country);
 		}
 
-		@When("^enter employer email and password \"([^\"]*)\" \"([^\"]*)\"$")
-		public void enter_employer_email_and_password(String EmployerEmail, String password) throws Throwable {
-		    
-			Thread.sleep(3000);
-			registerpage.enterEmployerEmailandPassword(EmployerEmail, password);
+		
+		@When("^enter user email and password$")
+		public void enter_user_email_and_password() throws Throwable {
+			registerpage.enterEmployerEmailandPassword();
 		}
-
+		
 		@When("^Update Employer Profile  \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 		public void update_Employer_Profile(String EmployerAddress, String EmployerOrganizationName, String EmployerWebsite, String EmployerCity) throws Throwable {
 
@@ -368,28 +382,36 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 			workbenchpage.ClickonLogout();
 		}
 
-		@When("^login as employer with new password \"([^\"]*)\" \"([^\"]*)\"$")
-		public void login_as_employer_with_new_password(String EmployerEmail, String newpassword) throws Throwable {
-		    
+
+		
+		@When("^login user with new password \"([^\"]*)\"$")
+		public void login_user_with_new_password(String newpassword) throws Throwable {
 			Thread.sleep(3000);
-			registerpage.Loginwithemployernewpassword(EmployerEmail, newpassword);
+			registerpage.Loginwithemployernewpassword(newpassword);
 			registerpage.ClickSigninbtn();
 		}
 
-		@When("^login as employer with the old password \"([^\"]*)\" \"([^\"]*)\"$")
-		public void login_as_employer_with_the_old_password(String EmployerEmail, String password) throws Throwable {
-		    
+		@When("^login user with the old password \"([^\"]*)\"$")
+		public void login_user_with_the_old_password(String password) throws Throwable {
 			Thread.sleep(3000);
-			registerpage.Loginwithemployeroldpassword(EmployerEmail, password);
+			registerpage.Loginwithemployeroldpassword(password);;
 			registerpage.ClickSigninbtn();
 		}
-		
-		@When("^enter Agency details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-		public void enter_Agency_details(String AgencyName, String AgencyEmail, String AgencyContactNumber) throws Throwable {
-		    
-			Thread.sleep(3000);
-			registerpage.registerAgencydetails(AgencyName, AgencyEmail, AgencyContactNumber);
-		}
+//		
+//		@When("^login as employer with the old password \"([^\"]*)\"$")
+//		public void login_as_employer_with_the_old_password(String password) throws Throwable {
+//		    
+//			Thread.sleep(3000);
+//			registerpage.Loginwithemployeroldpassword(password);
+//			registerpage.ClickSigninbtn();
+//		}
+//		
+//		@When("^enter Agency details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//		public void enter_Agency_details(String AgencyName, String AgencyEmail, String AgencyContactNumber) throws Throwable {
+//		    
+//			Thread.sleep(3000);
+//			registerpage.registerAgencydetails(AgencyName, AgencyEmail, AgencyContactNumber);
+//		}
 
 		@When("^Select value from dropdown for Agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 		public void select_value_from_dropdown_for_Agency(String AgencyUserType, String timezone, String country) throws Throwable {
@@ -397,13 +419,13 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 			Thread.sleep(3000);
 			registerpage.registerAgencydetails1(AgencyUserType, timezone, country);
 		}
-
-		@When("^enter agency email and password \"([^\"]*)\" \"([^\"]*)\"$")
-		public void enter_agency_email_and_password(String AgencyEmail, String password) throws Throwable {
-		    
-			Thread.sleep(3000);
-			registerpage.enterAgencyEmailandPassword(AgencyEmail, password);
-		}
+//
+//		@When("^enter agency email and password \"([^\"]*)\" \"([^\"]*)\"$")
+//		public void enter_agency_email_and_password(String AgencyEmail, String password) throws Throwable {
+//		    
+//			Thread.sleep(3000);
+//			registerpage.enterAgencyEmailandPassword(AgencyEmail, password);
+//		}
 
 		@When("^Update Agency Profile  \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 		public void update_Agency_Profile(String AgencyAddress, String AgencyOrganizationName, String AgencyWebsite, String AgencyCity) throws Throwable {
@@ -421,18 +443,18 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		}
 
 		@When("^login as agency with new password \"([^\"]*)\" \"([^\"]*)\"$")
-		public void login_as_agency_with_new_password(String AgencyEmail, String newpassword) throws Throwable {
+		public void login_as_agency_with_new_password(String newpassword) throws Throwable {
 		  
 			Thread.sleep(3000);
-			registerpage.Loginwithagencynewpassword(AgencyEmail, newpassword);
+			registerpage.Loginwithagencynewpassword(newpassword);;
 			registerpage.ClickSigninbtn();
 		}
 
 		@When("^login as agency with old password \"([^\"]*)\" \"([^\"]*)\"$")
-		public void login_as_agency_with_old_password(String AgencyEmail, String password) throws Throwable {
+		public void login_as_agency_with_old_password(String password) throws Throwable {
 		    
 			Thread.sleep(3000);
-			registerpage.Loginwithemployeroldpassword(AgencyEmail, password);
+			registerpage.Loginwithemployeroldpassword(password);
 			registerpage.ClickSigninbtn();
 		}
 		
@@ -485,12 +507,6 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 			updateprofilepopuppage.CloseButton.click();
 		}
 
-		@When("^Login with that employer \"([^\"]*)\" \"([^\"]*)\"$")
-		public void login_with_that_employer(String EmployerEmail, String password) throws Throwable {
-
-			Thread.sleep(3000);
-			registerpage.enterEmployerEmailandPassword(EmployerEmail, password);
-		}
 	
 			@When("^Make changes in Employer profile \"([^\"]*)\"$")
 			public void make_changes_in_Employer_profile(String organizationname) throws Throwable {
@@ -524,19 +540,17 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 			@Then("^verify the Auto Populated fields on candidate update profile popup window  \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 			public void verify_the_Auto_Populated_fields_on_candidate_update_profile_popup_window(String CandidateEmail, String CandidateName, String ContactNumber) throws Throwable {
 			    
-				Thread.sleep(3000);
-				updateprofilepopuppage.VerifyAutoPopulatedFieldsOnUpdateCandidateProfile(CandidateEmail,CandidateName,ContactNumber);
-
+				Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),registerpage.registerdEmail);
+				Assert.assertEquals(addcandidatepage.name.getAttribute("value"),registerpage.registerdName);
+				Assert.assertEquals(updateprofilepopuppage.contactNumber.getAttribute("value"),registerpage.registerdContact);				
 			}
 		
 			@Then("^Update Candidate Profile \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 			public void update_Candidate_Profile(String title1, String Designation, String functionalArea, String shift, String jobType, String NoticePeriod, String industry, String CandidateCity, String gender1, String experience, String CTC, String expectedCTC, String CityArea, String expertiselevel) throws Throwable {
 				Thread.sleep(3000);
 		        updateprofilepopuppage.UpdateProfileCandidate(title1, Designation, functionalArea, shift, jobType, NoticePeriod, industry, CandidateCity, gender1, experience, CTC, expectedCTC, CityArea);
-//		        Thread.sleep(3000);
-//		        addcandidatepage.clickUploadResumeField();
 		        Thread.sleep(3000);
-		        addcandidatepage.uploadResumeDocumentT();
+		        addcandidatepage.uploadResumeDocument();
 			}
 
 //			@Then("^click on ok button of confirmation popup$")
@@ -642,12 +656,8 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 				public void enter_candidate_email_and_password(String CandidateEmail , String password) throws Throwable {
 				   
 					Thread.sleep(3000);
-					registerpage.enterCandidateEmailandPassword(CandidateEmail, password);
-					
+					registerpage.enterCandidateEmailandPassword(CandidateEmail, password);					
 				}
-
-
-
 			}
 
 
