@@ -278,8 +278,9 @@ public class WorkbenchPage extends baseclass {
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();",candidate);
 //		candidate.click();
-		Thread.sleep(2000);
-		ReloadCandidateButton.click();
+		Thread.sleep(4000);
+		executor.executeScript("arguments[0].click();",ReloadCandidateButton);
+//		ReloadCandidateButton.click();
 	}
 	
 public void ClickonScreeningBtn() {
