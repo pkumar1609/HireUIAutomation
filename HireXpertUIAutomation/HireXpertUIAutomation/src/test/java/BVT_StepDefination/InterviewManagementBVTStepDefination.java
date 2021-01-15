@@ -76,6 +76,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	
 	@When("^observe the interview date and time displayed on candidate card below Assign To field \"([^\"]*)\"$")
 	public void observe_the_interview_date_and_time_displayed_on_candidate_card_below_Assign_To_field(String ScheduleOn) throws Throwable {
+		Thread.sleep(2000);
 		explicitwait.until(ExpectedConditions.visibilityOf(candidatecardsectionpage.candidateCardInterviewDetails));
 		Assert.assertEquals(candidatecardsectionpage.candidateCardInterviewDetails.getText().substring(0, candidatecardsectionpage.candidateCardInterviewDetails.getText().indexOf(',')), ScheduleOn);
 	}
