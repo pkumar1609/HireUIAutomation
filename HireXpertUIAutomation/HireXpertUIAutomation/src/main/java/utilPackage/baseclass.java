@@ -13,6 +13,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.AddCandidatePage;
@@ -96,6 +97,7 @@ public class baseclass extends SuperBase{
 	public static InvoicePage invoicepage;
 	public static DateTimeFormatter dtFormate;  
 	public static LocalDateTime currentTime; 
+	public static DesiredCapabilities caps;
 
 	public baseclass() { 
 		
@@ -126,7 +128,12 @@ public class baseclass extends SuperBase{
 		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 			
 		driver.get(prop.getProperty("url"));
+		
+		caps = new DesiredCapabilities();
+		caps.setCapability("resolution", "1920x1080");
+		
 //		driver.get("https://hiretest.txsas.com/#/home");
+		
 		loginpage = new LoginPage();
 		dashboardpage = new DashboardPage();
 		workbenchpage = new WorkbenchPage();
@@ -167,4 +174,6 @@ public class baseclass extends SuperBase{
 		dtFormate = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 		currentTime = LocalDateTime.now();
 	}
+	
+	
 }
