@@ -165,10 +165,9 @@ public class MarketPlacePage extends baseclass {
 			driver.findElement(By.xpath(x)).isDisplayed();
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			WebElement ele =driver.findElement(By.xpath(x));
-//			wait.until(ExpectedConditions.visibilityOf(ele));
 			js.executeScript("arguments[0].scrollIntoView();", ele);
 			Thread.sleep(2000);
-			ele.click();
+			executor.executeScript("arguments[0].click();",ele );
 			common.clickOnConfirmYes();
 		}
 		catch(NoSuchElementException e)
