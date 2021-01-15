@@ -877,7 +877,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		workbenchpage.job.click();
 		workbenchpage.editJobButton.click();
 		select = new Select(addjobpage.totalinterviews);
-		Assert.assertEquals(driver.findElement(By.xpath("//option[contains(text(),'"+NoOfInterview1+"')]")).getText(), NoOfInterview1);
+		Assert.assertEquals(driver.findElement(By.xpath("//select[@id='totalInterviews']//option[contains(text(),'"+NoOfInterview1+"')]")).getText(), NoOfInterview1);
 	}
 	
 	@When("^click on Add Skill button and add one new skill \"([^\"]*)\"$")
