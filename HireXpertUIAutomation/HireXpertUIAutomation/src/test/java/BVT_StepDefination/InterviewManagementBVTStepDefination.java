@@ -76,7 +76,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	
 	@When("^observe the interview date and time displayed on candidate card below Assign To field \"([^\"]*)\"$")
 	public void observe_the_interview_date_and_time_displayed_on_candidate_card_below_Assign_To_field(String ScheduleOn) throws Throwable {
-		Thread.sleep(2000);
+		Thread.sleep(8000);
 		explicitwait.until(ExpectedConditions.visibilityOf(candidatecardsectionpage.candidateCardInterviewDetails));
 		Assert.assertEquals(candidatecardsectionpage.candidateCardInterviewDetails.getText().substring(0, candidatecardsectionpage.candidateCardInterviewDetails.getText().indexOf(',')), ScheduleOn);
 	}
@@ -86,9 +86,8 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	    
 		Thread.sleep(3000);
 		workbenchpage.clickReloadCandidateButton();
-		Thread.sleep(3000);
-		String interview = candidatecardsectionpage.candidateCardInterviewDetails.getText();
-		System.out.println("Interview Details on candidate card after reloading: " + interview);
+//		Thread.sleep(3000);
+//		String interview = candidatecardsectionpage.candidateCardInterviewDetails.getText();
 	}
 
 	@When("^click on Edit Interview icon in front of interview details like date and time$")
