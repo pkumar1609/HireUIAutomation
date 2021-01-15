@@ -9,6 +9,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -123,14 +125,15 @@ public class baseclass extends SuperBase{
 			driver = new ChromeDriver();
 		}	
 		driver.manage().window().maximize();
+		driver.manage().window().setSize(new Dimension(1024, 768));
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(utilclass.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
-			
+//		caps = new DesiredCapabilities();
+//		caps.setCapability("resolution", "1920x1080");	
 		driver.get(prop.getProperty("url"));
 		
-		caps = new DesiredCapabilities();
-		caps.setCapability("resolution", "1920x1080");
+		
 		
 //		driver.get("https://hiretest.txsas.com/#/home");
 		
