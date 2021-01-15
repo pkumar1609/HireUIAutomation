@@ -89,7 +89,8 @@ public class LoginPage extends baseclass
 		Thread.sleep(2000);
 		Action.moveToElement(login).click().perform();
 		Thread.sleep(1000);
-		EmployerAgencySignInlink.click();
+//		EmployerAgencySignInlink.click();
+		executor.executeScript("arguments[0].click();", EmployerAgencySignInlink);
 	}
 	
 	public String validateTitle() {
