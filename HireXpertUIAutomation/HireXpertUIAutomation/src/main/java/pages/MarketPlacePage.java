@@ -182,18 +182,14 @@ public class MarketPlacePage extends baseclass {
 	{
 //		job =addjobpage.jobname1;
 		String rejectbtn="//td[contains(text(),'" + addjobpage.jobname + "')]//following::button[text()='Reject']";
-		System.out.println(rejectbtn);
 		Thread.sleep(2000);
 		if(driver.findElement(By.xpath(rejectbtn)).isEnabled())
 		{
+		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",driver.findElement(By.xpath(rejectbtn)));
 //		driver.findElement(By.xpath(rejectbtn)).click();
 		Thread.sleep(2000);
 		common.clickOnConfirmYes();
-		}
-		else
-		{
-			System.out.println("status is rejected");
 		}
 	}
 	
