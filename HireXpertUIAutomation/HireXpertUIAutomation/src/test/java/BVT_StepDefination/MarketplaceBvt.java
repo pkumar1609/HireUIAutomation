@@ -38,6 +38,11 @@ public class MarketplaceBvt extends baseclass {
 		loginpage.loginIn(Username, Password);
 	}
 	
+	@Then("^login with registered agency$")
+	public void login_with_registered_agency() throws Throwable {
+		registerpage.enterEmployerEmailandPassword();
+	}
+	
 	@And("^Select a added job$")
 	public void select_a_added_job() throws Throwable {	
 		workbenchpage.selectJobK();	}
@@ -52,7 +57,12 @@ public class MarketplaceBvt extends baseclass {
 	    
 		marketplacepage.EnterdeatilsOfMarketplace(credentials);
 	}
- 
+	
+	@Then("^Click on Search button$")
+	public void click_on_Search_button() throws Throwable {
+	   common.clickOnSearchBtn();
+	}
+	
 	@And("^Click on Employer marketplace tab$")
 	public void Click_on_Employer_marketplace_tab() throws Throwable {
 		marketplacepage.ClickOnMarketPlaceTab();
@@ -123,14 +133,30 @@ public class MarketplaceBvt extends baseclass {
 		marketplacepage.clickApplybtnOfParticularJob();
 	}
 
-//	@And("^logout with agency and Login with employer$")
-//	public void login_with_employer_to_whom_job_proposal_is_send() throws Throwable {
-//		
-//		loginpage.logoutFromAppK();
-//		 loginpage.ClickOnEmployerAgencySigninLink();
-//		loginpage.loginInAppWithEmpK();
-//	}
-
+	@Then("^If popup proposal limit popup displayed then repeat all above step with new agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void if_popup_proposal_limit_popup_displayed_then_repeat_all_above_step_with_new_agency(String AgencyAddress, String AgencyOrganizationName,String AgencyWebsite,String AgencyCity) throws Throwable {
+		if(marketplacepage.proposalLimitPopup.size()>0)
+		{
+			common.clickOnOKBtn();
+			loginpage.logoutFromAppK();
+			registerpage.clickRegister();
+			registerpage.registerUser();
+			registerpage.clickLogin();
+			registerpage.clickEmployerAgencySignInlink();
+			registerpage.enterEmployerEmailandPassword();
+			registerpage.ClickSigninbtn();
+			updateprofilepopuppage.UpdateProfileAgency(AgencyAddress, AgencyOrganizationName, AgencyWebsite, AgencyCity);
+			common.ClickSumbit();
+			marketplacepage.ClickOnAgyMarketPlaceTab();
+			marketplacepage.clickApplybtnOfParticularJob();
+		}
+	}
+	
+	@Then("^login with new agency credentials$")
+	public void login_with_new_agency_credentials() throws Throwable {
+		registerpage.enterEmployerEmailandPassword();
+	}
+	
 	@And("click on Employer marketplace tab$")
 	public void go_to_market_place_tab() throws Throwable
 	{
@@ -143,10 +169,8 @@ public class MarketplaceBvt extends baseclass {
 	}
 
 	@And("^Click on reject button of that proposal$")
-	public void click_on_reject_button_of_that_proposal() throws InterruptedException {
-		
-		marketplacepage.ClickOnRejectBtn();
-		
+	public void click_on_reject_button_of_that_proposal() throws InterruptedException {		
+		marketplacepage.ClickOnRejectBtn();	
 	}
 
 	@Then("^Job proposal area should show rejected status$")

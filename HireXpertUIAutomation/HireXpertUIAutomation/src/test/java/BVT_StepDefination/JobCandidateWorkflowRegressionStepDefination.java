@@ -105,7 +105,6 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		driver.findElement(By.xpath("//div[@class='datevalue currmonth']//span[contains(text(),'30')]")).click();
 //		candidateupdateprofilepage.lastWorkingDay.sendKeys(LastWorkingDay);
 		Thread.sleep(2000);
-
 	}
 
 

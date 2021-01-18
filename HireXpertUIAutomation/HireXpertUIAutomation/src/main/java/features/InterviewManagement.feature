@@ -7,7 +7,7 @@ Feature: Interview Management
 	When title of login page is Home
 	And Click on Employer-Agency Signin link
 	And Employer enters valid credentials "<Username>","<Password>"
-    And Go to Workbench    
+    And Go to Workbench  
 	And Add job
 	|title          |agytitle        |designation  |industry   |jobrole         |location     |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|functionalArea|
 	|Interview Job  |Interview Agy Job| developer   |IT software|java developer  |Viman nagar  |400000 |1     |2     |400000|500000|4|talentxpert|java|

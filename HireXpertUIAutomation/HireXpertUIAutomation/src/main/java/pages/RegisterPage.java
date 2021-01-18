@@ -141,7 +141,6 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 		public void registerUser()
 		{				
 			DateTimeFormatter Contactformate = DateTimeFormatter.ofPattern("yyyyMMddHHmm");	
-//			currentTime = LocalDateTime.now();
 			registerdName=dtFormate.format(currentTime)+"abc";
 			Name.sendKeys(registerdName);
 			registerdEmail=dtFormate.format(currentTime)+"@gmail.com";
@@ -250,12 +249,9 @@ public void alreadyregisterUserdetails1(String usertype, String timezone, String
 	}
 
 		public void enterEmployerEmailandPassword () throws InterruptedException {
-			
-//			Emailaddress.clear();			
-			Emailaddress.sendKeys(registerdEmail);			
-//			Password.clear();			
+		
+			Emailaddress.sendKeys(registerpage.registerdEmail);					
 			Password.sendKeys("12345");
-			
 		}
 		
        public void enterAgencyEmailandPassword (String AgencyEmail, String password) {
@@ -430,7 +426,8 @@ public void verifythefieldsonregisterdialogbox () {
     	   
        }
        public void ClickSigninbtn () {
-    	   Signinbtn.click();
+//    	   Signinbtn.click();
+    	   executor.executeScript("arguments[0].click();", loginpage.signin);
        }
        
        public void loginwithEmployerTeamMember () {

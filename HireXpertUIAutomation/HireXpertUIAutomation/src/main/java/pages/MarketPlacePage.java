@@ -1,6 +1,7 @@
 package pages;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
@@ -83,6 +84,9 @@ public class MarketPlacePage extends baseclass {
 	
 	@FindBy(xpath ="//input[@formcontrolname='Status']")
 	public WebElement agyStatus;
+
+	@FindBy(xpath ="//h6[contains(text(),'You can not send more proposal in current week as you have reach our weekly limit of 5 proposal.')]")
+	public List<WebElement> proposalLimitPopup;
 	
 	public String job;
 
@@ -128,8 +132,10 @@ public class MarketPlacePage extends baseclass {
 		driver.findElement(By.xpath(StatusAtEmp)).isDisplayed();
 		System.out.println("Status of request is rejected at employer side");
 	}
-	public void employerSignedstatus()
+	public void employerSignedstatus() throws InterruptedException
 	{
+		Thread.sleep(4000);
+		refreshjobProposal.click();
 		String employerSignedStatus="//td[contains(text(),'" + addjobpage.jobname + "')]//following::td[text()='Employer Signed']";
 		driver.findElement(By.xpath(employerSignedStatus)).isDisplayed(); 
 		System.out.println("Status of request is Employer Signed at employer side");	
@@ -160,34 +166,23 @@ public class MarketPlacePage extends baseclass {
 		
 	public void clickApplybtnOfParticularJob() throws InterruptedException
 	{
-	try{
 			String x="//a[contains(text(),'" +addjobpage.jobname+ "')]//following::button[text()='Apply']";
-			driver.findElement(By.xpath(x)).isDisplayed();
-			JavascriptExecutor js = (JavascriptExecutor) driver;
 			WebElement ele =driver.findElement(By.xpath(x));
-			js.executeScript("arguments[0].scrollIntoView();", ele);
+			executor.executeScript("arguments[0].scrollIntoView();", ele);
 			Thread.sleep(2000);
-			executor.executeScript("arguments[0].click();",ele );
-			common.clickOnConfirmYes();
-		}
-		catch(NoSuchElementException e)
-		{
-			System.out.println("you already applied for this job");
-		}
-		
+			executor.executeScript("arguments[0].click();",ele);
+			common.clickOnConfirmYes();	
 	}
 	
 
 	public void ClickOnRejectBtn() throws InterruptedException
 	{
-//		job =addjobpage.jobname1;
 		String rejectbtn="//td[contains(text(),'" + addjobpage.jobname + "')]//following::button[text()='Reject']";
 		Thread.sleep(2000);
 		if(driver.findElement(By.xpath(rejectbtn)).isEnabled())
 		{
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",driver.findElement(By.xpath(rejectbtn)));
-//		driver.findElement(By.xpath(rejectbtn)).click();
 		Thread.sleep(2000);
 		common.clickOnConfirmYes();
 		}
@@ -215,8 +210,6 @@ public class MarketPlacePage extends baseclass {
 //		explicitwait.until(ExpectedConditions.elementToBeClickable(marketPlaceTab));
 		Thread.sleep(4000);
 		executor.executeScript("arguments[0].click();", marketPlaceTab);
-
-
 	}
 	
 	public void ClickOnAgyMarketPlaceTab() throws InterruptedException
@@ -224,19 +217,16 @@ public class MarketPlacePage extends baseclass {
 //		explicitwait.until(ExpectedConditions.elementToBeClickable(marketPlaceTab));
 		Thread.sleep(1000);
 		executor.executeScript("arguments[0].click();", agymarketPlaceTab);
-
 	}
-	
-	
-	public void ClickOnShareWithMarketPlace() throws InterruptedException
-	
+
+	public void ClickOnShareWithMarketPlace() throws InterruptedException	
 	{
 		workbenchpage.clickonthreedot();
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", sharewithmarketplacebtn);
 	}
 	
-	 public void EnterdeatilsOfMarketplace(DataTable credentials) throws InterruptedException
+	public void EnterdeatilsOfMarketplace(DataTable credentials) throws InterruptedException
 	 {
 		 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 			{

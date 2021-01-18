@@ -96,7 +96,8 @@ public class Commonfunction extends baseclass {
 	public void clickOnSearchBtn() throws InterruptedException
 	{
 		Thread.sleep(4000);
-		Search.click();
+//		.click();
+		executor.executeScript("arguments[0].click();", Search);
 	}
 	
 	public void clickOnCloseBtn() throws InterruptedException
