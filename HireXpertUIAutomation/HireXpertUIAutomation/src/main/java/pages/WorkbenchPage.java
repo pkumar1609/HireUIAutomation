@@ -171,9 +171,11 @@ public class WorkbenchPage extends baseclass {
 	}
 	
 	public void selectJobK() throws InterruptedException {
-		Thread.sleep(4000);				
+		Thread.sleep(4000);		
+		if(driver.findElements(By.xpath("//span[@title='Clear all']")).size()>0)
+		{
 		Action.moveToElement(driver.findElement(By.xpath("(//span[text()='×'])[1]"))).click().perform();
-//		executor.executeScript("arguments[0].click();", ReloadJobButton);
+		}		
 		driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
 		System.out.println("selected job :"+addjobpage.jobname);
 		WebElement element = driver.findElement(By.xpath("//span[contains(text(),'"+addjobpage.jobname+"')]"));
