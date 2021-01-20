@@ -37,7 +37,7 @@ And Update agency profile"<AgencyAddress>" "<AgencyOrganizationName>" "<AgencyWe
 And click on Submit button
 And Go to agency marketplace tab
 Then All shared job by any employer should be show for all register agencies
-And Click on Apply button of job 
+And Click on Apply button of job
 And Logout from App
 And Click on Employer-Agency Signin link
 And user enters valid credentials "<Employer>","<Password>"
@@ -49,7 +49,6 @@ And Job proposal area should show rejected status
 And Logout from App
 And Click on Employer-Agency Signin link
 And login with registered agency
-And click on Signin button
 And Go to agency marketplace tab
 Then status of that request should show as rejected
 And Click on Review button
@@ -61,19 +60,18 @@ And Click on Employer-Agency Signin link
 And user enters valid credentials "<Employer>","<Password>"
 And click on Employer marketplace tab
 And Select that job in filter on job proposal section
+And Click on Search button
 And Click on Review button
 And Now click on accept and sign button
 Then the status should be change as Employer signed
 And Logout from App
 And Click on Employer-Agency Signin link
 And login with registered agency
-And click on Signin button
 And Go to agency marketplace tab
 Then status should display as employer signed
 Examples:
 |Employer	   |Password |Agency         |Agency2        |AgencyAddress|AgencyOrganizationName|AgencyWebsite|AgencyCity| timezone                                                  | country  |AgencyUserType|
-|pemp@gmail.com|12345    |kagy3@gmail.com|pagy1@gmail.com|Viman Nagar  |axis                  |www.axis.com |Pune      | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi           | India    |Agency		 |
-
+|emp1@gmail.com|12345    |kagy1@gmail.com|pagy1@gmail.com|Viman Nagar  |axis                  |www.axis.com |Pune      | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi           | India    |Agency		 |
 
 
 
@@ -105,17 +103,28 @@ And Click on Employer-Agency Signin link
 And login with registered agency 
 And Go to agency marketplace tab
 And Click on Apply button of job
+
+
+#And Logout from App
+#And Click on Employer-Agency Signin link
+#And user enters valid credentials "<Employer>","<Password>"
+#And click on Employer marketplace tab
+#And Select that job in filter on job proposal section
+#And Click on Review button
+#And Now click on accept and sign button
+
 And Logout from App
 And Click on Employer-Agency Signin link
 And user enters valid credentials "<Employer>","<Password>"
 And click on Employer marketplace tab
 And Select that job in filter on job proposal section
+And Click on Search button
 And Click on Review button
 And Now click on accept and sign button
+Then the status should be change as Employer signed
 And Logout from App
 And Click on Employer-Agency Signin link
-And login with registered agency 
-And click on Signin button
+And login with registered agency
 And Go to agency marketplace tab
 And Click on Review button
 And Now click on accept and sign button
@@ -129,7 +138,6 @@ And Edit the job from marketplace job section
 And Logout from App
 And Click on Employer-Agency Signin link
 And login with registered agency 
-And click on Signin button
 And Go to workbench
 And Select a added job
 And Go to agreement and click on view button

@@ -53,7 +53,7 @@ public class MarketPlacePage extends baseclass {
 	public WebElement agymarketPlaceTab;
 	
 	@FindBy(xpath ="//select[@id='jobDropdown']")
-	public WebElement jobdropdown;
+	public WebElement jobDropdown;
 	
 	@FindBy(xpath ="//p[text()='mns ckjsd']//following::p[text()='Rejected']")
 	public WebElement statusAtEmp;
@@ -101,10 +101,8 @@ public class MarketPlacePage extends baseclass {
 	
 	
 	public void clickOnAcceptAndSignbtn() throws InterruptedException
-	{
-		
-		explicitwait.until(ExpectedConditions.elementToBeClickable(acceptAndSign));
-		Thread.sleep(5000);
+	{	
+		Thread.sleep(4000);
 		executor.executeScript("arguments[0].click();",acceptAndSign);
 //		acceptAndSign.click();
 		common.clickOnConfirmYes();
@@ -138,7 +136,6 @@ public class MarketPlacePage extends baseclass {
 		refreshjobProposal.click();
 		String employerSignedStatus="//td[contains(text(),'" + addjobpage.jobname + "')]//following::td[text()='Employer Signed']";
 		driver.findElement(By.xpath(employerSignedStatus)).isDisplayed(); 
-		System.out.println("Status of request is Employer Signed at employer side");	
 	}
 	
 	public void employerSignedstatusAgy()

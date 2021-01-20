@@ -14,9 +14,9 @@ import utilPackage.baseclass;
 
 public class RegisterPage extends baseclass{    //HomePage.java class is child of Testbase.java Class
 	
-	public String registerdName;
-	public String registerdEmail;
-	public String registerdContact;
+	public static String registerdName;
+	public static String registerdEmail;
+	public static String registerdContact;
 	  
 	@FindBy(linkText="Register")
 	WebElement Registerlink;

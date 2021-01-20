@@ -41,6 +41,7 @@ public class MarketplaceBvt extends baseclass {
 	@Then("^login with registered agency$")
 	public void login_with_registered_agency() throws Throwable {
 		registerpage.enterEmployerEmailandPassword();
+		registerpage.ClickSigninbtn();
 	}
 	
 	@And("^Select a added job$")
@@ -165,7 +166,12 @@ public class MarketplaceBvt extends baseclass {
 
 	@And("^Select that job in filter on job proposal section$")
 	public void select_that_job_in_filter_on_job_proposal_section() throws Throwable {
-		workbenchpage.selectJobK();
+		Thread.sleep(2000);
+		marketplacepage.jobDropdown.click();
+		WebElement element = driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]"));
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		explicitwait.until(ExpectedConditions.elementToBeClickable(element));
+		element.click();
 	}
 
 	@And("^Click on reject button of that proposal$")
