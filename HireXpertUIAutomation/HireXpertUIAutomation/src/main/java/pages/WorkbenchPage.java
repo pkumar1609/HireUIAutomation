@@ -26,7 +26,7 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[text()='Add Job']")
 	public WebElement addJob;
 	
-	@FindBy(id = "jobDropdown")
+	@FindBy(xpath = "//ng-select[@id='jobDropdown']")
 	public WebElement jobDropDown;
 	
 	@FindBy(xpath = "//button[contains(text(),' View Job ')]")
@@ -171,10 +171,11 @@ public class WorkbenchPage extends baseclass {
 	}
 	
 	public void selectJobK() throws InterruptedException {
-		Thread.sleep(5000);
-//		jobDropDown.click();
-		executor.executeScript("arguments[0].click();", jobDropDown);
-		WebElement element = driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]"));
+		Thread.sleep(7000);				
+		Action.moveToElement(driver.findElement(By.xpath("(//span[text()='×'])[1]"))).click().perform();
+//		executor.executeScript("arguments[0].click();", ReloadJobButton);
+		driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
+		WebElement element = driver.findElement(By.xpath("//span[contains(text(),'"+addjobpage.jobname+"')]"));
 		executor.executeScript("arguments[0].scrollIntoView(true);", element);
 		explicitwait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();
