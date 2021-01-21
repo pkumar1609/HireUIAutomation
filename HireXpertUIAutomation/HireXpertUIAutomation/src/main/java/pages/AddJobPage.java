@@ -1,5 +1,6 @@
 package pages;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -320,9 +321,10 @@ public void addNewSkill3() {
 	public void addjob(DataTable credentials) throws InterruptedException
 	{ 		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{			
+		{		
+			currentTime = LocalDateTime.now();
 			workbenchpage.AddJob();
-			if(loginpage.b==true)  
+			if(loginpage.b==true)
 			{
 				jobname=dtFormate.format(currentTime)+" Emp";
 				title.sendKeys(jobname);				
