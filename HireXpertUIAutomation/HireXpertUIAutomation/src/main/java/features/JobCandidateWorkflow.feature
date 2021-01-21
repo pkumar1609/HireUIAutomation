@@ -125,7 +125,7 @@ And Add question and click on save changes button "<QUESTION1>" "<QMARKS1>" "<AN
 And Enter the cutoff & rejection percentage "<cuttoffpercentage>" "<rejectionpercentage>"
 And click on submit
 And Click on  Collect Answers icon on candidate card.
-And Fill all the Questions answers 
+And Fill all the Questions answers "<ANSWER1>"
 And click on submit
 And Click on screening tab
 Then verify the status of candidate 

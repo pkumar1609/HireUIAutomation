@@ -509,12 +509,12 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		workbenchpage.candidateCardCollectAnswericon.click();
 	}
 
-	@When("^Fill all the Questions answers$")
-	public void fill_all_the_Questions_answers() throws Throwable {
+	
+	@When("^Fill all the Questions answers \"([^\"]*)\"$")
+	public void fill_all_the_Questions_answers(String answer) throws Throwable {
 
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("//label[1]//span[2]")).click();
-		
+		driver.findElement(By.xpath("//span[text()='"+answer+"']//following::span")).click();
 	}
 
 	@When("^Click on screening tab$")
