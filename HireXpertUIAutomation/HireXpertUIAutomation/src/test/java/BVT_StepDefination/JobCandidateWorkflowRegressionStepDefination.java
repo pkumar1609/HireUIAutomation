@@ -432,13 +432,13 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	
 	@Then("^Set on Notice period field as \"([^\"]*)\" and enter \"([^\"]*)\"$")
 	public void set_Notice_period_field_as_and_enter(String onNoticePerid, String lastworkingDay) throws Throwable {
+		Thread.sleep(3000);
 		Select se = new Select(addcandidatepage.onNoticePeriod);
 		se.selectByVisibleText(onNoticePerid);
-		System.out.println(onNoticePerid);
 		if(onNoticePerid.contentEquals("Yes"))
 		{			
 			Thread.sleep(2000);
-			addcandidatepage.calenderIcon.get(1).click();
+			addcandidatepage.calenderIcon.get(0).click();
 			Thread.sleep(2000);
 			common.enterdate(lastworkingDay);
 		}
