@@ -43,9 +43,6 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		se = new Select(scheduleinterviewpage.timezone);
 		se.selectByVisibleText(TimeZone);
 		Thread.sleep(1000);
-//	    int size=common.deletebtn.size();
-//	    System.out.println(size);
-		
 		for(WebElement ele :common.deletebtn)
 		{
 			Thread.sleep(1000);
@@ -60,6 +57,8 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		scheduleinterviewpage.interviewerName.sendKeys(interviewerName);
 		scheduleinterviewpage.interviewerEmail.sendKeys(interviewerEmail);			
 		common.ClickSumbit();
+				
+		Assert.assertEquals(driver.findElement(By.xpath("//h6[text()='"+Title+"']")).isDisplayed(), true);
 	}
 	
 	@When("^click on close button from Interview details page$")
