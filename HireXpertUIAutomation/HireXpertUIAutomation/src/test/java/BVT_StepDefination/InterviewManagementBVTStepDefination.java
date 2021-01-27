@@ -35,8 +35,11 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		scheduleinterviewpage.title.sendKeys(Title);
 		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
 		common.enterdate(Scheduleon);
+//		Assert.assertEquals(driver.findElement(By.xpath("(//input)[4]")).getAttribute("value"), Scheduleon);
 		scheduleinterviewpage.hours.sendKeys(Hour);
-		scheduleinterviewpage.minutes.sendKeys(Minute);		
+		Thread.sleep(2000);
+		executor.executeScript("document.getElementById('estimateTimeInMinute').setAttribute('value', "+Minute+")");
+//		scheduleinterviewpage.minutes.sendKeys(Minute);		
 		Select se = new Select(scheduleinterviewpage.duration);
 		se.selectByVisibleText(Duration);	
 		Thread.sleep(1000);
