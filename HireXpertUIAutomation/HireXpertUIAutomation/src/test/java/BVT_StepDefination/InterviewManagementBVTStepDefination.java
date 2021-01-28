@@ -36,10 +36,10 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
 		common.enterdate(Scheduleon);
 //		Assert.assertEquals(driver.findElement(By.xpath("(//input)[4]")).getAttribute("value"), Scheduleon);
+		Thread.sleep(2000);
 		scheduleinterviewpage.hours.sendKeys(Hour);
 		Thread.sleep(2000);
-		executor.executeScript("document.getElementById('estimateTimeInMinute').setAttribute('value', "+Minute+")");
-//		scheduleinterviewpage.minutes.sendKeys(Minute);		
+		scheduleinterviewpage.minutes.sendKeys(Minute);		
 		Select se = new Select(scheduleinterviewpage.duration);
 		se.selectByVisibleText(Duration);	
 		Thread.sleep(1000);
@@ -94,7 +94,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 
 	@When("^click on Edit Interview icon in front of interview details like date and time$")
 	public void click_on_Edit_Interview_icon_in_front_of_interview_details_like_date_and_time() throws Throwable {
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		candidatecardsectionpage.candidateCardEditInterview.click();
 		
 	}
@@ -158,8 +158,9 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		scheduleinterviewpage.clearDate.click();
 		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
 		common.enterdate(scheduleon1);
-		Thread.sleep(2000);
-		interviewspage.searchButton.click();
+		Thread.sleep(3000);
+		executor.executeScript("arguments[0].click();", interviewspage.searchButton);
+//		interviewspage.searchButton.click();
 	}
 	
 	@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
