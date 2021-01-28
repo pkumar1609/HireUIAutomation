@@ -20,7 +20,7 @@ public class TeamPage extends baseclass {
 	@FindBy(xpath = "//h5[@class='modal-title w-100']")
 	public WebElement pagetitle;
 	
-	@FindBy(xpath = "//button[@title='Team Members']")
+	@FindBy(xpath = "(//button[@title='Team Members'])[2]")
 	public WebElement AddTeamButton;
 	
 	@FindBy(xpath = "//input[@placeholder='Enter Name']")

@@ -19,7 +19,7 @@ public class AgenciesPage extends baseclass {
 	public String ele ;
 //	public static ArrayList<String> agencies= new ArrayList<String>();
 	
-	@FindBy(xpath = "//button[@title='Agencies']")
+	@FindBy(xpath = "(//button[@title='Agencies'])[2]")
 	public WebElement addAgencyButton;
 	
 	@FindBy(xpath = "//input[@placeholder='Enter Name']")

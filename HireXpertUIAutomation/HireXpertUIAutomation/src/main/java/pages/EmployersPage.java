@@ -28,7 +28,7 @@ public class EmployersPage extends baseclass {
 	@FindBy(xpath="(//a[@class='nav-link'])[4]")
 	WebElement empbtn;
 	
-	@FindBy(xpath="//button[@title='Employers']")
+	@FindBy(xpath="(//button[@title='Employers'])[2]")
 	WebElement addbtn;
 	
 	@FindBy(xpath="//input[@formcontrolname='Name']")
