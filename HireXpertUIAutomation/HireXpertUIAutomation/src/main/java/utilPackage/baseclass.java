@@ -125,7 +125,7 @@ public class baseclass extends SuperBase{
 			driver = new ChromeDriver();
 		}	
 		driver.manage().window().setSize(new Dimension(1920, 1080));
-		driver.manage().window().maximize();	
+//		driver.manage().window().maximize();	
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(utilclass.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
