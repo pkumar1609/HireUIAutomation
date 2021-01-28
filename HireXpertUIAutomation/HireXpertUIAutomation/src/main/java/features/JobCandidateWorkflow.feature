@@ -84,6 +84,7 @@ And click on submit
 And Click on Questionnaire tab
 And Click on edit button of question to edit the following question "<question>" and save the changes by clicking on Save Changes button
 And click on submit
+And Click on Reload job button
 Then Collect Answer icon should reflect on candidates card for giving answers 
 And Click on Questionnaire tab
 And click on delete icon to delete any one of question
@@ -124,6 +125,7 @@ And Click on Add Questionnaire
 And Add question and click on save changes button "<QUESTION1>" "<QMARKS1>" "<ANSWER1>" "<ANSWER2>" "<MARKS1>" "<MARKS2>" 
 And Enter the cutoff & rejection percentage "<cuttoffpercentage>" "<rejectionpercentage>"
 And click on submit
+And Click on Reload job button
 And Click on  Collect Answers icon on candidate card.
 And Fill all the Questions answers "<ANSWER1>"
 And click on submit
@@ -355,6 +357,7 @@ And Enter the answer "<ANSWER1>" "<ANSWER2>"  and enter Marks "<MARKS1>" "<MARKS
 And click on Save Changes button
 And Enter the cutoff & rejection percentage "<cuttoffpercentage>" "<rejectionpercentage>" 
 And click on submit
+And Click on Reload job button
 Then Collect Answer icon should reflect on candidates card for giving answers
 And Click on Reject Candidate icon from candidate card to reject the candidate "<Name>"
 Then Observe candidate get moved in Rejected column automatically
