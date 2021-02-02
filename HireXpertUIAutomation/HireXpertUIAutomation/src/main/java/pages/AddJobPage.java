@@ -349,7 +349,7 @@ public void addNewSkill3() {
 						Thread.sleep(2000);
 						addEmployee.click();
 						Thread.sleep(5000);
-						teampage.Email.sendKeys("pemp@gmail.com");
+						dashboardpage.emailfield.sendKeys("pemp@gmail.com");
 						Thread.sleep(2000);
 						common.find.click();
 						Thread.sleep(2000);
@@ -368,7 +368,7 @@ public void addNewSkill3() {
 					Thread.sleep(2000);
 					addEmployee.click();
 					Thread.sleep(5000);
-					teampage.TeamMemberEmail.sendKeys("pemp@gmail.com");
+					dashboardpage.emailfield.sendKeys("pemp@gmail.com");
 					Thread.sleep(2000);
 					common.find.click();
 					Thread.sleep(2000);

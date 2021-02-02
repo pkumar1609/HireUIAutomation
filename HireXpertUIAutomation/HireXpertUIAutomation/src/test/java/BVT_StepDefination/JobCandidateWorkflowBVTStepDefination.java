@@ -57,12 +57,12 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		workbenchpage.clickOnAddCandidate();
 	}
 
-	@Then("^click on employer tab and delete the employer if login as agency$")
-	public void click_on_employer_tab_and_delete_the_employer_if_login_as_agency() throws Throwable {
-	   
-		Thread.sleep(3000);
-		workbenchpage.deleteEmployerfromEmployerTabasAgency();
-	}
+//	@Then("^click on employer tab and delete the employer if login as agency$")
+//	public void click_on_employer_tab_and_delete_the_employer_if_login_as_agency() throws Throwable {
+//	   
+//		Thread.sleep(3000);
+//		workbenchpage.deleteEmployerfromEmployerTabasAgency();
+//	}
 
 	
 	@When("^Click on Edit Candidate icon on candidate card \"([^\"]*)\"$")
@@ -210,19 +210,19 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 //	}
 	
 	
-	@Then("^click on employer tab and delete the employer$")
-	public void click_on_employer_tab_and_delete_the_employer() throws Throwable {
-
-		dashboardpage.openEmployersPage();
-		Thread.sleep(5000);
-		employerspage.searchEmployer();	
-		Thread.sleep(3000);
-		employerspage.deleteSearchedEmployer();
-		Thread.sleep(3000);
-		common.clickOnConfirmYes();
-		
-
-	}
+//	@Then("^click on employer tab and delete the employer$")
+//	public void click_on_employer_tab_and_delete_the_employer() throws Throwable {
+//
+//		dashboardpage.openEmployersPage();
+//		Thread.sleep(5000);
+//		employerspage.searchEmployer();	
+//		Thread.sleep(3000);
+//		employerspage.deleteSearchedEmployer();
+//		Thread.sleep(3000);
+//		common.clickOnConfirmYes();
+//		
+//
+//	}
 
 	@When("^Verify candidate is displayed on workbench$")
 	public void verify_candidate_is_displayed_on_workbench() throws Throwable {

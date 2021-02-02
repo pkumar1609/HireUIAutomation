@@ -1,8 +1,11 @@
 package BVT_StepDefination;
 
 import java.io.IOException;
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import cucumber.api.DataTable;
 import cucumber.api.java.Before;
@@ -10,6 +13,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.DashboardPage;
 import utilPackage.baseclass;
 
 public class loginstepdefination extends baseclass {
@@ -28,10 +32,11 @@ public class loginstepdefination extends baseclass {
 	DataTable credentials;
 	String deleteele;
 	String checkelement;
-	boolean ele;
+	public String ele;
 	String empname;
 	boolean error;
 	boolean b;
+	
 	
 	@Given("^User must be registered$")
 	public void user_must_be_registered() throws Throwable {    
@@ -41,7 +46,7 @@ public class loginstepdefination extends baseclass {
  
 	@When("^title of login page is Home$")
 	public void title_of_login_page_is_Home()  {
-		agenciespage.getTitle();
+	  homepage.getTitle();
 	}
 	
 	@And("^Click on Employer-Agency Signin link$")
@@ -56,73 +61,57 @@ public class loginstepdefination extends baseclass {
 		loginpage.loginInAppWithEmpK();
 	}
 
-	@And("^Click on Agencies tab$")
-	public void click_on_Agencies_tab() throws InterruptedException  {
-		agenciespage.Clickagencybtn();
-	}
- 
-	@And("^Click on add Button Fill all the mandatory details for agency$")
-		public void fill_all_the_mandatory_detail(DataTable credentials) throws InterruptedException  {
-		
-		Thread.sleep(3000);
-		agenciespage.enterAllDetails(credentials);
+	@When("^Click on add Button Fill all the mandatory details for \"([^\"]*)\"$")
+	public void click_on_add_Button_Fill_all_the_mandatory_details_for(String profile, DataTable credentials) throws Throwable {
+		System.out.println(profile+"profile");
+		dashboardpage.enterAllDetails(profile, credentials);
 	}
 	
 	@Then("^Employer should be able to add Agency$")
 	public void employer_should_be_able_to_add_Agency() {
-	ele=  driver.findElement(By.xpath("//td[text()='"+agenciespage.empname+"']")).isDisplayed();
-	Assert.assertEquals(ele, true);
+	Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+dashboardpage.namevalidate+"']")).isDisplayed(), true);
 	}
 
 	@Then("^Newly added agency should be displayed in Agencies page$")
 	public void newly_added_agency_should_be_displayed_in_Agencies_page() throws InterruptedException {
-		boolean ele=driver.getPageSource().contains(agenciespage.empname);
+		boolean ele=driver.getPageSource().contains(dashboardpage.namevalidate);
 		Assert.assertEquals(ele, true);
 	}
-	
-	@And("^Click on team tab$")
-	public void click_on_team_tab() throws InterruptedException  {
-		dashboardpage.openTeamPage();
-	}
 
-	@When("^Click on add Button and Fill all the mandatory details for team$")
-	public void click_on_add_Button_and_Fill_all_the_mandatory_details_for_team(DataTable credentials) throws Throwable {
-		teampage.AddAllDetailsK(credentials);
-	} 
+
+//	@When("^Click on add Button and Fill all the mandatory details for team$")
+//	public void click_on_add_Button_and_Fill_all_the_mandatory_details_for_team(DataTable credentials) throws Throwable {
+//		dashboardpage.enterAllDetails(credentials);
+//	} 
 
 	@Then("^Newly added team member should be displayed in team page$")
-	public void newly_added_team_member_should_be_displayed_in_team_page() throws InterruptedException  {
-		ele = driver.getPageSource().contains(teampage.namevalidate);
-		Assert.assertEquals(ele, true);
+	public void newly_added_team_member_should_be_displayed_in_team_page() throws InterruptedException  {	
+		Assert.assertEquals(driver.getPageSource().contains(dashboardpage.namevalidate), true);
 	} 
 
 	@Then("^the employer with which you have logged in should display in team tab by default$")
 	public void the_employer_with_which_you_have_logged_in_should_display_in_team_tab_by_default()  
 	{
-		ele = driver.getPageSource().contains(prop.getProperty("loginid"));
-		Assert.assertEquals(ele, true); 
+		Assert.assertEquals(driver.getPageSource().contains(prop.getProperty("loginid")), true); 
 	}
 	
 
 	
 	@Then("^delete the added team \"([^\"]*)\"$")
 	public void delete_the_added_team(String team) throws Throwable {
-		teampage.deleteteamK(team);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//td[text()='"+team+"']//following::button[@ngbtooltip='Delete']")).click();
+
 	}
 	@And("^agency enters valid credentials$")
 	public void agency_enters_valid_credentials() throws InterruptedException {
 		loginpage.loginInAppWithAgyK();
 	}
 
-	@And("^Click on Employer tab$")
-	public void click_on_Employer_tab() throws InterruptedException  {
-		dashboardpage.openEmployersPage();
-	}
-	
-	@When("^Click on add Button and Fill all the mandatory details for employer$")
-	public void click_on_add_Button_and_Fill_all_the_mandatory_details_for_employer(DataTable credentials) throws Throwable {
-		employerspage.enterValidCredentials(credentials);
-	}
+//	@When("^Click on add Button and Fill all the mandatory details for employer$")
+//	public void click_on_add_Button_and_Fill_all_the_mandatory_details_for_employer(DataTable credentials) throws Throwable {
+//		dashboardpage.enterAllDetails(profile, credentials);
+//	}
 
 	@Then("^Agency should be able to add Employer$")
 	public void Agency_should_be_able_to_add_Employer() throws InterruptedException  {
@@ -130,8 +119,7 @@ public class loginstepdefination extends baseclass {
 		System.out.println(size);
 		for(int i=0; i<size; i++) 
 		{
-			ele = driver.getPageSource().contains(ar.get(i));
-			Assert.assertEquals(ele, true);	
+			Assert.assertEquals(driver.getPageSource().contains(ar.get(i)), true);	
 		}
 	}
 
@@ -141,8 +129,8 @@ public class loginstepdefination extends baseclass {
 
 	@Then("^delete the added employer \"([^\"]*)\"$")
 	public void delete_the_added_employer(String team) throws Throwable {
-		Thread.sleep(1000);	
-		employerspage.deleteUser(team);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//td[text()='"+team+"']//following::button[@ngbtooltip='Delete']")).click();
 	}
 
 	@Then("^deleted employer should not be display on page$")
@@ -154,7 +142,7 @@ public class loginstepdefination extends baseclass {
 	@Then("^delete the added agency \\\"([^\\\"]*)\\\"$")
 	public void delete_the_added_agency(String agency) throws Throwable {
 		Thread.sleep(1000);	
-		employerspage.deleteUser(agency);
+		driver.findElement(By.xpath("//td[text()='"+agency+"']//following::button[@ngbtooltip='Delete']")).click();
 	}
 	
 	@Then("^Agency should be able to add team$")
@@ -178,7 +166,7 @@ public class loginstepdefination extends baseclass {
 	
 	
 //	----------------------------------------------------------------------------
-//	
+	//	
 //	
 ////	@Given("^User must be registered$")
 ////	public void user_must_be_registered() throws Throwable {    
@@ -223,23 +211,33 @@ public class loginstepdefination extends baseclass {
 //	
 	@And("^Click on Search section and enter already existing agency$")
 	public void click_on_Search_section_and_enter_already_existing_agency(DataTable credentials) throws Throwable {
-	  agenciespage.enterAgyNameInSearchSection(credentials);
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+		explicitwait.until(ExpectedConditions.elementToBeClickable(dashboardpage.agencySearch));
+		dashboardpage.agencySearch.sendKeys(data.get("Name"));
+		ele=data.get("Name");	}
 	}
 
 	@And("^User should able to search agency$")
 	public void user_should_able_to_search_agency() throws Throwable {
 		
-	Assert.assertEquals(true, driver.findElement(By.xpath("//td[contains(text(),'"+ agenciespage.ele +"')]")).isDisplayed());
+	Assert.assertEquals(true, driver.findElement(By.xpath("//td[contains(text(),'"+ dashboardpage.namevalidate +"')]")).isDisplayed());
 	}
 
 	@And("^Click on Search section and enter already existing employer team$")
 	public void click_on_Search_section_and_enter_already_existing_employer_team(DataTable credentials) throws Throwable {
-		teampage.searchExistingTeam(credentials);
+
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{	
+		explicitwait.until(ExpectedConditions.elementToBeClickable(dashboardpage.teamMemberSearchField));
+		dashboardpage.teamMemberSearchField.sendKeys(data.get("Name"));
+		ele=data.get("Name");
+		}
 	}
 
 	@And("^User should able to search employer team$")
 	public void user_should_able_to_search_employer_team() throws Throwable {
-		Assert.assertEquals(true, driver.findElement(By.xpath("//td[contains(text(),'"+ teampage.ele +"')]")).isDisplayed());
+		Assert.assertEquals(true, driver.findElement(By.xpath("//td[contains(text(),'"+ this.ele +"')]")).isDisplayed());
 	}
 //	
 ////	@And("^agency enters valid credentials$")
@@ -259,13 +257,17 @@ public class loginstepdefination extends baseclass {
 
 	@And("^Click on Search section and enter already existing employer$")
 	public void click_on_Search_section_and_enter_already_existing_employer(DataTable credentials) throws Throwable {
-		employerspage.searchExistingEmp(credentials);
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{	
+		explicitwait.until(ExpectedConditions.elementToBeClickable(dashboardpage.employerSearchfield));
+		dashboardpage.employerSearchfield.sendKeys(data.get("Name"));
+		ele=data.get("Name");
+		}
 	}
 
 	@And("^User should able to search employer$")
 	public void user_should_able_to_search_employer() throws Throwable {
-		Assert.assertEquals(true, driver.findElement(By.xpath("//td[contains(text(),'"+ employerspage.ele +"')]")).isDisplayed());
-
+		Assert.assertEquals(true, driver.findElement(By.xpath("//td[contains(text(),'"+ this.ele +"')]")).isDisplayed());
 	}
 //
 //	@And("^Click on add Button and Fill all the mandatory details for agency team$")
@@ -275,12 +277,17 @@ public class loginstepdefination extends baseclass {
 //
 	@And("^Click on Search section and enter already existing agency team$")
 	public void click_on_Search_section_and_enter_already_existing_agency_team(DataTable credentials) throws Throwable {
-		teampage.searchExistingTeam(credentials);
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{	
+		explicitwait.until(ExpectedConditions.visibilityOf(dashboardpage.teamMemberSearchField));
+		dashboardpage.teamMemberSearchField.sendKeys(data.get("Name"));
+		ele=data.get("Name");	
+		}
 	}
 
 	@And("^User should able to search agency team$")
 	public void user_should_able_to_search_agency_team() throws Throwable {
-	Assert.assertEquals(true, driver.findElement(By.xpath("//td[contains(text(),'"+ teampage.ele +"')]")).isDisplayed());
+	Assert.assertEquals(true, driver.findElement(By.xpath("//td[contains(text(),'"+ this.ele +"')]")).isDisplayed());
 
 	}
 //	@And("^user enters valid credentials$")
@@ -310,15 +317,15 @@ public class loginstepdefination extends baseclass {
 		common.clickOnConfirmYes();
 	}
 	
-	@When("^Click on Add button and fill \"([^\"]*)\"$")
-	public void click_on_Add_button_and_fill(String Name) throws Throwable {
-		teampage.clickOnAddBtnK();
-		teampage.TeamMemberName.clear();
-		teampage.TeamMemberName.sendKeys(Name);
+	@When("^Click on Add button and fill \"([^\"]*)\" for \"([^\"]*)\"$")
+	public void click_on_Add_button_and_fill(String profile,String Name) throws Throwable {
+		dashboardpage.clickOnAddButton(profile);
+		dashboardpage.namefield.clear();
+		dashboardpage.namefield.sendKeys(Name);
 		error=driver.findElements(By.xpath("//div[contains(text(),'Name must be 3 - 64 alphabets.')]")).size()>0;
 		Assert.assertEquals(error, false);
-		teampage.TeamMemberName.clear();
-		teampage.TeamMemberName.sendKeys(Name+"a");
+		dashboardpage.namefield.clear();
+		dashboardpage.namefield.sendKeys(Name+"a");
 	}
 	
 	

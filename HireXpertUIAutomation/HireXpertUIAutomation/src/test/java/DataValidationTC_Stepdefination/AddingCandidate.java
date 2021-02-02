@@ -26,7 +26,7 @@ public class AddingCandidate extends baseclass{
 
 	@When("^title of login page is Home$")
 	public void title_of_login_page_is_Home() throws Throwable {
-		agenciespage.getTitle();
+		homepage.getTitle();
 	}
 
 	@When("^Click on Employer-Agency Signin link$")
@@ -139,10 +139,10 @@ public class AddingCandidate extends baseclass{
 		candidatecardsectionpage.clickOnEyeIcon(Name);
 	}
 
-	@Given("^team member should be added$")
-	public void team_member_should_be_added(DataTable credentials) throws Throwable {
-		teampage.verifyTeamAdded(credentials);
-	}
+//	@Given("^team member should be added$")
+//	public void team_member_should_be_added(DataTable credentials) throws Throwable {
+//	dashboardpage.enterAllDetails(credentials);
+//	}
 
 	@Given("^Share job with team member$")
 	public void share_job_with_team_member(DataTable credentials) throws Throwable {
@@ -286,11 +286,10 @@ public void add_job_with_all_details_and(String Skill1, String Skill2, String Sk
 	common.ClickSumbit();
 }
 
-@Given("^agency should be added$")
-public void agency_should_be_added(DataTable credentials) throws Throwable {
-	dashboardpage.openAgenciesPage();
-	agenciespage.enterAllDetails(credentials);
-}
+//@Given("^agency should be added$")
+//public void agency_should_be_added(DataTable credentials) throws Throwable {
+//	dashboardpage.enterAllDetails(credentials);
+//}
 
 
 

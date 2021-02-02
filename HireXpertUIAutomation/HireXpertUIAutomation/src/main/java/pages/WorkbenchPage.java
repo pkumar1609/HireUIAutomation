@@ -413,27 +413,27 @@ public void selectCandidateRejectionReason () {
 }
 
 
-public void deleteEmployerfromEmployerTabasAgency() throws InterruptedException {
-
-List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
-if(dynamicElement.size() != 0){
-
-	System.out.println("\nEmployer tab not present for Employer user..");
-}
-
-else{
-
-	dashboardpage.openEmployersPage();
-	Thread.sleep(3000);
-	employerspage.searchEmployer();	
-	Thread.sleep(2000);
-	employerspage.deleteSearchedEmployer();
-	Thread.sleep(2000);
-	common.clickOnConfirmYes();
-	Thread.sleep(2000);
-	common.clickOnCloseBtn();
-}
-}
+//public void deleteEmployerfromEmployerTabasAgency() throws InterruptedException {
+//
+//List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+//if(dynamicElement.size() != 0){
+//
+//	System.out.println("\nEmployer tab not present for Employer user..");
+//}
+//
+//else{
+//
+//	dashboardpage.openEmployersPage();
+//	Thread.sleep(3000);
+//	employerspage.searchEmployer();	
+//	Thread.sleep(2000);
+//	employerspage.deleteSearchedEmployer();
+//	Thread.sleep(2000);
+//	common.clickOnConfirmYes();
+//	Thread.sleep(2000);
+//	common.clickOnCloseBtn();
+//}
+//}
 
 public void deleteJob() throws InterruptedException
 {

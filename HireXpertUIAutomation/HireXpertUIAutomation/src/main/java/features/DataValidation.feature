@@ -8,10 +8,10 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-#Given team member should be added
-#|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-#|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
-#|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
+Given "team" should be added
+|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
+|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  |
 And Go to workbench
 And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
 |title		          |agytitle     |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|

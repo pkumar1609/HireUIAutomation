@@ -32,9 +32,9 @@ boolean emp;
 	} 
 	
 
-	@When("^Agency should be added previously$")
-	public void agency_should_be_added_previously(DataTable credentials) throws Throwable {
-		agenciespage.enterAllDetails(credentials);	 
+	@When("^\\\"([^\\\"]*)\\\" should be added previously$")
+	public void agency_should_be_added_previously(String profile, DataTable credentials) throws Throwable {
+		dashboardpage.enterAllDetails(profile, credentials);
 	}
 	
 	@When("^click on Share With Agency button and select the Share checkbox present in front of the \"([^\"]*)\" to share the job$")
@@ -122,21 +122,18 @@ boolean emp;
 				sharewithteampage.clickOnAddButton();
 				Thread.sleep(3000);
 				
-				teampage.TeamMemberName.sendKeys(team);
-				teampage.TeamMemberEmail.sendKeys(teamId);
-				teampage.TeamMemberContactNumber.sendKeys(ContactNumber);
+				dashboardpage.namefield.sendKeys(team);
+				dashboardpage.emailfield.sendKeys(teamId);
+				dashboardpage.contactnumberfield.sendKeys(ContactNumber);
 				sharewithteampage.selectAddToTeamMember();
 				common.ClickSumbit();
-				
 				try
 				{
 					common.clickOnOKBtn();
 					common.clickOnAddClosebtn();
 				}
 				catch(NoSuchElementException e)
-				{}
-				
-		
+				{}	
 	}
 	
 

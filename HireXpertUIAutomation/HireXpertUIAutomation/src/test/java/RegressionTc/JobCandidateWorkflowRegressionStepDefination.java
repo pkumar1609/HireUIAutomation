@@ -530,17 +530,13 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		registerpage.agencylogin();
 	}
 
-	@Then("^click on employer tab and delete the employer$")
-	public void click_on_employer_tab_and_delete_the_employer() throws Throwable {
-	    
-		dashboardpage.openEmployersPage();
-		Thread.sleep(3000);
-		employerspage.searchEmployer();	
-		Thread.sleep(2000);
-		employerspage.deleteSearchedEmployer();
-		Thread.sleep(2000);
-		common.clickOnConfirmYes();
-	}
+//	@Then("^click on employer tab and delete the employer$")
+//	public void click_on_employer_tab_and_delete_the_employer() throws Throwable {
+//	    
+//		dashboardpage.employerSearchfield.sendKeys("");	
+//		Thread.sleep(2000);
+//		dashboardpage.deleteUser(team);
+//	}
 	
 //	@Then("^set on notice period field as no and enter notice period days$")
 //	public void set_on_notice_period_field_as_no_and_enter_notice_period_days() throws Throwable {
@@ -694,13 +690,13 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 //		workbenchpage.clickOnAddCandidate();
 //	}
 
-	@Then("^click on employer tab and delete the employer if login as agency$")
-	public void click_on_employer_tab_and_delete_the_employer_if_login_as_agency() throws Throwable {
-
-		Thread.sleep(3000);
-		workbenchpage.deleteEmployerfromEmployerTabasAgency();
-
-	}
+//	@Then("^click on employer tab and delete the employer if login as agency$")
+//	public void click_on_employer_tab_and_delete_the_employer_if_login_as_agency() throws Throwable {
+//
+//		Thread.sleep(3000);
+//		workbenchpage.deleteEmployerfromEmployerTabasAgency();
+//
+//	}
 
 
 	
@@ -1114,28 +1110,28 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		
 //		9
 		
-		@Given("^click on Team tab and add one new team member by clicking on Add button for agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-		public void click_on_Team_tab_and_add_one_new_team_member_by_clicking_on_Add_button_for_agency(String agyteam, String AgencyteammemberemailId, String AgencyteammemberNo) throws Throwable {
-
-			Thread.sleep(1000);
-			dashboardpage.openTeamPage();
-			Thread.sleep(1000);
-			teampage.AddTeamButton.click();
-			Thread.sleep(1000);
-			teampage.TeamMemberEmail.sendKeys(agyteam);
-			Thread.sleep(2000);
-			common.find.click();
-//			teampage.TeamMemberName.sendKeys(AgencyteammemberemailId);
-//			teampage.TeamMemberContactNumber.sendKeys(AgencyteammemberNo);
-//			Thread.sleep(3000);
-			common.ClickSumbit();
-		}
+//		@Given("^click on Team tab and add one new team member by clicking on Add button for agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//		public void click_on_Team_tab_and_add_one_new_team_member_by_clicking_on_Add_button_for_agency(String agyteam, String AgencyteammemberemailId, String AgencyteammemberNo) throws Throwable {
+//
+//			Thread.sleep(1000);
+//			dashboardpage.openTeamPage();
+//			Thread.sleep(1000);
+//			teampage.AddTeamButton.click();
+//			Thread.sleep(1000);
+//			teampage.TeamMemberEmail.sendKeys(agyteam);
+//			Thread.sleep(2000);
+//			common.find.click();
+////			teampage.TeamMemberName.sendKeys(AgencyteammemberemailId);
+////			teampage.TeamMemberContactNumber.sendKeys(AgencyteammemberNo);
+////			Thread.sleep(3000);
+//			common.ClickSumbit();
+//		}
 
 		@Given("^click on Close button from Team Members window$")
 		public void click_on_Close_button_from_Team_Members_window() throws Throwable {
 
-			Thread.sleep(3000);
-			teampage.closeTeamPage();
+//			Thread.sleep(3000);
+//			teampage.closeTeamPage();
 		}
 		
 		@Then("^logout with agency team member$")
@@ -1181,20 +1177,20 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 		}
 		
-		@Then("^delete the agency team member \"([^\"]*)\"$")
-		public void delete_the_agency_team_member(String AgencyteammemberemailId) throws Throwable {
-		    
-			Thread.sleep(3000);
-			dashboardpage.openTeamPage();
-			Thread.sleep(3000);
-			teampage.searchField.sendKeys(AgencyteammemberemailId);
-			Thread.sleep(3000);
-			teampage.deletebtn.click();
-			Thread.sleep(3000);
-			common.clickOnConfirmYes();
-			Thread.sleep(3000);
-			common.clickOnCloseBtn();
-		}
+//		@Then("^delete the agency team member \"([^\"]*)\"$")
+//		public void delete_the_agency_team_member(String AgencyteammemberemailId) throws Throwable {
+//		    
+//			Thread.sleep(3000);
+//			dashboardpage.openTeamPage();
+//			Thread.sleep(3000);
+//			teampage.searchField.sendKeys(AgencyteammemberemailId);
+//			Thread.sleep(3000);
+//			teampage.deletebtn.click();
+//			Thread.sleep(3000);
+//			common.clickOnConfirmYes();
+//			Thread.sleep(3000);
+//			common.clickOnCloseBtn();
+//		}
 		
 		@When("^upload candidate resume$")
 	    public void upload_candidate_resume() throws Throwable {
@@ -1546,22 +1542,22 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		}
 //
 		
-		@Then("^Add team member$")
-		public void add_team_member(DataTable credentials) throws Throwable {
-			teampage.verifyTeamAdded(credentials);
-		}
+//		@Then("^Add team member$")
+//		public void add_team_member(DataTable credentials) throws Throwable {
+//			teampage.verifyTeamAdded(credentials);
+//		}
 
-		@Then("^logout with employer and login as employer team member$")
-		public void logout_with_employer_and_login_as_employer_team_member() throws Throwable {
-		    
-			Thread.sleep(3000);
-			workbenchpage.ClickonLogout();
-			Thread.sleep(3000);
-			registerpage.clickEmployerAgencySignInlink();
-			Thread.sleep(3000);
-			registerpage.loginwithEmployerTeamMember();
-			
-		}
+//		@Then("^logout with employer and login as employer team member$")
+//		public void logout_with_employer_and_login_as_employer_team_member() throws Throwable {
+//		    
+//			Thread.sleep(3000);
+//			workbenchpage.ClickonLogout();
+//			Thread.sleep(3000);
+//			registerpage.clickEmployerAgencySignInlink();
+//			Thread.sleep(3000);
+//			registerpage.loginwithEmployerTeamMember();
+//			
+//		}
 
 
 		@Then("^logout as employer team member and login as employer$")
@@ -1579,23 +1575,23 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		public void delete_the_team_member(String team) throws Throwable {
 		   
 			Thread.sleep(3000);
-			teampage.deleteteamK(team);
+			dashboardpage.deleteUser(team);
 			
 		}
 
-		@Then("^add a team member to agency$")
-		public void add_a_team_member_to_agency() throws Throwable {
-		    
-			Thread.sleep(3000);
-			dashboardpage.openTeamPage();
-			Thread.sleep(3000);
-			teampage.clickOnAddBtnK();
-			Thread.sleep(3000);
-			teampage.fillAgencyTeamMemberDetails();
-			Thread.sleep(3000);
-			common.ClickSumbit();
-			
-		}
+//		@Then("^add a team member to agency$")
+//		public void add_a_team_member_to_agency() throws Throwable {
+//		    
+//			Thread.sleep(3000);
+//			dashboardpage.openTeamPage();
+//			Thread.sleep(3000);
+//			teampage.clickOnAddBtnK();
+//			Thread.sleep(3000);
+//			teampage.fillAgencyTeamMemberDetails();
+//			Thread.sleep(3000);
+//			common.ClickSumbit();
+//			
+//		}
 
 		@Then("^logout with agency and login as agency team member$")
 		public void logout_with_agency_and_login_as_agency_team_member() throws Throwable {

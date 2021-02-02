@@ -8,12 +8,10 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials
-And Click on Agencies tab
-And Click on add Button Fill all the mandatory details for agency
+And Click on add Button Fill all the mandatory details for "agency"
 |Name  |         Email     | contact  |
 |pagy  | pagy@gmail.com    | 1234564  |
 |pagy1 | pagy1@gmail.com   | 1234564  |
-And Click on Agencies tab
 Then Employer should be able to add Agency
 Then Newly added agency should be displayed in Agencies page
 And delete the added agency "pagy1"
@@ -28,12 +26,10 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials
-And Click on team tab
-And Click on add Button and Fill all the mandatory details for team
+And Click on add Button Fill all the mandatory details for "team"
 |Name|      Email      | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
-And Click on team tab
 Then Newly added team member should be displayed in team page
 Then the employer with which you have logged in should display in team tab by default
 And delete the added team "pe2"
@@ -46,12 +42,10 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And agency enters valid credentials
-And Click on Employer tab
-And Click on add Button and Fill all the mandatory details for employer 
+And Click on add Button Fill all the mandatory details for "employer"
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
-And Click on Employer tab
 Then Agency should be able to add Employer
 And  delete the added employer "pe2"
 Then deleted employer should not be display on page
@@ -66,13 +60,10 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And agency enters valid credentials
-And Click on team tab
-And Click on add Button and Fill all the mandatory details for team
+And Click on add Button Fill all the mandatory details for "employer"
 |Name   |         Email     | contact     |
 |pa1    | pa1@gmail.com     | 1234564     |
 |pa2    | pa2@gmail.com     | 1234564     |
-#And click on close button
-And Click on team tab
 Then Agency should be able to add team
 Then Newly added team member should be displayed in team page
 And delete the added team "pa2"
@@ -81,35 +72,29 @@ And Close browser
 
 #Regression Test Cases
 
-@TC77_79_95 @login 
+@TC77_79_95 @login
 Scenario: To verify search funtionality of Employer and team tab
 
 Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials
-And Click on Agencies tab
-And Click on add Button Fill all the mandatory details for agency 
+And Click on add Button Fill all the mandatory details for "agency"
 |Name  |      Email    | contact    |
 |pagy  |pagy@gmail.com | 1234564    |
 |pagy1 |pagy1@gmail.com| 1234564    |
-And Click on Agencies tab
 And Click on Search section and enter already existing agency
 |Name|
 |pagy|
 And User should able to search agency
-And Click on close button
-And Click on team tab
-And Click on add Button and Fill all the mandatory details for team
+And Click on add Button Fill all the mandatory details for "team"
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
-And Click on team tab
 And Click on Search section and enter already existing employer team
 |Name|
 |pe1 |
 And User should able to search employer team
-And click on Close button
 And Close browser
 
 @TC_78_80_95 @login
@@ -117,34 +102,25 @@ Scenario: To verify search funtionality of Agency and team tab
 
 Given User must be registered
 
-When title of login page is Home 
+When title of login page is Home
 And Click on Employer-Agency Signin link
 And agency enters valid credentials
-And Click on Employer tab
-And Click on add Button and Fill all the mandatory details for employer 
+And Click on add Button Fill all the mandatory details for "employer"
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
-And Click on Employer tab
 And Click on Search section and enter already existing employer
 |Name|
 |pe1 |
 And User should able to search employer
-And Click on close button
-And Click on team tab
-And Click on add Button and Fill all the mandatory details for team
+And Click on add Button Fill all the mandatory details for "team"
 |Name  |       Email    | contact    |
 |pa1   | pa1@gmail.com  | 1234564    |
 |pa2   | pa2@gmail.com  | 1234564    |
-And Click on team tab
 And Click on Search section and enter already existing agency team
 |Name|
 |pa1 |
 And User should able to search agency team
-And click on Close button
-And Close browser
-
-
 
 
 @login @error
@@ -155,8 +131,7 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to update profile
 And Check the character limit for fields with "<Name>"
-And Click on team tab
-And Click on Add button and fill "<Name>"
+And Click on Add button and fill "<Name>" for "team"
 Then Error message should show only after exceeding character limit
 And Close browser
 Examples:

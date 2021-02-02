@@ -1,6 +1,6 @@
 Feature: Task Management
 
-@TaskManagement
+@TaskManagement @task1
 Scenario Outline: To verify Review candidate task displaying on task management page on employer side 
 Given User must be registered
 When title of login page is Home
@@ -36,7 +36,7 @@ Examples:
 |pemp@gmail.com|pagy@gmail.com |12345    |hirecan60@gmail.com |Developer       |hirecan60|7775685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift|
 
 
-@TaskManagement
+@TaskManagement @task2
 Scenario Outline: To verify Schedule interview task displaying on task management page
 
 Given User must be registered
@@ -60,8 +60,8 @@ And Go to Task Management tab
 Then Schedule interview task should display on task Management page "<Name>"
 And click on Schedule interview task for "<Name>"
 And fill all interview details and click on Submit button
-| Title      |ScheduleOn| Hour | Minute |  Duration  | TimeZone             |Location   |
-| Interview1 | 25       | 10   | 00     | 30 Minutes | Indian Standard Time |Viman Nagar|
+| Title      |ScheduleOn  | Hour | Minute |  Duration  | TimeZone             |Location   |
+| Interview1 | 25/02/2021 | 10   | 00     | 30 Minutes | Indian Standard Time |Viman Nagar|
 And Click on close button
 Then Schedule interview task should display in Done column of task Management page "<Name>"
 
@@ -194,7 +194,7 @@ Examples:
 
 
 @TaskManagement
-Scenario Outline: To verify shared job and closed job task displaying on task management page for agency`
+Scenario Outline: To verify shared job task displaying on task management page for agency`
 
 Given User must be registered
 When title of login page is Home
@@ -215,20 +215,7 @@ And job Shared task should display in new column "<Name>"
 And click on job Shared task
 And Click on close button
 And job Shared task should display in done column "<Name>"
-And Logout from App
-And Click on Employer-Agency Signin link
-And Employer enters valid credentials "<Username>","<Password>"
-And Go to Workbench
-And Select a added job
-And Close that job
-And Logout from App
-And Click on Employer-Agency Signin link
-And Employer enters valid credentials "<agency>","<Password>"
-And Go to Task Management tab
-And closed job task should display in new column "<Name>"
-And click on closed job task
-And Click on close button
-And closed job task should display in done column "<Name>"
+
 Examples:
 |Username      |agency         |Password |CandidateEmail      |profiletitle    |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|jobs    |designation   |mandatorySkills|preferredSkills|optionalSkills|minexp|maxexp|updatedOn|industry   |overBudget|minage|maxage|jobtype            |shift|
 |pemp@gmail.com|pagy@gmail.com |12345    |hirecan60@gmail.com |Developer       |hirecan60|7775685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift|

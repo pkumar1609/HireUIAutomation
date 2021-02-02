@@ -302,23 +302,21 @@ public class addjobsteps extends baseclass{
 	
 //@regression1_03	
 	
-	@When("^click on Team tab and add one new team member by clicking on Add button for agency$")
-	public void click_on_Team_tab_and_add_one_new_team_member_by_clicking_on_Add_button_for_agency(DataTable dt) throws Throwable {
-	    
-		List<List<String>> data = dt.raw();
-		
-		dashboardpage.openTeamPage();
-		Thread.sleep(3000);
-
-		teampage.AddTeamButton.click();
-		Thread.sleep(3000);
-		teampage.TeamMemberName.sendKeys(data.get(0).get(0));
-		teampage.TeamMemberEmail.sendKeys(data.get(0).get(1));
-		teampage.TeamMemberContactNumber.sendKeys(data.get(0).get(2));
-		common.submitbtn.click();
-		System.out.println("\nNew team member get added by agency..");
-		Thread.sleep(3000);
-	}
+//	@When("^click on Team tab and add one new team member by clicking on Add button for agency$")
+//	public void click_on_Team_tab_and_add_one_new_team_member_by_clicking_on_Add_button_for_agency(DataTable dt) throws Throwable {
+//	    
+//		List<List<String>> data = dt.raw();
+//		Thread.sleep(3000);
+//
+//		teampage.AddTeamButton.click();
+//		Thread.sleep(3000);
+//		teampage.TeamMemberName.sendKeys(data.get(0).get(0));
+//		teampage.TeamMemberEmail.sendKeys(data.get(0).get(1));
+//		teampage.TeamMemberContactNumber.sendKeys(data.get(0).get(2));
+//		common.submitbtn.click();
+//		System.out.println("\nNew team member get added by agency..");
+//		Thread.sleep(3000);
+//	}
 
 	@When("^logout with agency owner$")
 	public void logout_with_agency_owner() throws Throwable {

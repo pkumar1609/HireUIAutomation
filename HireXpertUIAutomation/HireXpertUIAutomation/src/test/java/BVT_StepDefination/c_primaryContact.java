@@ -18,9 +18,9 @@ public class c_primaryContact extends baseclass {
 		sharewithteampage.clickOnAddButton();
 		Thread.sleep(3000);
 		
-		teampage.TeamMemberName.sendKeys(Team);
-		teampage.TeamMemberEmail.sendKeys(Teamid);
-		teampage.TeamMemberContactNumber.sendKeys(contact);
+		dashboardpage.namefield.sendKeys(Team);
+		dashboardpage.emailfield.sendKeys(Teamid);
+		dashboardpage.contactnumberfield.sendKeys(contact);
 		sharewithteampage.selectAddToTeamMember();
 		common.ClickSumbit();
 		try

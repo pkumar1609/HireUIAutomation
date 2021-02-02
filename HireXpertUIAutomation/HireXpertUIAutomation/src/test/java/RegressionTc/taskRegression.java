@@ -75,9 +75,9 @@ public class taskRegression extends baseclass{
 	  loginpage.loginIn(Username, Password);
 	}
 	
-	@And("^team member should be added$")
-	public void team_member_should_be_added(DataTable credentials) throws Throwable {
-		teampage.verifyTeamAdded(credentials);
+	@And("^\"([^\"]*)\" should be added$")
+	public void team_member_should_be_added(String profile, DataTable credentials) throws Throwable {
+		dashboardpage.enterAllDetails(profile, credentials);
 	}  
 	
 	@And("^Click on mark in progress$")

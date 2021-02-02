@@ -1,10 +1,8 @@
 package BVT_StepDefination;
 
-import java.util.List;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -36,12 +34,12 @@ public class JobUpdateBVTStepDefination extends baseclass {
 		
 	}
 	
-	@Then("^click on employer tab and delete the employer if login as agency\\.$")
-	public void click_on_employer_tab_and_delete_the_employer_if_login_as_agency() throws Throwable {
-	    
-		Thread.sleep(3000);
-		workbenchpage.deleteEmployerfromEmployerTabasAgency();
-		}
+//	@Then("^click on employer tab and delete the employer if login as agency\\.$")
+//	public void click_on_employer_tab_and_delete_the_employer_if_login_as_agency() throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//		workbenchpage.deleteEmployerfromEmployerTabasAgency();
+//		}
 	
 	
 	@When("^make any changes in the job \"([^\"]*)\"$")
@@ -54,41 +52,41 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	}
 		
 	
-	@Then("^click on Employers tab at the top and verify user able to delete the employer or not when agency is logged in$")
-	public void click_on_Employers_tab_at_the_top_and_verify_user_able_to_delete_the_employer_or_not_when_agency_is_logged_in() throws Throwable {
-	    
-		
-		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
-		if(dynamicElement.size() != 0){
-
-			System.out.println("\nEmployer tab not present for Employer user..");
-		}
-		
-		else{
-			
-			dashboardpage.openEmployersPage();
-			Thread.sleep(3000);
-			employerspage.searchEmployer();	
-			Thread.sleep(2000);
-			employerspage.deleteSearchedEmployer();
-			Thread.sleep(2000);
-			
-			String ActualAlertMessage = driver.findElement(By.xpath("//h6[@id='alertlineheight']")).getText();
-			String ExpectedAlertMessage = "Job is added for this employer. First you need to close the job for this employer then you can delete the employer.";
-			
-			Assert.assertEquals(ExpectedAlertMessage, ActualAlertMessage);
-			
-			driver.findElement(By.id("alertModalCloseBtn")).click();
-			Thread.sleep(1000);
-            common.clickOnCloseBtn();
-            Thread.sleep(2000);
-			dashboardpage.openWorkbenchPage();
-			Thread.sleep(5000);
-			
-			
-		}
-			
-	}
+//	@Then("^click on Employers tab at the top and verify user able to delete the employer or not when agency is logged in$")
+//	public void click_on_Employers_tab_at_the_top_and_verify_user_able_to_delete_the_employer_or_not_when_agency_is_logged_in() throws Throwable {
+//	    
+//		
+//		List<WebElement> dynamicElement = driver.findElements(By.xpath("//a[contains(text(),'Agencies')]"));
+//		if(dynamicElement.size() != 0){
+//
+//			System.out.println("\nEmployer tab not present for Employer user..");
+//		}
+//		
+//		else{
+//			
+//			dashboardpage.openEmployersPage();
+//			Thread.sleep(3000);
+//			employerspage.searchEmployer();	
+//			Thread.sleep(2000);
+//			employerspage.deleteSearchedEmployer();
+//			Thread.sleep(2000);
+//			
+//			String ActualAlertMessage = driver.findElement(By.xpath("//h6[@id='alertlineheight']")).getText();
+//			String ExpectedAlertMessage = "Job is added for this employer. First you need to close the job for this employer then you can delete the employer.";
+//			
+//			Assert.assertEquals(ExpectedAlertMessage, ActualAlertMessage);
+//			
+//			driver.findElement(By.id("alertModalCloseBtn")).click();
+//			Thread.sleep(1000);
+//            common.clickOnCloseBtn();
+//            Thread.sleep(2000);
+//			dashboardpage.openWorkbenchPage();
+//			Thread.sleep(5000);
+//			
+//			
+//		}
+//			
+//	}
 	
 	@Then("^click on Job drop down and select recently added job$")
 	public void click_on_Job_drop_down_and_select_recently_added_job() throws Throwable {

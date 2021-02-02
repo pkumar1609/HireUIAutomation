@@ -1454,10 +1454,10 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		}
 
 		
-		@Then("^Add team member$")
-		public void add_team_member(DataTable credentials) throws Throwable {
-			teampage.verifyTeamAdded(credentials);
-		}
+//		@Then("^Add team member$")
+//		public void add_team_member(DataTable credentials) throws Throwable {
+//			dashboardpage.enterAllDetails(profile, credentials);
+//		}
 //
 //		@Then("^logout with employer and login as employer team member$")
 //		public void logout_with_employer_and_login_as_employer_team_member() throws Throwable {

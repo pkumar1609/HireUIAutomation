@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import utilPackage.baseclass;
 
@@ -33,7 +34,11 @@ public HomePage() {
 	   JobseekerCandidateSignInlink.click();
 	}	
 		
-	
+	public void getTitle()
+	{
+		String Title = driver.getTitle();
+		Assert.assertEquals(Title, "HireXpert");
+	}
 
 	
 	

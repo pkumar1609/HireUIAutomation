@@ -1,6 +1,7 @@
 package pages;
 
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -8,8 +9,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import cucumber.api.DataTable;
 import utilPackage.baseclass;
 
 public class DashboardPage extends baseclass {
@@ -19,15 +22,6 @@ public class DashboardPage extends baseclass {
 	
 	@FindBy(xpath = "//a[contains(text(),'Applicant Tracking')]")
 	public WebElement applicationTracking;
-	
-	@FindBy(xpath = "//a[contains(text(),'Employers')]")
-	public WebElement employers;
-	
-	@FindBy(xpath = "//a[contains(text(),'Agencies')]")
-	public WebElement agencies;
-	
-	@FindBy(xpath = "//a[contains(text(),'Team')]")
-	public WebElement team;
 	
 	@FindBy(xpath = "//a[contains(text(),'Interviews')]")
 	public WebElement interviews;
@@ -50,6 +44,49 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath= "//a[contains(text(),'Invoice')]")
 	public WebElement invoice ;
 	
+//	Employer Section
+	
+	@FindBy(xpath = "//h5[text()='Employers ']//following::input[@name='search']")
+	public WebElement employerSearchfield;
+	
+	@FindBy(xpath="//button[@title='Employers']")
+	public WebElement addEmployer;
+	
+	@FindBy(xpath="//input[@formcontrolname='Name']")
+	public WebElement  namefield;
+	
+	@FindBy(xpath="//input[@formcontrolname='Email']")
+	public WebElement emailfield;
+	
+	@FindBy(xpath="//input[@formcontrolname='ContactNumber']")
+	public WebElement contactnumberfield;
+	
+	@FindBy(xpath="//select[@formcontrolname='CountryId']")
+	public WebElement countryid;
+
+	@FindBy(xpath="//button[@title='Delete']")
+	public static WebElement deletebtn;
+	
+//	agency
+	
+	@FindBy(xpath = "//button[@title='Recruitment Agencies']")
+	public WebElement addAgencyButton;
+	
+	@FindBy(xpath = "//h5[text()='Recruitment Agencies ']//following::input[@name='search']")
+	public WebElement agencySearch;
+	
+//	teamMember
+	
+	@FindBy(xpath = "//button[@title='Team Members']")
+	public WebElement AddTeamButton;
+	
+	@FindBy(xpath = "//h5[text()='Team Members ']//following::input[@name='search']")
+	public WebElement teamMemberSearchField;
+
+	public String namevalidate;
+	
+	public static String ele;
+	
 	public DashboardPage() {
 		
 		PageFactory.initElements(driver, this);
@@ -67,26 +104,7 @@ public class DashboardPage extends baseclass {
 		}
 		
 	}
-	
-	public void openEmployersPage() throws InterruptedException {
-		Action.moveToElement(dashboardpage.recruitment).perform();
-		Thread.sleep(4000);
-		employers.click();
-	}
-	
-	public void openAgenciesPage() throws InterruptedException {
-		
-		Action.moveToElement(dashboardpage.recruitment).perform();
-		Thread.sleep(4000);
-		agencies.click(); 
-	}
-	
-	public void openTeamPage() throws InterruptedException {
-		Action.moveToElement(dashboardpage.recruitment).perform();
-		Thread.sleep(3000);
-		team.click();
-	}  
-	 
+ 
 	public void openInterviewsPage() throws InterruptedException 
 	{
 		Action.moveToElement(dashboardpage.recruitment).perform();
@@ -129,5 +147,107 @@ public class DashboardPage extends baseclass {
 		Thread.sleep(2000);
 		JobApplication.click();		
 	}
+	
+//	Employer 
+	
+	public void clickOnAddButton(String profile) throws InterruptedException {
+	if(profile.contentEquals("employer"))	
+		{
+		executor.executeScript("arguments[0].scrollIntoView();", addEmployer);
+		Thread.sleep(2000);
+		addEmployer.click();
+		System.out.println("emplyer is selected");
+		}
+	else if(profile.contentEquals("agency"))
+		{
+		executor.executeScript("arguments[0].scrollIntoView();", addAgencyButton);
+		Thread.sleep(2000);
+		addAgencyButton.click();			
+		}
+	else if(profile.contentEquals("team"))
+		{
+		executor.executeScript("arguments[0].scrollIntoView();", AddTeamButton);
+		Thread.sleep(2000);
+		AddTeamButton.click();
+		}
+	}
 
+	
+	public void enterAllDetails(String profile,DataTable credentials) throws InterruptedException {
+		clickOnAddButton(profile);
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+			Thread.sleep(1000);
+			namefield.clear();
+			namefield.sendKeys(data.get("Name"));
+			namevalidate=data.get("Name");
+			ar.add(namevalidate);
+			emailfield.clear();
+			emailfield.sendKeys(data.get("Email"));
+			contactnumberfield.clear();
+			contactnumberfield.sendKeys(data.get("contact"));
+			select = new Select(countryid);
+			select.selectByVisibleText("India");
+			common.ClickSumbit();
+			if(common.okbtnPopup.size()>0)
+			{
+				common.clickOnOKBtn();
+			}
+			else
+			{
+				clickOnAddButton(profile);
+			}	
+		}
+		common.clickOnAddClosebtn();
+	}
+	
+//	public void searchExistingEmployerAndAgency(DataTable credentials)
+//	{
+//		@SuppressWarnings("unchecked")
+//	
+//		Map<String, String> data =(Map<String, String>) credentials.asMaps(String.class, String.class);
+//		
+//		if(profile.contentEquals("employer"))	
+//		{
+//			explicitwait.until(ExpectedConditions.elementToBeClickable(employerSearchfield));
+//			employerSearchfield.sendKeys(data.get("Name"));
+//			ele=data.get("Name");
+//		}
+//		else if(profile.contentEquals("agency"))
+//		{
+//			explicitwait.until(ExpectedConditions.elementToBeClickable(agencySearch));
+//			agencySearch.sendKeys(data.get("Name"));
+//			ele=data.get("Name");	
+//		}
+//		else if (profile.contentEquals("team"))
+//		{
+//			explicitwait.until(ExpectedConditions.elementToBeClickable(teamMemberSearchField));
+//			teamMemberSearchField.sendKeys(data.get("Name"));
+//			ele=data.get("Name");
+//		}
+//		
+//     }
+	
+	public void deleteUser(String team) throws InterruptedException
+	{
+		if(loginpage.user=="employer")	
+		{
+			employerSearchfield.sendKeys(team);
+			Thread.sleep(4000);
+			deletebtn.click();
+		}
+		else if(loginpage.user=="agency")
+		{
+			agencySearch.sendKeys(team);
+			Thread.sleep(4000);
+			deletebtn.click();
+		}	
+		else
+		{
+			teamMemberSearchField.sendKeys(team);
+			Thread.sleep(4000);
+			deletebtn.click();		
+		}
+		common.clickOnConfirmYes();
+	}
 }

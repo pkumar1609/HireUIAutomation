@@ -9,7 +9,7 @@ Feature: Job Workflow
     And Click on Employer-Agency Signin link
     And enter valid "<username>" and "<Password>" for registered employer and click on Sign in button
     And Click on Agencies tab
-    And Agency should be added previously
+    And "ägency" should be added previously
     |Name  |Email             | contact  |
 	|pagy  |pagy@gmail.com    | 1234564  |
     And Go to workbench
