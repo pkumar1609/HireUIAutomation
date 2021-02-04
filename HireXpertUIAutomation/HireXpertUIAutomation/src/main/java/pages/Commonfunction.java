@@ -101,7 +101,7 @@ public class Commonfunction extends baseclass {
 	
 	public void clickOnCloseBtn() throws InterruptedException
 	{ 
-		explicitwait.until(ExpectedConditions.visibilityOf(closebtn));
+		Thread.sleep(3000);
 		executor.executeScript("arguments[0].scrollIntoView();", closebtn);
 		Thread.sleep(8000);
 		closebtn.click();

@@ -571,7 +571,7 @@ Given Open browser
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<email address>","<Password>"
-Given team member should be added
+Given "team" should be added
 |Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
 |pe1 | pe1@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234556      |pe1   |pa1     |
 And Logout from App
@@ -591,13 +591,6 @@ And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
 And verify candidate card is displaying or not in New column "<Name>"
-#after conditions
-#And Logout from App
-#And Click on Employer-Agency Signin link
-#And Employer enters valid credentials "<agyteam>","<Password>"	
-#And Go to Workbench
-#And Select a added job
-#And Close that job
 
 Examples:
 |    email address    |  Password  |agyteam      |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |
@@ -658,7 +651,8 @@ And confirmation popup should diplay with Yes and No button and click on Yes but
 And select the reason of rejection and cick on submit button
 And Click on show all rejected candidate checkbox
 Then drag the candidate card from rejected column to any other column
-And Add team member
+And Go to dashboard
+Given "team" should be added
 |Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
 |pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
 And Logout from App

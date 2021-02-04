@@ -30,6 +30,10 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 //		common.clickOnConfirmYes();
 		
 	}
+	@Given("^\"([^\"]*)\" should be added$")
+	public void should_be_added(String profile, DataTable credentials) throws Throwable {
+		dashboardpage.enterAllDetails(profile, credentials);
+	}
 
 	
 	@When("^Click on save button for edit candidate$")

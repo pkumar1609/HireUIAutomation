@@ -63,7 +63,6 @@ public class loginstepdefination extends baseclass {
 
 	@When("^Click on add Button Fill all the mandatory details for \"([^\"]*)\"$")
 	public void click_on_add_Button_Fill_all_the_mandatory_details_for(String profile, DataTable credentials) throws Throwable {
-		System.out.println(profile+"profile");
 		dashboardpage.enterAllDetails(profile, credentials);
 	}
 	
