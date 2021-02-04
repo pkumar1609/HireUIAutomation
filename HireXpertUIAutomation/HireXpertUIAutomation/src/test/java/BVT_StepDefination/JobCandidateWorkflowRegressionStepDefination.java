@@ -1389,11 +1389,11 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		public void click_on_save_btn() throws Throwable {
 			
 			Thread.sleep(3000);			
-            common.savebtn.click();
+//          common.savebtn.click();
+            executor.executeScript("arguments[0].click();",common.savebtn);
+
 		}
-//
-//		
-//
+
 //		@When("^click on Add Candidate button$")
 //		public void click_on_Add_Candidate_button() throws Throwable {
 //
