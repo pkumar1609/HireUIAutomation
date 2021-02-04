@@ -162,7 +162,8 @@ public class DashboardPage extends baseclass {
 		{
 		executor.executeScript("arguments[0].scrollIntoView();", addAgencyButton);
 		Thread.sleep(2000);
-		addAgencyButton.click();			
+		executor.executeScript("arguments[0].click();",addAgencyButton );
+//		addAgencyButton.click();			
 		}
 	else if(profile.contentEquals("team"))
 		{
@@ -174,6 +175,8 @@ public class DashboardPage extends baseclass {
 
 	
 	public void enterAllDetails(String profile,DataTable credentials) throws InterruptedException {
+		Thread.sleep(3000);
+		executor.executeScript("arguments[0].scrollIntoView();", AddTeamButton);
 		clickOnAddButton(profile);
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{

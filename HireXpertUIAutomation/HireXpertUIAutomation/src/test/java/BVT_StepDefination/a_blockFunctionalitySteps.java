@@ -39,7 +39,6 @@ boolean emp;
 	
 	@When("^click on Share With Agency button and select the Share checkbox present in front of the \"([^\"]*)\" to share the job$")
 	public void click_on_Share_With_Agency_button_and_select_the_Share_checkbox_present_in_front_of_the_to_share_the_job(String agyEmailId) throws Throwable {	
-	
 		sharewithagencypage.shareWithAgency(agyEmailId);	 
 	}
 	

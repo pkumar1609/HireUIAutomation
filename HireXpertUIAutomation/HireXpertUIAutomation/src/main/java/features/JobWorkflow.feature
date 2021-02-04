@@ -8,10 +8,9 @@ Feature: Job Workflow
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
     And enter valid "<username>" and "<Password>" for registered employer and click on Sign in button
-    And Click on Agencies tab
-    And "ägency" should be added previously
-    |Name  |Email             | contact  |
-	|pagy  |pagy@gmail.com    | 1234564  |
+    And "agency" should be added previously
+    |Name  |Email           | contact  |
+	|pagy  |pagy@gmail.com  | 1234564  |
     And Go to workbench
    	And Add job
 	|title		 |agytitle          |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
@@ -48,7 +47,7 @@ Feature: Job Workflow
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
     And enter valid "<username>" and "<Password>" for registered employer and click on Sign in button
-	Given team member should be added
+	Given "team" should be added
 	|Name|         Email   | contact  |Nameagy   |    Emailagy     | contactagy  |
 	|pe1 | pe1@gmail.com   | 1234564  | pa1      | pa1@gmail.com   |1234556      |
 	|pe2 | pe2@gmail.com   | 1234564  | pa2      | pa2@gmail.com   |1234566      |   
@@ -84,8 +83,7 @@ Feature: Job Workflow
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
     And enter valid "<Username>" and "<Password>" for registered employer and click on Sign in button
-    And Click on Agencies tab
-    And Agency should be added previously
+    And "ägency" should be added previously
     |Name  |Email             | contact  |
 	|pagy  |pagy@gmail.com    | 1234564  |
     And Go to workbench
@@ -119,7 +117,7 @@ Feature: Job Workflow
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
     And enter valid "<Username>" and "<Password>" for registered employer and click on Sign in button
-  	Given team member should be added
+  	Given "team" should be added
 	|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
 	|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
 	|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  | 
@@ -162,7 +160,8 @@ Feature: Job Workflow
 	|title		    |agytitle       |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|Employer|functionalArea|
 	|Primary12      |Primaryagy123 Job |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			    |Hirexpert   |rahitech       |pemp    |java|
 	And Select a added job
-    And team member should be added
+	And Go to dashboard
+    Given "team" should be added
 	|Name|         Email   | contact  |Nameagy  |         Emailagy  |team  |agyteam |
 	|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|pe1   |pa1     |
 	|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|pe1   |pa1	    |
@@ -171,7 +170,7 @@ Feature: Job Workflow
     And try to make another team member as primary contact "<anotherteam>" 
     Then user should not able to make multiple team members as primary contact "<Teamid>"
     And Click on close button
-	And team member should be added
+	Given "team" should be added
 	|Name|         Email   | contact  |Nameagy  |         Emailagy  |
 	|pe3 | pe3@gmail.com   | 1234564  |pa3      |pa3@gmail.com		|
 	And user should able to change the primary contact only when the job is shared with the team member to whom user wants to make primary contact "<thridteam>"
