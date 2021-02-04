@@ -214,63 +214,63 @@ Feature: HireXpert Login & Registration feature
 	@Bvt @Regression4 @register
 	Scenario Outline: Verify that Agency, Employer & Candidate is not able to continue without completing the profile. Also Agency, Employer $ Candidate is able to update profile.
 	
-	Given User open browser
-	When click on Register link 
-	And enter user details
-	And Select value from dropdown for agency "<AgencyUserType>" "<timezone>" "<country>"
-	And click on Submit button
-	And User should get confirmation message
-	And click on ok button
-	And click on Login link
-	And click on Employer-Agency SignIn link
-	And enter user email and password  
-	And click on Signin button
-	And Click on Close button on Agency Update Profile popup
-	And Click on Yes button on the confirmation message
-	And Click on Close button on Agency Update Profile popup
-	And Click on No button on the confirmation message
-	And click on Login link
-	And click on Employer-Agency SignIn link
-	And enter user email and password 
-	And click on Signin button
-	And verify user login as Agency has redirect on correct agency update profile or not
-	Then verify the Auto Populated fields on agency update profile popup window
-	And Verify that the critical fields on Update Agency Profile popup are not editable
-	And Update Agency Profile  "<AgencyAddress>" "<AgencyOrganizationName>" "<AgencyWebsite>" "<AgencyCity>"
-	And click on Submit button
+#	Given User open browser
+#	When click on Register link 
+#	And enter user details
+#	And Select value from dropdown for agency "<AgencyUserType>" "<timezone>" "<country>"
+#	And click on Submit button
+#	And User should get confirmation message
 #	And click on ok button
-	And Click on Update Profile tab
-	And Make changes in Agency profile "<organizationname>"
-	And click on Submit button
-	
-	And User open browser
-When click on Register link 
-	And enter user details
-	And Select value from dropdown for employer "<EmployerUserType>" "<timezone>" "<country>"
-	And click on Submit button
-	And User should get confirmation message
-	And click on ok button
-	And click on Login link
-	And click on Employer-Agency SignIn link
-	And enter user email and password 
-	And click on Signin button
-	And Click on Close button on Employer Update Profile popup
-	And Click on Yes button on the confirmation message
-	And Click on Close button on Employer Update Profile popup
-	And Click on No button on the confirmation message
-	And click on Login link
-	And click on Employer-Agency SignIn link
-	And enter user email and password 
-	And click on Signin button
-	And verify user login as Employer has redirect on correct employer update profile or not
-	Then verify the Auto Populated fields on employer update profile popup window
-	And Verify that the critical fields on Update Employer Profile popup are not editable
-	And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<EmployerWebsite>" "<EmployerCity>"
-	And click on Submit button
+#	And click on Login link
+#	And click on Employer-Agency SignIn link
+#	And enter user email and password  
+#	And click on Signin button
+#	And Click on Close button on Agency Update Profile popup
+#	And Click on Yes button on the confirmation message
+#	And Click on Close button on Agency Update Profile popup
+#	And Click on No button on the confirmation message
+#	And click on Login link
+#	And click on Employer-Agency SignIn link
+#	And enter user email and password 
+#	And click on Signin button
+#	And verify user login as Agency has redirect on correct agency update profile or not
+#	Then verify the Auto Populated fields on agency update profile popup window
+#	And Verify that the critical fields on Update Agency Profile popup are not editable
+#	And Update Agency Profile  "<AgencyAddress>" "<AgencyOrganizationName>" "<AgencyWebsite>" "<AgencyCity>"
+#	And click on Submit button
+##	And click on ok button
+#	And Click on Update Profile tab
+#	And Make changes in Agency profile "<organizationname>"
+#	And click on Submit button
+#	
+#	And User open browser
+#When click on Register link 
+#	And enter user details
+#	And Select value from dropdown for employer "<EmployerUserType>" "<timezone>" "<country>"
+#	And click on Submit button
+#	And User should get confirmation message
 #	And click on ok button
-	And Click on Update Profile tab
-	And Make changes in Employer profile "<organizationname>"
-	And click on Submit button
+#	And click on Login link
+#	And click on Employer-Agency SignIn link
+#	And enter user email and password 
+#	And click on Signin button
+#	And Click on Close button on Employer Update Profile popup
+#	And Click on Yes button on the confirmation message
+#	And Click on Close button on Employer Update Profile popup
+#	And Click on No button on the confirmation message
+#	And click on Login link
+#	And click on Employer-Agency SignIn link
+#	And enter user email and password 
+#	And click on Signin button
+#	And verify user login as Employer has redirect on correct employer update profile or not
+#	Then verify the Auto Populated fields on employer update profile popup window
+#	And Verify that the critical fields on Update Employer Profile popup are not editable
+#	And Update Employer Profile  "<EmployerAddress>" "<EmployerOrganizationName>" "<EmployerWebsite>" "<EmployerCity>"
+#	And click on Submit button
+##	And click on ok button
+#	And Click on Update Profile tab
+#	And Make changes in Employer profile "<organizationname>"
+#	And click on Submit button
 	
 	And User open browser
 	When click on Register link 

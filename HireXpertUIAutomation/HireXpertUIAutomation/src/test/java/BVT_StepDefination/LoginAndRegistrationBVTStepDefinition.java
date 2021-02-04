@@ -7,11 +7,13 @@ import static org.junit.Assert.assertArrayEquals;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.RegisterPage;
 import utilPackage.baseclass;
 
 public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
@@ -539,10 +541,11 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 			
 			@Then("^verify the Auto Populated fields on candidate update profile popup window  \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 			public void verify_the_Auto_Populated_fields_on_candidate_update_profile_popup_window(String CandidateEmail, String CandidateName, String ContactNumber) throws Throwable {
-			    
-				Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),registerpage.registerdEmail);
-				Assert.assertEquals(addcandidatepage.name.getAttribute("value"),registerpage.registerdName);
-				Assert.assertEquals(updateprofilepopuppage.contactNumber.getAttribute("value"),registerpage.registerdContact);				
+			    Thread.sleep(2000);
+//				explicitwait.until(ExpectedConditions.visibilityOf(addcandidatepage.emailField));
+				Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),RegisterPage.registerdEmail);
+				Assert.assertEquals(addcandidatepage.name.getAttribute("value"),RegisterPage.registerdName);
+				Assert.assertEquals(updateprofilepopuppage.contactNumber.getAttribute("value"),RegisterPage.registerdContact);				
 			}
 		
 			@Then("^Update Candidate Profile \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
