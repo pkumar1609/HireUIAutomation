@@ -131,6 +131,7 @@ And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to update profile
 And Check the character limit for fields with "<Name>"
+And Go to dashboard
 And Click on Add button and fill "<Name>" for "team"
 Then Error message should show only after exceeding character limit
 And Close browser
