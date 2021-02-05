@@ -157,11 +157,7 @@ public class loginstepdefination extends baseclass {
 //		Assert.assertFalse(driver.findElement(By.xpath("//td[text()='"+teampage.namevalidate+"']")) != null);
 	}
 	
-	
-	
-	
-//	----------------------------------------------------------------------------
-	//	
+//----------------------------------------------------------------------------	
 //	
 ////	@Given("^User must be registered$")
 ////	public void user_must_be_registered() throws Throwable {    
@@ -313,7 +309,8 @@ public class loginstepdefination extends baseclass {
 	}
 	
 	@When("^Click on Add button and fill \"([^\"]*)\" for \"([^\"]*)\"$")
-	public void click_on_Add_button_and_fill(String profile,String Name) throws Throwable {
+	public void click_on_Add_button_and_fill(String Name,String profile) throws Throwable {
+
 		dashboardpage.clickOnAddButton(profile);
 		dashboardpage.namefield.clear();
 		dashboardpage.namefield.sendKeys(Name);

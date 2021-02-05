@@ -151,7 +151,9 @@ public class DashboardPage extends baseclass {
 //	Employer 
 	
 	public void clickOnAddButton(String profile) throws InterruptedException {
-	if(profile.contentEquals("employer"))	
+		Thread.sleep(3000);
+		executor.executeScript("arguments[0].scrollIntoView();", AddTeamButton);
+		if(profile.contentEquals("employer"))	
 		{
 		executor.executeScript("arguments[0].scrollIntoView();", addEmployer);
 		Thread.sleep(2000);
