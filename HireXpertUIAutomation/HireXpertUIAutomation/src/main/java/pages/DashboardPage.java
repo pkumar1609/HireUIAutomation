@@ -233,24 +233,10 @@ public class DashboardPage extends baseclass {
 	
 	public void deleteUser(String team) throws InterruptedException
 	{
-		if(loginpage.user=="employer")	
-		{
-			employerSearchfield.sendKeys(team);
-			Thread.sleep(4000);
-			deletebtn.click();
-		}
-		else if(loginpage.user=="agency")
-		{
-			agencySearch.sendKeys(team);
-			Thread.sleep(4000);
-			deletebtn.click();
-		}	
-		else
-		{
-			teamMemberSearchField.sendKeys(team);
-			Thread.sleep(4000);
-			deletebtn.click();		
-		}
-		common.clickOnConfirmYes();
+		Thread.sleep(1000);	
+		driver.findElement(By.xpath("(//td[text()='"+team+"']//following::button[@id='btnGroupDrop1'])[1]")).click();
+		driver.findElement(By.xpath("(//td[text()='"+team+"']//following::button[text()='Delete'])[1]")).click();
+	
 	}
+		
 }

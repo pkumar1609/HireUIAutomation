@@ -98,9 +98,7 @@ public class loginstepdefination extends baseclass {
 	
 	@Then("^delete the added team \"([^\"]*)\"$")
 	public void delete_the_added_team(String team) throws Throwable {
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//td[text()='"+team+"']//following::button[@ngbtooltip='Delete']")).click();
-
+		dashboardpage.deleteUser(team);
 	}
 	@And("^agency enters valid credentials$")
 	public void agency_enters_valid_credentials() throws InterruptedException {
@@ -128,9 +126,7 @@ public class loginstepdefination extends baseclass {
 
 	@Then("^delete the added employer \"([^\"]*)\"$")
 	public void delete_the_added_employer(String team) throws Throwable {
-		Thread.sleep(1000);	
-		driver.findElement(By.xpath("(//td[text()='"+team+"']//following::button[@id='btnGroupDrop1'])[1]")).click();
-		driver.findElement(By.xpath("(//td[text()='"+team+"']//following::button[text()='Delete'])[1]")).click();
+		dashboardpage.deleteUser(team);
 	}
 
 	@Then("^deleted employer should not be display on page$")
@@ -141,9 +137,7 @@ public class loginstepdefination extends baseclass {
 	
 	@Then("^delete the added agency \\\"([^\\\"]*)\\\"$")
 	public void delete_the_added_agency(String agency) throws Throwable {
-		Thread.sleep(1000);	
-		driver.findElement(By.xpath("(//td[text()='"+agency+"']//following::button[@id='btnGroupDrop1'])[1]")).click();
-		driver.findElement(By.xpath("(//td[text()='"+agency+"']//following::button[text()='Delete'])[1]")).click();
+		dashboardpage.deleteUser(agency);
 	}
 	
 	@Then("^Agency should be able to add team$")
