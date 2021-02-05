@@ -250,7 +250,7 @@ public void alreadyregisterUserdetails1(String usertype, String timezone, String
 
 		public void enterEmployerEmailandPassword () throws InterruptedException {
 		
-			Emailaddress.sendKeys(registerpage.registerdEmail);					
+			Emailaddress.sendKeys(RegisterPage.registerdEmail);					
 			Password.sendKeys("12345");
 		}
 		
