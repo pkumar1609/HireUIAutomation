@@ -83,7 +83,7 @@ Feature: Job Workflow
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
     And enter valid "<Username>" and "<Password>" for registered employer and click on Sign in button
-    And "ägency" should be added previously
+    And "agency" should be added previously
     |Name  |Email             | contact  |
 	|pagy  |pagy@gmail.com    | 1234564  |
     And Go to workbench
