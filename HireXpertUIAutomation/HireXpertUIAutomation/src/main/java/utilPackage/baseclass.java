@@ -14,6 +14,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
@@ -118,18 +119,17 @@ public class baseclass extends SuperBase{
 			driver = new ChromeDriver();
 		}	
 		
-		driver.manage().window().maximize();	
+//		driver.manage().window().maximize();	
 //		driver.manage().window().setSize(new Dimension(1280,1024));
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(utilclass.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
-//		caps = new DesiredCapabilities();
-//		caps.setCapability("resolution", "1920x1080");
+		Dimension dimension = new Dimension(1920, 1080);
+		driver.manage().window().setSize(dimension);
 		driver.get(prop.getProperty("url"));
-		driver.navigate().refresh();
-		
+		driver.navigate().refresh();		
 //		driver.get("https://hiretest.txsas.com/#/home");
-		
+				
 		loginpage = new LoginPage();
 		dashboardpage = new DashboardPage();
 		workbenchpage = new WorkbenchPage();
@@ -167,6 +167,8 @@ public class baseclass extends SuperBase{
 		dtFormate = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 		currentTime = LocalDateTime.now();
 	}
+	
+
 	
 	
 }
