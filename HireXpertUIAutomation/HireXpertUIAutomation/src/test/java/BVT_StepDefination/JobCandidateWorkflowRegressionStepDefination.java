@@ -317,7 +317,6 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		
 		Select se = new Select(addcandidatepage.LookingforJobfield);
 		se.selectByVisibleText("No");
-		addjobpage.functionalArea.sendKeys("java");
 		
 	}
 //
