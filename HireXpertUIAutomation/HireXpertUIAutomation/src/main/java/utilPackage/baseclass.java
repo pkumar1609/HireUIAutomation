@@ -124,9 +124,9 @@ public class baseclass extends SuperBase{
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(utilclass.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
+		driver.get(prop.getProperty("url"));
 		Dimension dimension = new Dimension(1920, 1080);
 		driver.manage().window().setSize(dimension);
-		driver.get(prop.getProperty("url"));
 		driver.navigate().refresh();		
 //		driver.get("https://hiretest.txsas.com/#/home");
 				
