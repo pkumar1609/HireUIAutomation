@@ -108,7 +108,7 @@ public class baseclass extends SuperBase{
 		}
 	}
 	
-	public static void initialization() throws IOException, AWTException {
+	public static void initialization() throws IOException, AWTException, InterruptedException {
 		
 		String browsername = prop.getProperty("browser");
 		
@@ -116,18 +116,15 @@ public class baseclass extends SuperBase{
 		{
 			System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver.exe");
 			driver = new ChromeDriver();
-		}	
-		
-//		driver.manage().window().maximize();	
-//		driver.manage().window().setSize(new Dimension(1280,1024));
+		}			
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(utilclass.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		driver.get(prop.getProperty("url"));
-		driver.manage().window().setSize(new Dimension(1280,1024));
-		driver.navigate().refresh();		
+		driver.manage().window().setSize(new Dimension(1366,768));
+		driver.navigate().refresh();	
 //		driver.get("https://hiretest.txsas.com/#/home");
-				
+		
 		loginpage = new LoginPage();
 		dashboardpage = new DashboardPage();
 		workbenchpage = new WorkbenchPage();
@@ -165,8 +162,4 @@ public class baseclass extends SuperBase{
 		dtFormate = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 		currentTime = LocalDateTime.now();
 	}
-	
-
-	
-	
 }
