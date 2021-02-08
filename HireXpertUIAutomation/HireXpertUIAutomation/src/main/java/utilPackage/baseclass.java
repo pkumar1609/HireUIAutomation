@@ -119,12 +119,12 @@ public class baseclass extends SuperBase{
 		}	
 		
 		driver.manage().window().maximize();	
-		driver.manage().window().setSize(new Dimension(1280,1024));
+//		driver.manage().window().setSize(new Dimension(1280,1024));
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(utilclass.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 //		caps = new DesiredCapabilities();
-//		caps.setCapability("resolution", "1920x1080");	
+//		caps.setCapability("resolution", "1920x1080");
 		driver.get(prop.getProperty("url"));
 		driver.navigate().refresh();
 		
