@@ -100,8 +100,7 @@ public class baseclass extends SuperBase{
 		try 
 		{ 
 			prop = new Properties();
-			FileInputStream fis = new FileInputStream("C:\\Users\\admin\\AppData\\Local\\Jenkins.jenkins\\workspace\\UI Automation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties"
-);
+			FileInputStream fis = new FileInputStream("C:\\Users\\TLP33\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
 			prop.load(fis);	
 		}
 		catch(IOException e) {
@@ -118,16 +117,16 @@ public class baseclass extends SuperBase{
 			System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}	
-		driver.manage().window().setSize(new Dimension(1366, 768));
-//		driver.manage().window().maximize();	
+		
+		driver.manage().window().maximize();	
+		driver.manage().window().setSize(new Dimension(1280,1024));
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(utilclass.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 //		caps = new DesiredCapabilities();
 //		caps.setCapability("resolution", "1920x1080");	
 		driver.get(prop.getProperty("url"));
-		
-		
+		driver.navigate().refresh();
 		
 //		driver.get("https://hiretest.txsas.com/#/home");
 		
