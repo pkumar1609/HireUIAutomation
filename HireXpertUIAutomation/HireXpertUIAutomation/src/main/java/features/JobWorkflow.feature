@@ -171,16 +171,17 @@ Feature: Job Workflow
     And try to make another team member as primary contact "<anotherteam>" 
     Then user should not able to make multiple team members as primary contact "<Teamid>"
     And Click on close button
+    And Go to dashboard
 	Given "team" should be added
 	|Name|         Email   | contact  |Nameagy  |         Emailagy  |
 	|pe3 | pe3@gmail.com   | 1234564  |pa3      |pa3@gmail.com		|
+	And Go to Workbench
 	And user should able to change the primary contact only when the job is shared with the team member to whom user wants to make primary contact "<thridteam>"
     And Click on close button
 	Examples:
 	|   email address    |  password  |Team|Teamid       |contact |anotherteam|thridteam|
 	|pemp@gmail.com      |   12345    |pe1 |pe1@gmail.com|16546856|pe2        |pe3@gmail.com|
 	|pagy@gmail.com      |   12345    |pa1 |pa1@gmail.com|98598695|pa2        |pa3@gmail.com|
-
     
 #TC ID - 68,69,93
 
