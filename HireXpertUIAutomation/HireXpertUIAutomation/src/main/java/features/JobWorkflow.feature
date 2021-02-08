@@ -165,6 +165,7 @@ Feature: Job Workflow
 	|Name|         Email   | contact  |Nameagy  |         Emailagy  |team  |agyteam |
 	|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|pe1   |pa1     |
 	|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|pe1   |pa1	    |
+ 	And Go to Workbench  
     And click on Share With Team button and select the Share checkbox present in front of the team member "<Teamid>"
     And Click on primary contact
     And try to make another team member as primary contact "<anotherteam>" 
