@@ -98,7 +98,8 @@ public class DashboardPage extends baseclass {
 		Action.moveToElement(dashboardpage.recruitment).perform();
 		Thread.sleep(5000);
 		applicationTracking.click();
-		if(common.okbtnPopup.size()>0)
+		boolean b=common.okbtnPopup.size()>0;
+		if(b==true)
 		{
 			common.clickOnOKBtn();
 		}
