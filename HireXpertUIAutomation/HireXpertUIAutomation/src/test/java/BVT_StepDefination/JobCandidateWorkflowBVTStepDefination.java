@@ -19,7 +19,7 @@ import utilPackage.baseclass;
 public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	
 	@Given("^Open the browser$")
-	public void open_the_browser() throws IOException, AWTException  {
+	public void open_the_browser() throws IOException, AWTException, InterruptedException  {
 		
 		baseclass.initialization();
 	}
@@ -254,7 +254,6 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		Assert.assertEquals(collectanswericon.isDisplayed(), true);
 	} 
 	
-
 	@Then("^Collect Answer icon should not reflect on candidates card for giving answers$")
 	public void collect_Answer_icon_should_not_reflect_on_candidates_card_for_giving_answers() throws Throwable {
 		Thread.sleep(3000);
@@ -546,7 +545,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		}
 
 	@Given("^Open browser$")
-	public void open_browser() throws IOException, AWTException {
+	public void open_browser() throws IOException, AWTException, InterruptedException {
 		
 		baseclass.initialization(); 
 		driver.navigate().refresh();
