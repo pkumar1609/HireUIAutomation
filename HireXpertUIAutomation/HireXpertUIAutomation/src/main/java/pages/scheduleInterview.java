@@ -1,5 +1,6 @@
 package pages;
 
+import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
@@ -21,13 +22,10 @@ public class scheduleInterview extends baseclass {
 	public WebElement title;
 	
 	@FindBy(xpath = "//input[@formcontrolname='Name' and @placeholder='Enter Name']")
-	public WebElement interviewerName;
+	public List<WebElement> interviewerName;
 	
 	@FindBy(xpath = "//input[@formcontrolname='Email' and @placeholder='Enter Email']")
-	public WebElement interviewerEmail;
-	
-	@FindBy(xpath="/html/body/ngb-modal-window/div/div/app-candidate-interview-info/div[2]/div/div[2]/form/div/div[2]/ng-multiselect-dropdown/div/div[2]/ul[2]/li/div")
-	public WebElement SelectInterviewer;
+	public List<WebElement> interviewerEmail;
 	
 	@FindBy(xpath = "//input[@placeholder='Select Date']")
 	public WebElement scheduleOnfield;
@@ -138,8 +136,8 @@ public class scheduleInterview extends baseclass {
 					common.clickOnOKBtn();
 				}
 				Thread.sleep(1000);	
-				scheduleinterviewpage.interviewerName.sendKeys(data.get(""));
-				scheduleinterviewpage.interviewerEmail.sendKeys(data.get(""));
+				scheduleinterviewpage.interviewerName.get(0).sendKeys(data.get(""));
+				scheduleinterviewpage.interviewerEmail.get(0).sendKeys(data.get(""));
 				Thread.sleep(2000);
 				ScheduleOnCalendarIcon.click();
 				Thread.sleep(2000);

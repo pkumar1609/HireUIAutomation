@@ -46,19 +46,20 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		se = new Select(scheduleinterviewpage.timezone);
 		se.selectByVisibleText(TimeZone);
 		Thread.sleep(1000);
-		for(WebElement ele :common.deletebtn)
-		{
-			Thread.sleep(1000);
-			executor.executeScript("arguments[0].click();", ele);
-			Thread.sleep(1000);
-		}
-		if(common.okbtn != null)
-		{
-			common.clickOnOKBtn();
-		}
+//		for(WebElement ele :common.deletebtn)
+//		{
+//			Thread.sleep(1000);
+//			executor.executeScript("arguments[0].click();", ele);
+//		}
+//		if(common.okbtn != null)
+//		{
+//			common.clickOnOKBtn();
+//		}
+		
+		
 		Thread.sleep(1000);
-		scheduleinterviewpage.interviewerName.sendKeys(interviewerName);
-		scheduleinterviewpage.interviewerEmail.sendKeys(interviewerEmail);			
+		scheduleinterviewpage.interviewerName.get(0).sendKeys(interviewerName);
+		scheduleinterviewpage.interviewerEmail.get(0).sendKeys(interviewerEmail);			
 		common.ClickSumbit();
 				
 		Assert.assertEquals(driver.findElement(By.xpath("//h6[text()='"+Title+"']")).isDisplayed(), true);
@@ -154,13 +155,14 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	
 	@Then("^Select the filters for which you want candidate interview details and click on Search button \"([^\"]*)\"$")
 	public void select_the_filters_for_which_you_want_candidate_interview_details_and_click_on_Search_button(String scheduleon1) throws Throwable {
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		scheduleinterviewpage.clearDate.click();
+//		executor.executeScript("arguments[0].click();", scheduleinterviewpage.clearDate);
+//		executor.executeScript("arguments[0].click();", scheduleinterviewpage.ScheduleOnCalendarIcon);
+		Thread.sleep(5000);
 		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
 		common.enterdate(scheduleon1);
-		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", interviewspage.searchButton);
-//		interviewspage.searchButton.click();
 	}
 	
 	@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
