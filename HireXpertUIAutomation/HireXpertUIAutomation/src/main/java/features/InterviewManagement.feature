@@ -18,7 +18,6 @@ Feature: Interview Management
     And click on Schedule Interview icon from candidate card
     And fill all interview details and click on Submit button "<Title>" "<scheduleon>" "<Hour>" "<Minute>" "<Duration>" "<TimeZone>" "<interviewerName>" "<interviewerEmail>"
     And click on close button from Interview details page
-#    And Click on Reload job button
 	And click on Reload Candidate button and observe
     And observe the interview date and time displayed on candidate card below Assign To field "<scheduleon>"    
     And click on Reload Candidate button and observe
