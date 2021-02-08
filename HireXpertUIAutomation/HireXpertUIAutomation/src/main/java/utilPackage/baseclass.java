@@ -100,7 +100,7 @@ public class baseclass extends SuperBase{
 		try 
 		{ 
 			prop = new Properties();
-			FileInputStream fis = new FileInputStream("C:\\Users\\TLP33\\Documents\\GitHub\\HireUIAutomation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
+			FileInputStream fis = new FileInputStream("C:\\Users\\admin\\AppData\\Local\\Jenkins.jenkins\\workspace\\UI Automation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
 			prop.load(fis);	
 		}
 		catch(IOException e) {
