@@ -103,16 +103,6 @@ And Click on Employer-Agency Signin link
 And login with registered agency 
 And Go to agency marketplace tab
 And Click on Apply button of job
-
-
-#And Logout from App
-#And Click on Employer-Agency Signin link
-#And user enters valid credentials "<Employer>","<Password>"
-#And click on Employer marketplace tab
-#And Select that job in filter on job proposal section
-#And Click on Review button
-#And Now click on accept and sign button
-
 And Logout from App
 And Click on Employer-Agency Signin link
 And user enters valid credentials "<Employer>","<Password>"

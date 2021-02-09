@@ -156,9 +156,8 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	@Then("^Select the filters for which you want candidate interview details and click on Search button \"([^\"]*)\"$")
 	public void select_the_filters_for_which_you_want_candidate_interview_details_and_click_on_Search_button(String scheduleon1) throws Throwable {
 		Thread.sleep(5000);
+		explicitwait.until(ExpectedConditions.elementToBeClickable(scheduleinterviewpage.clearDate));
 		scheduleinterviewpage.clearDate.click();
-//		executor.executeScript("arguments[0].click();", scheduleinterviewpage.clearDate);
-//		executor.executeScript("arguments[0].click();", scheduleinterviewpage.ScheduleOnCalendarIcon);
 		Thread.sleep(5000);
 		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
 		common.enterdate(scheduleon1);
