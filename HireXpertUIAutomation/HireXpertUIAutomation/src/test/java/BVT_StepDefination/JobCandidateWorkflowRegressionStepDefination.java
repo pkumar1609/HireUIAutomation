@@ -1562,13 +1562,13 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			{
 				addjobpage.functionalArea.sendKeys("java");
 			}
-			if(candidateupdateprofilepage.Shift.getText().isEmpty())
+			if(candidateupdateprofilepage.Shift.getText().contentEquals(shift))
 			{
 				candidateupdateprofilepage.Shift.sendKeys(shift);
 				driver.findElement(By.xpath("//span[contains(text(),'"+shift+"')]")).click();
 			}
-			if(candidateupdateprofilepage.jobType.getText().isEmpty())
-			{
+			if(candidateupdateprofilepage.jobType.getText().contentEquals(jobtype))
+			{				
 				candidateupdateprofilepage.jobType.sendKeys(jobtype);
 				driver.findElement(By.xpath("//span[contains(text(),'"+jobtype+"')]")).click();
 			}	
