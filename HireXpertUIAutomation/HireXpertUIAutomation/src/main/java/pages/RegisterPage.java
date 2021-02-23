@@ -13,7 +13,8 @@ import org.openqa.selenium.support.ui.Select;
 import utilPackage.baseclass;
 
 public class RegisterPage extends baseclass{    //HomePage.java class is child of Testbase.java Class
-	
+
+
 	public static String registerdName;
 	public static String registerdEmail;
 	public static String registerdContact;
@@ -438,18 +439,19 @@ public void verifythefieldsonregisterdialogbox () {
     		
        }
        
-       public void loginwithAgencyTeamMember () {
-   		
+       public void loginwithAgencyTeamMember () {   		
     	   Emailaddress.sendKeys("agencymain02@gmail.com");
     	   Password.sendKeys("12345");
-    	   Signinbtn.click();
-    		
+    	   Signinbtn.click();    		
        }
        
-       
-       
-       
-
-       
-      
+       public void registerAgency() throws InterruptedException
+       {
+    	registerpage.clickRegister();
+   		registerpage.registerUser();
+   		registerpage.registerAgencydetails1("Agency", "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi", "India");
+   		common.ClickSumbit();
+   		common.clickOnConfirmYes();
+   		common.clickOnOKBtn();
+       }    
 }
