@@ -22,7 +22,7 @@ Feature: Interview Management
     And observe the interview date and time displayed on candidate card below Assign To field "<scheduleon>"    
     And click on Reload Candidate button and observe
     And click on Edit Interview icon in front of interview details like date and time
-    And make some changes in interview details and click on Submit button "<hour>" "<duration>"
+    And make some changes in interview details and click on Submit button "<interviewerName>" "<duration>"
     Then User should be able to update scheduled interview details and updated details should display properly
     And click on close button from Interview details page
     And now click on Schedule interview icon on candiadte card
@@ -31,15 +31,15 @@ Feature: Interview Management
     And click on close button from Interview details page
     And click on Reload Candidate button and observe
     And observe the interview date and time displayed on candidate card below Assign To field "<scheduleon1>"
-    And click on Reload Candidate button and observe
+#    And click on Reload Candidate button and observe
     And click on Interviews tab
     And Select the filters for which you want candidate interview details and click on Search button "<scheduleon1>"
     Then Interview details should be reflect according to the filter applied "<scheduleon1>" "<Name>"
   
    Examples: 
     |Username       |Password |		CandidateEmail      |  Name       |    ContactNumber |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber   | Title      | Hour | Minute |  Duration  | TimeZone                     					    | hour | duration   | scheduleon   |scheduleon1 |interviewerName|interviewerEmail|
-    |pemp@gmail.com | 12345   | hirecan15@gmail.com     | hirecan15   |   9125671966     |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     | 30 Minutes |   (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 45 Minutes | 20/2/2021   |23/2/2021  |pe1			  |pe1@gmail.com   |
-    |pagy@gmail.com | 12345   | hirecan16@gmail.com     | hirecan16   |   9125671966     |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     | 30 Minutes |   (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 45 Minutes | 20/2/2021   |23/2/2021  |pe1            |pe1@gmail.com   |
+    |pemp@gmail.com | 12345   | hirecan15@gmail.com     | hirecan15   |   9125671966     |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     | 30 Minutes |   (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 45 Minutes | 20/3/2021   |23/3/2021  |pe2			  |pe2@gmail.com   |
+    |pagy@gmail.com | 12345   | hirecan16@gmail.com     | hirecan16   |   9125671966     |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     | 30 Minutes |   (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 45 Minutes | 20/3/2021   |23/3/2021  |pe1            |pe1@gmail.com   |
 
 
     
