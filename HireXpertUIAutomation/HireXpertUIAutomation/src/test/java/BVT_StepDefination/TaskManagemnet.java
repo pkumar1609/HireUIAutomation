@@ -3,6 +3,7 @@ package BVT_StepDefination;
 
 
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -12,13 +13,15 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
-import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.RegisterPage;
 import utilPackage.baseclass;
 
 public class TaskManagemnet extends baseclass{
+	
+	public static int noOfProposalSend;
 	
 	public TaskManagemnet() throws IOException 
 	{
@@ -106,9 +109,9 @@ public class TaskManagemnet extends baseclass{
 	}
 //----------------------------------------------------------------------------------------
 	
-@Given("^Go to Task Management tab$")
-	public void go_to_Task_Management_tab() throws Throwable {
-//		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
+
+	@When("^Go to Task tab$")
+	public void go_to_Task_tab() throws Throwable {
 		Action.moveToElement(dashboardpage.recruitment).click().perform();
 		Thread.sleep(3000);
 		dashboardpage.task.click();
@@ -120,6 +123,14 @@ public class TaskManagemnet extends baseclass{
 	}
 	
 //	Review Candidate
+	
+	
+	@When("^click on Schedule Interview icon on candidate card of \"([^\"]*)\"$")
+	public void click_on_Schedule_Interview_icon_on_candidate_card_of(String Name) throws Throwable {
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[text()=' "+Name+"']//following::button[@title='Schedule Interview']")).click();
+	}
+	
 	@When("^move the candidate card from potential candidate to new column$")
 	public void move_the_candidate_card_from_potential_candidate_to_new_column() throws Throwable {
 		Thread.sleep(2000);	  
@@ -150,15 +161,25 @@ public class TaskManagemnet extends baseclass{
 		executor.executeScript("arguments[0].scrollIntoView()", drop);
 		action.moveToElement(drop).release(drop).perform();
 	}
-
-	@When("^Review Candidate task should display in done column \"([^\"]*)\"$")
-	public void review_Candidate_task_should_display_in_done_column(String arg1) throws Throwable {
-		WebElement element = driver.findElement(By.xpath("//td[6]//span[contains(text(),'Review candidate "+arg1+" CV for job "+addjobpage.jobname+"')]"));
-		executor.executeScript("arguments[0].scrollIntoView(true);", element);
-		Assert.assertEquals(element.isDisplayed(), true);
+	
+	@When("^user should not able to move the card$")
+	public void user_should_not_able_to_move_the_card() throws Throwable {
 	}
-
-
+	
+	@When("^user should not able to move \"([^\"]*)\" card$")
+	public void user_should_not_able_to_move_card(String Name) throws Throwable {
+		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'You can not mark this task as done as "+Name+" card is still in Potential Candidate, New or Screened state.')]")).isDisplayed(), true);
+		common.clickOnOKBtn();
+	}
+	
+	@When("^Review Candidate task should not display \"([^\"]*)\"$")
+	public void review_Candidate_task_should_display_in_done_column(String arg1) throws Throwable {		
+		
+		List<WebElement> element = driver.findElements(By.xpath("//span[contains(text(),'Review candidate "+arg1+" CV for job "+addjobpage.jobname+"')]"));
+//		executor.executeScript("arguments[0].scrollIntoView(true);", element.get(0));
+		Assert.assertEquals(element.size()>0, false);
+	}
+	
 	@Given("^move the candidate card from potential candidate to Schedule Interview column$")
 	public void move_the_candidate_card_from_potential_candidate_to_Schedule_Interview_column() throws Throwable {
 		Thread.sleep(5000);	    
@@ -172,8 +193,9 @@ public class TaskManagemnet extends baseclass{
 
 	@Then("^Schedule interview task should display on task Management page \"([^\"]*)\"$")
 	public void schedule_interview_task_should_display_on_task_Management_page(String arg1) throws Throwable {
-		
-		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='taskmanagmentcard taskmanagmentmediump']//following::span[text()='Please schedule interview of "+arg1+" for job "+addjobpage.jobname+"']")).isDisplayed(), true);	
+		WebElement element = driver.findElement(By.xpath("//div[@class='taskmanagmentcard taskmanagmentmediump']//following::span[text()='Please schedule interview of "+arg1+" for job "+addjobpage.jobname+".']"));
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		Assert.assertEquals(element.isDisplayed(), true);	
 	}
 
 	@Then("^move the candidate card from Schedule Interview column to pending interview column$")
@@ -189,14 +211,15 @@ public class TaskManagemnet extends baseclass{
 
 	@Then("^pending interview task should display on task Management page \"([^\"]*)\"$")
 	public void pending_interview_task_should_display_on_task_Management_page(String arg1) throws Throwable {
-	  Assert.assertEquals(driver.findElement(By.xpath("//div[@class='taskmanagmentcard taskmanagmentmediump']//following::span[text()='Interview pending for candidate "+arg1+" for job "+addjobpage.jobname+"']")).isDisplayed(), true);	
+	  Assert.assertEquals(driver.findElement(By.xpath("//div[@class='taskmanagmentcard taskmanagmentmediump']//following::span[text()='Interview pending for candidate "+arg1+" for job "+addjobpage.jobname+".']")).isDisplayed(), true);	
 	}
 	
 	@Then("^click on Schedule interview task for \"([^\"]*)\"$")
 	public void click_on_Schedule_interview_task_for(String name) throws Throwable {
 	  taskmanagementpage.searchHere.sendKeys(name);
 	  explicitwait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//a[text()='Schedule Interview']"))));
-	  driver.findElement(By.xpath("//a[text()='Schedule Interview']")).click();
+	  executor.executeScript("arguments[0].click();", driver.findElement(By.xpath("//a[text()='Schedule Interview']")));
+//	  driver.findElement(By.xpath("//a[text()='Schedule Interview']")).click();
 	}
 	
 	@Then("^fill all interview details and click on Submit button$")
@@ -204,9 +227,10 @@ public class TaskManagemnet extends baseclass{
 	  scheduleinterviewpage.scheduleInterviewOfCandidate(credentials);
 	}
 	
-	@Then("^Schedule interview task should display in Done column of task Management page \"([^\"]*)\"$")
+	@Then("^Schedule interview task should not display in Done column of task Management page \"([^\"]*)\"$")
 	public void schedule_interview_task_should_display_in_Done_column_of_task_Management_page(String arg1) throws Throwable {
-		Assert.assertEquals(driver.findElement(By.xpath("//td[@id='jobStatusColumn']//following::div[@id='cdk-drop-list-205']//following::span[text()='Please schedule interview of "+arg1+" for job "+addjobpage.jobname+"']")).isDisplayed(), true);	
+		Thread.sleep(3000);
+		Assert.assertEquals(driver.findElements(By.xpath("//td[@id='jobStatusColumn']//following::div[@id='cdk-drop-list-205']//following::span[text()='Please schedule interview of "+arg1+" for job "+addjobpage.jobname+"']")).size(), 0);
 	}
 	
 	@Then("^move the candidate card from pending Interview column to any other column$")
@@ -220,10 +244,9 @@ public class TaskManagemnet extends baseclass{
 		action.perform();	
 	}
 
-	@Then("^pending interview task should display in done columne \"([^\"]*)\"$")
+	@Then("^pending interview task should not display in done columne \"([^\"]*)\"$")
 	public void pending_interview_task_should_display_in_done_columne(String arg1) throws Throwable {
-		Assert.assertEquals(driver.findElement(By.xpath("//td[6]//span[contains(text(),'Interview pending for candidate "+arg1+" for job "+addjobpage.jobname+"')]")).isDisplayed(), true);	
-
+	Assert.assertEquals(driver.findElements(By.xpath("//td[6]//span[contains(text(),'Interview pending for candidate "+arg1+" for job "+addjobpage.jobname+".')]")).size(), 0);
 	}
 	
 //	job offering
@@ -242,21 +265,23 @@ public class TaskManagemnet extends baseclass{
 
 	@Then("^offering job task should display in new column \"([^\"]*)\"$")
 	public void offering_job_task_should_display_in_new_column(String arg1) throws Throwable {
-		WebElement element = driver.findElement(By.xpath("//td[2]//span[text()='Emplyer shortlisted "+arg1+" to offer job "+addjobpage.jobname+".']"));
+		WebElement element = driver.findElement(By.xpath("//td[2]//span[text()='Employer shortlisted "+arg1+" to offer job "+addjobpage.jobname+".']"));
 		executor.executeScript("arguments[0].scrollIntoView(true);", element);
 		Assert.assertEquals(element.isDisplayed(), true);
 	}
 
 	@Then("^click on offering job task$")
 	public void click_on_offering_job_task() throws Throwable {	  
-		executor.executeScript("arguments[0].click()", driver.findElement(By.xpath("//td[2]//a[text()='Offering Job']")));
+		List<WebElement> element = driver.findElements(By.xpath("//td[2]//a[text()='Offering Job']"));
+		executor.executeScript("arguments[0].click();", element.get(element.size()-1));
 	}
 
 	@Then("^offering job task should display in done column \"([^\"]*)\"$")
-	public void offering_job_task_should_display_in_done_column(String arg1) throws Throwable {
-		WebElement element = driver.findElement(By.xpath("//td[6]//span[text()='Emplyer shortlisted "+arg1+" to offer job "+addjobpage.jobname+".']"));
-		executor.executeScript("arguments[0].scrollIntoView(true);", element);
-		Assert.assertEquals(element.isDisplayed(), true);
+	public void offering_job_task_should_display_in_done_column(String arg1) throws Throwable {	
+		List<WebElement> element = driver.findElements(By.xpath("//td[6]//span[text()='Employer shortlisted "+arg1+" to offer job "+addjobpage.jobname+".']"));
+		Thread.sleep(3000);
+		executor.executeScript("arguments[0].scrollIntoView();", element.get(0));
+		Assert.assertEquals(element.size(), 1);
 	}
 	
 //	job offered
@@ -278,20 +303,21 @@ public class TaskManagemnet extends baseclass{
 	@Then("^job offered task should display in new column \"([^\"]*)\"$")
 	public void job_offered_task_should_display_in_new_column(String arg1) throws Throwable {
 		WebElement element = driver.findElement(By.xpath("//td[2]//span[text()='Job offered to "+arg1+" for job "+addjobpage.jobname+".']"));
-		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		executor.executeScript("arguments[0].scrollIntoView();", element);
 		Assert.assertEquals(element.isDisplayed(), true);
 	}
 	
 	@Then("^click on job offered task$")
 	public void click_on_job_offered_task() throws Throwable {
-		executor.executeScript("arguments[0].click()", driver.findElement(By.xpath("//td[2]//a[text()='Job Offered']")));
-	}
+		List<WebElement> element = driver.findElements(By.xpath("//td[2]//a[text()='Job Offered']"));
+		executor.executeScript("arguments[0].click();", element.get(element.size()-1));
+		}
 
 	@Then("^job offered task should display in done column \"([^\"]*)\"$")
 	public void job_offered_task_should_display_in_done_column(String arg1) throws Throwable {
-		WebElement element = driver.findElement(By.xpath("//td[6]//span[text()='Job offered to "+arg1+" for job "+addjobpage.jobname+".']"));
-		executor.executeScript("arguments[0].scrollIntoView(true);", element);
-		Assert.assertEquals(element.isDisplayed(), true);
+		List<WebElement> element = driver.findElements(By.xpath("//td[6]//span[text()='Job offered to "+arg1+" for job "+addjobpage.jobname+".']"));
+		executor.executeScript("arguments[0].scrollIntoView();", element.get(0));
+		Assert.assertEquals(element.size(), 1);
 	}
 	
 //	candidate joined task
@@ -318,14 +344,16 @@ public class TaskManagemnet extends baseclass{
 	
 	@Then("^click on candidate joined task$")
 	public void click_on_candidate_joined_task() throws Throwable {
-		executor.executeScript("arguments[0].click()", driver.findElement(By.xpath("//td[2]//a[text()='Candidate Joined']")));
+		List<WebElement> element = driver.findElements(By.xpath("//td[2]//a[text()='Candidate Joined']"));
+		executor.executeScript("arguments[0].click();", element.get(element.size()-1));
+		
 	}
 	
 	@Then("^candidate joined task should display in done column \"([^\"]*)\"$")
 	public void candidate_joined_task_should_display_in_done_column(String arg1) throws Throwable {
-		WebElement element = driver.findElement(By.xpath("//td[6]//span[text()='"+arg1+" joined for job "+addjobpage.jobname+".']"));
-		executor.executeScript("arguments[0].scrollIntoView(true);", element);
-		Assert.assertEquals(element.isDisplayed(), true);
+		List<WebElement> element = driver.findElements(By.xpath("//td[6]//span[text()='"+arg1+" joined for job "+addjobpage.jobname+".']"));
+		executor.executeScript("arguments[0].scrollIntoView();", element.get(0));
+		Assert.assertEquals(element.size(), 1);
 	}
 	
 	// Refused to joined
@@ -352,15 +380,15 @@ public class TaskManagemnet extends baseclass{
 
 	@Then("^click on Refused to joined task$")
 	public void click_on_Refused_to_joined_task() throws Throwable {
-		executor.executeScript("arguments[0].click()", driver.findElement(By.xpath("//td[2]//a[text()='Refused To Joined']")));
-
+		List<WebElement> element = driver.findElements(By.xpath("//td[2]//a[text()='Refused To Joined']"));
+		executor.executeScript("arguments[0].click();", element.get(element.size()-1));
 	}
 
 	@Then("^Refused to joined task should display in done column \"([^\"]*)\"$")
 	public void refused_to_joined_task_should_display_in_done_column(String arg1) throws Throwable {
-		WebElement element = driver.findElement(By.xpath("//td[6]//span[text()='"+arg1+" refused to join for job "+addjobpage.jobname+".']"));
-		executor.executeScript("arguments[0].scrollIntoView(true);", element);
-		Assert.assertEquals(element.isDisplayed(), true);
+		List<WebElement> element = driver.findElements(By.xpath("//td[6]//span[text()='"+arg1+" refused to join for job "+addjobpage.jobname+".']"));
+		executor.executeScript("arguments[0].scrollIntoView();", element.get(0));
+		Assert.assertEquals(element.size(), 1);
 	}
 	
 //	@TaskManagement5
@@ -401,42 +429,44 @@ public class TaskManagemnet extends baseclass{
 
 	@When("^Candidate rejected task should display in new column \"([^\"]*)\"$")
 	public void reject_task_should_display_in_new_column(String arg1) throws Throwable {
-		WebElement element = driver.findElement(By.xpath("//td[2]//span[text()='"+arg1+" has been rejected for job "+addjobpage.jobname+" with reason Communication Is Not Good by pemp.']"));
-		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		WebElement element = driver.findElement(By.xpath("//td[2]//span[text()='"+arg1+" has been rejected for job "+addjobpage.jobname+" by pemp.']"));
+		executor.executeScript("arguments[0].scrollIntoView();", element);
 		Assert.assertEquals(element.isDisplayed(), true);
 	}
 
 	@When("^click on candidate Rejected task$")
 	public void click_on_candidate_Rejected_task() throws Throwable {
-		executor.executeScript("arguments[0].click()", driver.findElement(By.xpath("//td[2]//a[text()='Candidate Rejected']")));
+		List<WebElement> element = driver.findElements(By.xpath("//td[2]//a[text()='Candidate Rejected']"));
+		executor.executeScript("arguments[0].click();", element.get(element.size()-1));
 	}
 	
 	@When("^Candidate rejected task should display in done column \"([^\"]*)\"$")
 	public void reject_task_should_display_in_d_column(String arg1) throws Throwable {
-		WebElement element = driver.findElement(By.xpath("//td[6]//span[text()='"+arg1+" has been rejected for job "+addjobpage.jobname+" with reason Communication Is Not Good by pemp.']"));
-		executor.executeScript("arguments[0].scrollIntoView(true);", element);
-		Assert.assertEquals(element.isDisplayed(), true);
+		List<WebElement> element = driver.findElements(By.xpath("//td[6]//span[text()='"+arg1+" has been rejected for job "+addjobpage.jobname+" by pemp.']"));
+		executor.executeScript("arguments[0].scrollIntoView();", element.get(0));
+		Assert.assertEquals(element.size(), 1);
 	}
 	
 //	Shared job and closed job task
 	
 	@When("^job Shared task should display in new column \"([^\"]*)\"$")
 	public void shared_job_task_should_display_in_new_column(String arg1) throws Throwable {
-		WebElement element = driver.findElement(By.xpath("//td[2]//span[text()=\"pemp shared a job '"+addjobpage.jobname+".'\"]"));
-		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		WebElement element = driver.findElement(By.xpath("//td[2]//span[text()='pemp shared a job "+addjobpage.jobname+".']"));
+		executor.executeScript("arguments[0].scrollIntoView();", element);
 		Assert.assertEquals(element.isDisplayed(), true);
 	}
 
 	@When("^click on job Shared task$")
 	public void click_on_Shared_job_task() throws Throwable {
-		executor.executeScript("arguments[0].click()", driver.findElement(By.xpath("//td[2]//a[text()='Job Shared']")));
+		List<WebElement> element = driver.findElements(By.xpath("//td[2]//a[text()='Job Shared']"));
+		executor.executeScript("arguments[0].click();", element.get(element.size()-1));
 	}
 
 	@When("^job Shared task should display in done column \"([^\"]*)\"$")
 	public void shared_job_task_should_display_in_done_column(String arg1) throws Throwable {
-		WebElement element = driver.findElement(By.xpath("//td[6]//span[text()=\"pemp closed a job '"+addjobpage.jobname+".'\"]"));
-		executor.executeScript("arguments[0].scrollIntoView(true);", element);
-		Assert.assertEquals(element.isDisplayed(), true);
+		List<WebElement> element = driver.findElements(By.xpath("//td[6]//span[text()='pemp shared a job "+addjobpage.jobname+".']"));
+		executor.executeScript("arguments[0].scrollIntoView();", element.get(0));
+		Assert.assertEquals(element.size(), 1);
 	}
 
 	@When("^Close that job$")
@@ -487,13 +517,14 @@ public class TaskManagemnet extends baseclass{
 	@When("^Generate invoice task should display in new column \"([^\"]*)\"$")
 	public void generate_invoice_task_should_display_in_new_column(String arg1) throws Throwable {
 		WebElement element = driver.findElement(By.xpath("//td[2]//span[text()='Please Generate invoice for "+arg1+" for job "+addjobpage.jobname+".']"));
-		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		executor.executeScript("arguments[0].scrollIntoView();", element);
 		Assert.assertEquals(element.isDisplayed(), true);
 	}
 
 	@When("^click on Generate invoice task$")
-	public void click_on_Generate_invoice_task() throws Throwable {
-		executor.executeScript("arguments[0].click()", driver.findElement(By.xpath("//td[2]//a[text()='Generate Invoice']")));
+	public void click_on_Generate_invoice_task() throws Throwable {		
+		List<WebElement> element = driver.findElements(By.xpath("//td[2]//a[text()='Generate Invoice']"));
+		executor.executeScript("arguments[0].click();", element.get(element.size()-1));
 	}
 
 	@When("^Fill all details of invoice$")
@@ -503,9 +534,9 @@ public class TaskManagemnet extends baseclass{
 
 	@When("^Generate invoice task should display in done column \"([^\"]*)\"$")
 	public void generate_invoice_task_should_display_in_done_column(String arg1) throws Throwable {
-		WebElement element = driver.findElement(By.xpath("//td[6]//span[text()='Please Generate invoice for "+arg1+" for job "+addjobpage.jobname+".']"));
-		executor.executeScript("arguments[0].scrollIntoView(true);", element);
-		Assert.assertEquals(element.isDisplayed(), true);
+		List<WebElement> element = driver.findElements(By.xpath("//td[6]//span[text()='Please Generate invoice for "+arg1+" for job "+addjobpage.jobname+".']"));
+		executor.executeScript("arguments[0].scrollIntoView();", element.get(0));
+		Assert.assertEquals(element.size(), 1);
 	}
 	
 	//pending invoice
@@ -604,27 +635,88 @@ public class TaskManagemnet extends baseclass{
 
 	@Then("^Proposal Received task should display in \"([^\"]*)\" column with agency name \"([^\"]*)\"$")
 	public void proposal_Received_task_should_display_in_column_with_agency_name(String status, String agencyEmail) throws Throwable {
-		CharSequence agencyName = agencyEmail.subSequence(0, agencyEmail.indexOf("@"));
+		CharSequence agencyName = RegisterPage.registerdName.subSequence(0, agencyEmail.indexOf("@"));
 		WebElement element = null;
 		if(status.contentEquals("New"))
 		{
-		element = driver.findElement(By.xpath("//td[2]//span[text()='Received proposal from "+agencyName+" for job "+addjobpage.jobname+", please have a look on this proposal.']"));
+		element = driver.findElement(By.xpath("//td[2]//span[text()='Received proposal from "+RegisterPage.registerdName+" for job "+addjobpage.jobname+", please have a look on this proposal.']"));
 		}
 		else if(status.contentEquals("Done"))
 		{
-		element = driver.findElement(By.xpath("//td[6]//span[text()='Received proposal from "+agencyName+" for job "+addjobpage.jobname+", please have a look on this proposal.']"));
+		element = driver.findElement(By.xpath("//td[6]//span[text()='Received proposal from "+RegisterPage.registerdName+" for job "+addjobpage.jobname+", please have a look on this proposal.']"));
 		}
 		executor.executeScript("arguments[0].scrollIntoView(true);", element);
 		Assert.assertEquals(element.isDisplayed(), true);
 	}
 	
-	
-	
-	@After("@TaskManagement1")
-	public void Endtest() throws InterruptedException
-	{
-		workbenchpage.deleteJob();
-		
+	@Then("^move the \"([^\"]*)\" task from \"([^\"]*)\" to \"([^\"]*)\" column$")
+	public void move_the_task_from_to_column(String arg1, String arg2, String arg3) throws Throwable {
+		Thread.sleep(2000);	  
+		List<WebElement> drag = driver.findElements(By.xpath("//td[2]//div[@class='DragCardBody']"));	
+		WebElement drop = driver.findElement(By.xpath("//td[6]"));		   		
+	    Actions action = new Actions(driver);
+		Thread.sleep(3000);
+		action.clickAndHold(drag.get(drag.size()-1));
+		executor.executeScript("arguments[0].scrollIntoView()", drop);
+		action.moveToElement(drop).release(drop).perform();
+		Thread.sleep(2000);	
 	}
-}
 
+	@Then("^user should not able to move Proposal Received task to done column$")
+	public void user_should_not_able_to_move_Proposal_Received_task_to_done_column() throws Throwable {
+	   Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'You can not change status of this task to done as job proposal is still in Proposed state.')]")).isDisplayed(), true);
+	   common.clickOnOKBtn();
+	}
+
+	@Then("^user should be able to move Proposal Received task to done column$")
+	public void user_should_be_able_to_move_Proposal_Received_task_to_done_column() throws Throwable {
+	   Assert.assertEquals(driver.findElements(By.xpath("//h6[contains(text(),'You can not change status of this task to done as job proposal is still in Proposed state.')]")).size()>0, false);
+	}
+
+	@Then("^\"([^\"]*)\" task should display in \"([^\"]*)\" column with agency name \"([^\"]*)\"$")
+	public void task_should_display_in_column_with_agency_name(String task, String status, String agencyEmail) throws Throwable {
+		CharSequence agencyName = agencyEmail.subSequence(0, agencyEmail.indexOf("@"));
+		WebElement element = null;
+		if(status.contentEquals("New"))
+		{
+		element = driver.findElement(By.xpath("//td[2]//span[text()='"+agencyName+" updated an agreement for job "+addjobpage.jobname+".']"));
+		}
+		else if(status.contentEquals("Done"))
+		{
+		element = driver.findElement(By.xpath("//td[2]//span[text()='"+agencyName+" updated an agreement for job "+addjobpage.jobname+".']"));
+		}
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		Assert.assertEquals(element.isDisplayed(), true);	
+	}
+
+	@Then("^Click on \"([^\"]*)\" task$")
+	public void click_on_task(String task) throws Throwable {
+		List<WebElement> element = driver.findElements(By.xpath("//td[2]//a[text()='"+task+"']"));
+		executor.executeScript("arguments[0].click();", element.get(element.size()-1));
+	}
+	
+	@Given("^agency must be registered$")
+	public void agency_must_be_registered() throws Throwable {
+		if(noOfProposalSend>5 || noOfProposalSend==0)
+		{
+			registerpage.registerAgency();
+			noOfProposalSend=0;
+			loginpage.ClickOnEmployerAgencySigninLink();
+			registerpage.enterEmployerEmailandPassword();
+			registerpage.ClickSigninbtn();
+			updateprofilepopuppage.UpdateProfileEmployer("Viman Nagar", "TalentXpert", "www.talentxpert.com", "pune");
+			Thread.sleep(2000);
+			executor.executeScript("arguments[0].click();", updateprofilepopuppage.isAgencyOwner);
+			common.ClickSumbit();
+			loginpage.logoutFromAppK();
+		}
+		noOfProposalSend++;
+		System.out.println("noOfProposalSend "+noOfProposalSend);
+	}
+	
+	@Then("^agency enters credentials for marketplace proposal$")
+	public void agency_enters_credentials_for_marketplace_proposal() throws Throwable {
+		loginpage.loginIn(RegisterPage.registerdEmail, "12345");
+	}
+	
+}

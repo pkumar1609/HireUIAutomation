@@ -241,8 +241,8 @@ public class UpdateProfilePopupPage extends baseclass {
 	
      
 	
-	public void UpdateProfileEmployer (String EmployerAddress, String EmployerOrganizationName, String EmployerWebsite, String EmployerCity) {
-				
+	public void UpdateProfileEmployer (String EmployerAddress, String EmployerOrganizationName, String EmployerWebsite, String EmployerCity) throws InterruptedException {
+		Thread.sleep(2000);		
 		Address.sendKeys(EmployerAddress);
 	    OrganizationName.sendKeys(EmployerOrganizationName);
 	    Website.sendKeys(EmployerWebsite);

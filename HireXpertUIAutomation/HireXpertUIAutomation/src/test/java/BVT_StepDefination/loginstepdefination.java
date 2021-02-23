@@ -1,6 +1,8 @@
 package BVT_StepDefination;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Map;
 
 import org.openqa.selenium.By;
@@ -42,6 +44,16 @@ public class loginstepdefination extends baseclass {
 	public void user_must_be_registered() throws Throwable {    
 		initialization();
 		driver.navigate().refresh();
+		
+		Calendar calendar = Calendar.getInstance();
+//	    calendar.add(Calendar.HOUR_OF_DAY, +1);
+	    Date UpdatedDate = calendar.getTime();
+//		int month=calendar.getTime().getMonth()+1;
+//		int year=calendar.getTime().getYear()+19000;
+//		System.out.println(month);
+     
+	    System.out.println("date "+calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900));
+	    
 	} 
  
 	@When("^title of login page is Home$")
