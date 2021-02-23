@@ -17,7 +17,7 @@ import utilPackage.baseclass;
 
 public class InterviewManagementBVTStepDefination extends baseclass {
 	
-	boolean information;
+	boolean information=false;
 	String date;
 	public static String interviewDate;
 	Calendar calendar;
