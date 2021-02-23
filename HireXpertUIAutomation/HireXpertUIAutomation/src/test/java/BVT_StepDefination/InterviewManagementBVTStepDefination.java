@@ -191,7 +191,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	public void select_the_filters_for_which_you_want_candidate_interview_details_and_click_on_Search_button(String scheduleon1) throws Throwable {
 //		Thread.sleep(5000);
 		explicitwait.until(ExpectedConditions.visibilityOf(scheduleinterviewpage.clearDate));
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		scheduleinterviewpage.clearDate.click();
 		Thread.sleep(5000);
 		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
