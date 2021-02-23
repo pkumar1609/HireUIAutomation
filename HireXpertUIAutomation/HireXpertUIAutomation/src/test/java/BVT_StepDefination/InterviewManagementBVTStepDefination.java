@@ -125,9 +125,9 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",scheduleinterviewpage.editInterviewIcon);
 //		scheduleinterviewpage.editInterviewIcon.click();
-		scheduleinterviewpage.hours.clear();
-		calendar.add(Calendar.MINUTE, +5);		
-		scheduleinterviewpage.hours.sendKeys(String.valueOf(calendar.getTime().getMinutes()));		
+		scheduleinterviewpage.minutes.clear();
+		calendar.add(Calendar.MINUTE, +1);		
+		scheduleinterviewpage.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));		
 		Select se = new Select(scheduleinterviewpage.duration);
 		se.selectByVisibleText(duration);
 		Thread.sleep(1000);
