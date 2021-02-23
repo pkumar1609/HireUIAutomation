@@ -279,11 +279,11 @@ public class WorkbenchPage extends baseclass {
 	
 	public void clickReloadCandidateButton() throws InterruptedException {
 		Thread.sleep(3000);
-		executor.executeScript("arguments[0].click();",candidate);
-//		candidate.click();
-		Thread.sleep(2000);
-		executor.executeScript("arguments[0].click();",ReloadCandidateButton);
-//		ReloadCandidateButton.click();
+//		executor.executeScript("arguments[0].click();",candidate);
+		candidate.click();
+		Thread.sleep(3000);
+//		executor.executeScript("arguments[0].click();",ReloadCandidateButton);
+		ReloadCandidateButton.click();
 	}
 	
 public void ClickonScreeningBtn() {
