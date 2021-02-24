@@ -43,7 +43,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		
 		calendar = Calendar.getInstance();
 //		calendar.add(Calendar.HOUR_OF_DAY, +1);
-		calendar.add(Calendar.MINUTE, +20);
+		calendar.add(Calendar.MINUTE, +5);
 
 		interviewDate = calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);
 		
@@ -67,9 +67,10 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		while(information==true)
 		{
 			common.clickOnOKBtn();
-			scheduleinterviewpage.minutes.clear();
-			calendar.add(Calendar.MINUTE, +20);
+			scheduleinterviewpage.minutes.clear();			
+			calendar.add(Calendar.MINUTE, +10);
 //			System.out.println(calendar.add(Calendar.MINUTE, +20));
+			scheduleinterviewpage.hours.sendKeys(String.valueOf(calendar.getTime().getHours()));		
 			scheduleinterviewpage.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));		
 			common.ClickSumbit();
 		}	
@@ -124,8 +125,9 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		while(information==true)
 		{
 			common.clickOnOKBtn();
-			scheduleinterviewpage.minutes.clear();
-			calendar.add(Calendar.MINUTE, +20);
+			scheduleinterviewpage.minutes.clear();			
+			calendar.add(Calendar.MINUTE, +10);
+			scheduleinterviewpage.hours.sendKeys(String.valueOf(calendar.getTime().getHours()));		
 			scheduleinterviewpage.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));		
 			common.ClickSumbit();
 		}	

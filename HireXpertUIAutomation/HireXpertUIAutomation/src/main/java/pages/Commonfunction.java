@@ -104,7 +104,9 @@ public class Commonfunction extends baseclass {
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].scrollIntoView();", closebtn);
 		Thread.sleep(8000);
-		closebtn.click();
+//		closebtn.click();
+		executor.executeScript("arguments[0].click();", closebtn);
+
 	}
 	
 	public void clickOnAddClosebtn() throws InterruptedException

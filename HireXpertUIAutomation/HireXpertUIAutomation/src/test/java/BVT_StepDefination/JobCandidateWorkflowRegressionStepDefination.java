@@ -1586,12 +1586,39 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			driver.findElement(By.xpath("//th[text()=' New ']//following::span[text()=' "+Name+"']")).isDisplayed();
 
 		}
+//reg13
+		
+		
+		@When("^Enter All details of \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\" and select \"([^\"]*)\" in Hide Candidate Contact$")
+		public void enter_All_details_of_and_and_select_in_Hide_Candidate_Contact(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2,String remark3,String certificateforskill1, String certificateforskill2,String hideContact) throws Throwable {
+			workbenchpage.enterEmailId(CandidateEmail);
+			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
+			select=new Select(addcandidatepage.hideContact);
+			select.selectByVisibleText(hideContact);
+			addcandidatepage.addSkill(level1, level2, level3,certificate1, certificate2,certificate3,certificateforskill1, certificateforskill2);
+			addcandidatepage.uploadResumeDocument();
+			common.clickOnSaveBtn(); 
+			addcandidatepage.checkCandidateALreadyPresent();
+		}
 
+		@Given("^Click on Candidate name from candidate card \"([^\"]*)\"$")
+		public void click_on_Candidate_name_from_candidate_card(String Name) throws Throwable {
+		    candidatecardsectionpage.clickOnEyeIcon(Name);
+		}
 
+		@Given("^Verify Email and contact no should not display for employer$")
+		public void verify_Email_and_contact_no_should_not_display_for_employer() throws Throwable {
+		   Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Email Id ']//following::td[text()='Hidden By Agency']")).isDisplayed(), true);
+		   Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Contact No. ']//following::td[contains(text(),'Hidden By Agency')]")).isDisplayed(), true);
+		}
+		
 
-
-
-
-
+		@Given("^Verify Email and contact no should not display for employer on edit candidate page$")
+		public void verify_Email_and_contact_no_should_not_display_for_employer_on_edit_candidate_page() throws Throwable {
+			System.out.println("data"+addcandidatepage.emailField.getAttribute("value"));
+		   Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),"Hidden By Agency");
+		   Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"),"Hidden By Agency");
+		   
+		}
 	}
 	

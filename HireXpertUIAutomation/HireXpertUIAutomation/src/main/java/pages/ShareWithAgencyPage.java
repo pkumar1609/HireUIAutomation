@@ -52,8 +52,7 @@ public class ShareWithAgencyPage extends baseclass {
 		common.clickOnConfirmYes();
 		}
 		catch(NoSuchElementException e)
-		{}
-		
+		{}		
 	}
 
 }

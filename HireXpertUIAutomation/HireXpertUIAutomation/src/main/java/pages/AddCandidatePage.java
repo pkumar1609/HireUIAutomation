@@ -149,6 +149,9 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//input[@formcontrolname='CVUpload']")
 	public WebElement cv;
 	
+	@FindBy(xpath = "//select[@formcontrolname='IsHideCandidateContact']")
+	public WebElement hideContact;
+	
 	
 	public AddCandidatePage() {
 		

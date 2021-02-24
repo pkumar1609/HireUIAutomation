@@ -255,6 +255,7 @@ public class LoginPage extends baseclass
 				if(userbtnemp.size()>0)
 				{
 					logedinuser= userbtnemp.get(0).getText();
+					Thread.sleep(2000);
 					userbtnemp.get(0).click();
 					b=true;
 					user="employer";
@@ -262,6 +263,7 @@ public class LoginPage extends baseclass
 				if(userbtnagy.size()>0)
 				{
 					logedinuser= userbtnagy.get(0).getText();
+					Thread.sleep(2000);
 					userbtnagy.get(0).click();
 					b=false;
 					user="agency";

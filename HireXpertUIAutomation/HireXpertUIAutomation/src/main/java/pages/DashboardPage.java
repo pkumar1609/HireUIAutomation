@@ -98,11 +98,11 @@ public class DashboardPage extends baseclass {
 		Action.moveToElement(dashboardpage.recruitment).perform();
 		Thread.sleep(5000);
 		applicationTracking.click();
-		boolean b=common.okbtnPopup.size()>0;
-		if(b==true)
-		{
-			common.clickOnOKBtn();
-		}
+//		boolean b=common.okbtnPopup.size()>0;
+//		if(b==true)
+//		{
+//			common.clickOnOKBtn();
+//		}
 		
 	}
  
@@ -117,11 +117,11 @@ public class DashboardPage extends baseclass {
 	{
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",dashboard);
-		try {
-			common.clickOnCloseBtn();
-		}
-		catch(NoSuchElementException e)
-		{}
+//		try {
+//			common.clickOnCloseBtn();
+//		}
+//		catch(NoSuchElementException e)
+//		{}
 	} 
 	
 	public void VerifyUserIsOnCorrectPage() {
@@ -181,58 +181,63 @@ public class DashboardPage extends baseclass {
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].scrollIntoView();", AddTeamButton);
 		clickOnAddButton(profile);
-		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		if(loginpage.b==true) 
 		{
-			Thread.sleep(1000);
-			namefield.clear();
-			namefield.sendKeys(data.get("Name"));
-			namevalidate=data.get("Name");
-			ar.add(namevalidate);
-			emailfield.clear();
-			emailfield.sendKeys(data.get("Email"));
-			contactnumberfield.clear();
-			contactnumberfield.sendKeys(data.get("contact"));
-			select = new Select(countryid);
-			select.selectByVisibleText("India");
-			common.ClickSumbit();
-			if(common.okbtnPopup.size()>0)
+			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 			{
-				common.clickOnOKBtn();
+				Thread.sleep(1000);
+				namefield.clear();
+				namefield.sendKeys(data.get("Name"));
+				namevalidate=data.get("Name");
+				ar.add(namevalidate);
+				emailfield.clear();
+				emailfield.sendKeys(data.get("Email"));
+				contactnumberfield.clear();
+				contactnumberfield.sendKeys(data.get("contact"));
+				select = new Select(countryid);
+				select.selectByVisibleText("India");
+				common.ClickSumbit();
+				if(common.okbtnPopup.size()>0)
+				{
+					common.clickOnOKBtn();
+				}
+				else
+				{
+					clickOnAddButton(profile);
+				}	
 			}
-			else
-			{
-				clickOnAddButton(profile);
-			}	
+			common.clickOnAddClosebtn();
 		}
-		common.clickOnAddClosebtn();
+		else
+		{
+			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+			{
+				Thread.sleep(1000);
+				namefield.clear();
+				namefield.sendKeys(data.get("Nameagy"));
+				namevalidate=data.get("Nameagy");
+				ar.add(namevalidate);
+				emailfield.clear();
+				emailfield.sendKeys(data.get("Emailagy"));
+				contactnumberfield.clear();
+				contactnumberfield.sendKeys(data.get("contactagy"));
+				select = new Select(countryid);
+				select.selectByVisibleText("India");
+				common.ClickSumbit();
+				if(common.okbtnPopup.size()>0)
+				{
+					common.clickOnOKBtn();
+				}
+				else
+				{
+					clickOnAddButton(profile);
+				}	
+			}
+			common.clickOnAddClosebtn();
+		}
 	}
 	
-//	public void searchExistingEmployerAndAgency(DataTable credentials)
-//	{
-//		@SuppressWarnings("unchecked")
-//	
-//		Map<String, String> data =(Map<String, String>) credentials.asMaps(String.class, String.class);
-//		
-//		if(profile.contentEquals("employer"))	
-//		{
-//			explicitwait.until(ExpectedConditions.elementToBeClickable(employerSearchfield));
-//			employerSearchfield.sendKeys(data.get("Name"));
-//			ele=data.get("Name");
-//		}
-//		else if(profile.contentEquals("agency"))
-//		{
-//			explicitwait.until(ExpectedConditions.elementToBeClickable(agencySearch));
-//			agencySearch.sendKeys(data.get("Name"));
-//			ele=data.get("Name");	
-//		}
-//		else if (profile.contentEquals("team"))
-//		{
-//			explicitwait.until(ExpectedConditions.elementToBeClickable(teamMemberSearchField));
-//			teamMemberSearchField.sendKeys(data.get("Name"));
-//			ele=data.get("Name");
-//		}
-//		
-//     }
+ 
 	
 	public void deleteUser(String team) throws InterruptedException
 	{
