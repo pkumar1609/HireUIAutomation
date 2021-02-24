@@ -21,11 +21,9 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	String date;
 	public static String interviewDate;
 	Calendar calendar;
-
 	
 	@When("^observe candidate is getting added in New column$")
-	public void observe_candidate_is_getting_added_in_New_column() throws Throwable {
-	    
+	public void observe_candidate_is_getting_added_in_New_column() throws Throwable {	    
 		System.out.println("Candidate get added in New column");
 	}
 
@@ -45,7 +43,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		
 		calendar = Calendar.getInstance();
 //		calendar.add(Calendar.HOUR_OF_DAY, +1);
-		calendar.add(Calendar.MINUTE, +5);
+		calendar.add(Calendar.MINUTE, +20);
 
 		interviewDate = calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);
 		
@@ -62,26 +60,16 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		se = new Select(scheduleinterviewpage.timezone);
 		se.selectByVisibleText(TimeZone);
 		Thread.sleep(1000);
-//		for(WebElement ele :common.deletebtn)
-//		{
-//			Thread.sleep(1000);
-//			executor.executeScript("arguments[0].click();", ele);
-//		}
-//		if(common.okbtn != null)
-//		{
-//			common.clickOnOKBtn();
-//		}				
-		Thread.sleep(1000);
 		scheduleinterviewpage.interviewerName.get(0).sendKeys(interviewerName);
 		scheduleinterviewpage.interviewerEmail.get(0).sendKeys(interviewerEmail);			
 		common.ClickSumbit();	
 		information = driver.findElements(By.xpath("//span[text()='Information']//following::h6[contains(text(),'"+interviewerName+" has another interview at this time. Please check interviewer calendar to get available slot.')]")).size()>0;
-		System.out.println(information);
 		while(information==true)
 		{
 			common.clickOnOKBtn();
 			scheduleinterviewpage.minutes.clear();
-			calendar.add(Calendar.MINUTE, +2);
+			calendar.add(Calendar.MINUTE, +20);
+//			System.out.println(calendar.add(Calendar.MINUTE, +20));
 			scheduleinterviewpage.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));		
 			common.ClickSumbit();
 		}	
@@ -97,7 +85,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	@Then("^Click on Reload job button$")
 	public void click_on_Reload_job_button() throws Throwable {
 	   Thread.sleep(3000);
-		workbenchpage.ReloadJobButton.click();
+	   workbenchpage.ReloadJobButton.click();
 	}
 	
 	@When("^observe the interview date and time displayed on candidate card below Assign To field \"([^\"]*)\"$")
@@ -126,7 +114,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		executor.executeScript("arguments[0].click();",scheduleinterviewpage.editInterviewIcon);
 //		scheduleinterviewpage.editInterviewIcon.click();
 		scheduleinterviewpage.minutes.clear();
-		calendar.add(Calendar.MINUTE, +1);		
+		calendar.add(Calendar.MINUTE, +20);		
 		scheduleinterviewpage.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));		
 		Select se = new Select(scheduleinterviewpage.duration);
 		se.selectByVisibleText(duration);
@@ -137,7 +125,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		{
 			common.clickOnOKBtn();
 			scheduleinterviewpage.minutes.clear();
-			calendar.add(Calendar.MINUTE, +2);
+			calendar.add(Calendar.MINUTE, +20);
 			scheduleinterviewpage.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));		
 			common.ClickSumbit();
 		}	
