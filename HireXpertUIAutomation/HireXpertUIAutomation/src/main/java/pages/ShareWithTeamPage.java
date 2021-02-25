@@ -315,4 +315,23 @@ public class ShareWithTeamPage extends baseclass {
 			return true;
 		}			
 	}
+	
+	public void shareWithTeam(String team) throws InterruptedException
+	{
+		Thread.sleep(1000); 
+		executor.executeScript("arguments[0].click();",workbenchpage.shareJob );
+//		workbenchpage.shareJob.click();
+		Thread.sleep(1000); 
+		workbenchpage.shareWithTeamButton.click();
+		sharewithteampage.searchField.sendKeys(team);
+		Thread.sleep(2000);
+		sharewithteampage.shareCheckbox.click();
+		common.shareFlag=1;
+		try
+		{
+		common.clickOnConfirmYes();
+		}
+		catch(NoSuchElementException e)
+		{}		
+	}
 }
