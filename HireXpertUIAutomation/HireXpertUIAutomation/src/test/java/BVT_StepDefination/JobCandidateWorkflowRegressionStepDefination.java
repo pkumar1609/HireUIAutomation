@@ -1635,19 +1635,28 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			editcandidatepage.saveButton.click();
 		}
 
-		@Given("^Verify Email \"([^\"]*)\" and contact no \"([^\"]*)\" should display for employer$")
-		public void verify_Email_and_contact_no_should_display_for_employer(String candidateEmail, String contactNumber) throws Throwable {
-		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Email Id ']//following::td[contains(text(),'"+candidateEmail+"')]")).isDisplayed(), true);
-		Assert.assertEquals(driver.findElement(By.xpath("//strong[contains(text(),'Contact No.')]//following::td[contains(text(),'"+contactNumber+"')]")).isDisplayed(), true);
-		}
-
-		@Given("^Verify Email \"([^\"]*)\" and contact no \"([^\"]*)\" should display for employer on edit candidate page$")
-		public void verify_Email_and_contact_no_should_display_for_employer_on_edit_candidate_page(String candidateEmail, String contactNumber) throws Throwable {
-			Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"), candidateEmail);
-			Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), contactNumber);
+//		@Given("^Verify Email \"([^\"]*)\" and contact no \"([^\"]*)\" should display for employer$")
+//		public void verify_Email_and_contact_no_should_display_for_employer(String candidateEmail, String contactNumber) throws Throwable {
+//		Assert.assertEquals(driver.findElement(By.xpath("//strong[text()='Email Id ']//following::td[contains(text(),'"+candidateEmail+"')]")).isDisplayed(), true);
+//		Assert.assertEquals(driver.findElement(By.xpath("//strong[contains(text(),'Contact No.')]//following::td[contains(text(),'"+contactNumber+"')]")).isDisplayed(), true);
+//		}
+//
+//		@Given("^Verify Email \"([^\"]*)\" and contact no \"([^\"]*)\" should display for employer on edit candidate page$")
+//		public void verify_Email_and_contact_no_should_display_for_employer_on_edit_candidate_page(String candidateEmail, String contactNumber) throws Throwable {
+//			Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"), candidateEmail);
+//			Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), contactNumber);		
+//		}
 		
+		@When("^Share job with agency/team \"([^\"]*)\"$")
+		public void share_job_with_agency_team(String Sharewith) throws Throwable {
+		    if(loginpage.b==true)
+		    {
+		    	sharewithagencypage.shareWithAgency(Sharewith);
+		    }
+		    else
+		    {
+		    	sharewithteampage.shareWithTeam(Sharewith);
+		    }
 		}
-		
-
 	}
 	
