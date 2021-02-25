@@ -25,7 +25,7 @@ public class EditCandidatePage extends baseclass {
 	@FindBy(id = "ContactNumber")
 	public WebElement contactNumber;
 	
-	@FindBy(xpath = "//div[@class='modal-footer']//button[@class='btn btn-primary Cbtn-primary']")
+	@FindBy(xpath = "(//button[text()='Save'])[2]")
 	public WebElement saveButton;
 	
 	@FindBy(id = "NoticePeriod")
