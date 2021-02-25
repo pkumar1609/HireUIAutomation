@@ -103,7 +103,7 @@ public class Commonfunction extends baseclass {
 	{ 
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].scrollIntoView();", closebtn);
-		Thread.sleep(8000);
+		Thread.sleep(2000);
 //		closebtn.click();
 		executor.executeScript("arguments[0].click();", closebtn);
 
@@ -117,7 +117,9 @@ public class Commonfunction extends baseclass {
 	public void clickOnConfirmYes() throws InterruptedException
 	{
 		Thread.sleep(4000);
-		confimYes.click();
+		executor.executeScript("arguments[0].click();",confimYes);
+
+//		confimYes.click();
 	}
 	
 	public void clickOnOKBtn() throws InterruptedException
