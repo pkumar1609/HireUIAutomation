@@ -1658,5 +1658,10 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		    	sharewithteampage.shareWithTeam(Sharewith);
 		    }
 		}
+		
+		@Given("^Give Can see All candidates permission \"([^\"]*)\"$")
+		public void give_Can_see_All_candidates_permission(String Teamid) throws Throwable {
+			sharewithteampage.canSeeAllCandidate(Teamid);
+		}
 	}
 	
