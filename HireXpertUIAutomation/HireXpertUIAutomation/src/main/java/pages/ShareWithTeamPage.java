@@ -321,7 +321,7 @@ public class ShareWithTeamPage extends baseclass {
 		Thread.sleep(1000); 
 		executor.executeScript("arguments[0].click();",workbenchpage.shareJob );
 //		workbenchpage.shareJob.click();
-		Thread.sleep(1000); 
+		Thread.sleep(2000); 
 		workbenchpage.shareWithTeamButton.click();
 		sharewithteampage.searchField.sendKeys(team);
 		Thread.sleep(2000);
