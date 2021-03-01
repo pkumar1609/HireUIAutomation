@@ -53,7 +53,7 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath="//button[contains(text(),'Add Questionary')]")   
 	public WebElement AddQuestionarybtn;
 	
-	@FindBy(xpath="//button[@title='Collect Answer']")
+	@FindBy(xpath="//i[@class='fa fa-question-circle']")
 	public WebElement candidateCardCollectAnswericon;
 	
 	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-job-question-answer/div[3]/button[2]")

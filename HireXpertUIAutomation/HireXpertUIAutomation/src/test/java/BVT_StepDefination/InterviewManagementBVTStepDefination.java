@@ -168,7 +168,6 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	public void now_click_on_Schedule_interview_icon_on_candiadte_card() throws Throwable {
 		Thread.sleep(1000);
 		executor.executeScript("arguments[0].click();", candidatecardsectionpage.scheduleInterview);
-
 	}
 
 	@Then("^click on Interviews tab$")

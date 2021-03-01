@@ -103,6 +103,15 @@ public class CandidateCardSectionPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Schedule Interview']")
 	public WebElement scheduleInterview;
 	
+	@FindBy(xpath = "(//i[@class='fa fa-file-text-o'])[3]")
+	public WebElement auditLog;
+	
+	@FindBy(xpath = "//button[@title='Pass']")
+	public WebElement passIcon;
+	
+	@FindBy(xpath = "//button[@title='Fail']")
+	public WebElement failIcon;
+	
 	Actions action;
 	Select se;
 	public String newComment;

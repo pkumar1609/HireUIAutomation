@@ -194,6 +194,19 @@ public class AddCandidatePage extends baseclass {
 			common.clickOnOKBtn();
 			Thread.sleep(2000);
 			nameOfCan=name.getAttribute("value");
+			Thread.sleep(2000);
+			if(city.getAttribute("value").isEmpty())
+			{
+			city.sendKeys(City);
+			}		
+			if(cityArea.getAttribute("value").isEmpty())
+			{
+			cityArea.sendKeys(CityArea);
+			}
+			if(zipCode.getAttribute("value").equals(""))
+			{
+			zipCode.sendKeys(ZipCode);
+			}			
 			salaryOffered.sendKeys(Salaryoffered);
 //			this.distance.sendKeys(distance);
 			se = new Select (isPermanentAddress);
@@ -202,7 +215,6 @@ public class AddCandidatePage extends baseclass {
 			se.selectByVisibleText(relocate);
 			this.expectedCTC.clear();
 			this.expectedCTC.sendKeys(expectedCTC);
-			Thread.sleep(2000);
 		}	
 		else
 		{
@@ -214,7 +226,7 @@ public class AddCandidatePage extends baseclass {
 			contactNumber.sendKeys(ContactNumber);
 			designation.get(0).sendKeys(Designation);
 			Thread.sleep(2000);
-			date.sendKeys(Date);
+			
 			Thread.sleep(2000);
 			se = new Select (gender);
 			se.selectByVisibleText(Gender); 
@@ -224,10 +236,7 @@ public class AddCandidatePage extends baseclass {
 			{
 				executor.executeScript("arguments[0].click()", addcandidatepage.calenderIcon.get(2));
 				common.enterdate(LastWorkingDay);
-				
-//				this.lastWorkingDay.clear();
-//				this.lastWorkingDay.sendKeys(LastWorkingDay);
-//				this.datebelowField = driver.findElement(By.xpath("(//div[@class='text-info'])[2]")).getText();
+				date.sendKeys(Date);
 			}	
 			else
 			{
@@ -244,7 +253,10 @@ public class AddCandidatePage extends baseclass {
 		  	salaryOffered.sendKeys(Salaryoffered);
 			Assert.assertEquals(city.getAttribute("value"), City);
 			cityArea.sendKeys(CityArea);
+			if(zipCode.getAttribute("value").isEmpty())
+			{
 			zipCode.sendKeys(ZipCode);
+			}
 			se = new Select (communicationMode);
 		  	se.selectByVisibleText(Communicationmode);
 			Assert.assertEquals(communicationMode.getAttribute("value"), Communicationmode);

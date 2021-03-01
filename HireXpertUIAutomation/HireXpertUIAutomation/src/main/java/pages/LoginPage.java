@@ -155,12 +155,10 @@ public class LoginPage extends baseclass
 		password.sendKeys(Password);
 		Thread.sleep(4000);
 		signin.click();
-		try
-		{
-			common.clickOnOKBtn();
-		}
-		catch(NoSuchElementException e)
-		{}
+//		if(common.okbtnPopup.size()>0)
+//		{
+//			common.clickOnOKBtn();
+//		}
 		identifyUserK();
 		
 	}
@@ -276,21 +274,6 @@ public class LoginPage extends baseclass
 					userbtnCandidate.get(0).click();
 					user="candidate";	
 				}
-					
-					
-					
-//					Thread.sleep(2000);
-//					userbtnemp.isDisplayed();	
-//					Thread.sleep(2000);
-//
-//				}
-//				catch(NoSuchElementException e)
-//				{
-//					b=false;
-//					logedinuser= userbtnagy.getText();
-//					Thread.sleep(2000);
-//					userbtnagy.click();	
-//				}
-//
+
 	}
 }

@@ -1663,5 +1663,55 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		public void give_Can_see_All_candidates_permission(String Teamid) throws Throwable {
 			sharewithteampage.canSeeAllCandidate(Teamid);
 		}
+		
+		@When("^candidate card should display in screened column$")
+		public void candidate_card_should_display_in_screened_column() throws Throwable {
+		   explicitwait.until(ExpectedConditions.visibilityOf(candidatecardsectionpage.candidateCard));
+		   Assert.assertEquals(driver.findElement(By.xpath("//th[contains(text(),' Screened ')]//span[text()='1']")).isDisplayed(), true);
+		}
+
+		@When("^Select the same question and edit the question and answers \"([^\"]*)\" \"([^\"]*)\"$")
+		public void select_the_same_question_and_edit_the_question_and_answers(String oldQuestion, String newQuestion) throws Throwable {
+		   Thread.sleep(2000);
+		   driver.findElement(By.xpath("//td[contains(text(),'"+oldQuestion+"')]//following::i[@ngbtooltip='Edit']")).click();
+		   addquestionarypage.EditQuestionT(newQuestion);
+		   explicitwait.until(ExpectedConditions.elementToBeClickable(addquestionarypage.SaveChangesBtn));
+		   addquestionarypage.SaveChangesBtn.click();
+		   
+		}
+
+		@When("^Verify both old and new question should display in sections \"([^\"]*)\" \"([^\"]*)\"$")
+		public void verify_both_old_and_new_question_should_display_in_sections(String oldQuestion, String newQuestion) throws Throwable {
+		   Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'Job Questions')]//following::strong[contains(text(),'1 : "+oldQuestion+"')]")).isDisplayed(), true);
+		   Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'Revised Job Questions')]//following::strong[contains(text(),'1 : "+newQuestion+"')]")).isDisplayed(), true);
+
+		}
+		
+		@When("^In Revised job question section \\(New question \\) Give answer \"([^\"]*)\" \"([^\"]*)\"$")
+		public void in_Revised_job_question_section_New_question_Give_answer(String question, String answer) throws Throwable {
+			 addquestionarypage.answerthequestion(question, answer);
+		}
+		
+		@When("^Verify the result should be correct$")
+		public void verify_the_result_should_be_correct() throws Throwable {
+		  Assert.assertEquals(candidatecardsectionpage.passIcon.isDisplayed(), true);
+		}
+		
+//		jobcan4
+		
+		@When("^Upload the resume and click on find button$")
+		public void upload_the_resume_and_click_on_find_button() throws Throwable {
+			addcandidatepage.uploadResumeDocument();
+			addcandidatepage.clickonFindbtn();
+		}
+
+		@When("^Enter all required details of candidate \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
+		public void enter_all_required_details_of_candidate_and(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate,String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2,String remark3,String certificateforskill1, String certificateforskill2) throws Throwable {
+			addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail,Name,ContactNumber,Designation,Date,Gender,OnNoticePeriod,NoticePeriod,LastWorkingDay,experience,CTC,expectedCTC,Country,City,CityArea,ZipCode,Communicationmode,Salaryoffered,distance,permanentAddress,relocate);
+			addcandidatepage.addSkill(level1, level2, level3,certificate1, certificate2,certificate3,certificateforskill1, certificateforskill2);
+			common.clickOnSaveBtn(); 
+			addcandidatepage.checkCandidateALreadyPresent();
+		}
+
 	}
 	

@@ -3,7 +3,7 @@ Feature: Job Candidate Workflow feature
 @cleanup
 Scenario Outline: cleanup
 
-Given User must be registered
+Given User must be registere
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
@@ -125,7 +125,7 @@ And Add question and click on save changes button "<QUESTION1>" "<QMARKS1>" "<AN
 And Enter the cutoff & rejection percentage "<cuttoffpercentage>" "<rejectionpercentage>"
 And click on submit
 And Click on  Collect Answers icon on candidate card.
-And Fill all the Questions answers "<ANSWER1>"
+And Fill all the Questions answers "<QUESTION1>" "<ANSWER1>"
 And click on submit
 And Click on screening tab
 Then verify the status of candidate 
@@ -622,7 +622,7 @@ And Click on add candidate
 And Enter All details except skills "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>"
 And enter as expertise level as "Not Answered"
 And Click on Save Button
-Then The candidate whose skill expert level is set as Not answer for that candidate card there should show bell icon
+Then The candidate whose skill expert level is set as Not for that candidate card there should show bell icon
 And Click on Edit Candidate icon on candidate card "<Name>"
 And select different expertise level for the skill which is having expert level as not answer "<level1>" "<level2>" "<level2>"
 And Click on save button for edit candidate
