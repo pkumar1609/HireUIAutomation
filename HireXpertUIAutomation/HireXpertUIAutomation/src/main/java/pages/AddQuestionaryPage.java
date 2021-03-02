@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import utilPackage.baseclass;
 
@@ -59,10 +60,10 @@ public class AddQuestionaryPage extends baseclass {
 	@FindBy(xpath="//button[contains(text(),'Submit')]")
 	public WebElement SubmitBtn;
 	
-	@FindBy(xpath="//*[@id=\"ng-invalidDiv\"]/tr/td[4]/button[1]")
+	@FindBy(xpath="//i[@ngbtooltip='Edit']")
 	public WebElement questionaryEditIcon;
 	
-	@FindBy(xpath="//*[@id=\"ng-invalidDiv\"]/tr/td[4]/button[2]/i")
+	@FindBy(xpath="//button[@ngbtooltip='Delete']")
 	public WebElement questionaryDeleteIcon;
 	
 	@FindBy(xpath="//button[contains(text(),'Delete Questionnaire')]")
@@ -185,11 +186,12 @@ public class AddQuestionaryPage extends baseclass {
 		AddQuestiontextbox.sendKeys(question); 
 	}
 	
-	public void answerthequestion() {
+	public void answerthequestion(String question, String answer) {
 		
-		driver.findElement(By.xpath("/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-job-question-answer[1]/div[2]/div[1]/div[1]/label[2]/span[2]")).click();
-			
-		}
+		WebElement element = driver.findElement(By.xpath("(//strong[contains(text(),'"+question+"')]//following::span[contains(text(),'"+answer+"')]//following::span)[1]"));
+		explicitwait.until(ExpectedConditions.visibilityOf(element));
+		executor.executeScript("arguments[0].click();", element);
+	}
 
     public void verifypassfailicon() {
 		
@@ -216,8 +218,8 @@ public class AddQuestionaryPage extends baseclass {
 		}
 	
 	
-	public void clickOnSaveChangesButton() {
-		
+	public void clickOnSaveChangesButton() throws InterruptedException {
+		Thread.sleep(3000);
 		SaveChangesBtn.click();
 	}
 	
