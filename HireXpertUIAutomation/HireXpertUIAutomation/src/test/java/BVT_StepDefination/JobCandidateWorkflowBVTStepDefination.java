@@ -322,17 +322,20 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	@When("^Click on edit button of question to edit the following question \"([^\"]*)\" and save the changes by clicking on Save Changes button$")
 	public void click_on_edit_button_of_question_to_edit_the_following_question_and_save_the_changes_by_clicking_on_Save_Changes_button(String question) throws InterruptedException  {
 	   
-        Thread.sleep(3000);
-        addquestionarypage.questionaryEditIcon.click();
+       explicitwait.until(ExpectedConditions.elementToBeClickable(addquestionarypage.questionaryEditIcon));
+       executor.executeScript("arguments[0].click();", addquestionarypage.questionaryEditIcon); 
+//       addquestionarypage.questionaryEditIcon.click();
         addquestionarypage.EditQuestionT(question);
-        addquestionarypage.SaveChangesBtn.click();
+        executor.executeScript("arguments[0].click();", addquestionarypage.SaveChangesBtn);
+//        addquestionarypage.SaveChangesBtn.click();
 	}
 
 	@When("^click on submit$")
 	public void click_on_submit() throws Throwable {
 	    
 		Thread.sleep(3000);
-		addquestionarypage.SubmitBtn.click();
+//		addquestionarypage.SubmitBtn.click();
+		executor.executeScript("arguments[0].click();", addquestionarypage.SubmitBtn);
 	}
 	
 	@When("^Enter first question \"([^\"]*)\" and marks \"([^\"]*)\"$")
@@ -424,13 +427,13 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		
 	}
 
-	@Then("^answer the question by selecting the provided options$")
-	public void answer_the_question_by_selecting_the_provided_options() throws Throwable {
-
-		Thread.sleep(4200);
-		addquestionarypage.answerthequestion();
-		common.ClickSumbit();
-	}
+//	@Then("^answer the question by selecting the provided options$")
+//	public void answer_the_question_by_selecting_the_provided_options() throws Throwable {
+//
+//		Thread.sleep(4200);
+//		addquestionarypage.answerthequestion();
+//		common.ClickSumbit();
+//	}
 
 	@Then("^verify if the answer is correct it should display pass icon on candidate card or it should display fail icon if the asnswer is wrong with the candidate card in screened column$")
 	public void verify_if_the_answer_is_correct_it_should_display_pass_icon_on_candidate_card_or_it_should_display_fail_icon_if_the_asnswer_is_wrong_with_the_candidate_card_in_screened_column() throws Throwable {
@@ -508,14 +511,11 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		workbenchpage.candidateCardCollectAnswericon.click();
 	}
 
-	
-	@When("^Fill all the Questions answers \"([^\"]*)\"$")
-	public void fill_all_the_Questions_answers(String answer) throws Throwable {
-
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//span[text()='"+answer+"']//following::span")).click();
+	@When("^Fill all the Questions answers \"([^\"]*)\" \"([^\"]*)\"$")
+	public void fill_all_the_Questions_answers(String question, String answer) throws Throwable {
+		addquestionarypage.answerthequestion(question, answer);
 	}
-
+	
 	@When("^Click on screening tab$")
 	public void click_on_screening_tab() throws Throwable {
 
