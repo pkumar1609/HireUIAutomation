@@ -170,7 +170,7 @@ public class WorkbenchPage extends baseclass {
 	}
 	
 	public void selectJobK() throws InterruptedException {
-		Thread.sleep(4000);		
+		Thread.sleep(5000);	
 		if(driver.findElements(By.xpath("//span[@title='Clear all']")).size()>0)
 		{
 		Action.moveToElement(driver.findElement(By.xpath("(//span[text()='×'])[1]"))).click().perform();

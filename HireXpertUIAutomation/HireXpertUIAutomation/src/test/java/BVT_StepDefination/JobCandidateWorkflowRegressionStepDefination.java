@@ -1714,6 +1714,5 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			common.clickOnSaveBtn(); 
 			addcandidatepage.checkCandidateALreadyPresent();
 		}
-
 	}
 	
