@@ -257,16 +257,19 @@ public class AddCandidatePage extends baseclass {
 			{
 			zipCode.sendKeys(ZipCode);
 			}
-			se = new Select (communicationMode);
-		  	se.selectByVisibleText(Communicationmode);
-			Assert.assertEquals(communicationMode.getAttribute("value"), Communicationmode);
-//			this.distance.sendKeys(distance);
-			se = new Select (isPermanentAddress);
-			se.selectByVisibleText(permanentAddress);
-			se = new Select (isReadyToRelocateToJobLocation);
-			se.selectByVisibleText(relocate);
+			probabilityFields(Communicationmode, Salaryoffered, permanentAddress, relocate);
 		}
 
+	}
+	
+	public void probabilityFields(String Communicationmode,String Salaryoffered,String permanentAddress, String relocate) {		
+		se = new Select (communicationMode);
+	  	se.selectByVisibleText(Communicationmode);
+		Assert.assertEquals(communicationMode.getAttribute("value"), Communicationmode);
+		se = new Select (isPermanentAddress);
+		se.selectByVisibleText(permanentAddress);
+		se = new Select (isReadyToRelocateToJobLocation);
+		se.selectByVisibleText(relocate);
 	}
 	
 	public void enterLastWorkingDay(String LastWorkingDay) {
@@ -274,6 +277,60 @@ public class AddCandidatePage extends baseclass {
 		lastWorkingDay.sendKeys(LastWorkingDay);
 	}
 	
+	public void candidateMandatoryDetails(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException {
+		
+		if(addcandidatepage.emailField.getAttribute("value").isEmpty())
+		{
+			addcandidatepage.emailField.sendKeys(CandidateEmail);
+		}
+		if(addcandidatepage.contactNumber.getAttribute("value").isEmpty())
+		{
+			addcandidatepage.contactNumber.sendKeys(ContactNumber);
+		}		
+		if(addcandidatepage.noticePeriod.getAttribute("value").isEmpty())
+		{
+			if(OnNoticePeriod.contentEquals("Yes"))
+			{
+				executor.executeScript("arguments[0].click()", addcandidatepage.calenderIcon.get(2));
+				common.enterdate(LastWorkingDay);
+				addcandidatepage.date.sendKeys(Date);
+			}	
+			else
+			{
+				addcandidatepage.noticePeriod.sendKeys(NoticePeriod);
+			}
+		}
+		if(experienceInYears.getAttribute("value").isEmpty())
+		{
+			experienceInYears.sendKeys(experience);
+		}
+		if(ctc.getAttribute("value").isEmpty())
+		{
+			ctc.sendKeys(CTC);
+		}
+		if(this.expectedCTC.getAttribute("value").isEmpty())
+		{
+			this.expectedCTC.sendKeys(expectedCTC);
+		}
+		se = new Select (countryId);
+		if(se.getFirstSelectedOption().getText().isEmpty())
+		{
+			se.selectByVisibleText(Country);
+		}
+		if(this.city.getAttribute("value").isEmpty())
+		{
+			this.city.sendKeys(City);
+		}
+		if(this.cityArea.getAttribute("value").isEmpty())
+		{
+			this.cityArea.sendKeys(CityArea);
+		}		
+		if(zipCode.getAttribute("value").isEmpty())
+		{
+		zipCode.sendKeys(ZipCode);
+		}
+		probabilityFields(Communicationmode, Salaryoffered, permanentAddress, relocate);
+	}
 	
 	public void addSkill(String level1, String level2, String level3, String certificate1, String certificate2, String certificate3,String certificateforskill1, String certificateforskill2) throws InterruptedException
 	{
