@@ -1212,8 +1212,14 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 //
 		@Then("^when user set expertise level other than Not answer in edit candidate at that time bell icon should removed from candidate card$")
 		public void when_user_set_expertise_level_other_than_Not_answer_in_edit_candidate_at_that_time_bell_icon_should_removed_from_candidate_card() throws Throwable {		    
-			List<WebElement> bellicon = driver.findElements(By.xpath("//span[@title='Skill information is missing']"));
-			Assert.assertEquals(bellicon.size()>0, false);
+			boolean bellicon = driver.findElements(By.xpath("//span[@title='Skill information is missing']")).size()>0;
+			Assert.assertEquals(bellicon, false);
+		}
+		
+		@Then("^The candidate whose skill expert level is set as Not for that candidate card there should show bell icon$")
+		public void the_candidate_whose_skill_expert_level_is_set_as_Not_for_that_candidate_card_there_should_show_bell_icon() throws Throwable {
+			boolean bellicon = driver.findElement(By.xpath("//span[@title='Skill information is missing']")).isDisplayed();
+			Assert.assertEquals(bellicon, true);
 		}
 //
 //		@When("^click on save button$")
