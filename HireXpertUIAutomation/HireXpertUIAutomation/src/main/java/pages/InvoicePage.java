@@ -46,7 +46,7 @@ public class InvoicePage extends baseclass{
 		this.amount.sendKeys(data.get("amount"));
 		this.Tax.sendKeys(data.get("tax"));
 		this.description.sendKeys(data.get("description"));
-		this.invoiceAttachment.sendKeys(data.get("attachment"));
+		this.invoiceAttachment.sendKeys("C:\\Selenium\\Vimala_S__Bengaluru___Bangalore_7.06_yrs (2).pdf");
 		Thread.sleep(2000);
 		common.submitbtn.click();
 		}		
