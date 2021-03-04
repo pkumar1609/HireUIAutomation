@@ -8,7 +8,7 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials
-And Click on add Button Fill all the mandatory details for "agency"
+And Click on add Button Fill all the mandatory details for "Recruitment Agencies"
 |Name  |         Email     | contact  |
 |pagy  | pagy@gmail.com    | 1234564  |
 |pagy1 | pagy1@gmail.com   | 1234564  |
@@ -42,7 +42,7 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And agency enters valid credentials
-And Click on add Button Fill all the mandatory details for "employer"
+And Click on add Button Fill all the mandatory details for "Employers"
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
@@ -60,7 +60,7 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And agency enters valid credentials
-And Click on add Button Fill all the mandatory details for "employer"
+And Click on add Button Fill all the mandatory details for "Employers"
 |Name   |         Email     | contact     |
 |pa1    | pa1@gmail.com     | 1234564     |
 |pa2    | pa2@gmail.com     | 1234564     |
@@ -79,7 +79,7 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials
-And Click on add Button Fill all the mandatory details for "agency"
+And Click on add Button Fill all the mandatory details for "Recruitment Agencies"
 |Name  |      Email    | contact    |
 |pagy  |pagy@gmail.com | 1234564    |
 |pagy1 |pagy1@gmail.com| 1234564    |
@@ -105,7 +105,7 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And agency enters valid credentials
-And Click on add Button Fill all the mandatory details for "employer"
+And Click on add Button Fill all the mandatory details for "Employers"
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |

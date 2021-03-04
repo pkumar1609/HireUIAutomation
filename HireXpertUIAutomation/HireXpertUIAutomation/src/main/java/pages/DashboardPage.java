@@ -181,7 +181,7 @@ public class DashboardPage extends baseclass {
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].scrollIntoView();", AddTeamButton);
 		clickOnAddButton(profile);
-		if(loginpage.b==true) 
+		if(loginpage.b==true)
 		{
 			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 			{

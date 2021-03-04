@@ -92,7 +92,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	public void observe_the_interview_date_and_time_displayed_on_candidate_card_below_Assign_To_field(String Schedule) throws Throwable {
 		
 		Thread.sleep(8000);
-		String date=Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);	
+		String date=calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);	
 		Assert.assertEquals(driver.findElement(By.xpath("//span[contains(text(),' hirecan15')]//following::p[text()=' "+date+", "+calendar.getTime().getHours()+" : "+calendar.getTime().getMinutes()+"']")).isDisplayed(), true);
 		}
 	
@@ -201,7 +201,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	@Then("^Interview details should be reflect according to the filter applied \"([^\"]*)\" \"([^\"]*)\"$")
 	public void interview_details_should_be_reflect_according_to_the_filter_applied(String scheduleOn, String Name) throws Throwable {
 		Thread.sleep(2000);
-		String date=Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);	
+		String date=calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);	
 		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),' hirecan15')]//following::p[text()=' "+date+", "+calendar.getTime().getHours()+" : "+calendar.getTime().getMinutes()+"']")).isDisplayed(), true);
 	}
 	

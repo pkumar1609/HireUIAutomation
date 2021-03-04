@@ -8,6 +8,7 @@ import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import cucumber.api.DataTable;
 import cucumber.api.java.Before;
@@ -75,7 +76,33 @@ public class loginstepdefination extends baseclass {
 
 	@When("^Click on add Button Fill all the mandatory details for \"([^\"]*)\"$")
 	public void click_on_add_Button_Fill_all_the_mandatory_details_for(String profile, DataTable credentials) throws Throwable {
-		dashboardpage.enterAllDetails(profile, credentials);
+		executor.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//button[@title='"+profile+"']")));
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//button[@title='"+profile+"']")).click();
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+		Thread.sleep(1000);
+		dashboardpage.namefield.clear();
+		dashboardpage.namefield.sendKeys(data.get("Name"));
+		dashboardpage.namevalidate=data.get("Name");
+		ar.add(dashboardpage.namevalidate);
+		dashboardpage.emailfield.clear();
+		dashboardpage.emailfield.sendKeys(data.get("Email"));
+		dashboardpage.contactnumberfield.clear();
+		dashboardpage.contactnumberfield.sendKeys(data.get("contact"));
+//		select = new Select(countryid);
+//		select.selectByVisibleText("India");
+		common.ClickSumbit();
+		if(common.okbtnPopup.size()>0)
+		{
+			common.clickOnOKBtn();
+		}
+		else
+		{
+			dashboardpage.clickOnAddButton(profile);
+		}	
+	}
+	common.clickOnAddClosebtn();
 	}
 	
 	@Then("^Employer should be able to add Agency$")
