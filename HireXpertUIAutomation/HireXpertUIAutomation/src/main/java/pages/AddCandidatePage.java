@@ -234,7 +234,7 @@ public class AddCandidatePage extends baseclass {
 			se.selectByVisibleText(OnNoticePeriod);
 			if(OnNoticePeriod.contentEquals("Yes"))
 			{
-				executor.executeScript("arguments[0].click()", addcandidatepage.calenderIcon.get(2));
+				executor.executeScript("arguments[0].click()", addcandidatepage.calenderIcon.get(0));
 				common.enterdate(LastWorkingDay);
 				date.sendKeys(Date);
 			}	
