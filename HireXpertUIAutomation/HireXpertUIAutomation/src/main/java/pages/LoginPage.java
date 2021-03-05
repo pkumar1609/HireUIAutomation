@@ -141,12 +141,12 @@ public class LoginPage extends baseclass
 		password.sendKeys("12345");
 		Thread.sleep(2000);
 		signin.click();
-		try
-		{
-			common.clickOnOKBtn();
-		}
-		catch(NoSuchElementException e)
-		{}
+//		try
+//		{
+//			common.clickOnOKBtn();
+//		}
+//		catch(NoSuchElementException e)
+//		{}
 	}
     
     public void loginIn(String Username, String Password) throws InterruptedException {
@@ -155,10 +155,10 @@ public class LoginPage extends baseclass
 		password.sendKeys(Password);
 		Thread.sleep(4000);
 		signin.click();
-		if(common.okbtnPopup.size()>0)
-		{
-			common.clickOnOKBtn();
-		}
+//		if(common.okbtnPopup.size()>0)
+//		{
+//			common.clickOnOKBtn();
+//		}
 		identifyUserK();
 		
 	}
@@ -178,12 +178,12 @@ public class LoginPage extends baseclass
 		password.sendKeys("12345");
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",signin);
-		try
-		{
-			common.clickOnOKBtn();
-		}
-		catch(NoSuchElementException e)
-		{}
+//		try
+//		{
+//			common.clickOnOKBtn();
+//		}
+//		catch(NoSuchElementException e)
+//		{}
 //		common.clickOnCloseBtn();
 		identifyUserK();
 		
@@ -194,12 +194,12 @@ public class LoginPage extends baseclass
 		password.sendKeys("12345");
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",signin);
-		try
-		{
-		common.clickOnOKBtn();
-		}
-		catch(NoSuchElementException e)
-		{}
+//		try
+//		{
+//		common.clickOnOKBtn();
+//		}
+//		catch(NoSuchElementException e)
+//		{}
 		identifyUserK();
 	}
 	
@@ -210,10 +210,10 @@ public class LoginPage extends baseclass
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",signin);
 		identifyUserK();
-		if(dashboardpage.jobPopup != null)
-		{
-			common.clickOnOKBtn();
-		}
+//		if(dashboardpage.jobPopup != null)
+//		{
+//			common.clickOnOKBtn();
+//		}
 	}
 	 
 
