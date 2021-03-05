@@ -12,6 +12,7 @@ Feature: Job Workflow
     |Name  |Email           | contact  |
 	|pagy  |pagy@gmail.com  | 1234564  |
     And Go to workbench
+    And Click on add job button
    	And Add job
 	|title		 |agytitle          |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
 	|Developer   |Agynew Developer  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
@@ -52,6 +53,7 @@ Feature: Job Workflow
 	|pe1 | pe1@gmail.com   | 1234564  | pa1      | pa1@gmail.com   |1234556      |
 	|pe2 | pe2@gmail.com   | 1234564  | pa2      | pa2@gmail.com   |1234566      |   
 	And Go to workbench
+	And Click on add job button
 	And Add job
 	|title		     |agytitle          |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
 	|New Developer   |New8agyjob        |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
@@ -87,6 +89,7 @@ Feature: Job Workflow
     |Name  |Email             | contact  |
 	|pagy  |pagy@gmail.com    | 1234564  |
     And Go to workbench
+    And Click on add job button
 	And Add job
 	|title	        |designation  |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
 	|Jobworkflow5   |developer    |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			     |Hirexpert   |rahitech       |java|
@@ -122,6 +125,7 @@ Feature: Job Workflow
 	|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
 	|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  | 
    	And Go to workbench
+   	And Click on add job button
 	And Add job
 	|title          |agytitle        |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
 	|Jobworkflow6   |Jobworkflow6agy |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |	java|
@@ -156,6 +160,7 @@ Feature: Job Workflow
     And Click on Employer-Agency Signin link
     And enter valid "<email address>" and "<password>" for registered employer and click on Sign in button
     And Go to workbench
+    And Click on add job button
 	And Add job
 	|title		    |agytitle       |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|Employer|functionalArea|
 	|Primary12      |Primaryagy123 Job |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			    |Hirexpert   |rahitech       |pemp    |java|

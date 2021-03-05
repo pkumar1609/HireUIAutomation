@@ -321,9 +321,9 @@ public void addNewSkill3() {
 	public void addjob(DataTable credentials) throws InterruptedException
 	{ 		
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{		
-			currentTime = LocalDateTime.now();
-			workbenchpage.AddJob();
+		{	
+			
+			currentTime = LocalDateTime.now();			
 			if(loginpage.b==true)
 			{
 				jobname=dtFormate.format(currentTime)+" Emp";

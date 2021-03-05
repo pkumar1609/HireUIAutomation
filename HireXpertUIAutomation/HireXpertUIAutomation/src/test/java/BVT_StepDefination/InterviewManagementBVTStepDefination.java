@@ -22,6 +22,11 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	public static String interviewDate;
 	Calendar calendar;
 	
+	@When("^Click on add job button$")
+	public void click_on_add_job_button() throws Throwable {
+	    workbenchpage.AddJob();
+	}
+	
 	@When("^observe candidate is getting added in New column$")
 	public void observe_candidate_is_getting_added_in_New_column() throws Throwable {	    
 		System.out.println("Candidate get added in New column");

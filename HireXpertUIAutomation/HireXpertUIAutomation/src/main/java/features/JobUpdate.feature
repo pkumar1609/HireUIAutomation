@@ -7,6 +7,7 @@ Feature: Job Update
 	And Click on Employer-Agency Signin link
 	And Employer enters valid credentials
 	And Go to workbench
+	And Click on add job button
 	And Add job
 	|title		  |agytitle		   |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
 	|Ux Developer |Uxagy Developer |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			    |Hirexpert   |rahitech       |java|
