@@ -155,10 +155,10 @@ public class LoginPage extends baseclass
 		password.sendKeys(Password);
 		Thread.sleep(4000);
 		signin.click();
-//		if(common.okbtnPopup.size()>0)
-//		{
-//			common.clickOnOKBtn();
-//		}
+		if(common.okbtnPopup.size()>0)
+		{
+			common.clickOnOKBtn();
+		}
 		identifyUserK();
 		
 	}
