@@ -31,6 +31,7 @@ import pages.DashboardPage;
 import pages.EditCandidatePage;
 import pages.EditJobPage;
 import pages.ForgetPasswordPage;
+import pages.HireExpressPage;
 import pages.HomePage;
 import pages.InterviewsPage;
 import pages.InvoicePage;
@@ -94,6 +95,7 @@ public class baseclass extends SuperBase{
 	public static DateTimeFormatter dtFormate;  
 	public static LocalDateTime currentTime; 
 	public static DesiredCapabilities caps;
+	public static HireExpressPage hirexpresspage;
 
 	public baseclass() { 
 		
@@ -161,5 +163,6 @@ public class baseclass extends SuperBase{
 		invoicepage= new InvoicePage();
 		dtFormate = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 		currentTime = LocalDateTime.now();
+		hirexpresspage=new HireExpressPage();
 	}
 }
