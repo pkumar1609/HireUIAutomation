@@ -385,8 +385,11 @@ public void addNewSkill3() {
 			minsal.sendKeys(data.get("minsal"));
 			maxsal.sendKeys(data.get("maxsal"));
 			minexp.sendKeys(data.get("minexp"));
-			maxexp.sendKeys(data.get("maxexp"));
-//			city.sendKeys("Pune");
+			maxexp.sendKeys(data.get("maxexp"));			
+			if(loginpage.b==false && city.getAttribute("value").isEmpty())
+			{
+				city.sendKeys("Pune");				
+			}
 			cityArea.sendKeys(data.get("location"));
 			Thread.sleep(1000);
 			se=new Select(totalinterviews);
