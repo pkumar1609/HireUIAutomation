@@ -1,6 +1,9 @@
 
 package BVT_StepDefination;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
@@ -13,15 +16,16 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.scheduleInterview;
 import utilPackage.baseclass;
 
 public class InterviewManagementBVTStepDefination extends baseclass {
 	
-	boolean information=false;
-	String date;
-	public static String interviewDate;
-	Calendar calendar;
+
 	
+	public String interviewDate;
+
+
 	@When("^Click on add job button$")
 	public void click_on_add_job_button() throws Throwable {
 	    workbenchpage.AddJob();
@@ -39,46 +43,9 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	}
 
 	@SuppressWarnings("deprecation")
-	@When("^fill all interview details and click on Submit button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void fill_all_interview_details_and_click_on_Submit_button(String Title, String Scheduleon, String Hour1, String Minute1, String Duration, String TimeZone, String interviewerName, String interviewerEmail) throws Throwable {
-	    
-		Thread.sleep(4000);
-		scheduleinterviewpage.title.sendKeys(Title);
-		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
-		
-		calendar = Calendar.getInstance();
-		calendar.add(Calendar.DAY_OF_MONTH, +1);
-//		calendar.add(Calendar.MINUTE, +22);
-
-		interviewDate = calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);
-		
-		common.enterdate(interviewDate);
-			    
-		Thread.sleep(2000);
-		scheduleinterviewpage.hours.sendKeys(String.valueOf(calendar.getTime().getHours()));
-		
-		Thread.sleep(2000);
-		scheduleinterviewpage.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));		
-		Select se = new Select(scheduleinterviewpage.duration);
-		se.selectByVisibleText(Duration);	
-		Thread.sleep(1000);
-		se = new Select(scheduleinterviewpage.timezone);
-		se.selectByVisibleText(TimeZone);
-		Thread.sleep(1000);
-		scheduleinterviewpage.interviewerName.get(0).sendKeys(interviewerName);
-		scheduleinterviewpage.interviewerEmail.get(0).sendKeys(interviewerEmail);			
-		common.ClickSumbit();	
-		information = driver.findElements(By.xpath("//span[text()='Information']//following::h6[contains(text(),'"+interviewerName+" has another interview at this time. Please check interviewer calendar to get available slot.')]")).size()>0;
-		if(information==true)
-		{
-			common.clickOnOKBtn();
-			scheduleinterviewpage.minutes.clear();			
-			calendar.add(Calendar.MINUTE, +25);
-			scheduleinterviewpage.hours.sendKeys(String.valueOf(calendar.getTime().getHours()));		
-			scheduleinterviewpage.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));		
-			common.ClickSumbit();
-		}	
-		Assert.assertEquals(driver.findElement(By.xpath("//h6[text()='"+Title+"']")).isDisplayed(), true);
+	@When("^fill all interview details and click on Submit button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void fill_all_interview_details_and_click_on_Submit_button(String Title, String Scheduleon, String Hour1, String Minute1, String Durationhour, String DurationMinute , String TimeZone, String interviewerName, String interviewerEmail) throws Throwable {
+		scheduleinterviewpage.scheduleInterviewOfCandidate(Title, Scheduleon, Hour1, Minute1, Durationhour, DurationMinute, TimeZone, interviewerName, interviewerEmail);
 	}
 	
 	@When("^click on close button from Interview details page$")
@@ -97,8 +64,11 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	public void observe_the_interview_date_and_time_displayed_on_candidate_card_below_Assign_To_field(String Name) throws Throwable {
 		
 		Thread.sleep(8000);
-		String date=calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);	
-		Assert.assertEquals(driver.findElement(By.xpath("//span[contains(text(),' "+Name+"')]//following::p[text()=' "+date+", "+calendar.getTime().getHours()+" : "+calendar.getTime().getMinutes()+"']")).isDisplayed(), true);
+		String date=scheduleInterview.calendar.getTime().getDate()+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getYear()+1900);	
+		java.util.Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(scheduleInterview.interviewDate);  
+		DateFormat dateFormat = new SimpleDateFormat("hh : mm");  
+        String interviewTimeOnCard = dateFormat.format(date1);  
+		Assert.assertEquals(driver.findElement(By.xpath("//span[contains(text(),' "+Name+"')]//following::p[text()=' "+date+", "+interviewTimeOnCard+" ']")).isDisplayed(), true);
 		}
 	
 	@When("^click on Reload Candidate button and observe$")
@@ -110,31 +80,29 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	@When("^click on Edit Interview icon in front of interview details like date and time$")
 	public void click_on_Edit_Interview_icon_in_front_of_interview_details_like_date_and_time() throws Throwable {
 		Thread.sleep(3000);
-		candidatecardsectionpage.candidateCardEditInterview.click();
-		
+		candidatecardsectionpage.candidateCardEditInterview.click();		
 	}
 	
 	@When("^make some changes in interview details and click on Submit button \"([^\"]*)\" \"([^\"]*)\"$")
 	public void make_some_changes_in_interview_details_and_click_on_Submit_button(String interviewerName, String duration) throws Throwable {
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",scheduleinterviewpage.editInterviewIcon);
-//		scheduleinterviewpage.editInterviewIcon.click();
 		scheduleinterviewpage.minutes.clear();
-		calendar.add(Calendar.MINUTE, +2);		
-		scheduleinterviewpage.hours.sendKeys(String.valueOf(calendar.getTime().getHours()));		
-		scheduleinterviewpage.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));		
-		Select se = new Select(scheduleinterviewpage.duration);
+		scheduleInterview.calendar.add(Calendar.MINUTE, +2);		
+		scheduleinterviewpage.hours.sendKeys(String.valueOf(scheduleInterview.calendar.getTime().getHours()));		
+		scheduleinterviewpage.minutes.sendKeys(String.valueOf(scheduleInterview.calendar.getTime().getMinutes()));		
+		Select se = new Select(scheduleinterviewpage.durationMinute);
 		se.selectByVisibleText(duration);
 		Thread.sleep(1000);
 		common.submitbtn.click();
-		information = driver.findElements(By.xpath("//span[text()='Information']//following::h6[contains(text(),'"+interviewerName+" has another interview at this time. Please check interviewer calendar to get available slot.')]")).size()>0;
-		if(information==true)
+		scheduleinterviewpage.information = driver.findElements(By.xpath("//span[text()='Information']//following::h6[contains(text(),'"+interviewerName+" has another interview at this time. Please check interviewer calendar to get available slot.')]")).size()>0;
+		if(scheduleinterviewpage.information==true)
 		{
 			common.clickOnOKBtn();
 			scheduleinterviewpage.minutes.clear();			
-			calendar.add(Calendar.MINUTE, +25);
-			scheduleinterviewpage.hours.sendKeys(String.valueOf(calendar.getTime().getHours()));		
-			scheduleinterviewpage.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));		
+			scheduleInterview.calendar.add(Calendar.MINUTE, +25);
+			scheduleinterviewpage.hours.sendKeys(String.valueOf(scheduleInterview.calendar.getTime().getHours()));		
+			scheduleinterviewpage.minutes.sendKeys(String.valueOf(scheduleInterview.calendar.getTime().getMinutes()));		
 			common.ClickSumbit();
 		}	
 	}
@@ -156,8 +124,8 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		Thread.sleep(4000);		
 		driver.findElement(By.xpath("//button[@aria-label='Clear Date']")).click();
 		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
-		calendar.add(Calendar.DAY_OF_MONTH, +1);
-		interviewDate = calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);
+		scheduleInterview.calendar.add(Calendar.DAY_OF_MONTH, +1);
+		interviewDate = scheduleInterview.calendar.getTime().getDate()+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getYear()+1900);
 //	    System.out.println();
 		common.enterdate(interviewDate);
 		common.ClickSumbit();
@@ -206,8 +174,10 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	@Then("^Interview details should be reflect according to the filter applied \"([^\"]*)\" \"([^\"]*)\"$")
 	public void interview_details_should_be_reflect_according_to_the_filter_applied(String scheduleOn, String Name) throws Throwable {
 		Thread.sleep(2000);
-		String date=calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);	
-		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),' "+Name+"')]//following::p[text()=' "+date+", "+calendar.getTime().getHours()+" : "+calendar.getTime().getMinutes()+"']")).isDisplayed(), true);
+		String date=scheduleInterview.calendar.getTime().getDate()+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getYear()+1900);	
+	    DateFormat dateFormat = new SimpleDateFormat("hh : mm");  
+        String interviewTimeOnCard = dateFormat.format(scheduleInterview.calendar);  
+		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),' "+Name+"')]//following::p[text()=' "+date+", "+interviewTimeOnCard+"']")).isDisplayed(), true);
 	}
 	
 	@Then("^click on close job button and delete the job$")

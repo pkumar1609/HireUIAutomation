@@ -222,10 +222,10 @@ public class TaskManagemnet extends baseclass{
 //	  driver.findElement(By.xpath("//a[text()='Schedule Interview']")).click();
 	}
 	
-	@Then("^fill all interview details and click on Submit button$")
-	public void fill_all_interview_details_and_click_on_Submit_button(DataTable credentials) throws Throwable {
-	  scheduleinterviewpage.scheduleInterviewOfCandidate(credentials);
-	}
+//	@Then("^fill all interview details and click on Submit button$")
+//	public void fill_all_interview_details_and_click_on_Submit_button(DataTable credentials) throws Throwable {
+//	  scheduleinterviewpage.scheduleInterviewOfCandidate(credentials);
+//	}
 	
 	@Then("^Schedule interview task should not display in Done column of task Management page \"([^\"]*)\"$")
 	public void schedule_interview_task_should_display_in_Done_column_of_task_Management_page(String arg1) throws Throwable {

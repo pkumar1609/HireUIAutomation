@@ -1,5 +1,6 @@
 package pages;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -8,13 +9,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import cucumber.api.DataTable;
 import utilPackage.baseclass;
 
 public class scheduleInterview extends baseclass {
 	
-	String interviewDate;
 	String hourTime;
 	String minuteTime;
 	
@@ -31,7 +32,7 @@ public class scheduleInterview extends baseclass {
 	public WebElement scheduleOnfield;
 	
 	@FindBy(xpath = "(//button[@aria-label='Open Calendar'])[2]")
-	public WebElement calendar;
+	public WebElement calendarIcon;
 	
 	@FindBy(xpath = "//span[contains(text(),'Today')]")
 	public WebElement todayBtn;
@@ -42,8 +43,11 @@ public class scheduleInterview extends baseclass {
 	@FindBy(id = "estimateTimeInMinute")
 	public WebElement minutes;
 	
-	@FindBy(xpath = "//select[@formcontrolname='Duration']")
-	public WebElement duration;
+	@FindBy(xpath = "//select[@formcontrolname='HourDuration']")
+	public WebElement durationHour;
+	
+	@FindBy(xpath = "//select[@formcontrolname='MinuteDuration']")
+	public WebElement durationMinute;
 	
 	@FindBy(xpath = "//select[@formcontrolname='Timezone']")
 	public WebElement timezone;
@@ -70,7 +74,10 @@ public class scheduleInterview extends baseclass {
 	public WebElement clearDate;
 	
 	Select se;
-	
+	public boolean information=false;
+	String date;
+	public static String interviewDate;
+	public static Calendar calendar;
 
 	
 	
@@ -79,82 +86,78 @@ public class scheduleInterview extends baseclass {
 		PageFactory.initElements(driver, this);
 	}
 	
-//	public void SelectinterviewerT(String interviewer) {
+//	 
+//	 public void ScheduleInterviewOnT() throws InterruptedException {
+//		 Thread.sleep(3000);	
+//		 calendar.click();
+//		 Thread.sleep(3000);
+//		 todayBtn.click();
 //		
-//		interviewerDropDown.click();
-//		SelectInterviewer.click(); 
-//		interviewerDropDown.click();
+//	 }
+//	 
+//	 public void EnterInterviewTimeT(String hour, String minute) {
+//	    	
+//		 hours.clear();	
+//		 hours.sendKeys(hour);	 
+//		 minutes.clear();	 
+//		 minutes.sendKeys(minute);	
+//	 }
+//	 
+//	 public void EnterInterviewDurationT(String durationMinute) {
+//			
+//    	 se = new Select(this.durationMinute);
+//		 se.selectByVisibleText(durationMinute);
+//	 }
+//	 
+//	 public void EnterTimezoneT(String timezone1) {
+//			
+//	   	 se = new Select(timezone);
+//		 se.selectByVisibleText(timezone1);
 //	}
-	
-	 public void EnterInterviewTitleT(String title1) {
-			
-		 title.sendKeys(title1);
-	}
 	 
-	 public void ScheduleInterviewOnT() throws InterruptedException {
-		 Thread.sleep(3000);	
-		 calendar.click();
-		 Thread.sleep(3000);
-		 todayBtn.click();
+	 public void scheduleInterviewOfCandidate(String Title, String Scheduleon, String Hour1, String Minute1, String Durationhour, String DurationMinute , String TimeZone, String interviewerName, String interviewerEmail) throws InterruptedException
+	 {
+		  
+			Thread.sleep(4000);
+			this.title.sendKeys(Title);
+			this.ScheduleOnCalendarIcon.click();
+			
+			this.calendar = Calendar.getInstance();
+
+//			calendar.add(Calendar.DAY_OF_MONTH, +1);
+//			calendar.add(Calendar.MINUTE, +22);
+
+			interviewDate = calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);
+			
+			common.enterdate(interviewDate);
+				    
+			Thread.sleep(2000);
+			this.hours.sendKeys(String.valueOf(calendar.getTime().getHours()));		
+			Thread.sleep(2000);
+			this.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));		
+			select= new Select(scheduleinterviewpage.durationHour);
+			select.selectByVisibleText(Durationhour);	
+			select= new Select(scheduleinterviewpage.durationMinute);
+			select.selectByVisibleText(DurationMinute);
+			Thread.sleep(1000);
+			select = new Select(scheduleinterviewpage.timezone);
+			select.selectByVisibleText(TimeZone);
+			Thread.sleep(1000);
+			this.interviewerName.get(0).sendKeys(interviewerName);
+			this.interviewerEmail.get(0).sendKeys(interviewerEmail);			
+			common.ClickSumbit();	
+			information = driver.findElements(By.xpath("//span[text()='Information']//following::h6[contains(text(),'"+interviewerName+" has another interview at this time. Please check interviewer calendar to get available slot.')]")).size()>0;
+			if(information==true)
+			{
+				common.clickOnOKBtn();
+				this.minutes.clear();			
+				calendar.add(Calendar.MINUTE, +25);
+				this.hours.sendKeys(String.valueOf(calendar.getTime().getHours()));		
+				this.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));		
+				common.ClickSumbit();
+			}	
+			Assert.assertEquals(driver.findElement(By.xpath("//h6[text()='"+Title+"']")).isDisplayed(), true);
 		
 	 }
-	 
-	 public void EnterInterviewTimeT(String hour, String minute) {
-	    	
-		 hours.clear();	
-		 hours.sendKeys(hour);	 
-		 minutes.clear();	 
-		 minutes.sendKeys(minute);	
-	 }
-	 
-	 public void EnterInterviewDurationT(String interviewduration) {
-			
-    	 se = new Select(duration);
-		 se.selectByVisibleText(interviewduration);
-	 }
-	 
-	 public void EnterTimezoneT(String timezone1) {
-			
-	   	 se = new Select(timezone);
-		 se.selectByVisibleText(timezone1);
-	}
-	 
-	 public void scheduleInterviewOfCandidate(DataTable credentials) throws InterruptedException
-	 {
-		 for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-			{
-				title.sendKeys(data.get("Title"));
-				Thread.sleep(2000);
-				for(WebElement ele :common.deletebtn)
-				{
-					Thread.sleep(1000);
-					executor.executeScript("arguments[0].click();", ele);
-					Thread.sleep(1000);
-				}
-				if(common.okbtn != null)
-				{
-					common.clickOnOKBtn();
-				}
-				Thread.sleep(1000);	
-				scheduleinterviewpage.interviewerName.get(0).sendKeys(data.get(""));
-				scheduleinterviewpage.interviewerEmail.get(0).sendKeys(data.get(""));
-				Thread.sleep(2000);
-				ScheduleOnCalendarIcon.click();
-				Thread.sleep(2000);
-				driver.findElement(By.xpath("//span[text()='"+data.get("ScheduleOn")+"']")).click();				
-				hours.sendKeys(data.get("Hour"));
-				hourTime=data.get("Hour");
-				minutes.sendKeys(data.get("Minute"));
-				minuteTime=data.get("Minute");
-				select= new Select(duration);
-				select.selectByVisibleText(data.get("Duration"));
-				select = new Select(timezone);
-				select.selectByVisibleText(data.get("TimeZone"));	
-				Location.sendKeys(data.get("Location"));	
-				common.submitbtn.isEnabled();
-				common.ClickSumbit();
-//				Thread.sleep(2000);
-//				interviewDate=driver.findElement(By.xpath("(//p[@class='mb-1'])[3]")).getText();
-			}
-	 }
+
 }

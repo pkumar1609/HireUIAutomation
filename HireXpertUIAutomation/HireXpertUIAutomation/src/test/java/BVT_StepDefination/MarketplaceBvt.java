@@ -46,7 +46,8 @@ public class MarketplaceBvt extends baseclass {
 	
 	@And("^Select a added job$")
 	public void select_a_added_job() throws Throwable {	
-		workbenchpage.selectJobK();	}
+		workbenchpage.selectJobK();
+		}
 
 	@And("^Click on share job with market place$")
 	public void click_on_share_job_with_market_place() throws InterruptedException   {

@@ -386,6 +386,7 @@ public void addNewSkill3() {
 			maxsal.sendKeys(data.get("maxsal"));
 			minexp.sendKeys(data.get("minexp"));
 			maxexp.sendKeys(data.get("maxexp"));
+//			city.sendKeys("Pune");
 			cityArea.sendKeys(data.get("location"));
 			Thread.sleep(1000);
 			se=new Select(totalinterviews);

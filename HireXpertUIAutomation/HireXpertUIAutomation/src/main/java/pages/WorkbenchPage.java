@@ -175,9 +175,11 @@ public class WorkbenchPage extends baseclass {
 		{
 		Action.moveToElement(driver.findElement(By.xpath("(//span[text()='×'])[1]"))).click().perform();
 		}		
-		driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
+//		driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
+		driver.findElement(By.xpath("//input")).sendKeys("20210307011322 Emp");	
 		System.out.println("selected job :"+addjobpage.jobname);
-		WebElement element = driver.findElement(By.xpath("//span[contains(text(),'"+addjobpage.jobname+"')]"));
+//		WebElement element = driver.findElement(By.xpath("//span[contains(text(),'"+addjobpage.jobname+"')]"));
+		WebElement element = driver.findElement(By.xpath("//span[contains(text(),'20210307011322 Emp')]"));
 		executor.executeScript("arguments[0].scrollIntoView(true);", element);
 		explicitwait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();

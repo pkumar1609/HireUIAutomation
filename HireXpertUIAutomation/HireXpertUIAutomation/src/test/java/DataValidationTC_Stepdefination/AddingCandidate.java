@@ -113,10 +113,10 @@ public class AddingCandidate extends baseclass{
 		workbenchpage.scheduleInterview.click();
 	}
 
-	@When("^fill all interview details and click on Submit button$")
-	public void fill_all_interview_details_and_click_on_Submit_button(DataTable credentials) throws Throwable {
-		scheduleinterviewpage.scheduleInterviewOfCandidate(credentials);
-	}
+//	@When("^fill all interview details and click on Submit button$")
+//	public void fill_all_interview_details_and_click_on_Submit_button(DataTable credentials) throws Throwable {
+//		scheduleinterviewpage.scheduleInterviewOfCandidate(credentials);
+//	}
 	
 	
 	@When("^verify candidate card is displaying or not in New column \"([^\"]*)\"$")

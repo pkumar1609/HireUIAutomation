@@ -186,79 +186,111 @@ public class AddCandidatePage extends baseclass {
 	
 	
 	public void EnterAllMandatoryfieldsT(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException, AWTException {
-		
-		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),'Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
-		if(dynamicElement.size() != 0)
-		{
-			System.out.println("Candidate is present in system");
-			common.clickOnOKBtn();
-			Thread.sleep(2000);
-			nameOfCan=name.getAttribute("value");
-			Thread.sleep(2000);
-			if(city.getAttribute("value").isEmpty())
+//		
+//		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),'Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
+//		if(dynamicElement.size() != 0)
+//		{
+//			System.out.println("Candidate is present in system");
+//			common.clickOnOKBtn();
+//			Thread.sleep(2000);
+//			nameOfCan=name.getAttribute("value");
+//			Thread.sleep(2000);
+//			if(city.getAttribute("value").isEmpty())
+//			{
+//			city.sendKeys(City);
+//			}		
+//			if(cityArea.getAttribute("value").isEmpty())
+//			{
+//			cityArea.sendKeys(CityArea);
+//			}
+//			if(zipCode.getAttribute("value").equals(""))
+//			{
+//			zipCode.sendKeys(ZipCode);
+//			}			
+//			salaryOffered.sendKeys(Salaryoffered);
+////			this.distance.sendKeys(distance);
+//			se = new Select (isPermanentAddress);
+//			se.selectByVisibleText(permanentAddress);
+//			se = new Select (isReadyToRelocateToJobLocation);
+//			se.selectByVisibleText(relocate);
+//			this.expectedCTC.clear();
+//			this.expectedCTC.sendKeys(expectedCTC);
+//		}	
+//		else
+//		{
+
+			if(name.getAttribute("value").isEmpty())
 			{
-			city.sendKeys(City);
-			}		
-			if(cityArea.getAttribute("value").isEmpty())
-			{
-			cityArea.sendKeys(CityArea);
+			name.sendKeys(Name);
 			}
-			if(zipCode.getAttribute("value").equals(""))
-			{
-			zipCode.sendKeys(ZipCode);
-			}			
-			salaryOffered.sendKeys(Salaryoffered);
-//			this.distance.sendKeys(distance);
-			se = new Select (isPermanentAddress);
-			se.selectByVisibleText(permanentAddress);
-			se = new Select (isReadyToRelocateToJobLocation);
-			se.selectByVisibleText(relocate);
-			this.expectedCTC.clear();
-			this.expectedCTC.sendKeys(expectedCTC);
-		}	
-		else
-		{
-			System.out.println("Candidate is not present in system and you need to enter candidate details");
-//			title.clear();
-//			title.sendKeys(profiletitle);
-			name.sendKeys(Name); 
 			nameOfCan=name.getAttribute("value");
+			if(contactNumber.getAttribute("value").isEmpty())
+			{
 			contactNumber.sendKeys(ContactNumber);
-			designation.get(0).sendKeys(Designation);
-			Thread.sleep(2000);
-			
+			}
+			if(designation.get(0).getAttribute("value").isEmpty())
+			{
+				designation.get(0).sendKeys(Designation);
+			}
 			Thread.sleep(2000);
 			se = new Select (gender);
+			
+			if(se.getFirstSelectedOption().getText().isEmpty())
+			{
 			se.selectByVisibleText(Gender); 
-			se = new Select (onNoticePeriod);
-			se.selectByVisibleText(OnNoticePeriod);
-			if(OnNoticePeriod.contentEquals("Yes"))
-			{
-				executor.executeScript("arguments[0].click()", addcandidatepage.calenderIcon.get(0));
-				common.enterdate(LastWorkingDay);
-				date.sendKeys(Date);
-			}	
-			else
-			{
-				noticePeriod.sendKeys(NoticePeriod);
 			}
+			se = new Select (onNoticePeriod);
+			if(se.getFirstSelectedOption().getText().isEmpty())
+			{
+			se.selectByVisibleText(OnNoticePeriod);
+			}
+			if(noticePeriod.getAttribute("value").isEmpty())
+			{
+				if(OnNoticePeriod.contentEquals("Yes"))
+				{
+					executor.executeScript("arguments[0].click()", addcandidatepage.calenderIcon.get(0));
+					common.enterdate(LastWorkingDay);
+					date.sendKeys(Date);
+				}	
+				else
+				{
+					noticePeriod.sendKeys(NoticePeriod);
+				}
+			}
+			
 			Thread.sleep(2000);
+			if(experienceInYears.getAttribute("value").isEmpty())
+			{
 			experienceInYears.sendKeys(experience);
-			ctc.sendKeys(CTC);
-			this.expectedCTC.sendKeys(expectedCTC);
+			}
+			if(ctc.getAttribute("value").isEmpty())
+			{
+				ctc.sendKeys(CTC);
+			}
+			if(this.expectedCTC.getAttribute("value").isEmpty())
+			{
+				this.expectedCTC.sendKeys(expectedCTC);
+			}
 			se = new Select (countryId);
-			se.selectByVisibleText(Country);
-			city.clear();
-			city.sendKeys(City);
+			if(se.getFirstSelectedOption().getText().isEmpty())
+			{
+				se.selectByVisibleText(Country);
+			}
+			if(city.getAttribute("value").isEmpty())
+			{
+				city.sendKeys(City);
+			}			
 		  	salaryOffered.sendKeys(Salaryoffered);
-			Assert.assertEquals(city.getAttribute("value"), City);
-			cityArea.sendKeys(CityArea);
+		  	if(cityArea.getAttribute("value").isEmpty())
+			{
+		  		cityArea.sendKeys(CityArea);
+			}	
 			if(zipCode.getAttribute("value").isEmpty())
 			{
 			zipCode.sendKeys(ZipCode);
 			}
 			probabilityFields(Communicationmode, Salaryoffered, permanentAddress, relocate);
-		}
+//		}
 
 	}
 	

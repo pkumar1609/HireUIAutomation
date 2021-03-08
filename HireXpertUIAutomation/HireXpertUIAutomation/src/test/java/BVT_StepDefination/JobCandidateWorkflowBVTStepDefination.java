@@ -598,24 +598,24 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 //		scheduleinterviewpage.SelectInterviewer;
 //	}
 
-	@When("^Fill all mandatory details \\\"([^\\\"]*)\\\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void fill_all_mandatory_details(String title, String scheduleon, String hour, String minute, String interviewduration, String timezone, String interviewer) throws Throwable {
-		
-		Thread.sleep(3000);
-		scheduleinterviewpage.title.sendKeys(title);
-		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
-		common.enterdate(scheduleon);
-		scheduleinterviewpage.hours.sendKeys(hour);
-		scheduleinterviewpage.minutes.sendKeys(minute);
-		Select se = new Select(scheduleinterviewpage.duration);
-		se.selectByVisibleText(interviewduration);
-		se = new Select(scheduleinterviewpage.timezone);
-		se.selectByVisibleText(timezone);
-//		scheduleinterviewpage.interviewerDropDown.click();
-		
-		common.ClickSumbit();
-
-	}
+//	@When("^Fill all mandatory details \\\"([^\\\"]*)\\\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void fill_all_mandatory_details(String title, String scheduleon, String hour, String minute, String interviewduration, String timezone, String interviewer) throws Throwable {
+//		
+//		Thread.sleep(3000);
+//		scheduleinterviewpage.title.sendKeys(title);
+//		scheduleinterviewpage.ScheduleOnCalendarIcon.click();
+//		common.enterdate(scheduleon);
+//		scheduleinterviewpage.hours.sendKeys(hour);
+//		scheduleinterviewpage.minutes.sendKeys(minute);
+//		Select se = new Select(scheduleinterviewpage.duration);
+//		se.selectByVisibleText(interviewduration);
+//		se = new Select(scheduleinterviewpage.timezone);
+//		se.selectByVisibleText(timezone);
+////		scheduleinterviewpage.interviewerDropDown.click();
+//		
+//		common.ClickSumbit();
+//
+//	}
 
 	
 	@When("^Add Candidate to that job \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
