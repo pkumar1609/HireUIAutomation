@@ -569,7 +569,7 @@ And click on submit button
 And Click on add candidate
 And Enter valid "<CandidateEmail1>"
 And click on find button
-And click on ok button
+#And click on ok button
 Then observe deleted job skill should not show when employer is going to add new candidate "<Skill1>" "<Skill2>" "<Skill3>"
 And Click on close button
 
