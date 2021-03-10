@@ -44,17 +44,7 @@ public class loginstepdefination extends baseclass {
 	@Given("^User must be registered$")
 	public void user_must_be_registered() throws Throwable {    
 		initialization();
-		driver.navigate().refresh();
-		
-		Calendar calendar = Calendar.getInstance();
-//	    calendar.add(Calendar.HOUR_OF_DAY, +1);
-	    Date UpdatedDate = calendar.getTime();
-//		int month=calendar.getTime().getMonth()+1;
-//		int year=calendar.getTime().getYear()+19000;
-//		System.out.println(month);
-     
-	    System.out.println("date "+calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900));
-	    
+		driver.navigate().refresh();	    
 	} 
  
 	@When("^title of login page is Home$")

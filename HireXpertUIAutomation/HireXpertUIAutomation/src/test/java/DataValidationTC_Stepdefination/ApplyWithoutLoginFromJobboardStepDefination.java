@@ -15,6 +15,7 @@ public class ApplyWithoutLoginFromJobboardStepDefination extends baseclass{
 
 		Thread.sleep(5000);
 		baseclass.initialization();
+		driver.navigate().refresh();
 	}
 
 	@Given("^click on Login link$")
