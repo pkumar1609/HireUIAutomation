@@ -244,20 +244,28 @@ public class AddCandidatePage extends baseclass {
 			{
 			se.selectByVisibleText(OnNoticePeriod);
 			}
-			if(noticePeriod.getAttribute("value").isEmpty())
+
+			if(OnNoticePeriod.contentEquals("Yes"))
 			{
-				if(OnNoticePeriod.contentEquals("Yes"))
+				executor.executeScript("arguments[0].click()", addcandidatepage.calenderIcon.get(0));
+				if(this.lastWorkingDay.getAttribute("value").isEmpty())
 				{
-					executor.executeScript("arguments[0].click()", addcandidatepage.calenderIcon.get(0));
 					common.enterdate(LastWorkingDay);
+				}
+				if(this.date.getAttribute("value").isEmpty())
+				{
 					date.sendKeys(Date);
-				}	
-				else
+				}
+				
+			}	
+			else
+			{
+				if(this.noticePeriod.getAttribute("value").isEmpty())
 				{
 					noticePeriod.sendKeys(NoticePeriod);
-				}
-			}
-			
+				}				
+			}	
+					
 			Thread.sleep(2000);
 			if(experienceInYears.getAttribute("value").isEmpty())
 			{
@@ -319,19 +327,26 @@ public class AddCandidatePage extends baseclass {
 		{
 			addcandidatepage.contactNumber.sendKeys(ContactNumber);
 		}		
-		if(addcandidatepage.noticePeriod.getAttribute("value").isEmpty())
+		if(OnNoticePeriod.contentEquals("Yes"))
 		{
-			if(OnNoticePeriod.contentEquals("Yes"))
+			executor.executeScript("arguments[0].click()", addcandidatepage.calenderIcon.get(0));
+			if(this.lastWorkingDay.getAttribute("value").isEmpty())
 			{
-				executor.executeScript("arguments[0].click()", addcandidatepage.calenderIcon.get(2));
 				common.enterdate(LastWorkingDay);
-				addcandidatepage.date.sendKeys(Date);
-			}	
-			else
-			{
-				addcandidatepage.noticePeriod.sendKeys(NoticePeriod);
 			}
-		}
+			if(this.date.getAttribute("value").isEmpty())
+			{
+				date.sendKeys(Date);
+			}
+			
+		}	
+		else
+		{
+			if(this.noticePeriod.getAttribute("value").isEmpty())
+			{
+				noticePeriod.sendKeys(NoticePeriod);
+			}				
+		}	
 		if(experienceInYears.getAttribute("value").isEmpty())
 		{
 			experienceInYears.sendKeys(experience);
