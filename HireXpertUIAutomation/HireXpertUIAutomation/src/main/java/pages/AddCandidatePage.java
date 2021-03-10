@@ -232,11 +232,7 @@ public class AddCandidatePage extends baseclass {
 			}
 			Thread.sleep(2000);
 			se = new Select (gender);
-			
-			if(se.getFirstSelectedOption().getText().isEmpty())
-			{
 			se.selectByVisibleText(Gender); 
-			}
 			se = new Select (onNoticePeriod);
 			se.selectByVisibleText(OnNoticePeriod);
 			System.out.println("OnNoticePeriod"+OnNoticePeriod);
@@ -274,10 +270,8 @@ public class AddCandidatePage extends baseclass {
 				this.expectedCTC.sendKeys(expectedCTC);
 			}
 			se = new Select (countryId);
-			if(se.getFirstSelectedOption().getText().isEmpty())
-			{
-				se.selectByVisibleText(Country);
-			}
+			se.selectByVisibleText(Country);
+
 			if(city.getAttribute("value").isEmpty())
 			{
 				city.sendKeys(City);
