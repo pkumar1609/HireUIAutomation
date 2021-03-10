@@ -232,7 +232,7 @@ public class DashboardPage extends baseclass {
 				emailfield.clear();
 				emailfield.sendKeys(data.get("Emailagy"));
 				contactnumberfield.clear();
-				contactnumberfield.sendKeys(data.get("contactagy"));
+				contactnumberfield.sendKeys(data.get("contact"));
 				select = new Select(countryid);
 				select.selectByVisibleText("India");
 				common.ClickSumbit();
