@@ -85,7 +85,7 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	
 	
 	    public void FillAllregisterdeatils(String Name, String CandidateEmail , String ContactNumber, String UserType, String timezone, String country) throws Throwable {
-		registerpage.registerCandidatedetails1(UserType, timezone, country);
+		registerpage.registerUserdetails(UserType, timezone, country);
 		registerpage.registerCandidatedetails(Name, CandidateEmail, ContactNumber);
 		common.ClickSumbit();
 		common.clickOnConfirmYes();
@@ -178,68 +178,68 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 		ContactNumber.sendKeys(contactnumber);
 	}
    
-     public void selectUserType(String usertype) {
-    	 
-    	 Select select = new Select (UserType);
-		 select.selectByVisibleText(usertype);
-			
-    }
-		
-		public void selectTimeZone(String timezone) {
-				
-			Select select = new Select (TimeZone);
-			 select.selectByVisibleText(timezone);
-			 
-	}
-			
-		public void selectCountry(String country)
-		{
-			
-			Select select = new Select (Country);
-			select.selectByVisibleText(country);
-		}
-		
-public void registeremployerdetails1(String EmployerUserType, String timezone, String country ) {
-			
-	Select select1 = new Select (UserType);
-	 select1.selectByVisibleText(EmployerUserType);
-			
-	 Select select2 = new Select (TimeZone);
-	 select2.selectByVisibleText(timezone);
-	 
-	 Select select3 = new Select (Country);
-	 select3.selectByVisibleText(country);
-	}
+//     public void selectUserType(String usertype) {
+//    	 
+//    	 Select select = new Select (UserType);
+//		 select.selectByVisibleText(usertype);
+//			
+//    }
+//		
+//		public void selectTimeZone(String timezone) {
+//				
+//			Select select = new Select (TimeZone);
+//			 select.selectByVisibleText(timezone);
+//			 
+//	}
+//			
+//		public void selectCountry(String country)
+//		{
+//			
+//			Select select = new Select (Country);
+//			select.selectByVisibleText(country);
+//		}
+//		
+//public void registeremployerdetails1(String EmployerUserType, String timezone, String country ) {
+//			
+//	Select select1 = new Select (UserType);
+//	 select1.selectByVisibleText(EmployerUserType);
+//			
+//	 Select select2 = new Select (TimeZone);
+//	 select2.selectByVisibleText(timezone);
+//	 
+//	 Select select3 = new Select (Country);
+//	 select3.selectByVisibleText(country);
+//	}
+//
+//	public void registerAgencydetails1(String AgencyUserType, String timezone, String country ) { 
+//	
+//	 Select select4 = new Select (UserType);
+//	 select4.selectByVisibleText(AgencyUserType);
+//			
+//	 Select select5 = new Select (TimeZone);
+//	 select5.selectByVisibleText(timezone);
+//	 
+//	 Select select6 = new Select (Country);
+//	 select6.selectByVisibleText(country);
+//	
+//	}
+//	
+//	public void registerCandidatedetails1(String CandidateUserType, String timezone, String country ) { 
+//	
+//	 Select select7 = new Select (UserType);
+//	 select7.selectByVisibleText(CandidateUserType);
+//			
+//	 Select select8 = new Select (TimeZone);
+//	 select8.selectByVisibleText(timezone);
+//	 
+//	 Select select9 = new Select (Country);
+//	 select9.selectByVisibleText(country);
+//	
+//}
 
-	public void registerAgencydetails1(String AgencyUserType, String timezone, String country ) { 
+   public void registerUserdetails(String usertype, String timezone, String country ) {
 	
-	 Select select4 = new Select (UserType);
-	 select4.selectByVisibleText(AgencyUserType);
-			
-	 Select select5 = new Select (TimeZone);
-	 select5.selectByVisibleText(timezone);
-	 
-	 Select select6 = new Select (Country);
-	 select6.selectByVisibleText(country);
-	
-	}
-	
-	public void registerCandidatedetails1(String CandidateUserType, String timezone, String country ) { 
-	
-	 Select select7 = new Select (UserType);
-	 select7.selectByVisibleText(CandidateUserType);
-			
-	 Select select8 = new Select (TimeZone);
-	 select8.selectByVisibleText(timezone);
-	 
-	 Select select9 = new Select (Country);
-	 select9.selectByVisibleText(country);
-	
-}
-
-public void alreadyregisterUserdetails1(String usertype, String timezone, String country ) {
-	
-	Select select1 = new Select (UserType);
+	 Select select1 = new Select (UserType);
 	 select1.selectByVisibleText(usertype);
 			
 	 Select select2 = new Select (TimeZone);
@@ -247,7 +247,7 @@ public void alreadyregisterUserdetails1(String usertype, String timezone, String
 	 
 	 Select select3 = new Select (Country);
 	 select3.selectByVisibleText(country);
-	}
+   }
 
 		public void enterEmployerEmailandPassword () throws InterruptedException {
 		
@@ -449,7 +449,7 @@ public void verifythefieldsonregisterdialogbox () {
        {
     	registerpage.clickRegister();
    		registerpage.registerUser();
-   		registerpage.registerAgencydetails1("Agency", "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi", "India");
+   		registerpage.registerUserdetails("Agency", "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi", "India");
    		common.ClickSumbit();
    		common.clickOnConfirmYes();
    		common.clickOnOKBtn();

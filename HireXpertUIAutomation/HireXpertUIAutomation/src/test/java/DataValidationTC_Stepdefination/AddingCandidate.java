@@ -418,7 +418,7 @@ public void click_on_more_jobs() throws Throwable {
 	
 	@When("^Enter all details on register page \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void enter_all_details_on_register_page(String Name, String CandidateEmail , String ContactNumber, String UserType, String timezone, String country) throws Throwable {
-		registerpage.registerCandidatedetails1(UserType, timezone, country);
+		registerpage.registerUserdetails(UserType, timezone, country);
 		registerpage.registerCandidatedetails(Name, CandidateEmail, ContactNumber);
 		common.ClickSumbit();
 		common.clickOnConfirmYes();

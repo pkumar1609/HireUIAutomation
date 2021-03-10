@@ -111,7 +111,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	public void select_value_from_dropdown_of(String name, String email, String contactnumber) throws Throwable {
 	    
 		Thread.sleep(3000);
-		registerpage.alreadyregisterUserdetails1(name, email, contactnumber);
+		registerpage.registerUserdetails(name, email, contactnumber);
 	}
 
 	@Then("^User should get a error message with OK button and click on OK button$")
@@ -158,7 +158,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	public void enter_user_type_as_the_candidate(String usertype, String timezone, String country) throws Throwable {
 	    
 		Thread.sleep(3000);
-		registerpage.alreadyregisterUserdetails1(usertype, timezone, country);
+		registerpage.registerUserdetails(usertype, timezone, country);
 	}
 
 	@Then("^Verify User should get error message as \"([^\"]*)\" with OK button$")
@@ -236,7 +236,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	public void select_value_from_dropdown_for_agency(String AgencyUserType, String timezone, String country) throws Throwable {
 
 		Thread.sleep(3000);
-		registerpage.registerAgencydetails1(AgencyUserType, timezone, country);
+		registerpage.registerUserdetails(AgencyUserType, timezone, country);
 	}
 
 	@When("^enter candidate details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")	
@@ -250,7 +250,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	public void select_value_from_dropdown_for_candidate(String CandidateUserType, String timezone, String country) throws Throwable {
 	    
 		Thread.sleep(3000);
-		registerpage.registerCandidatedetails1(CandidateUserType, timezone, country);
+		registerpage.registerUserdetails(CandidateUserType, timezone, country);
 	}
 
 	@When("^click on Employer-Agency SignIn link$")
@@ -331,7 +331,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		public void select_value_from_dropdown_for_employer(String usertype, String timezone, String country) throws Throwable {
 		    
 			Thread.sleep(3000);
-			registerpage.alreadyregisterUserdetails1(usertype, timezone, country);
+			registerpage.registerUserdetails(usertype, timezone, country);
 		}
 
 		
@@ -419,7 +419,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		public void select_value_from_dropdown_for_Agency(String AgencyUserType, String timezone, String country) throws Throwable {
 		    
 			Thread.sleep(3000);
-			registerpage.registerAgencydetails1(AgencyUserType, timezone, country);
+			registerpage.registerUserdetails(AgencyUserType, timezone, country);
 		}
 //
 //		@When("^enter agency email and password \"([^\"]*)\" \"([^\"]*)\"$")
