@@ -217,6 +217,8 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 
 		Thread.sleep(3000);
 		registerpage.ClickSigninbtn();
+		if(common.okbtnPopup.size()>0)
+		{common.clickOnOKBtn();}
 	}
 	
 	@When("^identify the loggedin User$")
