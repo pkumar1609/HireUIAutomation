@@ -206,7 +206,7 @@ public class EditCandidatePage extends baseclass {
 	{
 		Thread.sleep(5000);
 		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"), CandidateEmail);
-		Assert.assertEquals(addcandidatepage.title.getAttribute("value"), profiletitle);
+		Assert.assertEquals(candidateupdateprofilepage.title.getAttribute("value"), profiletitle);
 		Assert.assertEquals(addcandidatepage.name.getAttribute("value"), Name);
 		Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), ContactNumber);
 		Assert.assertEquals(addcandidatepage.designation.get(0).getAttribute("value"), Designation);

@@ -31,9 +31,7 @@ public class AddCandidatePage extends baseclass {
 	
 	@FindBy(xpath = "//input[@placeholder='Enter Alternate Email']")
 	public WebElement alternateEmail;
-	
-	@FindBy(xpath = "//input[@id='Title']")
-	public WebElement title;
+
 	
 	@FindBy(xpath = "//button[@aria-label='Open Calendar']")
 	public List<WebElement> calenderIcon;
@@ -240,11 +238,8 @@ public class AddCandidatePage extends baseclass {
 			se.selectByVisibleText(Gender); 
 			}
 			se = new Select (onNoticePeriod);
-			if(se.getFirstSelectedOption().getText().isEmpty())
-			{
 			se.selectByVisibleText(OnNoticePeriod);
-			}
-
+			System.out.println("OnNoticePeriod"+OnNoticePeriod);
 			if(OnNoticePeriod.contentEquals("Yes"))
 			{
 				executor.executeScript("arguments[0].click()", addcandidatepage.calenderIcon.get(0));
@@ -255,8 +250,7 @@ public class AddCandidatePage extends baseclass {
 				if(this.date.getAttribute("value").isEmpty())
 				{
 					date.sendKeys(Date);
-				}
-				
+				}				
 			}	
 			else
 			{

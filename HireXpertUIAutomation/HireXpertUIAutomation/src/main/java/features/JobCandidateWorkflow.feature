@@ -208,7 +208,7 @@ And logout as employer and login as new candidate added by employer "<CandidateE
 #And click on ok button of confirmation popup
 And Click on Profile tab
 Then verify the Auto Populated fields on candidate update profile popup window "<Username>","<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<relocate>"
-And Add mandatory details on candidate profile page and save the details "<jobtype>" "<Shift>"
+And Add mandatory details on candidate profile page and save the details "<jobtype>" "<Shift>" "<profiletitle>"
 And Select the On Notice Period field and set Last working day on Update Profile page "<OnNoticePeriod>","<LastWorkingDay>"
 And set looking for job as yes
 And Click on save btn

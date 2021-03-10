@@ -66,6 +66,10 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		Action.moveToElement(loginpage.login).perform();
 		homepage.clickJobseekerCandidateSignInlinklink();
 		registerpage.loginwithnewcandidate(CandidateEmail, password);
+		if(common.okbtnPopup.size()>0)
+		{
+			common.clickOnOKBtn();
+		}
 	}
 
 	@Then("^Click on Profile tab$")
@@ -1562,8 +1566,12 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		    
 		}
 		
-		@Then("^Add mandatory details on candidate profile page and save the details \"([^\"]*)\" \"([^\"]*)\"$")
-		public void add_mandatory_details_on_candidate_profile_page(String jobtype, String shift) throws Throwable {
+		@Then("^Add mandatory details on candidate profile page and save the details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+		public void add_mandatory_details_on_candidate_profile_page(String jobtype, String shift,String title) throws Throwable {
+			if(candidateupdateprofilepage.title.getAttribute("value").isEmpty())
+			{
+				candidateupdateprofilepage.title.sendKeys(title);
+			}
 			if(addjobpage.functionalArea.getAttribute("value").isEmpty())
 			{
 				addjobpage.functionalArea.sendKeys("java");

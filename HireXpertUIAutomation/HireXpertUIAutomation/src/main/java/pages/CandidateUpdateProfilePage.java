@@ -18,6 +18,9 @@ import utilPackage.baseclass;
 public class CandidateUpdateProfilePage extends baseclass {
 	
 	
+	@FindBy(xpath = "//input[@id='Title']")
+	public WebElement title;
+	
 	@FindBy(xpath = "//select[@formcontrolname='ReadyToRelocate']")
 	public WebElement readyToRelocate;
 	
@@ -339,7 +342,7 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 	public void AssertDetailsOnCandidateProfile(String Username, String CandidateEmail, String profiletitle, String Name, String ContactNumber, String Designation, String Date, String Gender, String OnNoticePeriod, String NoticePeriod, String LastWorkingDay, String experience, String CTC, String expectedCTC, String Country, String City, String CityArea, String ZipCode, String Communicationmode, String relocate) throws InterruptedException
 	{
 		Thread.sleep(4000);
-		Assert.assertEquals(addcandidatepage.title.getAttribute("value"), profiletitle);
+//		Assert.assertEquals(addcandidatepage.title.getAttribute("value"), profiletitle);
 		Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),CandidateEmail);
 		Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"),ContactNumber);
 //		Assert.assertEquals(this.dateOfBirth.getAttribute("value"),Date); 
@@ -542,7 +545,7 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 				Thread.sleep(2000);	
 				this.date.get(1).click();
 				common.enterdate(data.get("toDate"));
-				addcandidatepage.title.sendKeys(data.get("title"));
+				candidateupdateprofilepage.title.sendKeys(data.get("title"));
 				this.organization.get(0).sendKeys(data.get("organization"));
 				this.technologies.sendKeys(data.get("technologies"));
 				this.client.sendKeys(data.get("client"));

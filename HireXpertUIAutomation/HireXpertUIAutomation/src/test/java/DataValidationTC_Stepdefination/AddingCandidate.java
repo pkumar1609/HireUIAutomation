@@ -436,7 +436,7 @@ public void click_on_more_jobs() throws Throwable {
 		@Then("^Enter all the personal and professional details of candidate \"([^\"]*)\" \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 		public void enter_all_the_personal_and_professional_details_of_candidate(String profiletitle, String CandidateEmail , String ContactNumber, String Date, String Country, String CityArea, String Name, String alternateemail, String alternateContact, String Gender, String City, String ZipCode, String currentorganization,String functionalArea, String currentdesignation, String currentduration, String jobtype, String shift, String preferredcity, String searchkeyword, String industry, String experience, String expectedCTC, String residentialstatus, String OnNoticePeriod,String LastWorkingDay, String NoticePeriod, String CTC, String Communicationmode, String willingtotravel, String lookingforjob, String relocate, String cv) throws Throwable {
 			Thread.sleep(4000);
-			addcandidatepage.title.sendKeys(profiletitle);
+			candidateupdateprofilepage.title.sendKeys(profiletitle);
 			Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"), CandidateEmail);
 			Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), ContactNumber);
 			Thread.sleep(2000);
@@ -584,7 +584,7 @@ public void click_on_more_jobs() throws Throwable {
 		@Then("^Assert the personal and professional details of candidate \"([^\"]*)\" \\\"([^\\\"]*)\\\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 		public void assert_the_personal_and_professional_details_of_candidate(String profiletitle,String CandidateEmail,  String ContactNumber, String Date, String Country, String CityArea, String Name, String alternateemail, String alternateContact, String Gender, String City, String ZipCode, String currentorganization, String functionalArea, String currentdesignation, String currentduration, String jobtype, String shift, String preferredcity, String searchkeyword, String industry, String experience, String expectedCTC, String residentialstatus, String OnNoticePeriod,String LastWorkingDay, String NoticePeriod, String CTC, String Communicationmode, String willingtotravel, String lookingforjob, String relocate, String cv) throws Throwable {
 			Thread.sleep(4000);
-			Assert.assertEquals(addcandidatepage.title.getAttribute("value"), profiletitle);	
+			Assert.assertEquals(candidateupdateprofilepage.title.getAttribute("value"), profiletitle);	
 			Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"), CandidateEmail);		
 			Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), ContactNumber);		
 			Assert.assertEquals(addcandidatepage.date.getAttribute("value"), Date);
@@ -748,7 +748,7 @@ public void click_on_more_jobs() throws Throwable {
 			Thread.sleep(3000);
 			for ( Map<String, String> data : credentials.asMaps(String.class, String.class))
 			 {
-			Assert.assertEquals(addcandidatepage.title.getAttribute("value"), data.get("title"));
+			Assert.assertEquals(candidateupdateprofilepage.title.getAttribute("value"), data.get("title"));
 			Assert.assertEquals(driver.findElement(By.xpath("//input[@placeholder='Select Date']//following::p")).getAttribute("value"), data.get("ValidUpto"));
 			Assert.assertEquals(driver.findElement(By.xpath("(//input[@placeholder='Select Date']//following::p)[2]")).getAttribute("value"), data.get("ValidUpto"));
 			Assert.assertEquals(candidateupdateprofilepage.organization.get(0).getAttribute("value"), data.get("organization"));
