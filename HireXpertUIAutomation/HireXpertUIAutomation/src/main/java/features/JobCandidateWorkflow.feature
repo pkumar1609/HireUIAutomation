@@ -475,7 +475,7 @@ And enter candidate email and password "<CandidateEmail>" "<Password>"
 And click on Signin button
 And Click on Profile tab
 Then verify the Auto Populated fields on candidate update profile popup window "<Username>","<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<relocate>"
-And Add mandatory details on candidate profile page and save the details "<jobtype>" "<shift>"
+#And Add mandatory details on candidate profile page and save the details "<jobtype>" "<shift>"
 And upload candidate resume in document format
 And Click on Save Button
 And click on ok button
