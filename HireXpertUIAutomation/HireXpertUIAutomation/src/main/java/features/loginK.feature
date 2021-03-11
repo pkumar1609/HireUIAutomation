@@ -26,7 +26,7 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials
-And Click on add Button Fill all the mandatory details for "team"
+And Click on add Button Fill all the mandatory details for "Team Members"
 |Name|      Email      | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
@@ -87,7 +87,7 @@ And Click on Search section and enter already existing agency
 |Name|
 |pagy|
 And User should able to search agency
-And Click on add Button Fill all the mandatory details for "team"
+And Click on add Button Fill all the mandatory details for "Team Members"
 |Name|         Email   | contact  |
 |pe1 | pe1@gmail.com   | 1234564  |
 |pe2 | pe2@gmail.com   | 1234564  |
@@ -113,7 +113,7 @@ And Click on Search section and enter already existing employer
 |Name|
 |pe1 |
 And User should able to search employer
-And Click on add Button Fill all the mandatory details for "team"
+And Click on add Button Fill all the mandatory details for "Team Members"
 |Name  |       Email    | contact    |
 |pa1   | pa1@gmail.com  | 1234564    |
 |pa2   | pa2@gmail.com  | 1234564    |
@@ -132,7 +132,7 @@ And Employer enters valid credentials "<Username>","<Password>"
 And Go to update profile
 And Check the character limit for fields with "<Name>"
 And Go to dashboard
-And Click on Add button and fill "<Name>" for "team"
+And Click on Add button and fill "<Name>" for "Team Members"
 Then Error message should show only after exceeding character limit
 And Close browser
 Examples:

@@ -66,9 +66,9 @@ public class loginstepdefination extends baseclass {
 
 	@When("^Click on add Button Fill all the mandatory details for \"([^\"]*)\"$")
 	public void click_on_add_Button_Fill_all_the_mandatory_details_for(String profile, DataTable credentials) throws Throwable {
-		executor.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//button[@title='"+profile+"']")));
+		executor.executeScript("arguments[0].scrollIntoView();", dashboardpage.AddTeamButton);
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//button[@title='"+profile+"']")).click();
+		executor.executeScript("arguments[0].click();", driver.findElement(By.xpath("//button[@title='"+profile+"']")));
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 		{
 		Thread.sleep(1000);
