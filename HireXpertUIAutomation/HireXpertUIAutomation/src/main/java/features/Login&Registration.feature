@@ -283,7 +283,7 @@ When click on Register link
 	And click on Job Seeker(Candidate) Sign In link
 	And enter user email and password 
 	And click on Signin button
-	And click on ok button
+#	And click on ok button
 	And Click on Update Profile tab
 	And verify user login as Candidate has redirect on correct candidate update profile or not
 	Then verify the Auto Populated fields on candidate update profile popup window  "<CandidateEmail>" "<CandidateName>" "<ContactNumber>"

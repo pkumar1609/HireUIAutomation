@@ -155,10 +155,6 @@ public class LoginPage extends baseclass
 		password.sendKeys(Password);
 		Thread.sleep(4000);
 		signin.click();
-//		if(common.okbtnPopup.size()>0)
-//		{
-//			common.clickOnOKBtn();
-//		}
 		identifyUserK();
 		
 	}
@@ -258,7 +254,7 @@ public class LoginPage extends baseclass
 					b=true;
 					user="employer";
 				}
-				if(userbtnagy.size()>0)
+				else if(userbtnagy.size()>0)
 				{
 					logedinuser= userbtnagy.get(0).getText();
 					Thread.sleep(2000);
@@ -266,7 +262,7 @@ public class LoginPage extends baseclass
 					b=false;
 					user="agency";
 				}
-				if(userbtnCandidate.size()>0)
+				else if(userbtnCandidate.size()>0)
 				{
 					System.out.println("candidate");
 					logedinuser= userbtnCandidate.get(0).getText();

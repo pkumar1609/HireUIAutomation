@@ -101,7 +101,7 @@ public class DashboardPage extends baseclass {
 	public void openWorkbenchPage() throws InterruptedException {
 		
 		Action.moveToElement(dashboardpage.recruitment).perform();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		applicationTracking.click();
 		boolean b=common.okbtnPopup.size()>0;
 		if(b==true)
