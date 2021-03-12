@@ -1180,11 +1180,11 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			executor.executeScript("window.scrollBy(0,10000)");		
 			Thread.sleep(2000);
 			select= new Select(addcandidatepage.expertiselevel.get(0));
-			select.selectByVisibleText(" "+expertiseLevel+" ");					
+			select.selectByVisibleText(expertiseLevel);					
 			select= new Select(addcandidatepage.expertiselevel.get(1));
-			select.selectByVisibleText(" "+expertiseLevel+" ");		
+			select.selectByVisibleText(expertiseLevel);		
 			select= new Select(addcandidatepage.expertiselevel.get(2));
-			select.selectByVisibleText(" "+expertiseLevel+" ");			    
+			select.selectByVisibleText(expertiseLevel);			    
 		}
 
 
