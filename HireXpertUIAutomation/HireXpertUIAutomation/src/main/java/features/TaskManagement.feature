@@ -26,13 +26,13 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
 And Go to Task tab
-And apply filter of task type as " Review Candidate "
+And apply filter of task type as "Review Candidate"
 And Review Candidate task should display in new column "<Name>"
 And Go to Workbench
 And Select a added job
 And move card from new colum to schedule interview column
 And Go to Task tab
-And apply filter of task type as " Review Candidate "
+And apply filter of task type as "Review Candidate"
 And Review Candidate task should not display "<Name>"
 Examples:
 |Username      |agency         |Password |CandidateEmail      |profiletitle    |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|jobs    |designation   |mandatorySkills|preferredSkills|optionalSkills|minexp|maxexp|updatedOn|industry   |overBudget|minage|maxage|jobtype            |shift     | Title      | Hour | Minute |  Duration  | TimeZone                     					 | hour | duration   | scheduleon   |scheduleon1 |interviewerName|interviewerEmail|
@@ -62,7 +62,7 @@ And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
 And move the candidate card from potential candidate to Schedule Interview column
 And Go to Task tab
-And apply filter of task type as " Schedule Interview "
+And apply filter of task type as "Schedule Interview"
 Then Schedule interview task should display on task Management page "<Name>"
 And click on Schedule interview task for "<Name>"
 And fill all interview details and click on Submit button "<Title>" "<scheduleon>" "<Hour>" "<Minute>" "<DurationHour>" "<DurationMinute>" "<TimeZone>" "<interviewerName>" "<interviewerEmail>"
@@ -92,12 +92,12 @@ And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
 And move the candidate card from Schedule Interview column to pending interview column
 And Go to Task tab
-And apply filter of task type as " Interview Pending "
+And apply filter of task type as "Interview Pending"
 Then pending interview task should display on task Management page "<Name>"
 And Go to Workbench
 And move the candidate card from pending Interview column to any other column
 And Go to Task tab
-And apply filter of task type as " Interview Pending "
+And apply filter of task type as "Interview Pending"
 Then pending interview task should not display in done columne "<Name>"
 
 Examples:
@@ -121,7 +121,7 @@ And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
 And move candidate card to offering job column
 And Go to Task tab
-And apply filter of task type as " Offering Job "
+And apply filter of task type as "Offering Job"
 Then offering job task should display in new column "<Name>"
 And click on offering job task
 And Click on close button
@@ -130,7 +130,7 @@ And Go to Workbench
 And Select a added job
 And move the card from offering job column to job offered column
 And Go to Task tab
-And apply filter of task type as " Job Offered "
+And apply filter of task type as "Job Offered"
 Then job offered task should display in new column "<Name>"
 And click on job offered task
 And Click on close button
@@ -139,7 +139,7 @@ And Go to Workbench
 And Select a added job
 And move the card from job offered column to joined column
 And Go to Task tab
-And apply filter of task type as " Candidate Joined "
+And apply filter of task type as "Candidate Joined"
 Then candidate joined task should display in new column "<Name>"
 And click on candidate joined task
 And Click on close button
@@ -148,7 +148,7 @@ And Go to Workbench
 And Select a added job
 And move the card joined column to refused to joined column
 And Go to Task tab
-And apply filter of task type as " Refused To Joined "
+And apply filter of task type as "Refused To Joined"
 Then Refused to joined task should display in new column "<Name>"
 And click on Refused to joined task
 And Click on close button
@@ -196,7 +196,7 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<agency>","<Password>"
 And Go to Task tab
-And apply filter of task type as " Candidate Rejected "
+And apply filter of task type as "Candidate Rejected"
 And Candidate rejected task should display in new column "<Name>"
 And click on candidate Rejected task
 And Click on close button
@@ -226,7 +226,7 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<agency>","<Password>"
 And Go to Task tab
-And apply filter of task type as " Job Shared "
+And apply filter of task type as "Job Shared"
 And job Shared task should display in new column "<Name>"
 And click on job Shared task
 And Click on close button
@@ -269,7 +269,7 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<agency>","<Password>"
 And Go to Task tab
-And apply filter of task type as " Generate Invoice "
+And apply filter of task type as "Generate Invoice"
 And Generate invoice task should display in new column "<Name>"
 And click on Generate invoice task
 And Fill all details of invoice
@@ -342,7 +342,7 @@ And Click on Employer-Agency Signin link
 And user enters valid credentials "<Employer>","<Password>"
 And Go to Task tab
 #And click on reload task
-And apply filter of task type as " Proposal Received "
+And apply filter of task type as "Proposal Received"
 And Proposal Received task should display in "New" column with agency name "<Agency>"
 And move the "Proposal Received" task from "New" to "Done" column
 And user should not able to move Proposal Received task to done column
@@ -352,14 +352,14 @@ And Click on Review button
 And Now click on accept and sign button
 And Go to Task tab
 #And click on reload task
-And apply filter of task type as " Proposal Received "
+And apply filter of task type as "Proposal Received"
 And move the "Proposal Received" task from "New" to "Done" column
 And user should be able to move Proposal Received task to done column
 And Logout from App
 And Click on Employer-Agency Signin link
 And agency enters credentials for marketplace proposal
 And Go to Task tab
-And apply filter of task type as " Update Agreement "
+And apply filter of task type as "Update Agreement"
 And "Update Agreement" task should display in "New" column with agency name "<Agency>"
 And Click on "Update Agreement" task
 And Now click on accept and sign button
@@ -368,7 +368,7 @@ And Logout from App
 And Click on Employer-Agency Signin link
 And user enters valid credentials "<Employer>","<Password>"
 And Go to Task tab
-And apply filter of task type as " Update Agreement "
+And apply filter of task type as "Update Agreement"
 And "Update Agreement" task should display in "New" column with agency name "<Agency>"
 And Click on "Update Agreement" task
 And Click on close button
