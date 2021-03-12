@@ -405,16 +405,13 @@ public class AddCandidatePage extends baseclass {
 	
 	public void checkCandidateALreadyPresent() throws InterruptedException
 	{
-		try {
-			driver.findElement(By.xpath("//h6[contains(text(),'This candidate is already added to this job either by you or somebody else.')]")).isDisplayed();
-			System.out.println("This candidate is already added to this job either by you or somebody else");
+		if(driver.findElements(By.xpath("//h6[text()='You can not add this candidate to this job as this candidate is already added to this job with 4855866385 on 12-Mar-2021 and current status of this candidate is Potential Candidate.']")).size()>0)
+		{
 			common.clickOnOKBtn();
 			Thread.sleep(2000);
 			common.clickOnCloseBtn();
 			common.clickOnConfirmYes();
 		}
-		catch(NoSuchElementException e )
-		{}
 	} 
 
         public void Enterexpertilevel (String ExpertiseLevel1, String ExpertiseLevel2 ,String ExpertiseLevel3) {
