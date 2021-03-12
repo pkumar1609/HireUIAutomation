@@ -407,7 +407,6 @@ And click on No from confirmation popup and observe
 And Click on show all rejected candidate checkbox
 Then both candidates should not display in same column
 
-
 Examples:
 |Username       |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |ContactNumber1|Name1    |
 |pemp@gmail.com |12345    |hirecan22@gmail.com |jr software developer|hirecan22|4855866385    |Sr.developer  |14/02/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan24@gmail.com|8789566562    |hirecan24|
@@ -496,7 +495,7 @@ And click on ok button
 
 Examples:
 |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation          |Date            |Gender  |OnNoticePeriod |NoticePeriod|LastWorkingDay  |experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|jobtype               |shift         |
-|12345    |hirecan15@gmail.com |jr software developer|hirecan15|7895456523    |Senior Web Designer  |14/02/1995      |Male    |No            |25          |01/09/2021      |0         |800000|800000     | India |wardha|sindi  |529599 |Email             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft     |advanced version    | Contractual Full Time| Evening Shift|
+|12345    |hirecan15@gmail.com |jr software developer|hirecan15|7895456523    |Senior Web Designer  |14/02/1995      |Male    |No            |25          |01/09/2021      |0         |800000|800000     | India |wardha|sindi  |529599 |SMS             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft     |advanced version    | Contractual Full Time| Evening Shift|
 
 
 # TC ID :- 26 [Job candidate workfloww Regression TC]

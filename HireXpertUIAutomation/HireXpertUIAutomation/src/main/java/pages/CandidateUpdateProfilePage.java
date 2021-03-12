@@ -348,7 +348,7 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 //		Assert.assertEquals(this.dateOfBirth.getAttribute("value"),Date); 
 		se = new Select (this.countryId);
 		WebElement option = se.getFirstSelectedOption();
-		Assert.assertEquals(option.getText()," "+Country+" ");
+		Assert.assertEquals(option.getText().strip(),Country);
 		Assert.assertEquals(this.cityArea.getAttribute("value"),CityArea);
 		Assert.assertEquals(addcandidatepage.name.getAttribute("value"),Name);
 		Assert.assertEquals(addcandidatepage.gender.getAttribute("value"),Gender);
