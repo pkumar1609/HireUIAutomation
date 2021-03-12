@@ -342,7 +342,7 @@ public void addNewSkill3() {
 				if(options.size()>0)
 				{
 					try {
-						select.selectByVisibleText(" pemp ");
+						select.selectByVisibleText("pemp");
 					}
 					catch(NoSuchElementException e)
 					{
@@ -354,7 +354,7 @@ public void addNewSkill3() {
 						common.find.click();
 						Thread.sleep(2000);
 						common.addSubmitbtn.click();  
-						select.selectByVisibleText(" pemp ");
+						select.selectByVisibleText("pemp");
 					}
 					if(this.Organization.isEnabled())
 						{
