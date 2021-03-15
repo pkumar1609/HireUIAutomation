@@ -73,6 +73,10 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath="//input[@name= 'search-id']")
 	public WebElement searchField;
 	
+	@FindBy(xpath="//button[text()='Apply']")
+	public WebElement apply;
+	
+	
 	
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
 	

@@ -1201,7 +1201,8 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		   workbenchpage.shareWithTeamButton.click();		   
 		   select=new Select(sharewithteampage.selectTeam);
 		   select.selectByVisibleText(team);
-		   common.ClickSumbit();
+		   Thread.sleep(2000);
+		   common.apply.click();
 		   common.clickOnConfirmYes();
 		}
 		
