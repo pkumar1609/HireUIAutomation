@@ -1,6 +1,6 @@
 Feature: Job Candidate Management (Add,update,view) feature
 
-@BVT @JobCandidateManagement
+@BVT @JobCandidateManagement @jobcan1
 Scenario Outline: Verify the functionality of hide candidate contacts for candidate added by agency
 Given Open browser
 When title of login page is Home

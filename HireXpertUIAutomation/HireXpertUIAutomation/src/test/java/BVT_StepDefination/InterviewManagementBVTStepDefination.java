@@ -62,12 +62,15 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	
 	@When("^observe the interview date and time displayed on candidate card below Assign To field \"([^\"]*)\"$")
 	public void observe_the_interview_date_and_time_displayed_on_candidate_card_below_Assign_To_field(String Name) throws Throwable {
-		
+		String formattedStr = null;
 		Thread.sleep(8000);
 		String date=scheduleInterview.calendar.getTime().getDate()+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getYear()+1900);	
-		java.util.Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(scheduleInterview.interviewDate);  
-		DateFormat dateFormat = new SimpleDateFormat("hh : mm");  
-        String interviewTimeOnCard = dateFormat.format(date1);  
+		if(String.valueOf(scheduleInterview.calendar.getTime().getMinutes()).length()==1)
+		{
+			formattedStr= String.format("%2d", String.valueOf(scheduleInterview.calendar.getTime().getMinutes()));
+		    System.out.println("With leading zeros = " + formattedStr);
+		}
+		String interviewTimeOnCard= scheduleInterview.calendar.getTime().getHours()+":"+formattedStr;
 		Assert.assertEquals(driver.findElement(By.xpath("//span[contains(text(),' "+Name+"')]//following::p[text()=' "+date+", "+interviewTimeOnCard+" ']")).isDisplayed(), true);
 		}
 	

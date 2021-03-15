@@ -132,11 +132,11 @@ public class scheduleInterview extends baseclass {
 			common.enterdate(interviewDate);
 				    
 			Thread.sleep(2000);
-//			this.hours.sendKeys(String.valueOf(calendar.getTime().getHours()));		
-//			Thread.sleep(2000);
-//			this.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));	
-			this.hours.sendKeys("14");
-			this.minutes.sendKeys("9");
+			this.hours.sendKeys(String.valueOf(calendar.getTime().getHours()));		
+			Thread.sleep(2000);
+			this.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));	
+//			this.hours.sendKeys("14");
+//			this.minutes.sendKeys("9");
 			select= new Select(scheduleinterviewpage.durationHour);
 			select.selectByVisibleText(Durationhour);	
 			select= new Select(scheduleinterviewpage.durationMinute);
