@@ -1,8 +1,21 @@
 package BVT_StepDefination;
 
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.testng.Assert;
+
+import static org.junit.Assert.assertArrayEquals;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import pages.RegisterPage;
+import utilPackage.baseclass;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -97,26 +110,16 @@ public class JobUpdateBVTStepDefination extends baseclass {
 
 	@Then("^click on Edit Job button to make changes in job$")
 	public void click_on_Edit_Job_button_to_make_changes_in_job() throws Throwable {
-		Thread.sleep(3000);
-		workbenchpage.job.click();	
-		workbenchpage.editJobButton.click();
+		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
+		Thread.sleep(4000);
+		workbenchpage.job.click();
+		workbenchpage.editJobButton.click();;
+
 	}
 
-	@Then("^again click on Edit Job button and observe the changes$")
-	public void again_click_on_Edit_Job_button_and_observe_the_changes() throws Throwable {
-		Thread.sleep(3000);
-		workbenchpage.clickonthreedot();
-		workbenchpage.editJobButton.click();
-		Thread.sleep(3000);
-		String expectedBudget = editjobpage.budget.getText();
-		String expectedNoticePeriod = editjobpage.noticePeriod.getText();
-		String actualBudget = editjobpage.budget.getText();
-		String actualNoticePeriod = editjobpage.noticePeriod.getText();
-		
-		if(expectedBudget.equals(actualBudget) && expectedNoticePeriod.equals(actualNoticePeriod)) {
-			
-			System.out.println("\nUpdated data displayed in the job");
-		}
+	@Then("^again click on Edit Job button and observe the changes \"([^\"]*)\"$")
+	public void again_click_on_Edit_Job_button_and_observe_the_changes(String noticePeriod) throws Throwable {
+	   Assert.assertEquals(addjobpage.noticePeriod.getAttribute("value").strip(), noticePeriod);
 	}
 	
 	@When("^click on Add Skill button and add some skills$")
@@ -163,7 +166,7 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	public void now_Click_on_Add_Skill_button_to_add_more_than_fifteen_skills() throws Throwable {
 
 		Thread.sleep(3000);
-		for(int i=1;i<15;i++) {
+		for(int i=0;i<11;i++) {
 		addjobpage.addskillbutton.click();
 	}
 }

@@ -143,7 +143,7 @@ Examples:
 @BVTC @login @invalid
   Scenario Outline: Verify that User is not able to Login with invalid credentials
   
-    Given User is on Home page of application
+	Given User must be registered
     
     When title of page is HireXpert
    	And Click on Employer-Agency Signin link

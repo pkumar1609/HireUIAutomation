@@ -166,21 +166,21 @@ public class DashboardPage extends baseclass {
 	public void clickOnAddButton(String profile) throws InterruptedException {
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].scrollIntoView();", AddTeamButton);
-		if(profile.contentEquals("employer"))	
+		if(profile.contentEquals("Employers"))	
 		{
 		executor.executeScript("arguments[0].scrollIntoView();", addEmployer);
 		Thread.sleep(2000);
 		addEmployer.click();
 		System.out.println("emplyer is selected");
 		}
-	else if(profile.contentEquals("agency"))
+	else if(profile.contentEquals("Recruitment Agencies"))
 		{
 		executor.executeScript("arguments[0].scrollIntoView();", addAgencyButton);
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",addAgencyButton );
 //		addAgencyButton.click();			
 		}
-	else if(profile.contentEquals("team"))
+	else if(profile.contentEquals("Team Members"))
 		{
 		executor.executeScript("arguments[0].scrollIntoView();", AddTeamButton);
 		Thread.sleep(2000);
