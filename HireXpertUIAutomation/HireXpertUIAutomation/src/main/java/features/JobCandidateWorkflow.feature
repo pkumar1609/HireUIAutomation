@@ -404,7 +404,7 @@ And Click on Reject Candidate icon from candidate card and reject that candidate
 Then Observe candidate get moved in Rejected column automatically
 And Click on Reject Candidate icon from candidate card for second candidate "<Name1>"
 And click on No from confirmation popup and observe
-And Click on show all rejected candidate checkbox
+#And Click on show all rejected candidate checkbox
 Then both candidates should not display in same column
 
 Examples:
@@ -674,7 +674,7 @@ And verify candidate card is displaying or not in New column "<Name>"
 And Drag the candidate card from that column to rejected column
 And confirmation popup should diplay with Yes and No button and click on Yes buton "<Name>"
 And select the reason of rejection and cick on submit button
-And Click on show all rejected candidate checkbox
+#And Click on show all rejected candidate checkbox
 Then drag the candidate card from rejected column to any other column
 And Go to dashboard
 Given "team" should be added
@@ -695,7 +695,7 @@ And verify candidate card is displaying or not in New column "<Name2>"
 And Drag the candidate card from that column to rejected column
 And confirmation popup should diplay with Yes and No button and click on Yes buton "<Name2>"
 And select the reason of rejection and cick on submit button
-And Click on show all rejected candidate checkbox
+#And Click on show all rejected candidate checkbox
 Then drag the candidate card from rejected column to any other column
 
 Examples: 

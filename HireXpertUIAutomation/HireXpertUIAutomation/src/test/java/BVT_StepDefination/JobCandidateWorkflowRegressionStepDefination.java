@@ -880,6 +880,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	@When("^again click on Edit Job button and observe the number of interviews \"([^\"]*)\"$")
 	public void again_click_on_Edit_Job_button_and_observe_the_number_of_interviews(String NoOfInterview1) throws Throwable {		
 		Thread.sleep(2000);
+//		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		workbenchpage.job.click();
 		workbenchpage.editJobButton.click();
 		select = new Select(addjobpage.totalinterviews);

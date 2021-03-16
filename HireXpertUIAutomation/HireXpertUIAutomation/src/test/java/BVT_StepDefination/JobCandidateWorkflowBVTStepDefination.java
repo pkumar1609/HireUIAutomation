@@ -508,7 +508,9 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	public void click_on_Collect_Answers_icon_on_candidate_card() throws Throwable {
 		
 		Thread.sleep(3000);
-		workbenchpage.candidateCardCollectAnswericon.click();
+//		workbenchpage.candidateCardCollectAnswericon.click();
+		executor.executeScript("arguments[0].click();", workbenchpage.candidateCardCollectAnswericon);
+
 	}
 
 	@When("^Fill all the Questions answers \"([^\"]*)\" \"([^\"]*)\"$")
