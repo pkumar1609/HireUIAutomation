@@ -62,7 +62,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	
 	@When("^observe the interview date and time displayed on candidate card below Assign To field \"([^\"]*)\"$")
 	public void observe_the_interview_date_and_time_displayed_on_candidate_card_below_Assign_To_field(String Name) throws Throwable {
-		String formattedStr = null;
+		String formattedStr = String.valueOf(scheduleInterview.calendar.getTime().getMinutes());
 		Thread.sleep(8000);
 		String date=scheduleInterview.calendar.getTime().getDate()+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getYear()+1900);	
 		if(String.valueOf(scheduleInterview.calendar.getTime().getMinutes()).length()==1)
@@ -70,7 +70,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 			formattedStr= String.format("%2d", String.valueOf(scheduleInterview.calendar.getTime().getMinutes()));
 		    System.out.println("With leading zeros = " + formattedStr);
 		}
-		String interviewTimeOnCard= scheduleInterview.calendar.getTime().getHours()+":"+formattedStr;
+		String interviewTimeOnCard= scheduleInterview.calendar.getTime().getHours()+" : "+formattedStr;
 		Assert.assertEquals(driver.findElement(By.xpath("//span[contains(text(),' "+Name+"')]//following::p[text()=' "+date+", "+interviewTimeOnCard+" ']")).isDisplayed(), true);
 		}
 	
@@ -178,9 +178,15 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	public void interview_details_should_be_reflect_according_to_the_filter_applied(String scheduleOn, String Name) throws Throwable {
 		Thread.sleep(2000);
 		String date=scheduleInterview.calendar.getTime().getDate()+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getYear()+1900);	
-	    DateFormat dateFormat = new SimpleDateFormat("hh : mm");  
-        String interviewTimeOnCard = dateFormat.format(scheduleInterview.calendar);  
-		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),' "+Name+"')]//following::p[text()=' "+date+", "+interviewTimeOnCard+"']")).isDisplayed(), true);
+		String date=scheduleInterview.calendar.getTime().getDate()+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getYear()+1900);	
+		String formattedStr=String.valueOf(scheduleInterview.calendar.getTime().getMinutes());
+		if(String.valueOf(scheduleInterview.calendar.getTime().getMinutes()).length()==1)
+		{
+			String.format("%2d", String.valueOf(scheduleInterview.calendar.getTime().getMinutes()));
+		    System.out.println("With leading zeros = " + formattedStr);
+		}
+		String interviewTimeOnCard= scheduleInterview.calendar.getTime().getHours()+" : "+formattedStr;
+		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'"+Name+"')]//following::p[text()=' "+date+", "+interviewTimeOnCard+"']")).isDisplayed(), true);
 	}
 	
 	@Then("^click on close job button and delete the job$")
