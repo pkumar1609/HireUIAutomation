@@ -178,7 +178,6 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	public void interview_details_should_be_reflect_according_to_the_filter_applied(String scheduleOn, String Name) throws Throwable {
 		Thread.sleep(2000);
 		String date=scheduleInterview.calendar.getTime().getDate()+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getYear()+1900);	
-		String date=scheduleInterview.calendar.getTime().getDate()+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getYear()+1900);	
 		String formattedStr=String.valueOf(scheduleInterview.calendar.getTime().getMinutes());
 		if(String.valueOf(scheduleInterview.calendar.getTime().getMinutes()).length()==1)
 		{
