@@ -71,7 +71,7 @@ Given Open browser
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<addJobBy>","<Password>"  
-Given "team" should be added
+Given "Team Members" should be added
 |Name|         Email   | contact  |Nameagy   |    Emailagy     | contactagy  |
 |pe1 | pe1@gmail.com   | 1234564  | pa1      | pa1@gmail.com   |1234556      |
 |pe2 | pe2@gmail.com   | 1234564  | pa2      | pa2@gmail.com   |1234566      |
