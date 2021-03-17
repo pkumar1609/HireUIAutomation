@@ -67,8 +67,11 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath="//select[@formcontrolname='CountryId']")
 	public WebElement countryid;
 
-	@FindBy(xpath="//button[@title='Delete']")
-	public static WebElement deletebtn;
+	@FindBy(xpath="//h5[contains(text(),'Employers')]//following::button[@title='Delete']")
+	public static WebElement Employersdeletebtn;
+	
+	@FindBy(xpath="//h5[contains(text(),'Employers')]//following::button[@id='btnGroupDrop1']")
+	public static WebElement employersActions;
 	
 //	agency
 	

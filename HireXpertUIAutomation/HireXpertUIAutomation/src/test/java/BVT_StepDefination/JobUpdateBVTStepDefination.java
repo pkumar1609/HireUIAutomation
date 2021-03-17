@@ -4,6 +4,8 @@ package BVT_StepDefination;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
+import com.sun.jdi.connect.Connector.SelectedArgument;
+
 import static org.junit.Assert.assertArrayEquals;
 
 import org.openqa.selenium.By;
@@ -62,6 +64,8 @@ public class JobUpdateBVTStepDefination extends baseclass {
 		addjobpage.noticePeriod.clear();
 		Thread.sleep(3000);
 		addjobpage.noticePeriod.sendKeys(JobNoticePeriod1);
+		addjobpage.title.clear();
+		addjobpage.title.sendKeys(addjobpage.jobname+"-edited title");
 	}
 		
 	
@@ -113,13 +117,14 @@ public class JobUpdateBVTStepDefination extends baseclass {
 		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
 		Thread.sleep(4000);
 		workbenchpage.job.click();
-		workbenchpage.editJobButton.click();;
+		workbenchpage.editJobButton.click();
 
 	}
 
 	@Then("^again click on Edit Job button and observe the changes \"([^\"]*)\"$")
 	public void again_click_on_Edit_Job_button_and_observe_the_changes(String noticePeriod) throws Throwable {
 	   Assert.assertEquals(addjobpage.noticePeriod.getAttribute("value").strip(), noticePeriod);
+	   Assert.assertEquals(addjobpage.title.getAttribute("value").strip(), addjobpage.jobname+"-Edited Title");
 	}
 	
 	@When("^click on Add Skill button and add some skills$")
@@ -189,8 +194,35 @@ public class JobUpdateBVTStepDefination extends baseclass {
 		
 	}
 
+	@Given("^verify user cannot delete the employer for which job is created$")
+	public void verify_user_can_delete_the_employer_for_which_job_is_created() throws Throwable {
+		executor.executeScript("arguments[0].scrollIntoView();", dashboardpage.addEmployer);
+		dashboardpage.employerSearchfield.sendKeys(addjobpage.SelectedEmployer);
+		Thread.sleep(3000);
+		dashboardpage.employersActions.click();
+		dashboardpage.Employersdeletebtn.click();
 
-
+		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'Job is added for this employer. First you need to close the job for this employer then you can delete the employer.')]")).isDisplayed(), true);
+		common.clickOnOKBtn();
+	}
+	
+	@Given("^add the employer which is already present$")
+	public void add_the_employer_which_is_already_present() throws Throwable {
+		Thread.sleep(2000);
+	    addjobpage.addEmployee.click();
+		Thread.sleep(5000);
+		dashboardpage.emailfield.sendKeys(addjobpage.SelectedEmployer+"@gmail.com");
+		Thread.sleep(2000);
+		common.find.click();
+		Thread.sleep(2000);
+		common.addSubmitbtn.click();
+	}
+	
+	@Given("^user should not be able to add already existing employer$")
+	public void user_should_not_be_able_to_add_already_existing_employer() throws Throwable {
+	    Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'Job Provider with email id "+addjobpage.SelectedEmployer+"@gmail.com already exists')]")).isDisplayed(), true);
+	    common.clickOnOKBtn();
+	}
 }
 
 	

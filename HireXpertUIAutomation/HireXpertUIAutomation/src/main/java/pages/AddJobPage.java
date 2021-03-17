@@ -338,9 +338,7 @@ public void addNewSkill3() {
 				jobname=dtFormate.format(currentTime)+" Agy";
 				title.sendKeys(jobname);
 				select =new Select(employerId);
-				List<WebElement> options = select.getOptions();
-				if(options.size()>0)
-				{
+				List<WebElement> options = select.getOptions();	
 					try {
 						select.selectByVisibleText("pemp");
 					}
@@ -362,20 +360,7 @@ public void addNewSkill3() {
 						}
 					SelectedEmployer=select.getFirstSelectedOption().getText();
 					selectedOrganization=this.Organization.getAttribute("value");
-				}
-				else if (options.size()==0)
-				{
-					Thread.sleep(2000);
-					addEmployee.click();
-					Thread.sleep(5000);
-					dashboardpage.emailfield.sendKeys("pemp@gmail.com");
-					Thread.sleep(2000);
-					common.find.click();
-					Thread.sleep(2000);
-					common.addSubmitbtn.click();
-					SelectedEmployer=select.getFirstSelectedOption().getText();
-					selectedOrganization=this.Organization.getAttribute("value");
-				}
+	
 			}
 			Thread.sleep(1000);
 			designation.sendKeys(data.get("designation"));

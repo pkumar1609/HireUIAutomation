@@ -65,7 +65,7 @@ public class EditJobPage extends baseclass {
 		Assert.assertEquals(addjobpage.qualification.getAttribute("value"), data.get("qualification"));
 		se = new Select (addjobpage.country);
 		WebElement option = se.getFirstSelectedOption();
-		Assert.assertEquals(option.getText()," "+data.get("country")+" ");
+		Assert.assertEquals(option.getText(),data.get("country"));
 		Assert.assertEquals(addjobpage.city.getAttribute("value"), data.get("city"));
 		Assert.assertEquals(addjobpage.cityArea.getAttribute("value"), data.get("location"));
 		Assert.assertEquals(addjobpage.zipcode.getAttribute("value"), data.get("zipcode"));
@@ -82,7 +82,7 @@ public class EditJobPage extends baseclass {
 		Assert.assertEquals(addjobpage.noticePeriod.getAttribute("value"), data.get("noticePeriod"));
 		se = new Select (addjobpage.jobType);
 		WebElement jobType = se.getFirstSelectedOption();
-		Assert.assertEquals(jobType.getText(), " "+data.get("jobType")+" ");
+		Assert.assertEquals(jobType.getText(), data.get("jobType"));
 		se = new Select (addjobpage.considerRelocation);
 		WebElement considerRelocation = se.getFirstSelectedOption();
 		Assert.assertEquals(considerRelocation.getText(), data.get("considerRelocation"));
@@ -91,7 +91,7 @@ public class EditJobPage extends baseclass {
 		Assert.assertEquals(DoNotAddOverBudgetCandidate.getText(), data.get("OverBudget"));
 		se = new Select (addjobpage.Shift);
 		WebElement Shift = se.getFirstSelectedOption();
-		Assert.assertEquals(Shift.getText(), " "+data.get("Shift")+" ");
+		Assert.assertEquals(Shift.getText(), data.get("Shift"));
 		Assert.assertEquals(addjobpage.ShiftTimings.getAttribute("value"), data.get("ShiftTimings"));
 			if(loginpage.b==true)
 			{
@@ -119,18 +119,18 @@ public class EditJobPage extends baseclass {
 			Assert.assertEquals(addjobpage.jobskill.get(1).getAttribute("value"), Skill2);
 			Assert.assertEquals(addjobpage.jobskill.get(2).getAttribute("value"), Skill3);
 			select=new Select(addjobpage.expertiselevel.get(0));
-			Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level1+" ");
+			Assert.assertEquals(select.getFirstSelectedOption().getText(), level1);
 			select=new Select(addjobpage.expertiselevel.get(1));
-			Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level2+" ");
+			Assert.assertEquals(select.getFirstSelectedOption().getText(), level2);
 			select=new Select(addjobpage.expertiselevel.get(2));
-			Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+level3+" ");
+			Assert.assertEquals(select.getFirstSelectedOption().getText(), level3);
 			
 			select=new Select(addjobpage.weightage.get(0));
-			Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+Weightage1+" ");
+			Assert.assertEquals(select.getFirstSelectedOption().getText(), Weightage1);
 			select=new Select(addjobpage.weightage.get(1));
-			Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+Weightage2+" ");
+			Assert.assertEquals(select.getFirstSelectedOption().getText(), Weightage2);
 			select=new Select(addjobpage.weightage.get(2));
-			Assert.assertEquals(select.getFirstSelectedOption().getText(), " "+Weightage3+" ");
+			Assert.assertEquals(select.getFirstSelectedOption().getText(), Weightage3);
 				
 			if(certificate1.contentEquals("Yes"))
 			{

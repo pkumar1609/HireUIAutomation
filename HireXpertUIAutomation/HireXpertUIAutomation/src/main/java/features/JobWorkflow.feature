@@ -48,7 +48,7 @@ Feature: Job Workflow
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
     And enter valid "<username>" and "<Password>" for registered employer and click on Sign in button
-	Given "team" should be added
+	Given "Team Members" should be added
 	|Name|         Email   | contact  |Nameagy   |    Emailagy     | contactagy  |
 	|pe1 | pe1@gmail.com   | 1234564  | pa1      | pa1@gmail.com   |1234556      |
 	|pe2 | pe2@gmail.com   | 1234564  | pa2      | pa2@gmail.com   |1234566      |   
@@ -120,7 +120,7 @@ Feature: Job Workflow
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
     And enter valid "<Username>" and "<Password>" for registered employer and click on Sign in button
-  	Given "team" should be added
+  	Given "Team Members" should be added
 	|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
 	|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
 	|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|1234566      |pe1   |pa1	  | 
@@ -166,7 +166,7 @@ Feature: Job Workflow
 	|Primary12      |Primaryagy123 Job |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			    |Hirexpert   |rahitech       |pemp    |java|
 	And Select a added job
 	And Go to dashboard
-    Given "team" should be added
+    Given "Team Members" should be added
 	|Name|         Email   | contact  |Nameagy  |         Emailagy  |team  |agyteam |
 	|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|pe1   |pa1     |
 	|pe2 | pe2@gmail.com   | 1234564  |pa2      |pa2@gmail.com		|pe1   |pa1	    |
@@ -177,7 +177,7 @@ Feature: Job Workflow
     Then user should not able to make multiple team members as primary contact "<Teamid>"
     And Click on close button
     And Go to dashboard
-	Given "team" should be added
+	Given "Team Members" should be added
 	|Name|         Email   | contact  |Nameagy  |         Emailagy  |
 	|pe3 | pe3@gmail.com   | 1234564  |pa3      |pa3@gmail.com		|
 	And Go to Workbench

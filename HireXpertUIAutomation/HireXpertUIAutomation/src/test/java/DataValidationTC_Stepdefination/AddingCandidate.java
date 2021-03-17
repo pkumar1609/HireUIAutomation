@@ -50,6 +50,11 @@ public class AddingCandidate extends baseclass{
 		addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3);		
 		common.ClickSumbit();
 	}
+	
+	@Given("^\"([^\"]*)\" should be added$")
+	public void should_be_added(String profile, DataTable credentials) throws Throwable {
+		dashboardpage.enterAllDetails(profile, credentials);
+	}
 
 	@When("^Select a added job$")
 	public void select_a_added_job() throws Throwable {
@@ -241,17 +246,9 @@ public void click_on_hamburger_menu() throws Throwable {
   workbenchpage.clickonthreedot();
 }
 
-@When("^click on edit button$")
-public void click_on_edit_button() throws Throwable {
-	Thread.sleep(2000);
-	workbenchpage.editJobButton.click();
-}
 
-@When("^Assert details of add jon on edit job page \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
-public void assert_details_of_add_jon_on_edit_job_page_and(String Skill1, String Skill2, String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1, String certificate2, String certificate3, String remark1, String remark2,String remark3,String certificateforskill1, String certificateforskill2,DataTable credentials) throws Throwable {
-	  editjobpage.assertJobdetails(credentials);
-	  editjobpage.assertjobdskills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3, certificateforskill1, certificateforskill2, credentials);
-}
+
+
 
 @When("^click on Edit/view job button$")
 public void click_on_Edit_view_job_button() throws Throwable {

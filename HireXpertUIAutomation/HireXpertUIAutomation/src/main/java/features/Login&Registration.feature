@@ -238,7 +238,6 @@ Feature: HireXpert Login & Registration feature
 	And Verify that the critical fields on Update Agency Profile popup are not editable
 	And Update Agency Profile  "<AgencyAddress>" "<AgencyOrganizationName>" "<AgencyWebsite>" "<AgencyCity>"
 	And click on Submit button
-#	And click on ok button
 	And Click on Update Profile tab
 	And Make changes in Agency profile "<organizationname>"
 	And click on Submit button
