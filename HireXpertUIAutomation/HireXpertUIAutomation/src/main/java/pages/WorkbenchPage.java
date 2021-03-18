@@ -3,6 +3,7 @@ package pages;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -171,20 +172,19 @@ public class WorkbenchPage extends baseclass {
 	}
 	
 	public void selectJobK() throws InterruptedException {
-//		if(driver.findElements(By.xpath("//span[@title='Clear all']")).size()>0)
-//		{
-//		Action.moveToElement(driver.findElement(By.xpath("(//span[text()='×'])[1]"))).click().perform();
-//		}	
-		Thread.sleep(7000);
 		System.out.println("selected job :"+addjobpage.jobname);
-		WebElement clearAll = driver.findElement(By.xpath("//span[@class='ng-clear']"));
-//		explicitwait.until(ExpectedConditions.visibilityOf(clearAll));
-        Action.click(clearAll).build().perform();
-
-//		clearAll.click();
-//		executor.executeScript("arguments[0].click();", clearAll);
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
+		WebElement clearAll = driver.findElement(By.xpath("//span[@title='Clear all']//span[contains(text(),'×')]"));
+		Thread.sleep(7000);
+		explicitwait.until(ExpectedConditions.visibilityOf(clearAll));
+		Action.moveToElement(clearAll).click().build().perform();
+		try {
+			driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
+		}
+		catch (ElementNotInteractableException e) {
+			Thread.sleep(4000);
+			Action.click(clearAll).build().perform();
+			driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
+		}
 		WebElement element = driver.findElement(By.xpath("//span[contains(text(),'"+addjobpage.jobname+"')]"));
 		executor.executeScript("arguments[0].scrollIntoView(true);", element);
 		explicitwait.until(ExpectedConditions.elementToBeClickable(element));

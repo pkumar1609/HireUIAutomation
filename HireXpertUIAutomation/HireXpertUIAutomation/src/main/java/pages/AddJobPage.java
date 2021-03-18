@@ -384,7 +384,7 @@ public void addNewSkill3() {
 				{
 					WebElement btn = deletebtn.get(i);
 					Thread.sleep(3000);
-					btn.click(); 
+					executor.executeScript("arguments[0].click();", btn);
 				}
 	    }
 		addJobFlag=1;

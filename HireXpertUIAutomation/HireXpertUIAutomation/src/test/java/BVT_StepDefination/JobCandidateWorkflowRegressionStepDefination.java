@@ -879,10 +879,13 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 	@When("^again click on Edit Job button and observe the number of interviews \"([^\"]*)\"$")
 	public void again_click_on_Edit_Job_button_and_observe_the_number_of_interviews(String NoOfInterview1) throws Throwable {		
+		
+//		executor.executeScript("arguments[0].click();", );
+		Thread.sleep(4000);
+		executor.executeScript("arguments[0].click();",workbenchpage.job);
 		Thread.sleep(2000);
-//		executor.executeScript("arguments[0].click();", workbenchpage.job);
-		workbenchpage.job.click();
-		workbenchpage.editJobButton.click();
+		executor.executeScript("arguments[0].click();",workbenchpage.editJobButton);
+		explicitwait.until(ExpectedConditions.visibilityOf(addjobpage.totalinterviews));
 		select = new Select(addjobpage.totalinterviews);
 		Assert.assertEquals(driver.findElement(By.xpath("//select[@id='totalInterviews']//option[contains(text(),'"+NoOfInterview1+"')]")).getText(), NoOfInterview1);
 	}
