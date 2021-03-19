@@ -67,7 +67,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		String date=scheduleInterview.calendar.getTime().getDate()+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(scheduleInterview.calendar.getTime().getYear()+1900);	
 		if(String.valueOf(scheduleInterview.calendar.getTime().getMinutes()).length()==1)
 		{
-			formattedStr= String.format("%2d", String.valueOf(scheduleInterview.calendar.getTime().getMinutes()));
+			formattedStr= String.format("%02d", scheduleInterview.calendar.getTime().getMinutes());
 		    System.out.println("With leading zeros = " + formattedStr);
 		}
 		String interviewTimeOnCard= scheduleInterview.calendar.getTime().getHours()+" : "+formattedStr;
@@ -181,7 +181,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		String formattedStr=String.valueOf(scheduleInterview.calendar.getTime().getMinutes());
 		if(String.valueOf(scheduleInterview.calendar.getTime().getMinutes()).length()==1)
 		{
-			String.format("%2d", String.valueOf(scheduleInterview.calendar.getTime().getMinutes()));
+			String.format("%02d", scheduleInterview.calendar.getTime().getMinutes());
 		    System.out.println("With leading zeros = " + formattedStr);
 		}
 		String interviewTimeOnCard= scheduleInterview.calendar.getTime().getHours()+" : "+formattedStr;

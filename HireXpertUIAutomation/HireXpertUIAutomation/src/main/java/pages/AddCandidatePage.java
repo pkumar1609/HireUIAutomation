@@ -184,41 +184,11 @@ public class AddCandidatePage extends baseclass {
 	
 	
 	public void EnterAllMandatoryfieldsT(String CandidateEmail,String Name,String ContactNumber,String Designation,String Date,String Gender,String OnNoticePeriod,String NoticePeriod,String LastWorkingDay,String experience,String CTC,String expectedCTC,String Country,String City,String CityArea,String ZipCode,String Communicationmode,String Salaryoffered,String distance,String permanentAddress, String relocate) throws InterruptedException, AWTException {
-//		
-//		List<WebElement> dynamicElement = driver.findElements(By.xpath("//h6[contains(text(),'Congratulation, We got candidate information which is filled for you and saved 5 minutes of your time. ')]"));
-//		if(dynamicElement.size() != 0)
-//		{
-//			System.out.println("Candidate is present in system");
-//			common.clickOnOKBtn();
-//			Thread.sleep(2000);
-//			nameOfCan=name.getAttribute("value");
-//			Thread.sleep(2000);
-//			if(city.getAttribute("value").isEmpty())
-//			{
-//			city.sendKeys(City);
-//			}		
-//			if(cityArea.getAttribute("value").isEmpty())
-//			{
-//			cityArea.sendKeys(CityArea);
-//			}
-//			if(zipCode.getAttribute("value").equals(""))
-//			{
-//			zipCode.sendKeys(ZipCode);
-//			}			
-//			salaryOffered.sendKeys(Salaryoffered);
-////			this.distance.sendKeys(distance);
-//			se = new Select (isPermanentAddress);
-//			se.selectByVisibleText(permanentAddress);
-//			se = new Select (isReadyToRelocateToJobLocation);
-//			se.selectByVisibleText(relocate);
-//			this.expectedCTC.clear();
-//			this.expectedCTC.sendKeys(expectedCTC);
-//		}	
-//		else
-//		{
 
+			Thread.sleep(2000);
 			if(name.getAttribute("value").isEmpty())
 			{
+			name.clear();	
 			name.sendKeys(Name);
 			}
 			nameOfCan=name.getAttribute("value");

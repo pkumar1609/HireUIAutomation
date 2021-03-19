@@ -198,7 +198,9 @@ public class WorkbenchPage extends baseclass {
 	
 	public void clickonAddQuestionarybtn() throws InterruptedException {
 		Thread.sleep(4000);
-		job.click();
+		executor.executeScript("arguments[0].click();", job);
+//		job.click();
+		Thread.sleep(4000);
 		AddQuestionarybtn.click();
 	}
 	

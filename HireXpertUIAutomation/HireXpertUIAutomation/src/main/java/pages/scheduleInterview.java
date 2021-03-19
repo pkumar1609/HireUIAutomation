@@ -125,7 +125,7 @@ public class scheduleInterview extends baseclass {
 			this.calendar = Calendar.getInstance();
 
 			calendar.add(Calendar.DAY_OF_MONTH, +1);
-			calendar.add(Calendar.MINUTE, +30);
+			calendar.add(Calendar.MINUTE, +40);
 
 			interviewDate = calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);
 			
