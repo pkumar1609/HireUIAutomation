@@ -39,6 +39,9 @@ import pages.JobApplicationsPage;
 import pages.JobBoardPage;
 import pages.JobReviewPage;
 import pages.LoginPage;
+import pages.ManageEmployee;
+import pages.ManageEmployer;
+import pages.ManageRecruitmentAgencies;
 import pages.MarketPlacePage;
 import pages.RegisterPage;
 import pages.ScreeningPage;
@@ -96,6 +99,9 @@ public class baseclass extends SuperBase{
 	public static LocalDateTime currentTime; 
 	public static DesiredCapabilities caps;
 	public static HireExpressPage hirexpresspage;
+	public static ManageEmployee manageemployee;
+	public static ManageRecruitmentAgencies managerecruitmentagencies;
+	public static ManageEmployer manageemployer;
 
 	public baseclass() { 
 		
@@ -164,5 +170,8 @@ public class baseclass extends SuperBase{
 		dtFormate = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 		currentTime = LocalDateTime.now();
 		hirexpresspage=new HireExpressPage();
+		manageemployee=new ManageEmployee();
+		managerecruitmentagencies=new ManageRecruitmentAgencies();
+		manageemployer=new ManageEmployer();
 	}
 }
