@@ -11,25 +11,25 @@ public class c_primaryContact extends baseclass {
 
 	@When("^add new team member and try to make that team member as primary contact\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void add_new_team_member_and_try_to_make_that_team_member_as_primary_contact(String Team, String Teamid, String contact) throws Throwable {
-		workbenchpage.clickonthreedot();
-		Thread.sleep(3000);
-		workbenchpage.shareWithTeamButton.click();
-
-		sharewithteampage.clickOnAddButton();
-		Thread.sleep(3000);
-		
-		dashboardpage.namefield.sendKeys(Team);
-		dashboardpage.emailfield.sendKeys(Teamid);
-		dashboardpage.contactnumberfield.sendKeys(contact);
-		sharewithteampage.selectAddToTeamMember();
-		common.ClickSumbit();
-		try
-		{
-			common.clickOnOKBtn();
-			common.clickOnAddClosebtn();
-		}
-		catch(NoSuchElementException e)
-		{}
+//		workbenchpage.clickonthreedot();
+//		Thread.sleep(3000);
+//		workbenchpage.shareWithTeamButton.click();
+//
+//		sharewithteampage.clickOnAddButton();
+//		Thread.sleep(3000);
+//		
+//		dashboardpage.namefield.sendKeys(Team);
+//		dashboardpage.emailfield.sendKeys(Teamid);
+//		dashboardpage.contactnumberfield.sendKeys(contact);
+//		sharewithteampage.selectAddToTeamMember();
+//		common.ClickSumbit();
+//		try
+//		{
+//			common.clickOnOKBtn();
+//			common.clickOnAddClosebtn();
+//		}
+//		catch(NoSuchElementException e)
+//		{}
 	}
 	
 	@When("^Click on primary contact$")

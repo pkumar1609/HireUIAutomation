@@ -7,17 +7,18 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import utilPackage.baseclass;
 import utilPackage.utilclass;
 
 public class ShareWithTeamPage extends baseclass {
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-share-job-with-team/div[1]/h5/button")
-	public WebElement AddTeamButton;
+//	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-share-job-with-team/div[1]/h5/button")
+//	public WebElement AddTeamButton;
 	
-	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[1]/input")
-	public WebElement TeamName;
+	@FindBy(xpath = "//input[@aria-owns='a39c0e9e3a71']")
+	public WebElement selectTeamMember;
 	
 	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[1]/div/div/form/div[2]/input")
 	public WebElement TeamEmail;
@@ -83,10 +84,10 @@ public class ShareWithTeamPage extends baseclass {
 	}
 	
 	
-	public void clickOnAddButton() throws InterruptedException {
-		Thread.sleep(4000);
-		AddTeamButton.click();
-	}
+//	public void clickOnAddButton() throws InterruptedException {
+//		Thread.sleep(4000);
+//		AddTeamButton.click();
+//	}
 	
 	public void selectAddToTeamMember() {
 		
@@ -316,22 +317,15 @@ public class ShareWithTeamPage extends baseclass {
 		}			
 	}
 	
-	public void shareWithTeam(String team) throws InterruptedException
+	public void shareWithTeam(String teamName) throws InterruptedException
 	{
-		Thread.sleep(1000); 
-		executor.executeScript("arguments[0].click();",workbenchpage.shareJob );
-//		workbenchpage.shareJob.click();
+		explicitwait.until(ExpectedConditions.elementToBeClickable(sharewithagencypage.name));
+		sharewithagencypage.name.sendKeys(teamName);
 		Thread.sleep(2000); 
-		workbenchpage.shareWithTeamButton.click();
-		sharewithteampage.searchField.sendKeys(team);
-		Thread.sleep(2000);
-		sharewithteampage.shareCheckbox.click();
-		common.shareFlag=1;
-		try
-		{
+		driver.findElement(By.xpath("//span[contains(text(),'"+teamName+"')]")).click();
+		Thread.sleep(2000); 
+		common.share.click();
 		common.clickOnConfirmYes();
-		}
-		catch(NoSuchElementException e)
-		{}		
+//		common.shareFlag=1;
 	}
 }

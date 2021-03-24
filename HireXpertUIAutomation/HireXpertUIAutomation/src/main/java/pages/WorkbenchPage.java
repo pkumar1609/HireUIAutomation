@@ -37,7 +37,7 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[text()=' Share Job']")
 	public WebElement shareJob;
 	
-	@FindBy(xpath = "//button[contains(text(),'Share With Agency')]")
+	@FindBy(xpath = "//button[contains(text(),' Share with Agency')]")
 	public WebElement shareWithAgencyButton;
 	
 	@FindBy(xpath = "//button[text()=' Add Candidate']")
@@ -173,22 +173,27 @@ public class WorkbenchPage extends baseclass {
 	
 	public void selectJobK() throws InterruptedException {
 		System.out.println("selected job :"+addjobpage.jobname);
-		WebElement clearAll = driver.findElement(By.xpath("//span[@title='Clear all']//span[contains(text(),'×')]"));
-		Thread.sleep(7000);
-		explicitwait.until(ExpectedConditions.visibilityOf(clearAll));
-		Action.moveToElement(clearAll).click().build().perform();
-		try {
-			driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
+		WebElement element = null;
+		if(driver.findElements(By.xpath("//span[contains(text(),'×')]")).size()>0)
+		{
+			WebElement clearAll = driver.findElement(By.xpath("//span[@title='Clear all']//span[contains(text(),'×')]"));
+			Thread.sleep(7000);
+			explicitwait.until(ExpectedConditions.visibilityOf(clearAll));
+			Action.moveToElement(clearAll).click().build().perform();
+			try {
+				driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
+			}
+			catch (ElementNotInteractableException e) {
+				Thread.sleep(4000);
+				Action.click(clearAll).build().perform();
+				driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
+			}
 		}
-		catch (ElementNotInteractableException e) {
-			Thread.sleep(4000);
-			Action.click(clearAll).build().perform();
-			driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
-		}
-		WebElement element = driver.findElement(By.xpath("//span[contains(text(),'"+addjobpage.jobname+"')]"));
-		executor.executeScript("arguments[0].scrollIntoView(true);", element);
-		explicitwait.until(ExpectedConditions.elementToBeClickable(element));
-		element.click();
+			element = driver.findElement(By.xpath("//span[contains(text(),'"+addjobpage.jobname+"')]"));
+			executor.executeScript("arguments[0].scrollIntoView(true);", element);
+			explicitwait.until(ExpectedConditions.elementToBeClickable(element));
+			element.click();
+	
 	}
 	
 	public void clickonthreedot() throws InterruptedException {	
@@ -464,6 +469,9 @@ public void deleteJob() throws InterruptedException
 		}		
 	}
 }
+
+
+
 }
 
 

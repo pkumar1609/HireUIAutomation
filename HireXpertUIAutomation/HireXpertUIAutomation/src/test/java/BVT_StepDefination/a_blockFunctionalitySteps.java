@@ -34,7 +34,7 @@ boolean emp;
 
 	@When("^\\\"([^\\\"]*)\\\" should be added previously$")
 	public void agency_should_be_added_previously(String profile, DataTable credentials) throws Throwable {
-		dashboardpage.enterAllDetails(profile, credentials);
+//		dashboardpage.enterAllDetails(profile, credentials);
 	}
 	
 	@When("^click on Share With Agency button and select the Share checkbox present in front of the \"([^\"]*)\" to share the job$")
@@ -50,21 +50,51 @@ boolean emp;
 //		common.closebtn.click();
 }
 
-	@When("^again click on Share With Agency button and select the Block/Unblock checkbox present in front of the agency \"([^\"]*)\" with whom you shared the job$")
-	public void again_click_on_Share_With_Agency_button_and_select_the_Block_Unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job(String agyEmailId) throws Throwable {
-		
-		Thread.sleep(1000);
-		sharewithteampage.searchField.clear();
-		sharewithteampage.searchField.sendKeys(agyEmailId);
-		boolean isBlockUnblockSelected=sharewithagencypage.isBlockUnblockSelected.isSelected();
-		if(isBlockUnblockSelected==false)
-		{
-			Thread.sleep(1000);
-			sharewithagencypage.blockUnblockCheckbox.click();
-			common.clickOnConfirmYes();
-		}
-		common.clickOnCloseBtn();
-		
+//	@When("^again click on Share With Agency button and select the Block/Unblock checkbox present in front of the agency \"([^\"]*)\" with whom you shared the job$")
+//	public void again_click_on_Share_With_Agency_button_and_select_the_Block_Unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job(String agyEmailId) throws Throwable {
+//		
+//		Thread.sleep(1000);
+////		sharewithteampage.searchField.clear();
+////		sharewithteampage.searchField.sendKeys(agyEmailId);
+//		boolean isBlockUnblockSelected=sharewithagencypage.isBlockUnblockSelected.isSelected();
+//		if(isBlockUnblockSelected==false)
+//		{
+//			Thread.sleep(1000);
+//			sharewithagencypage.blockUnblockCheckbox.click();
+//			common.clickOnConfirmYes();
+//		}
+//		common.clickOnCloseBtn();		
+//	}
+	
+	@When("^click on share with agency$")
+	public void click_on_share_with_agency() throws Throwable {
+		Thread.sleep(1000); 
+		executor.executeScript("arguments[0].click();",workbenchpage.shareJob );
+		Thread.sleep(1000); 
+		workbenchpage.shareWithAgencyButton.click();
+	}
+	
+	@Then("^click on share with Team$")
+	public void click_on_share_with_Team() throws Throwable {
+		Thread.sleep(1000); 
+		executor.executeScript("arguments[0].click();",workbenchpage.shareJob );
+		Thread.sleep(1000); 
+		workbenchpage.shareWithTeamButton.click();
+	}
+	
+	@Then("^search the team \"([^\"]*)\" and share job with it$")
+	public void search_the_team_and_share_job_with_it(String teamName) throws Throwable {
+	   sharewithteampage.shareWithTeam(teamName);
+	}
+	
+	@When("^search the agency \"([^\"]*)\" and share job with it$")
+	public void search_the_agency_and_share_job_with_it(String agyName) throws Throwable {
+	   sharewithagencypage.shareWithAgency(agyName);
+	}
+
+	@When("^block the agency \"([^\"]*)\"$")
+	public void block_the_agency(String arg1) throws Throwable {
+	   sharewithagencypage.blockAgency();
 	}
 	
 	@And("^logout with employer and login with Agency \\\"([^\\\"]*)\\\" and \\\"([^\\\"]*)\\\" valid credentials which you blocked on Share Job page$")
@@ -117,13 +147,9 @@ boolean emp;
 				Thread.sleep(3000);
 				workbenchpage.shareJob.click();		
 				workbenchpage.shareWithTeamButton.click();
-		
-				sharewithteampage.clickOnAddButton();
-				Thread.sleep(3000);
-				
-				dashboardpage.namefield.sendKeys(team);
-				dashboardpage.emailfield.sendKeys(teamId);
-				dashboardpage.contactnumberfield.sendKeys(ContactNumber);
+				sharewithagencypage.name.sendKeys(team);
+				common.emailfield.sendKeys(teamId);
+				common.contactnumberfield.sendKeys(ContactNumber);
 				sharewithteampage.selectAddToTeamMember();
 				common.ClickSumbit();
 				try
@@ -138,11 +164,9 @@ boolean emp;
 
 	@Then("^search for \\\"([^\\\"]*)\\\" team member and select the Share checkbox present in front of the agency team member to share the job with team member$")
 	public void search_for_team_member_and_select_the_Share_checkbox_present_in_front_of_the_agency_team_member_to_share_the_job_with_team_member(String teamId) throws Throwable {
-	    
-	
 		Thread.sleep(4000);
-		sharewithteampage.searchField.click();
-		sharewithteampage.searchField.sendKeys(teamId);
+		sharewithagencypage.name.click();
+		sharewithagencypage.name.sendKeys(teamId);
 		Thread.sleep(1000);
 		sharewithagencypage.shareCheckbox.click();
 	}

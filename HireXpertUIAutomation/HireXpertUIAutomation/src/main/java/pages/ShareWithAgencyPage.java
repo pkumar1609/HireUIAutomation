@@ -1,9 +1,12 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import utilPackage.baseclass;
 
 public class ShareWithAgencyPage extends baseclass {
@@ -14,13 +17,13 @@ public class ShareWithAgencyPage extends baseclass {
 	String teamMemberName;
 	
 	
-	@FindBy(xpath = "//input[@placeholder='Search']")
-	public WebElement searchField;
+	@FindBy(xpath = "//ng-select[@formcontrolname='Name']//input")
+	public WebElement name;
 	
 	@FindBy(xpath = "//span[@class='checkmark CheckBoxM']")
 	public WebElement shareCheckbox;
 	
-	@FindBy(xpath = "(//input[@type='checkbox'])[3]")
+	@FindBy(xpath = "(//input[@type='checkbox'])[2]")
 	public WebElement isBlockUnblockSelected;
 	
 	@FindBy(xpath = "(//span[@class='checkmark CheckBoxM'])[2]")
@@ -30,29 +33,47 @@ public class ShareWithAgencyPage extends baseclass {
 	public WebElement shareWithAgency;
 	
 	
+	
+	
+	
 	public ShareWithAgencyPage() {
 		
 		PageFactory.initElements(driver, this);
 	}
 	
 	
-	public void shareWithAgency(String agyEmailId) throws InterruptedException
+	public void shareWithAgency(String agyName) throws InterruptedException
 	{
-		Thread.sleep(1000); 
-		executor.executeScript("arguments[0].click();",workbenchpage.shareJob );
-//		workbenchpage.shareJob.click();
-		Thread.sleep(1000); 
-		workbenchpage.shareWithAgencyButton.click();
-		sharewithteampage.searchField.sendKeys(agyEmailId);
-		Thread.sleep(2000);
-		sharewithteampage.shareCheckbox.click();
-		common.shareFlag=1;
-		try
-		{
+		explicitwait.until(ExpectedConditions.elementToBeClickable(sharewithagencypage.name));
+		sharewithagencypage.name.sendKeys(agyName);
+		Thread.sleep(2000); 
+		driver.findElement(By.xpath("//span[contains(text(),'"+agyName+"')]")).click();
+		Thread.sleep(2000); 
+		common.share.click();
 		common.clickOnConfirmYes();
+		common.shareFlag=1;
+	}
+	
+	public void blockAgency() throws InterruptedException
+	{
+		boolean isBlockUnblockSelected=sharewithagencypage.isBlockUnblockSelected.isSelected();
+		if(isBlockUnblockSelected==false)
+		{
+			Thread.sleep(1000);
+			sharewithagencypage.blockUnblockCheckbox.click();
+			common.clickOnConfirmYes();
 		}
-		catch(NoSuchElementException e)
-		{}		
+	}
+	
+	public void unblockAgency() throws InterruptedException
+	{
+		boolean isBlockUnblockSelected=sharewithagencypage.isBlockUnblockSelected.isSelected();
+		if(isBlockUnblockSelected==true)
+		{
+			Thread.sleep(1000);
+			sharewithagencypage.blockUnblockCheckbox.click();
+			common.clickOnConfirmYes();
+		}
 	}
 
 }

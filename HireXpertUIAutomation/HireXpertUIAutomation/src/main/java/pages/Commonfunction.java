@@ -55,6 +55,9 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath = "//button[contains(text(), 'Search')]")
 	public WebElement Search;
 	
+	@FindBy(xpath = "//button[contains(text(), 'Share') and @type='submit']")
+	public WebElement share;
+	
 	@FindBy(xpath = "//button[text()='Find']")
 	public WebElement find;
 	
@@ -76,7 +79,19 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath="//button[text()='Apply']")
 	public WebElement apply;
 	
+//	comman fields
 	
+	@FindBy(xpath="//input[@formcontrolname='Name']")
+	public WebElement  namefield;
+	
+	@FindBy(xpath="//input[@formcontrolname='Email']")
+	public WebElement emailfield;
+	
+	@FindBy(xpath="//input[@formcontrolname='ContactNumber']")
+	public WebElement contactnumberfield;
+	
+	@FindBy(xpath="//select[@formcontrolname='CountryId']")
+	public WebElement countryid;
 	
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
 	

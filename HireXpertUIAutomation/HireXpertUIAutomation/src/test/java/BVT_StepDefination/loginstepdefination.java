@@ -63,46 +63,29 @@ public class loginstepdefination extends baseclass {
 		Thread.sleep(3500);
 		loginpage.loginInAppWithEmpK();
 	}
+	@When("^Click on add Button Fill all the mandatory details for Recruitment Agencies$")
+	public void click_on_add_Button_Fill_all_the_mandatory_details_for_Recruitment_Agencies(DataTable credentials) throws Throwable {
+		managerecruitmentagencies.addRecruitmentAgencies(credentials);
 
-	@When("^Click on add Button Fill all the mandatory details for \"([^\"]*)\"$")
-	public void click_on_add_Button_Fill_all_the_mandatory_details_for(String profile, DataTable credentials) throws Throwable {
-		executor.executeScript("arguments[0].scrollIntoView();", dashboardpage.AddTeamButton);
-		Thread.sleep(2000);
-		executor.executeScript("arguments[0].click();", driver.findElement(By.xpath("//button[@title='"+profile+"']")));
-		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{
-		Thread.sleep(1000);
-		dashboardpage.namefield.clear();
-		dashboardpage.namefield.sendKeys(data.get("Name"));
-		dashboardpage.namevalidate=data.get("Name");
-		ar.add(dashboardpage.namevalidate);
-		dashboardpage.emailfield.clear();
-		dashboardpage.emailfield.sendKeys(data.get("Email"));
-		dashboardpage.contactnumberfield.clear();
-		dashboardpage.contactnumberfield.sendKeys(data.get("contact"));
-//		select = new Select(countryid);
-//		select.selectByVisibleText("India");
-		common.ClickSumbit();
-		if(common.okbtnPopup.size()>0)
-		{
-			common.clickOnOKBtn();
-		}
-		else
-		{
-			dashboardpage.clickOnAddButton(profile);
-		}	
 	}
-	common.clickOnAddClosebtn();
+	@When("^Click on add Button Fill all the mandatory details for Manage Employer$")
+	public void click_on_add_Button_Fill_all_the_mandatory_details_for_Manage_Employer(DataTable credentials) throws Throwable {
+	    manageemployer.addEmployer(credentials);
+	}
+	
+	@When("^Click on add Button Fill all the mandatory details for Manage Employee$")
+	public void click_on_add_Button_Fill_all_the_mandatory_details_for_Manage_Employee(DataTable credentials) throws Throwable {
+		manageemployee.addEmployee(credentials);
 	}
 	
 	@Then("^Employer should be able to add Agency$")
 	public void employer_should_be_able_to_add_Agency() {
-	Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+dashboardpage.namevalidate+"']")).isDisplayed(), true);
+	Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+managerecruitmentagencies.name+"']")).isDisplayed(), true);
 	}
 
 	@Then("^Newly added agency should be displayed in Agencies page$")
 	public void newly_added_agency_should_be_displayed_in_Agencies_page() throws InterruptedException {
-		boolean ele=driver.getPageSource().contains(dashboardpage.namevalidate);
+		boolean ele=driver.getPageSource().contains(managerecruitmentagencies.name);
 		Assert.assertEquals(ele, true);
 	}
 
@@ -114,7 +97,7 @@ public class loginstepdefination extends baseclass {
 
 	@Then("^Newly added team member should be displayed in team page$")
 	public void newly_added_team_member_should_be_displayed_in_team_page() throws InterruptedException  {	
-		Assert.assertEquals(driver.getPageSource().contains(dashboardpage.namevalidate), true);
+		Assert.assertEquals(driver.getPageSource().contains(manageemployee.name), true);
 	} 
 
 	@Then("^the employer with which you have logged in should display in team tab by default$")
@@ -241,7 +224,7 @@ public class loginstepdefination extends baseclass {
 	@And("^User should able to search agency$")
 	public void user_should_able_to_search_agency() throws Throwable {
 		
-	Assert.assertEquals(true, driver.findElement(By.xpath("//td[contains(text(),'"+ dashboardpage.namevalidate +"')]")).isDisplayed());
+	Assert.assertEquals(true, driver.findElement(By.xpath("//td[contains(text(),'"+ managerecruitmentagencies.name +"')]")).isDisplayed());
 	}
 
 	@And("^Click on Search section and enter already existing employer team$")
@@ -339,14 +322,15 @@ public class loginstepdefination extends baseclass {
 	
 	@When("^Click on Add button and fill \"([^\"]*)\" for \"([^\"]*)\"$")
 	public void click_on_Add_button_and_fill(String Name,String profile) throws Throwable {
-
-		dashboardpage.clickOnAddButton(profile);
-		dashboardpage.namefield.clear();
-		dashboardpage.namefield.sendKeys(Name);
+		dashboardpage.openManageEmployeePage();
+		Thread.sleep(2000);
+		manageemployee.addEmployee.click();
+		common.namefield.clear();
+		common.namefield.sendKeys(Name);
 		error=driver.findElements(By.xpath("//div[contains(text(),'Name must be 3 - 64 alphabets.')]")).size()>0;
 		Assert.assertEquals(error, false);
-		dashboardpage.namefield.clear();
-		dashboardpage.namefield.sendKeys(Name+"a");
+		common.namefield.clear();
+		common.namefield.sendKeys(Name+"a");
 	}
 	
 	

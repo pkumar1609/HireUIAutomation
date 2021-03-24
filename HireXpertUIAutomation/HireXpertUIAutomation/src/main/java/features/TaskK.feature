@@ -8,9 +8,9 @@ Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
-Given "team" member should be added
-|Name|         Email   | contact  |Nameagy  |         Emailagy  | contactagy  |team  |agyteam |
-|pe1 | pe1@gmail.com   | 1234564  |pa1      |pa1@gmail.com		|1234556      |pe1   |pa1     |
+Given Employee should be added
+|Name|         Email   | contact  |Nameagy   |    Emailagy     | contact     |Role          |Roleagy|
+|pe1 | pe1@gmail.com   | 1234564  | pa1      | pa1@gmail.com   |1234556      |Recruitment HR|Recruitment Agency Head|
 And Go to workbench
 And Add job
 |title              |agytitle             |designation         |industry   |jobrole   |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|functionalArea|

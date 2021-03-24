@@ -53,7 +53,7 @@ public class AddingCandidate extends baseclass{
 	
 	@Given("^\"([^\"]*)\" should be added$")
 	public void should_be_added(String profile, DataTable credentials) throws Throwable {
-		dashboardpage.enterAllDetails(profile, credentials);
+//		dashboardpage.enterAllDetails(profile, credentials);
 	}
 
 	@When("^Select a added job$")

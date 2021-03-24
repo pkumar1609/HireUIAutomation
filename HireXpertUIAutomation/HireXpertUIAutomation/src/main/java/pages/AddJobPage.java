@@ -347,7 +347,7 @@ public void addNewSkill3() {
 						Thread.sleep(2000);
 						addEmployee.click();
 						Thread.sleep(5000);
-						dashboardpage.emailfield.sendKeys("pemp@gmail.com");
+						common.emailfield.sendKeys("pemp@gmail.com");
 						Thread.sleep(2000);
 						common.find.click();
 						Thread.sleep(2000);

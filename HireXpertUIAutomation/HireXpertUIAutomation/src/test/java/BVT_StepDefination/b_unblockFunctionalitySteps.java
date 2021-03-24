@@ -41,28 +41,28 @@ public class b_unblockFunctionalitySteps extends baseclass {
 	
 	@When("^Block the agency \"([^\"]*)\"$")
 	public void block_the_agency(String agency) throws Throwable {
-		sharewithagencypage.searchField.clear();
-		sharewithagencypage.searchField.sendKeys(agency);
-		boolean isBlockUnblockSelected=sharewithagencypage.isBlockUnblockSelected.isSelected();
-		if(isBlockUnblockSelected==false)
-		{
-			Thread.sleep(2000);
-			sharewithagencypage.blockUnblockCheckbox.click();
-			common.clickOnConfirmYes();
-		}
+//		sharewithagencypage.searchField.clear();
+//		sharewithagencypage.searchField.sendKeys(agency);
+//		boolean isBlockUnblockSelected=sharewithagencypage.isBlockUnblockSelected.isSelected();
+//		if(isBlockUnblockSelected==false)
+//		{
+//			Thread.sleep(2000);
+//			sharewithagencypage.blockUnblockCheckbox.click();
+//			common.clickOnConfirmYes();
+//		}
 	}
 	
 	@When("^click on the Block/Unblock to unblock checkbox present in front of agency whom you shared the job \\\"([^\\\"]*)\\\"$")
 	public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_the_agency_with_whom_you_shared_the_job(String agyEmailId) throws Throwable {
-		sharewithagencypage.searchField.clear();
-		sharewithagencypage.searchField.sendKeys(agyEmailId);
-		boolean isBlockUnblockSelected=sharewithagencypage.isBlockUnblockSelected.isSelected();
-		if(isBlockUnblockSelected==true)
-		{
-			Thread.sleep(2000);
-			sharewithagencypage.blockUnblockCheckbox.click();
-			common.clickOnConfirmYes();
-		}
+//		sharewithagencypage.searchField.clear();
+//		sharewithagencypage.searchField.sendKeys(agyEmailId);
+//		boolean isBlockUnblockSelected=sharewithagencypage.isBlockUnblockSelected.isSelected();
+//		if(isBlockUnblockSelected==true)
+//		{
+//			Thread.sleep(2000);
+//			sharewithagencypage.blockUnblockCheckbox.click();
+//			common.clickOnConfirmYes();
+//		}
 	}
 	
 		@When("^click on the Block/Unblock to unblock checkbox present in front of team with whom you shared the job \\\"([^\\\"]*)\\\"$")
@@ -89,6 +89,11 @@ public class b_unblockFunctionalitySteps extends baseclass {
 				sharewithteampage.blockUnblockCheckboxTeam.click();
 				common.clickOnConfirmYes();
 			}
+		}
+		
+		@When("^Unblock the agency \"([^\"]*)\"$")
+		public void unblock_the_agency(String arg1) throws Throwable {
+		  sharewithagencypage.unblockAgency();
 		}
 		
 	@Then("^Employer should be able to unblock the agency$")

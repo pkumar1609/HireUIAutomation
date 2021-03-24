@@ -208,14 +208,14 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	
 	@Given("^add the employer which is already present$")
 	public void add_the_employer_which_is_already_present() throws Throwable {
-		Thread.sleep(2000);
-	    addjobpage.addEmployee.click();
-		Thread.sleep(5000);
-		dashboardpage.emailfield.sendKeys(addjobpage.SelectedEmployer+"@gmail.com");
-		Thread.sleep(2000);
-		common.find.click();
-		Thread.sleep(2000);
-		common.addSubmitbtn.click();
+//		Thread.sleep(2000);
+//	    addjobpage.addEmployee.click();
+//		Thread.sleep(5000);
+//		dashboardpage.emailfield.sendKeys(addjobpage.SelectedEmployer+"@gmail.com");
+//		Thread.sleep(2000);
+//		common.find.click();
+//		Thread.sleep(2000);
+//		common.addSubmitbtn.click();
 	}
 	
 	@Given("^user should not be able to add already existing employer$")

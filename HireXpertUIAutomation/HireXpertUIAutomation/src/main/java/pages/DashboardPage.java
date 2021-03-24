@@ -47,6 +47,20 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath= "//a[contains(text(),'Invoice')]")
 	public WebElement invoice ;
 	
+	@FindBy(xpath= "//a[contains(text(),'Configuration')]")
+	public WebElement configuration ;
+	
+	@FindBy(xpath= "//a[contains(text(),'Manage Employees')]")
+	public WebElement manageEmployees ;
+	
+	@FindBy(xpath= "//span[contains(text(),'Manage Recruitment Agencies')]")
+	public WebElement manageRecruitmentAgencies ;
+	
+	@FindBy(xpath= "//span[contains(text(),'Manage Employers')]")
+	public WebElement manageEmployers ;
+	
+	
+	
 //	Employer Section
 	
 	@FindBy(xpath = "//h5[text()='Employers ']//following::input[@name='search']")
@@ -55,17 +69,7 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath="//button[@title='Employers']")
 	public WebElement addEmployer;
 	
-	@FindBy(xpath="//input[@formcontrolname='Name']")
-	public WebElement  namefield;
 	
-	@FindBy(xpath="//input[@formcontrolname='Email']")
-	public WebElement emailfield;
-	
-	@FindBy(xpath="//input[@formcontrolname='ContactNumber']")
-	public WebElement contactnumberfield;
-	
-	@FindBy(xpath="//select[@formcontrolname='CountryId']")
-	public WebElement countryid;
 
 	@FindBy(xpath="//h5[contains(text(),'Employers')]//following::button[@title='Delete']")
 	public static WebElement Employersdeletebtn;
@@ -139,6 +143,20 @@ public class DashboardPage extends baseclass {
 //		{}
 	} 
 	
+	public void openManageEmployeePage() throws InterruptedException
+	{
+		Action.moveToElement(dashboardpage.configuration).build().perform();
+		dashboardpage.manageEmployees.click();
+		Thread.sleep(2000);
+	}
+	
+	public void openManageRecruitementAgenciesPage() throws InterruptedException
+	{
+		Action.moveToElement(dashboardpage.configuration).build().perform();
+		dashboardpage.manageRecruitmentAgencies.click();
+		Thread.sleep(2000);
+	}
+	
 	public void VerifyUserIsOnCorrectPage() {
 		Action.moveToElement(loginpage.profile).perform();
 	  	if(loginpage.user=="employer")   
@@ -192,73 +210,73 @@ public class DashboardPage extends baseclass {
 	}
 
 	
-	public void enterAllDetails(String profile,DataTable credentials) throws InterruptedException {
-		Thread.sleep(3000);
-		executor.executeScript("arguments[0].scrollIntoView();", AddTeamButton);
-		clickOnAddButton(profile);
-		if(loginpage.b==true)
-		{
-			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-			{
-				Thread.sleep(1000);
-				namefield.clear();
-				namefield.sendKeys(data.get("Name"));
-				namevalidate=data.get("Name");
-				ar.add(namevalidate);
-				emailfield.clear();
-				emailfield.sendKeys(data.get("Email"));
-				contactnumberfield.clear();
-				contactnumberfield.sendKeys(data.get("contact"));
-				select = new Select(countryid);
-				select.selectByVisibleText("India");
-				common.ClickSumbit();
-				if(common.okbtnPopup.size()>0)
-				{
-					common.clickOnOKBtn();
-				}
-				else
-				{
-					clickOnAddButton(profile);
-				}	
-			}
-			common.clickOnAddClosebtn();
-		}
-		else
-		{
-			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-			{
-				Thread.sleep(1000);
-				namefield.clear();
-				namefield.sendKeys(data.get("Nameagy"));
-				namevalidate=data.get("Nameagy");
-				ar.add(namevalidate);
-				emailfield.clear();
-				emailfield.sendKeys(data.get("Emailagy"));
-				contactnumberfield.clear();
-				contactnumberfield.sendKeys(data.get("contact"));
-				select = new Select(countryid);
-				select.selectByVisibleText("India");
-				common.ClickSumbit();
-				if(common.okbtnPopup.size()>0)
-				{
-					common.clickOnOKBtn();
-				}
-				else
-				{
-					clickOnAddButton(profile);
-				}	
-			}
-			common.clickOnAddClosebtn();
-		}
-	}
-	
+//	public void enterAllDetails(String profile,DataTable credentials) throws InterruptedException {
+//		Thread.sleep(3000);
+//		executor.executeScript("arguments[0].scrollIntoView();", AddTeamButton);
+//		clickOnAddButton(profile);
+//		if(loginpage.b==true)
+//		{
+//			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+//			{
+//				Thread.sleep(1000);
+//				namefield.clear();
+//				namefield.sendKeys(data.get("Name"));
+//				namevalidate=data.get("Name");
+//				ar.add(namevalidate);
+//				emailfield.clear();
+//				emailfield.sendKeys(data.get("Email"));
+//				contactnumberfield.clear();
+//				contactnumberfield.sendKeys(data.get("contact"));
+//				select = new Select(countryid);
+//				select.selectByVisibleText("India");
+//				common.ClickSumbit();
+//				if(common.okbtnPopup.size()>0)
+//				{
+//					common.clickOnOKBtn();
+//				}
+//				else
+//				{
+//					clickOnAddButton(profile);
+//				}	
+//			}
+//			common.clickOnAddClosebtn();
+//		}
+//		else
+//		{
+//			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+//			{
+//				Thread.sleep(1000);
+//				namefield.clear();
+//				namefield.sendKeys(data.get("Nameagy"));
+//				namevalidate=data.get("Nameagy");
+//				ar.add(namevalidate);
+//				emailfield.clear();
+//				emailfield.sendKeys(data.get("Emailagy"));
+//				contactnumberfield.clear();
+//				contactnumberfield.sendKeys(data.get("contact"));
+//				select = new Select(countryid);
+//				select.selectByVisibleText("India");
+//				common.ClickSumbit();
+//				if(common.okbtnPopup.size()>0)
+//				{
+//					common.clickOnOKBtn();
+//				}
+//				else
+//				{
+//					clickOnAddButton(profile);
+//				}	
+//			}
+//			common.clickOnAddClosebtn();
+//		}
+//	}
+//	
  
 	
 	public void deleteUser(String team) throws InterruptedException
 	{
 		Thread.sleep(1000);	
-		driver.findElement(By.xpath("(//td[text()='"+team+"']//following::button[@id='btnGroupDrop1'])[1]")).click();
-		driver.findElement(By.xpath("(//td[text()='"+team+"']//following::button[text()='Delete'])[1]")).click();
+		driver.findElement(By.xpath("(//td[contains(text(),'"+team+"')]//following::button[@id='btnGroupDrop1'])[1]")).click();
+		driver.findElement(By.xpath("(//td[contains(text(),'"+team+"')]//following::button[text()='Delete'])[1]")).click();
 	
 	}
 		
