@@ -20,8 +20,7 @@ Feature: Job Update
     And Now Click on Add Skill button to add more than fifteen skills
     Then Verify that user get an alert message as "User should not add more than 10 skills." for adding more than ten skills
     And click on Delete Skill button in front of any skill
-    
-    
+
 Examples:
 |    email address     |  password  |  JobNoticePeriod1 |
 |  pemp@gmail.com      |   12345    |    60             | 
@@ -49,8 +48,7 @@ Scenario Outline:To verify that Agency is not able to delete the employer for wh
 	And Click on close button and confirm Yes button
 	And Go to dashboard
 	And verify user cannot delete the employer for which job is created
-    
-    
+  
 Examples:
 |    Username          |  password  |  JobNoticePeriod1 |
 |  pagy@gmail.com      |   12345    |    45             |
