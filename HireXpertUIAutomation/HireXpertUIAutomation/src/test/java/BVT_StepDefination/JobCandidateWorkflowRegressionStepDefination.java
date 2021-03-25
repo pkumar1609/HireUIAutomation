@@ -976,25 +976,24 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 
 	@When("^observe deleted skill not displayed \"([^\"]*)\"$")
 	public void observe_deleted_skill_not_displayed(String Skill3) throws Throwable {
-		
+		executor.executeScript("arguments[0].scrollIntoView();", editcandidatepage.jobskill.get(0));
 		Assert.assertEquals(editcandidatepage.jobskill.size()>2, false);
 			
 	}
 	
 	@Then("^click on Close button from Edit Candidate page$")
 	public void click_on_Close_button_from_Edit_Candidate_page() throws Throwable {	    
-		Thread.sleep(3000);
-		common.closebtn.click();
+//		Thread.sleep(4000);
+//		common.closebtn.click();
+////		executor.executeScript("arguments[0].click();", common.closebtn);
+//		boolean confimYes=common.confimYes.isDisplayed();
+//		if(confimYes==true)
+//		{
+//			common.clickOnConfirmYes();
+//		}
+		common.clickOnCloseBtn();
 	}
-//
-////	@Then("^deleted skills should display on Candidate Details page$")
-////	public void deleted_skills_should_display_on_Candidate_Details_page() throws Throwable {
-////	    
-////		Thread.sleep(3000);
-////		System.out.println("\nDeleted skill present on Candidate Details page..");
-////	}
-//	
-//	
+
 	@Then("^deleted skills should display on Candidate Details page \"([^\"]*)\"$")
 	public void deleted_skills_should_display_on_Candidate_Details_page(String Skill3) throws Throwable {
 	    Assert.assertEquals(Skill3.length()>0, true);
