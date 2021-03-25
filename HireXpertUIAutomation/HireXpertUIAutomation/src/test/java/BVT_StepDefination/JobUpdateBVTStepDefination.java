@@ -116,15 +116,17 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	public void click_on_Edit_Job_button_to_make_changes_in_job() throws Throwable {
 		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
 		Thread.sleep(4000);
-		workbenchpage.job.click();
-		workbenchpage.editJobButton.click();
+		executor.executeScript("arguments[0].click();", workbenchpage.job);
+//		workbenchpage.job.click();
+		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
+//		workbenchpage.editJobButton.click();
 
 	}
 
 	@Then("^again click on Edit Job button and observe the changes \"([^\"]*)\"$")
 	public void again_click_on_Edit_Job_button_and_observe_the_changes(String noticePeriod) throws Throwable {
 	   Assert.assertEquals(addjobpage.noticePeriod.getAttribute("value").strip(), noticePeriod);
-	   Assert.assertEquals(addjobpage.title.getAttribute("value").strip(), addjobpage.jobname+"-Edited Title");
+	   Assert.assertEquals(addjobpage.title.getAttribute("value").strip(), addjobpage.jobname+"-edited title");
 	}
 	
 	@When("^click on Add Skill button and add some skills$")

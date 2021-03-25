@@ -174,12 +174,12 @@ public class WorkbenchPage extends baseclass {
 	public void selectJobK() throws InterruptedException {
 		System.out.println("selected job :"+addjobpage.jobname);
 		WebElement element = null;
-		if(driver.findElements(By.xpath("//span[contains(text(),'×')]")).size()>0)
+		if(driver.findElements(By.xpath("//span[@class='ng-clear']")).size()>0)
 		{
 			WebElement clearAll = driver.findElement(By.xpath("//span[@title='Clear all']//span[contains(text(),'×')]"));
 			Thread.sleep(7000);
 			explicitwait.until(ExpectedConditions.visibilityOf(clearAll));
-			Action.moveToElement(clearAll).click().build().perform();
+			Action.moveToElement(clearAll).click().build().perform();	
 			try {
 				driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
 			}
@@ -189,11 +189,15 @@ public class WorkbenchPage extends baseclass {
 				driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
 			}
 		}
-			element = driver.findElement(By.xpath("//span[contains(text(),'"+addjobpage.jobname+"')]"));
-			executor.executeScript("arguments[0].scrollIntoView(true);", element);
-			explicitwait.until(ExpectedConditions.elementToBeClickable(element));
-			element.click();
-	
+		else
+		{
+			driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
+		}
+		element = driver.findElement(By.xpath("//span[contains(text(),'"+addjobpage.jobname+"')]"));
+		executor.executeScript("arguments[0].scrollIntoView(true);", element);
+		explicitwait.until(ExpectedConditions.elementToBeClickable(element));
+		element.click();
+
 	}
 	
 	public void clickonthreedot() throws InterruptedException {	
