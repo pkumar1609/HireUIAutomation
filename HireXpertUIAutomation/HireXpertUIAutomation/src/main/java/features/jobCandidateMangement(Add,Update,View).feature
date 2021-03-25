@@ -83,8 +83,8 @@ And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<
 |title		      |agytitle             |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
 |JCFW Rejected    |JCFW Rejected Agy    |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
 And Select a added job
-And click on share with agency 
-And search the agency "<Teamid>" and share job with it
+And click on share with Team 
+And search the team "<Teamid>" and share job with it
 #And Share job with agency/team "<Teamid>"
 #And Give Can see All candidates permission "<Teamid>"
 And click on Close button

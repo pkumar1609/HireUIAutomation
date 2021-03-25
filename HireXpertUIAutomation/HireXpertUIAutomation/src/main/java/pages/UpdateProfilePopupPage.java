@@ -255,7 +255,6 @@ public class UpdateProfilePopupPage extends baseclass {
 	    OrganizationName.sendKeys(AgencyOrganizationName);
 	    Website.sendKeys(AgencyWebsite);
 	    City.sendKeys(AgencyCity);
-	    executor.executeScript("arguments[0].click();", isAgencyOwner);
 	}
 		
 	public void UpdateProfileCandidate (String title1, String Designation, String functionalArea, String shift, String jobType, String NoticePeriod, String industry, String CandidateCity, String gender1, String experience, String CTC, String expectedCTC, String CityArea) throws InterruptedException {
