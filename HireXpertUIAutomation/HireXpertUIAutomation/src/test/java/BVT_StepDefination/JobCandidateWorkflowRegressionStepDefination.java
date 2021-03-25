@@ -983,14 +983,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	
 	@Then("^click on Close button from Edit Candidate page$")
 	public void click_on_Close_button_from_Edit_Candidate_page() throws Throwable {	    
-//		Thread.sleep(4000);
-//		common.closebtn.click();
-////		executor.executeScript("arguments[0].click();", common.closebtn);
-//		boolean confimYes=common.confimYes.isDisplayed();
-//		if(confimYes==true)
-//		{
-//			common.clickOnConfirmYes();
-//		}
+
 		common.clickOnCloseBtn();
 	}
 
