@@ -27,9 +27,9 @@ public class ManageRecruitmentAgencies extends baseclass {
 
 	public String name;
 	
-	public void addRecruitmentAgencies(DataTable credentials) throws InterruptedException {
+	public void addRecruiters(DataTable credentials) throws InterruptedException {
 		Thread.sleep(3000);
-			dashboardpage.openManageRecruitementAgenciesPage();
+			dashboardpage.openManageRecruitersPage();
 			Thread.sleep(2000);
 			addRecruitmentAgencies.click();
 			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
@@ -37,7 +37,7 @@ public class ManageRecruitmentAgencies extends baseclass {
 				Thread.sleep(1000);
 				common.namefield.clear();
 				common.namefield.sendKeys(data.get("Name"));
-				name=data.get("Nameagy");
+				name=data.get("Name");
 				ar.add(name);
 				common.emailfield.clear();
 				common.emailfield.sendKeys(data.get("Email"));
@@ -63,5 +63,6 @@ public class ManageRecruitmentAgencies extends baseclass {
 	{
 		
 	}
+
 
 }

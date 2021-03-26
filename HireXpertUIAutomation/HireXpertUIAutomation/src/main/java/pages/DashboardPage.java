@@ -53,8 +53,8 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath= "//a[contains(text(),'Manage Employees')]")
 	public WebElement manageEmployees ;
 	
-	@FindBy(xpath= "//span[contains(text(),'Manage Recruitment Agencies')]")
-	public WebElement manageRecruitmentAgencies ;
+	@FindBy(xpath= "//span[contains(text(),'Manage Recruiters')]")
+	public WebElement manageRecruiters;
 	
 	@FindBy(xpath= "//span[contains(text(),'Manage Employers')]")
 	public WebElement manageEmployers ;
@@ -157,10 +157,10 @@ public class DashboardPage extends baseclass {
 		Thread.sleep(2000);
 	}
 	
-	public void openManageRecruitementAgenciesPage() throws InterruptedException
+	public void openManageRecruitersPage() throws InterruptedException
 	{
 		Action.moveToElement(dashboardpage.configuration).build().perform();
-		dashboardpage.manageRecruitmentAgencies.click();
+		dashboardpage.manageRecruiters.click();
 		Thread.sleep(2000);
 	}
 	
