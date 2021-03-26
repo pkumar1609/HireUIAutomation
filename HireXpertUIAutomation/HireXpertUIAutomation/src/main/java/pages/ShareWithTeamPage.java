@@ -367,4 +367,13 @@ public class ShareWithTeamPage extends baseclass {
 			common.clickOnConfirmYes();
 		}
 	}
+	
+	public void makePrimaryContact(String team) throws InterruptedException
+	{
+		WebElement primaryContact = driver.findElement(By.xpath("(//td[text()='"+team+"']//following::span[@class='checkround'])[1]"));		
+		Thread.sleep(2000);
+		primaryContact.click();
+		common.clickOnConfirmYes();
+	}
+
 }

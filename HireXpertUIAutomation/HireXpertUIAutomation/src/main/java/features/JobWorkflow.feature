@@ -194,19 +194,13 @@ Feature: Job Workflow
 	And Select a added job
 	And click on share with Team 
     And search the team "<Team>" and share job with it
-#    And click on Share With Team button and select the Share checkbox present in front of the team member "<Teamid>"
-    And Click on primary contact
-    And search the agency "<Team2>" and share job with it
-    And try to make another team member as primary contact "<Team2>" 
+    And verify by default job owner is primary contact
+    And make team "<Team>" as primary contact
+    And search the team "<Team2>" and share job with it
+    And make team "<Team2>" as primary contact
     Then user should not able to make multiple team members as primary contact "<Team>"
     And Click on close button
-#    And Go to dashboard
-#	Given Employee should be added
-#	|Name|         Email   | contact  |Nameagy   |    Emailagy     | contact     |Role          |Roleagy|
-#	|pe3 | pe3@gmail.com   | 1234564  | pa3      | pa3@gmail.com   |1234556      |Recruitment HR|Recruitment Agency Head|
-#	And Go to Workbench
-#	And user should able to change the primary contact only when the job is shared with the team member to whom user wants to make primary contact "<thridteam>"
-#    And Click on close button
+
 	Examples:
 	|   email address    |  password  |Team|Teamid       |contact |anotherteam|thridteam    |Team2|Team3|
 	|pemp@gmail.com      |   12345    |pe1 |pe1@gmail.com|16546856|pe2        |pe3@gmail.com|pe2  |pe3  |

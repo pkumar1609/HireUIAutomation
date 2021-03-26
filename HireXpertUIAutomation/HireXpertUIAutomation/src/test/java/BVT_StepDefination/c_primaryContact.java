@@ -1,7 +1,10 @@
 package BVT_StepDefination;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
+
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utilPackage.baseclass;
@@ -71,5 +74,29 @@ public class c_primaryContact extends baseclass {
 //		Thread.sleep(3000);
 //		sharewithteampage.primaryContactRadioButton.click();
 //	}
+	
+	
+	@And("^verify by default job owner is primary contact$")
+	public void verify_by_default_job_owner_is_primary_contact() throws Throwable {
+	   if(addjobpage.jobAddedByEmp==true)
+	   {
+		   Assert.assertEquals(driver.findElement(By.xpath("(//td[text()='pemp']//following::input[@name='isPrimaryContact'])[1]")).isSelected(), true);
+	   }
+	   else
+	   {
+		   Assert.assertEquals(driver.findElement(By.xpath("(//td[text()='pagy']//following::input[@name='isPrimaryContact'])[1]")).isSelected(), true);
+	   }
+	}
 
+	@And("^make team \"([^\"]*)\" as primary contact$")
+	public void make_team_as_primary_contact(String team) throws Throwable {
+	  sharewithteampage.makePrimaryContact(team);
+	}
+
+
+	@Then("^user should not able to make multiple team members as primary contact \"([^\"]*)\"$")
+	public void user_should_not_able_to_make_multiple_team_members_as_primary_contact(String team) throws Throwable {
+		   Assert.assertEquals(driver.findElement(By.xpath("(//td[text()='"+team+"']//following::input[@name='isPrimaryContact'])[1]")).isSelected(), false);
+	}
+	
 }
