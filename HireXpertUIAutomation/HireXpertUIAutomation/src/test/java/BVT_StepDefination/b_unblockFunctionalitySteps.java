@@ -4,6 +4,8 @@ package BVT_StepDefination;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utilPackage.baseclass;
@@ -65,41 +67,46 @@ public class b_unblockFunctionalitySteps extends baseclass {
 //		}
 	}
 	
-		@When("^click on the Block/Unblock to unblock checkbox present in front of team with whom you shared the job \\\"([^\\\"]*)\\\"$")
-		public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_team_with_the_agency_with_whom_you_shared_the_job(String team) throws Throwable {
-			sharewithteampage.searchField.clear();
-			sharewithteampage.searchField.sendKeys(team);
-			boolean isBlockUnblockSelected=sharewithteampage.isBlockUnblockSelected.isSelected();
-			if(isBlockUnblockSelected==true)
-			{
-				Thread.sleep(2000);
-				sharewithteampage.blockUnblockCheckboxTeam.click();
-				common.clickOnConfirmYes();
-			}
-		}
+//		@When("^click on the Block/Unblock to unblock checkbox present in front of team with whom you shared the job \\\"([^\\\"]*)\\\"$")
+//		public void click_on_the_Block_Unblock_to_unblock_checkbox_present_in_front_of_team_with_the_agency_with_whom_you_shared_the_job(String team) throws Throwable {
+//			sharewithteampage.searchField.clear();
+//			sharewithteampage.searchField.sendKeys(team);
+//			boolean isBlockUnblockSelected=sharewithteampage.isBlockUnblockSelected.isSelected();
+//			if(isBlockUnblockSelected==true)
+//			{
+//				Thread.sleep(2000);
+//				sharewithteampage.blockUnblockCheckboxTeam.click();
+//				common.clickOnConfirmYes();
+//			}
+//		}
 
-		@Then("^Block the team \"([^\"]*)\"$")
-		public void block_the_team(String team) throws Throwable {
-			sharewithteampage.searchField.clear();
-			sharewithteampage.searchField.sendKeys(team);
-			boolean isBlockUnblockSelected=sharewithteampage.isBlockUnblockSelected.isSelected();
-			if(isBlockUnblockSelected==false)
-			{
-				Thread.sleep(2000);
-				sharewithteampage.blockUnblockCheckboxTeam.click();
-				common.clickOnConfirmYes();
-			}
-		}
+//		@Then("^Block the team \"([^\"]*)\"$")
+//		public void block_the_team(String team) throws Throwable {
+//			sharewithteampage.searchField.clear();
+//			sharewithteampage.searchField.sendKeys(team);
+//			boolean isBlockUnblockSelected=sharewithteampage.isBlockUnblockSelected.isSelected();
+//			if(isBlockUnblockSelected==false)
+//			{
+//				Thread.sleep(2000);
+//				sharewithteampage.blockUnblockCheckboxTeam.click();
+//				common.clickOnConfirmYes();
+//			}
+//		}
 		
 		@When("^Unblock the agency \"([^\"]*)\"$")
 		public void unblock_the_agency(String arg1) throws Throwable {
 		  sharewithagencypage.unblockAgency();
 		}
 		
-	@Then("^Employer should be able to unblock the agency$")
-	public void employer_should_be_able_to_unblock_the_agency() throws Throwable {
+		@Given("^Unblock the team \"([^\"]*)\"$")
+		public void unblock_the_team(String team) throws Throwable {
+		   sharewithteampage.unblockTeam(team);
+		}
 		
-		boolean isUnblock = driver.findElement(By.xpath("(//input[@type='checkbox'])[3]")).isSelected();
+		@Then("^Employer should be able to unblock the agency$")
+		public void employer_should_be_able_to_unblock_the_agency() throws Throwable {
+		
+		boolean isUnblock = sharewithagencypage.isBlockUnblockSelected.isSelected();
 		Assert.assertEquals(false, isUnblock);
 		
 	}

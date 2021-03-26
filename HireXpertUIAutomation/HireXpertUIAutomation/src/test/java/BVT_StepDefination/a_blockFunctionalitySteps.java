@@ -97,6 +97,13 @@ boolean emp;
 	   sharewithagencypage.blockAgency();
 	}
 	
+	
+	@Given("^block the team \"([^\"]*)\"$")
+	public void block_the_team(String team) throws Throwable {
+		 sharewithteampage.blockTeam(team);
+	}
+
+	
 	@And("^logout with employer and login with Agency \\\"([^\\\"]*)\\\" and \\\"([^\\\"]*)\\\" valid credentials which you blocked on Share Job page$")
 	public void logout_with_employer_and_login_with_Agency_valid_credentials_which_you_blocked_on_Share_Job_page(String agyEmailId, String Password) throws Throwable {
 	    
@@ -142,24 +149,24 @@ boolean emp;
 	}
 
 	
-	@Then("^click on Share With Team button and add new team by clicking on Add button on Share Job page \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void click_on_Share_With_Team_button_and_add_new_team_by_clicking_on_Add_button_on_Share_Job_page(String team,String teamId,String ContactNumber) throws Throwable {
-				Thread.sleep(3000);
-				workbenchpage.shareJob.click();		
-				workbenchpage.shareWithTeamButton.click();
-				sharewithagencypage.name.sendKeys(team);
-				common.emailfield.sendKeys(teamId);
-				common.contactnumberfield.sendKeys(ContactNumber);
-				sharewithteampage.selectAddToTeamMember();
-				common.ClickSumbit();
-				try
-				{
-					common.clickOnOKBtn();
-					common.clickOnAddClosebtn();
-				}
-				catch(NoSuchElementException e)
-				{}	
-	}
+//	@Then("^click on Share With Team button and add new team by clicking on Add button on Share Job page \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+//	public void click_on_Share_With_Team_button_and_add_new_team_by_clicking_on_Add_button_on_Share_Job_page(String team,String teamId,String ContactNumber) throws Throwable {
+//				Thread.sleep(3000);
+//				workbenchpage.shareJob.click();		
+//				workbenchpage.shareWithTeamButton.click();
+//				sharewithagencypage.name.sendKeys(team);
+//				common.emailfield.sendKeys(teamId);
+//				common.contactnumberfield.sendKeys(ContactNumber);
+//				sharewithteampage.selectAddToTeamMember();
+//				common.ClickSumbit();
+//				try
+//				{
+//					common.clickOnOKBtn();
+//					common.clickOnAddClosebtn();
+//				}
+//				catch(NoSuchElementException e)
+//				{}	
+//	}
 	
 
 	@Then("^search for \\\"([^\\\"]*)\\\" team member and select the Share checkbox present in front of the agency team member to share the job with team member$")
@@ -200,22 +207,22 @@ boolean emp;
 	
 
 
-	@Given("^click on Share With Team button and select the Share checkbox present in front of the team member \"([^\"]*)\"$")
-	public void click_on_Share_With_Team_button_and_select_the_Share_checkbox_present_in_front_of_the_team_member(String team) throws Throwable {
-		Thread.sleep(3000);
-		workbenchpage.shareJob.click();		
-		workbenchpage.shareWithTeamButton.click();
-		sharewithteampage.searchField.sendKeys(team);
-		Thread.sleep(2000);
-		sharewithteampage.shareCheckbox.click();
-		try 
-		{
-		common.clickOnConfirmYes();
-		}
-		catch(NoSuchElementException e)
-	    {}
-		common.shareFlag=1;
-	}
+//	@Given("^click on Share With Team button and select the Share checkbox present in front of the team member \"([^\"]*)\"$")
+//	public void click_on_Share_With_Team_button_and_select_the_Share_checkbox_present_in_front_of_the_team_member(String team) throws Throwable {
+//		Thread.sleep(3000);
+//		workbenchpage.shareJob.click();		
+//		workbenchpage.shareWithTeamButton.click();
+//		sharewithteampage.searchField.sendKeys(team);
+//		Thread.sleep(2000);
+//		sharewithteampage.shareCheckbox.click();
+//		try 
+//		{
+//		common.clickOnConfirmYes();
+//		}
+//		catch(NoSuchElementException e)
+//	    {}
+//		common.shareFlag=1;
+//	}
 	
 	@When("^click on Yes button from confirmation popup and now select the Block/Unblock checkbox present in front of the team member$")
 	public void click_on_Yes_button_from_confirmation_popup_and_now_select_the_Block_Unblock_checkbox_present_in_front_of_the_team_member() throws Throwable {

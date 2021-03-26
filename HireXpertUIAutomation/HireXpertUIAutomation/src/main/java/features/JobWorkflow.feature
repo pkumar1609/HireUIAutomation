@@ -109,8 +109,7 @@ Feature: Job Workflow
     And search the agency "<agencyName>" and share job with it
     And block the agency "<agencyName>" 
     And Unblock the agency "<agencyName>"
-    
-	
+  	
 #	And click on Share With Agency button and select the Share checkbox present in front of the "<agyEmailId>" to share the job 	
 #	And Block the agency "<agyEmailId>"
 #    And click on the Block/Unblock to unblock checkbox present in front of agency whom you shared the job "<agyEmailId>"
@@ -147,10 +146,10 @@ Feature: Job Workflow
 	|title          |agytitle        |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
 	|Jobworkflow6   |Jobworkflow6agy |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			  |Hirexpert   |rahitech       |	java|
 	And Select a added job
-	And click on share with agency 
-    And search the agency "<Team>" and share job with it
-    And block the agency "<Team>" 
-    And Unblock the agency "<Team>"
+	And click on share with Team 
+    And search the team "<Team>" and share job with it
+    And block the team "<Team>" 
+    And Unblock the team "<Team>"
 	
 #    And click on Share With Team button and select the Share checkbox present in front of the team member "<Teamid>"
 #    And Block the team "<Teamid>"
