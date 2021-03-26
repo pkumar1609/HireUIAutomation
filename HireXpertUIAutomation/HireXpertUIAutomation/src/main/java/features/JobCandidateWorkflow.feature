@@ -222,7 +222,7 @@ And click on ok button
 And delete duplicate skill
 And click on ok button
 And Now Click on Add Skill button to add more than ten skills for candidate
-Then Verify that user get an alert message as "Skills adding limit is 10." for adding more than ten skills
+Then Verify that user get an alert message as "You can not add more than 10 skills." for adding more than ten skills
 And click on ok button
 And click on Delete Skill button in front of any skill for candidate
 And click on Add Designation button
@@ -233,7 +233,7 @@ And click on ok button
 And delete duplicate designation
 And Now Click on Add designation button to add more than ten designation
 #And Click on save btn for designation
-Then Verify that user get an alert message as "Designations adding limit is 10." for adding more than ten designation
+Then Verify that user get an alert message as "You can not add more than 5 designations." for adding more than ten designation
 And click on ok button
 #And click on Delete designation button in front of any designation for candidate
 And click on Personal & Professional tab
