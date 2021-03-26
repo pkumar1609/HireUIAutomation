@@ -150,6 +150,13 @@ public class DashboardPage extends baseclass {
 		Thread.sleep(2000);
 	}
 	
+	public void openManageEmployerPage() throws InterruptedException
+	{
+		Action.moveToElement(dashboardpage.configuration).build().perform();
+		dashboardpage.manageEmployers.click();
+		Thread.sleep(2000);
+	}
+	
 	public void openManageRecruitementAgenciesPage() throws InterruptedException
 	{
 		Action.moveToElement(dashboardpage.configuration).build().perform();

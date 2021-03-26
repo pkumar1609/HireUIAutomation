@@ -65,7 +65,7 @@ public class JobUpdateBVTStepDefination extends baseclass {
 		Thread.sleep(3000);
 		addjobpage.noticePeriod.sendKeys(JobNoticePeriod1);
 		addjobpage.title.clear();
-		addjobpage.title.sendKeys(addjobpage.jobname+"-edited title");
+		addjobpage.title.sendKeys(addjobpage.jobname+"-Edited Title");
 	}
 		
 	
@@ -126,7 +126,8 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	@Then("^again click on Edit Job button and observe the changes \"([^\"]*)\"$")
 	public void again_click_on_Edit_Job_button_and_observe_the_changes(String noticePeriod) throws Throwable {
 	   Assert.assertEquals(addjobpage.noticePeriod.getAttribute("value").strip(), noticePeriod);
-	   Assert.assertEquals(addjobpage.title.getAttribute("value").strip(), addjobpage.jobname+"-edited title");
+	   System.out.println(addjobpage.title.getAttribute("value").strip()+"-----");
+	   Assert.assertEquals(addjobpage.title.getAttribute("value").strip(), addjobpage.jobname+"-Edited Title");
 	}
 	
 	@When("^click on Add Skill button and add some skills$")
@@ -172,8 +173,10 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	@When("^Now Click on Add Skill button to add more than fifteen skills$")
 	public void now_Click_on_Add_Skill_button_to_add_more_than_fifteen_skills() throws Throwable {
 
-		Thread.sleep(3000);
-		for(int i=0;i<11;i++) {
+		Thread.sleep(5000);	
+		executor.executeScript("arguments[0].scrollIntoView();", addjobpage.addskillbutton);			
+		for(int i=0;i<11;i++) {	
+
 		addjobpage.addskillbutton.click();
 	}
 }
@@ -181,6 +184,7 @@ public class JobUpdateBVTStepDefination extends baseclass {
 		@Then("^Now Click on Add Skill button to add more than ten skills for candidate$")
 		public void now_Click_on_Add_Skill_button_to_add_more_than_ten_skills_for_candidate() throws Throwable {
 			Thread.sleep(3000);
+			executor.executeScript("arguments[0].scrollIntoView();", addjobpage.addskillbutton);	
 			for(int i=0;i<10;i++) {
 			addjobpage.addskillbutton.click();
 		}
@@ -198,8 +202,9 @@ public class JobUpdateBVTStepDefination extends baseclass {
 
 	@Given("^verify user cannot delete the employer for which job is created$")
 	public void verify_user_can_delete_the_employer_for_which_job_is_created() throws Throwable {
-		executor.executeScript("arguments[0].scrollIntoView();", dashboardpage.addEmployer);
-		dashboardpage.employerSearchfield.sendKeys(addjobpage.SelectedEmployer);
+		dashboardpage.openManageEmployerPage();		
+//		executor.executeScript("arguments[0].scrollIntoView();", dashboardpage.addEmployer);
+//		dashboardpage.employerSearchfield.sendKeys(addjobpage.SelectedEmployer);
 		Thread.sleep(3000);
 		dashboardpage.employersActions.click();
 		dashboardpage.Employersdeletebtn.click();
@@ -210,20 +215,24 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	
 	@Given("^add the employer which is already present$")
 	public void add_the_employer_which_is_already_present() throws Throwable {
-//		Thread.sleep(2000);
-//	    addjobpage.addEmployee.click();
-//		Thread.sleep(5000);
-//		dashboardpage.emailfield.sendKeys(addjobpage.SelectedEmployer+"@gmail.com");
-//		Thread.sleep(2000);
-//		common.find.click();
-//		Thread.sleep(2000);
-//		common.addSubmitbtn.click();
+		executor.executeScript("arguments[0].scrollIntoView();", addjobpage.addEmployee);
+		Thread.sleep(4000);
+		addjobpage.addEmployee.click();
+		Thread.sleep(5000);
+		common.emailfield.sendKeys(addjobpage.SelectedEmployer+"@gmail.com");
+		Thread.sleep(2000);
+		common.find.click();
+		Thread.sleep(4000);
+		common.addSubmitbtn.click();
 	}
 	
 	@Given("^user should not be able to add already existing employer$")
 	public void user_should_not_be_able_to_add_already_existing_employer() throws Throwable {
 	    Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'Job Provider with email id "+addjobpage.SelectedEmployer+"@gmail.com already exists')]")).isDisplayed(), true);
 	    common.clickOnOKBtn();
+	    Thread.sleep(2000);
+	    driver.findElement(By.xpath("(//button[text()='Close'])[2]")).click();
+	  
 	}
 }
 
