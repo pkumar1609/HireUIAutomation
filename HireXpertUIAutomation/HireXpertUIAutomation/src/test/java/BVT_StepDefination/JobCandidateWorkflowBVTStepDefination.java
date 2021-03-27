@@ -409,6 +409,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	    
 		Thread.sleep(3000);
 		workbenchpage.candidate.click();
+		Thread.sleep(2000);
 		workbenchpage.ReloadCandidateButton.click();
 	}
 	

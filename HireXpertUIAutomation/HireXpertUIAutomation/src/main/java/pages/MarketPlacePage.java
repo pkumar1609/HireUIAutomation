@@ -236,7 +236,7 @@ public class MarketPlacePage extends baseclass {
 			 select1.selectByVisibleText(data.get("Payment Cycle"));
 			 Select select2= new Select(replacementPeriod);
 			 select2.selectByVisibleText(data.get("Replacement Period"));
-			 common.ClickSumbit();;
+			 common.ClickSumbit();
 			 try
 			 {
 			 common.confimYes.isDisplayed();
