@@ -31,7 +31,7 @@ public class MarketPlacePage extends baseclass {
 	boolean b;
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
 	
-	@FindBy(xpath ="//button[@title='Share With Marketplace']")
+	@FindBy(xpath ="(//button[@title='Share With Marketplace'])[1]")
 	public WebElement sharewithmarketplacebtn;  
 	
 	@FindBy(xpath ="//input[@formcontrolname='FeePercentage']")
@@ -219,7 +219,7 @@ public class MarketPlacePage extends baseclass {
 	public void ClickOnShareWithMarketPlace() throws InterruptedException	
 	{
 		Thread.sleep(2000);
-		executor.executeScript("arguments[0].click();",job);
+		executor.executeScript("arguments[0].click();",workbenchpage.shareJob);
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", sharewithmarketplacebtn);
 	}
