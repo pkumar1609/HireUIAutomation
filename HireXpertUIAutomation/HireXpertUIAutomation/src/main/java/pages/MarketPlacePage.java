@@ -218,7 +218,8 @@ public class MarketPlacePage extends baseclass {
 
 	public void ClickOnShareWithMarketPlace() throws InterruptedException	
 	{
-		workbenchpage.clickonthreedot();
+		Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();",job);
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", sharewithmarketplacebtn);
 	}
