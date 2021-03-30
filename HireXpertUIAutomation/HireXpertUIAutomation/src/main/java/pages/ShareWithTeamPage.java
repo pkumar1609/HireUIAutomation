@@ -326,7 +326,7 @@ public class ShareWithTeamPage extends baseclass {
 		Thread.sleep(2000); 
 		common.share.click();
 		common.clickOnConfirmYes();
-//		common.shareFlag=1;
+//		common.	shareFlag=1;
 	}
 	
 	

@@ -69,6 +69,7 @@ Feature: Job Workflow
 	And Select a added job
 	And click on share with Team
     And search the team "<team>" and share job with it
+    And block the team "<team>"
 #    And click on Share With Team button and select the Share checkbox present in front of the team member "<team>"
 #	And click on Yes button from confirmation popup and now select the Block/Unblock checkbox present in front of the team member 
  	And Click on close button
