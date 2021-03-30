@@ -93,7 +93,7 @@ And click on submit
 Then Collect Answer icon should reflect on candidates card for giving answers 
 And Click on Questionnaire tab
 And Click on Delete Questionnarie button
-And click on ReloadCandidate button
+#And click on ReloadCandidate button
 Then Collect Answer icon should not reflect on candidates card for giving answers 
 
 Examples:
@@ -580,44 +580,46 @@ Examples:
    # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
    
 
-@Regression @reg10 @JCWF
-Scenario Outline: Verify the functionality of adding a candidate to the job that is shared by agency team member
-    
-Given Open browser
-When title of login page is Home
-And Click on Employer-Agency Signin link
-And Employer enters valid credentials "<email address>","<Password>"
-Given Employee should be added
-|Name|         Email   | contact  |Nameagy   |    Emailagy     | contact     |Role          |Roleagy|
-|pe1 | pe1@gmail.com   | 1234564  | pa1      | pa1@gmail.com   |1234556      |Recruitment HR|Recruitment Agency Head|
-And Logout from App
-And Click on Employer-Agency Signin link
-And Employer enters valid credentials "<agency2>","<Password>"
-Given Employee should be added
-|Name|         Email   | contact  |Nameagy   |    Emailagy     | contact     |Role          |Roleagy|
-|pe1 | pe1@gmail.com   | 1234564  | pa1      | pa1@gmail.com   |1234556      |Recruitment HR|Recruitment Agency Head|
-And Logout from App
-And Click on Employer-Agency Signin link
-And Employer enters valid credentials "<agyteam>","<Password>"
-And click on Workbench tab
-And Click on add job button
-And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
-|title		      |agytitle      |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-|JCFW 142         |JCFW Agy 142  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
-And Select a added job
-And Share job with agency owner "pagy"
-And Logout from App
-And Click on Employer-Agency Signin link
-And Employer enters valid credentials "<email address>","<Password>"
-And Go to Workbench
-And Select a added job
-And Click on add candidate
-And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
-And verify candidate card is displaying or not in New column "<Name>"
-
-Examples:
-|    email address    | agency2         | Password  |agyteam      |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |
-|  pagy@gmail.com     | pagy1@gmail.com | 12345    |pa2@gmail.com|hirecan27@gmail.com |jr software developer|hirecan27|9875866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com|   
+#@Regression @reg10 @JCWF
+#Scenario Outline: Verify the functionality of adding a candidate to the job that is shared by agency team member
+#    
+#Given Open browser
+#When title of login page is Home
+#And Click on Employer-Agency Signin link
+#And Employer enters valid credentials "<email address>","<Password>"
+#Given Employee should be added
+#|Name|         Email   | contact  |Nameagy   |    Emailagy     | contact     |Role          |Roleagy|
+#|pe1 | pe1@gmail.com   | 1234564  | pa1      | pa1@gmail.com   |1234556      |Recruitment HR|Recruitment Agency Head|
+#And Logout from App
+#And Click on Employer-Agency Signin link
+#And Employer enters valid credentials "<agency2>","<Password>"
+#Given Employee should be added
+#|Name|         Email   | contact  |Nameagy   |    Emailagy     | contact     |Role          |Roleagy|
+#|pe1 | pe1@gmail.com   | 1234564  | pa1      | pa1@gmail.com   |1234556      |Recruitment HR|Recruitment Agency Head|
+#And Logout from App
+#And Click on Employer-Agency Signin link
+#And Employer enters valid credentials "<agyteam>","<Password>"
+#And click on Workbench tab
+#And Click on add job button
+#And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
+#|title		      |agytitle      |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
+#|JCFW 142         |JCFW Agy 142  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
+#And Select a added job
+#And click on share with Team 
+#And search the team "<team>" and share job with it
+#And Click on close button
+#And Logout from App
+#And Click on Employer-Agency Signin link
+#And Employer enters valid credentials "<email address>","<Password>"
+#And Go to Workbench
+#And Select a added job
+#And Click on add candidate
+#And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
+#And verify candidate card is displaying or not in New column "<Name>"
+#
+#Examples:
+#|    email address    | agency2         | Password  |team|agyteam      |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |
+#|  pagy@gmail.com     | pagy1@gmail.com | 12345    |pa2  |pa2@gmail.com|hirecan27@gmail.com |jr software developer|hirecan27|9875866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com|   
 
 #Reg TC ID: 239  [Job candidate workfloww Regression TC]
 
