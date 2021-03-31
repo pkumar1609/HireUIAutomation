@@ -173,6 +173,7 @@ public class MarketplaceBvt extends baseclass {
 		executor.executeScript("arguments[0].scrollIntoView(true);", element);
 		explicitwait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();
+		common.clickOnSearchBtn();
 	}
 
 	@And("^Click on reject button of that proposal$")
