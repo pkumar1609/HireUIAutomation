@@ -670,7 +670,7 @@ public class TaskManagemnet extends baseclass{
 
 	@Then("^user should be able to move Proposal Received task to done column$")
 	public void user_should_be_able_to_move_Proposal_Received_task_to_done_column() throws Throwable {
-	   Assert.assertEquals(driver.findElements(By.xpath("//h6[contains(text(),'You can not change status of this task to done as job proposal is still in Proposed state.')]")).size()>0, false);
+	   Assert.assertEquals(driver.findElements(By.xpath("//h6[contains(text(),'You can not change status of this task to done as job proposal is still in Proposed state.')]")).size(), 0);
 	}
 
 	@Then("^\"([^\"]*)\" task should display in \"([^\"]*)\" column with agency name \"([^\"]*)\"$")
@@ -706,7 +706,7 @@ public class TaskManagemnet extends baseclass{
 			registerpage.ClickSigninbtn();
 			updateprofilepopuppage.UpdateProfileEmployer("Viman Nagar", "TalentXpert", "www.talentxpert.com", "pune");
 			Thread.sleep(2000);
-			executor.executeScript("arguments[0].click();", updateprofilepopuppage.isAgencyOwner);
+//			executor.executeScript("arguments[0].click();", updateprofilepopuppage.isAgencyOwner);
 			common.ClickSumbit();
 			loginpage.logoutFromAppK();
 		}
