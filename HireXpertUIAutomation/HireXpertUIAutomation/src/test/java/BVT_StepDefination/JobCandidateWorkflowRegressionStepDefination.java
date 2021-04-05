@@ -896,7 +896,8 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	public void click_on_Add_Skill_button_and_add_one_new_skill(String skill4) throws Throwable {
 		executor.executeScript("arguments[0].scrollIntoView();", addjobpage.addskillbutton);
 		Thread.sleep(3000);
-		addjobpage.addskillbutton.click();	
+		executor.executeScript("arguments[0].click();",addjobpage.addskillbutton);
+//		addjobpage.addskillbutton.click();	
 		addjobpage.addNewSkill1(skill4);		
 		common.ClickSumbit();
 	}

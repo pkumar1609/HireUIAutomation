@@ -34,8 +34,8 @@ And observe candidate is getting added in New column
 And Click on Edit Candidate icon on candidate card "<Name>"
 And Make the changes in "<contactnumber1>" field
 And Click on save button to save the update details
-Then click on Delete Candidate icon on Candidate card "<Name>"
-And Verify candidate is displayed on workbench after deleting
+#Then click on Delete Candidate icon on Candidate card "<Name>"
+#And Verify candidate is displayed on workbench after deleting
 
 
 Examples: 
