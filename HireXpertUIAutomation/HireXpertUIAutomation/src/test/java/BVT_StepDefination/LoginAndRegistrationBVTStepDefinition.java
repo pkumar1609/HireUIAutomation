@@ -443,7 +443,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		public void close_browser() throws Throwable {
 		    
 			Thread.sleep(3000);
-			driver.close();
+			driver.quit();
 		}
 
 		@When("^login as agency with new password \"([^\"]*)\" \"([^\"]*)\"$")

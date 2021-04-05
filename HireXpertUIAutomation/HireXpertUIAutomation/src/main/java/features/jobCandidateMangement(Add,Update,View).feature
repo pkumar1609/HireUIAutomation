@@ -73,17 +73,17 @@ Given Open browser
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<addJobBy>","<Password>"  
-Given Employee should be added
-|Name|         Email   | contact  |Nameagy   |    Emailagy     | contact     |Role          |Roleagy|
-|pe1 | pe1@gmail.com   | 1234564  | pa1      | pa1@gmail.com   |1234556      |Recruitment HR|Recruitment Agency Head|
-|pe2 | pe2@gmail.com   | 1234564  | pa2      | pa2@gmail.com   |1234566      |Recruitment HR|Recruitment Agency Head|   
+#Given Employee should be added
+#|Name|         Email   | contact  |Nameagy   |    Emailagy     | contact     |Role          |Roleagy|
+#|pe1 | pe1@gmail.com   | 1234564  | pa1      | pa1@gmail.com   |1234556      |Recruitment HR|Recruitment Agency Head|
+#|pe2 | pe2@gmail.com   | 1234564  | pa2      | pa2@gmail.com   |1234566      |Recruitment HR|Recruitment Agency Head|   
 And Go to Workbench
 And Click on add job button
 And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
 |title		      |agytitle             |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
 |JCFW Rejected    |JCFW Rejected Agy    |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
 And Select a added job
-And click on share with Team 
+And click on share with Team
 And search the team "<team>" and share job with it
 #And Share job with agency/team "<Teamid>"
 #And Give Can see All candidates permission "<Teamid>"
