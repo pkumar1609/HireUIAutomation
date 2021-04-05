@@ -21,7 +21,9 @@ public class AddingCandidate extends baseclass{
 	
 	@Given("^User must be registered$")
 	public void user_must_be_registered() throws Throwable {
+		Thread.sleep(3000);
 		baseclass.initialization();
+		driver.navigate().refresh();  
 	}
 
 	@When("^title of login page is Home$")

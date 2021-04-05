@@ -549,9 +549,9 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 
 	@Given("^Open browser$")
 	public void open_browser() throws IOException, AWTException, InterruptedException {
-		
-		baseclass.initialization(); 
-		driver.navigate().refresh();
+		Thread.sleep(3000);
+		baseclass.initialization();
+		driver.navigate().refresh();  
 	}
 
 	
