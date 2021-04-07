@@ -125,6 +125,7 @@ public class JobUpdateBVTStepDefination extends baseclass {
 
 	@Then("^again click on Edit Job button and observe the changes \"([^\"]*)\"$")
 	public void again_click_on_Edit_Job_button_and_observe_the_changes(String noticePeriod) throws Throwable {
+	  Thread.sleep(2000);
 	   Assert.assertEquals(addjobpage.noticePeriod.getAttribute("value").strip(), noticePeriod);
 	   System.out.println(addjobpage.title.getAttribute("value").strip()+"-----");
 	   Assert.assertEquals(addjobpage.title.getAttribute("value").strip(), addjobpage.jobname+"-Edited Title");
@@ -174,8 +175,7 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	public void now_Click_on_Add_Skill_button_to_add_more_than_fifteen_skills() throws Throwable {
 		Thread.sleep(5000);	
 		executor.executeScript("arguments[0].scrollIntoView(true);", addjobpage.addskillbutton);
-		for(int i=0;i<10;i++) {	
-		Thread.sleep(3000);	
+		for(int i=0;i<11;i++) {	
 		addjobpage.addskillbutton.click();
 	}
 }
