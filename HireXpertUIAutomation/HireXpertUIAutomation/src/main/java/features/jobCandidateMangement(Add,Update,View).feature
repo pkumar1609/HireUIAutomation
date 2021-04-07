@@ -162,7 +162,7 @@ And Fill all the Questions answers "<QUESTION1>" "<ANSWER1>"
 And click on submit
 And candidate card should display in screened column
 And Click on Questionnaire tab
-And Select the same question and edit the question and answers "<QUESTION2>" "<ANSWER2>"
+And Select the same question and edit the question and answers "<QUESTION1>" "<QUESTION2>"
 And click on submit
 And Click on  Collect Answers icon on candidate card
 And Verify both old and new question should display in sections "<QUESTION1>" "<QUESTION2>"

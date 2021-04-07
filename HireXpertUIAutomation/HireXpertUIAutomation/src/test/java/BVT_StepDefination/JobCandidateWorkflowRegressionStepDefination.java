@@ -1696,8 +1696,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		   driver.findElement(By.xpath("//td[contains(text(),'"+oldQuestion+"')]//following::i[@ngbtooltip='Edit']")).click();
 		   addquestionarypage.EditQuestionT(newQuestion);
 		   explicitwait.until(ExpectedConditions.elementToBeClickable(addquestionarypage.SaveChangesBtn));
-		   addquestionarypage.SaveChangesBtn.click();
-		   
+		   addquestionarypage.SaveChangesBtn.click();		   
 		}
 
 		@When("^Verify both old and new question should display in sections \"([^\"]*)\" \"([^\"]*)\"$")
