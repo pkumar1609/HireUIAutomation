@@ -987,10 +987,10 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	public void click_on_Close_button_from_Edit_Candidate_page() throws Throwable {	    
 
 		common.clickOnCloseBtn();
-		if(common.confimYes != null)
-		{
-			common.clickOnConfirmYes();
-		}
+//		if(common.confimYes != null)
+//		{
+//			common.clickOnConfirmYes();
+//		}
 	}
 
 	@Then("^deleted skills should display on Candidate Details page \"([^\"]*)\"$")
