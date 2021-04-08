@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriverException;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import utilPackage.baseclass;
 
 import org.apache.commons.io.FileUtils;
@@ -35,51 +36,15 @@ public class hooks extends baseclass{
 			} catch (WebDriverException e) {
 				System.out.println("expection Thrown :"+e.getMessage());
 			}
+			finally {
+				driver.quit();
+				}
 		}
 	}	
-
-		@After("@reg")  
-		public void endTest() throws InterruptedException
-		{	
-			loginpage.logoutFromAppK();
-			loginpage.ClickOnEmployerAgencySigninLink();
-			loginpage.login("pemp@gmail.com");
-			workbenchpage.deleteJob();
-			loginpage.logoutFromAppK();
-			loginpage.ClickOnEmployerAgencySigninLink();
-			loginpage.loginIn("pemp@gmail.com", "12345");
-			workbenchpage.deleteJob();		
-			
-//		if(addjobpage.addJobFlag==1)
-//		{
-//			workbenchpage.deleteJob();
-//			if(loginpage.logedinuser=="pemp" || loginpage.logedinuser=="pa1" && common.shareFlag==1)
-//			{
-//				loginpage.logoutFromAppK();
-//				loginpage.ClickOnEmployerAgencySigninLink();
-//				loginpage.loginIn("pagy@gmail.com", "12345");
-//				workbenchpage.deleteJob();
-//			}
-//			else if(loginpage.logedinuser=="pagy" || loginpage.logedinuser=="pe1"  && common.shareFlag==1)
-//			{				
-//				loginpage.logoutFromAppK();
-//				loginpage.ClickOnEmployerAgencySigninLink();
-//				loginpage.loginIn("pemp@gmail.com", "12345");
-//				workbenchpage.deleteJob();
-//			}		
-//			if (addjobpage.jobAddedByEmp==false)
-//			{
-//				loginpage.logoutFromAppK();
-//				loginpage.ClickOnEmployerAgencySigninLink();
-//				loginpage.loginIn("pemp@gmail.com", "12345");
-//				workbenchpage.deleteJob();
-//			}	
-//		}
-	Thread.sleep(1000);
-	driver.quit();
-//	addjobpage.addJobFlag=0;
-//	common.shareFlag=0;
-	}	
-				
+	
+	@Before()
+	public void setup()
+	{
+//		driver.quit();
+	}
 }
-
