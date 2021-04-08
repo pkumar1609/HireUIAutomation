@@ -42,9 +42,21 @@ public class hooks extends baseclass{
 		}
 	}	
 	
-	@Before()
-	public void setup()
+//	@After()
+//	public void deleteJob() throws InterruptedException
+//	{
+//		if(addjobpage.addJobFlag==1)
+//		{
+//			dashboardpage.openWorkbenchPage();
+//			workbenchpage.selectJobK();
+//			workbenchpage.deleteJob();
+//		}
+//		addjobpage.addJobFlag=0;
+//	}
+	
+	@After()
+	public void closeBrowser()
 	{
-//		driver.quit();
+		driver.quit();
 	}
 }
