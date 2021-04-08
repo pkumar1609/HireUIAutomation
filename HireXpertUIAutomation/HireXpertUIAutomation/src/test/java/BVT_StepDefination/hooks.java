@@ -39,8 +39,15 @@ public class hooks extends baseclass{
 			finally {
 				driver.quit();
 				}
+				 
+			}
+		else
+		{
+			driver.quit();
 		}
-	}	
+	}
+		
+
 	
 //	@After()
 //	public void deleteJob() throws InterruptedException
@@ -54,9 +61,5 @@ public class hooks extends baseclass{
 //		addjobpage.addJobFlag=0;
 //	}
 	
-	@After()
-	public void closeBrowser()
-	{
-		driver.quit();
-	}
+
 }
