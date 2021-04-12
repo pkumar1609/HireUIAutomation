@@ -51,7 +51,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	@When("^click on close button from Interview details page$")
 	public void click_on_close_button_from_Interview_details_page() throws Throwable {
 		Thread.sleep(3000);
-		common.closebtn.click();
+		common.clickOnCloseBtn();
 	}
 
 	@Then("^Click on Reload job button$")

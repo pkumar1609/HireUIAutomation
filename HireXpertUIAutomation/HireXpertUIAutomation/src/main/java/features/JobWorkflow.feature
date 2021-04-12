@@ -17,12 +17,10 @@ Feature: Job Workflow
 	|title		 |agytitle          |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
 	|Developer   |Agynew Developer  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
     And Select a added job
-    And click on share with agency 
+    And click on share with agency
     And search the agency "<agencyName>" and share job with it
     And block the agency "<agencyName>" 
     And Click on close button  
-#    And click on Share With Agency button and select the Share checkbox present in front of the "<agencyName>" to share the job 
-#    And again click on Share With Agency button and select the Block/Unblock checkbox present in front of the agency "<agyEmailId>" with whom you shared the job    
     And Logout from App
     And Click on Employer-Agency Signin link	
 	And Employer enters valid credentials "<agyEmailId>","<Password>"
@@ -37,15 +35,12 @@ Feature: Job Workflow
     And click on Close button from Add Candidate page and click on Yes button from confirmation popup
     And click on share with Team
     And search the team "<Team>" and share job with it
-#    And click on Share With Team button and add new team by clicking on Add button on Share Job page "<Team>","<Teamid>","<ContactNumber>"
-#    And search for "<Teamid>" team member and select the Share checkbox present in front of the agency team member to share the job with team member
-#    And click on Yes button from confirmation popup and observe
     Then user should able to search team member and blocked agency should not able to share job with any team members and error message should display
  	And Click on close button
 	 
 	 Examples:
 	 |username           |Password  |agencyName|agyEmailId	   |CandidateEmail    |Team|Teamid       |ContactNumber  |
-	 |emp1@gmail.com     |12345     |pagy      |pagy@gmail.com|pratik@gmail.com  |pa1 |pa1@gmail.com|689498595      |
+	 |pemp@gmail.com     |12345     |pagy      |pagy@gmail.com|pratik@gmail.com  |pa1 |pa1@gmail.com|689498595      |
 
 #TC ID - 61,65,66,384
  

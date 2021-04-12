@@ -664,7 +664,7 @@ public class TaskManagemnet extends baseclass{
 
 	@Then("^user should not able to move Proposal Received task to done column$")
 	public void user_should_not_able_to_move_Proposal_Received_task_to_done_column() throws Throwable {
-	   Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'You can not change status of this task to done as job proposal is still in Proposed state.')]")).isDisplayed(), true);
+		Assert.assertEquals(driver.findElements(By.xpath("//h6[contains(text(),'You can not change status of this task to done as job proposal is still in Proposed state.')]")).size(), 1);
 	   common.clickOnOKBtn();
 	}
 

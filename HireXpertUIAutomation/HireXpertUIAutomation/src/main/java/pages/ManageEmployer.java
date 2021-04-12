@@ -20,7 +20,7 @@ public class ManageEmployer extends baseclass {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//button[@title='Employers']")
+	@FindBy(xpath = "//button[@title='Manage Employers']")
 	public WebElement addEmployer;
 	
 	public String name;

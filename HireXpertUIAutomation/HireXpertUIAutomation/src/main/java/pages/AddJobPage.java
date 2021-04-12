@@ -370,7 +370,8 @@ public void addNewSkill3() {
 			minsal.sendKeys(data.get("minsal"));
 			maxsal.sendKeys(data.get("maxsal"));
 			minexp.sendKeys(data.get("minexp"));
-			maxexp.sendKeys(data.get("maxexp"));			
+			maxexp.sendKeys(data.get("maxexp"));
+			this.noticePeriod.sendKeys("45");
 			if(loginpage.b==false && city.getAttribute("value").isEmpty())
 			{
 				city.sendKeys("Pune");				
@@ -418,7 +419,7 @@ public void addNewSkill3() {
 		this.cashBenefit.sendKeys(data.get("cashBenefit"));
 		this.minAge.sendKeys(data.get("minAge"));
 		this.maxAge.sendKeys(data.get("maxAge"));
-		this.noticePeriod.sendKeys(data.get("noticePeriod"));
+	
 		se=new Select(jobType);
 		se.selectByVisibleText(data.get("jobType"));
 		se=new Select(considerRelocation);
