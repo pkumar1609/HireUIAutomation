@@ -14,7 +14,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-
+import pages.ShareWithVendorPage;
+import pages.WorkbenchPage;
 import utilPackage.baseclass;
 
 public class a_blockFunctionalitySteps extends baseclass {
@@ -270,35 +271,53 @@ boolean emp;
 	  common.clickOnConfirmYes();
 	}
 	
-//	@After("@interview")
-//	public void Endtest() throws InterruptedException
-//	{
-//		if(addjobpage.addJobFlag==1)
-//		{
-//			workbenchpage.deleteJob();
-//			if((loginpage.logedinuser=="pemp" || loginpage.logedinuser=="pa1") && common.shareFlag==1)
-//			{
-//				loginpage.logoutFromAppK();
-//				loginpage.ClickOnEmployerAgencySigninLink();
-//				loginpage.loginIn("pagy@gmail.com", "12345");
-//				workbenchpage.deleteJob();
-//			}
-//			else if((loginpage.logedinuser=="pagy" || loginpage.logedinuser=="pe1" ) && common.shareFlag==1)
-//			{
-//				loginpage.logoutFromAppK();
-//				loginpage.ClickOnEmployerAgencySigninLink();
-//				loginpage.loginIn("pemp@gmail.com", "12345");
-//				workbenchpage.deleteJob();
-//			}		
-//			if (addjobpage.jobAddedByEmp==false)
-//			{
-//				loginpage.logoutFromAppK();
-//				loginpage.ClickOnEmployerAgencySigninLink();
-//				loginpage.loginIn("pemp@gmail.com", "12345");
-//				workbenchpage.deleteJob();
-//			}	
-//		}
-//	Thread.sleep(1000);
-//	driver.quit();	
-//	}	
+	@When("^vendor should be added$")
+	public void vendor_should_be_added(DataTable credentials) throws Throwable {
+	   managevendor.addVendor(credentials);
+	}
+
+	@When("^click on share with vendor$")
+	public void click_on_share_with_vendor() throws Throwable {
+		Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();",workbenchpage.shareJob);
+		Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();",workbenchpage.shareWithVendor);
+	}
+
+	@Given("^vendor must be registered$")
+	public void vendor_must_be_registered(DataTable credentials) throws Throwable {
+	   managevendor.addVendor(credentials);
+	}
+
+	@Given("^share job with vendor$")
+	public void share_job_with_vendor() throws Throwable {
+		Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();",workbenchpage.shareJob);
+		Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();",workbenchpage.shareWithVendor);
+	}
+
+	@Then("^Blocked vendor should not be able to add candidate for the job and error message message should display and he should be able to see all candidate status which are added for that job$")
+	public void blocked_vendor_should_not_be_able_to_add_candidate_for_the_job_and_error_message_message_should_display_and_he_should_be_able_to_see_all_candidate_status_which_are_added_for_that_job() throws Throwable {
+		boolean ele = driver.findElement(By.xpath("//h6[contains(text(),'You are blocked by employer so you can not add more candidate now.')]")) != null;
+		Assert.assertEquals(ele, true);
+		common.clickOnOKBtn();
+	}
+	
+	@When("^search the vendor \"([^\"]*)\" and share job with it$")
+	public void search_the_vendor_and_share_job_with_it(String Vendor) throws Throwable {
+		sharewithvendorpage.shareWithVendor(Vendor);
+	}
+
+	@When("^block the vendor \"([^\"]*)\"$")
+	public void block_the_vendor(String vendor) throws Throwable {
+		sharewithvendorpage.blockVendor(vendor);
+	}
+	
+	@Then("^unblock the vendor \"([^\"]*)\"$")
+	public void unblock_the_vendor(String vendor) throws Throwable {
+		sharewithvendorpage.unblockVendor(vendor);
+	}
+
+
 }

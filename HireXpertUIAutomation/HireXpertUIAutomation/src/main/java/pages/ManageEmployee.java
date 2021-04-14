@@ -36,7 +36,7 @@ public class ManageEmployee extends baseclass {
 			addEmployee.click();
 			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 			{			
-			try
+			if(loginpage.b==true)
 			{
 				Thread.sleep(1000);
 				common.namefield.clear();
@@ -48,7 +48,7 @@ public class ManageEmployee extends baseclass {
 				select = new Select(role);
 				select.selectByVisibleText(data.get("Role"));
 			}
-			catch(Exception e)
+			else
 			{	
 				common.namefield.clear();
 				common.namefield.sendKeys(data.get("Nameagy"));

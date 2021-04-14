@@ -40,6 +40,9 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[contains(text(),' Share with Agency')]")
 	public WebElement shareWithAgencyButton;
 	
+	@FindBy(xpath = "(//button[@title='Share with Vendors'])[1]")
+	public WebElement shareWithVendor;
+	
 	@FindBy(xpath = "//button[text()=' Add Candidate']")
 	public WebElement addCandidateButton; 
 	

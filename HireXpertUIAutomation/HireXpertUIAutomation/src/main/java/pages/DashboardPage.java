@@ -58,7 +58,9 @@ public class DashboardPage extends baseclass {
 	
 	@FindBy(xpath= "//span[contains(text(),'Manage Employers')]")
 	public WebElement manageEmployers ;
-	
+		
+	@FindBy(xpath= "//span[contains(text(),'Manage Vendors')]")
+	public WebElement manageVendors ;
 	
 	
 //	Employer Section
@@ -96,6 +98,7 @@ public class DashboardPage extends baseclass {
 	
 
 	public String namevalidate;
+
 	
 	public static String ele;
 	
@@ -161,6 +164,13 @@ public class DashboardPage extends baseclass {
 	{
 		Action.moveToElement(dashboardpage.configuration).build().perform();
 		dashboardpage.manageRecruiters.click();
+		Thread.sleep(2000);
+	}
+	
+	public void openManageVendorsPage() throws InterruptedException
+	{
+		Action.moveToElement(dashboardpage.configuration).build().perform();
+		dashboardpage.manageVendors.click();
 		Thread.sleep(2000);
 	}
 	
