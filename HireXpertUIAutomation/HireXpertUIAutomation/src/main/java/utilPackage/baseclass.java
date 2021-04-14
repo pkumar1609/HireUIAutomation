@@ -42,11 +42,13 @@ import pages.LoginPage;
 import pages.ManageEmployee;
 import pages.ManageEmployer;
 import pages.ManageRecruitmentAgencies;
+import pages.ManageVendor;
 import pages.MarketPlacePage;
 import pages.RegisterPage;
 import pages.ScreeningPage;
 import pages.ShareWithAgencyPage;
 import pages.ShareWithTeamPage;
+import pages.ShareWithVendorPage;
 import pages.TaskManagementPage;
 import pages.TaskPage;
 import pages.UpdateProfilePopupPage;
@@ -102,6 +104,9 @@ public class baseclass extends SuperBase{
 	public static ManageEmployee manageemployee;
 	public static ManageRecruitmentAgencies managerecruitmentagencies;
 	public static ManageEmployer manageemployer;
+	public static ManageVendor managevendor;
+	public static ShareWithVendorPage sharewithvendorpage;
+
 
 	public baseclass() { 
 		
@@ -173,5 +178,7 @@ public class baseclass extends SuperBase{
 		manageemployee=new ManageEmployee();
 		managerecruitmentagencies=new ManageRecruitmentAgencies();
 		manageemployer=new ManageEmployer();
+		managevendor= new ManageVendor();
+		sharewithvendorpage=new ShareWithVendorPage();
 	}
 }
