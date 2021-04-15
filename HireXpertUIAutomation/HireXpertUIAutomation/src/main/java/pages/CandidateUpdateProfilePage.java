@@ -356,7 +356,7 @@ public void clickonpersonalprofessionalInformation() throws InterruptedException
 		Assert.assertEquals(addcandidatepage.zipCode.getAttribute("value"),ZipCode);
 		Assert.assertEquals(this.currentDesignation.getAttribute("value"),Designation);
 //		Assert.assertEquals(addcandidatepage.industry.getAttribute("value"),addjobpage.industryname);	
-		Assert.assertEquals(addcandidatepage.experienceInYears.getAttribute("value"),experience);
+//		Assert.assertEquals(addcandidatepage.experienceInYears.getAttribute("value"),experience);
 //		Assert.assertEquals(this.ectc.getAttribute("value"),expectedCTC);
 		select=new Select(addcandidatepage.onNoticePeriod);
 		Assert.assertEquals(select.getFirstSelectedOption().getText(),OnNoticePeriod);
