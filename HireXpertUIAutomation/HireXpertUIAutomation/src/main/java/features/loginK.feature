@@ -61,9 +61,9 @@ When title of login page is Home
 And Click on Employer-Agency Signin link
 And agency enters valid credentials
 And Click on add Button Fill all the mandatory details for Manage Employee
-|Name   |         Email     | contact     |Role|
-|pa1    | pa1@gmail.com     | 1234564     |Recruitment Agency Head|
-|pa2    | pa2@gmail.com     | 1234564     |Recruitment Agency Head|
+|Nameagy   |         Emailagy     | contact     |Roleagy|
+|pa1       | pa1@gmail.com        | 1234564     |Recruitment Agency Head|
+|pa2       | pa2@gmail.com        | 1234564     |Recruitment Agency Head|
 Then Agency should be able to add team
 Then Newly added team member should be displayed in team page
 #And delete the added team "pa2"

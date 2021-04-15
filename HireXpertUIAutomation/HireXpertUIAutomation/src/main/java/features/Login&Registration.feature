@@ -125,7 +125,6 @@ Feature: HireXpert Login & Registration feature
 	And Click on Yes button of confirmation popup
 	And Close the browser
 	
-	
 	Examples: 
 	   | employername    |   employeremail     | employercontactnumber   | candidateusertype  | timezone                                        | country  |  agencyname   |   agencyemail       | agencycontactnumber  |   candidatename   |   candidateemail      | candidatecontactnumber  | employerusertype  |
 	   | employermain01  |  txe3088@gmail.com  | 211394644               | Candidate          | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi | India    | agencymain01  |  age3088@gmail.com  | 211314644            | candidatemain01   |  mike3088@gmail.com   | 123456456               | Employer          | 
