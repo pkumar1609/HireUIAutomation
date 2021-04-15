@@ -100,27 +100,27 @@ Feature: HireXpert Login & Registration feature
 	And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 	And click on Submit button
 	And click on Yes button
-	Then User should get a error message as "User with 'txe3088@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
+	Then User should get a error message as "User with 'txe3088@gmail.com' already register with system as Candidate. Please use forgot password link to recover password."
 	And click on Close button
 	And Click on Yes button of confirmation popup
 	And Close the browser
 	Given User open browser
-		When click on Register link       
+	When click on Register link       
 	And enter details of already registered agency "<agencyname>" "<agencyemail>" "<agencycontactnumber>"
 	And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
-		And click on Submit button
+	And click on Submit button
 	And click on Yes button
-	Then User should get a error message as "User with 'age3088@gmail.com' already register with system as Agency. You can not register same email Id as Candidate."
+	Then User should get a error message as "User with 'age3088@gmail.com' already register with system as Candidate. Please use forgot password link to recover password."
 	And click on Close button
 	And Click on Yes button of confirmation popup
 	And Close the browser
 	Given User open browser
 	When click on Register link  
 	And enter details of already registered employer "<candidatename>" "<candidateemail>" "<candidatecontactnumber>"
-	And Select value from dropdown of "<employerusertype>" "<timezone>" "<country>"
+	And Select value from dropdown of "<candidateusertype>" "<timezone>" "<country>"
 	And click on Submit button
 	And click on Yes button
-	Then User should get a error message as "User with 'mike3088@gmail.com' already register with system as Candidate. You can not register same email Id as Employer."
+	Then User should get a error message as "User with 'mike3088@gmail.com' already register with system as Employer. You can not register same email Id as Candidate."
 	And click on Close button
 	And Click on Yes button of confirmation popup
 	And Close the browser
