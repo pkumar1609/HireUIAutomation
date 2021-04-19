@@ -98,7 +98,7 @@ public class loginstepdefination extends baseclass {
 
 	@Then("^Newly added team member should be displayed in team page$")
 	public void newly_added_team_member_should_be_displayed_in_team_page() throws InterruptedException  {	
-		Assert.assertEquals(driver.findElement(By.xpath("//td[text()='pa1 ']")).isDisplayed(), true);
+		Assert.assertEquals(driver.getPageSource().contains(manageemployee.name), true); 
 	} 
 
 	@Then("^the employer with which you have logged in should display in team tab by default$")
