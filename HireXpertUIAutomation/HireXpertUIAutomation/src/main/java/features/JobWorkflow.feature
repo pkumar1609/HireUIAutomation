@@ -25,7 +25,7 @@ Feature: Job Workflow
     And Click on Employer-Agency Signin link	
 	And Employer enters valid credentials "<agyEmailId>","<Password>"
 	Given Click on add Button Fill all the mandatory details for Manage Employee
-	|Nameagy   |         Emailagy     | contactagy     |Roleagy                |
+	|Nameagy   |         Emailagy     | contact        |Roleagy                |
 	|pa1       | pa1@gmail.com        | 1234564        |Recruitment Agency Head|
 	And Go to workbench
 	And Select a added job   
