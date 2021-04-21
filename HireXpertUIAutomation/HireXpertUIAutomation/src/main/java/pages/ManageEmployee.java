@@ -52,7 +52,7 @@ public class ManageEmployee extends baseclass {
 			{	
 				common.namefield.clear();
 				common.namefield.sendKeys(data.get("Nameagy"));
-				name=data.get("Name");
+				name=data.get("Nameagy");
 				ar.add(name);
 				common.emailfield.clear();
 				common.emailfield.sendKeys(data.get("Emailagy"));
