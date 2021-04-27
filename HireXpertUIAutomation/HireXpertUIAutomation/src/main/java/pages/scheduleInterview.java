@@ -148,16 +148,10 @@ public class scheduleInterview extends baseclass {
 			this.interviewerName.get(0).sendKeys(interviewerName);
 			this.interviewerEmail.get(0).sendKeys(interviewerEmail);			
 			common.ClickSumbit();	
-//			information = driver.findElements(By.xpath("//span[text()='Information']//following::h6[contains(text(),'"+interviewerName+" has another interview at this time. Please check interviewer calendar to get available slot.')]")).size()>0;
-//			if(information==true)
-//			{
-//				common.clickOnOKBtn();
-//				this.minutes.clear();			
-//				calendar.add(Calendar.MINUTE, +25);
-//				this.hours.sendKeys(String.valueOf(calendar.getTime().getHours()));		
-//				this.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));		
-//				common.ClickSumbit();
-//			}	
-//			Assert.assertEquals(driver.findElement(By.xpath("//h6[text()='"+Title+"']")).isDisplayed(), true);
+			information = driver.findElements(By.xpath("//h6[contains(text(),'has another interview at this time. Please check interviewer calendar to get available slot.')]")).size()>0;
+			if(information==true)
+			{
+				common.clickOnConfirmYes();
+			}	
 	 }
 }
