@@ -372,7 +372,7 @@ public void addNewSkill3() {
 			minexp.sendKeys(data.get("minexp"));
 			maxexp.sendKeys(data.get("maxexp"));
 			this.noticePeriod.sendKeys("45");
-			if(loginpage.b==false && city.getAttribute("value").isEmpty())
+			if(city.getAttribute("value").isEmpty())
 			{
 				city.sendKeys("Pune");				
 			}
