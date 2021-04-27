@@ -184,11 +184,11 @@ public class JobUpdateBVTStepDefination extends baseclass {
 		public void now_Click_on_Add_Skill_button_to_add_more_than_ten_skills_for_candidate() throws Throwable {
 			Thread.sleep(3000);
 			executor.executeScript("arguments[0].scrollIntoView();", addjobpage.addskillbutton);	
-			for(int i=0;i<10;i++) {
+			for(int i=0;i<10;i++) 
+			{
+			addjobpage.addskillbutton.click();
 			executor.executeScript("arguments[0].click();", addjobpage.addskillbutton);
-
-		}
-
+			}
 	}
 
 	@Then("^Verify that user get an alert message as \"([^\"]*)\" for adding more than ten skills$")
