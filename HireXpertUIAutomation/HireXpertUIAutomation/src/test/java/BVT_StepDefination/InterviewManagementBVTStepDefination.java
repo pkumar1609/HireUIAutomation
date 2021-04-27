@@ -67,7 +67,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		String minuteFormate= String.format("%02d", scheduleInterview.calendar.getTime().getMinutes());
 		String hourFormate= String.format("%02d", scheduleInterview.calendar.getTime().getHours());	    
 		String interviewTimeOnCard= hourFormate+" : "+minuteFormate;
-		Assert.assertEquals(driver.findElement(By.xpath("//span[contains(text(),' "+Name+"')]//following::p[text()=' "+date+", "+interviewTimeOnCard+" ']")).isDisplayed(), true);
+		Assert.assertEquals(driver.findElement(By.xpath("//span[contains(text(),' "+Name+"')]//following::p[text()=' "+scheduleInterview.interviewDate+", "+interviewTimeOnCard+" ']")).isDisplayed(), true);
 		}
 	
 	@When("^click on Reload Candidate button and observe$")
@@ -177,7 +177,8 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		String minuteFormate= String.format("%02d", scheduleInterview.calendar.getTime().getMinutes());
 		String hourFormate= String.format("%02d", scheduleInterview.calendar.getTime().getHours());	    
 		String interviewTimeOnCard= hourFormate+" : "+minuteFormate;
-		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'"+Name+"')]//following::p[text()=' "+date+", "+interviewTimeOnCard+"']")).isDisplayed(), true);
+		executor.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//h6[contains(text(),'"+Name+"')]//following::p[text()=' "+scheduleInterview.interviewDate+", "+interviewTimeOnCard+"']")));
+		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'"+Name+"')]//following::p[text()=' "+scheduleInterview.interviewDate+", "+interviewTimeOnCard+"']")).isDisplayed(), true);
 	}
 	
 	@Then("^click on close job button and delete the job$")
