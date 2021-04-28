@@ -128,15 +128,13 @@ public class scheduleInterview extends baseclass {
 			calendar.add(Calendar.MINUTE, +40);
 
 			interviewDate = calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);
-			
+			System.out.println(interviewDate+"interviewDate");
 			common.enterdate(interviewDate);
 				    
 			Thread.sleep(2000);
 			this.hours.sendKeys(String.valueOf(calendar.getTime().getHours()));		
 			Thread.sleep(2000);
 			this.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));	
-//			this.hours.sendKeys("14");
-//			this.minutes.sendKeys("9");
 			select= new Select(scheduleinterviewpage.durationHour);
 			select.selectByVisibleText(Durationhour);	
 			select= new Select(scheduleinterviewpage.durationMinute);
