@@ -337,31 +337,31 @@ public void addNewSkill3() {
 				jobAddedByEmp=false;
 				jobname=dtFormate.format(currentTime)+" Agy";
 				title.sendKeys(jobname);
-				select =new Select(employerId);
-				List<WebElement> options = select.getOptions();	
-					try {
-						select.selectByVisibleText("pemp");
-					}
-					catch(NoSuchElementException e)
-					{
-						Thread.sleep(2000);
-						addEmployee.click();
-						Thread.sleep(5000);
-						common.emailfield.sendKeys("pemp@gmail.com");
-						Thread.sleep(2000);
-						common.find.click();
-						Thread.sleep(2000);
-						common.addSubmitbtn.click();  
-						select.selectByVisibleText("pemp");
-					}
-					if(this.Organization.isEnabled())
-						{
-							this.Organization.sendKeys(data.get("organization"));
-						}
-					SelectedEmployer=select.getFirstSelectedOption().getText();
-					selectedOrganization=this.Organization.getAttribute("value");
+//				select =new Select(employerId);
+//				List<WebElement> options = select.getOptions();	
+//					try {
+//						select.selectByVisibleText("pemp");
+//					}
+//					catch(NoSuchElementException e)
+//					{
+//						Thread.sleep(2000);
+//						addEmployee.click();
+//						Thread.sleep(5000);
+//						common.emailfield.sendKeys("pemp@gmail.com");
+//						Thread.sleep(2000);
+//						common.find.click();
+//						Thread.sleep(2000);
+//						common.addSubmitbtn.click();  
+//						select.selectByVisibleText("pemp");
+//					}
+//					SelectedEmployer=select.getFirstSelectedOption().getText();
 	
 			}
+			if(this.Organization.isEnabled())
+			{
+				this.Organization.sendKeys(data.get("organization"));
+			}
+			selectedOrganization=this.Organization.getAttribute("value");
 			Thread.sleep(1000);
 			designation.sendKeys(data.get("designation"));
 			functionalArea.sendKeys(data.get("functionalArea"));
