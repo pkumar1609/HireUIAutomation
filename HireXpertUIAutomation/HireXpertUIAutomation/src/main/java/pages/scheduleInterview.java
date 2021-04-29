@@ -37,11 +37,14 @@ public class scheduleInterview extends baseclass {
 	@FindBy(xpath = "//span[contains(text(),'Today')]")
 	public WebElement todayBtn;
 	
-	@FindBy(id = "estimateTimeInHour")
-	public WebElement hours;
+	@FindBy(xpath = "//input[@placeholder='HH']")
+	public WebElement hh;
 	
-	@FindBy(id = "estimateTimeInMinute")
-	public WebElement minutes;
+	@FindBy(xpath = "//input[@placeholder='MM']")
+	public WebElement mm;
+	
+	@FindBy(id = "//input[@formcontrolname='ScheduleTime']")
+	public WebElement time;
 	
 	@FindBy(xpath = "//select[@formcontrolname='HourDuration']")
 	public WebElement durationHour;
@@ -119,22 +122,19 @@ public class scheduleInterview extends baseclass {
 	 {
 		  
 			Thread.sleep(4000);
-			this.title.sendKeys(Title);
-			this.ScheduleOnCalendarIcon.click();
-			
+			this.title.sendKeys(Title);	
 			this.calendar = Calendar.getInstance();
-
 			calendar.add(Calendar.DAY_OF_MONTH, +1);
-			calendar.add(Calendar.MINUTE, +40);
-
+			calendar.add(Calendar.MINUTE, +10);
 			interviewDate = calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);
 			System.out.println(interviewDate+"interviewDate");
+			this.ScheduleOnCalendarIcon.click();
 			common.enterdate(interviewDate);
-				    
+			executor.executeScript("arguments[0].click();",time);
 			Thread.sleep(2000);
-			this.hours.sendKeys(String.valueOf(calendar.getTime().getHours()));		
+			this.hh.sendKeys(String.valueOf(calendar.getTime().getHours()));		
 			Thread.sleep(2000);
-			this.minutes.sendKeys(String.valueOf(calendar.getTime().getMinutes()));	
+			this.mm.sendKeys(String.valueOf(calendar.getTime().getMinutes()));	
 			select= new Select(scheduleinterviewpage.durationHour);
 			select.selectByVisibleText(Durationhour);	
 			select= new Select(scheduleinterviewpage.durationMinute);

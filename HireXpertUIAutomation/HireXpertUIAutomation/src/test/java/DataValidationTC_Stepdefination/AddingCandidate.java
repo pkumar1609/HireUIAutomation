@@ -51,6 +51,7 @@ public class AddingCandidate extends baseclass{
 		addjobpage.addjob(credentials);
 		addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3);		
 		common.ClickSumbit();
+		common.clickOnOKBtn();
 	}
 	
 	@Given("^\"([^\"]*)\" should be added$")

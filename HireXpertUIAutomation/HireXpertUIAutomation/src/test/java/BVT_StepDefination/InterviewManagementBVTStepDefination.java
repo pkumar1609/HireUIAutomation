@@ -86,23 +86,19 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	public void make_some_changes_in_interview_details_and_click_on_Submit_button(String interviewerName, String duration) throws Throwable {
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();",scheduleinterviewpage.editInterviewIcon);
-		scheduleinterviewpage.minutes.clear();
 		scheduleInterview.calendar.add(Calendar.MINUTE, +2);		
-		scheduleinterviewpage.hours.sendKeys(String.valueOf(scheduleInterview.calendar.getTime().getHours()));		
-		scheduleinterviewpage.minutes.sendKeys(String.valueOf(scheduleInterview.calendar.getTime().getMinutes()));		
+		executor.executeScript("arguments[0].click();",scheduleinterviewpage.time);
+		Thread.sleep(2000);
+		scheduleinterviewpage.mm.clear();
+		scheduleinterviewpage.mm.sendKeys(String.valueOf(scheduleinterviewpage.calendar.getTime().getMinutes()));
+		
 		Select se = new Select(scheduleinterviewpage.durationMinute);
 		se.selectByVisibleText(duration);
 		Thread.sleep(1000);
 		common.submitbtn.click();
-		scheduleinterviewpage.information = driver.findElements(By.xpath("//span[text()='Information']//following::h6[contains(text(),'"+interviewerName+" has another interview at this time. Please check interviewer calendar to get available slot.')]")).size()>0;
 		if(scheduleinterviewpage.information==true)
 		{
-			common.clickOnOKBtn();
-			scheduleinterviewpage.minutes.clear();			
-			scheduleInterview.calendar.add(Calendar.MINUTE, +25);
-			scheduleinterviewpage.hours.sendKeys(String.valueOf(scheduleInterview.calendar.getTime().getHours()));		
-			scheduleinterviewpage.minutes.sendKeys(String.valueOf(scheduleInterview.calendar.getTime().getMinutes()));		
-			common.ClickSumbit();
+			common.clickOnConfirmYes();
 		}	
 	}
 	
