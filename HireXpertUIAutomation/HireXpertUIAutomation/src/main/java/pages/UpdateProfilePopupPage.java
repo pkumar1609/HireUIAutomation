@@ -519,7 +519,7 @@ public class UpdateProfilePopupPage extends baseclass {
     {
     	Thread.sleep(2000);
     	Actions action = new Actions(driver);
-    	action.moveToElement(loginpage.profile).perform();
+    	action.moveToElement(loginpage.myAccount).perform();
 		Thread.sleep(2000);
 		loginpage.updateProfile.click();
 		Thread.sleep(4000);

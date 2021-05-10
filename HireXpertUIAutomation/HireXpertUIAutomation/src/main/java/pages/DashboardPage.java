@@ -175,7 +175,7 @@ public class DashboardPage extends baseclass {
 	}
 	
 	public void VerifyUserIsOnCorrectPage() {
-		Action.moveToElement(loginpage.profile).perform();
+		Action.moveToElement(loginpage.myAccount).perform();
 	  	if(loginpage.user=="employer")   
 	  	{
 		Assert.assertEquals(loginpage.userbtnemp.get(0).isDisplayed(), true);

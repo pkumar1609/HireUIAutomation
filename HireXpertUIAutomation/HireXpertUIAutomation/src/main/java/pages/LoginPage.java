@@ -45,8 +45,8 @@ public class LoginPage extends baseclass
 	@FindBy(xpath= "//a[@href='#']")
 	private WebElement logedinusername;
 	
-	@FindBy(xpath = "//div[contains(@class,'tx-profile')]")
-	public WebElement profile;
+	@FindBy(xpath = "//button[contains(text(),'My Account')]")
+	public WebElement myAccount;
 	
 	@FindBy(xpath="//a[contains(text(),'Change Password')]")
 	public WebElement ChangePasswordTab;
@@ -54,7 +54,7 @@ public class LoginPage extends baseclass
 	@FindBy(xpath = "//a[contains(text(),'Update Profile')]")
 	public WebElement updateProfile;
 	
-	@FindBy(xpath="//a[contains(text(),'Log Out')]")
+	@FindBy(xpath="//button[contains(text(),'Log Out')]")
 	public WebElement Logout;
 	
 	@FindBy(xpath = "//p[@class='error mb-1 pl-1 pr-1']") 
@@ -229,8 +229,8 @@ public class LoginPage extends baseclass
 	public void logoutFromAppK() throws InterruptedException
 	{
 		Thread.sleep(2000);
-		explicitwait.until(ExpectedConditions.elementToBeClickable(profile));
-		Action.moveToElement(profile).click().perform();
+		explicitwait.until(ExpectedConditions.elementToBeClickable(myAccount));
+		Action.moveToElement(myAccount).click().perform();
 		executor.executeScript("arguments[0].click();",Logout);
 		Thread.sleep(2000);
 		common.logout.click();
@@ -238,7 +238,7 @@ public class LoginPage extends baseclass
 	
 	public void identifyUserK() throws InterruptedException
 	{
-				Action.moveToElement(profile).perform();
+				Action.moveToElement(myAccount).perform();
 				if(userbtnemp.size()>0)
 				{
 					logedinuser= userbtnemp.get(0).getText();

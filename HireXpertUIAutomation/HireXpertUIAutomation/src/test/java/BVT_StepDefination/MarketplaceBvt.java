@@ -91,8 +91,8 @@ public class MarketplaceBvt extends baseclass {
 	@Then("^Logout as a support user$")
 	public void logout_as_a_support_user() throws Throwable {
 		Thread.sleep(2000);
-		explicitwait.until(ExpectedConditions.elementToBeClickable(loginpage.profile));
-		Action.moveToElement(loginpage.profile).click().perform();
+		explicitwait.until(ExpectedConditions.elementToBeClickable(loginpage.myAccount));
+		Action.moveToElement(loginpage.myAccount).click().perform();
 		Thread.sleep(2000);
 		loginpage.Logout.click();
 	 }

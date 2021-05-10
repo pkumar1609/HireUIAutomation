@@ -356,9 +356,6 @@ public void verifythefieldsonregisterdialogbox () {
 
        public void ClickYesbtn () 
        {
-    	   
-    	   //WebDriverWait Wait = new WebDriverWait(driver,30);
-   		//Wait.until(ExpectedConditions.elementToBeClickable(Yesbtn));
 
 		Yesbtn.click();
 }

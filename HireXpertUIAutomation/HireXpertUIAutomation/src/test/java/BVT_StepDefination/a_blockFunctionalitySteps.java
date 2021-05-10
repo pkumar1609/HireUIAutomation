@@ -129,9 +129,9 @@ boolean emp;
 	@When("^enter \"([^\"]*)\"of candidate and click on Find button and observe$")
 	public void enter_of_candidate_and_click_on_Find_button_and_observe(String CandEmailId) throws Throwable {
 		Thread.sleep(2000);
-		addcandidatepage.emailField.click();
+//		addcandidatepage.emailField.click();
 		addcandidatepage.emailField.sendKeys(CandEmailId);
-		addcandidatepage.FindButton.click();
+		executor.executeScript("arguments[0].click();", addcandidatepage.FindButton);
 	}
 	 
 	@Then("^Blocked agency should not be able to add candidate for the job and error message message should display and he should be able to see all candidate status which are added for that job$")
