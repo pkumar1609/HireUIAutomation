@@ -85,25 +85,27 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	
 	
 	    public void FillAllregisterdeatils(String Name, String CandidateEmail , String ContactNumber, String UserType, String timezone, String country) throws Throwable {
-		registerpage.registerUserdetails(UserType, timezone, country);
-		registerpage.registerCandidatedetails(Name, CandidateEmail, ContactNumber);
-		common.ClickSumbit();
-		common.clickOnConfirmYes();
-		try
-		{
-			common.clickOnOKBtn();
-		}
-		catch(NoSuchElementException e)
-		{
-			common.clickOnCloseBtn();
+			
+			registerpage.registerCandidatedetails(Name, CandidateEmail, ContactNumber);
+			registerpage.registerUserdetails(UserType, timezone, country);
+			common.ClickSumbit();
 			common.clickOnConfirmYes();
-		}
-		
-	   }
+			try
+			{
+				common.clickOnOKBtn();
+			}
+			catch(NoSuchElementException e)
+			{
+				common.clickOnCloseBtn();
+				common.clickOnConfirmYes();
+			}
+			
+		   }
 	public void clickRegister() throws InterruptedException {
 		
 		Thread.sleep(3000);
-		Registerlink.click();
+		executor.executeScript("arguments[0].click();", Registerlink);
+//		Registerlink.click();
 	}
 	
    public void clickLogin() {		
@@ -242,8 +244,8 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	 Select select1 = new Select (UserType);
 	 select1.selectByVisibleText(usertype);
 			
-	 Select select2 = new Select (TimeZone);
-	 select2.selectByVisibleText(timezone);
+//	 Select select2 = new Select (TimeZone);
+//	 select2.selectByVisibleText(timezone);
 	 
 	 Select select3 = new Select (Country);
 	 select3.selectByVisibleText(country);

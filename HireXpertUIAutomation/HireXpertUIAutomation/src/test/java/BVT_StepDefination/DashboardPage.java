@@ -50,7 +50,7 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath= "//a[contains(text(),'Configuration')]")
 	public WebElement configuration ;
 	
-	@FindBy(xpath= "(//a[contains(text(),'Manage Employees')])[2]")
+	@FindBy(xpath= "//a[contains(text(),'Manage Employees')]")
 	public WebElement manageEmployees ;
 	
 	@FindBy(xpath= "//span[contains(text(),'Manage Recruiters')]")

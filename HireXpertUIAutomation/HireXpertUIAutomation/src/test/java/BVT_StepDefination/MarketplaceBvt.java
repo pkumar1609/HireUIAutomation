@@ -135,24 +135,24 @@ public class MarketplaceBvt extends baseclass {
 		marketplacepage.clickApplybtnOfParticularJob();
 	}
 
-	@Then("^If popup proposal limit popup displayed then repeat all above step with new agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void if_popup_proposal_limit_popup_displayed_then_repeat_all_above_step_with_new_agency(String AgencyAddress, String AgencyOrganizationName,String AgencyWebsite,String AgencyCity) throws Throwable {
-		if(marketplacepage.proposalLimitPopup.size()>0)
-		{
-			common.clickOnOKBtn();
-			loginpage.logoutFromAppK();
-			registerpage.clickRegister();
-			registerpage.registerUser();
-			registerpage.clickLogin();
-			registerpage.clickEmployerAgencySignInlink();
-			registerpage.enterEmployerEmailandPassword();
-			registerpage.ClickSigninbtn();
-			updateprofilepopuppage.UpdateProfileAgency(AgencyAddress, AgencyOrganizationName, AgencyWebsite, AgencyCity);
-			common.ClickSumbit();
-			marketplacepage.ClickOnAgyMarketPlaceTab();
-			marketplacepage.clickApplybtnOfParticularJob();
-		}
-	}
+//	@Then("^If popup proposal limit popup displayed then repeat all above step with new agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+//	public void if_popup_proposal_limit_popup_displayed_then_repeat_all_above_step_with_new_agency(String Address, String AgencyOrganizationName,String AgencyWebsite,String AgencyCity) throws Throwable {
+//		if(marketplacepage.proposalLimitPopup.size()>0)
+//		{
+//			common.clickOnOKBtn();
+//			loginpage.logoutFromAppK();
+//			registerpage.clickRegister();
+//			registerpage.registerUser();
+//			registerpage.clickLogin();
+//			registerpage.clickEmployerAgencySignInlink();
+//			registerpage.enterEmployerEmailandPassword();
+//			registerpage.ClickSigninbtn();
+//			updateprofilepopuppage.UpdateProfile(Address, OrganizationName, Website, City);
+//			common.ClickSumbit();
+//			marketplacepage.ClickOnAgyMarketPlaceTab();
+//			marketplacepage.clickApplybtnOfParticularJob();
+//		}
+//	}
 	
 	@Then("^login with new agency credentials$")
 	public void login_with_new_agency_credentials() throws Throwable {

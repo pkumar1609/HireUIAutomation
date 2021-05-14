@@ -34,13 +34,13 @@ public class LoginPage extends baseclass
 	public WebElement userbtn;
 	
 	@FindBy(xpath= "//a[@title='Employer']")
-	public List<WebElement> userbtnemp;
+	public List<WebElement> employer;
 	
 	@FindBy(xpath= "//a[@title='Agency']")
-	public List<WebElement> userbtnagy;
+	public List<WebElement> agency;
 	
 	@FindBy(xpath= "//a[@title='Candidate']")
-	public List<WebElement> userbtnCandidate;
+	public List<WebElement> candidate;
 	
 	@FindBy(xpath= "//a[@href='#']")
 	private WebElement logedinusername;
@@ -155,8 +155,6 @@ public class LoginPage extends baseclass
 		password.sendKeys(Password);
 		Thread.sleep(4000);
 		signin.click();
-		identifyUserK();
-		
 	}
     
     public void loginInAppWithTeamK() throws InterruptedException
@@ -238,29 +236,29 @@ public class LoginPage extends baseclass
 	
 	public void identifyUserK() throws InterruptedException
 	{
-				Action.moveToElement(myAccount).perform();
-				if(userbtnemp.size()>0)
+				Action.moveToElement(myAccount).click().perform();
+				if(employer.size()>0)
 				{
-					logedinuser= userbtnemp.get(0).getText();
+					logedinuser= employer.get(0).getText();
 					Thread.sleep(2000);
-					userbtnemp.get(0).click();
+					employer.get(0).click();
 					b=true;
 					user="employer";
 				}
-				else if(userbtnagy.size()>0)
+				else if(agency.size()>0)
 				{
-					logedinuser= userbtnagy.get(0).getText();
+					logedinuser= agency.get(0).getText();
 					Thread.sleep(2000);
-					userbtnagy.get(0).click();
+					agency.get(0).click();
 					b=false;
 					user="agency";
 				}
-				else if(userbtnCandidate.size()>0)
+				else if(candidate.size()>0)
 				{
 					System.out.println("candidate");
-					logedinuser= userbtnCandidate.get(0).getText();
+					logedinuser= candidate.get(0).getText();
 					System.out.println("candidate :"+logedinuser);
-					userbtnCandidate.get(0).click();
+					candidate.get(0).click();
 					user="candidate";	
 				}
 

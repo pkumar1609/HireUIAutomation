@@ -23,10 +23,7 @@ public class UpdateProfilePopupPage extends baseclass {
 	
 	@FindBy(xpath="//input[@placeholder='Enter Name']")
 	public WebElement AgencyEmployerName;
-	
-//	@FindBy(xpath="//label[contains(text(),'Agency Name')]")
-//	public WebElement AgencyEmployerNameLable;
-	
+		
 	@FindBy(xpath="//input[@id='Email']")
 	public WebElement Email;
 	
@@ -35,7 +32,6 @@ public class UpdateProfilePopupPage extends baseclass {
 	
 	@FindBy(xpath="//input[@formcontrolname='isAgencyOwner']")
 	public WebElement isAgencyOwner;
-	
 	
 	@FindBy(xpath="//input[@placeholder='Enter Contact Number']")
 	public WebElement contactNumber;
@@ -241,21 +237,21 @@ public class UpdateProfilePopupPage extends baseclass {
 	
      
 	
-	public void UpdateProfileEmployer (String EmployerAddress, String EmployerOrganizationName, String EmployerWebsite, String EmployerCity) throws InterruptedException {
+	public void UpdateProfile (String Address, String OrganizationName, String Website, String City) throws InterruptedException {
 		Thread.sleep(2000);		
-		Address.sendKeys(EmployerAddress);
-	    OrganizationName.sendKeys(EmployerOrganizationName);
-	    Website.sendKeys(EmployerWebsite);
-	    City.sendKeys(EmployerCity);
+		this.Address.sendKeys(Address);
+		this.OrganizationName.sendKeys(OrganizationName);
+		this.Website.sendKeys(Website);
+		this.City.sendKeys(City);
 	}
 		
-	public void UpdateProfileAgency (String AgencyAddress, String AgencyOrganizationName, String AgencyWebsite, String AgencyCity) {
-				
-		Address.sendKeys(AgencyAddress);
-	    OrganizationName.sendKeys(AgencyOrganizationName);
-	    Website.sendKeys(AgencyWebsite);
-	    City.sendKeys(AgencyCity);
-	}
+//	public void UpdateProfileAgency (String AgencyAddress, String AgencyOrganizationName, String AgencyWebsite, String AgencyCity) {
+//				
+//		Address.sendKeys(AgencyAddress);
+//	    OrganizationName.sendKeys(AgencyOrganizationName);
+//	    Website.sendKeys(AgencyWebsite);
+//	    City.sendKeys(AgencyCity);
+//	}
 		
 	public void UpdateProfileCandidate (String title1, String Designation, String functionalArea, String shift, String jobType, String NoticePeriod, String industry, String CandidateCity, String gender1, String experience, String CTC, String expectedCTC, String CityArea) throws InterruptedException {
 				

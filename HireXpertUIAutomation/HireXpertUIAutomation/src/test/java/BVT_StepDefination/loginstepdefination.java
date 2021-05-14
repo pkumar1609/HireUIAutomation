@@ -74,10 +74,7 @@ public class loginstepdefination extends baseclass {
 	    manageemployer.addEmployer(credentials);
 	}
 	
-	@When("^Click on add Button Fill all the mandatory details for Manage Employee$")
-	public void click_on_add_Button_Fill_all_the_mandatory_details_for_Manage_Employee(DataTable credentials) throws Throwable {
-		manageemployee.addEmployee(credentials);
-	}
+	
 	
 	@Then("^Employer should be able to add Agency$")
 	public void employer_should_be_able_to_add_Agency() {

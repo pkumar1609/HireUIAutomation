@@ -73,17 +73,17 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 
 
 	@Then("^Update agency profile\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void update_agency_profile(String AgencyAddress, String AgencyOrganizationName, String AgencyWebsite, String AgencyCity) throws Throwable {
+	public void update_agency_profile(String Address, String OrganizationName, String Website, String City) throws Throwable {
 
 		Thread.sleep(4200);
-		updateprofilepopuppage.UpdateProfileAgency(AgencyAddress, AgencyOrganizationName, AgencyWebsite, AgencyCity);
+		updateprofilepopuppage.UpdateProfile(Address, OrganizationName, Website, City);
 	}
 	
 	@When("^Update employer profile \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void update_employer_profile(String EmployerAddress, String EmployerOrganizationName, String  EmployerWebsite, String EmployerCity) throws Throwable {
+	public void update_employer_profile(String Address, String OrganizationName, String Website, String City) throws Throwable {
 
 		Thread.sleep(4200);
-		updateprofilepopuppage.UpdateProfileEmployer(EmployerAddress, EmployerOrganizationName, EmployerWebsite, EmployerCity);
+		updateprofilepopuppage.UpdateProfile(Address, OrganizationName, Website, City);
 
 	}
 	
@@ -343,10 +343,10 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		}
 		
 		@When("^Update Employer Profile  \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-		public void update_Employer_Profile(String EmployerAddress, String EmployerOrganizationName, String EmployerWebsite, String EmployerCity) throws Throwable {
+		public void update_Employer_Profile(String Address, String OrganizationName, String Website, String City) throws Throwable {
 
 			Thread.sleep(3000);
-			updateprofilepopuppage.UpdateProfileEmployer(EmployerAddress, EmployerOrganizationName, EmployerWebsite, EmployerCity);
+			updateprofilepopuppage.UpdateProfile(Address, OrganizationName, Website, City);
 		}
 
 		@When("^Click on Change Password tab$")
@@ -432,10 +432,10 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 //		}
 
 		@When("^Update Agency Profile  \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-		public void update_Agency_Profile(String AgencyAddress, String AgencyOrganizationName, String AgencyWebsite, String AgencyCity) throws Throwable {
+		public void update_Agency_Profile(String Address, String OrganizationName, String Website, String City) throws Throwable {
 		    
 			Thread.sleep(3000);
-			updateprofilepopuppage.UpdateProfileAgency(AgencyAddress, AgencyOrganizationName, AgencyWebsite, AgencyCity);
+			updateprofilepopuppage.UpdateProfile(Address, OrganizationName, Website, City);
 		}
 
 		
