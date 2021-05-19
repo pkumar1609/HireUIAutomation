@@ -1,18 +1,5 @@
 Feature: Job Candidate Workflow feature
 
-@cleanup
-Scenario Outline: cleanup
-
-Given User must be registere
-When title of login page is Home
-And Click on Employer-Agency Signin link
-And Employer enters valid credentials "<Username>","<Password>"
-And Go to Workbench 
-And close all job  
-Examples:
-|Username      |Password|
-|pemp@gmail.com|12345   |
-#|pagy@gmail.com|12345   |
 
 
 @BVTC @JCWF @JCWFbvt1
