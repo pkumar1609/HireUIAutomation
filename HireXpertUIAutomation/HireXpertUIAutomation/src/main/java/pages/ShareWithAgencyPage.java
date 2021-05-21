@@ -60,8 +60,7 @@ public class ShareWithAgencyPage extends baseclass {
 		if(isBlockUnblockSelected==false)
 		{
 			Thread.sleep(1000);
-			sharewithagencypage.blockUnblockCheckbox.click();
-			common.clickOnConfirmYes();
+			sharewithagencypage.blockUnblockCheckbox.click();		
 		}
 	}
 	

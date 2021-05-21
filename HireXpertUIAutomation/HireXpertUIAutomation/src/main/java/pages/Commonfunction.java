@@ -79,7 +79,7 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath="//button[text()='Apply']")
 	public WebElement apply;
 	
-//	comman fields
+//	common fields
 	
 	@FindBy(xpath="//input[@formcontrolname='Name']")
 	public WebElement  namefield;
@@ -92,6 +92,9 @@ public class Commonfunction extends baseclass {
 	
 	@FindBy(xpath="//select[@formcontrolname='CountryId']")
 	public WebElement countryid;
+		
+	@FindBy(xpath="//textarea[@placeholder='Enter Comment']")
+	public WebElement blockCommentTextArea;
 	
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
 	
@@ -109,7 +112,6 @@ public class Commonfunction extends baseclass {
 	{
 		Thread.sleep(5000);
 		executor.executeScript("arguments[0].click();", savebtn);
-
 	}
 	
 	public void clickOnSearchBtn() throws InterruptedException
@@ -240,6 +242,11 @@ public class Commonfunction extends baseclass {
         }
 		return day+"-"+monthName+"-"+year;
 		
+	}
+	
+	public void addBlockComment() throws InterruptedException  {		
+		explicitwait.until(ExpectedConditions.visibilityOf(blockCommentTextArea));
+		blockCommentTextArea.sendKeys("Comment added to block.");
 	}
 
 }
