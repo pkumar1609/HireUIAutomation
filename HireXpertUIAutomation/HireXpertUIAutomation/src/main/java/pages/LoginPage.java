@@ -30,8 +30,8 @@ public class LoginPage extends baseclass
 	@FindBy(xpath="//button[contains(text(),'Sign in')]")
 	public WebElement signin;
 	
-	@FindBy(xpath= "//a[@title='Agency']")
-	public WebElement userbtn;
+	@FindBy(xpath= "(//button[@class='dropdown-item'])[1]")
+	public WebElement loggedInUser;
 	
 	@FindBy(xpath= "//a[@title='Employer']")
 	public List<WebElement> employer;
@@ -235,32 +235,22 @@ public class LoginPage extends baseclass
 	}
 	
 	public void identifyUserK() throws InterruptedException
-	{
+	{				
 				Action.moveToElement(myAccount).click().perform();
-				if(employer.size()>0)
-				{
-					logedinuser= employer.get(0).getText();
-					Thread.sleep(2000);
-					employer.get(0).click();
-					b=true;
+			    switch(loggedInUser.getText())
+			    {  
+			    case "Employer": 
+			    	b=true;
 					user="employer";
-				}
-				else if(agency.size()>0)
-				{
-					logedinuser= agency.get(0).getText();
-					Thread.sleep(2000);
-					agency.get(0).click();
-					b=false;
+			    break;  
+			    case "Agency": 
+			    	b=false;
 					user="agency";
-				}
-				else if(candidate.size()>0)
-				{
-					System.out.println("candidate");
-					logedinuser= candidate.get(0).getText();
-					System.out.println("candidate :"+logedinuser);
-					candidate.get(0).click();
-					user="candidate";	
-				}
+			    break;  
+			    case "Candidate": 
+					user="candidate";
+			    break;   
+			    }  
 
 	}
 }
