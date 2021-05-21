@@ -1,9 +1,19 @@
 package BVT_StepDefination;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
@@ -84,10 +94,9 @@ public class Configuration extends baseclass {
 	    Assert.assertEquals(driver.findElement(By.linkText("Configuration")).isDisplayed(), true);
 	}
 
-	@When("^go to the configuration tab  & click on the add manage Employee\\.$")
-	public void go_to_the_configuration_tab_click_on_the_add_manage_Employee() throws Throwable {
+	@When("^go to the configuration tab$")
+	public void go_to_the_configuration_tab() throws Throwable {
 		executor.executeScript("arguments[0].click();",dashboardpage.configuration );
-//		executor.executeScript("arguments[0].click();",dashboardpage.manageEmployees );	
 	}
 	
 	@When("^Click on add Button Fill all the mandatory details for Manage Employee$")
@@ -120,4 +129,62 @@ public class Configuration extends baseclass {
 	public void agency_should_not_be_able_to_add_duplicate_employees_It_s_showing_an_error_message_Employee_with_email_id_already_exists() throws Throwable {
 		Assert.assertEquals(driver.findElements(By.xpath("//td[contains(text(),'"+manageemployee.name+"')]")).size()>0, false);	
 	}
+	
+//	3	
+	@When("^Select existing employees and click on the Action dropdown$")
+	public String select_existing_employees_and_click_on_the_Action_dropdown() throws Throwable {
+		explicitwait.until(ExpectedConditions.visibilityOf(manageemployee.search));
+		List<WebElement> nameOFEmployees=driver.findElements(By.xpath("//td[@class='w-25'][1]"));
+		manageemployee.search.sendKeys(nameOFEmployees.get(nameOFEmployees.size()-1).getText());
+		executor.executeScript("arguments[0].click();", manageemployee.action);
+		return nameOFEmployees.get(nameOFEmployees.size()-1).getText();
+	}
+
+	@When("^Edit the employee button$")
+	public void edit_the_employee_button() throws Throwable {
+		executor.executeScript("arguments[0].click();", manageemployee.edit);
+	}	
+
+	@Then("^Agency should not be able to update employee details like email,name,contact number and country$")
+	public void agency_should_not_be_able_to_update_employee_details_like_email_name_contact_number_and_country() throws Throwable {
+//		assertTrue(common.namefield.getAttribute("class").equalsIgnoreCase("readonly"));
+//		assertTrue(common.emailfield.getAttribute("class").equalsIgnoreCase("read-only"));
+//		assertTrue(common.contactnumberfield.getAttribute("class").equalsIgnoreCase("readonly"));
+//		assertFalse(common.countryid.getAttribute("class").equalsIgnoreCase("readonly"));
+//		assertFalse(manageemployee.role.getAttribute("class").equalsIgnoreCase("readonly"));
+	}
+
+	@Then("^Agency should be able to only update the Role$")
+	public String agency_should_be_able_to_only_update_the_Role(DataTable credentials) throws Throwable {
+		select= new Select(manageemployee.role);
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
+		{
+		if(loginpage.user.equals("employer"))
+		{
+			select.selectByVisibleText(data.get("Role"));
+		}
+		else
+		{
+			select.selectByVisibleText(data.get("RoleAgy"));
+		}	
+		}
+		return manageemployee.role.getText();
+	}
+
+	@When("^Login users click on the Submit button$")
+	public void login_users_click_on_the_Submit_button() throws Throwable {
+		common.ClickSumbit();
+	}
+	
+	@Then("^Agency should be able to update employee details successfully$")
+	public void agency_should_be_able_to_update_employee_details_successfully(DataTable credentials) throws Throwable {
+		manageemployee.search.sendKeys(manageemployee.employeeName);		
+		Assert.assertEquals(driver.findElement(By.xpath("//td[contains(text(),'"+this.select_existing_employees_and_click_on_the_Action_dropdown()+"')]//following::td[@class='w-13'][1]")).getText(), this.agency_should_be_able_to_only_update_the_Role(credentials));	
+	}
+
+	@Then("^Verify the employee role is updated or not$")
+	public void verify_the_employee_role_is_updated_or_not() throws Throwable {
+	   
+	}
+
 }
