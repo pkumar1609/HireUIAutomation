@@ -10,13 +10,13 @@ And Login user should see Manage Vendor tab
 And Login users should see the “Manage Employer” tab.
 
 @ManageAgencyEmployee2
-Scenario: To Verify the functionality of Agency able to add employee
+Scenario Outline: To Verify the functionality of Agency able to add employee
 Given agency with different organization exist
 | timezone                                        | country  |  Name   |   Email         | contactnumber  | UserType|organization|Address|
 | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi | India    | cagy    |  cagy@gmail.com | 211314644      | Agency  |Test	     |kharadi|	   
 Given An agency logged in to HireXpert
 When Org admin and Org status is active only this user can see configuration tab
-And go to the configuration tab
+And go to the configuration tab  & click on the add manage Employee.
 And Click on add Button Fill all the mandatory details for Manage Employee
 |Nameagy|         Emailagy   | contact  |Roleagy        |
 |pa1    | pa1@gmail.com      | 1234564  |Job Coordinator|
@@ -27,20 +27,6 @@ And Agency should not be able to add another organization employee. It's showing
 |cagy    | cagy@gmail.com     | 1234564  |Job Coordinator  |
 And Agency should not be able to add duplicate employees. It’s showing an error message “Employee with email id… already exists.”
 
-@ManageAgencyEmployee3
-Scenario: To Verify the functionality of Edit Employee. 
-Given An agency logged in to HireXpert
-When Org admin and Org status is active only this user can see configuration tab
-And go to the configuration tab
-And Select existing employees and click on the Action dropdown
-And Edit the employee button
-And Agency should not be able to update employee details like email,name,contact number and country
-And Agency should be able to only update the Role
-|Role          |RoleAgy              |
-|Recruitment HR|Candidate Coordinator|
-When Login users click on the Submit button
-Then Agency should be able to update employee details successfully
-And Verify the employee role is updated or not
-
-
-
+ Examples:
+ |Username      |Password|
+ |pagy@gmail.com|12345   |

@@ -1,9 +1,7 @@
 package pages;
 
-import java.util.List;
 import java.util.Map;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -15,12 +13,12 @@ import utilPackage.baseclass;
 
 public class ManageEmployee extends baseclass {
 	
-	
+	String employeeName;
 	
 	public ManageEmployee() {
 		
 		PageFactory.initElements(driver, this);
-		}
+	}
 	
 	@FindBy(xpath = "//button[@title='Add Employee']")
 	public WebElement addEmployee;
@@ -28,19 +26,9 @@ public class ManageEmployee extends baseclass {
 	@FindBy(xpath = "//select[@formcontrolname='Role']")
 	public WebElement role;
 	
-	@FindBy(xpath = "//button[@id='btnGroupDrop1']")
-	public WebElement action;
-	
-	@FindBy(xpath = "//input[@name='search']")
-	public WebElement search;
-	
-	@FindBy(xpath = "//button[@title='Edit']")
-	public WebElement edit;
-
-	public String employeeName;
 	public String name;
 	
-	
+
 	
 	public void addEmployee(DataTable credentials) throws InterruptedException {
 			Thread.sleep(3000);	
