@@ -78,10 +78,10 @@ public class taskBWT extends baseclass {
 		taskpage.validateTaskDisplayingProperly();
 	}
 
-	@And("^Go to workbench$")
-	public void go_to_workbench() throws Throwable {	
-		dashboardpage.openWorkbenchPage();		
-	}
+//	@And("^Go to workbench$")
+//	public void go_to_workbench() throws Throwable {	
+//		dashboardpage.openWorkbenchPage();		
+//	}
 
 	@And("^Add job$")
 	public void add_job(DataTable credentials) throws Throwable 
