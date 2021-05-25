@@ -345,7 +345,6 @@ public class ShareWithTeamPage extends baseclass {
 			{
 				Thread.sleep(1000);
 				driver.findElement(By.xpath("(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[2]")).click();
-				common.clickOnConfirmYes();
 			}
 		}
 	
