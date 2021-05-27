@@ -203,10 +203,11 @@ public class job extends baseclass {
 
 	}
 	
+	
 	//Scenario 3:
 	
-	@Given("^An employer logged in creates a job and shares with agency to HireXpert$")
-	public void an_employer_logged_in_creates_a_job_and_shares_with_agency_to_HireXpert() throws Throwable {
+	@Given("^An employer logged in creates a job adds a candidate to the job and shares with agency$")
+	public void an_employer_logged_in_creates_a_job_adds_a_candidate_to_the_job_and_shares_with_agency() throws Throwable {
 
 	}
 
@@ -225,14 +226,9 @@ public class job extends baseclass {
 	
 	}
 
-	@Then("^On the Dashboard in the job panel user should be able to view the new added skill in the View Job Description dialog in read only mode\\.$")
-	public void on_the_Dashboard_in_the_job_panel_user_should_be_able_to_view_the_new_added_skill_in_the_View_Job_Description_dialog_in_read_only_mode() throws Throwable {
-	  
-	}
+	@Then("^On Candidate Dashboard under Job Hiring section click on job link and verify newly added skills should be visible in the job details dialog$")
+	public void on_Candidate_Dashboard_under_Job_Hiring_section_click_on_job_link_and_verify_newly_added_skills_should_be_visible_in_the_job_details_dialog() throws Throwable {
 
-	@Then("^On Candidate Dashboard, newly added skills should be visible in the job panel$")
-	public void on_Candidate_Dashboard_newly_added_skills_should_be_visible_in_the_job_panel() throws Throwable {
-	
 	}
 
 	@Then("^Skill match score of the candidate will change according to the added skills$")
@@ -254,5 +250,39 @@ public class job extends baseclass {
 	public void on_Audit_log_verify_for_newly_added_skill_is_displayed() throws Throwable {
 	 
 	}
+	
+	
+	//Scenario 4:
+	
+	@Given("^Employer selects added job to edit the job and removes an existing skill$")
+	public void employer_selects_added_job_to_edit_the_job_and_removes_an_existing_skill() throws Throwable {
+	  
+	}
+
+	@When("^Agency logs in to view shared job and checks removed skill is not displayed$")
+	public void agency_logs_in_to_view_shared_job_and_checks_removed_skill_is_not_displayed() throws Throwable {
+	
+	}
+
+	@When("^On Candidate Dashboard under Job Hiring section click on job link and verify removed skill should not be displayed in the job details dialog$")
+	public void on_Candidate_Dashboard_under_Job_Hiring_section_click_on_job_link_and_verify_removed_skill_should_not_be_displayed_in_the_job_details_dialog() throws Throwable {
+
+	}
+
+	@When("^Skill match score of the candidate will change according to the removed skills\\.$")
+	public void skill_match_score_of_the_candidate_will_change_according_to_the_removed_skills() throws Throwable {
+	
+	}
+
+	@Then("^On JobUpdates entry should be created for removed skills$")
+	public void on_JobUpdates_entry_should_be_created_for_removed_skills() throws Throwable {
+	 
+	}
+
+	@Then("^On Audit log verify for removed skill is displayed$")
+	public void on_Audit_log_verify_for_removed_skill_is_displayed() throws Throwable {
+	
+	}
+
 
 }

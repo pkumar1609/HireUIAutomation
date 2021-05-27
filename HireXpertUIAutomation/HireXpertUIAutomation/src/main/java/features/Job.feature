@@ -1,7 +1,7 @@
 Feature: Job 
 
 @job 
-Scenario Outline: Job is added and displayed 
+Scenario Outline: User adds new job and should be displayed to all 
 
 	Given User logged in to HireXpert "<username>" and "<Password>" 
 	And Add job 
@@ -25,10 +25,10 @@ Scenario Outline: Job is added and displayed
 	Examples: 
 		| username       | Password |agencyName      |
 		| pemp@gmail.com |    12345 | pagy@gmail.com |
-		#		| pagy@gmail.com |    12345 |  |
+
 		
 @jobScenario2	
-Scenario Outline: Verify job edit changes are displayed 
+Scenario Outline: User edits added job by adding new changes 
 Given Employer must login and goto Application Tracking and open hamburger menu icon to edit job and update job details 
 When Job provider clicks on the Submit button
 Then Updated jobs details must display on the Dashboard in the job panel for logged in users and job employers
@@ -42,14 +42,14 @@ Examples:
 |  Username       | password | JobNoticePeriod1 |City  | City Area|
 |  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	 
 
+
 @jobScenario3
-Scenario Outline:  Add new skill to the added job
-Given An employer logged in creates a job and shares with agency to HireXpert
+Scenario Outline: User adds new skill to the added job
+Given An employer logged in creates a job adds a candidate to the job and shares with agency
 And Employer selects the job and edit it to add a new skill 
 When Employer clicks on the Submit button.
 Then New skills should be added to existing job and should be visible to everyone with whom the job is shared.
-Then On the Dashboard in the job panel user should be able to view the new added skill in the View Job Description dialog in read only mode.
-And On Candidate Dashboard, newly added skills should be visible in the job panel
+And On Candidate Dashboard under Job Hiring section click on job link and verify newly added skills should be visible in the job details dialog
 And Skill match score of the candidate will change according to the added skills
 Then Verify the job city and city area is present
 Then On JobUpdates entry should be created for newly added skills
@@ -58,3 +58,18 @@ Then On Audit log verify for newly added skill is displayed
 Examples:
 |  Username       | password | JobNoticePeriod1 |City  | City Area|
 |  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	 
+
+
+@jobScenario4
+Scenario Outline: User Remove an existing skill from the added job
+Given An employer logged in creates a job adds a candidate to the job and shares with agency
+And Employer selects added job to edit the job and removes an existing skill
+When Job provider clicks on the Submit button.
+And Agency logs in to view shared job and checks removed skill is not displayed
+And On Candidate Dashboard under Job Hiring section click on job link and verify removed skill should not be displayed in the job details dialog
+And Skill match score of the candidate will change according to the removed skills.
+Then On JobUpdates entry should be created for removed skills
+Then On Audit log verify for removed skill is displayed
+Examples:
+|  Username       | password | JobNoticePeriod1 |City  | City Area|
+|  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	
