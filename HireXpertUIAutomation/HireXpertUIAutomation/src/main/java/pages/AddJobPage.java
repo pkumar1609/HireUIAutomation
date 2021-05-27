@@ -315,10 +315,8 @@ public class AddJobPage extends baseclass {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class)) {
 
 			currentTime = LocalDateTime.now();
-			System.out.println(loginpage.b);
-			System.out.println(loginpage.user);
-			if (loginpage.b==true) {
-				System.out.println("@@@@@@");
+	
+			if (loginpage.b==true) {			
 				jobname = dtFormate.format(currentTime) + " Emp";
 				title.sendKeys(jobname);
 				Organization.clear();

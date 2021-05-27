@@ -15,6 +15,8 @@ import utilPackage.baseclass;
 
 public class job extends baseclass {
 
+	//Scenario 1 step Def's
+	
 	@Given("^User logged in to HireXpert \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void user_logged_in_to_HireXpert_and(String username, String password) throws Throwable {
 
@@ -137,4 +139,120 @@ public class job extends baseclass {
 					true);
 		}
 	}
+	
+	
+	//Scenario 2 step Def's
+	
+	@Given("^Employer must login and goto Application Tracking and open hamburger menu icon to edit job and update job details$")
+	public void employer_must_login_and_goto_Application_Tracking_and_open_hamburger_menu_icon_to_edit_job_and_update_job_details() throws Throwable {
+
+	}
+
+	@Given("^Go to Recruitment Applicant Tracking$")
+	public void go_to_Recruitment_Applicant_Tracking() throws Throwable {
+
+	}
+
+	@Given("^Open the hamburger menu button and click on the edit job$")
+	public void open_the_hamburger_menu_button_and_click_on_the_edit_job() throws Throwable {
+
+	}
+
+	@Given("^Update some of the job details$")
+	public void update_some_of_the_job_details() throws Throwable {
+
+	}
+
+//	@When("^Job provider clicks on the Submit button$")
+//	public void job_provider_clicks_on_the_Submit_button_() throws Throwable {
+//
+//	}
+
+	@Then("^Updated jobs details must display on the Dashboard in the job panel for logged in users and job employers$")
+	public void updated_jobs_details_must_display_on_the_Dashboard_in_the_job_panel_for_logged_in_users_and_job_employers() throws Throwable {
+
+	}
+
+	@Then("^Updated job details should display on the Application Tracking page in Jobs dropdown$")
+	public void updated_job_details_should_display_on_the_Application_Tracking_page_in_Jobs_dropdown() throws Throwable {
+
+	}
+
+	@Then("^User should be able to edit the job details from Dashboard also$")
+	public void user_should_be_able_to_edit_the_job_details_from_Dashboard_also() throws Throwable {
+
+	}
+
+	@Then("^On the Dashboard in the job panel, User should be able to view the Job Description dialog along with all the updated job details in read only mode$")
+	public void on_the_Dashboard_in_the_job_panel_User_should_be_able_to_view_the_Job_Description_dialog_along_with_all_the_updated_job_details_in_read_only_mode() throws Throwable {
+
+	}
+
+	@Then("^Verify updated job city and city area is present$")
+	public void verify_updated_job_city_and_city_area_is_present() throws Throwable {
+
+	}
+
+	@Then("^Verify updated jobs JobUpdate entry should be created$")
+	public void verify_updated_jobs_JobUpdate_entry_should_be_created() throws Throwable {
+
+	}
+
+	@Then("^Verify edited jobs Audit log should be created$")
+	public void verify_edited_jobs_Audit_log_should_be_created() throws Throwable {
+
+	}
+	
+	//Scenario 3:
+	
+	@Given("^An employer logged in creates a job and shares with agency to HireXpert$")
+	public void an_employer_logged_in_creates_a_job_and_shares_with_agency_to_HireXpert() throws Throwable {
+
+	}
+
+	@Given("^Employer selects the job and edit it to add a new skill$")
+	public void employer_selects_the_job_and_edit_it_to_add_a_new_skill() throws Throwable {
+	
+	}
+
+	@When("^Employer clicks on the Submit button\\.$")
+	public void employer_clicks_on_the_Submit_button() throws Throwable {
+	   
+	}
+
+	@Then("^New skills should be added to existing job and should be visible to everyone with whom the job is shared\\.$")
+	public void new_skills_should_be_added_to_existing_job_and_should_be_visible_to_everyone_with_whom_the_job_is_shared() throws Throwable {
+	
+	}
+
+	@Then("^On the Dashboard in the job panel user should be able to view the new added skill in the View Job Description dialog in read only mode\\.$")
+	public void on_the_Dashboard_in_the_job_panel_user_should_be_able_to_view_the_new_added_skill_in_the_View_Job_Description_dialog_in_read_only_mode() throws Throwable {
+	  
+	}
+
+	@Then("^On Candidate Dashboard, newly added skills should be visible in the job panel$")
+	public void on_Candidate_Dashboard_newly_added_skills_should_be_visible_in_the_job_panel() throws Throwable {
+	
+	}
+
+	@Then("^Skill match score of the candidate will change according to the added skills$")
+	public void skill_match_score_of_the_candidate_will_change_according_to_the_added_skills() throws Throwable {
+	
+	}
+
+	@Then("^Verify the job city and city area is present$")
+	public void verify_the_job_city_and_city_area_is_present() throws Throwable {
+	
+	}
+
+	@Then("^On JobUpdates entry should be created for newly added skills$")
+	public void on_JobUpdates_entry_should_be_created_for_newly_added_skills() throws Throwable {
+	
+	}
+
+	@Then("^On Audit log verify for newly added skill is displayed$")
+	public void on_Audit_log_verify_for_newly_added_skill_is_displayed() throws Throwable {
+	 
+	}
+
 }
