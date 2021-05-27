@@ -61,7 +61,9 @@ public class DashboardPage extends baseclass {
 		
 	@FindBy(xpath= "//span[contains(text(),'Manage Vendors')]")
 	public WebElement manageVendors ;
-	
+		
+	@FindBy(xpath= "//a[contains(text(),'Job Updates')]")
+	public WebElement jobUpdate ;
 	
 //	Employer Section
 	
@@ -95,12 +97,23 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath = "//h5[text()='Team Members ']//following::input[@name='search']")
 	public WebElement teamMemberSearchField;
 	
+//	ApplicationCommonElements
 	
+	@FindBy(xpath= "//select[@id='job']")
+	public WebElement selectJob;
+	
+	@FindBy(xpath= "//button[@title='Add Candidate']")
+	public WebElement AddCandidate;
+	
+	@FindBy(xpath= "//button[@title='Add Job']")
+	public WebElement AddJob;
+	
+	@FindBy(xpath= "//td[@class='text-center w-6 w-5-desk-4']")
+	public WebElement Id;
 
 	public String namevalidate;
-
-	
 	public static String ele;
+	public static String jobId;
 	
 	public DashboardPage() {
 		
@@ -113,11 +126,11 @@ public class DashboardPage extends baseclass {
 		Action.moveToElement(dashboardpage.recruitment).perform();
 		Thread.sleep(1000);
 		applicationTracking.click();
-		boolean b=common.okbtnPopup.size()>0;
-		if(b==true)
-		{
-			common.clickOnOKBtn();
-		}
+//		boolean b=common.okbtnPopup.size()>0;
+//		if(b==true)
+//		{
+//			common.clickOnOKBtn();
+//		}
 		
 	}
  
@@ -172,6 +185,12 @@ public class DashboardPage extends baseclass {
 		Action.moveToElement(dashboardpage.configuration).build().perform();
 		dashboardpage.manageVendors.click();
 		Thread.sleep(2000);
+	}
+	
+	public void openCvStorePage() throws InterruptedException
+	{
+		Action.moveToElement(dashboardpage.recruitment).build().perform();
+		dashboardpage.cvStrore.click();
 	}
 	
 	public void VerifyUserIsOnCorrectPage() {

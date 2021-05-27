@@ -315,13 +315,16 @@ public class AddJobPage extends baseclass {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class)) {
 
 			currentTime = LocalDateTime.now();
-			if (loginpage.b == true) {
+			System.out.println(loginpage.b);
+			System.out.println(loginpage.user);
+			if (loginpage.b==true) {
+				System.out.println("@@@@@@");
 				jobname = dtFormate.format(currentTime) + " Emp";
 				title.sendKeys(jobname);
 				Organization.clear();
 				this.Organization.sendKeys(data.get("organization"));
 				jobAddedByEmp = true;
-			} else {
+			} else if(loginpage.user == "agency"){
 				jobAddedByEmp = false;
 				jobname = dtFormate.format(currentTime) + " Agy";
 				title.sendKeys(jobname);
@@ -345,10 +348,11 @@ public class AddJobPage extends baseclass {
 					common.addSubmitbtn.click();
 					select.selectByVisibleText("pemp -");
 				}
-			}
+			}		
 			if (this.Organization.isEnabled()) {
 				this.Organization.sendKeys(data.get("organization"));
 			}
+			
 			selectedOrganization = this.Organization.getAttribute("value");
 			Thread.sleep(1000);
 			designation.sendKeys(data.get("designation"));

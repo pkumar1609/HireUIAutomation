@@ -121,6 +121,9 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath="//div[text()='Show all rejected candidates']//following::div[@class='checkmark']") 
 	public WebElement showAllRejectedCandidates;
 	
+	@FindBy(xpath="(//button[contains(text(),'Audit')])[1]") 
+	public WebElement jobAudit;
+	
 	public String jobname1;
 	public String jobname2;
 	String nameOfCan;

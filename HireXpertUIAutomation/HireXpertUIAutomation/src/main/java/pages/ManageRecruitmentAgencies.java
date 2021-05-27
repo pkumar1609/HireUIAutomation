@@ -38,6 +38,7 @@ public class ManageRecruitmentAgencies extends baseclass {
 				common.namefield.clear();
 				common.namefield.sendKeys(data.get("Name"));
 				name=data.get("Name");
+				System.out.println("name"+name);
 				ar.add(name);
 				common.emailfield.clear();
 				common.emailfield.sendKeys(data.get("Email"));

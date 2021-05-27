@@ -51,6 +51,7 @@ public class ShareWithAgencyPage extends baseclass {
 		Thread.sleep(2000); 
 		common.share.click();
 		common.clickOnConfirmYes();
+//		common.clickOnOKBtn();
 		common.shareFlag=1;
 	}
 	
