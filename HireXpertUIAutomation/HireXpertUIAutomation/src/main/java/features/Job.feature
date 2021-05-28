@@ -54,7 +54,6 @@ And Skill match score of the candidate will change according to the added skills
 Then Verify the job city and city area is present
 Then On JobUpdates entry should be created for newly added skills
 Then On Audit log verify for newly added skill is displayed  
-
 Examples:
 |  Username       | password | JobNoticePeriod1 |City  | City Area|
 |  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	 
@@ -73,3 +72,85 @@ Then On Audit log verify for removed skill is displayed
 Examples:
 |  Username       | password | JobNoticePeriod1 |City  | City Area|
 |  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	
+
+
+@jobScenario5  
+Scenario Outline: User try to Close existing Job
+Given An employer logged in creates a job and shares with agency
+Then On Application Tracking page Employer clicks Close job option
+And On Confirmation message click on the NO button to 
+Then verify job do not get closed
+And Employer now clicks om Hamberger menu and selects Close job option and clicks Yes on popup
+Then Verify job is now not displayed in the Select Job dropdown on Application Tracking page
+And On Agency Dashboard the job should be displayed in Jobs section with membership as Open
+And On Agency side application tracking page job should be display with status as Closed in job dropdown 
+And Agency try sharing this closed job with its team member verify it shd not get shared and display proper message
+Examples:
+|  Username       | password | JobNoticePeriod1 |City  | City Area|
+|  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	
+
+
+@jobScenario6 
+Scenario Outline:  User try to Re-Open Closed Job
+Given An employer logged in and creates a job
+Then On Employer dashboard in Job Section Employer Closes the added job
+And On Employer dashboard in Job section job Membership is displayed as Closed
+And On Application Tracking job is now not displayed
+And On Employer dashboard in Job section from Action dropdown select ReOpen Job and select Yes on confirm popup dialog
+Then On Employer dashboard in Job section job status displayed as active and membership as Open
+And On application tracking job should be displayed with status as Active
+Examples:
+|  Username       | password | JobNoticePeriod1 |City  | City Area|
+|  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	
+
+
+@jobScenario7
+Scenario Outline:  User try to verify Change Status of Job as-Active
+Given An employer logged in and creates a job
+Then On Application Tracking job staus should be displayed as Active
+And On Employer dashboard in Job section job status displayed as active and membership as Open
+And On CVStore in Jobs dropdown job status should be displayed as Active
+And On CVParser in Jobs dropdown job status should be displayed as Active
+Examples:
+|  Username       | password | JobNoticePeriod1 |City  | City Area|
+|  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	
+
+
+@jobScenario8
+Scenario Outline: User try to verify Change Status of Job as-OnHold
+Given An employer logged in creates a job and shares with agency
+Then On Application Tracking Employer clicks hamberger menu and selects option Hold Job and clicks Yes on confirm popup
+And On Application Tracking Job dropdown status of job is displayed as OnHold
+And On Employer dashboard in Job section job status displayed as OnHold and membership as Open
+And On CVStore in Jobs dropdown job status should be displayed as OnHold
+And On CVParser in Jobs dropdown job status should be displayed as OnHold
+And On Agency side in Application tracking Job dropdown status of job is displayed as OnHold
+And On Agency dashboard in Job section status of job is displayed as OnHold
+And Agency side On CVStore in Jobs dropdown job status should be displayed as OnHold
+And Agency side On CVParser in Jobs dropdown job status should be displayed as OnHold
+Then On Employer dashboard in Job section from Action dropdown select UnHold Job and select Yes on confirm popup dialog
+And On Employer dashboard in Job section job status displayed as Active and membership as Open
+And On Application Tracking Job dropdown status of job is displayed as Active
+And On CVStore in Jobs dropdown job status should be displayed as Active
+And On CVParser in Jobs dropdown job status should be displayed as Active
+And On Agency dashboard in Job section status of job is displayed as Active
+And On Agency side in Application tracking Job dropdown status of job is displayed as Active
+And Agency side On CVStore in Jobs dropdown job status should be displayed as Active
+And Agency side On CVParser in Jobs dropdown job status should be displayed as Active
+Examples:
+|  Username       | password | JobNoticePeriod1 |City  | City Area|
+|  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	
+
+
+@jobScenario9
+Scenario Outline: User try to Clone existing Job
+Given An employer logged in and creates a job
+Then On Employer dashboard in Job section from Action dropdown select Clone Job and select Yes on confirm popup dialog
+And On Application Tracking cloned job is displayed
+And On CVStore in Jobs dropdown cloned job is displayed
+And On CVParser in Jobs dropdown cloned job is displayed
+Examples:
+|  Username       | password | JobNoticePeriod1 |City  | City Area|
+|  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	
+
+
