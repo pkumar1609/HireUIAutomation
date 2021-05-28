@@ -88,7 +88,7 @@ public class DashboardPage extends baseclass {
 	
 	@FindBy(xpath = "//h5[text()='Recruitment Agencies ']//following::input[@name='search']")
 	public WebElement agencySearch;
-	
+		
 //	teamMember
 	
 	@FindBy(xpath = "//button[@title='Team Members']")
@@ -110,7 +110,15 @@ public class DashboardPage extends baseclass {
 	
 	@FindBy(xpath= "//td[@class='text-center w-6 w-5-desk-4']")
 	public WebElement Id;
+	
+	@FindBy(xpath= "(//td//following::button)[1]")
+	public WebElement actionDropdown;
 
+	
+	@FindBy(xpath= "//button[contains(text(),'View Job Description')]")
+	public WebElement viewJobDescription;
+	
+	
 	public String namevalidate;
 	public static String ele;
 	public static String jobId;
