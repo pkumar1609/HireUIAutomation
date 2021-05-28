@@ -139,6 +139,98 @@ public class job extends baseclass {
 		}
 	}
 
+//	----------//----------------------------	
+
+	// Scenario 2
+
+	@When("^Employer edit added job and update job details \"([^\"]*)\" and \"([^\"]*)\"and \"([^\"]*)\"$")
+	public void employer_edit_added_job_and_update_job_details_and_and(String noticePeriod, String city,
+			String cityArea) throws Throwable {
+
+		workbenchpage.selectJobK();
+		
+		Thread.sleep(4000);
+		executor.executeScript("arguments[0].click();", workbenchpage.job);
+		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
+
+		Thread.sleep(3000);
+		addjobpage.noticePeriod.clear();
+		addjobpage.noticePeriod.sendKeys(noticePeriod);
+
+		addjobpage.city.clear();
+		addjobpage.city.sendKeys(city);
+
+		addjobpage.cityArea.clear();
+		addjobpage.cityArea.sendKeys(cityArea);
+
+		Thread.sleep(3000);
+		common.submitbtn.click();
+	}
+
+	@Then("^Updated details should display in Edit Job on Application Tracking \"([^\"]*)\" and \"([^\"]*)\"and \"([^\"]*)\"$")
+	public void updated_details_should_display_in_Edit_Job_on_Application_Tracking(String jobNoticePeriod, String city,
+			String cityArea) throws Throwable {
+
+		workbenchpage.selectJobK();
+						
+		executor.executeScript("arguments[0].click();", workbenchpage.job);
+		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
+
+		Assert.assertEquals(addjobpage.noticePeriod.getAttribute("value").strip(), jobNoticePeriod);
+		Assert.assertEquals(addjobpage.city.getAttribute("value").strip(), city);
+		Assert.assertEquals(addjobpage.cityArea.getAttribute("value").strip(), cityArea);
+	}
+
+	@Then("^On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description \"([^\"]*)\" and \"([^\"]*)\"and \"([^\"]*)\"$")
+	public void on_Employer_Dashboard_updated_job_details_in_read_only_mode_must_be_displayed_on_clicking_View_Job_Description(
+			String jobNoticePeriod, String city, String cityArea) throws Throwable {
+		
+		dashboardpage.openDashboardPage();		
+		common.searchField.clear();
+		common.searchField.sendKeys(addjobpage.jobname);
+		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
+		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
+
+		Assert.assertTrue(
+				driver.findElement(By.xpath("(//strong[contains(text(),'Notice Period')]//following::p)[1]")).getText()
+						.strip().contains("50"),
+				jobNoticePeriod);		
+		Assert.assertEquals(
+				driver.findElement(By.xpath("(//strong[contains(text(),'City')]//following::p)[1]")).getText().strip(),
+				city);
+		Assert.assertEquals(driver.findElement(By.xpath("(//strong[contains(text(),'City Area')]//following::p)[2]"))
+				.getText().strip(), cityArea);
+	}
+
+	@Then("^User should be able to edit the job details from Dashboard also \"([^\"]*)\"$")
+	public void user_should_be_able_to_edit_the_job_details_from_Dashboard_also(
+			String updatedJobNoticePeriodForDashboard) throws Throwable {
+
+	}
+
+	@Then("^On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description \"([^\"]*)\"$")
+	public void on_Employer_Dashboard_updated_job_details_in_read_only_mode_must_be_displayed_on_clicking_View_Job_Description(
+			String updatedjobDashBrdNoticePeriod) throws Throwable {
+
+	}
+
+	@Then("^Verify updated job city and city area is present$")
+	public void verify_updated_job_city_and_city_area_is_present() throws Throwable {
+
+	}
+
+	@Then("^Verify JobUpdate entry should be created$")
+	public void verify_JobUpdate_entry_should_be_created() throws Throwable {
+
+	}
+
+	@Then("^Verify Audit log should be created$")
+	public void verify_Audit_log_should_be_created() throws Throwable {
+
+	}
+
+//	----------//----------------------------
+
 	// jobScenario3
 
 //	@Given("^An employer \"([^\"]*)\" \"([^\"]*)\" logged in creates a job adds a candidate \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"to the job and shares with agency \"([^\"]*)\"$")
@@ -178,8 +270,7 @@ public class job extends baseclass {
 //	}
 
 //	---------------------------
-	
-	
+
 	@Given("^job must be added and share with agency \"([^\"]*)\"$")
 	public void job_must_be_added_and_share_with_agency(String agencyname, DataTable credentials) throws Throwable {
 		dashboardpage.openWorkbenchPage();
@@ -193,7 +284,7 @@ public class job extends baseclass {
 		sharewithagencypage.shareWithAgency(agencyname);
 		common.clickOnCloseBtn();
 	}
-	
+
 	@When("^user edit the job and Add new skills \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
 	public void user_edit_the_job_and_Add_new_skills(String Skill1, String Skill2, String Skill3, String level1,
 			String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1,
@@ -210,21 +301,31 @@ public class job extends baseclass {
 	public void user_navigate_to_dashbaord_page() throws Throwable {
 		dashboardpage.openDashboardPage();
 	}
-	
+
 	@Then("^Then On Dashboard, in the job panel the job will be updated with newly added skills \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void then_On_Dashboard_in_the_job_panel_the_job_will_be_updated_with_newly_added_skills(String Skill1, String Skill2, String Skill3) throws Throwable {
-		dashboardpage.selectJob.sendKeys(addjobpage.jobname);		
-		executor.executeScript("arguments[0].click();",dashboardpage.actionDropdown );
-		executor.executeScript("arguments[0].click();",dashboardpage.viewJobDescription);
-		Assert.assertEquals(driver.findElement(By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'"+Skill1+"')]")).isDisplayed(), true);
-		Assert.assertEquals(driver.findElement(By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'"+Skill2+"')]")).isDisplayed(), true);
-		Assert.assertEquals(driver.findElement(By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'"+Skill3+"')]")).isDisplayed(), true);
+	public void then_On_Dashboard_in_the_job_panel_the_job_will_be_updated_with_newly_added_skills(String Skill1,
+			String Skill2, String Skill3) throws Throwable {
+		dashboardpage.selectJob.sendKeys(addjobpage.jobname);
+		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
+		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
+		Assert.assertEquals(driver
+				.findElement(
+						By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'" + Skill1 + "')]"))
+				.isDisplayed(), true);
+		Assert.assertEquals(driver
+				.findElement(
+						By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'" + Skill2 + "')]"))
+				.isDisplayed(), true);
+		Assert.assertEquals(driver
+				.findElement(
+						By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'" + Skill3 + "')]"))
+				.isDisplayed(), true);
 		common.clickOnCloseBtn();
 	}
-	
+
 	@When("^user login as candidate \"([^\"]*)\"$")
 	public void user_login_as_candidate(String candidateEmail) throws Throwable {
-		executor.executeScript("arguments[0].click();",loginpage.JobseekerCandidateSignInlink );
+		executor.executeScript("arguments[0].click();", loginpage.JobseekerCandidateSignInlink);
 		loginpage.loginIn(candidateEmail, "12345");
 		loginpage.identifyUserK();
 	}
@@ -253,7 +354,7 @@ public class job extends baseclass {
 
 	@Given("^Employer selects the job and edit it to add a new skill$")
 	public void employer_selects_the_job_and_edit_it_to_add_a_new_skill() throws Throwable {
-		
+
 	}
 
 	@When("^Employer clicks on the Submit button\\.$")

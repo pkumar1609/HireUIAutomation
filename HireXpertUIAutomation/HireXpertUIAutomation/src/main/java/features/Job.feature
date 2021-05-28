@@ -29,18 +29,22 @@ Scenario Outline: User adds new job and should be displayed to all
 		
 @jobScenario2	
 Scenario Outline: User edits added job by adding new changes 
-Given Employer must login and goto Application Tracking and open hamburger menu icon to edit job and update job details 
-When Job provider clicks on the Submit button
-Then Updated jobs details must display on the Dashboard in the job panel for logged in users and job employers
-Then Updated job details should display on the Application Tracking page in Jobs dropdown
-Then User should be able to edit the job details from Dashboard also
-Then On the Dashboard in the job panel, User should be able to view the Job Description dialog along with all the updated job details in read only mode
+Given User logged in to HireXpert "<Username>" and "<Password>" 
+And Add job 
+		| title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
+		| Developer | Agynew Developer | developer   | IT software | pune     | 400000 |      1 |      2 | 450000 | 800000 | pe1  | pe1@gmail.com | 1234564 |               2 | Hirexpert    | rahitech        | java           | 
+When Job provider clicks on the Submit button.
+And Employer edit added job and update job details "<JobNoticePeriod>" and "<City>"and "<City Area>"
+Then Updated details should display in Edit Job on Application Tracking "<JobNoticePeriod>" and "<City>"and "<City Area>"
+Then On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description "<JobNoticePeriod>" and "<City>"and "<City Area>"
+Then User should be able to edit the job details from Dashboard also "<JobNoticePeriodForDashboard>"
+Then On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description "<JobNoticePeriodForDashboard>"
 Then Verify updated job city and city area is present
-Then Verify updated jobs JobUpdate entry should be created
-Then Verify edited jobs Audit log should be created
+Then Verify JobUpdate entry should be created
+Then Verify Audit log should be created
 Examples:
-|  Username       | password | JobNoticePeriod1 |City  | City Area|
-|  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	 
+|  Username       | Password | JobNoticePeriod |City    | City Area | JobNoticePeriodForDashboard|
+|  pemp@gmail.com | 12345    |  50             |Chennai | Vandalur | 30                          |
 
 
 @jobScenario3 
