@@ -171,14 +171,17 @@ public class job extends baseclass {
 	public void updated_details_should_display_in_Edit_Job_on_Application_Tracking(String jobNoticePeriod, String city,
 			String cityArea) throws Throwable {
 
-		workbenchpage.selectJobK();
+//		workbenchpage.selectJobK();
 
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
-
+		explicitwait.until(ExpectedConditions.visibilityOf(addjobpage.noticePeriod));
 		Assert.assertEquals(addjobpage.noticePeriod.getAttribute("value").strip(), jobNoticePeriod);
 		Assert.assertEquals(addjobpage.city.getAttribute("value").strip(), city);
 		Assert.assertEquals(addjobpage.cityArea.getAttribute("value").strip(), cityArea);
+		explicitwait.until(ExpectedConditions.visibilityOf(common.closebtn));
+		common.clickOnCloseBtn();
+		common.clickOnConfirmYes();
 	}
 
 	@Then("^On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description \"([^\"]*)\" and \"([^\"]*)\"and \"([^\"]*)\"$")
@@ -198,6 +201,8 @@ public class job extends baseclass {
 				city);
 		Assert.assertEquals(driver.findElement(By.xpath("(//strong[contains(text(),'City Area')]//following::p)[2]"))
 				.getText().strip(), cityArea);
+		
+		common.clickOnCloseBtn();
 
 	}
 
