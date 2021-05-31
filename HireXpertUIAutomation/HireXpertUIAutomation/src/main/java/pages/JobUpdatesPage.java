@@ -20,5 +20,21 @@ public class JobUpdatesPage extends baseclass {
 		PageFactory.initElements(driver, this);
 	}
 
+	@FindBy(xpath = "//select[@formcontrolname='selectedJobId']")
+	public WebElement job;
 	
+	@FindBy(xpath = "//select[@formcontrolname='selectedUpdateType']")
+	public WebElement updateType;
+	
+	public void selectUpdateType(String update)
+	{
+		select = new Select (this.updateType);
+		select.selectByVisibleText(update);
+	}
+	
+	public void selectJob(String jobname)
+	{
+		select = new Select (this.job);
+		select.selectByVisibleText(jobname);
+	}
 }

@@ -38,6 +38,7 @@ import pages.InvoicePage;
 import pages.JobApplicationsPage;
 import pages.JobBoardPage;
 import pages.JobReviewPage;
+import pages.JobUpdatesPage;
 import pages.LoginPage;
 import pages.ManageEmployee;
 import pages.ManageEmployer;
@@ -106,6 +107,7 @@ public class baseclass extends SuperBase{
 	public static ManageEmployer manageemployer;
 	public static ManageVendor managevendor;
 	public static ShareWithVendorPage sharewithvendorpage;
+	public static JobUpdatesPage jobupdatepage;
 
 
 	public baseclass() { 
@@ -180,5 +182,6 @@ public class baseclass extends SuperBase{
 		manageemployer=new ManageEmployer();
 		managevendor= new ManageVendor();
 		sharewithvendorpage=new ShareWithVendorPage();
+		jobupdatepage=new JobUpdatesPage();
 	}
 }
