@@ -39,7 +39,6 @@ Then Updated details should display in Edit Job on Application Tracking "<JobNot
 Then On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description "<JobNoticePeriod>" and "<City>"and "<City Area>"
 Then User should be able to edit the job details from Dashboard also "<JobNoticePeriodForDashboard>"
 Then On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description "<JobNoticePeriodForDashboard>"
-Then Verify updated job city and city area is present
 Then Verify JobUpdate entry should be created
 Then Verify Audit log should be created
 Examples:

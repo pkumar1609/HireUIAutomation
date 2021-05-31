@@ -148,7 +148,7 @@ public class job extends baseclass {
 			String cityArea) throws Throwable {
 
 		workbenchpage.selectJobK();
-		
+
 		Thread.sleep(4000);
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
@@ -172,7 +172,7 @@ public class job extends baseclass {
 			String cityArea) throws Throwable {
 
 		workbenchpage.selectJobK();
-						
+
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
 
@@ -184,39 +184,55 @@ public class job extends baseclass {
 	@Then("^On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description \"([^\"]*)\" and \"([^\"]*)\"and \"([^\"]*)\"$")
 	public void on_Employer_Dashboard_updated_job_details_in_read_only_mode_must_be_displayed_on_clicking_View_Job_Description(
 			String jobNoticePeriod, String city, String cityArea) throws Throwable {
-		
-		dashboardpage.openDashboardPage();		
+
+		dashboardpage.openDashboardPage();
 		common.searchField.clear();
 		common.searchField.sendKeys(addjobpage.jobname);
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
 		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
 
-		Assert.assertTrue(
-				driver.findElement(By.xpath("(//strong[contains(text(),'Notice Period')]//following::p)[1]")).getText()
-						.strip().contains("50"),
-				jobNoticePeriod);		
+		Assert.assertTrue(driver.findElement(By.xpath("(//strong[contains(text(),'Notice Period')]//following::p)[1]"))
+				.getText().strip().contains("50"), jobNoticePeriod);
 		Assert.assertEquals(
 				driver.findElement(By.xpath("(//strong[contains(text(),'City')]//following::p)[1]")).getText().strip(),
 				city);
 		Assert.assertEquals(driver.findElement(By.xpath("(//strong[contains(text(),'City Area')]//following::p)[2]"))
 				.getText().strip(), cityArea);
+
 	}
 
 	@Then("^User should be able to edit the job details from Dashboard also \"([^\"]*)\"$")
 	public void user_should_be_able_to_edit_the_job_details_from_Dashboard_also(
-			String updatedJobNoticePeriodForDashboard) throws Throwable {
+			                          String updatedJobNoticePeriodFromDashboardEditJob) throws Throwable {
+		dashboardpage.openDashboardPage();
+		common.searchField.clear();
+		common.searchField.sendKeys(addjobpage.jobname);
+		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
+		executor.executeScript("arguments[0].click();", dashboardpage.editJob);
 
+		//To edit NP from Dashboard
+		explicitwait.until(ExpectedConditions.visibilityOf(addcandidatepage.noticePeriod));
+		Thread.sleep(3000);
+		addcandidatepage.noticePeriod.clear();	
+		addcandidatepage.noticePeriod.sendKeys(updatedJobNoticePeriodFromDashboardEditJob);
+		
+		System.out.println(updatedJobNoticePeriodFromDashboardEditJob);
+		System.out.println("Update NP from Dashboard is completed.");
+		
 	}
 
 	@Then("^On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description \"([^\"]*)\"$")
 	public void on_Employer_Dashboard_updated_job_details_in_read_only_mode_must_be_displayed_on_clicking_View_Job_Description(
 			String updatedjobDashBrdNoticePeriod) throws Throwable {
-
-	}
-
-	@Then("^Verify updated job city and city area is present$")
-	public void verify_updated_job_city_and_city_area_is_present() throws Throwable {
-
+//		dashboardpage.openDashboardPage();
+//		common.searchField.clear();
+//		common.searchField.sendKeys(addjobpage.jobname);
+//		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
+//		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
+//
+//		Assert.assertTrue(driver.findElement(By.xpath("(//strong[contains(text(),'Notice Period')]//following::p)[1]"))
+//				.getText().strip().contains("30"), "30");
+//		System.out.println("Assert for new NP on Dashboard value is completed.");
 	}
 
 	@Then("^Verify JobUpdate entry should be created$")
