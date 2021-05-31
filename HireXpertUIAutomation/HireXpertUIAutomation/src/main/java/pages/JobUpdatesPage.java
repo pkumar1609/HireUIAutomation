@@ -26,6 +26,9 @@ public class JobUpdatesPage extends baseclass {
 	@FindBy(xpath = "//select[@formcontrolname='selectedUpdateType']")
 	public WebElement updateType;
 	
+	@FindBy(xpath = "//button[text()=' Search']")
+	public WebElement btnSearch;
+	
 	public void selectUpdateType(String update)
 	{
 		select = new Select (this.updateType);
@@ -36,5 +39,10 @@ public class JobUpdatesPage extends baseclass {
 	{
 		select = new Select (this.job);
 		select.selectByVisibleText(jobname);
+	}
+		
+	public void btnSearchClick()
+	{
+		btnSearch.click();;
 	}
 }

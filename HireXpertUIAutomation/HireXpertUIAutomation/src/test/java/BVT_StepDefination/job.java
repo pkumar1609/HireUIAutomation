@@ -12,6 +12,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pages.DashboardPage;
+import pages.JobUpdatesPage;
 import utilPackage.baseclass;
 
 public class job extends baseclass {
@@ -171,8 +172,6 @@ public class job extends baseclass {
 	public void updated_details_should_display_in_Edit_Job_on_Application_Tracking(String jobNoticePeriod, String city,
 			String cityArea) throws Throwable {
 
-//		workbenchpage.selectJobK();
-
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
 		explicitwait.until(ExpectedConditions.visibilityOf(addjobpage.noticePeriod));
@@ -215,39 +214,67 @@ public class job extends baseclass {
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
 		executor.executeScript("arguments[0].click();", dashboardpage.editJob);
 
-		//To edit NP from Dashboard
 		explicitwait.until(ExpectedConditions.visibilityOf(addcandidatepage.noticePeriod));
 		Thread.sleep(3000);
 		addcandidatepage.noticePeriod.clear();	
 		addcandidatepage.noticePeriod.sendKeys(updatedJobNoticePeriodFromDashboardEditJob);
-		
-		System.out.println(updatedJobNoticePeriodFromDashboardEditJob);
-		System.out.println("Update NP from Dashboard is completed.");
-		
+
+		executor.executeScript("arguments[0].click();", common.submitbtn);
 	}
 
 	@Then("^On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description \"([^\"]*)\"$")
 	public void on_Employer_Dashboard_updated_job_details_in_read_only_mode_must_be_displayed_on_clicking_View_Job_Description(
 			String updatedjobDashBrdNoticePeriod) throws Throwable {
-//		dashboardpage.openDashboardPage();
-//		common.searchField.clear();
-//		common.searchField.sendKeys(addjobpage.jobname);
-//		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
-//		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
-//
-//		Assert.assertTrue(driver.findElement(By.xpath("(//strong[contains(text(),'Notice Period')]//following::p)[1]"))
-//				.getText().strip().contains("30"), "30");
-//		System.out.println("Assert for new NP on Dashboard value is completed.");
+		
+		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
+		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
+
+		Thread.sleep(2000);
+		Assert.assertTrue(driver.findElement(By.xpath("(//strong[contains(text(),'Notice Period')]//following::p)[1]"))
+				              .getText().strip().contains("30"), "30");
+				
+		common.clickOnCloseBtn();
 	}
 
 	@Then("^Verify JobUpdate entry should be created$")
 	public void verify_JobUpdate_entry_should_be_created() throws Throwable {
 
+		System.out.println("JobUpdate started");
+		System.out.println(addjobpage.jobname);
+		
+		executor.executeScript("arguments[0].click();", dashboardpage.jobUpdate);
+		
+		Assert.assertEquals(
+				driver.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed(),
+				true);
+
+		jobupdatepage.selectJob(addjobpage.jobname);	
+		
+		jobupdatepage.selectUpdateType("Job Update");
+		
+		jobupdatepage.btnSearchClick();
+		
+//		Assert.assertEquals(driver.findElement(By.xpath(
+//				"//td[contains(text(),\"+ \'addjobpage.jobname + \'has been updated.\")]"))
+//				.isDisplayed(), true);
+		
+		common.clickOnCloseBtn();
 	}
 
 	@Then("^Verify Audit log should be created$")
 	public void verify_Audit_log_should_be_created() throws Throwable {
-
+		
+		System.out.println("Audit started");
+		
+		dashboardpage.openWorkbenchPage();
+		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
+		workbenchpage.selectJobK();
+		executor.executeScript("arguments[0].click();", workbenchpage.job);
+		executor.executeScript("arguments[0].click();", workbenchpage.jobAudit);
+		Assert.assertEquals(driver.findElement(By.xpath(
+				"//td[contains(text(),'Add Job')]//following::td[contains(text(),'" + addjobpage.jobname + "')]"))
+				.isDisplayed(), true);
+		common.clickOnCloseBtn();
 	}
 
 //	----------//----------------------------
@@ -414,4 +441,58 @@ public class job extends baseclass {
 	public void on_Audit_log_verify_for_newly_added_skill_is_displayed() throws Throwable {
 
 	}
+	
+//------------------------//------------------------------------------
+
+// Scenario5
+	
+@Then("^On Application Tracking page Employer clicks Close job option$")
+public void on_Application_Tracking_page_Employer_clicks_Close_job_option() throws Throwable {
+	
+	workbenchpage.selectJobK();
+
+	Thread.sleep(4000);
+	executor.executeScript("arguments[0].click();", workbenchpage.job);
+//	executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
+	workbenchpage.clickOnCloseJobButton();
+}
+
+@Then("^On Confirmation message click on the NO button$")
+public void on_Confirmation_message_click_on_the_NO_button() throws Throwable {
+
+}
+
+@Then("^verify job do not get closed$")
+public void verify_job_do_not_get_closed() throws Throwable {
+
+}
+
+@Then("^Employer now clicks om Hamberger menu and selects Close job option and clicks Yes on popup$")
+public void employer_now_clicks_om_Hamberger_menu_and_selects_Close_job_option_and_clicks_Yes_on_popup() throws Throwable {
+
+}
+
+@Then("^Verify job is now not displayed in the Select Job dropdown on Application Tracking page$")
+public void verify_job_is_now_not_displayed_in_the_Select_Job_dropdown_on_Application_Tracking_page() throws Throwable {
+
+}
+
+@Then("^On Agency Dashboard the job should be displayed in Jobs section with membership as Open$")
+public void on_Agency_Dashboard_the_job_should_be_displayed_in_Jobs_section_with_membership_as_Open() throws Throwable {
+
+}
+
+@Then("^On Agency side application tracking page job should be display with status as Closed in job dropdown$")
+public void on_Agency_side_application_tracking_page_job_should_be_display_with_status_as_Closed_in_job_dropdown() throws Throwable {
+
+}
+
+@Then("^Agency try sharing this closed job with its team member verify it shd not get shared and display proper message$")
+public void agency_try_sharing_this_closed_job_with_its_team_member_verify_it_shd_not_get_shared_and_display_proper_message() throws Throwable {
+    
+}
+
+	
+	//------------------------//------------------------------------------
+	
 }

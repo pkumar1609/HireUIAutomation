@@ -38,12 +38,12 @@ And Employer edit added job and update job details "<JobNoticePeriod>" and "<Cit
 Then Updated details should display in Edit Job on Application Tracking "<JobNoticePeriod>" and "<City>"and "<City Area>"
 Then On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description "<JobNoticePeriod>" and "<City>"and "<City Area>"
 Then User should be able to edit the job details from Dashboard also "<JobNoticePeriodForDashboard>"
-#Then On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description "<JobNoticePeriodForDashboard>"
-#Then Verify JobUpdate entry should be created
-#Then Verify Audit log should be created
+Then On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description "<JobNoticePeriodForDashboard>"
+Then Verify JobUpdate entry should be created
+Then Verify Audit log should be created
 Examples:
-|  Username       | Password | JobNoticePeriod |City    | City Area | JobNoticePeriodForDashboard|
-|  pemp@gmail.com | 12345    |  50             |Chennai | Vandalur | 30                          |
+|  Username       | Password  | JobNoticePeriod |City    | City Area | JobNoticePeriodForDashboard|
+|  pemp@gmail.com | 12345678  |  50             |Chennai | Vandalur  | 30                          |
 
 
 @jobScenario3 
@@ -87,9 +87,12 @@ Examples:
 
 @jobScenario5  
 Scenario Outline: User try to Close existing Job
-Given An employer logged in creates a job and shares with agency
+Given User logged in to HireXpert "<Username>" and "<Password>" 
+Given job must be added and share with agency "<agencyName>" 
+		| title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
+		| Developer | Agynew Developer | developer   | IT software | pune     | 400000 |      1 |      2 | 450000 | 800000 | pe1  | pe1@gmail.com | 1234564 |               2 | Hirexpert    | rahitech        | java           |
 Then On Application Tracking page Employer clicks Close job option
-And On Confirmation message click on the NO button to 
+And On Confirmation message click on the NO button 
 Then verify job do not get closed
 And Employer now clicks om Hamberger menu and selects Close job option and clicks Yes on popup
 Then Verify job is now not displayed in the Select Job dropdown on Application Tracking page
