@@ -375,7 +375,7 @@ public class job extends baseclass {
 	@When("^user login as candidate \"([^\"]*)\"$")
 	public void user_login_as_candidate(String candidateEmail) throws Throwable {
 		loginpage.logoutFromAppK();
-		executor.executeScript("arguments[0].click();", loginpage.login);
+		Action.moveToElement(loginpage.login).click().perform();
 		executor.executeScript("arguments[0].click();", loginpage.JobseekerCandidateSignInlink);
 		loginpage.loginIn(candidateEmail, "12345");
 		common.clickOnOKBtn();
@@ -524,11 +524,10 @@ public class job extends baseclass {
 	public void verify_job_is_now_not_displayed_in_the_Select_Job_dropdown_on_Application_Tracking_page()
 			throws Throwable {
 
-		select = new Select(workbenchpage.jobDropDown);
-		select.selectByVisibleText(addjobpage.jobname);
-
-		Assert.assertFalse(
-				driver.findElement(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed());
+		workbenchpage.selectJobK();
+		Assert.assertEquals(
+				driver.findElements(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).size() > 0,
+				false);
 	}
 
 	@Then("^On Agency Dashboard the job should be displayed in Jobs section with membership as Open \"([^\"]*)\" and \"([^\"]*)\"$")
