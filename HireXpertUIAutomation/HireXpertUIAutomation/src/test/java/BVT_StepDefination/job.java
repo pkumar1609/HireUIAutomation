@@ -339,7 +339,9 @@ public class job extends baseclass {
 			String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1,
 			String certificate2, String certificate3, String remark1, String remark2, String remark3,
 			String certificateforskill1, String certificateforskill2) throws Throwable {
+
 		executor.executeScript("arguments[0].click();", candidatecardsectionpage.editCandidate);
+		explicitwait.until(ExpectedConditions.visibilityOf(addcandidatepage.jobskill.get(1)));
 		addcandidatepage.addSkill(level1, level2, level3, certificate1, certificate2, certificate3,
 				certificateforskill1, certificateforskill2);
 		executor.executeScript("arguments[0].click();", editcandidatepage.saveButton);
@@ -369,7 +371,6 @@ public class job extends baseclass {
 						By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'" + Skill3 + "')]"))
 				.isDisplayed(), true);
 		common.clickOnCloseBtn();
-		common.clickOnConfirmYes();
 	}
 
 	@When("^user login as candidate \"([^\"]*)\"$")
@@ -420,8 +421,8 @@ public class job extends baseclass {
 			String Skill1, String Skill2, String Skill3) throws Throwable {
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
-		executor.executeScript("arguments[0].scrollIntoView();", addcandidatepage.jobskill.get(1));
 		explicitwait.until(ExpectedConditions.visibilityOf(addcandidatepage.jobskill.get(1)));
+		executor.executeScript("arguments[0].scrollIntoView();", addcandidatepage.jobskill.get(1));
 		Assert.assertEquals(addcandidatepage.jobskill.get(0).getAttribute("value").strip(), Skill1);
 		Assert.assertEquals(addcandidatepage.jobskill.get(1).getAttribute("value").strip(), Skill2);
 		Assert.assertEquals(addcandidatepage.jobskill.get(2).getAttribute("value").strip(), Skill3);
@@ -435,11 +436,11 @@ public class job extends baseclass {
 		explicitwait.until(ExpectedConditions.visibilityOf(candidatedashboardpage.jobHiringStatusRefresh));
 		driver.findElement(By.xpath("//h5[contains(text(),'Job - Hiring Status')]//following::p[contains(text(),'"
 				+ addjobpage.jobname + "')]")).click();
-		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill1 + "')]")).isDisplayed(),
+		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill1 + "')]")).getText(),
 				Skill1);
-		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill2 + "')]")).isDisplayed(),
+		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill2 + "')]")).getText(),
 				Skill2);
-		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill3 + "')]")).isDisplayed(),
+		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill3 + "')]")).getText(),
 				Skill3);
 		common.clickOnCloseBtn();
 	}
@@ -453,8 +454,8 @@ public class job extends baseclass {
 		dashboardpage.openWorkbenchPage();
 		workbenchpage.selectJobK();
 		explicitwait.until(ExpectedConditions.visibilityOf(candidatecardsectionpage.editCandidate));
-		candidatecardsectionpage.editCandidate.click();
-		Assert.assertEquals(editcandidatepage.skillMatchScore.getText().strip(), "100%");
+		executor.executeScript("arguments[0].click();",candidatecardsectionpage.editCandidate );
+		Assert.assertEquals(editcandidatepage.skillMatchScore.getText().strip(), "71%");
 
 	}
 

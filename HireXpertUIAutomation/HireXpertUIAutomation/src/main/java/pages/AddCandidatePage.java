@@ -340,10 +340,11 @@ public class AddCandidatePage extends baseclass {
 	
 	public void addSkill(String level1, String level2, String level3, String certificate1, String certificate2, String certificate3,String certificateforskill1, String certificateforskill2) throws InterruptedException
 	{
-		explicitwait.until(ExpectedConditions.visibilityOf(expertiselevel.get(1)));
+		
 		for(int i=0;i<expertiselevel.size();i++)	
 		{
 			Thread.sleep(3000);
+			explicitwait.until(ExpectedConditions.visibilityOf(expertiselevel.get(i)));
 			select =new Select(this.expertiselevel.get(i));
 			if(i==0)
 			{
