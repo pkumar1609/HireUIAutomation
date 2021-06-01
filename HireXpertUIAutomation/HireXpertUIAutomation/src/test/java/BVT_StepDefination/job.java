@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
@@ -481,12 +482,13 @@ public class job extends baseclass {
 
 	// Scenario5
 
-	@Then("^On Application Tracking page Employer clicks Close job option$")
-	public void on_Application_Tracking_page_Employer_clicks_Close_job_option() throws Throwable {
+	@Then("^On Application Tracking page Employer clicks Close job option and click No button on confirmation popup$")
+	public void on_Application_Tracking_page_Employer_clicks_Close_job_option_and_click_No_button_on_confirmation_popup()
+			throws Throwable {
 
 		workbenchpage.selectJobK();
 
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 
 		executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
@@ -495,54 +497,58 @@ public class job extends baseclass {
 		common.clickNoButton();
 	}
 
-	@Then("^On Confirmation message click on the NO button$") //
-	public void on_Confirmation_message_click_on_the_NO_button() throws Throwable {
+	@Then("^verify job do not get closed$")
+	public void verify_job_do_not_get_closed() throws Throwable {
 
 		workbenchpage.selectJobK();
 
-		Thread.sleep(4000);
-		executor.executeScript("arguments[0].click();", workbenchpage.job);
-	}
-
-	@Then("^verify job do not get closed$") //
-	public void verify_job_do_not_get_closed() throws Throwable {
-
+		Assert.assertEquals(
+				driver.findElement(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed(),
+				true);
 	}
 
 	@Then("^Employer selects Close job option and clicks Yes on popup$")
 	public void employer_selects_Close_job_option_and_clicks_Yes_on_popup() throws Throwable {
+
 		workbenchpage.selectJobK();
 
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
 
-		Thread.sleep(3000);
-		workbenchpage.clickOnCloseJobButton();
+		// Thread.sleep(2000);
+		common.clickOnConfirmYes();
 	}
 
 	@Then("^Verify job is now not displayed in the Select Job dropdown on Application Tracking page$")
 	public void verify_job_is_now_not_displayed_in_the_Select_Job_dropdown_on_Application_Tracking_page()
 			throws Throwable {
 
-		System.out.println("***Verify job is now not displayed in the Select Job dropdown in ATS DD***");
-		System.out.println(addjobpage.jobname);
+		select = new Select(workbenchpage.jobDropDown);
+		select.selectByVisibleText(addjobpage.jobname);
 
-		Assert.assertEquals(
-				driver.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed(),
-				false);
+		Assert.assertFalse(
+				driver.findElement(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed());
 	}
 
-	@Then("^On Agency Dashboard the job should be displayed in Jobs section with membership as Open$")
-	public void on_Agency_Dashboard_the_job_should_be_displayed_in_Jobs_section_with_membership_as_Open()
-			throws Throwable {
+	@Then("^On Agency Dashboard the job should be displayed in Jobs section with membership as Open \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void on_Agency_Dashboard_the_job_should_be_displayed_in_Jobs_section_with_membership_as_Open_and(
+			String agencyUserName, String agencyPwd) throws Throwable {
 
+//			loginpage.logoutFromAppK();
+//			executor.executeScript("arguments[0].click();", loginpage.login);
+//			executor.executeScript("arguments[0].click();", loginpage.EmployerAgencySignInlink);
+//			loginpage.loginIn(agencyUserName, agencyPwd);
+//			common.clickOnOKBtn();
 	}
 
 	@Then("^On Agency side application tracking page job should be display with status as Closed in job dropdown$")
 	public void on_Agency_side_application_tracking_page_job_should_be_display_with_status_as_Closed_in_job_dropdown()
 			throws Throwable {
 
+//			dashboardpage.openWorkbenchPage();
+//			explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
+//			workbenchpage.selectJobK();
 	}
 
 	@Then("^Agency try sharing this closed job with its team member verify it shd not get shared and display proper message$")
@@ -550,6 +556,6 @@ public class job extends baseclass {
 			throws Throwable {
 
 	}
-	// -------------------//------------------------------
+// -------------------//------------------------------
 
 }
