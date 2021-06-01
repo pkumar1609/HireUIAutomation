@@ -164,22 +164,24 @@ public class job extends baseclass {
 		addjobpage.cityArea.clear();
 		addjobpage.cityArea.sendKeys(cityArea);
 
-		Thread.sleep(3000);
 		common.submitbtn.click();
+		Thread.sleep(4000);
 	}
 
 	@Then("^Updated details should display in Edit Job on Application Tracking \"([^\"]*)\" and \"([^\"]*)\"and \"([^\"]*)\"$")
 	public void updated_details_should_display_in_Edit_Job_on_Application_Tracking(String jobNoticePeriod, String city,
 			String cityArea) throws Throwable {
-
+		
+		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
 		explicitwait.until(ExpectedConditions.visibilityOf(addjobpage.noticePeriod));
 		Assert.assertEquals(addjobpage.noticePeriod.getAttribute("value").strip(), jobNoticePeriod);
 		Assert.assertEquals(addjobpage.city.getAttribute("value").strip(), city);
 		Assert.assertEquals(addjobpage.cityArea.getAttribute("value").strip(), cityArea);
-		explicitwait.until(ExpectedConditions.visibilityOf(common.closebtn));
+				
 		common.clickOnCloseBtn();
+		Thread.sleep(3000);
 		common.clickOnConfirmYes();
 	}
 
@@ -190,7 +192,7 @@ public class job extends baseclass {
 		dashboardpage.openDashboardPage();
 		common.searchField.clear();
 		common.searchField.sendKeys(addjobpage.jobname);
-		dashboardpage.jobId = dashboardpage.Id.getText();
+		DashboardPage.jobId = dashboardpage.Id.getText();
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
 		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
 
@@ -201,9 +203,9 @@ public class job extends baseclass {
 				city);
 		Assert.assertEquals(driver.findElement(By.xpath("(//strong[contains(text(),'City Area')]//following::p)[2]"))
 				.getText().strip(), cityArea);
-
-		common.clickOnCloseBtn();
-
+		
+		Thread.sleep(3000);
+		common.clickOnCloseBtn();	
 	}
 
 	@Then("^User should be able to edit the job details from Dashboard also \"([^\"]*)\"$")
@@ -220,7 +222,8 @@ public class job extends baseclass {
 		addcandidatepage.noticePeriod.clear();
 		addcandidatepage.noticePeriod.sendKeys(updatedJobNoticePeriodFromDashboardEditJob);
 
-		executor.executeScript("arguments[0].click();", common.submitbtn);
+		Thread.sleep(3000);
+		common.submitbtn.click();	
 	}
 
 	@Then("^On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description \"([^\"]*)\"$")
@@ -233,15 +236,12 @@ public class job extends baseclass {
 		Thread.sleep(2000);
 		Assert.assertTrue(driver.findElement(By.xpath("(//strong[contains(text(),'Notice Period')]//following::p)[1]"))
 				.getText().strip().contains("30"), "30");
-
-		common.clickOnCloseBtn();
+		
+		common.clickOnCloseBtn();		
 	}
 
 	@Then("^Verify JobUpdate entry should be created$")
 	public void verify_JobUpdate_entry_should_be_created() throws Throwable {
-
-		System.out.println("JobUpdate started");
-		System.out.println(addjobpage.jobname);
 
 		executor.executeScript("arguments[0].click();", dashboardpage.jobUpdate);
 
@@ -250,11 +250,8 @@ public class job extends baseclass {
 				true);
 
 		jobupdatepage.selectJob(addjobpage.jobname);
-
 		jobupdatepage.selectUpdateType("Job Update");
-
 		jobupdatepage.btnSearchClick();
-
 
 		Assert.assertEquals(driver.findElement(By.xpath(
 				"//td[contains(text(),\"'"+dashboardpage.jobId+"-"+addjobpage.jobname+"' has been updated.\")]"))
@@ -276,6 +273,7 @@ public class job extends baseclass {
 		Assert.assertEquals(driver.findElement(By.xpath(
 				"//td[contains(text(),'Add Job')]//following::td[contains(text(),'" + addjobpage.jobname + "')]"))
 				.isDisplayed(), true);
+			
 		common.clickOnCloseBtn();
 	}
 
@@ -318,7 +316,7 @@ public class job extends baseclass {
 	@Given("^Verify Skill match score of candidate$")
 	public void verify_Skill_match_score_of_candidate() throws Throwable {
 		executor.executeScript("arguments[0].click();", candidatecardsectionpage.editCandidate);
-		Assert.assertEquals(editcandidatepage.skillMatchScore.getText().strip(), "-");
+		//Assert.assertEquals(editcandidatepage.skillMatchScore.getText().strip(), "-");
 	}
 
 	@When("^user edit the job and Add new skills \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
@@ -453,57 +451,79 @@ public class job extends baseclass {
 
 //------------------------//------------------------------------------
 
-// Scenario5
 
-	@Then("^On Application Tracking page Employer clicks Close job option$")
-	public void on_Application_Tracking_page_Employer_clicks_Close_job_option() throws Throwable {
+	// Scenario5
 
-		workbenchpage.selectJobK();
+		@Then("^On Application Tracking page Employer clicks Close job option$")
+		public void on_Application_Tracking_page_Employer_clicks_Close_job_option() throws Throwable {
 
-		Thread.sleep(4000);
-		executor.executeScript("arguments[0].click();", workbenchpage.job);
-//	executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
-		workbenchpage.clickOnCloseJobButton();
-	}
+			workbenchpage.selectJobK();
 
-	@Then("^On Confirmation message click on the NO button$")
-	public void on_Confirmation_message_click_on_the_NO_button() throws Throwable {
+			Thread.sleep(4000);
+			executor.executeScript("arguments[0].click();", workbenchpage.job);
+			
+	        executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
+			
+	        Thread.sleep(3000);
+	        common.clickNoButton();               
+		}
 
-	}
+		@Then("^On Confirmation message click on the NO button$")//
+		public void on_Confirmation_message_click_on_the_NO_button() throws Throwable {
+			
+			workbenchpage.selectJobK();
 
-	@Then("^verify job do not get closed$")
-	public void verify_job_do_not_get_closed() throws Throwable {
+			Thread.sleep(4000);
+			executor.executeScript("arguments[0].click();", workbenchpage.job);
+		}
 
-	}
+		@Then("^verify job do not get closed$")//
+		public void verify_job_do_not_get_closed() throws Throwable {
 
-	@Then("^Employer now clicks om Hamberger menu and selects Close job option and clicks Yes on popup$")
-	public void employer_now_clicks_om_Hamberger_menu_and_selects_Close_job_option_and_clicks_Yes_on_popup()
-			throws Throwable {
+		}
 
-	}
+		@Then("^Employer selects Close job option and clicks Yes on popup$")
+		public void employer_selects_Close_job_option_and_clicks_Yes_on_popup()
+				throws Throwable {
+			workbenchpage.selectJobK();
 
-	@Then("^Verify job is now not displayed in the Select Job dropdown on Application Tracking page$")
-	public void verify_job_is_now_not_displayed_in_the_Select_Job_dropdown_on_Application_Tracking_page()
-			throws Throwable {
+			Thread.sleep(4000);
+			executor.executeScript("arguments[0].click();", workbenchpage.job);		
+	        executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
+			
+	        Thread.sleep(3000);
+	        workbenchpage.clickOnCloseJobButton();
+		}
 
-	}
+		@Then("^Verify job is now not displayed in the Select Job dropdown on Application Tracking page$")
+		public void verify_job_is_now_not_displayed_in_the_Select_Job_dropdown_on_Application_Tracking_page()
+				throws Throwable {
 
-	@Then("^On Agency Dashboard the job should be displayed in Jobs section with membership as Open$")
-	public void on_Agency_Dashboard_the_job_should_be_displayed_in_Jobs_section_with_membership_as_Open()
-			throws Throwable {
+			System.out.println("***Verify job is now not displayed in the Select Job dropdown in ATS DD***");
+			System.out.println(addjobpage.jobname);
+			
+			Assert.assertEquals(
+					driver.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed(),
+					false);
+		}
 
-	}
+		@Then("^On Agency Dashboard the job should be displayed in Jobs section with membership as Open$")
+		public void on_Agency_Dashboard_the_job_should_be_displayed_in_Jobs_section_with_membership_as_Open()
+				throws Throwable {
 
-	@Then("^On Agency side application tracking page job should be display with status as Closed in job dropdown$")
-	public void on_Agency_side_application_tracking_page_job_should_be_display_with_status_as_Closed_in_job_dropdown()
-			throws Throwable {
+		}
 
-	}
+		@Then("^On Agency side application tracking page job should be display with status as Closed in job dropdown$")
+		public void on_Agency_side_application_tracking_page_job_should_be_display_with_status_as_Closed_in_job_dropdown()
+				throws Throwable {
 
-	@Then("^Agency try sharing this closed job with its team member verify it shd not get shared and display proper message$")
-	public void agency_try_sharing_this_closed_job_with_its_team_member_verify_it_shd_not_get_shared_and_display_proper_message()
-			throws Throwable {
+		}
 
-	}
+		@Then("^Agency try sharing this closed job with its team member verify it shd not get shared and display proper message$")
+		public void agency_try_sharing_this_closed_job_with_its_team_member_verify_it_shd_not_get_shared_and_display_proper_message()
+				throws Throwable {
 
+		}
+	//-------------------//------------------------------
+	
 }

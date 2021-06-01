@@ -88,20 +88,20 @@ Examples:
 @jobScenario5  
 Scenario Outline: User try to Close existing Job
 Given User logged in to HireXpert "<Username>" and "<Password>" 
-Given job must be added and share with agency "<agencyName>" 
+Given job must be added and share with agency "<Agency Name>" 
 		| title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
 		| Developer | Agynew Developer | developer   | IT software | pune     | 400000 |      1 |      2 | 450000 | 800000 | pe1  | pe1@gmail.com | 1234564 |               2 | Hirexpert    | rahitech        | java           |
 Then On Application Tracking page Employer clicks Close job option
 And On Confirmation message click on the NO button 
 Then verify job do not get closed
-And Employer now clicks om Hamberger menu and selects Close job option and clicks Yes on popup
+And Employer selects Close job option and clicks Yes on popup
 Then Verify job is now not displayed in the Select Job dropdown on Application Tracking page
 And On Agency Dashboard the job should be displayed in Jobs section with membership as Open
 And On Agency side application tracking page job should be display with status as Closed in job dropdown 
 And Agency try sharing this closed job with its team member verify it shd not get shared and display proper message
 Examples:
-|  Username       | password | JobNoticePeriod1 |City  | City Area|
-|  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	
+|  Username       | Password | JobNoticePeriod1 |City  | City Area| Agency Name    |
+|  pemp@gmail.com | 12345678 |  60              |Mumbai| Kandivali|	pagy@gmail.com |
 
 
 @jobScenario6 
