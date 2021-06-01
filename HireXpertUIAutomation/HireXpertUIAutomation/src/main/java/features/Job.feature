@@ -60,9 +60,9 @@ Scenario Outline: User adds new skill to the added job
 	When user navigate to dashbaord page
 	Then Then On Dashboard, in the job panel the job will be updated with newly added skills "<Skill1>","<Skill2>","<Skill3>"
 	When user login as candidate "<CandidateEmail>"
-	Then On Candidate Dashboard under Job Hiring section click on job link and verify newly added skills should be visible in the job details dialog 
-	And Skill match score of the candidate will change according to the added skills 
-	Then Verify the job city and city area is present 
+	Then On Candidate Dashboard under Job Hiring section click on job link and verify newly added skills should be visible in the job details dialog "<Skill1>","<Skill2>","<Skill3>"
+	And Skill match score of the candidate will change according to the added skills "<Username>" "<Password>"
+	Then Verify the job city "<City>" and city area "<CityArea>" is present 
 	Then On JobUpdates entry should be created for newly added skills 
 	Then On Audit log verify for newly added skill is displayed 
 	

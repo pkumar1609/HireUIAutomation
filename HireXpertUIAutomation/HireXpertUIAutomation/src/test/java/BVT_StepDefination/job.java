@@ -171,7 +171,7 @@ public class job extends baseclass {
 	@Then("^Updated details should display in Edit Job on Application Tracking \"([^\"]*)\" and \"([^\"]*)\"and \"([^\"]*)\"$")
 	public void updated_details_should_display_in_Edit_Job_on_Application_Tracking(String jobNoticePeriod, String city,
 			String cityArea) throws Throwable {
-		
+
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
@@ -179,7 +179,7 @@ public class job extends baseclass {
 		Assert.assertEquals(addjobpage.noticePeriod.getAttribute("value").strip(), jobNoticePeriod);
 		Assert.assertEquals(addjobpage.city.getAttribute("value").strip(), city);
 		Assert.assertEquals(addjobpage.cityArea.getAttribute("value").strip(), cityArea);
-				
+
 		common.clickOnCloseBtn();
 		Thread.sleep(3000);
 		common.clickOnConfirmYes();
@@ -203,9 +203,9 @@ public class job extends baseclass {
 				city);
 		Assert.assertEquals(driver.findElement(By.xpath("(//strong[contains(text(),'City Area')]//following::p)[2]"))
 				.getText().strip(), cityArea);
-		
+
 		Thread.sleep(3000);
-		common.clickOnCloseBtn();	
+		common.clickOnCloseBtn();
 	}
 
 	@Then("^User should be able to edit the job details from Dashboard also \"([^\"]*)\"$")
@@ -223,7 +223,7 @@ public class job extends baseclass {
 		addcandidatepage.noticePeriod.sendKeys(updatedJobNoticePeriodFromDashboardEditJob);
 
 		Thread.sleep(3000);
-		common.submitbtn.click();	
+		common.submitbtn.click();
 	}
 
 	@Then("^On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description \"([^\"]*)\"$")
@@ -236,8 +236,8 @@ public class job extends baseclass {
 		Thread.sleep(2000);
 		Assert.assertTrue(driver.findElement(By.xpath("(//strong[contains(text(),'Notice Period')]//following::p)[1]"))
 				.getText().strip().contains("30"), "30");
-		
-		common.clickOnCloseBtn();		
+
+		common.clickOnCloseBtn();
 	}
 
 	@Then("^Verify JobUpdate entry should be created$")
@@ -253,10 +253,9 @@ public class job extends baseclass {
 		jobupdatepage.selectUpdateType("Job Update");
 		jobupdatepage.btnSearchClick();
 
-		Assert.assertEquals(driver.findElement(By.xpath(
-				"//td[contains(text(),\"'"+dashboardpage.jobId+"-"+addjobpage.jobname+"' has been updated.\")]"))
-				.isDisplayed(), true);
-		
+		Assert.assertEquals(driver.findElement(By.xpath("//td[contains(text(),\"'" + dashboardpage.jobId + "-"
+				+ addjobpage.jobname + "' has been updated.\")]")).isDisplayed(), true);
+
 		common.clickOnCloseBtn();
 	}
 
@@ -273,7 +272,7 @@ public class job extends baseclass {
 		Assert.assertEquals(driver.findElement(By.xpath(
 				"//td[contains(text(),'Add Job')]//following::td[contains(text(),'" + addjobpage.jobname + "')]"))
 				.isDisplayed(), true);
-			
+
 		common.clickOnCloseBtn();
 	}
 
@@ -316,7 +315,10 @@ public class job extends baseclass {
 	@Given("^Verify Skill match score of candidate$")
 	public void verify_Skill_match_score_of_candidate() throws Throwable {
 		executor.executeScript("arguments[0].click();", candidatecardsectionpage.editCandidate);
-		//Assert.assertEquals(editcandidatepage.skillMatchScore.getText().strip(), "-");
+		// Assert.assertEquals(editcandidatepage.skillMatchScore.getText().strip(),
+		// "-");
+		common.clickOnCloseBtn();
+		common.clickOnConfirmYes();
 	}
 
 	@When("^user edit the job and Add new skills \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
@@ -337,9 +339,9 @@ public class job extends baseclass {
 			String certificate2, String certificate3, String remark1, String remark2, String remark3,
 			String certificateforskill1, String certificateforskill2) throws Throwable {
 		executor.executeScript("arguments[0].click();", candidatecardsectionpage.editCandidate);
-		addcandidatepage.addSkill(level1, level2, level3, certificate1, certificate2, certificate3, certificateforskill1, certificateforskill2);
-		common.clickOnSaveBtn();
-		
+		addcandidatepage.addSkill(level1, level2, level3, certificate1, certificate2, certificate3,
+				certificateforskill1, certificateforskill2);
+		executor.executeScript("arguments[0].click();", editcandidatepage.saveButton);
 	}
 
 	@When("^user navigate to dashbaord page$")
@@ -366,6 +368,7 @@ public class job extends baseclass {
 						By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'" + Skill3 + "')]"))
 				.isDisplayed(), true);
 		common.clickOnCloseBtn();
+		common.clickOnConfirmYes();
 	}
 
 	@When("^user login as candidate \"([^\"]*)\"$")
@@ -411,33 +414,57 @@ public class job extends baseclass {
 
 	}
 
-	
 	@Then("^New skills \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" should be added to existing job and should be visible to everyone with whom the job is shared\\.$")
-	public void new_skills_should_be_added_to_existing_job_and_should_be_visible_to_everyone_with_whom_the_job_is_shared(String Skill1, String Skill2, String Skill3) throws Throwable {
+	public void new_skills_should_be_added_to_existing_job_and_should_be_visible_to_everyone_with_whom_the_job_is_shared(
+			String Skill1, String Skill2, String Skill3) throws Throwable {
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
-		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);	
-		executor.executeScript("arguments[0].scrollIntoView();",addcandidatepage.jobskill.get(0));
-		Assert.assertEquals(addcandidatepage.jobskill.get(0).getAttribute("value").strip(),Skill1);
+		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
+		executor.executeScript("arguments[0].scrollIntoView();", addcandidatepage.jobskill.get(1));
+		explicitwait.until(ExpectedConditions.visibilityOf(addcandidatepage.jobskill.get(1)));
+		Assert.assertEquals(addcandidatepage.jobskill.get(0).getAttribute("value").strip(), Skill1);
 		Assert.assertEquals(addcandidatepage.jobskill.get(1).getAttribute("value").strip(), Skill2);
 		Assert.assertEquals(addcandidatepage.jobskill.get(2).getAttribute("value").strip(), Skill3);
+		common.clickOnCloseBtn();
+		common.clickOnConfirmYes();
 	}
 
-	@Then("^On Candidate Dashboard under Job Hiring section click on job link and verify newly added skills should be visible in the job details dialog$")
-	public void on_Candidate_Dashboard_under_Job_Hiring_section_click_on_job_link_and_verify_newly_added_skills_should_be_visible_in_the_job_details_dialog()
-			throws Throwable {
+	@Then("^On Candidate Dashboard under Job Hiring section click on job link and verify newly added skills should be visible in the job details dialog \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void on_Candidate_Dashboard_under_Job_Hiring_section_click_on_job_link_and_verify_newly_added_skills_should_be_visible_in_the_job_details_dialog(
+			String Skill1, String Skill2, String Skill3) throws Throwable {
 		explicitwait.until(ExpectedConditions.visibilityOf(candidatedashboardpage.jobHiringStatusRefresh));
 		driver.findElement(By.xpath("//h5[contains(text(),'Job - Hiring Status')]//following::p[contains(text(),'"
 				+ addjobpage.jobname + "')]")).click();
+		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill1 + "')]")).isDisplayed(),
+				Skill1);
+		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill2 + "')]")).isDisplayed(),
+				Skill2);
+		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill3 + "')]")).isDisplayed(),
+				Skill3);
+		common.clickOnCloseBtn();
 	}
 
-	@Then("^Skill match score of the candidate will change according to the added skills$")
-	public void skill_match_score_of_the_candidate_will_change_according_to_the_added_skills() throws Throwable {
+	@Then("^Skill match score of the candidate will change according to the added skills \"([^\"]*)\" \"([^\"]*)\"$")
+	public void skill_match_score_of_the_candidate_will_change_according_to_the_added_skills(String Username,
+			String Password) throws Throwable {
+		loginpage.logoutFromAppK();
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginIn(Username, Password);
+		dashboardpage.openWorkbenchPage();
+		workbenchpage.selectJobK();
+		explicitwait.until(ExpectedConditions.visibilityOf(candidatecardsectionpage.editCandidate));
+		candidatecardsectionpage.editCandidate.click();
+		Assert.assertEquals(editcandidatepage.skillMatchScore.getText().strip(), "100%");
 
 	}
 
-	@Then("^Verify the job city and city area is present$")
-	public void verify_the_job_city_and_city_area_is_present() throws Throwable {
-
+	@Then("^Verify the job city \"([^\"]*)\" and city area \"([^\"]*)\" is present$")
+	public void verify_the_job_city_and_city_area_is_present(String city, String cityArea) throws Throwable {
+		executor.executeScript("arguments[0].scrollIntoView();", addcandidatepage.city);
+		explicitwait.until(ExpectedConditions.visibilityOf(addcandidatepage.city));
+		Assert.assertEquals(addcandidatepage.city.getAttribute("value"), city);
+		Assert.assertEquals(addcandidatepage.cityArea.getAttribute("value"), cityArea);
+		common.clickOnCloseBtn();
+		common.clickOnConfirmYes();
 	}
 
 	@Then("^On JobUpdates entry should be created for newly added skills$")
@@ -452,79 +479,77 @@ public class job extends baseclass {
 
 //------------------------//------------------------------------------
 
-
 	// Scenario5
 
-		@Then("^On Application Tracking page Employer clicks Close job option$")
-		public void on_Application_Tracking_page_Employer_clicks_Close_job_option() throws Throwable {
+	@Then("^On Application Tracking page Employer clicks Close job option$")
+	public void on_Application_Tracking_page_Employer_clicks_Close_job_option() throws Throwable {
 
-			workbenchpage.selectJobK();
+		workbenchpage.selectJobK();
 
-			Thread.sleep(4000);
-			executor.executeScript("arguments[0].click();", workbenchpage.job);
-			
-	        executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
-			
-	        Thread.sleep(3000);
-	        common.clickNoButton();               
-		}
+		Thread.sleep(4000);
+		executor.executeScript("arguments[0].click();", workbenchpage.job);
 
-		@Then("^On Confirmation message click on the NO button$")//
-		public void on_Confirmation_message_click_on_the_NO_button() throws Throwable {
-			
-			workbenchpage.selectJobK();
+		executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
 
-			Thread.sleep(4000);
-			executor.executeScript("arguments[0].click();", workbenchpage.job);
-		}
+		Thread.sleep(3000);
+		common.clickNoButton();
+	}
 
-		@Then("^verify job do not get closed$")//
-		public void verify_job_do_not_get_closed() throws Throwable {
+	@Then("^On Confirmation message click on the NO button$") //
+	public void on_Confirmation_message_click_on_the_NO_button() throws Throwable {
 
-		}
+		workbenchpage.selectJobK();
 
-		@Then("^Employer selects Close job option and clicks Yes on popup$")
-		public void employer_selects_Close_job_option_and_clicks_Yes_on_popup()
-				throws Throwable {
-			workbenchpage.selectJobK();
+		Thread.sleep(4000);
+		executor.executeScript("arguments[0].click();", workbenchpage.job);
+	}
 
-			Thread.sleep(4000);
-			executor.executeScript("arguments[0].click();", workbenchpage.job);		
-	        executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
-			
-	        Thread.sleep(3000);
-	        workbenchpage.clickOnCloseJobButton();
-		}
+	@Then("^verify job do not get closed$") //
+	public void verify_job_do_not_get_closed() throws Throwable {
 
-		@Then("^Verify job is now not displayed in the Select Job dropdown on Application Tracking page$")
-		public void verify_job_is_now_not_displayed_in_the_Select_Job_dropdown_on_Application_Tracking_page()
-				throws Throwable {
+	}
 
-			System.out.println("***Verify job is now not displayed in the Select Job dropdown in ATS DD***");
-			System.out.println(addjobpage.jobname);
-			
-			Assert.assertEquals(
-					driver.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed(),
-					false);
-		}
+	@Then("^Employer selects Close job option and clicks Yes on popup$")
+	public void employer_selects_Close_job_option_and_clicks_Yes_on_popup() throws Throwable {
+		workbenchpage.selectJobK();
 
-		@Then("^On Agency Dashboard the job should be displayed in Jobs section with membership as Open$")
-		public void on_Agency_Dashboard_the_job_should_be_displayed_in_Jobs_section_with_membership_as_Open()
-				throws Throwable {
+		Thread.sleep(4000);
+		executor.executeScript("arguments[0].click();", workbenchpage.job);
+		executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
 
-		}
+		Thread.sleep(3000);
+		workbenchpage.clickOnCloseJobButton();
+	}
 
-		@Then("^On Agency side application tracking page job should be display with status as Closed in job dropdown$")
-		public void on_Agency_side_application_tracking_page_job_should_be_display_with_status_as_Closed_in_job_dropdown()
-				throws Throwable {
+	@Then("^Verify job is now not displayed in the Select Job dropdown on Application Tracking page$")
+	public void verify_job_is_now_not_displayed_in_the_Select_Job_dropdown_on_Application_Tracking_page()
+			throws Throwable {
 
-		}
+		System.out.println("***Verify job is now not displayed in the Select Job dropdown in ATS DD***");
+		System.out.println(addjobpage.jobname);
 
-		@Then("^Agency try sharing this closed job with its team member verify it shd not get shared and display proper message$")
-		public void agency_try_sharing_this_closed_job_with_its_team_member_verify_it_shd_not_get_shared_and_display_proper_message()
-				throws Throwable {
+		Assert.assertEquals(
+				driver.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed(),
+				false);
+	}
 
-		}
-	//-------------------//------------------------------
-	
+	@Then("^On Agency Dashboard the job should be displayed in Jobs section with membership as Open$")
+	public void on_Agency_Dashboard_the_job_should_be_displayed_in_Jobs_section_with_membership_as_Open()
+			throws Throwable {
+
+	}
+
+	@Then("^On Agency side application tracking page job should be display with status as Closed in job dropdown$")
+	public void on_Agency_side_application_tracking_page_job_should_be_display_with_status_as_Closed_in_job_dropdown()
+			throws Throwable {
+
+	}
+
+	@Then("^Agency try sharing this closed job with its team member verify it shd not get shared and display proper message$")
+	public void agency_try_sharing_this_closed_job_with_its_team_member_verify_it_shd_not_get_shared_and_display_proper_message()
+			throws Throwable {
+
+	}
+	// -------------------//------------------------------
+
 }

@@ -10,6 +10,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -339,6 +340,7 @@ public class AddCandidatePage extends baseclass {
 	
 	public void addSkill(String level1, String level2, String level3, String certificate1, String certificate2, String certificate3,String certificateforskill1, String certificateforskill2) throws InterruptedException
 	{
+		explicitwait.until(ExpectedConditions.visibilityOf(expertiselevel.get(1)));
 		for(int i=0;i<expertiselevel.size();i++)	
 		{
 			Thread.sleep(3000);
