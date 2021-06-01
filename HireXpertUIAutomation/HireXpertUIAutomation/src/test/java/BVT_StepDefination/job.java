@@ -436,12 +436,9 @@ public class job extends baseclass {
 		explicitwait.until(ExpectedConditions.visibilityOf(candidatedashboardpage.jobHiringStatusRefresh));
 		driver.findElement(By.xpath("//h5[contains(text(),'Job - Hiring Status')]//following::p[contains(text(),'"
 				+ addjobpage.jobname + "')]")).click();
-		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill1 + "')]")).getText(),
-				Skill1);
-		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill2 + "')]")).getText(),
-				Skill2);
-		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill3 + "')]")).getText(),
-				Skill3);
+		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill1 + "')]")).getText(), Skill1);
+		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill2 + "')]")).getText(), Skill2);
+		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill3 + "')]")).getText(), Skill3);
 		common.clickOnCloseBtn();
 	}
 
@@ -454,7 +451,7 @@ public class job extends baseclass {
 		dashboardpage.openWorkbenchPage();
 		workbenchpage.selectJobK();
 		explicitwait.until(ExpectedConditions.visibilityOf(candidatecardsectionpage.editCandidate));
-		executor.executeScript("arguments[0].click();",candidatecardsectionpage.editCandidate );
+		executor.executeScript("arguments[0].click();", candidatecardsectionpage.editCandidate);
 		Assert.assertEquals(editcandidatepage.skillMatchScore.getText().strip(), "71%");
 
 	}
@@ -517,7 +514,6 @@ public class job extends baseclass {
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
 
-		// Thread.sleep(2000);
 		common.clickOnConfirmYes();
 	}
 
@@ -525,7 +521,7 @@ public class job extends baseclass {
 	public void verify_job_is_now_not_displayed_in_the_Select_Job_dropdown_on_Application_Tracking_page()
 			throws Throwable {
 
-		workbenchpage.selectJobK();
+		Thread.sleep(3000);
 		Assert.assertEquals(
 				driver.findElements(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).size() > 0,
 				false);
@@ -535,27 +531,48 @@ public class job extends baseclass {
 	public void on_Agency_Dashboard_the_job_should_be_displayed_in_Jobs_section_with_membership_as_Open_and(
 			String agencyUserName, String agencyPwd) throws Throwable {
 
-//			loginpage.logoutFromAppK();
-//			executor.executeScript("arguments[0].click();", loginpage.login);
-//			executor.executeScript("arguments[0].click();", loginpage.EmployerAgencySignInlink);
-//			loginpage.loginIn(agencyUserName, agencyPwd);
-//			common.clickOnOKBtn();
+		loginpage.logoutFromAppK();
+		executor.executeScript("arguments[0].click();", loginpage.login);
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginIn(agencyUserName, agencyPwd);
+		loginpage.identifyUserK();
 	}
 
 	@Then("^On Agency side application tracking page job should be display with status as Closed in job dropdown$")
 	public void on_Agency_side_application_tracking_page_job_should_be_display_with_status_as_Closed_in_job_dropdown()
 			throws Throwable {
 
-//			dashboardpage.openWorkbenchPage();
-//			explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
-//			workbenchpage.selectJobK();
+		dashboardpage.openWorkbenchPage();
+		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
+		workbenchpage.selectJobK();
+
+		Assert.assertEquals(
+				driver.findElements(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).size() > 0,
+				true);
 	}
 
-	@Then("^Agency try sharing this closed job with its team member verify it shd not get shared and display proper message$")
-	public void agency_try_sharing_this_closed_job_with_its_team_member_verify_it_shd_not_get_shared_and_display_proper_message()
-			throws Throwable {
+	@Then("^Agency try sharing this closed job with its team member verify it shd not get shared and display proper message \"([^\"]*)\"$")
+	public void agency_try_sharing_this_closed_job_with_its_team_member_verify_it_shd_not_get_shared_and_display_proper_message(
+			String agencyTeamMember) throws Throwable {
 
+		Thread.sleep(1000);
+		executor.executeScript("arguments[0].click();", workbenchpage.shareJob);
+		Thread.sleep(1000);
+		workbenchpage.shareWithTeamButton.click();
+
+		sharewithteampage.shareWithTeam(agencyTeamMember);
+
+		Assert.assertEquals(driver
+				.findElement(By.xpath(
+						"//h6[contains(text(),'You can not share this job as this job has been closed by employer.')]"))
+				.isDisplayed(), true);
+
+		common.clickOnOKBtn();
+		Thread.sleep(1000);
+		common.clickOnCloseBtn();
+		loginpage.logoutFromAppK();
 	}
+
 // -------------------//------------------------------
 
 }

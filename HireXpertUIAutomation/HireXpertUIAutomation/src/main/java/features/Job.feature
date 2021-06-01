@@ -97,10 +97,10 @@ And Employer selects Close job option and clicks Yes on popup
 Then Verify job is now not displayed in the Select Job dropdown on Application Tracking page 
 And On Agency Dashboard the job should be displayed in Jobs section with membership as Open "<Agency Name>" and "<Agency Password>" 
 And On Agency side application tracking page job should be display with status as Closed in job dropdown 
-And Agency try sharing this closed job with its team member verify it shd not get shared and display proper message
+And Agency try sharing this closed job with its team member verify it shd not get shared and display proper message "<Agency Team Member>"
 Examples:
-|  Username       | Password |  Agency Name    | Agency Password|
-|  pemp@gmail.com | 12345678 | 	pagy@gmail.com | 12345          |
+|  Username       | Password |  Agency Name    | Agency Password|Agency Team Member |
+|  pemp@gmail.com | 12345678 | 	pagy@gmail.com | 12345          | pa1              |
 
 
 @jobScenario6 
