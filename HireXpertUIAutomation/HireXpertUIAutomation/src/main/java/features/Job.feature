@@ -72,17 +72,22 @@ Scenario Outline: User adds new skill to the added job
 
 @jobScenario4
 Scenario Outline: User Remove an existing skill from the added job
-Given An employer logged in creates a job adds a candidate to the job and shares with agency
-And Employer selects added job to edit the job and removes an existing skill
-When Job provider clicks on the Submit button.
-And Agency logs in to view shared job and checks removed skill is not displayed
-And On Candidate Dashboard under Job Hiring section click on job link and verify removed skill should not be displayed in the job details dialog
-And Skill match score of the candidate will change according to the removed skills.
+Given User logged in to HireXpert "<Username>" and "<Password>" 
+And job must be added and share with agency "<agencyName>" 
+		| title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
+		| Developer | Agynew Developer | developer   | IT software | pune     | 400000 |      1 |      2 | 450000 | 800000 | pe1  | pe1@gmail.com | 1234564 |               2 | Hirexpert    | rahitech        | java           |
+And Add candidate to selected job "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>"	
+When Employer selects added job to edit the job and removes an existing skill "<Skill1>","<Skill2>","<Skill3>"
+Then Agency "<agencyName>" "<Password>" logs in to view shared job and checks removed skill is not displayed "<Skill1>","<Skill2>","<Skill3>"
+When user login as candidate "<CandidateEmail>"
+Then On Candidate Dashboard under Job Hiring section click on job link and verify removed skill should not be displayed in the job details dialog "<Skill1>","<Skill2>","<Skill3>"
+And Skill match score of the candidate will change according to the removed skills "<Username>" "<Password>"
 Then On JobUpdates entry should be created for removed skills
 Then On Audit log verify for removed skill is displayed
-Examples:
-|  Username       | password | JobNoticePeriod1 |City  | City Area|
-|  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	
+
+Examples: 
+	|Username      |agencyName      |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
+	|pemp@gmail.com|pagy@gmail.com  |12345678 |hirecan32@gmail.com |jr software developer|hirecan32|8890685538    |Sr.developer  |14/02/1995      |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
 
 @jobScenario5  

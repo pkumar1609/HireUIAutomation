@@ -468,14 +468,13 @@ public class job extends baseclass {
 	}
 
 	@Then("^On JobUpdates entry should be created for newly added skills$")
-	public void on_JobUpdates_entry_should_be_created_for_newly_added_skills() throws Throwable {	
+	public void on_JobUpdates_entry_should_be_created_for_newly_added_skills() throws Throwable {
 		dashboardpage.openJobUpdatesPage();
 		jobupdatepage.selectJob(addjobpage.jobname);
 		jobupdatepage.selectUpdateType("Job Update");
-		Assert.assertEquals(driver.findElement(By.xpath(
-				"//td[contains(text(),\"'"+DashboardPage.jobId+"-"+addjobpage.jobname+"' has been updated.\")]"))
-				.isDisplayed(), true);
-		common.clickOnCloseBtn();		
+		Assert.assertEquals(driver.findElement(By.xpath("//td[contains(text(),\"'" + DashboardPage.jobId + "-"
+				+ addjobpage.jobname + "' has been updated.\")]")).isDisplayed(), true);
+		common.clickOnCloseBtn();
 	}
 
 	@Then("^On Audit log verify for newly added skill is displayed$")
@@ -484,11 +483,102 @@ public class job extends baseclass {
 		workbenchpage.selectJobK();
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.jobAudit);
-		Assert.assertEquals(driver.findElement(By.xpath(
-				"//td[contains(text(),\" pemp updated '"+addjobpage.jobname+"' job.\")]"))
+		Assert.assertEquals(driver
+				.findElement(By.xpath("//td[contains(text(),\" pemp updated '" + addjobpage.jobname + "' job.\")]"))
 				.isDisplayed(), true);
 		common.clickOnCloseBtn();
-		
+
+	}
+
+//---------------------------------------------------------------
+
+//	Scenario4
+
+	@When("^Employer selects added job to edit the job and removes an existing skill \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void employer_selects_added_job_to_edit_the_job_and_removes_an_existing_skill(String arg1, String arg2,
+			String arg3) throws Throwable {
+		executor.executeScript("arguments[0].click();", workbenchpage.job);
+		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
+		for (int i = 0; i < addjobpage.jobskill.size() - 1; i++) {
+			executor.executeScript("arguments[0].click();", addjobpage.deleteSkill.get(i));
+		}
+		common.clickOnCloseBtn();
+		common.clickOnConfirmYes();
+	}
+
+	@Then("^Agency \"([^\"]*)\" \"([^\"]*)\" logs in to view shared job and checks removed skill is not displayed \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void agency_logs_in_to_view_shared_job_and_checks_removed_skill_is_not_displayed(String Username,
+			String Password, String Skill1, String Skill2, String Skill3) throws Throwable {
+		loginpage.logoutFromAppK();
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginIn(Username, Password);
+		common.searchField.sendKeys(addjobpage.jobname);
+		DashboardPage.jobId = dashboardpage.Id.getText();
+		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
+		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
+		Assert.assertEquals(driver
+				.findElement(
+						By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'" + Skill1 + "')]"))
+				.isDisplayed(), false);
+		Assert.assertEquals(driver
+				.findElement(
+						By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'" + Skill2 + "')]"))
+				.isDisplayed(), false);
+		Assert.assertEquals(driver
+				.findElement(
+						By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'" + Skill3 + "')]"))
+				.isDisplayed(), false);
+		common.clickOnCloseBtn();
+
+	}
+
+	@Then("^On Candidate Dashboard under Job Hiring section click on job link and verify removed skill should not be displayed in the job details dialog \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void on_Candidate_Dashboard_under_Job_Hiring_section_click_on_job_link_and_verify_removed_skill_should_not_be_displayed_in_the_job_details_dialog(
+			String Skill1, String Skill2, String Skill3) throws Throwable {
+		explicitwait.until(ExpectedConditions.visibilityOf(candidatedashboardpage.jobHiringStatusRefresh));
+		driver.findElement(By.xpath("//h5[contains(text(),'Job - Hiring Status')]//following::p[contains(text(),'"
+				+ addjobpage.jobname + "')]")).click();
+		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill1 + "')]")).isDisplayed(),
+				false);
+		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill2 + "')]")).isDisplayed(),
+				false);
+		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill3 + "')]")).isDisplayed(),
+				false);
+		common.clickOnCloseBtn();
+	}
+
+	@Then("^Skill match score of the candidate will change according to the removed skills \"([^\"]*)\" \"([^\"]*)\"$")
+	public void skill_match_score_of_the_candidate_will_change_according_to_the_removed_skills(String Username, String Password)
+			throws Throwable {
+		loginpage.logoutFromAppK();
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginIn(Username, Password);
+		dashboardpage.openWorkbenchPage();
+		workbenchpage.selectJobK();
+		explicitwait.until(ExpectedConditions.visibilityOf(candidatecardsectionpage.editCandidate));
+		executor.executeScript("arguments[0].click();", candidatecardsectionpage.editCandidate);
+		explicitwait.until(ExpectedConditions.visibilityOf(editcandidatepage.skillMatchScore));
+		Assert.assertEquals(editcandidatepage.skillMatchScore.getText().strip(), "-");
+	}
+
+	@Then("^On JobUpdates entry should be created for removed skills$")
+	public void on_JobUpdates_entry_should_be_created_for_removed_skills() throws Throwable {
+		dashboardpage.openJobUpdatesPage();
+		jobupdatepage.selectJob(addjobpage.jobname);
+		jobupdatepage.selectUpdateType("Job Update");
+		Assert.assertEquals(driver.findElement(By.xpath("//td[contains(text(),\"'" + DashboardPage.jobId + "-"
+				+ addjobpage.jobname + "' has been updated.\")]")).isDisplayed(), true);
+		common.clickOnCloseBtn();
+	}
+
+	@Then("^On Audit log verify for removed skill is displayed$")
+	public void on_Audit_log_verify_for_removed_skill_is_displayed() throws Throwable {
+		dashboardpage.openJobUpdatesPage();
+		jobupdatepage.selectJob(addjobpage.jobname);
+		jobupdatepage.selectUpdateType("Job Update");
+		Assert.assertEquals(driver.findElement(By.xpath("//td[contains(text(),\"'" + DashboardPage.jobId + "-"
+				+ addjobpage.jobname + "' has been updated.\")]")).isDisplayed(), true);
+		common.clickOnCloseBtn();
 	}
 
 //------------------------//------------------------------------------
