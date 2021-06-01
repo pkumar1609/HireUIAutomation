@@ -356,6 +356,7 @@ public class job extends baseclass {
 	public void then_On_Dashboard_in_the_job_panel_the_job_will_be_updated_with_newly_added_skills(String Skill1,
 			String Skill2, String Skill3) throws Throwable {
 		common.searchField.sendKeys(addjobpage.jobname);
+		dashboardpage.jobId = dashboardpage.Id.getText();
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
 		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
 		Assert.assertEquals(driver
@@ -452,8 +453,8 @@ public class job extends baseclass {
 		workbenchpage.selectJobK();
 		explicitwait.until(ExpectedConditions.visibilityOf(candidatecardsectionpage.editCandidate));
 		executor.executeScript("arguments[0].click();", candidatecardsectionpage.editCandidate);
+		explicitwait.until(ExpectedConditions.visibilityOf(editcandidatepage.skillMatchScore));
 		Assert.assertEquals(editcandidatepage.skillMatchScore.getText().strip(), "71%");
-
 	}
 
 	@Then("^Verify the job city \"([^\"]*)\" and city area \"([^\"]*)\" is present$")
@@ -467,13 +468,27 @@ public class job extends baseclass {
 	}
 
 	@Then("^On JobUpdates entry should be created for newly added skills$")
-	public void on_JobUpdates_entry_should_be_created_for_newly_added_skills() throws Throwable {
-
+	public void on_JobUpdates_entry_should_be_created_for_newly_added_skills() throws Throwable {	
+		dashboardpage.openJobUpdatesPage();
+		jobupdatepage.selectJob(addjobpage.jobname);
+		jobupdatepage.selectUpdateType("Job Update");
+		Assert.assertEquals(driver.findElement(By.xpath(
+				"//td[contains(text(),\"'"+DashboardPage.jobId+"-"+addjobpage.jobname+"' has been updated.\")]"))
+				.isDisplayed(), true);
+		common.clickOnCloseBtn();		
 	}
 
 	@Then("^On Audit log verify for newly added skill is displayed$")
 	public void on_Audit_log_verify_for_newly_added_skill_is_displayed() throws Throwable {
-
+		dashboardpage.openWorkbenchPage();
+		workbenchpage.selectJobK();
+		executor.executeScript("arguments[0].click();", workbenchpage.job);
+		executor.executeScript("arguments[0].click();", workbenchpage.jobAudit);
+		Assert.assertEquals(driver.findElement(By.xpath(
+				"//td[contains(text(),\" pemp updated '"+addjobpage.jobname+"' job.\")]"))
+				.isDisplayed(), true);
+		common.clickOnCloseBtn();
+		
 	}
 
 //------------------------//------------------------------------------

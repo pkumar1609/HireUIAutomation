@@ -228,6 +228,12 @@ public class DashboardPage extends baseclass {
 		JobApplication.click();		
 	}
 	
+	public void openJobUpdatesPage() throws InterruptedException {
+		Action.moveToElement(dashboardpage.recruitment).click().perform();
+		Thread.sleep(2000);
+		jobUpdate.click();		
+	}
+	
 //	Employer 
 	
 	public void clickOnAddButton(String profile) throws InterruptedException {
