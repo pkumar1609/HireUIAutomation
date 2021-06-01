@@ -103,6 +103,9 @@ Then Verify job is now not displayed in the Select Job dropdown on Application T
 And On Agency Dashboard the job should be displayed in Jobs section with membership as Open "<Agency Name>" and "<Agency Password>" 
 And On Agency side application tracking page job should be display with status as Closed in job dropdown 
 And Agency try sharing this closed job with its team member verify it shd not get shared and display proper message "<Agency Team Member>"
+Then Employer should be able closed the job from Dashboard "<Username>" and "<Password>" 
+		| title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
+		| Developer | Agynew Developer | developer   | IT software | Mumbai   | 600000 |   2    |   5    | 450000 | 700000 | pe1  | pe1@gmail.com | 1234564 |    2            | Hirexpert    | rahitech        | java           |
 Examples:
 |  Username       | Password |  Agency Name    | Agency Password|Agency Team Member |
 |  pemp@gmail.com | 12345678 | 	pagy@gmail.com | 12345          | pa1              |

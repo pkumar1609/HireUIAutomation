@@ -548,8 +548,8 @@ public class job extends baseclass {
 	}
 
 	@Then("^Skill match score of the candidate will change according to the removed skills \"([^\"]*)\" \"([^\"]*)\"$")
-	public void skill_match_score_of_the_candidate_will_change_according_to_the_removed_skills(String Username, String Password)
-			throws Throwable {
+	public void skill_match_score_of_the_candidate_will_change_according_to_the_removed_skills(String Username,
+			String Password) throws Throwable {
 		loginpage.logoutFromAppK();
 		loginpage.ClickOnEmployerAgencySigninLink();
 		loginpage.loginIn(Username, Password);
@@ -676,6 +676,35 @@ public class job extends baseclass {
 		Thread.sleep(1000);
 		common.clickOnCloseBtn();
 		loginpage.logoutFromAppK();
+	}
+
+	@Then("^Employer should be able closed the job from Dashboard \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void employer_should_be_able_closed_the_job_from_Dashboard_and(String employerUserName, String password,
+			DataTable credentials) throws Throwable {
+
+		executor.executeScript("arguments[0].click();", loginpage.login);
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginIn(employerUserName, password);
+		loginpage.identifyUserK();
+
+		dashboardpage.openDashboardPage();
+		dashboardpage.AddJob();
+		dashboardpage.addjobFromDashboard(credentials);
+		common.ClickSumbit();
+		common.clickOnOKBtn();
+
+		common.searchField.clear();
+		common.searchField.sendKeys(dashboardpage.jobname);
+
+		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
+		executor.executeScript("arguments[0].click();", dashboardpage.closeJob);
+
+		Thread.sleep(2000);
+		common.clickOnConfirmYes();
+
+		Assert.assertEquals(
+				driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Closed']"))
+						.isDisplayed(),	true);
 	}
 
 // -------------------//------------------------------

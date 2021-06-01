@@ -1,5 +1,6 @@
 package pages;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +18,209 @@ import utilPackage.baseclass;
 
 public class DashboardPage extends baseclass {
 
+		
+	public int flag;
+	public int addJobFlag = 0;
+	public String selectedOrganization;
+	public String SelectedEmployer;
+	public boolean jobAddedByEmp;
+	public String skill1 = "Agile";
+	public String skill2 = "Java";
+	public String skill2Exp2 = "S2(Expert)";
+	Select se;
+	public String jobname;
+	public boolean emp;
+	//public String selectDashboardJob;
+	public String industryname;
+	public String allOptions;
+	
+	
+	//Job related
+	
+	@FindBy(xpath = "//input[@id='title']")
+	public WebElement title;
+	
+	@FindBy(xpath = "//input[@formcontrolname='OrganizationId']")
+	public WebElement organization;
+	
+	@FindBy(xpath = "//input[@formcontrolname='Designation']")
+	public WebElement designation;
+
+	@FindBy(xpath = "//input[@placeholder='Enter Functional Area']")
+	public WebElement functionalArea;
+
+	@FindBy(xpath = "//input[@formcontrolname='Industry']")
+	public WebElement industry;
+
+	@FindBy(xpath = "//input[@placeholder='Enter City Area']")
+	public WebElement cityArea;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter City']")
+	public WebElement city;
+
+	@FindBy(xpath = "//input[@placeholder='Enter Min Salary']")
+	public WebElement minsal;
+
+	@FindBy(xpath = "//input[@placeholder='Enter Max Salary']")
+	public WebElement maxsal;
+
+	@FindBy(id = "minExperience")
+	public WebElement minexp;
+
+	@FindBy(id = "maxExperience")
+	public WebElement maxexp;
+
+	@FindBy(id = "totalInterviews")
+	public WebElement totalinterviews;
+
+	@FindBy(xpath = "//input[@placeholder='Enter Qualification']")
+	public WebElement qualification;
+
+	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
+	public WebElement addskillbutton;
+
+	@FindBy(xpath = "//th[text()='Job Skills']//following::i[@class='fa fa-trash']")
+	public List<WebElement> deleteSkill;
+
+	@FindBy(xpath = "//tr[2]//td[6]//button[1]")
+	WebElement deleteSkill2;
+
+	@FindBy(xpath = "//tr[3]//td[6]//button[1]")
+	public WebElement deleteSkill3;
+
+	@FindBy(xpath = "//tr[1]//td[6]//button[1]")
+	public WebElement deleteSkill1;
+
+	@FindBy(xpath = "//button[@title='Add Employer']")
+	public WebElement employerplusicon;
+
+	@FindBy(xpath = "//input[@placeholder='Enter Name']")
+	public WebElement employerName;
+
+	@FindBy(xpath = "(//input[@placeholder='Enter Email'])[2]")
+	public WebElement employerEmail;
+
+	@FindBy(xpath = "//input[@placeholder='Enter Contact Number']")
+	public WebElement employerContactNumber;
+
+	@FindBy(xpath = "//input[@placeholder='Enter Organization']")
+	public WebElement employerOrganizationName;
+
+	@FindBy(xpath = "/html/body/ngb-modal-window[2]/div/div/app-add-jobprovider/div[2]/button[2]")
+	public WebElement employerPlusIconSubmit;
+
+	@FindBy(xpath = "//*[@id=\"style-5\"]/form/div/div/div[1]/div[3]")
+	public WebElement click;
+
+	@FindBy(id = "employer")
+	public WebElement employer;
+
+	@FindBy(xpath = "//input[@placeholder='Enter Skill']")
+	public List<WebElement> jobskill;
+
+	@FindBy(xpath = "//select[@formcontrolname='ExpertiseLevel']")
+	public List<WebElement> expertiselevel;
+
+	@FindBy(xpath = "//select[@formcontrolname='Weightage']")
+	public List<WebElement> weightage;
+
+	@FindBy(xpath = "//span[@class='checkmark']")
+	public List<WebElement> certificateNeeded;
+
+	@FindBy(xpath = "//input[@formcontrolname='Remark']")
+	public List<WebElement> remark;
+
+	@FindBy(id = "noticeperiod")
+	public WebElement noticePeriod;
+
+	@FindBy(xpath = "//button[@title='Add Employer']")
+	public WebElement addEmployee;
+	
+	@FindBy(xpath = "//select[@formcontrolname='EmployerId']")
+	public WebElement employerId;
+
+    @FindBy(xpath= "//div[@id='jobsActionbtndropdown']//button[text()='Close Job']")
+	public WebElement closeJob;
+
+
+	//To add new job from dashboard
+	public void AddJob() throws InterruptedException {	
+		executor.executeScript("arguments[0].click();",AddJob);
+	}
+	
+	public void addjobFromDashboard(DataTable credentials) throws InterruptedException {
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class)) {
+
+			currentTime = LocalDateTime.now();
+	
+			if (loginpage.b==true) {			
+				jobname = dtFormate.format(currentTime) + " Emp";
+				title.clear();
+				title.sendKeys(jobname);
+				organization.clear();
+				this.organization.sendKeys(data.get("organization"));
+				jobAddedByEmp = true;
+			} else if(loginpage.user == "agency"){
+				jobAddedByEmp = false;
+				jobname = dtFormate.format(currentTime) + " Agy";
+				title.sendKeys(jobname);
+				select = new Select(employerId);
+				List<WebElement> options = select.getOptions();
+				boolean b = false;
+				for (WebElement option : options) {
+					b = option.getText().contains("pemp - ");
+					if (b == true) {
+						select.selectByVisibleText(option.getText());
+					}
+				}
+				if (employerId.getAttribute("value").equals("Select Employer")) {
+					Thread.sleep(2000);
+					addEmployee.click();
+					Thread.sleep(5000);
+					common.emailfield.sendKeys("pemp@gmail.com");
+					Thread.sleep(2000);
+					common.find.click();
+					Thread.sleep(2000);
+					common.addSubmitbtn.click();
+					select.selectByVisibleText("pemp -");
+				}
+			}		
+			if (this.organization.isEnabled()) {
+				this.organization.sendKeys(data.get("organization"));
+			}
+			
+			selectedOrganization = this.organization.getAttribute("value");
+			Thread.sleep(1000);
+			designation.sendKeys(data.get("designation"));
+			functionalArea.sendKeys(data.get("functionalArea"));
+			this.industry.sendKeys(data.get("industry"));
+			industryname = data.get("industry");
+			minsal.sendKeys(data.get("minsal"));
+			maxsal.sendKeys(data.get("maxsal"));
+			minexp.sendKeys(data.get("minexp"));
+			maxexp.sendKeys(data.get("maxexp"));
+			this.noticePeriod.sendKeys("45");
+			if (city.getAttribute("value").isEmpty()) {
+				city.clear();
+				city.sendKeys("Pune");
+			}
+			cityArea.clear();
+			cityArea.sendKeys(data.get("location"));
+			Thread.sleep(1000);
+			se = new Select(totalinterviews);
+			se.selectByVisibleText(data.get("totalinterviews"));
+			List<WebElement> deletebtn = driver
+					.findElements(By.xpath("//th[text()='Job Skills']//following::i[@class='fa fa-trash']"));
+			for (int i = 0; i < deletebtn.size(); i++) {
+				WebElement btn = deletebtn.get(i);
+				Thread.sleep(3000);
+				executor.executeScript("arguments[0].click();", btn);
+			}
+		}
+		addJobFlag = 1;
+	}
+
+	
 	@FindBy(xpath = "//a[text()='Recruitment ']")
 	public WebElement recruitment;
 	
