@@ -338,7 +338,8 @@ public class job extends baseclass {
 			String certificateforskill1, String certificateforskill2) throws Throwable {
 		executor.executeScript("arguments[0].click();", candidatecardsectionpage.editCandidate);
 		addcandidatepage.addSkill(level1, level2, level3, certificate1, certificate2, certificate3, certificateforskill1, certificateforskill2);
-		common.ClickSumbit();
+		common.clickOnSaveBtn()
+		
 	}
 
 	@When("^user navigate to dashbaord page$")
@@ -414,11 +415,11 @@ public class job extends baseclass {
 	@Then("^New skills \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" should be added to existing job and should be visible to everyone with whom the job is shared\\.$")
 	public void new_skills_should_be_added_to_existing_job_and_should_be_visible_to_everyone_with_whom_the_job_is_shared(String Skill1, String Skill2, String Skill3) throws Throwable {
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
-		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
-		Assert.assertEquals(addcandidatepage.jobskill.get(1),Skill1);
-		Assert.assertEquals(addcandidatepage.jobskill.get(2), Skill2);
-		Assert.assertEquals(addcandidatepage.jobskill.get(3), Skill3);
-
+		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);	
+		executor.executeScript("arguments[0].scrollIntoView();",addcandidatepage.jobskill.get(0));
+		Assert.assertEquals(addcandidatepage.jobskill.get(0).getAttribute("value").strip(),Skill1);
+		Assert.assertEquals(addcandidatepage.jobskill.get(1).getAttribute("value").strip(), Skill2);
+		Assert.assertEquals(addcandidatepage.jobskill.get(2).getAttribute("value").strip(), Skill3);
 	}
 
 	@Then("^On Candidate Dashboard under Job Hiring section click on job link and verify newly added skills should be visible in the job details dialog$")
