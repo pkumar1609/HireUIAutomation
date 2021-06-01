@@ -338,7 +338,7 @@ public class job extends baseclass {
 			String certificateforskill1, String certificateforskill2) throws Throwable {
 		executor.executeScript("arguments[0].click();", candidatecardsectionpage.editCandidate);
 		addcandidatepage.addSkill(level1, level2, level3, certificate1, certificate2, certificate3, certificateforskill1, certificateforskill2);
-		common.clickOnSaveBtn()
+		common.clickOnSaveBtn();
 		
 	}
 
