@@ -88,7 +88,7 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Add Task']")
 	public WebElement addTaskButton;
 	
-	@FindBy(xpath = "//button[@title='Add Candidate']")
+	@FindBy(xpath = "(//button[@title='Add Candidate'])[2]")
 	public WebElement addCandidatebtn;
 	
 	@FindBy(xpath = "//input[@placeholder='Enter Email']")

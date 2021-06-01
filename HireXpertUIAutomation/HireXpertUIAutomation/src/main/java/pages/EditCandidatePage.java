@@ -40,6 +40,9 @@ public class EditCandidatePage extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='Skill']")
 	public List<WebElement> jobskill;
 	
+	@FindBy(xpath = "(//td[contains(text(),'Skill Match Score')]//following::strong)[1]")
+	public WebElement skillMatchScore;
+	
 	Robot rb;
 	
 	public EditCandidatePage() {

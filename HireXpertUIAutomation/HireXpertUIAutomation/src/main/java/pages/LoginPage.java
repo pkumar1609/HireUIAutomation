@@ -121,17 +121,17 @@ public class LoginPage extends baseclass {
 		signin.click();
 	}
 
-	public void signInAgency2() {
-		emailaddress.sendKeys(prop.getProperty("agencyemail2"));
-		password.sendKeys(prop.getProperty("password"));
-		signin.click();
-	}
+//	public void signInAgency2() {
+//		emailaddress.sendKeys(prop.getProperty("agencyemail2"));
+//		password.sendKeys(prop.getProperty("password"));
+//		signin.click();
+//	}
 
-	public void signInCandidate() {
-		emailaddress.sendKeys(prop.getProperty("candidateemail"));
-		password.sendKeys(prop.getProperty("password"));
-		signin.click();
-	}
+//	public void signInCandidate() {
+//		emailaddress.sendKeys(prop.getProperty("candidateemail"));
+//		password.sendKeys(prop.getProperty("password"));
+//		signin.click();
+//	}
 
 	public void login(String username) throws InterruptedException {
 		emailaddress.sendKeys(username);

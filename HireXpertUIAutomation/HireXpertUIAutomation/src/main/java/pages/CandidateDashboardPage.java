@@ -22,6 +22,8 @@ public class CandidateDashboardPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Questionnaire']")
 	public WebElement QuestionnarieTab;
 	
+	@FindBy(xpath = "(//h5[contains(text(),'Job - Hiring Status')]//following::i[@class='fa fa-refresh'])[1]")
+	public WebElement jobHiringStatusRefresh;
 	
 	public CandidateDashboardPage() {
 		
