@@ -1,5 +1,6 @@
 package BVT_StepDefination;
 
+import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
@@ -357,7 +358,7 @@ public class job extends baseclass {
 	public void then_On_Dashboard_in_the_job_panel_the_job_will_be_updated_with_newly_added_skills(String Skill1,
 			String Skill2, String Skill3) throws Throwable {
 		common.searchField.sendKeys(addjobpage.jobname);
-		dashboardpage.jobId = dashboardpage.Id.getText();
+		DashboardPage.jobId = dashboardpage.Id.getText();
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
 		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
 		Assert.assertEquals(driver
@@ -520,14 +521,17 @@ public class job extends baseclass {
 			String arg3) throws Throwable {
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
-		explicitwait.until(ExpectedConditions.visibilityOf(addjobpage.jobskill.get(1)));
-		executor.executeScript("arguments[0].scrollIntoView();", addjobpage.jobskill.get(1));
-		System.out.println("size"+addjobpage.jobskill.size());
-		for (int i = 0; i <addjobpage.jobskill.size(); i++) {
-			executor.executeScript("arguments[0].click();", addjobpage.deleteSkill.get(i));
+		explicitwait.until(ExpectedConditions.visibilityOf(addjobpage.deleteJobSkill.get(1)));
+		executor.executeScript("arguments[0].scrollIntoView();", addjobpage.deleteJobSkill.get(1));
+		List<WebElement> deletebtn = driver
+				.findElements(By.xpath("//th[text()='Job Skills']//following::i[@class='fa fa-trash']"));
+		for (int i = 0; i < deletebtn.size(); i++) {
+			WebElement btn = deletebtn.get(i);
+			Thread.sleep(3000);
+			executor.executeScript("arguments[0].click();", btn);
 		}
-//		common.clickOnCloseBtn();
-//		common.clickOnConfirmYes();
+		common.clickOnCloseBtn();
+		common.clickOnConfirmYes();
 	}
 
 	@Then("^Agency \"([^\"]*)\" \"([^\"]*)\" logs in to view shared job and checks removed skill is not displayed \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")

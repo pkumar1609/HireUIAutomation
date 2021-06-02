@@ -209,6 +209,9 @@ public class AddJobPage extends baseclass {
 	@FindBy(xpath = "//input[@formcontrolname='IsCertificateNeeded']")
 	public List<WebElement> isCertificateNeeded;
 
+	@FindBy(xpath = "//th[text()='Job Skills']//following::i[@class='fa fa-trash']")
+	public List<WebElement> deleteJobSkill;
+	
 	public void validateJobPageTitle() {
 
 		String jobpagetitle = driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/add-edit-job/div[1]/h5"))
@@ -313,7 +316,7 @@ public class AddJobPage extends baseclass {
 
 	public void addjob(DataTable credentials) throws InterruptedException {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class)) {
-
+	
 			currentTime = LocalDateTime.now();
 	
 			if (loginpage.b==true) {			
