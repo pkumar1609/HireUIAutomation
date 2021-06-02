@@ -387,7 +387,6 @@ public class job extends baseclass {
 
 //	-----------------------------
 
-
 	@Given("^Employer selects the job and edit it to add a new skill$")
 	public void employer_selects_the_job_and_edit_it_to_add_a_new_skill() throws Throwable {
 
@@ -476,15 +475,16 @@ public class job extends baseclass {
 //	Scenario4
 
 	@Given("^job must be added with skill and share with agency \"([^\"]*)\" \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
-	public void job_must_be_added_with_skill_and_share_with_agency_and(String agencyname, String Skill1, String Skill2, String Skill3, String level1,
-			String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1,
-			String certificate2, String certificate3, String remark1, String remark2, String remark3,
-			String certificateforskill1, String certificateforskill2,
+	public void job_must_be_added_with_skill_and_share_with_agency_and(String agencyname, String Skill1, String Skill2,
+			String Skill3, String level1, String level2, String level3, String Weightage1, String Weightage2,
+			String Weightage3, String certificate1, String certificate2, String certificate3, String remark1,
+			String remark2, String remark3, String certificateforskill1, String certificateforskill2,
 			DataTable credentials) throws Throwable {
 		dashboardpage.openWorkbenchPage();
 		workbenchpage.AddJob();
 		addjobpage.addjob(credentials);
-		addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3);
+		addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3,
+				certificate1, certificate2, certificate3, remark1, remark2, remark3);
 		common.ClickSumbit();
 		common.clickOnOKBtn();
 		workbenchpage.selectJobK();
@@ -530,8 +530,7 @@ public class job extends baseclass {
 			Thread.sleep(3000);
 			executor.executeScript("arguments[0].click();", btn);
 		}
-		common.clickOnCloseBtn();
-		common.clickOnConfirmYes();
+		common.ClickSumbit();
 	}
 
 	@Then("^Agency \"([^\"]*)\" \"([^\"]*)\" logs in to view shared job and checks removed skill is not displayed \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -544,18 +543,7 @@ public class job extends baseclass {
 		DashboardPage.jobId = dashboardpage.Id.getText();
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
 		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
-		Assert.assertEquals(driver
-				.findElements(
-						By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'" + Skill1 + "')]"))
-				.size() > 0, false);
-		Assert.assertEquals(driver
-				.findElements(
-						By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'" + Skill2 + "')]"))
-				.size() > 0, false);
-		Assert.assertEquals(driver
-				.findElements(
-						By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'" + Skill3 + "')]"))
-				.size() > 0, false);
+		Assert.assertEquals(driver.findElements(By.xpath("//strong[contains(text(),'Skill')]")).size() > 0, false);
 		common.clickOnCloseBtn();
 
 	}
@@ -729,16 +717,18 @@ public class job extends baseclass {
 
 		Assert.assertEquals(
 				driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Closed']"))
-						.isDisplayed(),	true);
+						.isDisplayed(),
+				true);
 	}
 
 // -------------------//------------------------------
 
 	// Scenario 6
-	
+
 	@Then("^Employer add job in dashboard and should be able closed the job from Dashboard$")
-	public void employer_add_job_in_dashboard_and_should_be_able_closed_the_job_from_Dashboard(DataTable credentials) throws Throwable {
-	
+	public void employer_add_job_in_dashboard_and_should_be_able_closed_the_job_from_Dashboard(DataTable credentials)
+			throws Throwable {
+
 		dashboardpage.AddJob();
 		dashboardpage.addjobFromDashboard(credentials);
 		common.ClickSumbit();
@@ -756,82 +746,98 @@ public class job extends baseclass {
 
 	@Then("^On Employer dashboard in Job section job membership is displayed as closed$")
 	public void on_Employer_dashboard_in_Job_section_job_membership_is_displayed_as_closed() throws Throwable {
-	
+
 		common.searchField.clear();
 		common.searchField.sendKeys(dashboardpage.jobname);
-					
-		Assert.assertEquals(driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Closed']")).getText(),"Closed");		
+
+		Assert.assertEquals(
+				driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Closed']"))
+						.getText(),
+				"Closed");
 	}
 
 	@Then("^On Employer dashboard in Job section from action dropdown select reOpen job and select yes on confirm popup$")
-	public void on_Employer_dashboard_in_Job_section_from_action_dropdown_select_reOpen_job_and_select_yes_on_confirm_popup() throws Throwable {
-	  
+	public void on_Employer_dashboard_in_Job_section_from_action_dropdown_select_reOpen_job_and_select_yes_on_confirm_popup()
+			throws Throwable {
+
 		executor.executeScript("arguments[0].click();", dashboardpage.reopenJob);
 		Thread.sleep(2000);
-		common.clickOnConfirmYes();		
+		common.clickOnConfirmYes();
 	}
 
 	@Then("^Verify job status displayed as active and membership as open$")
 	public void verify_job_status_displayed_as_active_and_membership_as_open() throws Throwable {
-	 
+
 		common.searchField.clear();
 		common.searchField.sendKeys(dashboardpage.jobname);
 
-		Assert.assertEquals(driver.findElement(By.xpath("//label[contains(text(),'Job')]//following::td[contains(text(),'Active')]")).isDisplayed(),true);		
-		Assert.assertEquals(driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Open']")).getText(),"Open");		
+		Assert.assertEquals(driver
+				.findElement(By.xpath("//label[contains(text(),'Job')]//following::td[contains(text(),'Active')]"))
+				.isDisplayed(), true);
+		Assert.assertEquals(
+				driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Open']"))
+						.getText(),
+				"Open");
 	}
 
 	@Then("^On application tracking job should be displayed with status as active$")
 	public void on_application_tracking_job_should_be_displayed_with_status_as_active() throws Throwable {
-			
+
 		addjobpage.jobname = dashboardpage.jobname;
-						
+
 		System.out.println("--------addjobpage.jobname-------");
 		System.out.println(addjobpage.jobname);
-		
-        dashboardpage.openWorkbenchPage();        
+
+		dashboardpage.openWorkbenchPage();
 		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
-		
+
 		workbenchpage.selectJobK();
 
 		Assert.assertEquals(
 				driver.findElements(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).size() > 0,
 				true);
-				
-		String reOpenedActiveStatusJobName = driver.findElement(By.xpath("//span[contains(text(),'"+addjobpage.jobname+"')]")).getText();
 
-		Assert.assertTrue(reOpenedActiveStatusJobName.contains("Active"));		
-	}	
-	
+		String reOpenedActiveStatusJobName = driver
+				.findElement(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).getText();
+
+		Assert.assertTrue(reOpenedActiveStatusJobName.contains("Active"));
+	}
+
 // ------------------------------------------------------------------	
 	// Scenario 7
-	
+
 	@Then("^On Application Tracking job status should be displayed as Active$")
 	public void on_Application_Tracking_job_staus_should_be_displayed_as_Active() throws Throwable {
-		
+
 		dashboardpage.openWorkbenchPage();
 		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
-		workbenchpage.selectJobK();		
-		String activeStatusJobName = driver.findElement(By.xpath("//span[contains(text(),'"+addjobpage.jobname+"')]")).getText();
-		Assert.assertTrue(activeStatusJobName.contains("Active"));	
+		workbenchpage.selectJobK();
+		String activeStatusJobName = driver
+				.findElement(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).getText();
+		Assert.assertTrue(activeStatusJobName.contains("Active"));
 	}
 
 	@Then("^On Employer dashboard in Job section job status displayed as active and membership as Open$")
-	public void on_Employer_dashboard_in_Job_section_job_status_displayed_as_active_and_membership_as_Open() throws Throwable {
+	public void on_Employer_dashboard_in_Job_section_job_status_displayed_as_active_and_membership_as_Open()
+			throws Throwable {
 
 		dashboardpage.openDashboardPage();
 		common.searchField.clear();
-		common.searchField.sendKeys(addjobpage.jobname);					
-		Assert.assertEquals(driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Open']")).getText(),"Open");
+		common.searchField.sendKeys(addjobpage.jobname);
+		Assert.assertEquals(
+				driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Open']"))
+						.getText(),
+				"Open");
 	}
 
 	@Then("^On CVStore in Jobs dropdown job status should be displayed as Active$")
 	public void on_CVStore_in_Jobs_dropdown_job_status_should_be_displayed_as_Active() throws Throwable {
-		
-		dashboardpage.openCvStorePage();		
+
+		dashboardpage.openCvStorePage();
 		Thread.sleep(1000);
-		String cvStoreActiveStatusJobName = driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).getText();
-		Assert.assertTrue(cvStoreActiveStatusJobName.contains("Active"));	
+		String cvStoreActiveStatusJobName = driver
+				.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).getText();
+		Assert.assertTrue(cvStoreActiveStatusJobName.contains("Active"));
 	}
 
 	@Then("^On CVParser in Jobs dropdown job status should be displayed as Active$")
@@ -839,11 +845,11 @@ public class job extends baseclass {
 
 		dashboardpage.openCvParserPage();
 		Thread.sleep(1000);
-		String cvParserActiveStatusJobName = driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).getText();
+		String cvParserActiveStatusJobName = driver
+				.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).getText();
 		Assert.assertTrue(cvParserActiveStatusJobName.contains("Active"));
 	}
-	
+
 //------------------------------------------------------------------------------------------
-	
-	
+
 }
