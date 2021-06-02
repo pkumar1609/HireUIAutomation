@@ -113,16 +113,17 @@ Examples:
 
 @jobScenario6 
 Scenario Outline:  User try to Re-Open Closed Job
-Given An employer logged in and creates a job
-Then On Employer dashboard in Job Section Employer Closes the added job
-And On Employer dashboard in Job section job Membership is displayed as Closed
-And On Application Tracking job is now not displayed
-And On Employer dashboard in Job section from Action dropdown select ReOpen Job and select Yes on confirm popup dialog
-Then On Employer dashboard in Job section job status displayed as active and membership as Open
-And On application tracking job should be displayed with status as Active
+Given User logged in to HireXpert "<Username>" and "<Password>" 
+Then Employer add job in dashboard and should be able closed the job from Dashboard 
+		| title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
+		| Developer | Agynew Developer | developer   | IT software | Vandalur   | 600000 |   2    |   5    | 450000 | 700000 | pe1  | pe1@gmail.com | 1234564 |    2            | Hirexpert    | rahitech        | java           |
+And On Employer dashboard in Job section job membership is displayed as closed
+And On Employer dashboard in Job section from action dropdown select reOpen job and select yes on confirm popup
+Then Verify job status displayed as active and membership as open
+And On application tracking job should be displayed with status as active
 Examples:
-|  Username       | password | JobNoticePeriod1 |City  | City Area|
-|  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	
+|  Username       | Password | 
+|  pemp@gmail.com | 12345678 |
 
 
 @jobScenario7
@@ -133,8 +134,8 @@ And On Employer dashboard in Job section job status displayed as active and memb
 And On CVStore in Jobs dropdown job status should be displayed as Active
 And On CVParser in Jobs dropdown job status should be displayed as Active
 Examples:
-|  Username       | password | JobNoticePeriod1 |City  | City Area|
-|  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	
+|  Username       | Password |
+|  pemp@gmail.com | 12345678 |	
 
 
 @jobScenario8
@@ -159,8 +160,8 @@ And On Agency side in Application tracking Job dropdown status of job is display
 And Agency side On CVStore in Jobs dropdown job status should be displayed as Active
 And Agency side On CVParser in Jobs dropdown job status should be displayed as Active
 Examples:
-|  Username       | password | JobNoticePeriod1 |City  | City Area|
-|  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	
+|  Username       | Password | 
+|  pemp@gmail.com | 12345678 |	
 
 
 @jobScenario9
@@ -171,7 +172,7 @@ And On Application Tracking cloned job is displayed
 And On CVStore in Jobs dropdown cloned job is displayed
 And On CVParser in Jobs dropdown cloned job is displayed
 Examples:
-|  Username       | password | JobNoticePeriod1 |City  | City Area|
-|  pemp@gmail.com | 12345    |  45              |Mumbai| Kandivali|	
+|  Username       | Password |
+|  pemp@gmail.com | 12345678 |	
 
 

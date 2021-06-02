@@ -3,6 +3,7 @@ package BVT_StepDefination;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -729,4 +730,76 @@ public class job extends baseclass {
 
 // -------------------//------------------------------
 
+	// Scenario 6
+	
+	@Then("^Employer add job in dashboard and should be able closed the job from Dashboard$")
+	public void employer_add_job_in_dashboard_and_should_be_able_closed_the_job_from_Dashboard(DataTable credentials) throws Throwable {
+	
+		dashboardpage.AddJob();
+		dashboardpage.addjobFromDashboard(credentials);
+		common.ClickSumbit();
+		common.clickOnOKBtn();
+
+		common.searchField.clear();
+		common.searchField.sendKeys(dashboardpage.jobname);
+
+		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
+		executor.executeScript("arguments[0].click();", dashboardpage.closeJob);
+
+		Thread.sleep(2000);
+		common.clickOnConfirmYes();
+	}
+
+	@Then("^On Employer dashboard in Job section job membership is displayed as closed$")
+	public void on_Employer_dashboard_in_Job_section_job_membership_is_displayed_as_closed() throws Throwable {
+	
+		common.searchField.clear();
+		common.searchField.sendKeys(dashboardpage.jobname);
+					
+		Assert.assertEquals(driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Closed']")).getText(),"Closed");		
+	}
+
+	@Then("^On Employer dashboard in Job section from action dropdown select reOpen job and select yes on confirm popup$")
+	public void on_Employer_dashboard_in_Job_section_from_action_dropdown_select_reOpen_job_and_select_yes_on_confirm_popup() throws Throwable {
+	  
+		executor.executeScript("arguments[0].click();", dashboardpage.reopenJob);
+		Thread.sleep(2000);
+		common.clickOnConfirmYes();		
+	}
+
+	@Then("^Verify job status displayed as active and membership as open$")
+	public void verify_job_status_displayed_as_active_and_membership_as_open() throws Throwable {
+	 
+		common.searchField.clear();
+		common.searchField.sendKeys(dashboardpage.jobname);
+
+		Assert.assertEquals(driver.findElement(By.xpath("//label[contains(text(),'Job')]//following::td[contains(text(),'Active')]")).isDisplayed(),true);		
+		Assert.assertEquals(driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Open']")).getText(),"Open");		
+	}
+
+	@Then("^On application tracking job should be displayed with status as active$")
+	public void on_application_tracking_job_should_be_displayed_with_status_as_active() throws Throwable {
+			
+		addjobpage.jobname = dashboardpage.jobname;
+						
+		System.out.println("--------addjobpage.jobname-------");
+		System.out.println(addjobpage.jobname);
+		
+        dashboardpage.openWorkbenchPage();        
+		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
+		
+		workbenchpage.selectJobK();
+
+		Assert.assertEquals(
+				driver.findElements(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).size() > 0,
+				true);
+				
+		String reOpenedActiveStatusJobName = driver.findElement(By.xpath("//span[contains(text(),'"+addjobpage.jobname+"')]")).getText();
+
+		Assert.assertTrue(reOpenedActiveStatusJobName.contains("Active"));		
+	}	
+	
+// ------------------------------------------------------------------	
+	
+	
 }
