@@ -144,28 +144,33 @@ Examples:
 
 @jobScenario8
 Scenario Outline: User try to verify Change Status of Job as-OnHold
-Given An employer logged in creates a job and shares with agency
-Then On Application Tracking Employer clicks hamberger menu and selects option Hold Job and clicks Yes on confirm popup
-And On Application Tracking Job dropdown status of job is displayed as OnHold
-And On Employer dashboard in Job section job status displayed as OnHold and membership as Open
-And On CVStore in Jobs dropdown job status should be displayed as OnHold
-And On CVParser in Jobs dropdown job status should be displayed as OnHold
-And On Agency side in Application tracking Job dropdown status of job is displayed as OnHold
-And On Agency dashboard in Job section status of job is displayed as OnHold
-And Agency side On CVStore in Jobs dropdown job status should be displayed as OnHold
-And Agency side On CVParser in Jobs dropdown job status should be displayed as OnHold
-Then On Employer dashboard in Job section from Action dropdown select UnHold Job and select Yes on confirm popup dialog
-And On Employer dashboard in Job section job status displayed as Active and membership as Open
-And On Application Tracking Job dropdown status of job is displayed as Active
-And On CVStore in Jobs dropdown job status should be displayed as Active
-And On CVParser in Jobs dropdown job status should be displayed as Active
-And On Agency dashboard in Job section status of job is displayed as Active
-And On Agency side in Application tracking Job dropdown status of job is displayed as Active
-And Agency side On CVStore in Jobs dropdown job status should be displayed as Active
-And Agency side On CVParser in Jobs dropdown job status should be displayed as Active
+
+Given User logged in to HireXpert "<Username>" and "<Password>" 
+Given job must be added and share with agency "<Agency Name>" 
+		| title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
+		| Developer | Agynew Developer | developer   | IT software | pune     | 400000 |      1 |      2 | 450000 | 800000 | pe1  | pe1@gmail.com | 1234564 |   2             | Hirexpert    | rahitech        | java           | 
+Then Employer selects newly created job and clicks Hold Job option on Application Tracking 
+And verify job status changed to Hold
+And On Agency Dashboard the job should be displayed in Jobs section with membership as Open "<Agency Name>" and "<Agency Password>" 
+And On Agency side application tracking page job should be display with status as Hold in job dropdown
+And Agency try sharing this Hold job with its team member verify it should not get shared and display proper message "<Agency Team Member>"
+And On Agency CVStore in jobs dropdown job status should be displayed as OnHold
+And On Agency CVParser in jobs dropdown job status should be displayed as OnHold
+And On Employer dashboard in job section job status should be displayed as OnHold and membership as Open
+And On Employer CVStore in jobs dropdown job status should be displayed as OnHold
+And On Employer CVParser in jobs dropdown job status should be displayed as OnHold
+Then On Employer dashboard in job section from Action dropdown select UnHold Job and select Yes on confirm popup
+And On Employer dashboard in job section job status should be displayed as Active and membership as Open
+And On Employer Application Tracking status of job is displayed as Active
+And On CVStore in jobs dropdown job status should be displayed as Active
+And On CVParser in jobs dropdown job status should be displayed as Active
+And On Agency dashboard in job section status of job is displayed as Active
+And On Agency Application tracking status of job is displayed as Active
+And On Agency CVStore in jobs dropdown job status should be displayed as Active
+And On Agency CVParser in jobs dropdown job status should be displayed as Active
 Examples:
-|  Username       | Password | 
-|  pemp@gmail.com | 12345678 |	
+|  Username       | Password |  Agency Name    | Agency Password|Agency Team Member |
+|  pemp@gmail.com | 12345678 | 	pagy@gmail.com | 12345          |  pa1              |
 
 
 @jobScenario9
