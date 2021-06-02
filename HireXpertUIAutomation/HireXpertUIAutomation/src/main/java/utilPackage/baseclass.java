@@ -46,6 +46,7 @@ import pages.ManageRecruitmentAgencies;
 import pages.ManageVendor;
 import pages.MarketPlacePage;
 import pages.RegisterPage;
+import pages.ResetPasswordPage;
 import pages.ScreeningPage;
 import pages.ShareWithAgencyPage;
 import pages.ShareWithTeamPage;
@@ -108,6 +109,7 @@ public class baseclass extends SuperBase{
 	public static ManageVendor managevendor;
 	public static ShareWithVendorPage sharewithvendorpage;
 	public static JobUpdatesPage jobupdatepage;
+	public static ResetPasswordPage resetPage;	
 
 
 	public baseclass() { 
@@ -115,7 +117,9 @@ public class baseclass extends SuperBase{
 		try 
 		{ 
 			prop = new Properties();
+
 			FileInputStream fis = new FileInputStream("C:\\Users\\admin\\AppData\\Local\\Jenkins.jenkins\\workspace\\UI Automation\\HireXpertUIAutomation\\HireXpertUIAutomation\\src\\main\\java\\configurations\\config.properties");
+
 			prop.load(fis);	
 		}
 		catch(IOException e) {
@@ -183,5 +187,6 @@ public class baseclass extends SuperBase{
 		managevendor= new ManageVendor();
 		sharewithvendorpage=new ShareWithVendorPage();
 		jobupdatepage=new JobUpdatesPage();
+		resetPage=new ResetPasswordPage();
 	}
 }

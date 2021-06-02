@@ -7,7 +7,7 @@
 
 	import utilPackage.baseclass;
 
-	public class resetPasswordPage extends baseclass {
+	public class ResetPasswordPage extends baseclass {
 
 		@FindBy(xpath = "//button[contains(text(),'My Account')]")
 		public WebElement myAccount;
@@ -50,7 +50,7 @@
 		
 		@FindBy(xpath="//input[@placeholder='Password']")
 		public WebElement password;
-		public resetPasswordPage() 
+		public ResetPasswordPage() 
 		{
 			super();
 			PageFactory.initElements(driver, this);
