@@ -385,27 +385,6 @@ public class job extends baseclass {
 
 //	-----------------------------
 
-	@When("^Add candidate to selected job \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
-	public void add_candidate_to_selected_job_and(String CandidateEmail, String Name, String ContactNumber,
-			String Designation, String Date, String Gender, String OnNoticePeriod, String NoticePeriod,
-			String LastWorkingDay, String experience, String CTC, String expectedCTC, String Country, String City,
-			String CityArea, String ZipCode, String Communicationmode, String Salaryoffered, String distance,
-			String permanentAddress, String relocate, String Skill1, String Skill2, String Skill3, String level1,
-			String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1,
-			String certificate2, String certificate3, String remark1, String remark2, String remark3,
-			String certificateforskill1, String certificateforskill2) throws Throwable {
-		executor.executeScript("arguments[0].click();", workbenchpage.candidate);
-		executor.executeScript("arguments[0].click();", workbenchpage.addCandidatebtn);
-		workbenchpage.enterEmailId(CandidateEmail);
-		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender,
-				OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea,
-				ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
-		addcandidatepage.addSkill(level1, level2, level3, certificate1, certificate2, certificate3,
-				certificateforskill1, certificateforskill2);
-		addcandidatepage.uploadResumeDocument();
-		common.clickOnSaveBtn();
-		addcandidatepage.checkCandidateALreadyPresent();
-	}
 
 	@Given("^Employer selects the job and edit it to add a new skill$")
 	public void employer_selects_the_job_and_edit_it_to_add_a_new_skill() throws Throwable {
@@ -494,16 +473,60 @@ public class job extends baseclass {
 
 //	Scenario4
 
+	@Given("^job must be added with skill and share with agency \"([^\"]*)\" \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
+	public void job_must_be_added_with_skill_and_share_with_agency_and(String agencyname, String Skill1, String Skill2, String Skill3, String level1,
+			String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1,
+			String certificate2, String certificate3, String remark1, String remark2, String remark3,
+			String certificateforskill1, String certificateforskill2,
+			DataTable credentials) throws Throwable {
+		dashboardpage.openWorkbenchPage();
+		workbenchpage.AddJob();
+		addjobpage.addjob(credentials);
+		addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3, certificate1, certificate2, certificate3, remark1, remark2, remark3);
+		common.ClickSumbit();
+		common.clickOnOKBtn();
+		workbenchpage.selectJobK();
+		executor.executeScript("arguments[0].click();", workbenchpage.shareJob);
+		executor.executeScript("arguments[0].click();", workbenchpage.shareWithAgencyButton);
+		sharewithagencypage.shareWithAgency(agencyname);
+		common.clickOnCloseBtn();
+	}
+
+	@When("^Add candidate to selected job \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"and\"([^\"]*)\"$")
+	public void add_candidate_to_selected_job_and(String CandidateEmail, String Name, String ContactNumber,
+			String Designation, String Date, String Gender, String OnNoticePeriod, String NoticePeriod,
+			String LastWorkingDay, String experience, String CTC, String expectedCTC, String Country, String City,
+			String CityArea, String ZipCode, String Communicationmode, String Salaryoffered, String distance,
+			String permanentAddress, String relocate, String Skill1, String Skill2, String Skill3, String level1,
+			String level2, String level3, String Weightage1, String Weightage2, String Weightage3, String certificate1,
+			String certificate2, String certificate3, String remark1, String remark2, String remark3,
+			String certificateforskill1, String certificateforskill2) throws Throwable {
+		executor.executeScript("arguments[0].click();", workbenchpage.candidate);
+		executor.executeScript("arguments[0].click();", workbenchpage.addCandidatebtn);
+		workbenchpage.enterEmailId(CandidateEmail);
+		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender,
+				OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea,
+				ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
+		addcandidatepage.addSkill(level1, level2, level3, certificate1, certificate2, certificate3,
+				certificateforskill1, certificateforskill2);
+		addcandidatepage.uploadResumeDocument();
+		common.clickOnSaveBtn();
+		addcandidatepage.checkCandidateALreadyPresent();
+	}
+
 	@When("^Employer selects added job to edit the job and removes an existing skill \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void employer_selects_added_job_to_edit_the_job_and_removes_an_existing_skill(String arg1, String arg2,
 			String arg3) throws Throwable {
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
-		for (int i = 0; i < addjobpage.jobskill.size() - 1; i++) {
+		explicitwait.until(ExpectedConditions.visibilityOf(addjobpage.jobskill.get(1)));
+		executor.executeScript("arguments[0].scrollIntoView();", addjobpage.jobskill.get(1));
+		System.out.println("size"+addjobpage.jobskill.size());
+		for (int i = 0; i <addjobpage.jobskill.size(); i++) {
 			executor.executeScript("arguments[0].click();", addjobpage.deleteSkill.get(i));
 		}
-		common.clickOnCloseBtn();
-		common.clickOnConfirmYes();
+//		common.clickOnCloseBtn();
+//		common.clickOnConfirmYes();
 	}
 
 	@Then("^Agency \"([^\"]*)\" \"([^\"]*)\" logs in to view shared job and checks removed skill is not displayed \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -511,23 +534,23 @@ public class job extends baseclass {
 			String Password, String Skill1, String Skill2, String Skill3) throws Throwable {
 		loginpage.logoutFromAppK();
 		loginpage.ClickOnEmployerAgencySigninLink();
-		loginpage.loginIn(Username, Password);
+		loginpage.loginIn(Username, "12345");
 		common.searchField.sendKeys(addjobpage.jobname);
 		DashboardPage.jobId = dashboardpage.Id.getText();
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
 		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
 		Assert.assertEquals(driver
-				.findElement(
+				.findElements(
 						By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'" + Skill1 + "')]"))
-				.isDisplayed(), false);
+				.size() > 0, false);
 		Assert.assertEquals(driver
-				.findElement(
+				.findElements(
 						By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'" + Skill2 + "')]"))
-				.isDisplayed(), false);
+				.size() > 0, false);
 		Assert.assertEquals(driver
-				.findElement(
+				.findElements(
 						By.xpath("//strong[contains(text(),'Skill')]//following::p[contains(text(),'" + Skill3 + "')]"))
-				.isDisplayed(), false);
+				.size() > 0, false);
 		common.clickOnCloseBtn();
 
 	}
@@ -538,12 +561,9 @@ public class job extends baseclass {
 		explicitwait.until(ExpectedConditions.visibilityOf(candidatedashboardpage.jobHiringStatusRefresh));
 		driver.findElement(By.xpath("//h5[contains(text(),'Job - Hiring Status')]//following::p[contains(text(),'"
 				+ addjobpage.jobname + "')]")).click();
-		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill1 + "')]")).isDisplayed(),
-				false);
-		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill2 + "')]")).isDisplayed(),
-				false);
-		Assert.assertEquals(driver.findElement(By.xpath("//p[contains(text(),'" + Skill3 + "')]")).isDisplayed(),
-				false);
+		Assert.assertEquals(driver.findElements(By.xpath("//p[contains(text(),'" + Skill1 + "')]")).size() > 0, false);
+		Assert.assertEquals(driver.findElements(By.xpath("//p[contains(text(),'" + Skill2 + "')]")).size() > 0, false);
+		Assert.assertEquals(driver.findElements(By.xpath("//p[contains(text(),'" + Skill3 + "')]")).size() > 0, false);
 		common.clickOnCloseBtn();
 	}
 
