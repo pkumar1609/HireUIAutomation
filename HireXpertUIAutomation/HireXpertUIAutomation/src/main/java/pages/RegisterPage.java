@@ -108,9 +108,9 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 //		Registerlink.click();
 	}
 	
-   public void clickLogin() {		
-		loginlink.click();
-	}
+   public void clickLogin() {
+		executor.executeScript("arguments[0].click();",loginlink);
+   }
 	
    public void clickEmployerAgencySignInlink() throws InterruptedException {
 	    Actions action = new Actions(driver);
