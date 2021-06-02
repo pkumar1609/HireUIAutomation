@@ -26,6 +26,7 @@ import pages.CandidateDashboardPage;
 import pages.CandidateUpdateProfilePage;
 import pages.ChangePasswordPage;
 import pages.Commonfunction;
+import pages.CvParserPage;
 import pages.CvStorePage;
 import pages.DashboardPage;
 import pages.EditCandidatePage;
@@ -110,6 +111,7 @@ public class baseclass extends SuperBase{
 	public static ShareWithVendorPage sharewithvendorpage;
 	public static JobUpdatesPage jobupdatepage;
 	public static ResetPasswordPage resetPage;	
+	public static CvParserPage cvParserPage;
 
 
 	public baseclass() { 
@@ -188,5 +190,6 @@ public class baseclass extends SuperBase{
 		sharewithvendorpage=new ShareWithVendorPage();
 		jobupdatepage=new JobUpdatesPage();
 		resetPage=new ResetPasswordPage();
+		cvParserPage=new CvParserPage();
 	}
 }

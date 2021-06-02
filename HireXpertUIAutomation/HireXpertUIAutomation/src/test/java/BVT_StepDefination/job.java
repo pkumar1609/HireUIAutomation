@@ -804,6 +804,46 @@ public class job extends baseclass {
 	}	
 	
 // ------------------------------------------------------------------	
+	// Scenario 7
+	
+	@Then("^On Application Tracking job status should be displayed as Active$")
+	public void on_Application_Tracking_job_staus_should_be_displayed_as_Active() throws Throwable {
+		
+		dashboardpage.openWorkbenchPage();
+		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
+		workbenchpage.selectJobK();		
+		String activeStatusJobName = driver.findElement(By.xpath("//span[contains(text(),'"+addjobpage.jobname+"')]")).getText();
+		Assert.assertTrue(activeStatusJobName.contains("Active"));	
+	}
+
+	@Then("^On Employer dashboard in Job section job status displayed as active and membership as Open$")
+	public void on_Employer_dashboard_in_Job_section_job_status_displayed_as_active_and_membership_as_Open() throws Throwable {
+
+		dashboardpage.openDashboardPage();
+		common.searchField.clear();
+		common.searchField.sendKeys(addjobpage.jobname);					
+		Assert.assertEquals(driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Open']")).getText(),"Open");
+	}
+
+	@Then("^On CVStore in Jobs dropdown job status should be displayed as Active$")
+	public void on_CVStore_in_Jobs_dropdown_job_status_should_be_displayed_as_Active() throws Throwable {
+		
+		dashboardpage.openCvStorePage();		
+		Thread.sleep(1000);
+		String cvStoreActiveStatusJobName = driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).getText();
+		Assert.assertTrue(cvStoreActiveStatusJobName.contains("Active"));	
+	}
+
+	@Then("^On CVParser in Jobs dropdown job status should be displayed as Active$")
+	public void on_CVParser_in_Jobs_dropdown_job_status_should_be_displayed_as_Active() throws Throwable {
+
+		dashboardpage.openCvParserPage();
+		Thread.sleep(1000);
+		String cvParserActiveStatusJobName = driver.findElement(By.xpath("//option[contains(text(),'"+addjobpage.jobname+"')]")).getText();
+		Assert.assertTrue(cvParserActiveStatusJobName.contains("Active"));
+	}
+	
+//------------------------------------------------------------------------------------------
 	
 	
 }

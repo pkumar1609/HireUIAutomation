@@ -128,8 +128,12 @@ Examples:
 
 @jobScenario7
 Scenario Outline:  User try to verify Change Status of Job as-Active
-Given An employer logged in and creates a job
-Then On Application Tracking job staus should be displayed as Active
+Given User logged in to HireXpert "<Username>" and "<Password>" 
+And Add job 
+		| title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
+		| Developer | Agynew Developer | developer   | IT software | pune     | 400000 |      1 |      2 | 450000 | 800000 | pe1  | pe1@gmail.com | 1234564 |               2 | Hirexpert    | rahitech        | java           | 
+When Job provider clicks on the Submit button.
+Then On Application Tracking job status should be displayed as Active
 And On Employer dashboard in Job section job status displayed as active and membership as Open
 And On CVStore in Jobs dropdown job status should be displayed as Active
 And On CVParser in Jobs dropdown job status should be displayed as Active
