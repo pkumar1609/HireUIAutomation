@@ -33,7 +33,8 @@ public class ManageEmployee extends baseclass {
 	public void addEmployee(DataTable credentials) throws InterruptedException {
 			Thread.sleep(3000);	
 			dashboardpage.openManageEmployeePage();
-			addEmployee.click();
+//			addEmployee.click();
+			executor.executeScript("arguments[0].click();",addEmployee );
 			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 			{			
 			if(loginpage.b==true)

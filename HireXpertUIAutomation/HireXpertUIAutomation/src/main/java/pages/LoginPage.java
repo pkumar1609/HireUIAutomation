@@ -159,7 +159,7 @@ public class LoginPage extends baseclass {
 	}
 
 	public void loginInAppWithEmpK() throws InterruptedException {
-		emailaddress.sendKeys(prop.getProperty("loginid"));
+		emailaddress.sendKeys(prop.getProperty("employer"));
 		password.sendKeys("12345678");
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", signin);
@@ -168,7 +168,7 @@ public class LoginPage extends baseclass {
 	}
 
 	public void loginInAppWithAgyK() throws InterruptedException {
-		emailaddress.sendKeys(prop.getProperty("agyid"));
+		emailaddress.sendKeys(prop.getProperty("agency"));
 		password.sendKeys("12345");
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", signin);

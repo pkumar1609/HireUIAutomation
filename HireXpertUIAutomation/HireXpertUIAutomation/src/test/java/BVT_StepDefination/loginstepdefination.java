@@ -101,7 +101,7 @@ public class loginstepdefination extends baseclass {
 	@Then("^the employer with which you have logged in should display in team tab by default$")
 	public void the_employer_with_which_you_have_logged_in_should_display_in_team_tab_by_default()  
 	{
-		Assert.assertEquals(driver.getPageSource().contains(prop.getProperty("loginid")), true); 
+		Assert.assertEquals(driver.getPageSource().contains(prop.getProperty("employer")), true); 
 	}
 	
 
