@@ -145,6 +145,7 @@ public class LoginPage extends baseclass {
 		password.sendKeys(Password);
 		Thread.sleep(4000);
 		signin.click();
+		identifyUserK();
 	}
 
 	public void loginInAppWithTeamK() throws InterruptedException {

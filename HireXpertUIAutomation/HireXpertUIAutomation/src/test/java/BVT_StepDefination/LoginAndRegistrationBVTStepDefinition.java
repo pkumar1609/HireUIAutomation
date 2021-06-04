@@ -319,7 +319,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 
 	@When("^Verify the username by which user is login$")
 	public void Verify_the_username_by_which_user_is_login() throws Throwable {
-		Assert.assertEquals(loginpage.logedinuser, registerpage.registerdName);
+		Assert.assertEquals(loginpage.logedinuser, RegisterPage.registerdName);
 	}
 
 	@When("^enter employer details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
