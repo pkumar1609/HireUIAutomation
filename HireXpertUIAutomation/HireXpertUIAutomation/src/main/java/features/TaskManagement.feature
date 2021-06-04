@@ -17,7 +17,7 @@ And search the agency "<agencyName>" and share job with it
 And Click on close button
 And Logout from App
 And Click on Employer-Agency Signin link
-And Employer enters valid credentials "<agency>","<Password>"
+And Employer enters valid credentials "<agency>","<Agency Password>"
 And Go to Workbench
 And Select a added job
 And Click on add candidate
@@ -36,8 +36,8 @@ And Go to Task tab
 And apply filter of task type as "Review Candidate"
 And Review Candidate task should not display "<Name>"
 Examples:
-|Username      |agencyName|agency         |Password |CandidateEmail      |profiletitle    |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|jobs    |designation   |mandatorySkills|preferredSkills|optionalSkills|minexp|maxexp|updatedOn|industry   |overBudget|minage|maxage|jobtype            |shift     | Title      | Hour | Minute |  Duration  | TimeZone                     					 | hour | duration   | scheduleon   |scheduleon1 |interviewerName|interviewerEmail|
-|pemp@gmail.com|pagy      |pagy@gmail.com |12345    |hirecan60@gmail.com |Developer       |hirecan60|7775685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift| Interview1 | 20   | 00     | 30 Minutes | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 45 Minutes | 20/2/2021    |23/2/2021   |pe1		     |pe1@gmail.com   |
+|Username      |agencyName|agency         |Password |Agency Password |CandidateEmail      |profiletitle    |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|jobs    |designation   |mandatorySkills|preferredSkills|optionalSkills|minexp|maxexp|updatedOn|industry   |overBudget|minage|maxage|jobtype            |shift     | Title      | Hour | Minute |  Duration  | TimeZone                     					 | hour | duration   | scheduleon   |scheduleon1 |interviewerName|interviewerEmail|
+|pemp@gmail.com|pagy      |pagy@gmail.com |12345678 | 12345 |hirecan60@gmail.com |Developer       |hirecan60|7775685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift| Interview1 | 20   | 00     | 30 Minutes | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 45 Minutes | 20/2/2021    |23/2/2021   |pe1		     |pe1@gmail.com   |
 
 #And user should not able to move "<Name>" card 
 
@@ -72,7 +72,7 @@ Then Schedule interview task should not display in Done column of task Managemen
 
 Examples:
 |Username      |Teamid         |Password |CandidateEmail      |profiletitle    |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|jobs    |designation   |mandatorySkills|preferredSkills|optionalSkills|minexp|maxexp|updatedOn|industry   |overBudget|minage|maxage|jobtype            |shift     | Title      | Hour | Minute |  DurationHour  |DurationMinute | TimeZone                     					 | hour | scheduleon   |scheduleon1 |interviewerName|interviewerEmail|
-#|pemp@gmail.com|pe1@gmail.com  |12345    |hirecan58@gmail.com |Developer       |hirecan58|7885685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift| Interview1 | 20   | 00     |	0            | 30 Minutes    |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi    |  20  | 20/2/2021    |23/2/2021   |pe1		     |pe1@gmail.com   |
+#|pemp@gmail.com|pe1@gmail.com  |12345678|hirecan58@gmail.com |Developer       |hirecan58|7885685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift| Interview1 | 20   | 00     |	0            | 30 Minutes    |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi    |  20  | 20/2/2021    |23/2/2021   |pe1		     |pe1@gmail.com   |
 |pagy@gmail.com|pa1@gmail.com  |12345    |hirecan565@gmail.com |Developer       |hirecan59|8886685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift| Interview1 | 20   | 00     |   0            | 30 Minutes    |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi    |  20  | 20/2/2021    |23/2/2021   |pe1			 |pe1@gmail.com   |
 
 @TaskManagement @task3
@@ -103,7 +103,7 @@ Then pending interview task should not display in done columne "<Name>"
 
 Examples:
 |Username      |Teamid         |Password |CandidateEmail      |profiletitle    |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|jobs    |designation   |mandatorySkills|preferredSkills|optionalSkills|minexp|maxexp|updatedOn|industry   |overBudget|minage|maxage|jobtype            |shift|
-|pemp@gmail.com|pe1@gmail.com  |12345    |hirecan58@gmail.com |Developer       |hirecan58|7885685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift|
+|pemp@gmail.com|pe1@gmail.com  |12345678 |hirecan58@gmail.com |Developer       |hirecan58|7885685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift|
 
 @TaskManagement @task4
 Scenario Outline: To verify offering job, job offered`, joined and Refuse to join task displaying on task management page
@@ -156,9 +156,7 @@ And Click on close button
 Then Refused to joined task should display in done column "<Name>"
 Examples:
 |Username      |Teamid         |Password |CandidateEmail      |profiletitle    |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|jobs    |designation   |mandatorySkills|preferredSkills|optionalSkills|minexp|maxexp|updatedOn|industry   |overBudget|minage|maxage|jobtype            |shift|
-|pemp@gmail.com|pe1@gmail.com  |12345    |hirecan60@gmail.com |Developer       |hirecan60|7775685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift|
-
-
+|pemp@gmail.com|pe1@gmail.com  |12345678 |hirecan60@gmail.com |Developer       |hirecan60|7775685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift|
 
 
 #Candidate reject Task
@@ -180,7 +178,7 @@ And search the agency "<agencyName>" and share job with it
 And Click on close button
 And Logout from App
 And Click on Employer-Agency Signin link
-And Employer enters valid credentials "<agency>","<Password>"
+And Employer enters valid credentials "<agency>","<Agency Password>"
 And Go to Workbench
 And Select a added job
 And Click on add candidate
@@ -196,7 +194,7 @@ And confirmation popup should diplay with Yes and No button and click on Yes but
 And select the reason of rejection and cick on submit button
 And Logout from App
 And Click on Employer-Agency Signin link
-And Employer enters valid credentials "<agency>","<Password>"
+And Employer enters valid credentials "<agency>","<Agency Password>"
 And Go to Task tab
 And apply filter of task type as "Candidate Rejected"
 And Candidate rejected task should display in new column "<Name>"
@@ -205,8 +203,8 @@ And Click on close button
 And Candidate rejected task should display in done column "<Name>"
 
 Examples:
-|Username      |agencyName|agency         |Password |CandidateEmail      |profiletitle    |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|jobs    |designation   |mandatorySkills|preferredSkills|optionalSkills|minexp|maxexp|updatedOn|industry   |overBudget|minage|maxage|jobtype            |shift|
-|pemp@gmail.com|pagy      |pagy@gmail.com |12345    |hirecan60@gmail.com |Developer       |hirecan60|7775685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift|
+|Username      |agencyName|agency         |Password |Agency Password |CandidateEmail      |profiletitle    |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|jobs    |designation   |mandatorySkills|preferredSkills|optionalSkills|minexp|maxexp|updatedOn|industry   |overBudget|minage|maxage|jobtype            |shift|
+|pemp@gmail.com|pagy      |pagy@gmail.com |12345678 |12345           |hirecan60@gmail.com |Developer       |hirecan60|7775685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift|
 
 
 @TaskManagement @task6
@@ -227,7 +225,7 @@ And search the agency "<agencyName>" and share job with it
 And Click on close button
 And Logout from App
 And Click on Employer-Agency Signin link
-And Employer enters valid credentials "<agency>","<Password>"
+And Employer enters valid credentials "<agency>","<Agency Password>"
 And Go to Task tab
 And apply filter of task type as "Job Shared"
 And job Shared task should display in new column "<Name>"
@@ -236,8 +234,8 @@ And Click on close button
 And job Shared task should display in done column "<Name>"
 
 Examples:
-|Username      |agencyName|agency         |Password |CandidateEmail      |profiletitle    |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|jobs    |designation   |mandatorySkills|preferredSkills|optionalSkills|minexp|maxexp|updatedOn|industry   |overBudget|minage|maxage|jobtype            |shift|
-|pemp@gmail.com|pagy      |pagy@gmail.com |12345    |hirecan60@gmail.com |Developer       |hirecan60|7775685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift|
+|Username      |agencyName|agency         |Password |Agency Password |CandidateEmail      |profiletitle    |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|jobs    |designation   |mandatorySkills|preferredSkills|optionalSkills|minexp|maxexp|updatedOn|industry   |overBudget|minage|maxage|jobtype            |shift|
+|pemp@gmail.com|pagy      |pagy@gmail.com |12345678 |12345           |hirecan60@gmail.com |Developer       |hirecan60|7775685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift|
 
 @TaskManagement @invoice @task7
 Scenario Outline: To verify Generate invoice and pending invoice task displaying on task management page for agency`
@@ -257,7 +255,7 @@ And search the agency "<agencyName>" and share job with it
 And Click on close button
 And Logout from App
 And Click on Employer-Agency Signin link
-And Employer enters valid credentials "<agency>","<Password>"
+And Employer enters valid credentials "<agency>","<Agency Password>"
 And Go to Workbench
 And Select a added job
 And Click on add candidate
@@ -271,7 +269,7 @@ And Select a added job
 And move the candidate card from potential candidate to joined column
 And Logout from App
 And Click on Employer-Agency Signin link
-And Employer enters valid credentials "<agency>","<Password>"
+And Employer enters valid credentials "<agency>","<Agency Password>"
 And Go to Task tab
 And apply filter of task type as "Generate Invoice"
 And Generate invoice task should display in new column "<Name>"
@@ -306,8 +304,8 @@ And Generate invoice task should display in done column "<Name>"
 #And Invoice Payment task should display in done column "<Name>"
 
 Examples:
-|Username      |agencyName|agency         |Password |CandidateEmail      |profiletitle    |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|jobs    |designation   |mandatorySkills|preferredSkills|optionalSkills|minexp|maxexp|updatedOn|industry   |overBudget|minage|maxage|jobtype            |shift|
-|pemp@gmail.com|pagy      |pagy@gmail.com |12345    |hirecan60@gmail.com |Developer       |hirecan60|7775685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift|
+|Username      |agencyName|agency         |Password |Agency Password |CandidateEmail      |profiletitle    |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|jobs    |designation   |mandatorySkills|preferredSkills|optionalSkills|minexp|maxexp|updatedOn|industry   |overBudget|minage|maxage|jobtype            |shift|
+|pemp@gmail.com|pagy      |pagy@gmail.com |12345678    | 12345          |hirecan60@gmail.com |Developer       |hirecan60|7775685538    |Developer     |14/2/1995       |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |JCFW 10 |Developer     |JAVA 			|advanced java  |JavaScript    |1     |2     |         |IT software|No        |25    |30    |Permanent Full Time| Day Shift|
 
 
 
@@ -380,5 +378,5 @@ And move the "Update Agreement" task from "New" to "Done" column
 
 Examples:
 |Employer	   |Password |Agency        |Agency2        |
-|pemp@gmail.com|12345    |kagy@gmail.com|pagy1@gmail.com|
+|pemp@gmail.com|12345678 |kagy@gmail.com|pagy1@gmail.com|
 

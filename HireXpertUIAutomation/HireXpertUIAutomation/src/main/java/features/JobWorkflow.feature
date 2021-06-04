@@ -39,7 +39,7 @@ Feature: Job Workflow
 
     Examples: 
       | username       | Password | agencyName | agyEmailId     | CandidateEmail   | Team | Teamid        | ContactNumber |
-      | pemp@gmail.com |    12345 | pagy       | pagy@gmail.com | pratik@gmail.com | pa1  | pa1@gmail.com |     689498595 |
+      | pemp@gmail.com | 12345678 | pagy       | pagy@gmail.com | pratik@gmail.com | pa1  | pa1@gmail.com |     689498595 |
 
   #TC ID - 61,65,66,384
   #@bvt_vendorblock @block @BVTC @jobworkflow
@@ -133,8 +133,8 @@ Feature: Job Workflow
 
     Examples: 
       | username       | Password | team | teamId        | CandEmailId     |
-      | pemp@gmail.com |    12345 | pe1  | pe1@gmail.com | can12@gmail.com |
-      | pagy@gmail.com |    12345 | pa1  | pa1@gmail.com | can13@gmail.com |
+      | pemp@gmail.com | 12345678 | pe1  | pe1@gmail.com | can12@gmail.com |
+      | pagy@gmail.com | 12345    | pa1  | pa1@gmail.com | can13@gmail.com |
 
   #TC ID - 67,72,73
   @bvt_agencyunblock @BVTC @unblock @jobworkflow
@@ -160,7 +160,7 @@ Feature: Job Workflow
     And Click on close button
     And Logout from App
     And Click on Employer-Agency Signin link
-    And Employer enters valid credentials "<agyEmailId>","<Password>"
+    And Employer enters valid credentials "<agyEmailId>","<Agency Password>"
     And Go to workbench
     And Select a added job
     And click on Add Candidate button
@@ -168,8 +168,8 @@ Feature: Job Workflow
     Then Unblocked agency should be able add candidate "<Name>"
 
     Examples: 
-      | Username       | agencyName | agyEmailId     | Teamid        | Password | CandidateEmail      | profiletitle          | Name      | ContactNumber | Designation  | Date       | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay | experience | CTC    | expectedCTC | Country | City   | CityArea  | ZipCode | Communicationmode | Salaryoffered | distance | permanentAddress | relocate | Skill1 | Skill2        | Skill3     | level1          | level2       | level3 | Weightage1 | Weightage2 | Weightage3 | certificate1 | certificate2 | certificate3 | remark1             | remark2         | remark3          | certificateforskill1 | certificateforskill2 |
-      | pemp@gmail.com | pagy       | pagy@gmail.com | pe1@gmail.com |    12345 | hirecan08@gmail.com | jr software developer | hirecan08 |    9890685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
+      | Username       | agencyName | agyEmailId     | Teamid        | Password    |Agency Password | CandidateEmail      | profiletitle          | Name      | ContactNumber | Designation  | Date       | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay | experience | CTC    | expectedCTC | Country | City   | CityArea  | ZipCode | Communicationmode | Salaryoffered | distance | permanentAddress | relocate | Skill1 | Skill2        | Skill3     | level1          | level2       | level3 | Weightage1 | Weightage2 | Weightage3 | certificate1 | certificate2 | certificate3 | remark1             | remark2         | remark3          | certificateforskill1 | certificateforskill2 |
+      | pemp@gmail.com | pagy       | pagy@gmail.com | pe1@gmail.com |    12345678 |12345           |hirecan08@gmail.com | jr software developer | hirecan08 |    9890685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
 
   @bvt_teamunblock @BVTC @unblock @jobworkflow
   Scenario Outline: Verify the Unblock functionality for team member with Employer and Agency login
@@ -206,9 +206,9 @@ Feature: Job Workflow
     Then Unblocked team member should be able add candidate "<Name>"
 
     Examples: 
-      | Username       | Team | Teamid        | Password | CandidateEmail      | profiletitle            | Name      | ContactNumber | Designation  | Date       | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay | experience | CTC    | expectedCTC | Country | City   | CityArea  | ZipCode | Communicationmode | Salaryoffered | distance | permanentAddress | relocate | Skill1 | Skill2        | Skill3     | level1          | level2       | level3 | Weightage1 | Weightage2 | Weightage3 | certificate1 | certificate2 | certificate3 | remark1             | remark2         | remark3          | certificateforskill1 | certificateforskill2 |
-      | pemp@gmail.com | pe1  | pe1@gmail.com |    12345 | hirecan30@gmail.com | jr software developer   | hirecan30 |    9890685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
-      | pagy@gmail.com | pa1  | pa1@gmail.com |    12345 | hirecan31@gmail.com | jr software developer 1 | hirecan31 |   78950685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
+      | Username       | Team | Teamid        | Password    | CandidateEmail      | profiletitle            | Name      | ContactNumber | Designation  | Date       | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay | experience | CTC    | expectedCTC | Country | City   | CityArea  | ZipCode | Communicationmode | Salaryoffered | distance | permanentAddress | relocate | Skill1 | Skill2        | Skill3     | level1          | level2       | level3 | Weightage1 | Weightage2 | Weightage3 | certificate1 | certificate2 | certificate3 | remark1             | remark2         | remark3          | certificateforskill1 | certificateforskill2 |
+      | pemp@gmail.com | pe1  | pe1@gmail.com |    12345678 | hirecan30@gmail.com | jr software developer   | hirecan30 |    9890685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
+      | pagy@gmail.com | pa1  | pa1@gmail.com |    12345    | hirecan31@gmail.com | jr software developer 1 | hirecan31 |   78950685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
 
   #TC ID - 236,237,238
   @BVTC @primary @jobworkflow
@@ -240,5 +240,5 @@ Feature: Job Workflow
 
     Examples: 
       | email address  | password | Team | Teamid        | contact  | anotherteam | thridteam     | Team2 | Team3 |
-      | pemp@gmail.com |    12345 | pe1  | pe1@gmail.com | 16546856 | pe2         | pe3@gmail.com | pe2   | pe3   |
-      | pagy@gmail.com |    12345 | pa1  | pa1@gmail.com | 98598695 | pa2         | pa3@gmail.com | pa2   | pa3   |
+      | pemp@gmail.com | 12345678 | pe1  | pe1@gmail.com | 16546856 | pe2         | pe3@gmail.com | pe2   | pe3   |
+      | pagy@gmail.com | 12345    | pa1  | pa1@gmail.com | 98598695 | pa2         | pa3@gmail.com | pa2   | pa3   |

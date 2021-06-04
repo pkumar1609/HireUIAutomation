@@ -23,8 +23,8 @@ Scenario Outline: User adds new job and should be displayed to all
 	When Employer share job with an agency 
 	Then Share job should be display on applicant tracking page at agency side "<agencyName>"
 	Examples: 
-		| username       | Password |agencyName      |
-		| pemp@gmail.com |    12345 | pagy@gmail.com |
+		| username       | Password    |agencyName      |
+		| pemp@gmail.com |    12345678 | pagy@gmail.com |
 
 		
 @jobScenario2	

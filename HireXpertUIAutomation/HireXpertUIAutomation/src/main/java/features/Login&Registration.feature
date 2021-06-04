@@ -83,8 +83,8 @@ Feature: HireXpert Login & Registration feature
 	And Verify the username by which user is login
 	
 	Examples: 
-	| EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone                                                  | country | password    | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail        | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail      | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
-	| TXE15          |  txe3087@gmail.com    | 285248688             | Employer         | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi           | India   | 12345       | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age14        | age3087@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike15          | mike3087@gmail.com  | 369497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
+	| EmployerName   |   EmployerEmail       | EmployerContactNumber | EmployerUserType | timezone                                         | country | password    | EmployerAddress | EmployerOrganizationName | EmployerWebsite | EmployerCity | AgencyName   | AgencyEmail        | AgencyContactNumber | AgencyUserType | AgencyAddress | AgencyOrganizationName | AgencyWebsite  | AgencyCity | CandidateName   | CandidateEmail      | CandidateContactNumber | CandidateUserType | title        | designation     | noticeperiod | industry    | CandidateCity | gender | expertiselevel  |
+	| TXE15          |  txe3087@gmail.com    | 285248688             | Employer         | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  | India   | 12345       | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age14        | age3087@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike15          | mike3087@gmail.com  | 369497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
 
 	#TC :- 4, 5, 12, 433
 
@@ -292,8 +292,6 @@ When click on Register link
 	And Make changes in candidate profile "<noticeperiod>"
 	And click on save button
 	And click on ok button
-
-
 
 	Examples:
 

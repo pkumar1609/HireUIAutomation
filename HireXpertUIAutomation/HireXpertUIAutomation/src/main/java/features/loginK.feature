@@ -137,14 +137,13 @@ Then Error message should show only after exceeding character limit
 And Close browser
 Examples:
 |Username      |Password |Name                                                            |
-|pemp@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
+|pemp@gmail.com|12345678 |1234567890123456789012345678901234567890123456789012345678901234|
 |pagy@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
 
 @BVTC @login @invalid
   Scenario Outline: Verify that User is not able to Login with invalid credentials
   
-	Given User must be registered
-    
+	Given User must be registered    
     When title of page is HireXpert
    	And Click on Employer-Agency Signin link
     And enter invalid user email address and invalid password which is not registered "<username>" and "<password>"
@@ -163,7 +162,5 @@ Examples:
 |username           |password |  
 |asdfghj@gmail.com  | asdfghj |
 |pemp@gmail.com     | asdfghj |
-
-
 
 

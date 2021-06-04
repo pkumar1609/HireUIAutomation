@@ -99,16 +99,9 @@ And the task should display for logged in user on Task Management page in "Done"
 Then Close browser
 
 Examples:
-|Username      |Password|team		  |
-|pemp@gmail.com|12345   |pe1@gmail.com|
-|pagy@gmail.com|12345   |pa1@gmail.com|
-
-
-
-
-
-
-
+|Username      |Password |team		  |
+|pemp@gmail.com|12345678 |pe1@gmail.com|
+|pagy@gmail.com|12345    |pa1@gmail.com|
 
 
 
@@ -160,8 +153,8 @@ Examples:
 ##Then Close browser
 #
 #Examples:
-#|Username      |Password|
-#|pemp@gmail.com|12345   |
+#|Username      |Password |
+#|pemp@gmail.com|12345678 |
 #
 #
 #@TC265_267  @BVT @TaskBVT
@@ -235,7 +228,7 @@ Examples:
 #
 #Examples:
 #|Username      |Password|
-#|pemp@gmail.com|12345   |
+#|pemp@gmail.com|12345678|
 #|pagy@gmail.com|12345   |
 #
 #
@@ -271,7 +264,7 @@ Examples:
 #Then Delete the task
 #Examples:
 #|Username      |Password|
-#|pemp@gmail.com|12345   |
+#|pemp@gmail.com|12345678|
 #|pagy@gmail.com|12345   |
 #
 #
@@ -295,7 +288,7 @@ Examples:
 #
 #Examples:
 #|Username      |Password|task    |team|Assignto|note                             |editedtask|editednote          |
-#|pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task8     |complete before 1 pm|
+#|pemp@gmail.com|12345678|task11  |pemp|pe1     |Task should complete before time |task8     |complete before 1 pm|
 #|pagy@gmail.com|12345  |task11  |pagy|pa1      |Task should complete before time |task8     |complete before 1 pm|
 #
 #
@@ -330,7 +323,7 @@ Examples:
 #
 #Examples:
 #|Username      |Password|task    |team|Assignto|note                             |editedtask|editednote          |
-#|pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task11     |complete before 1 pm|
+#|pemp@gmail.com|12345678|task11  |pemp|pe1     |Task should complete before time |task11     |complete before 1 pm|
 #|pagy@gmail.com|12345   |task11  |pagy|pa1     |Task should complete before time |task11     |complete before 1 pm|
 #
 #
@@ -352,7 +345,7 @@ Examples:
 #
 #Examples:
 #|Username      |Password|
-#|pemp@gmail.com|12345   |
+#|pemp@gmail.com|12345678|
 #|pagy@gmail.com|12345   |
 #
 ##--------------------------------------------------------------------------------------------------
@@ -397,7 +390,7 @@ Examples:
 #And the task should display for loggedinuser with Status "Inprogress"
 #Examples:
 #|Username      |Password|
-#|pemp@gmail.com|12345   |
+#|pemp@gmail.com|12345678|
 #|pagy@gmail.com|12345   |
 #
 #
@@ -443,7 +436,7 @@ Examples:
 #
 #Examples:
 #|Username      |Password|
-#|pemp@gmail.com|12345   |
+#|pemp@gmail.com|12345678|
 #|pagy@gmail.com|12345   |
 #
 #
@@ -500,9 +493,9 @@ Examples:
 #And Login with team member
 #And the task should display for loggedinuser with Status "Inprogress"
 #Examples:
-#|Username      |Password|
-##|pemp@gmail.com|12345   |
-#|pagy@gmail.com|12345   |
+#|Username       |Password |
+##|pemp@gmail.com|12345678 |
+#|pagy@gmail.com |12345    |
 #
 #
 #@TC280 @regtask
@@ -564,7 +557,7 @@ Examples:
 #
 #Examples:
 #|Username      |Password|
-#|pemp@gmail.com|12345   |
+#|pemp@gmail.com|12345678|
 #|pagy@gmail.com|12345   |
 #
 #
@@ -596,9 +589,9 @@ Examples:
 #
 #
 #Examples:
-#|Username      |Password|teamid2      |
-##|pemp@gmail.com|12345   |Pe2@gmail.com|
-#|pagy@gmail.com|12345   |pa2@gmail.com|
+#|Username      |Password |teamid2      |
+##|pemp@gmail.com|12345678|Pe2@gmail.com|
+#|pagy@gmail.com|12345    |pa2@gmail.com|
 #
 #
 #
@@ -646,7 +639,7 @@ Examples:
 #And Click on close button
 #Examples:
 #|Username      |Password|task    |team|Assignto|note                             |editedtask|editednote          |
-#|pemp@gmail.com|12345   |task11  |pemp|pe1     |Task should complete before time |task2     |complete before 1 pm|
+#|pemp@gmail.com|12345678|task11  |pemp|pe1     |Task should complete before time |task2     |complete before 1 pm|
 #|pagy@gmail.com|12345   |task11  |pagy|pa1     |Task should complete before time |task2     |complete before 1 pm|
 #
 #
@@ -727,7 +720,7 @@ Examples:
 #
 #Examples:
 #|Username      |Password|
-#|pemp@gmail.com|12345   |
+#|pemp@gmail.com|12345678|
 #|pagy@gmail.com|12345   |
 #
 #
@@ -760,7 +753,7 @@ Examples:
 #
 #Examples:
 #|Username      |Password|CandidateEmail        |Name    |ContactNumber|Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea     |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|
-#|pemp@gmail.com|12345   |vishwani@gmail.com    |vishvani|8956652538   |jr.developer  |04/08/1999      |Female  |No            |25          |2.0       |400000|800000     |India  |wardha|Arvi naka    |455966 |Call             |800000       |4       |No              |No      |
+#|pemp@gmail.com|12345678|vishwani@gmail.com    |vishvani|8956652538   |jr.developer  |04/08/1999      |Female  |No            |25          |2.0       |400000|800000     |India  |wardha|Arvi naka    |455966 |Call             |800000       |4       |No              |No      |
 #|pagy@gmail.com|12345   |Shivani@gmail.com     |shivani |8552222222   |jr.developer  |08/09/1999      |Female  |No            |28          |7.0       |800000|800000     |India  |wardha|pawnar naka  |852966 |Call             |900000       |1       |No              |No      |
 #
 #
@@ -791,9 +784,9 @@ Examples:
 #And verify the candidate card it should display in reject column
 #
 #Examples:
-#|Username      |Password|CandidateEmail        |Name    |ContactNumber|Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea     |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|
-#|pemp@gmail.com|12345   |vishwani@gmail.com    |vishvani|8956652538   |jr.developer  |04/08/1999      |Female  |No            |25          |2.0       |400000|800000     |India  |wardha|Arvi naka    |455966 |Call             |800000       |4       |No              |No      |
-#|pagy@gmail.com|12345   |Shivani@gmail.com     |shivani |8552222222   |jr.developer  |08/09/1999      |Female  |No            |28          |7.0       |800000|800000     |India  |wardha|pawnar naka  |852966 |Call             |900000       |1       |No              |No      |
+#|Username      |Password |CandidateEmail        |Name    |ContactNumber|Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea     |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|
+#|pemp@gmail.com|12345678 |vishwani@gmail.com    |vishvani|8956652538   |jr.developer  |04/08/1999      |Female  |No            |25          |2.0       |400000|800000     |India  |wardha|Arvi naka    |455966 |Call             |800000       |4       |No              |No      |
+#|pagy@gmail.com|12345    |Shivani@gmail.com     |shivani |8552222222   |jr.developer  |08/09/1999      |Female  |No            |28          |7.0       |800000|800000     |India  |wardha|pawnar naka  |852966 |Call             |900000       |1       |No              |No      |
 
 
 

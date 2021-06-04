@@ -22,9 +22,9 @@ Feature: Job Update
     And click on Delete Skill button in front of any skill
 
 Examples:
-|    email address     |  password  |  JobNoticePeriod1 |
-|  pemp@gmail.com      |   12345    |    60             | 
-|  pagy@gmail.com      |   12345    |    45             | 
+|    email address  |  password  |  JobNoticePeriod1 |
+|  pemp@gmail.com   |   12345678 |    60             | 
+|  pagy@gmail.com   |   12345    |    45             | 
 
 
 #TC ID - 15,21,22,46,74,76
