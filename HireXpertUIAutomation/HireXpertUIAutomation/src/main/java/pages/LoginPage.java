@@ -28,7 +28,7 @@ public class LoginPage extends baseclass {
 	@FindBy(xpath = "//button[contains(text(),'Sign in')]")
 	public WebElement signin;
 
-	@FindBy(xpath = "(//button[@class='dropdown-item'])[1]")
+	@FindBy(xpath = "(//div[@id='ProfileDropDown']//button)[1]")
 	public WebElement loggedInUser;
 
 	@FindBy(xpath = "//a[@title='Employer']")
@@ -219,7 +219,9 @@ public class LoginPage extends baseclass {
 	}
 
 	public void identifyUserK() throws InterruptedException {
+		explicitwait.until(ExpectedConditions.visibilityOf(myAccount));
 		Action.moveToElement(myAccount).click().perform();
+		String loggedUser=loggedInUser.getAttribute("title");
 		switch (loggedInUser.getAttribute("title")) {
 		case "Employer":
 			b = true;

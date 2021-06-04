@@ -7,9 +7,9 @@ Feature: Job Workflow
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
     And enter valid "<username>" and "<EmpPassword>" for registered employer and click on Sign in button
-    And Click on add Button Fill all the mandatory details for Recruitment Agencies
-      | Name | Email          | contact |
-      | pagy | pagy@gmail.com | 1234564 |
+#    And Click on add Button Fill all the mandatory details for Recruitment Agencies
+#      | Name | Email          | contact |
+#      | pagy | pagy@gmail.com | 1234564 |
     And Go to workbench
     And Click on add job button
     And Add job
@@ -24,8 +24,8 @@ Feature: Job Workflow
     And Click on Employer-Agency Signin link
     And Employer enters valid credentials "<agyEmailId>","<Password>"
     Given Click on add Button Fill all the mandatory details for Manage Employee
-      | Name    | Email         | contact | Roleagy                 |
-      | pa1     | pa1@gmail.com | 1234564 | Recruitment Agency Head |
+      | Nameagy    | Emailagy         | contact | Roleagy                 |
+      | pa1        | pa1@gmail.com    | 1234564 | Recruitment Agency Head |
     And Go to workbench
     And Select a added job
     And Click on add candidate

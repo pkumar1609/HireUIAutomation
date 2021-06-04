@@ -35,9 +35,10 @@ public class ManageEmployee extends baseclass {
 			dashboardpage.openManageEmployeePage();
 //			addEmployee.click();
 			executor.executeScript("arguments[0].click();",addEmployee );
+			System.out.println(loginpage.user);
 			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
 			{			
-			if(loginpage.b==true)
+			if(loginpage.user=="employer")
 			{
 				Thread.sleep(1000);
 				common.namefield.clear();
