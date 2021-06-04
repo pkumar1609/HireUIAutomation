@@ -19,13 +19,13 @@ public class WorkbenchPage extends baseclass {
 	
 	public String organisation;
 	
-	@FindBy(xpath = "//button[@id='btnGroupDrop1']")
+	@FindBy(xpath = "//button[contains(text(),'Job') and @id='btnGroupDrop1']")
 	public WebElement job;
 	
 	@FindBy(xpath = "//button[text()=' Candidate']")
 	public WebElement candidate;
 	
-	@FindBy(xpath = "//button[text()='Add Job']")
+	@FindBy(xpath = "(//button[text()='Add Job'])[2]")
 	public WebElement addJob;
 	
 	@FindBy(xpath = "//ng-select[@id='jobDropdown']")
@@ -183,7 +183,7 @@ public class WorkbenchPage extends baseclass {
 		if(driver.findElements(By.xpath("//span[@class='ng-clear']")).size()>0)
 		{
 			WebElement clearAll = driver.findElement(By.xpath("//span[@title='Clear all']//span[contains(text(),'×')]"));
-			Thread.sleep(7000);
+			Thread.sleep(2000);
 			explicitwait.until(ExpectedConditions.visibilityOf(clearAll));
 			Action.moveToElement(clearAll).click().build().perform();	
 			try {
@@ -191,7 +191,8 @@ public class WorkbenchPage extends baseclass {
 			}
 			catch (ElementNotInteractableException e) {
 				Thread.sleep(4000);
-				Action.click(clearAll).build().perform();
+				Action.click(clearAll).build().perform();	
+				Thread.sleep(2000);
 				driver.findElement(By.xpath("//input")).sendKeys(addjobpage.jobname);	
 			}
 		}
