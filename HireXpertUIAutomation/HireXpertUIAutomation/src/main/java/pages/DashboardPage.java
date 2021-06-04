@@ -427,18 +427,21 @@ public class DashboardPage extends baseclass {
 		Action.moveToElement(loginpage.myAccount).perform();
 	  	if(loginpage.user=="employer")   
 	  	{
-		Assert.assertEquals(loginpage.employer.get(0).isDisplayed(), true);
-		loginpage.employer.get(0).click();
+//		Assert.assertEquals(loginpage.employer.get(0).isDisplayed(), true);
+		Assert.assertEquals(loginpage.loggedInUser.getAttribute("title"),"Employer");
+//		loginpage.employer.get(0).click();
 	  	}
 	  	else if(loginpage.user=="agency")
 	  	{
-	  	Assert.assertEquals(loginpage.agency.get(0).isDisplayed(), true);	
-	  	loginpage.agency.get(0).click();
+//	  	Assert.assertEquals(loginpage.agency.get(0).isDisplayed(), true);
+	  	Assert.assertEquals(loginpage.loggedInUser.getAttribute("title"),"Agency");		
+//	  	loginpage.agency.get(0).click();
 	  	}
 	  	else if(loginpage.user=="candidate")
 	  	{
-	  	Assert.assertEquals(loginpage.candidate.get(0).isDisplayed(), true);	
-	  	loginpage.candidate.get(0).click();
+//	  	Assert.assertEquals(loginpage.candidate.get(0).isDisplayed(), true);	
+//	  	loginpage.candidate.get(0).click();
+	  	Assert.assertEquals(loginpage.loggedInUser.getAttribute("title"),"Candidate");		
 	  	}  	
     }
 	

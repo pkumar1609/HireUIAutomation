@@ -314,12 +314,13 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	    
 		Thread.sleep(4000);
 		dashboardpage.VerifyUserIsOnCorrectPage();
+//		loginpage.identifyUserK();
 		
 	}
 
 	@When("^Verify the username by which user is login$")
-	public void Verify_the_username_by_which_user_is_login() throws Throwable {
-		Assert.assertEquals(loginpage.logedinuser, RegisterPage.registerdName);
+	public void Verify_the_username_by_which_user_is_login() throws Throwable {		
+		Assert.assertEquals(loginpage.loggedInUser.getText().strip(), RegisterPage.registerdName);
 	}
 
 	@When("^enter employer details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
