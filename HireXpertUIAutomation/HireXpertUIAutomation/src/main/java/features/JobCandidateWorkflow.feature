@@ -641,7 +641,7 @@ Examples:
 
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
-@Regression @reg12 @JCWF
+#@Regression @reg12 @JCWF
 Scenario Outline: Verify there is asking reason when user manually drag the candidate card in rejection column from employer login, employer team member login, agency login, agency team member login
 
 Given Open browser
