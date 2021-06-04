@@ -76,7 +76,7 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath="//a[contains(text(),'Change Password')]")
 	public WebElement ChangePasswordTab;
 	
-	@FindBy(xpath = "//a[contains(text(),'Update Profile')]")
+	@FindBy(xpath = "//button[contains(text(),'Update Profile')]")
 	public WebElement updateProfile;
 	
 	@FindBy(xpath="//a[contains(text(),'Log Out')]")
@@ -248,12 +248,9 @@ public class WorkbenchPage extends baseclass {
 	}
 	
 	public void openUpdateProfilePage() throws InterruptedException {
-		
-		WebElement we = profile;
-		Actions action = new Actions(driver);
-		action.moveToElement(we).perform();
+		Action.moveToElement(loginpage.myAccount).click().perform();
 		Thread.sleep(2000);
-		updateProfile.click();
+		executor.executeScript("arguments[0].click();",updateProfile );
 	}
 	
 	public void ClickonLogout() throws InterruptedException {
