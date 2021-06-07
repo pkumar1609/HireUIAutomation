@@ -31,7 +31,7 @@ public HomePage() {
 		Thread.sleep(2000);
 		Action.moveToElement(loginpage.login).click().perform();
 		Thread.sleep(1000);
-	   JobseekerCandidateSignInlink.click();
+	    executor.executeScript("arguments[0].click();", JobseekerCandidateSignInlink);
 	}	
 		
 	public void getTitle()
