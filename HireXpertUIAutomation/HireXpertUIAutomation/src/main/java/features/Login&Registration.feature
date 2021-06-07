@@ -145,7 +145,6 @@ Feature: HireXpert Login & Registration feature
 	And click on Submit button
 	And User should get confirmation message
 	And click on ok button
-	And click on Login link
 	And click on Employer-Agency SignIn link
 	And enter user email and password
 	And click on Signin button
@@ -158,12 +157,10 @@ Feature: HireXpert Login & Registration feature
 	And Successful pop-up message display as "Your password has been successfully updated." with Ok button
 	And Click on Ok button
 	And click on logout tab
-	And click on Login link
-	And click on Employer-Agency SignIn link
+    And click on Employer-Agency SignIn link
 	And login user with new password "<newpassword>" 
 #	And click on ok button
 	And click on logout tab
-	And click on Login link
 	And click on Employer-Agency SignIn link
 	And login user with the old password "<password>"
 	Then User should get error message as "Wrong password. Please use forgot password link to reset your password." when he try to login with old password
@@ -176,7 +173,6 @@ Feature: HireXpert Login & Registration feature
 	And click on Submit button
 	And User should get confirmation message
 	And click on ok button
-	And click on Login link
 	And click on Employer-Agency SignIn link
 	And enter user email and password
 	And click on Signin button
@@ -189,12 +185,10 @@ Feature: HireXpert Login & Registration feature
 	And Successful pop-up message display as "Your password has been successfully updated." with Ok button
     And Click on Ok button
 	And click on logout tab
-	And click on Login link
 	And click on Employer-Agency SignIn link
 	And login user with new password "<newpassword>"
 #	And click on ok button
 	And click on logout tab
-	And click on Login link
 	And click on Employer-Agency SignIn link
 	And login user with the old password "<password>"
 	Then User should get error message as "Wrong password. Please use forgot password link to reset your password." when he try to login with old password

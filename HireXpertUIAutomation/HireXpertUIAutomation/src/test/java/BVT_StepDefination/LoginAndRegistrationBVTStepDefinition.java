@@ -38,7 +38,8 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	public void click_on_Login_link() throws Throwable {
 	   
 		Thread.sleep(5000);
-		registerpage.clickLogin();
+//		registerpage.clickLogin();
+		loginpage.ClickOnEmployerAgencySigninLink();
 	}
 
 
@@ -260,7 +261,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 
 		Thread.sleep(4000);
 		registerpage.clickEmployerAgencySignInlink();
-
+//		loginpage.ClickOnEmployerAgencySigninLink();
 	}
 
 	@When("^click on Job Seeker\\(Candidate\\) Sign In link$")
@@ -384,7 +385,8 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		public void click_on_logout_tab() throws Throwable {
 		    
 			Thread.sleep(3000);
-			workbenchpage.ClickonLogout();
+//			workbenchpage.ClickonLogout();
+			loginpage.logoutFromAppK();
 		}
 
 
