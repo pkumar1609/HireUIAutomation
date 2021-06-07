@@ -207,7 +207,7 @@ public class WorkbenchPage extends baseclass {
 //		element.click();
 
 		Thread.sleep(10000);
-		WebElement clearAll = driver.findElement(By.xpath("//*[@title='Clear all']//child::span[text()='×']"));
+		WebElement clearAll = driver.findElement(By.xpath("//span[@class='ng-clear-wrapper']//child::span[text()='×']"));
 //		executor.executeScript("arguments[0].click();", clearAll);
 		Action.click(clearAll).build().perform();		
 		try {
