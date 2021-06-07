@@ -1445,7 +1445,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 //		}
 //		
 //
-//		
+////		
 //		@When("^select the reason of rejection and cick on submit button$")
 //		public void select_the_reason_of_rejection_and_cick_on_submit_button() throws Throwable {
 //		    
@@ -1455,7 +1455,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 //			Thread.sleep(1000);
 //			common.ClickSumbit();
 //		}
-//
+
 		@Then("^drag the candidate card from rejected column to any other column$")
 		public void drag_the_candidate_card_from_rejected_column_to_any_other_column() throws Throwable {
 			Thread.sleep(5000);
@@ -1607,6 +1607,18 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 			driver.findElement(By.xpath("//th[text()=' New ']//following::span[text()=' "+Name+"']")).isDisplayed();
 
 		}
+		@When("^move the candidate card from potential candidate to new column$")
+		public void move_the_candidate_card_from_potential_candidate_to_new_column() throws Throwable {
+			Thread.sleep(2000);	  
+			WebElement drag = candidatecardsectionpage.candidateCard;
+			WebElement drop = driver.findElement(By.xpath("//td[2]"));		   		
+		    Actions action = new Actions(driver);
+			Thread.sleep(3000);
+			action.clickAndHold(drag);
+			executor.executeScript("arguments[0].scrollIntoView()", drop);
+			action.moveToElement(drop).release(drop).perform();
+		}
+		
 //reg13
 
 

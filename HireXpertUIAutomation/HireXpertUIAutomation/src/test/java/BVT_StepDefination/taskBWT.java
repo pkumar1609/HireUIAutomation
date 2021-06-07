@@ -90,7 +90,7 @@ public class taskBWT extends baseclass {
 //		workbenchpage.AddJob();
 		addjobpage.addjob(credentials);
 		common.ClickSumbit();
-		common.clickOnOKBtn();
+//		common.clickOnOKBtn();
 	}
 
 	@And("^Select a job$")
