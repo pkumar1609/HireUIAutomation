@@ -673,10 +673,10 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 	public void click_on_Reject_Candidate_icon_from_candidate_card_to_reject_the_candidate(String Name) throws Throwable {
 
 		candidatecardsectionpage.clickOnRejectCandidateIcon(Name);
-		common.clickOnConfirmYes();
 		Thread.sleep(3000);
 		candidatecardsectionpage.selectRejectReason();
-		
+		common.addComment();
+		common.ClickSumbit();
 	}
 
 ////5

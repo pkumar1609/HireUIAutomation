@@ -94,7 +94,7 @@ public class Commonfunction extends baseclass {
 	public WebElement countryid;
 		
 	@FindBy(xpath="//textarea[@placeholder='Enter Comment']")
-	public WebElement blockCommentTextArea;
+	public WebElement CommentTextArea;
 	
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
 	
@@ -244,9 +244,9 @@ public class Commonfunction extends baseclass {
 		
 	}
 	
-	public void addBlockComment() throws InterruptedException  {		
-		explicitwait.until(ExpectedConditions.visibilityOf(blockCommentTextArea));
-		blockCommentTextArea.sendKeys("Comment added to block.");
+	public void addComment() throws InterruptedException  {		
+		explicitwait.until(ExpectedConditions.visibilityOf(CommentTextArea));
+		CommentTextArea.sendKeys("Comment added to text area.");
 	}
 
 }

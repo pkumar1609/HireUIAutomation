@@ -96,7 +96,7 @@ boolean emp;
 	@When("^block the agency \"([^\"]*)\" and add comment$")
 	public void block_the_agency_and_add_comment(String arg1) throws Throwable {
 		   sharewithagencypage.blockAgency();
-			common.addBlockComment();
+			common.addComment();
 			common.ClickSumbit();
 	}
 	
