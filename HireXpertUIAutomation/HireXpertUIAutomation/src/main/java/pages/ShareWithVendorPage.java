@@ -28,7 +28,6 @@ public class ShareWithVendorPage extends baseclass{
 	public void shareWithVendor(String Vendor) throws InterruptedException
 	{
 		Thread.sleep(4000);
-//		explicitwait.until(ExpectedConditions.elementToBeClickable(sharewithagencypage.name));
 		selectVendor.sendKeys(Vendor);
 		Thread.sleep(2000); 
 		driver.findElement(By.xpath("//span[contains(text(),'"+Vendor+"')]")).click();
@@ -57,8 +56,9 @@ public class ShareWithVendorPage extends baseclass{
 		if(isBlockUnblockSelected==true)
 		{
 			Thread.sleep(1000);
-			driver.findElement(By.xpath("//td[text()='"+vendor+"']//following::span[@class='checkmark CheckBoxM'][2]")).click();
+			driver.findElement(By.xpath("//td[text()='"+vendor+"']//following::span[@class='checkmark CheckBoxM2'][1]")).click();
 			common.clickOnConfirmYes();
+		
 			Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+vendor+"']//following::input[2]")).isSelected(), false);
 		}
 	}

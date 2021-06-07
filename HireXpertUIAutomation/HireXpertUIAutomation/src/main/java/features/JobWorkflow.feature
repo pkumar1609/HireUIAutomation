@@ -1,7 +1,7 @@
 Feature: Job Workflow
 
   #@bvt_agencyblock @block @BVTC @jobworkflow
-  @bvt_agencyblock   
+  #@bvt_agencyblock    
   Scenario Outline: Verify the Block functionality for Agency with Employer login
     Given User is on Home page of application
     When title of page is HireXpert
@@ -96,8 +96,8 @@ Feature: Job Workflow
     And observe candidate is getting added in New column
 
     Examples: 
-      |EmpPassword| username       | Password | vendor         | CandidateEmail   | Team | CandidateEmail      | profiletitle            | Name      | ContactNumber | Designation  | Date       | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay | experience | CTC    | expectedCTC | Country | City   | CityArea  | ZipCode | Communicationmode | Salaryoffered | distance | permanentAddress | relocate | Skill1 | Skill2        | Skill3     | level1          | level2       | level3 | Weightage1 | Weightage2 | Weightage3 | certificate1 | certificate2 | certificate3 | remark1             | remark2         | remark3          | certificateforskill1 | certificateforskill2 |
-      |12345678| pagy@gmail.com |    12345 | cagy@gmail.com | pratik@gmail.com | ca1  | hirecan31@gmail.com | jr software developer 1 | hirecan31 |   78950685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
+      |EmpPassword| username    | Password | vendor         | CandidateEmail   | Team | CandidateEmail      | profiletitle            | Name      | ContactNumber | Designation  | Date       | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay | experience | CTC    | expectedCTC | Country | City   | CityArea  | ZipCode | Communicationmode | Salaryoffered | distance | permanentAddress | relocate | Skill1 | Skill2        | Skill3     | level1          | level2       | level3 | Weightage1 | Weightage2 | Weightage3 | certificate1 | certificate2 | certificate3 | remark1             | remark2         | remark3          | certificateforskill1 | certificateforskill2 |
+      |12345678| pagy@gmail.com | 12345    | cagy@gmail.com | pratik@gmail.com | ca1  | hirecan31@gmail.com | jr software developer 1 | hirecan31 |   78950685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
 
   @bvt_teamblock @block @BVTC @jobworkflow
   Scenario Outline: Verify the Block functionality for team member with Employer and Agency login
@@ -118,8 +118,6 @@ Feature: Job Workflow
     And click on share with Team
     And search the team "<team>" and share job with it
     And block the team "<team>"
-    #    And click on Share With Team button and select the Share checkbox present in front of the team member "<team>"
-    #	And click on Yes button from confirmation popup and now select the Block/Unblock checkbox present in front of the team member
     And Click on close button
     And Logout from App
     And Click on Employer-Agency Signin link
@@ -132,9 +130,9 @@ Feature: Job Workflow
     And Click on close button and confirm Yes button
 
     Examples: 
-      |EmpPassword| username    | Password | team | teamId        | CandEmailId  |
-      |12345678| pemp@gmail.com | 12345    | pe1  | pe1@gmail.com | can12@gmail.com |
-      |12345   | pagy@gmail.com | 12345    | pa1  | pa1@gmail.com | can13@gmail.com |
+      |EmpPassword| username    | Password | team | teamId        | CandEmailId     |
+      |12345678   | pemp@gmail.com | 12345 | pe1  | pe1@gmail.com | can12@gmail.com |
+      |12345      | pagy@gmail.com | 12345 | pa1  | pa1@gmail.com | can13@gmail.com |
 
   #TC ID - 67,72,73
   @bvt_agencyunblock @BVTC @unblock @jobworkflow
