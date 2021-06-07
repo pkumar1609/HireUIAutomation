@@ -675,8 +675,6 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass{
 		candidatecardsectionpage.clickOnRejectCandidateIcon(Name);
 		Thread.sleep(3000);
 		candidatecardsectionpage.selectRejectReason();
-		common.addComment();
-		common.ClickSumbit();
 	}
 
 ////5

@@ -226,9 +226,7 @@ public class CandidateCardSectionPage extends baseclass {
 		Thread.sleep(2000);
 		se = new Select(rejectReason);
 		se.selectByIndex(3);
-		common.submitbtn.click();
-		Thread.sleep(3000);
-		System.out.println("\nCandidate get rejected and added in Rejected column..");
+		common.ClickSumbit();
 	}
 	
 	public void observeAllPresentSkills() throws InterruptedException {

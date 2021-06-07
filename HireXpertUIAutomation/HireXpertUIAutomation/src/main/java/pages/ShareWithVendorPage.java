@@ -45,8 +45,7 @@ public class ShareWithVendorPage extends baseclass{
 			driver.findElement(By.xpath("//td[text()='"+vendor+"']//following::span[@class='checkmark CheckBoxM'][2]")).click();
 			common.addComment();
 			common.ClickSumbit();
-			Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+vendor+"']//following::input[2]")).isSelected(), true);
-			
+			Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+vendor+"']//following::input[2]")).isSelected(), true);			
 		}
 	}
 	
