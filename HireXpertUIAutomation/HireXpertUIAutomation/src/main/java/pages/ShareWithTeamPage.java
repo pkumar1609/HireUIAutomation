@@ -327,19 +327,17 @@ public class ShareWithTeamPage extends baseclass {
 		WebElement isBlockUnblockSelected = null;
 
 		if (loginpage.b == true) {
-//			isBlockUnblockSelected=driver.findElement(By.xpath("(//td[text()='"+team+"']//following::input[@type='checkbox'])[3]")); //Old
-
 			isBlockUnblockSelected = driver.findElement(
-					By.xpath("(//td[text()='" + team + "']//following::span[@class='checkmark CheckBoxM'])[2]"));
+					By.xpath("(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[2]"));
 
 			if (isBlockUnblockSelected.isSelected() == false) {
 				isBlockUnblockSelected.click();
 				common.addComment();
 				common.ClickSumbit();
 			}
-		} else {
+		} else {		
 			isBlockUnblockSelected = driver
-					.findElement(By.xpath("(//td[text()='" + team + "']//following::input[@type='checkbox'])[2]"));
+					.findElement(By.xpath("(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[2]"));
 
 			if (isBlockUnblockSelected.isSelected() == false) {
 				isBlockUnblockSelected.click();
@@ -350,7 +348,7 @@ public class ShareWithTeamPage extends baseclass {
 		if (isBlockUnblockSelected.isDisplayed() == false) {
 			Thread.sleep(1000);
 			driver.findElement(
-					By.xpath("(//td[text()='" + team + "']//following::span[@class='checkmark CheckBoxM'])[2]"))
+					By.xpath("(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[2]"))
 					.click();
 		}
 	}
@@ -359,15 +357,15 @@ public class ShareWithTeamPage extends baseclass {
 		WebElement isBlockUnblockSelected;
 		if (loginpage.b == true) {
 			isBlockUnblockSelected = driver
-					.findElement(By.xpath("(//td[text()='" + team + "']//following::input[@type='checkbox'])[3]"));
+					.findElement(By.xpath("(//td[text()='"+team+"']//following::input[@type='checkbox'])[3]"));
 		} else {
 			isBlockUnblockSelected = driver
-					.findElement(By.xpath("(//td[text()='" + team + "']//following::input[@type='checkbox'])[2]"));
+					.findElement(By.xpath("(//td[text()='"+team+"']//following::input[@type='checkbox'])[2]"));
 		}
 		if (isBlockUnblockSelected.isSelected()) {
 			Thread.sleep(1000);
 			driver.findElement(
-					By.xpath("(//td[text()='" + team + "']//following::span[@class='checkmark CheckBoxM'])[2]"))
+					By.xpath("(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM2'])"))
 					.click();
 			common.clickOnConfirmYes();
 		}
