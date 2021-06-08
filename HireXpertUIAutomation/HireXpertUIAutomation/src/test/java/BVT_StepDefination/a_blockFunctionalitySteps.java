@@ -258,7 +258,7 @@ boolean emp;
 	public void blocked_team_member_should_not_be_able_to_add_candidate() throws Throwable {
 		if(loginpage.b==true)
 		{
-		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'You are blocked by employer so you can not add more candidate now.')]")).isDisplayed(), true);   
+		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'You are blocked by your team owner for this job so you can not add more candidate now.')]")).isDisplayed(), true);   
 		}
 		else if(loginpage.b==false)
 		{
