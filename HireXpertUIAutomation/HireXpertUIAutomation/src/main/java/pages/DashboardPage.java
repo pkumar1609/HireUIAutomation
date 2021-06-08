@@ -335,6 +335,9 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath= "//div[@id='jobsActionbtndropdown']//button[text()='Clone Job']")
 	public WebElement cloneJob;
 	
+	@FindBy(xpath= "//div[@id='jobsActionbtndropdown']//button[text()='Unhold Job']")
+	public WebElement UnHoldJob;
+	
 	public String namevalidate;
 	public static String ele;
 	public static String jobId;

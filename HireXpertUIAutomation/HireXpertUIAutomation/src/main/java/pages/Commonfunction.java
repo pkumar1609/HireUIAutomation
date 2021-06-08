@@ -73,7 +73,8 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath="//button[text()='Logout']")
 	public WebElement logout;
 		
-	@FindBy(xpath="//input[@name= 'search-id']")
+//	@FindBy(xpath="//input[@name= 'search-id']") // Old
+	@FindBy(xpath="//all-jobs/div[2]/div[1]/input[@name= 'search-id']") //Dashboard Job section job search field.	
 	public WebElement searchField;
 	
 	@FindBy(xpath="//button[text()='Apply']")

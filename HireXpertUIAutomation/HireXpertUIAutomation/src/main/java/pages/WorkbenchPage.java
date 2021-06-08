@@ -25,18 +25,36 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[text()=' Candidate']")
 	public WebElement candidate;
 
-	@FindBy(xpath = "(//button[text()='Add Job'])[2]")
-	public WebElement addJob;
-
 	@FindBy(xpath = "//ng-select[@id='jobDropdown']")
 	public WebElement jobDropDown;
+	
+	@FindBy(xpath = "(//button[text()='Add Job'])[2]")
+	public WebElement addJob;
+	
+	@FindBy(xpath = "(//button[@class='dropdown-item' and contains(text(),'Edit Job ')])[1]")
+	public WebElement editJobButton;
+	
+	@FindBy(xpath = "(//button[text()=' Hold Job '])[1]")	
+	public WebElement holdJob;
+	
+	@FindBy(xpath = "//button[contains(text(),'Close Job')]")
+	public WebElement closejobbtn;
+	
+	@FindBy(xpath = "//button[contains(text(),'Add Questionary')]")
+	public WebElement AddQuestionarybtn;
+	
+	@FindBy(xpath = "(//button[contains(text(),'Audit')])[1]")
+	public WebElement jobAudit;
 
 	@FindBy(xpath = "//button[contains(text(),' View Job ')]")
 	public WebElement viewJobButton;
 
 	@FindBy(xpath = "//button[text()=' Share Job']")
 	public WebElement shareJob;
-
+	
+	@FindBy(xpath = "//button[text()=' Reload Job']")
+	public WebElement ReloadJobButton;
+	
 	@FindBy(xpath = "//button[contains(text(),' Share with Agency')]")
 	public WebElement shareWithAgencyButton;
 
@@ -49,14 +67,8 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Share With Team']")
 	public WebElement shareWithTeamButton;
 
-	@FindBy(xpath = "(//button[@class='dropdown-item' and contains(text(),'Edit Job ')])[1]")
-	public WebElement editJobButton;
-
 	@FindBy(xpath = "//button[@title='Schedule Interview']")
 	public WebElement scheduleInterview;
-
-	@FindBy(xpath = "//button[contains(text(),'Add Questionary')]")
-	public WebElement AddQuestionarybtn;
 
 	@FindBy(xpath = "//i[@class='fa fa-question-circle']")
 	public WebElement candidateCardCollectAnswericon;
@@ -103,14 +115,8 @@ public class WorkbenchPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Reload Candidate']")
 	public WebElement ReloadCandidateButton;
 
-	@FindBy(xpath = "//button[text()=' Reload Job']")
-	public WebElement ReloadJobButton;
-
 	@FindBy(xpath = "//select[@formcontrolname='AssignedToName']")
 	public WebElement filtersAssignToList;
-
-	@FindBy(xpath = "//button[contains(text(),'Close Job')]")
-	public WebElement closejobbtn;
 
 	@FindBy(id = "rejectReason")
 	public WebElement rejectcandidatereason;
@@ -120,9 +126,6 @@ public class WorkbenchPage extends baseclass {
 
 	@FindBy(xpath = "//div[text()='Show all rejected candidates']//following::div[@class='checkmark']")
 	public WebElement showAllRejectedCandidates;
-
-	@FindBy(xpath = "(//button[contains(text(),'Audit')])[1]")
-	public WebElement jobAudit;
 
 	public String jobname1;
 	public String jobname2;

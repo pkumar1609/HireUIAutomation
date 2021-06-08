@@ -33,7 +33,7 @@ public class job extends baseclass {
 	@When("^Job provider clicks on the Submit button\\.$")
 	public void job_provider_clicks_on_the_Submit_button() throws Throwable {
 		common.ClickSumbit();
-		common.clickOnOKBtn();
+		//common.clickOnOKBtn();
 	}
 
 	@Then("^Added jobs must display on the Dashboard in the job panel for logged in users and job employers\\.$")
@@ -289,7 +289,7 @@ public class job extends baseclass {
 		workbenchpage.AddJob();
 		addjobpage.addjob(credentials);
 		common.ClickSumbit();
-		common.clickOnOKBtn();
+		//common.clickOnOKBtn();
 		workbenchpage.selectJobK();
 		executor.executeScript("arguments[0].click();", workbenchpage.shareJob);
 		executor.executeScript("arguments[0].click();", workbenchpage.shareWithAgencyButton);
@@ -788,10 +788,6 @@ public class job extends baseclass {
 	public void on_application_tracking_job_should_be_displayed_with_status_as_active() throws Throwable {
 
 		addjobpage.jobname = dashboardpage.jobname;
-
-		System.out.println("--------addjobpage.jobname-------");
-		System.out.println(addjobpage.jobname);
-
 		dashboardpage.openWorkbenchPage();
 		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
 
@@ -856,4 +852,222 @@ public class job extends baseclass {
 
 //------------------------------------------------------------------------------------------
 
+	//Scenario-8
+	
+	@Then("^Employer selects newly created job and clicks Hold Job option on Application Tracking$")
+	public void employer_selects_newly_created_job_and_clicks_Hold_Job_option_on_Application_Tracking() throws Throwable {
+
+		dashboardpage.openWorkbenchPage();
+		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
+		workbenchpage.selectJobK();		
+		executor.executeScript("arguments[0].click();", workbenchpage.holdJob);
+		Thread.sleep(2000);
+		common.clickOnConfirmYes();
+	}
+
+	@Then("^verify job status changed to Hold$")
+	public void verify_job_status_changed_to_Hold() throws Throwable {
+
+		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
+		workbenchpage.selectJobK();
+		String holdStatusJobName = driver
+				.findElement(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).getText();
+		Assert.assertTrue(holdStatusJobName.contains("OnHold"));
+	}
+
+	@Then("^On Agency side application tracking page job should be display with status as Hold in job dropdown$")
+	public void on_Agency_side_application_tracking_page_job_should_be_display_with_status_as_Hold_in_job_dropdown() throws Throwable {
+		dashboardpage.openWorkbenchPage();
+		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
+		workbenchpage.selectJobK();
+		String holdStatusJobName = driver
+				.findElement(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).getText();
+		Assert.assertTrue(holdStatusJobName.contains("OnHold"));
+	}
+
+	@Then("^Agency try sharing this Hold job with its team member verify it should not get shared and display proper message \"([^\"]*)\"$")
+	public void agency_try_sharing_this_Hold_job_with_its_team_member_verify_it_should_not_get_shared_and_display_proper_message(String agencyTeamMember) throws Throwable {
+			
+		workbenchpage.selectJobK();
+        Thread.sleep(1000); 
+		executor.executeScript("arguments[0].click();",workbenchpage.shareJob );
+		Thread.sleep(1000); 
+		workbenchpage.shareWithTeamButton.click();
+		sharewithteampage.shareWithTeam(agencyTeamMember);
+		
+		Assert.assertEquals(driver.findElement(By.xpath(
+						"//h6[contains(text(),'You can not share this job as this job has been put on hold by employer.')]"))
+				.isDisplayed(), true);
+		common.clickOnOKBtn();
+		common.clickOnCloseBtn();
+	}
+
+	@Then("^On Agency CVStore in jobs dropdown job status should be displayed as OnHold$")
+	public void on_Agency_CVStore_in_jobs_dropdown_job_status_should_be_displayed_as_OnHold() throws Throwable {
+	
+		dashboardpage.openCvStorePage();	
+		Thread.sleep(1000);
+		String cvStoreHoldStatusJobName = driver
+				.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).getText();
+		Assert.assertTrue(cvStoreHoldStatusJobName.contains("OnHold"));		
+	}
+
+	@Then("^On Agency CVParser in jobs dropdown job status should be displayed as OnHold$")
+	public void on_Agency_CVParser_in_jobs_dropdown_job_status_should_be_displayed_as_OnHold() throws Throwable {
+	
+		dashboardpage.openCvParserPage();
+		Thread.sleep(1000);
+		String cvParserHoldStatusJobName = driver
+				.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).getText();
+		Assert.assertTrue(cvParserHoldStatusJobName.contains("OnHold"));
+		Thread.sleep(2000);
+		loginpage.logoutFromAppK();
+	}
+
+	@Then("^On Employer dashboard in job section job status should be displayed as OnHold and membership as Open \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void on_Employer_dashboard_in_job_section_job_status_should_be_displayed_as_OnHold_and_membership_as_Open_and(String employerUserName, String password) throws Throwable {
+
+		executor.executeScript("arguments[0].click();", loginpage.login);
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginIn(employerUserName, password);
+		loginpage.identifyUserK();
+		dashboardpage.jobname = addjobpage.jobname;
+		dashboardpage.openDashboardPage();	
+		common.searchField.clear();
+		common.searchField.sendKeys(dashboardpage.jobname);
+		Assert.assertEquals(
+				driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Open']"))
+						.isDisplayed(),true);
+	}
+
+	@Then("^On Employer CVStore in jobs dropdown job status should be displayed as OnHold$")
+	public void on_Employer_CVStore_in_jobs_dropdown_job_status_should_be_displayed_as_OnHold() throws Throwable {
+	
+		dashboardpage.openCvStorePage();		
+		Thread.sleep(1000);
+		String cvStoreHoldStatusJobName = driver
+				.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).getText();
+		Assert.assertTrue(cvStoreHoldStatusJobName.contains("OnHold"));	
+	}
+
+	@Then("^On Employer CVParser in jobs dropdown job status should be displayed as OnHold$")
+	public void on_Employer_CVParser_in_jobs_dropdown_job_status_should_be_displayed_as_OnHold() throws Throwable {
+	
+		dashboardpage.openCvParserPage();
+		Thread.sleep(1000);
+		String cvParserHoldStatusJobName = driver
+				.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).getText();
+		Assert.assertTrue(cvParserHoldStatusJobName.contains("OnHold"));	
+	}
+
+	@Then("^On Employer dashboard in job section from Action dropdown select UnHold Job and select Yes on confirm popup$")
+	public void on_Employer_dashboard_in_job_section_from_Action_dropdown_select_UnHold_Job_and_select_Yes_on_confirm_popup() throws Throwable {
+		
+		dashboardpage.jobname = addjobpage.jobname;
+		dashboardpage.openDashboardPage();
+		common.searchField.clear();
+		common.searchField.sendKeys(dashboardpage.jobname);		
+		executor.executeScript("arguments[0].click();", dashboardpage.UnHoldJob);
+		Thread.sleep(2000);
+		common.clickOnConfirmYes();
+	}
+
+	@Then("^On Employer dashboard in job section job status should be displayed as Active and membership as Open$")
+	public void on_Employer_dashboard_in_job_section_job_status_should_be_displayed_as_Active_and_membership_as_Open() throws Throwable {
+
+		dashboardpage.jobname = addjobpage.jobname;
+		dashboardpage.openDashboardPage();
+		common.searchField.clear();
+		common.searchField.sendKeys(dashboardpage.jobname);	
+		
+		Assert.assertEquals(driver
+				.findElement(By.xpath("//label[contains(text(),'Job')]//following::td[contains(text(),'Active')]"))
+				.isDisplayed(), true);
+		Assert.assertEquals(
+				driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Open']"))
+						.getText(),"Open");		
+	}
+
+	@Then("^On Employer Application Tracking status of job is displayed as Active$")
+	public void on_Employer_Application_Tracking_status_of_job_is_displayed_as_Active() throws Throwable {
+
+		dashboardpage.openWorkbenchPage();
+		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
+		workbenchpage.selectJobK();
+		String activeStatusJobName = driver
+				.findElement(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).getText();
+		Assert.assertTrue(activeStatusJobName.contains("Active"));		
+	}
+
+	@Then("^On CVStore in jobs dropdown job status should be displayed as Active$")
+	public void on_CVStore_in_jobs_dropdown_job_status_should_be_displayed_as_Active() throws Throwable {
+		
+		dashboardpage.openCvStorePage();				
+		Thread.sleep(1000);
+		String cvStoreActiveStatusJobName = driver
+				.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).getText();
+		Assert.assertTrue(cvStoreActiveStatusJobName.contains("Active"));	
+	}
+
+	@Then("^On CVParser in jobs dropdown job status should be displayed as Active$")
+	public void on_CVParser_in_jobs_dropdown_job_status_should_be_displayed_as_Active() throws Throwable {
+
+		dashboardpage.openCvParserPage();
+		Thread.sleep(1000);
+		String cvParserActiveStatusJobName = driver
+				.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).getText();
+		Assert.assertTrue(cvParserActiveStatusJobName.contains("Active"));
+		Thread.sleep(2000);
+		loginpage.logoutFromAppK();
+	}
+
+	@Then("^On Agency dashboard in job section status of job is displayed as Active \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void on_Agency_dashboard_in_job_section_status_of_job_is_displayed_as_Active_and(String agencyUserName, String password) throws Throwable {
+
+		executor.executeScript("arguments[0].click();", loginpage.login);
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginIn(agencyUserName, password);
+		loginpage.identifyUserK();		
+		dashboardpage.jobname = addjobpage.jobname;
+		dashboardpage.openDashboardPage();
+		common.searchField.clear();
+		common.searchField.sendKeys(dashboardpage.jobname);	
+		Assert.assertEquals(driver.findElement(By.xpath("//label[contains(text(),'Job')]//following::td[contains(text(),'Active')]"))
+				.isDisplayed(), true);
+	}
+
+	@Then("^On Agency Application tracking status of job is displayed as Active$")
+	public void on_Agency_Application_tracking_status_of_job_is_displayed_as_Active() throws Throwable {
+
+		dashboardpage.openWorkbenchPage();
+		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
+		workbenchpage.selectJobK();			
+		String jobActiveStatusInJobName = driver
+				.findElement(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).getText();		
+		Assert.assertTrue(jobActiveStatusInJobName.contains("Active"));
+	}
+
+	@Then("^On Agency CVStore in jobs dropdown job status should be displayed as Active$")
+	public void on_Agency_CVStore_in_jobs_dropdown_job_status_should_be_displayed_as_Active() throws Throwable {
+
+		dashboardpage.openCvStorePage();	
+		Thread.sleep(1000);
+		String cvStoreHoldStatusJobName = driver
+				.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).getText();
+		Assert.assertTrue(cvStoreHoldStatusJobName.contains("Active"));	
+	}
+
+	@Then("^On Agency CVParser in jobs dropdown job status should be displayed as Active$")
+	public void on_Agency_CVParser_in_jobs_dropdown_job_status_should_be_displayed_as_Active() throws Throwable {
+
+		dashboardpage.openCvParserPage();
+		Thread.sleep(1000);
+		String cvParserHoldStatusJobName = driver
+				.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).getText();
+		Assert.assertTrue(cvParserHoldStatusJobName.contains("Active"));
+		Thread.sleep(2000);
+		loginpage.logoutFromAppK();
+	}
+//---------------------------------------------------------
+	
 }
