@@ -1640,13 +1640,11 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass {
 	@Given("^Verify Email and contact no should not display for employer$")
 	public void verify_Email_and_contact_no_should_not_display_for_employer() throws Throwable {
 		Assert.assertEquals(
-				driver.findElement(By.xpath("//strong[text()='Email Id ']//following::td[text()='Hidden By Agency']"))
-						.isDisplayed(),
-				true);
-		Assert.assertEquals(driver
-				.findElement(
-						By.xpath("//strong[text()='Contact No. ']//following::td[contains(text(),'Hidden By Agency')]"))
-				.isDisplayed(), true);
+				driver.findElement(By.xpath("(//strong[contains(text(),'Email Id')]//following::p)[1]")).getText(),
+				"Hidden By Agency");
+		Assert.assertEquals(
+				driver.findElement(By.xpath("(//strong[contains(text(),'Contact No')]//following::p)[1]")).getText(),
+				"Hidden By Agency");
 	}
 
 	@Given("^Verify Email and contact no should not display for employer on edit candidate page$")
