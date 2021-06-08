@@ -532,7 +532,8 @@ And Delete one skill from Skills section
 And click on submit button
 And Click on Edit Candidate icon on candidate card "<Name>"
 And observe deleted skill not displayed "<Skill3>"
-And click on Close button from Edit Candidate page
+And Click on close button and confirm Yes button
+And Click on close button
 And Click on Candidate name from candidate card and observe the skills
 Then deleted skills should display on Candidate Details page "<Skill3>"
 And click on Close button from candidate Details page
