@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import utilPackage.baseclass;
 
@@ -252,8 +253,8 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
    }
 
 		public void enterEmployerEmailandPassword () throws InterruptedException {
-		
-			Emailaddress.sendKeys(RegisterPage.registerdEmail);					
+			explicitwait.until(ExpectedConditions.visibilityOf(Emailaddress));
+			Emailaddress.sendKeys(RegisterPage.registerdEmail);		
 			Password.sendKeys("12345");
 		}
 		
