@@ -147,8 +147,8 @@ Scenario Outline: User try to verify Change Status of Job as-OnHold
 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 Given job must be added and share with agency "<Agency Name>" 
-		| title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
-		| Developer | Agynew Developer | developer   | IT software | pune     | 400000 |      1 |      2 | 450000 | 800000 | pe1  | pe1@gmail.com | 1234564 |   2             | Hirexpert    | rahitech        | java           | 
+		| title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         |contact    |totalinterviews | organization | agyorganization | functionalArea |
+		| Developer | Agynew Developer | developer   | IT software | pune     | 400000 |  2     |  5     | 200000 | 500000 | pe1  | pe1@gmail.com |9812034564 |  2             | Hirexpert    | rahitech        | java           | 
 Then Employer selects newly created job and clicks Hold Job option on Application Tracking 
 And verify job status changed to Hold
 And On Agency Dashboard the job should be displayed in Jobs section with membership as Open "<Agency Name>" and "<Agency Password>" 
@@ -156,7 +156,7 @@ And On Agency side application tracking page job should be display with status a
 And Agency try sharing this Hold job with its team member verify it should not get shared and display proper message "<Agency Team Member>"
 And On Agency CVStore in jobs dropdown job status should be displayed as OnHold
 And On Agency CVParser in jobs dropdown job status should be displayed as OnHold
-And On Employer dashboard in job section job status should be displayed as OnHold and membership as Open
+And On Employer dashboard in job section job status should be displayed as OnHold and membership as Open "<Username>" and "<Password>" 
 And On Employer CVStore in jobs dropdown job status should be displayed as OnHold
 And On Employer CVParser in jobs dropdown job status should be displayed as OnHold
 Then On Employer dashboard in job section from Action dropdown select UnHold Job and select Yes on confirm popup
@@ -164,7 +164,7 @@ And On Employer dashboard in job section job status should be displayed as Activ
 And On Employer Application Tracking status of job is displayed as Active
 And On CVStore in jobs dropdown job status should be displayed as Active
 And On CVParser in jobs dropdown job status should be displayed as Active
-And On Agency dashboard in job section status of job is displayed as Active
+And On Agency dashboard in job section status of job is displayed as Active "<Agency Name>" and "<Agency Password>"  
 And On Agency Application tracking status of job is displayed as Active
 And On Agency CVStore in jobs dropdown job status should be displayed as Active
 And On Agency CVParser in jobs dropdown job status should be displayed as Active
@@ -175,7 +175,11 @@ Examples:
 
 @jobScenario9
 Scenario Outline: User try to Clone existing Job
-Given An employer logged in and creates a job
+Given User logged in to HireXpert "<Username>" and "<Password>" 
+And Logged-In user creates new job 
+		| title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
+		| Developer | Agynew Developer | developer   | IT software | pune     | 400000 |      1 |      2 | 450000 | 800000 | pe1  | pe1@gmail.com | 1234564 |               2 | Hirexpert    | rahitech        | java           | 
+Then On Application Tracking job status should be displayed as Active
 Then On Employer dashboard in Job section from Action dropdown select Clone Job and select Yes on confirm popup dialog
 And On Application Tracking cloned job is displayed
 And On CVStore in Jobs dropdown cloned job is displayed
