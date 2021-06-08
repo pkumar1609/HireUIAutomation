@@ -13,10 +13,10 @@ import utilPackage.baseclass;
 import utilPackage.utilclass;
 
 public class ShareWithTeamPage extends baseclass {
-	
+
 //	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-share-job-with-team/div[1]/h5/button")
 //	public WebElement AddTeamButton;
-	
+
 //	@FindBy(xpath = "//input[@aria-owns='a39c0e9e3a71']")
 //	public WebElement selectTeamMember;
 //	
@@ -28,62 +28,57 @@ public class ShareWithTeamPage extends baseclass {
 //	
 //	@FindBy(xpath = "//span[contains(text(),'Add to Team Member')]")
 //	public WebElement addToTeamMember;
-	
+
 //	@FindBy(xpath = "//input[@placeholder='Search']")
 //	public WebElement searchField;
-	
+
 	@FindBy(xpath = "//span[@class='checkround']")
 	public WebElement primaryContactRadioButton;
-	
-	@FindBy(xpath = "(//span[@class='checkmark CheckBoxM'])[1]")  
+
+	@FindBy(xpath = "(//span[@class='checkmark CheckBoxM'])[1]")
 	public WebElement shareCheckbox;
-	
+
 //	@FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-share-job-with-team/div[2]/div[2]/div/div/table/tbody/tr/td[5]/label/input")
 //	public WebElement shareCheckboxForSearchedTeam;
 //	
 //	@FindBy(xpath = "//td[4]//label[1]//span[1]") //2nd team member primary contact after searching
 //	public WebElement secondRowPrimaryContact;
-	
+
 //	@FindBy(id = "confirmModalBtn")
 //	public WebElement yesButtonRadioButton;
-	
+
 	@FindBy(xpath = "(//span[@class='checkmark CheckBoxM'])[2]")
 	public WebElement blockUnblockCheckboxTeam;
-		
+
 	@FindBy(xpath = "(//input[@type='checkbox'])[2]")
 	public WebElement isBlockUnblockSelected;
-	
+
 	@FindBy(xpath = "//select[@formcontrolname='teamId']")
 	public WebElement selectTeam;
-	
+
 	public ShareWithTeamPage() {
-		
+
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	public void canSeeAllCandidate(String Teamid) throws InterruptedException {
-		String canSeeAllCandidates= "(//td[text()='"+Teamid+"']//following::div[@class='checkmark CheckBoxM'])[2]";
-		
-		if(driver.findElement(By.xpath("(//td[text()='"+Teamid+"']//following::input[@type='checkbox'])[3]")).isSelected())
-		{
-			
-		} 
-		else
-		{
-		Thread.sleep(4000);
-		driver.findElement(By.xpath(canSeeAllCandidates)).click();
-		try
-		{
-			common.clickOnConfirmYes();
-		}
-		catch(NoSuchElementException e)
-		{
-			
-		}
+
+		String canSeeAllCandidates = "(//td[text()='" + Teamid + "']//following::div[@class='checkmark CheckBoxM'])[2]";
+
+		if (driver.findElement(By.xpath("(//td[text()='" + Teamid + "']//following::input[@type='checkbox'])[3]"))
+				.isSelected()) {
+
+		} else {
+			Thread.sleep(4000);
+			driver.findElement(By.xpath(canSeeAllCandidates)).click();
+			try {
+				common.clickOnConfirmYes();
+			} catch (NoSuchElementException e) {
+
+			}
 		}
 	}
-	
-	
+
 //	public void clickOnAddButton() throws InterruptedException {
 //		Thread.sleep(4000);
 //		AddTeamButton.click();
@@ -107,7 +102,7 @@ public class ShareWithTeamPage extends baseclass {
 //		searchField.click();
 //		searchField.sendKeys(expectedEmail);
 //	}
-	
+
 //	
 //	public void searchEmployerPrimaryContact(String team,String teamid) throws InterruptedException {
 //	
@@ -317,59 +312,70 @@ public class ShareWithTeamPage extends baseclass {
 //		}			
 //	}
 //	
-	public void shareWithTeam(String teamName) throws InterruptedException
-	{
+	public void shareWithTeam(String teamName) throws InterruptedException {
 		explicitwait.until(ExpectedConditions.elementToBeClickable(sharewithagencypage.name));
 		sharewithagencypage.name.sendKeys(teamName);
-		Thread.sleep(2000); 
-		driver.findElement(By.xpath("//span[contains(text(),'"+teamName+"')]")).click();
-		Thread.sleep(2000); 
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text(),'" + teamName + "')]")).click();
+		Thread.sleep(2000);
 		common.share.click();
 		common.clickOnConfirmYes();
 //		common.	shareFlag=1;
 	}
-	
-	
-	public void blockTeam(String team) throws InterruptedException
-	{
-		WebElement isBlockUnblockSelected;
-		if(loginpage.b==true)
-		{
-			isBlockUnblockSelected=driver.findElement(By.xpath("(//td[text()='"+team+"']//following::input[@type='checkbox'])[3]"));		
-		}
-		else
-		{
-			isBlockUnblockSelected=driver.findElement(By.xpath("(//td[text()='"+team+"']//following::input[@type='checkbox'])[2]"));		
-		}
-		if(isBlockUnblockSelected.isDisplayed()==false)
-			{
-				Thread.sleep(1000);
-				driver.findElement(By.xpath("(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[2]")).click();
+
+	public void blockTeam(String team) throws InterruptedException {
+		WebElement isBlockUnblockSelected = null;
+
+		if (loginpage.b == true) {
+//			isBlockUnblockSelected=driver.findElement(By.xpath("(//td[text()='"+team+"']//following::input[@type='checkbox'])[3]")); //Old
+
+			isBlockUnblockSelected = driver.findElement(
+					By.xpath("(//td[text()='" + team + "']//following::span[@class='checkmark CheckBoxM'])[2]"));
+
+			if (isBlockUnblockSelected.isSelected() == false) {
+				isBlockUnblockSelected.click();
+				common.addComment();
+				common.ClickSumbit();
+			}
+		} else {
+			isBlockUnblockSelected = driver
+					.findElement(By.xpath("(//td[text()='" + team + "']//following::input[@type='checkbox'])[2]"));
+
+			if (isBlockUnblockSelected.isSelected() == false) {
+				isBlockUnblockSelected.click();
+				common.addComment();
+				common.ClickSumbit();
 			}
 		}
-	
-	public void unblockTeam(String team) throws InterruptedException
-	{
-		WebElement isBlockUnblockSelected;
-		if(loginpage.b==true)
-		{
-			isBlockUnblockSelected=driver.findElement(By.xpath("(//td[text()='"+team+"']//following::input[@type='checkbox'])[3]"));		
-		}
-		else
-		{
-			isBlockUnblockSelected=driver.findElement(By.xpath("(//td[text()='"+team+"']//following::input[@type='checkbox'])[2]"));		
-		}		
-		if(isBlockUnblockSelected.isSelected())
-		{
+		if (isBlockUnblockSelected.isDisplayed() == false) {
 			Thread.sleep(1000);
-			driver.findElement(By.xpath("(//td[text()='"+team+"']//following::span[@class='checkmark CheckBoxM'])[2]")).click();
+			driver.findElement(
+					By.xpath("(//td[text()='" + team + "']//following::span[@class='checkmark CheckBoxM'])[2]"))
+					.click();
+		}
+	}
+
+	public void unblockTeam(String team) throws InterruptedException {
+		WebElement isBlockUnblockSelected;
+		if (loginpage.b == true) {
+			isBlockUnblockSelected = driver
+					.findElement(By.xpath("(//td[text()='" + team + "']//following::input[@type='checkbox'])[3]"));
+		} else {
+			isBlockUnblockSelected = driver
+					.findElement(By.xpath("(//td[text()='" + team + "']//following::input[@type='checkbox'])[2]"));
+		}
+		if (isBlockUnblockSelected.isSelected()) {
+			Thread.sleep(1000);
+			driver.findElement(
+					By.xpath("(//td[text()='" + team + "']//following::span[@class='checkmark CheckBoxM'])[2]"))
+					.click();
 			common.clickOnConfirmYes();
 		}
 	}
-	
-	public void makePrimaryContact(String team) throws InterruptedException
-	{
-		WebElement primaryContact = driver.findElement(By.xpath("(//td[text()='"+team+"']//following::span[@class='checkround'])[1]"));		
+
+	public void makePrimaryContact(String team) throws InterruptedException {
+		WebElement primaryContact = driver
+				.findElement(By.xpath("(//td[text()='" + team + "']//following::span[@class='checkround'])[1]"));
 		Thread.sleep(2000);
 		primaryContact.click();
 		common.clickOnConfirmYes();

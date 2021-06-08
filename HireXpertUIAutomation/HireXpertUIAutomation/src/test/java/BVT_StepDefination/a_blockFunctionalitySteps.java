@@ -93,8 +93,8 @@ boolean emp;
 	   sharewithagencypage.shareWithAgency(agyName);
 	}
 
-	@When("^block the agency \"([^\"]*)\" and add comment$")
-	public void block_the_agency_and_add_comment(String arg1) throws Throwable {
+	@When("^block the agency \"([^\"]*)\"$")
+	public void block_the_agency(String arg1) throws Throwable {
 		   sharewithagencypage.blockAgency();
 			common.addComment();
 			common.ClickSumbit();

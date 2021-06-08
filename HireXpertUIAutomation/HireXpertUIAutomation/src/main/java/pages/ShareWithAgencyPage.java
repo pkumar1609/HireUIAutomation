@@ -29,13 +29,13 @@ public class ShareWithAgencyPage extends baseclass {
 	@FindBy(xpath = "(//span[@class='checkmark CheckBoxM'])[2]")
 	public WebElement blockUnblockCheckbox;
 	
+	@FindBy(xpath = "(//span[@class='checkmark CheckBoxM2'])")
+	public WebElement unblockCheckbox;
+	
 	@FindBy(xpath = "//button[@title='Share With Agency']")
 	public WebElement shareWithAgency;
 	
-	
-	
-	
-	
+
 	public ShareWithAgencyPage() {
 		
 		PageFactory.initElements(driver, this);
@@ -51,13 +51,13 @@ public class ShareWithAgencyPage extends baseclass {
 		Thread.sleep(2000); 
 		common.share.click();
 		common.clickOnConfirmYes();
-//		common.clickOnOKBtn();
 		common.shareFlag=1;
 	}
 	
 	public void blockAgency() throws InterruptedException
 	{
 		boolean isBlockUnblockSelected=sharewithagencypage.isBlockUnblockSelected.isSelected();
+
 		if(isBlockUnblockSelected==false)
 		{
 			Thread.sleep(1000);
@@ -68,10 +68,10 @@ public class ShareWithAgencyPage extends baseclass {
 	public void unblockAgency() throws InterruptedException
 	{
 		boolean isBlockUnblockSelected=sharewithagencypage.isBlockUnblockSelected.isSelected();
+
 		if(isBlockUnblockSelected==true)
 		{
-			Thread.sleep(1000);
-			sharewithagencypage.blockUnblockCheckbox.click();
+			sharewithagencypage.unblockCheckbox.click();
 			common.clickOnConfirmYes();
 		}
 	}
