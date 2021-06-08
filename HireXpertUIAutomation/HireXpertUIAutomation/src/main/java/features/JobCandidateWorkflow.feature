@@ -499,7 +499,7 @@ And again click on Edit Job button and observe the number of interviews "<NoOfIn
 And click on Add Skill button and add one new skill "<Skill4>"
 And Click on Edit Candidate icon on candidate card "<Name>"
 Then Newly Added skills should be reflect in candidate profile which are already added for that job "<Skill4>"
-And Click on close button
+And Click on close button and confirm Yes button
 
 Examples: 
 |EmpPassword|Username       |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|NoOfInterviews1|Skill4|
