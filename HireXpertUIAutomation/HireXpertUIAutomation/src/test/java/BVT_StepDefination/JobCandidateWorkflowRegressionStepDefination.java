@@ -894,8 +894,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass {
 		executor.executeScript("window.scrollBy(0,1000)");
 		explicitwait.until(ExpectedConditions.visibilityOf(addjobpage.addskillbutton));
 		executor.executeScript("arguments[0].scrollIntoView();", addjobpage.addskillbutton);
-//		executor.executeScript("window.scrollBy(0,1000)");
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		addjobpage.addskillbutton.click();
 		addjobpage.addNewSkill1(skill4);
 		common.ClickSumbit();
