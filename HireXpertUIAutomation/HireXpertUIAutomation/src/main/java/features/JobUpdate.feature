@@ -16,7 +16,7 @@ Feature: Job Update
     And make any changes in the job "<JobNoticePeriod1>"
     And click on submit button
     And click on Edit Job button to make changes in job
-    And again click on Edit Job button andsc observe the changes "<JobNoticePeriod1>"
+    And again click on Edit Job button and observe the changes "<JobNoticePeriod1>"
     And Now Click on Add Skill button to add more than fifteen skills
     Then Verify that user get an alert message as "User should not add more than 10 skills." for adding more than ten skills
     And click on Delete Skill button in front of any skill
