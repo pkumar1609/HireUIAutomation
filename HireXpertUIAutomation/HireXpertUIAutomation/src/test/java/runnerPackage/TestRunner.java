@@ -9,13 +9,11 @@ features= "C:\\Users\\admin\\AppData\\Local\\Jenkins.jenkins\\workspace\\UI Auto
 glue= {"BVT_StepDefination"},
 dryRun= false,
 monochrome= true,
-//plugin = {"html:target/cucumber-reports", "json:target/cucumber-reports/cucumber-json"},
-//plugin = {"pretty",
-//        "html:target/cucumber-reports/cucumber.html",
-//        "json:target/cucumber-reports/cucumber.json"},
 plugin = {"pretty",
-        "html:target/cucumber-reports","json:target/cucumber.json", "junit:C:/Users/admin/AppData/Local/Jenkins.jenkins/workspace/UI Automation/HireXpertUIAutomation/HireXpertUIAutomation/target/cucumber-reports/Cucumber.xml"},
-tags=("@login,@register,@jobworkflow,@jobupdate,@interview,@JobCandidateManagement,@JCWF")
+        "html:target/cucumber-reports","json:target/cucumber.json", 
+        "junit:C:/Users/admin/AppData/Local/Jenkins.jenkins/workspace/UI Automation/HireXpertUIAutomation/HireXpertUIAutomation/target/cucumber-reports/Cucumber.xml"
+        },
+tags=("@reg8")
 )
 public class TestRunner
 {};
