@@ -174,8 +174,10 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	@When("^Now Click on Add Skill button to add more than fifteen skills$")
 	public void now_Click_on_Add_Skill_button_to_add_more_than_fifteen_skills() throws Throwable {
 		Thread.sleep(5000);	
-		executor.executeScript("arguments[0].scrollIntoView(true);", addjobpage.addskillbutton);
+		explicitwait.until(ExpectedConditions.visibilityOf(addjobpage.addskillbutton));
 		for(int i=0;i<11;i++) {	
+		executor.executeScript("arguments[0].scrollIntoView();", addjobpage.addskillbutton);
+		Thread.sleep(5000);
 		addjobpage.addskillbutton.click();
 	}
 }
