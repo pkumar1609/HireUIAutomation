@@ -16,8 +16,8 @@ import utilPackage.baseclass;
 
 public class scheduleInterview extends baseclass {
 	
-	String hourTime;
-	String minuteTime;
+//	String hourTime;
+//	String minuteTime;
 	
 	@FindBy(id = "title")
 	public WebElement title;
@@ -43,7 +43,7 @@ public class scheduleInterview extends baseclass {
 	@FindBy(xpath = "//input[@placeholder='MM']")
 	public WebElement mm;
 	
-	@FindBy(id = "//input[@formcontrolname='ScheduleTime']")
+	@FindBy(xpath = "//input[@formcontrolname='ScheduleTime']")
 	public WebElement time;
 	
 	@FindBy(xpath = "//select[@formcontrolname='HourDuration']")
@@ -75,6 +75,9 @@ public class scheduleInterview extends baseclass {
 	
 	@FindBy(xpath = "//button[@aria-label='Clear Date']")
 	public WebElement clearDate;
+	
+	@FindBy(xpath = "//h6[@class='text-justify mb-0 alert-message']")
+	public List<WebElement> alertMessage;
 	
 	Select se;
 	public boolean information=false;
@@ -146,7 +149,7 @@ public class scheduleInterview extends baseclass {
 			this.interviewerName.get(0).sendKeys(interviewerName);
 			this.interviewerEmail.get(0).sendKeys(interviewerEmail);			
 			common.ClickSumbit();	
-			information = driver.findElements(By.xpath("//h6[contains(text(),'has another interview at this time. Please check interviewer calendar to get available slot.')]")).size()>0;
+			information = alertMessage.size()>0;
 			if(information==true)
 			{
 				common.clickOnConfirmYes();
