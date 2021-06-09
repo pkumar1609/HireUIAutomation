@@ -23,7 +23,7 @@ public class AddJobPage extends baseclass {
 	public int flag;
 	public int addJobFlag = 0;
 	public String selectedOrganization;
-	public String SelectedEmployer;
+	public static String SelectedEmployer;
 	public boolean jobAddedByEmp;
 	public String skill1 = "Agile";
 	public String skill2 = "Java";
@@ -319,26 +319,32 @@ public class AddJobPage extends baseclass {
 	
 			currentTime = LocalDateTime.now();
 	
-			if (loginpage.b==true) {			
+			if (loginpage.b==true) 
+			{			
 				jobname = dtFormate.format(currentTime) + " Emp";
 				title.sendKeys(jobname);
 				Organization.clear();
 				this.Organization.sendKeys(data.get("organization"));
 				jobAddedByEmp = true;
-			} else if(loginpage.user == "agency"){
+			}
+			else if(loginpage.user == "agency")
+			{
 				jobAddedByEmp = false;
 				jobname = dtFormate.format(currentTime) + " Agy";
 				title.sendKeys(jobname);
 				select = new Select(employerId);
 				List<WebElement> options = select.getOptions();
 				boolean b = false;
-				for (WebElement option : options) {
+				for (WebElement option : options) 
+				{
 					b = option.getText().contains("pemp - ");
 					if (b == true) {
 						select.selectByVisibleText(option.getText());
+						break;
 					}
 				}
-				if (employerId.getAttribute("value").equals("Select Employer")) {
+				if (b==false) 
+				{
 					Thread.sleep(2000);
 					addEmployee.click();
 					Thread.sleep(5000);
@@ -349,7 +355,9 @@ public class AddJobPage extends baseclass {
 					common.addSubmitbtn.click();
 					select.selectByVisibleText("pemp -");
 				}
-			}		
+			}
+			SelectedEmployer=select.getFirstSelectedOption().getText().substring(0, select.getFirstSelectedOption().getText().indexOf("-")).strip();	
+			System.out.println(SelectedEmployer);
 			if (this.Organization.isEnabled()) {
 				this.Organization.sendKeys(data.get("organization"));
 			}

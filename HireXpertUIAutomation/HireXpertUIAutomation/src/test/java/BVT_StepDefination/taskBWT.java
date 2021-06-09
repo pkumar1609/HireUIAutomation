@@ -86,11 +86,8 @@ public class taskBWT extends baseclass {
 	@And("^Add job$")
 	public void add_job(DataTable credentials) throws Throwable 
 	{
-//		dashboardpage.openWorkbenchPage();
-//		workbenchpage.AddJob();
 		addjobpage.addjob(credentials);
 		common.ClickSumbit();
-//		common.clickOnOKBtn();
 	}
 
 	@And("^Select a job$")

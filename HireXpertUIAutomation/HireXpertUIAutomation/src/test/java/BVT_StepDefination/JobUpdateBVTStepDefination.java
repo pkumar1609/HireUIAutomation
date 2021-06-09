@@ -213,14 +213,15 @@ public class JobUpdateBVTStepDefination extends baseclass {
 
 		Assert.assertEquals(driver.findElement(By.xpath("//h6[contains(text(),'Job is added for this employer. First you need to close the job for this employer then you can delete the employer.')]")).isDisplayed(), true);
 		common.clickOnOKBtn();
+		
 	}
-	
+
 	@Given("^add the employer which is already present$")
 	public void add_the_employer_which_is_already_present() throws Throwable {
-		executor.executeScript("arguments[0].scrollIntoView();", addjobpage.addEmployee);
+		Thread.sleep(1000);
+		explicitwait.until(ExpectedConditions.visibilityOf(addjobpage.addEmployee));
 		Thread.sleep(4000);
 		addjobpage.addEmployee.click();
-		Thread.sleep(5000);
 		common.emailfield.sendKeys(addjobpage.SelectedEmployer+"@gmail.com");
 		Thread.sleep(2000);
 		common.find.click();
@@ -234,8 +235,9 @@ public class JobUpdateBVTStepDefination extends baseclass {
 	    common.clickOnOKBtn();
 	    Thread.sleep(2000);
 	    driver.findElement(By.xpath("(//button[text()='Close'])[2]")).click();
-	  
+
 	}
+	//span[contains(text(),'20210414005335 Agy_Clone')]
 }
 
 	
