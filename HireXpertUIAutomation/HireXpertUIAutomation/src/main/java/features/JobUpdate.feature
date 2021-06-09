@@ -1,6 +1,6 @@
 Feature: Job Update
 
-@BVTC @jobupdate @jobupdate1
+@BVTC @jobupdate 
   Scenario Outline: To verify user is able to add and edit job for Employer and Agency login
   
     Given User must be registered
@@ -16,7 +16,7 @@ Feature: Job Update
     And make any changes in the job "<JobNoticePeriod1>"
     And click on submit button
     And click on Edit Job button to make changes in job
-    And again click on Edit Job button and observe the changes "<JobNoticePeriod1>"
+    And again click on Edit Job button andsc observe the changes "<JobNoticePeriod1>"
     And Now Click on Add Skill button to add more than fifteen skills
     Then Verify that user get an alert message as "User should not add more than 10 skills." for adding more than ten skills
     And click on Delete Skill button in front of any skill
@@ -32,7 +32,7 @@ Examples:
 # If DB clear, register the employer first = employermain01@gmail.com and agency = agencymain01@gmail.com . 
 #otherwise no change required
 
-@jobupdate @jobupdate2
+@jobupdate 
 Scenario Outline:To verify that Agency is not able to delete the employer for whom job is added.
 	Given User must be registered
 	And Click on Employer-Agency Signin link
