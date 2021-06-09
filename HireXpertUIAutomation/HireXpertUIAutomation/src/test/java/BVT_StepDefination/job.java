@@ -1069,5 +1069,68 @@ public class job extends baseclass {
 		loginpage.logoutFromAppK();
 	}
 //---------------------------------------------------------
+	//Scenario-9
+
+	@Given("^Logged-In user creates new job$")
+	public void logged_In_user_creates_new_job(DataTable credentials) throws Throwable {
+		dashboardpage.openWorkbenchPage();
+		workbenchpage.AddJob();
+		addjobpage.addjob(credentials);
+		common.ClickSumbit();
+		workbenchpage.selectJobK();
+	}
+	
+	@Then("^On Employer dashboard in Job section from Action dropdown select Clone Job and select Yes on confirm popup dialog$")
+	public void on_Employer_dashboard_in_Job_section_from_Action_dropdown_select_Clone_Job_and_select_Yes_on_confirm_popup_dialog() throws Throwable {
+	
+		dashboardpage.jobname = addjobpage.jobname;		
+		dashboardpage.openDashboardPage();
+		common.searchField.clear();
+		common.searchField.sendKeys(dashboardpage.jobname);			
+		Thread.sleep(5000);		
+		WebElement cloneBtnToClick = driver.findElement(By.xpath("//td[contains(text(),'" + dashboardpage.jobname + "')]//following::div[@id='jobsActionbtndropdown']//button[text()='Clone Job']"));		
+		Thread.sleep(3000);
+		executor.executeScript("arguments[0].click();", cloneBtnToClick);		
+		Thread.sleep(2000);
+		common.clickOnOKBtn();		
+	}
+
+	@Then("^On Application Tracking cloned job is displayed$")
+	public void on_Application_Tracking_cloned_job_is_displayed() throws Throwable {
+
+		dashboardpage.openWorkbenchPage();
+		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));		
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname+"_Clone");
+				
+		Assert.assertEquals(driver.findElement(By.xpath("//span[contains(text(),'"+addjobpage.jobname+"_Clone')]")).isDisplayed(), true);
+	}
+
+	@Then("^On CVStore in Jobs dropdown cloned job is displayed$")
+	public void on_CVStore_in_Jobs_dropdown_cloned_job_is_displayed() throws Throwable {
+
+		dashboardpage.openCvStorePage();
+		Thread.sleep(1000);
+		String cvStoreCloneJobName = driver
+				                        .findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "_Clone')]")).getText();
+		
+		Assert.assertTrue(cvStoreCloneJobName.contains(addjobpage.jobname));
+		Assert.assertTrue(cvStoreCloneJobName.contains("_Clone"));					
+	}
+
+	@Then("^On CVParser in Jobs dropdown cloned job is displayed$")
+	public void on_CVParser_in_Jobs_dropdown_cloned_job_is_displayed() throws Throwable {
+
+		dashboardpage.openCvParserPage();
+		Thread.sleep(1000);
+		String cvParserClonedJobName = driver
+				.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "_Clone')]")).getText();
+		
+		Assert.assertTrue(cvParserClonedJobName.contains(addjobpage.jobname));
+		Assert.assertTrue(cvParserClonedJobName.contains("_Clone"));	
+		Thread.sleep(2000);
+		loginpage.logoutFromAppK();
+	}
+	
+//---------------------------------------------------------
 	
 }
