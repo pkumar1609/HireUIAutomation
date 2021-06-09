@@ -48,7 +48,7 @@ public class job extends baseclass {
 
 	@Then("^User should be able to add job from Dashboard also$")
 	public void user_should_be_able_to_add_job_from_Dashboard_also(DataTable credentials) throws Throwable {
-		executor.executeScript("arguments[0].click();", workbenchpage.addJob);
+		executor.executeScript("arguments[0].click();", dashboardpage.AddJob);
 		addjobpage.addjob(credentials);
 		common.ClickSumbit();
 		common.clickOnOKBtn();
