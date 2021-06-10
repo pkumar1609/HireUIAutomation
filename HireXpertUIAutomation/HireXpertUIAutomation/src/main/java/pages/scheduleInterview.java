@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -121,7 +122,8 @@ public class scheduleInterview extends baseclass {
 //		 se.selectByVisibleText(timezone1);
 //	}
 	 
-	 public void scheduleInterviewOfCandidate(String Title, String Scheduleon, String Hour1, String Minute1, String Durationhour, String DurationMinute , String TimeZone, String interviewerName, String interviewerEmail) throws InterruptedException
+	 @SuppressWarnings("deprecation")
+	public void scheduleInterviewOfCandidate(String Title, String Scheduleon, String Hour1, String Minute1, String Durationhour, String DurationMinute , String TimeZone, String interviewerName, String interviewerEmail) throws InterruptedException
 	 {
 		  
 			Thread.sleep(4000);
@@ -129,15 +131,18 @@ public class scheduleInterview extends baseclass {
 			this.calendar = Calendar.getInstance();
 			calendar.add(Calendar.DAY_OF_MONTH, +1);
 			calendar.add(Calendar.MINUTE, +10);
+			System.out.println("minute extended by"+calendar.getTime().getMinutes());
 			interviewDate = calendar.getTime().getDate()+"/"+Integer.valueOf(calendar.getTime().getMonth()+1)+"/"+Integer.valueOf(calendar.getTime().getYear()+1900);
-			System.out.println(interviewDate+"interviewDate");
+			explicitwait.until(ExpectedConditions.visibilityOf(this.ScheduleOnCalendarIcon));
 			this.ScheduleOnCalendarIcon.click();
 			common.enterdate(interviewDate);
 			executor.executeScript("arguments[0].click();",time);
 			Thread.sleep(2000);
-			this.hh.sendKeys(String.valueOf(calendar.getTime().getHours()));		
+			this.hh.sendKeys(String.valueOf(calendar.getTime().getHours()));	
+			System.out.println("hh"+calendar.getTime().getHours());
 			Thread.sleep(2000);
 			this.mm.sendKeys(String.valueOf(calendar.getTime().getMinutes()));	
+			System.out.println("mm"+calendar.getTime().getMinutes());
 			select= new Select(scheduleinterviewpage.durationHour);
 			select.selectByVisibleText(Durationhour);	
 			select= new Select(scheduleinterviewpage.durationMinute);
