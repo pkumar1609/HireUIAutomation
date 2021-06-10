@@ -28,10 +28,9 @@ Examples:
 @job 
 Scenario Outline: User edits added job by adding new changes 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
-And Add job 
+And Logged-In user creates new job
 | title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
 | Developer | Agynew Developer | developer   | IT software | pune     | 400000 |      1 |      2 | 450000 | 800000 | pe1  | pe1@gmail.com | 1234564 |               2 | Hirexpert    | rahitech        | java           | 
-When Job provider clicks on the Submit button. 
 And Employer edit added job and update job details "<JobNoticePeriod>" and "<City>"and "<City Area>" 
 Then Updated details should display in Edit Job on Application Tracking "<JobNoticePeriod>" and "<City>"and "<City Area>" 
 Then On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description "<JobNoticePeriod>" and "<City>"and "<City Area>" 
@@ -126,10 +125,9 @@ Examples:
 @jobScenario7 
 Scenario Outline: User try to verify Change Status of Job as-Active 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
-And Add job 
+And Logged-In user creates new job 
 | title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
 | Developer | Agynew Developer | developer   | IT software | pune     | 400000 |      1 |      2 | 450000 | 800000 | pe1  | pe1@gmail.com | 1234564 |               2 | Hirexpert    | rahitech        | java           | 
-When Job provider clicks on the Submit button. 
 Then On Application Tracking job status should be displayed as Active 
 And On Employer dashboard in Job section job status displayed as active and membership as Open 
 And On CVStore in Jobs dropdown job status should be displayed as Active 
