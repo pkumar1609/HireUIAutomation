@@ -3,8 +3,6 @@
 	import org.openqa.selenium.WebElement;
 	import org.openqa.selenium.support.FindBy;
 	import org.openqa.selenium.support.PageFactory;
-	import org.openqa.selenium.support.ui.ExpectedConditions;
-
 	import utilPackage.baseclass;
 
 	public class ResetPasswordPage extends baseclass {
@@ -17,6 +15,9 @@
 
 		@FindBy(xpath = "//div//h5[contains(text(),'Change Password')]")
 		public WebElement ChangePasswordWin;
+		
+		@FindBy(xpath = "//button[contains(text(),'Cancel')]")
+		public WebElement btnCancle;
 
 		@FindBy(xpath = "//input[@placeholder='Current Password']")
 		public WebElement CurrentPassword;
@@ -48,8 +49,22 @@
 		@FindBy(xpath = "//div//p[contains(text(),'Wrong password. Please use forgot password link to reset your password.')]")
 		public WebElement lnkWrongPassword;
 		
+		@FindBy(xpath="//input[@placeholder='Email address']")
+		public WebElement inpEmail;
+		
 		@FindBy(xpath="//input[@placeholder='Password']")
 		public WebElement password;
+		@FindBy(xpath="//button[contains(text(),'Change Login Email ')]")
+		public WebElement btnChangeEmail;
+		
+		@FindBy(xpath="//div/h5[contains(text(),'Change Login Email ')]")
+		public WebElement winChangeEmail;
+		
+		@FindBy(xpath="//input[@placeholder='Email address']")
+		public WebElement inpChangeEmail;
+		@FindBy(xpath = "//span[contains(text(),'Success')]")
+		public WebElement winSuccess; 
+		
 		public ResetPasswordPage() 
 		{
 			super();
@@ -58,7 +73,6 @@
 		public  void clickOnMyAccount() throws Throwable{
 			Thread.sleep(2000);
 			executor.executeScript("arguments[0].click();",myAccount);
-			//myAccount.click();
 		}
 		public void clickOnChangePassword() throws Throwable {
 			Thread.sleep(3000);
@@ -95,8 +109,15 @@
 			Thread.sleep(2000);
 
 		}
-//			Action.moveToElement(dashboardpage.recruitment).click().perform();
+		public void clickOnCancle() throws Throwable {
+			Thread.sleep(3000);
+			executor.executeScript("arguments[0].click();",btnCancle);
+			Thread.sleep(2000);
 
+			
+		}
+		
+		
 
 
 

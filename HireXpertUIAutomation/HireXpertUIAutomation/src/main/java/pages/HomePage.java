@@ -30,7 +30,7 @@ public HomePage() {
 	public void clickJobseekerCandidateSignInlinklink() throws InterruptedException {
 		Thread.sleep(2000);
 		Action.moveToElement(loginpage.login).click().perform();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 	    executor.executeScript("arguments[0].click();", JobseekerCandidateSignInlink);
 	}	
 		

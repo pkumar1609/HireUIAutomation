@@ -139,7 +139,12 @@ public class LoginPage extends baseclass {
 		Thread.sleep(2000);
 		signin.click();
 	}
-
+	public void loginInNew(String Username, String Password) throws InterruptedException {
+		emailaddress.sendKeys(Username);
+		password.sendKeys(Password);
+		Thread.sleep(4000);
+		signin.click();
+	}
 	public void loginIn(String Username, String Password) throws InterruptedException {
 		emailaddress.sendKeys(Username);
 		password.sendKeys(Password);
@@ -215,7 +220,7 @@ public class LoginPage extends baseclass {
 		explicitwait.until(ExpectedConditions.elementToBeClickable(myAccount));
 		Action.moveToElement(myAccount).click().perform();
 		executor.executeScript("arguments[0].click();", Logout);
-		executor.executeScript("arguments[0].click();", common.logout);
+		//executor.executeScript("arguments[0].click();", common.logout);
 	}
 
 	public void identifyUserK() throws InterruptedException {
