@@ -177,14 +177,14 @@ public class job extends baseclass {
 		addjobpage.cityArea.sendKeys(cityArea);
 
 		common.submitbtn.click();
-		Thread.sleep(4000);
+		Thread.sleep(10000);
 	}
 
 	@Then("^Updated details should display in Edit Job on Application Tracking \"([^\"]*)\" and \"([^\"]*)\"and \"([^\"]*)\"$")
 	public void updated_details_should_display_in_Edit_Job_on_Application_Tracking(String jobNoticePeriod, String city,
 			String cityArea) throws Throwable {
 
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
 		explicitwait.until(ExpectedConditions.visibilityOf(addjobpage.noticePeriod));
@@ -193,8 +193,9 @@ public class job extends baseclass {
 		Assert.assertEquals(addjobpage.cityArea.getAttribute("value").strip(), cityArea);
 
 		common.clickOnCloseBtn();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		common.clickOnConfirmYes();
+		Thread.sleep(7000);
 	}
 
 	@Then("^On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description \"([^\"]*)\" and \"([^\"]*)\"and \"([^\"]*)\"$")
@@ -223,11 +224,13 @@ public class job extends baseclass {
 	@Then("^User should be able to edit the job details from Dashboard also \"([^\"]*)\"$")
 	public void user_should_be_able_to_edit_the_job_details_from_Dashboard_also(
 			String updatedJobNoticePeriodFromDashboardEditJob) throws Throwable {
+		
+		Thread.sleep(3000);		
 		dashboardpage.openDashboardPage();
 		common.searchField.clear();
 		common.searchField.sendKeys(addjobpage.jobname);
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
-		executor.executeScript("arguments[0].click();", dashboardpage.editJob);
+		executor.executeScript("arguments[0].click();", dashboardpage.editJob); //**********
 
 		explicitwait.until(ExpectedConditions.visibilityOf(addcandidatepage.noticePeriod));
 		Thread.sleep(3000);
@@ -236,19 +239,18 @@ public class job extends baseclass {
 
 		Thread.sleep(3000);
 		common.submitbtn.click();
+		Thread.sleep(7000);
 	}
 
 	@Then("^On Employer Dashboard updated job details in read only mode must be displayed on clicking View Job Description \"([^\"]*)\"$")
 	public void on_Employer_Dashboard_updated_job_details_in_read_only_mode_must_be_displayed_on_clicking_View_Job_Description(
 			String updatedjobDashBrdNoticePeriod) throws Throwable {
-
+	
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
 		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
-
 		Thread.sleep(2000);
 		Assert.assertTrue(driver.findElement(By.xpath("(//strong[contains(text(),'Notice Period')]//following::p)[1]"))
 				.getText().strip().contains("30"), "30");
-
 		common.clickOnCloseBtn();
 	}
 
@@ -256,39 +258,33 @@ public class job extends baseclass {
 	public void verify_JobUpdate_entry_should_be_created() throws Throwable {
 
 		executor.executeScript("arguments[0].click();", dashboardpage.jobUpdate);
-
 		Assert.assertEquals(
 				driver.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed(),
 				true);
-
 		jobupdatepage.selectJob(addjobpage.jobname);
 		jobupdatepage.selectUpdateType("Job Update");
 		jobupdatepage.btnSearchClick();
 
 		Assert.assertEquals(driver.findElement(By.xpath("//td[contains(text(),\"'" + dashboardpage.jobId + "-"
 				+ addjobpage.jobname + "' has been updated.\")]")).isDisplayed(), true);
-
 		common.clickOnCloseBtn();
 	}
 
 	@Then("^Verify Audit log should be created$")
 	public void verify_Audit_log_should_be_created() throws Throwable {
 
-		System.out.println("Audit started");
-
 		dashboardpage.openWorkbenchPage();
-		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
-		workbenchpage.selectJobK();
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
+		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));	
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.jobAudit);
 		Assert.assertEquals(driver.findElement(By.xpath(
 				"//td[contains(text(),'Add Job')]//following::td[contains(text(),'" + addjobpage.jobname + "')]"))
 				.isDisplayed(), true);
-
 		common.clickOnCloseBtn();
 	}
 
-//	----------//----------------------------
+//----------//----------------------------
 
 	// jobScenario3
 

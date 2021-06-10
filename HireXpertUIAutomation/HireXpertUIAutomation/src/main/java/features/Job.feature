@@ -1,6 +1,6 @@
 Feature: Job 
 
-@job1 
+@job
 Scenario Outline: User adds new job and should be displayed to all 
 Given User logged in to HireXpert "<username>" and "<Password>" 
 And Logged-In user creates new job 
@@ -25,7 +25,7 @@ Examples:
 | pemp@gmail.com | 12345678 | pagy@gmail.com |
 		
 		
-@job 
+@job
 Scenario Outline: User edits added job by adding new changes 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 And Logged-In user creates new job
@@ -40,7 +40,7 @@ Then Verify JobUpdate entry should be created
 Then Verify Audit log should be created 
 Examples: 
 |Username       | Password | JobNoticePeriod |City    | City Area | JobNoticePeriodForDashboard|
-|pemp@gmail.com | 12345678 |  50             |Chennai | Vandalur  | 30                          |
+|pemp@gmail.com | 12345678 |  50             |Chennai | Vandalur  | 30                         |
 				
 				
 @job 
