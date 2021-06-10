@@ -316,7 +316,7 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath= "//button[@title='Add Job']")
 	public WebElement AddJob;
 	
-	@FindBy(xpath= "//td[@class='text-center w-6 w-5-desk-4']")
+	@FindBy(xpath= "//td[@class='text-center w-6 w-5-desk-4 align-middle']")
 	public WebElement Id;
 	
 	@FindBy(xpath= "(//td//following::button)[1]")

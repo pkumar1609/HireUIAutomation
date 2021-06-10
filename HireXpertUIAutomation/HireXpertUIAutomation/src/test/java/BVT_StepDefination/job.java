@@ -1,21 +1,15 @@
 package BVT_StepDefination;
 
 import java.util.List;
-import java.util.Map;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
 import cucumber.api.DataTable;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pages.DashboardPage;
-import pages.JobUpdatesPage;
 import utilPackage.baseclass;
 
 public class job extends baseclass {
@@ -33,7 +27,6 @@ public class job extends baseclass {
 	@When("^Job provider clicks on the Submit button\\.$")
 	public void job_provider_clicks_on_the_Submit_button() throws Throwable {
 		common.ClickSumbit();
-		//common.clickOnOKBtn();
 	}
 
 	@Then("^Added jobs must display on the Dashboard in the job panel for logged in users and job employers\\.$")
@@ -48,17 +41,19 @@ public class job extends baseclass {
 
 	@Then("^User should be able to add job from Dashboard also$")
 	public void user_should_be_able_to_add_job_from_Dashboard_also(DataTable credentials) throws Throwable {
+		
 		executor.executeScript("arguments[0].click();", dashboardpage.AddJob);
 		addjobpage.addjob(credentials);
 		common.ClickSumbit();
 		common.clickOnOKBtn();
 		common.searchField.clear();
-		common.searchField.sendKeys(addjobpage.jobname);
+		common.searchField.sendKeys(addjobpage.jobname);		
 		dashboardpage.jobId = dashboardpage.Id.getText();
 	}
 
 	@Then("^Added job should display on Select Job To Add Candidate Dialog\\.$")
 	public void added_job_should_display_on_Select_Job_To_Add_Candidate_Dialog() throws Throwable {
+		
 		executor.executeScript("arguments[0].click();", dashboardpage.AddCandidate);
 		dashboardpage.selectJob.sendKeys(addjobpage.jobname);
 		Assert.assertEquals(
@@ -82,15 +77,26 @@ public class job extends baseclass {
 		Assert.assertEquals(
 				driver.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed(),
 				true);
+		dashboardpage.openCvParserPage();
+		Assert.assertEquals(
+				driver.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed(),
+				true);
 	}
 
 	@Then("^For newly added job audit log should be generated$")
 	public void for_newly_added_job_audit_log_should_be_generated() throws Throwable {
+		
 		dashboardpage.openWorkbenchPage();
-		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
-		workbenchpage.selectJobK();
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
+		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));		
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
-		executor.executeScript("arguments[0].click();", workbenchpage.jobAudit);
+
+		WebElement auditBtn = driver.findElement(By.xpath(
+				                                  "(//button[@class='dropdown-item' and contains(text(),' Audit ')])[1]"));
+		explicitwait.until(ExpectedConditions.visibilityOf(auditBtn));
+		
+		executor.executeScript("arguments[0].click();", auditBtn);	
+
 		Assert.assertEquals(driver.findElement(By.xpath(
 				"//td[contains(text(),'Add Job')]//following::td[contains(text(),'" + addjobpage.jobname + "')]"))
 				.isDisplayed(), true);
@@ -99,6 +105,7 @@ public class job extends baseclass {
 
 	@Then("^For newly added job, Job update entry should be created$")
 	public void for_newly_added_job_Job_update_entry_should_be_created() throws Throwable {
+		
 		executor.executeScript("arguments[0].click();", dashboardpage.recruitment);
 		executor.executeScript("arguments[0].click();", dashboardpage.jobUpdate);
 		Assert.assertEquals(
@@ -125,13 +132,15 @@ public class job extends baseclass {
 			executor.executeScript("arguments[0].click();", workbenchpage.shareWithAgencyButton);
 			sharewithagencypage.shareWithAgency(managerecruitmentagencies.name);
 			common.clickOnCloseBtn();
+			loginpage.logoutFromAppK();
 		}
 	}
 
 	@Then("^Share job should be display on applicant tracking page at agency side \"([^\"]*)\"$")
 	public void share_job_should_be_display_on_applicant_tracking_page_at_agency_side(String agencyName)
 			throws Throwable {
-		loginpage.logoutFromAppK();
+		
+		loginpage.ClickOnEmployerAgencySigninLink();	
 		loginpage.loginIn(agencyName, "12345");
 		loginpage.identifyUserK();
 		if (loginpage.user == "agency") {
