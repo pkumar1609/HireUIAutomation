@@ -3,7 +3,6 @@ Feature: Interview Management
 	@BVTC @Regression @interview
 	Scenario Outline: To verify the functionality of scheduled interview with Employer and Agency login
 	Given User must be registered
-
 	When title of login page is Home
 	And Click on Employer-Agency Signin link
 	And Employer enters valid credentials "<Username>","<Password>"
@@ -34,12 +33,11 @@ Feature: Interview Management
     And observe the interview date and time displayed on candidate card below Assign To field "<Name>"
     And click on Interviews tab
     And Select the filters for which you want candidate interview details and click on Search button "<scheduleon1>"
-    Then Interview details should be reflect according to the filter applied "<scheduleon1>" "<Name>"
-  
+    Then Interview details should be reflect according to the filter applied "<scheduleon1>" "<Name>"  
    Examples: 
-    |Username       |Password |		CandidateEmail      |  Name       |    ContactNumber |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber   | Title      | Hour | Minute |  DurationHour  | DurationMinute|TimeZone                     					 | hour | DurationMinute1  | scheduleon   |scheduleon1 |interviewerName|interviewerEmail|
-    |pemp@gmail.com | 12345678| hirecan15@gmail.com     | hirecan15   |   9125671966     |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     |   0			  |   15 Minutes  |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 30 Minutes       | 20/5/2021   |23/5/2021  |pe2			  |pe2@gmail.com   |
-    |pagy@gmail.com | 12345   | hirecan16@gmail.com     | hirecan16   |   9125671966     |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     |   0     		  |   15 Minutes  |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 30 Minutes       | 20/5/2021   |23/5/2021  |pe1            |pe1@gmail.com   |
+    |Username       |Password | CandidateEmail      |  Name     | ContactNumber | Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber   | Title      | Hour | Minute |  DurationHour  | DurationMinute|TimeZone                     					 | hour | DurationMinute1  | scheduleon   |scheduleon1 |interviewerName|interviewerEmail|
+    |pemp@gmail.com | 12345   | hirecan15@gmail.com | hirecan15 | 9125671966    | Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     |   0			  |   15 Minutes  |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 30 Minutes       | 20/5/2021   |23/5/2021  |pe2			  |pe2@gmail.com   |
+    |pagy@gmail.com | 12345   | hirecan16@gmail.com | hirecan16 | 9125671966    | Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     |   0     		  |   15 Minutes  |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 30 Minutes       | 20/5/2021   |23/5/2021  |pe1            |pe1@gmail.com   |
   
 #TC ID:- 30 [Schedule Interview BVT TC]
 #TC ID :- 105,108,110,224 [Interview Management BVT TC]

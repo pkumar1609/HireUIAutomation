@@ -2,7 +2,7 @@ Feature: Job
 
 @job
 Scenario Outline: User adds new job and should be displayed to all 
-Given User logged in to HireXpert "<username>" and "<Password>" 
+Given User logged in to HireXpert "<Username>" and "<Password>" 
 And Logged-In user creates new job 
 | title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
 | Developer | Agynew Developer | developer   | IT software | pune     | 400000 |      1 |      2 | 450000 | 800000 | pe1  | pe1@gmail.com | 1234564 |               2 | Hirexpert    | rahitech        | java           |
@@ -19,10 +19,10 @@ And At least one agency should be added
 | Name | Email          | contact |
 | pagy | pagy@gmail.com | 1234564 |
 When Employer share job with an agency 
-Then Share job should be display on applicant tracking page at agency side "<agencyName>" 
+Then Share job should be display on applicant tracking page at agency side "<AgencyName>" 
 Examples: 
-| username       | Password |agencyName      |
-| pemp@gmail.com | 12345678 | pagy@gmail.com |
+| Username       | Password | AgencyName      |
+| pemp@gmail.com | 12345    | pagy@gmail.com |
 		
 		
 @job
@@ -40,10 +40,10 @@ Then Verify JobUpdate entry should be created
 Then Verify Audit log should be created 
 Examples: 
 |Username       | Password | JobNoticePeriod |City    | City Area | JobNoticePeriodForDashboard|
-|pemp@gmail.com | 12345678 |  50             |Chennai | Vandalur  | 30                         |
+|pemp@gmail.com | 12345    |  50             |Chennai | Vandalur  | 30                         |
 				
 				
-@job 
+@job
 Scenario Outline: User adds new skill to the added job 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 Given job must be added and share with agency "<agencyName>" 
@@ -64,10 +64,10 @@ Then On JobUpdates entry should be created for newly added skills
 Then On Audit log verify for newly added skill is displayed 
 Examples: 
 |Username      |agencyName      |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
-|pemp@gmail.com|pagy@gmail.com  |12345678 |hirecan32@gmail.com |jr software developer|hirecan32|8890685538    |Sr.developer  |14/02/1995      |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
+|pemp@gmail.com|pagy@gmail.com  |12345    |hirecan32@gmail.com |jr software developer|hirecan32|8890685538    |Sr.developer  |14/02/1995      |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
 						
-@job 
+@job4
 Scenario Outline: User Remove an existing skill from the added job 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 And job must be added with skill and share with agency "<agencyName>" "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>" 
@@ -82,8 +82,8 @@ And Skill match score of the candidate will change according to the removed skil
 Then On JobUpdates entry should be created for removed skills 
 Then On Audit log verify for removed skill is displayed 
 Examples: 
-|Username      |agencyName      |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
-|pemp@gmail.com|pagy@gmail.com  |12345678 |hirecan32@gmail.com |jr software developer|hirecan32|8890685538    |Sr.developer  |14/02/1995      |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
+|Username      |agencyName      |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date       |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
+|pemp@gmail.com|pagy@gmail.com  |12345    |hirecan32@gmail.com |jr software developer|hirecan32|8890685538    |Sr.developer  |14/02/1995 |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 								
 								
 @jobScenario5 
@@ -104,7 +104,7 @@ Then Employer should be able closed the job from Dashboard "<Username>" and "<Pa
 | Developer | Agynew Developer | developer   | IT software | Mumbai   | 600000 |   2    |   5    | 450000 | 700000 | pe1  | pe1@gmail.com | 1234564 |    2            | Hirexpert    | rahitech        | java           |
 Examples: 
 |  Username       | Password |  Agency Name    | Agency Password|Agency Team Member |
-|  pemp@gmail.com | 12345678 | 	pagy@gmail.com | 12345          | pa1              |
+|  pemp@gmail.com | 12345    | 	pagy@gmail.com | 12345          | pa1               |
 										
 										
 @job 
@@ -119,7 +119,7 @@ Then Verify job status displayed as active and membership as open
 And On application tracking job should be displayed with status as active 
 Examples: 
 |  Username       | Password | 
-|  pemp@gmail.com | 12345678 |
+|  pemp@gmail.com | 12345    |
 												
 												
 @jobScenario7 
@@ -134,7 +134,7 @@ And On CVStore in Jobs dropdown job status should be displayed as Active
 And On CVParser in Jobs dropdown job status should be displayed as Active 
 Examples: 
 |  Username       | Password |
-|  pemp@gmail.com | 12345678 |	
+|  pemp@gmail.com | 12345    |	
 														
 														
 @job 
@@ -164,7 +164,7 @@ And On Agency CVStore in jobs dropdown job status should be displayed as Active
 And On Agency CVParser in jobs dropdown job status should be displayed as Active 
 Examples: 
 |  Username       | Password |  Agency Name    | Agency Password|Agency Team Member |
-|  pemp@gmail.com | 12345678 | 	pagy@gmail.com | 12345          |  pa1              |
+|  pemp@gmail.com | 12345    | 	pagy@gmail.com | 12345          |  pa1              |
 																
 																
 @job 
@@ -180,6 +180,6 @@ And On CVStore in Jobs dropdown cloned job is displayed
 And On CVParser in Jobs dropdown cloned job is displayed 
 Examples: 
 |  Username       | Password |
-|  pemp@gmail.com | 12345678 |	
+|  pemp@gmail.com | 12345    |	
 																		
 																		
