@@ -11,7 +11,7 @@ import cucumber.api.java.en.When;
 import utilPackage.baseclass;
 
 public class ResetPasswordStepDefination extends baseclass {
-	
+
 
 	public ResetPasswordStepDefination() throws IOException {
 
@@ -30,14 +30,14 @@ public class ResetPasswordStepDefination extends baseclass {
 		Thread.sleep(2000);
 		loginpage.loginInNew(Username, Password);
 		Thread.sleep(5000);
-		
+
 
 		explicitwait.until(ExpectedConditions.visibilityOf(resetPage.myAccount));
 		resetPage.clickOnMyAccount();
-		
+
 		Thread.sleep(3000);
 	}
-	
+
 	@When("^when the user clicks on the change password on the profile window$")
 	public void when_the_user_clicks_on_the_change_password_on_the_profile_window() throws Throwable {
 		resetPage.clickOnChangePassword();
@@ -78,13 +78,13 @@ public class ResetPasswordStepDefination extends baseclass {
 		Thread.sleep(2000);
 		loginpage.Logout.click();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winRateUS));
-		
+
 		Assert.assertEquals(resetPage.winRateUS.isDisplayed(), true);
 		resetPage.Logout.click();
 
 		Thread.sleep(5000);
 
-		}
+	}
 	@Then("^Users should not be able to login with an old password \"([^\"]*)\",\"([^\"]*)\"$")
 	public void users_should_not_be_able_to_login_with_an_old_password(String Username1, String Password1) throws Throwable {
 
@@ -92,7 +92,7 @@ public class ResetPasswordStepDefination extends baseclass {
 		Thread.sleep(2000);
 		registerpage.clickEmployerAgencySignInlink();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winWelcome));
-		
+
 		Assert.assertEquals(resetPage.winWelcome.isDisplayed(), true);
 		Thread.sleep(2000);
 		loginpage.loginInNew(Username1, Password1);
@@ -112,7 +112,7 @@ public class ResetPasswordStepDefination extends baseclass {
 		loginpage.signin.click();
 		Thread.sleep(5000);
 	}
-	
+
 	@Given("^Candididate login to HireXpert \"([^\"]*)\",\"([^\"]*)\"$")
 	public void candididate_login_to_HireXpert(String Username, String Password) throws Throwable {
 		baseclass.initialization();
@@ -128,9 +128,9 @@ public class ResetPasswordStepDefination extends baseclass {
 
 		explicitwait.until(ExpectedConditions.visibilityOf(resetPage.myAccount));
 		resetPage.clickOnMyAccount();
-		
+
 		Thread.sleep(3000);
-	
+
 	}
 
 
@@ -149,17 +149,17 @@ public class ResetPasswordStepDefination extends baseclass {
 
 		explicitwait.until(ExpectedConditions.visibilityOf(resetPage.myAccount));
 		resetPage.clickOnMyAccount();
-		
+
 		Thread.sleep(3000);
-	
+
 	}
 	@When("^User clicks the ChangeLoginEmail   option on the profile  window$")
 	public void user_clicks_the_ChangeLoginEmail_option_on_the_profile_window() throws Throwable {
-	
-	resetPage.btnChangeEmail.click();
-	explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winChangeEmail));
-	Assert.assertEquals(resetPage.winChangeEmail.isDisplayed(), true);
-	
+
+		resetPage.btnChangeEmail.click();
+		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winChangeEmail));
+		Assert.assertEquals(resetPage.winChangeEmail.isDisplayed(), true);
+
 	}
 
 	@When("^The Change  Login Email  pop up window appears , fill the  data click on submit button \"([^\"]*)\",\"([^\"]*)\"$")
@@ -170,7 +170,7 @@ public class ResetPasswordStepDefination extends baseclass {
 		resetPage.password.sendKeys(Password);
 		Thread.sleep(2000);
 		resetPage.btnSubmit.click();
-	
+
 	}
 
 
@@ -178,19 +178,19 @@ public class ResetPasswordStepDefination extends baseclass {
 	public void successful_pop_up_message_displayed_as(String arg1) throws Throwable {
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winSuccess));
 		Assert.assertEquals(resetPage.winSuccess.isDisplayed(), true);
-		
+
 		resetPage.clickOnOK();
 		Thread.sleep(3000);
-		
+
 	}
-	
+
 	@Then("^Users should not  be able to login with old Email id \"([^\"]*)\",\"([^\"]*)\"$")
 	public void users_should_not_be_able_to_login_with_old_Email_id(String Username1, String Password) throws Throwable {
 		registerpage.clickLogin();
 		Thread.sleep(2000);
 		registerpage.clickEmployerAgencySignInlink();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winWelcome));
-		
+
 		Assert.assertEquals(resetPage.winWelcome.isDisplayed(), true);
 		Thread.sleep(2000);
 		loginpage.loginInNew(Username1, Password);
@@ -198,10 +198,10 @@ public class ResetPasswordStepDefination extends baseclass {
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.inpEmail));
 		Assert.assertEquals(resetPage.inpEmail.isDisplayed(), true);
 		Thread.sleep(3000);
-	
+
 	}
 
-	
+
 	@Then("^Users should be able to login with a new Email id \"([^\"]*)\"$")
 	public void users_should_be_able_to_login_with_a_new_Email_id(String Username) throws Throwable {
 		resetPage.inpEmail.clear();
@@ -210,13 +210,13 @@ public class ResetPasswordStepDefination extends baseclass {
 		Thread.sleep(2000);
 		loginpage.signin.click();
 		Thread.sleep(5000);
-	
-	
+
+
 	}
 	@Given("^User login to HireXpert Application\"([^\"]*)\",\"([^\"]*)\"$")
 	public void user_login_to_HireXpert_Application(String Username, String Password) throws Throwable {
-	
-	    baseclass.initialization();
+
+		baseclass.initialization();
 		driver.navigate().refresh();
 		Thread.sleep(4000);
 		registerpage.clickLogin();
@@ -229,15 +229,15 @@ public class ResetPasswordStepDefination extends baseclass {
 
 		explicitwait.until(ExpectedConditions.visibilityOf(resetPage.myAccount));
 		resetPage.clickOnMyAccount();
-		
+
 		Thread.sleep(3000);
 	}
 
-	
+
 	@When("^User clicks the Change Password   option on the profile  window\\.$")
 	public void user_clicks_the_Change_Password_option_on_the_profile_window() throws Throwable {
 		resetPage.clickOnChangePassword();
-		
+
 	}
 
 	@When("^The Change password   pop up window appears\\.$")
@@ -268,7 +268,7 @@ public class ResetPasswordStepDefination extends baseclass {
 
 		explicitwait.until(ExpectedConditions.visibilityOf(resetPage.myAccount));
 		resetPage.clickOnMyAccount();
-		
+
 		Thread.sleep(3000);
 	}
 
@@ -291,6 +291,6 @@ public class ResetPasswordStepDefination extends baseclass {
 		resetPage.clickOnCancle();
 	}
 
-	
+
 
 }

@@ -1,6 +1,4 @@
 Feature: HireXpert Reset password Feature. 
-
-
 @resetPassword 
 Scenario Outline: Verify change password for all users except candidate. 
 

@@ -68,8 +68,8 @@ public class LoginPage extends baseclass {
 	public WebElement login;
 
 	public String username;
-	public String user =null;
-	public boolean b=false;
+	public String user = null;
+	public boolean b = false;
 	public String logedinuser;
 	Actions Action = new Actions(driver);
 	WebDriverWait explicitwait = new WebDriverWait(driver, 80);
@@ -139,12 +139,14 @@ public class LoginPage extends baseclass {
 		Thread.sleep(2000);
 		signin.click();
 	}
+
 	public void loginInNew(String Username, String Password) throws InterruptedException {
 		emailaddress.sendKeys(Username);
 		password.sendKeys(Password);
 		Thread.sleep(4000);
 		signin.click();
 	}
+
 	public void loginIn(String Username, String Password) throws InterruptedException {
 		emailaddress.sendKeys(Username);
 		password.sendKeys(Password);
@@ -220,13 +222,13 @@ public class LoginPage extends baseclass {
 		explicitwait.until(ExpectedConditions.elementToBeClickable(myAccount));
 		Action.moveToElement(myAccount).click().perform();
 		executor.executeScript("arguments[0].click();", Logout);
-		//executor.executeScript("arguments[0].click();", common.logout);
+		// executor.executeScript("arguments[0].click();", common.logout);
 	}
 
 	public void identifyUserK() throws InterruptedException {
 		explicitwait.until(ExpectedConditions.visibilityOf(myAccount));
 		Action.moveToElement(myAccount).click().perform();
-		String loggedUser=loggedInUser.getAttribute("title");
+		String loggedUser = loggedInUser.getAttribute("title");
 		switch (loggedInUser.getAttribute("title")) {
 		case "Employer":
 			b = true;

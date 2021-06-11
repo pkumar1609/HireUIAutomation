@@ -12,10 +12,7 @@ Scenario Outline: Verify user having only one primary contact with Employer and 
 	Examples: 
       |Username             |Password|Username1           |Password1|colName      |colData              |Password2|
 	  |employer101@gmail.com|12345   |support100@gmail.com|12345    |Sent To Email|employer101@gmail.com|123456   |
-	  |agency101@gmail.com  |12345   |support100@gmail.com|12345    |Sent To Email|agency101@gmail.com  |123456   |
-	  
-
-
+	  |agency101@gmail.com  |12345   |support100@gmail.com|12345    |Sent To Email|agency101@gmail.com  |123456   |	  
 @forgetPassword
 Scenario Outline: Wrong email id entered
 
@@ -29,25 +26,20 @@ Scenario Outline: Wrong email id entered
 	  
 @forgetPassword
 Scenario Outline: Verify When the job provider enters the correct email id.
-
-
     Given Navigate to HireXpert 
     When  User login with valid email id and password."<Username>","<Password>"
     Then Users should be able to see a dashboard page.
-   
-	Examples: 
+   Examples: 
       |Username             |Password|
 	  |employer101@gmail.com|12345   |
 	  |agency101@gmail.com  |12345   |
 	  
 @forgetPassword
 Scenario Outline: Verify when candidate enters correct email id hirexpert.
-
     Given candidate Navigate to HireXpert 
     When  User login with valid candidate email id and password."<Username>","<Password>"
     Then Users should be able to see a dashboard page.
-   
-	Examples: 
+   	Examples: 
       |Username              |Password |
 	  |candidate100@gmail.com|12345678 |
 	  
