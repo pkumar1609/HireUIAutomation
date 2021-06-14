@@ -1,18 +1,11 @@
 package BVT_StepDefination;
 
 import utilPackage.baseclass;
-
 import java.util.List;
-import java.util.Map;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import cucumber.api.DataTable;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -32,11 +25,11 @@ public class JobQuestionnaireStepDefination extends baseclass {
 		List<WebElement> collectanswericon = driver.findElements(By.xpath("//button[@title='Collect Answer']"));
 		Assert.assertEquals(collectanswericon.size() > 0, false);
 	}
-	
+
 	@When("^Click on Questionnaire tab$")
 	public void click_on_Questionnaire_tab() throws InterruptedException {
 
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		workbenchpage.clickonAddQuestionarybtn();
 	}
 
@@ -46,7 +39,6 @@ public class JobQuestionnaireStepDefination extends baseclass {
 		Thread.sleep(3000);
 		workbenchpage.candidateCardCollectAnswericon.click();
 	}
-
 
 	@When("^Enter first question \"([^\"]*)\" and marks \"([^\"]*)\"$")
 	public void enter_first_question_and_marks(String QUESTION1, String QMARKS1) throws InterruptedException {
@@ -87,7 +79,7 @@ public class JobQuestionnaireStepDefination extends baseclass {
 
 		Thread.sleep(3000);
 		addquestionarypage.AddQUESTION3(QUESTION3);
-		addquestionarypage.AddMARKS3(QMARKS3);	
+		addquestionarypage.AddMARKS3(QMARKS3);
 	}
 
 	@When("^Enter the answer \"([^\"]*)\" \"([^\"]*)\" and enter Marks \"([^\"]*)\" \"([^\"]*)\"  for thrid question$")
@@ -98,13 +90,13 @@ public class JobQuestionnaireStepDefination extends baseclass {
 		addquestionarypage.AddANSWERS3(ANSWER5, ANSWER6);
 		addquestionarypage.AddMARKS3(MARKS5, MARKS6);
 	}
-	
+
 	@When("^Enter fourth question \"([^\"]*)\" and marks \"([^\"]*)\"$")
 	public void enter_fourth_question_and_marks(String QUESTION4, String QMARKS4) throws Throwable {
 
 		Thread.sleep(3000);
 		addquestionarypage.AddQUESTION4(QUESTION4);
-		addquestionarypage.AddMARKS4(QMARKS4);	
+		addquestionarypage.AddMARKS4(QMARKS4);
 	}
 
 	@When("^Enter the answer \"([^\"]*)\" \"([^\"]*)\" and enter Marks \"([^\"]*)\" \"([^\"]*)\"  for fourth question$")
@@ -115,7 +107,26 @@ public class JobQuestionnaireStepDefination extends baseclass {
 		addquestionarypage.AddANSWERS4(ANSWER7, ANSWER8);
 		addquestionarypage.AddMARKS4(MARKS7, MARKS8);
 	}
-	
+
+	@Then("^Answer the same question$")
+	public void answer_the_same_question() throws Throwable {
+
+		Thread.sleep(2000);
+		explicitwait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[@class='checkmark'])[1]")))
+				.click();
+	}
+
+	@Then("^Edit the same question$")
+	public void edit_the_same_question() throws Throwable {
+
+		Thread.sleep(2000);
+		common.editbtn.get(0).click();
+		WebElement inpurMarks = driver
+				.findElement(By.xpath("//input[@placeholder='Mark' and @formcontrolname='Marks']"));
+		inpurMarks.clear();
+		inpurMarks.sendKeys("35");
+	}
+
 	@Then("^click on that Questionnaire tab and verify the answers given by employer$")
 	public void click_on_that_Questionnaire_tab_and_verify_the_answers_given_by_employer() throws Throwable {
 
@@ -132,15 +143,12 @@ public class JobQuestionnaireStepDefination extends baseclass {
 	}
 
 	@Then("^Verify revised question is displayed$")
-	public void verify_revided_question_is_displayed() throws Throwable {
+	public void verify_revised_question_is_displayed() throws Throwable {
 
 		Thread.sleep(3000);
-
-		Assert.assertEquals(driver.findElement(By.xpath(
-				"//h5[contains(text(),'Screening Questions')]//following::strong[contains(text(),'What is Selenium')]"))
-				.isDisplayed(), true);
-
-		common.clickOnCloseBtn();	
+		Assert.assertEquals(
+				driver.findElement(By.xpath("//h6[contains(text(),'Revised Job Questions')]")).isDisplayed(), true);
+		common.clickOnCloseBtn();
 	}
 
 	@When("^Add question and click on save changes button \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
@@ -159,7 +167,6 @@ public class JobQuestionnaireStepDefination extends baseclass {
 	public void click_on_Collect_Answers_icon_on_candidate_card() throws Throwable {
 
 		Thread.sleep(3000);
-//		workbenchpage.candidateCardCollectAnswericon.click();
 		executor.executeScript("arguments[0].click();", workbenchpage.candidateCardCollectAnswericon);
 	}
 
@@ -237,7 +244,6 @@ public class JobQuestionnaireStepDefination extends baseclass {
 		executor.executeScript("arguments[0].click();", addquestionarypage.SubmitBtn);
 	}
 
-
 //	@Then("^answer the question by selecting the provided options$")
 //	public void answer_the_question_by_selecting_the_provided_options() throws Throwable {
 //
@@ -252,14 +258,12 @@ public class JobQuestionnaireStepDefination extends baseclass {
 //		Thread.sleep(3000);
 //		addquestionarypage.verifypassfailicon();
 //	}
-	
+
 //	@Then("^click on that Questionnaire tab and verify the answers given by employer$")
 //	public void click_on_that_Questionnaire_tab_and_verify_the_answers_given_by_employer() throws Throwable {
 //
 //		Thread.sleep(3000);
 //		candidatedashboardpage.ClickonQuestionnairetab();
 //	}
-	
-	
-	
+
 }

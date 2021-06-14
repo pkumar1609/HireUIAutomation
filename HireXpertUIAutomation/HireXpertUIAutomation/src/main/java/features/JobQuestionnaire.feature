@@ -1,6 +1,5 @@
 Feature: Job Questionnaire
 
-
 @Questionary
 Scenario Outline: Verify the functionality of Add Questionary, Edit question on questionary page and delete Questionary by Delete Questionnaire button and Delete icon.
 Given User must be registered
@@ -68,17 +67,18 @@ And Click on Questionnaire tab
 And Enter first question "<QUESTION1>" and marks "<QMARKS1>" 
 And Enter the answer "<ANSWER1>" "<ANSWER2>"  and enter Marks "<MARKS1>" "<MARKS2>" for first question
 And click on Save Changes button
-And Enter second question "<QUESTION2>" and marks "<QMARKS2>" 
-And Enter the answer "<ANSWER3>" "<ANSWER4>"  and enter Marks "<MARKS3>" "<MARKS4>" for second question
-And click on Save Changes button
-And Enter thrid question "<QUESTION3>" and marks "<QMARKS3>" 
-And Enter the answer "<ANSWER5>" "<ANSWER6>" and enter Marks "<MARKS5>" "<MARKS6>"  for thrid question
-And click on Save Changes button
 And Enter the cutoff & rejection percentage "<Cuttoffpercentage>" "<Rejectionpercentage>" 
 And click on submit
+Then Click on  Collect Answers icon on candidate card
+And Answer the same question
+And click on submit
 And Click on Questionnaire tab
-And Enter fourth question "<QUESTION4>" and marks "<QMARKS4>" 
-And Enter the answer "<ANSWER7>" "<ANSWER8>" and enter Marks "<MARKS7>" "<MARKS8>"  for fourth question
+And Edit the same question
+And click on Save Changes button
+And click on submit
+And Click on Questionnaire tab
+And Enter second question "<QUESTION2>" and marks "<QMARKS2>" 
+And Enter the answer "<ANSWER3>" "<ANSWER4>"  and enter Marks "<MARKS3>" "<MARKS4>" for second question
 And click on Save Changes button
 And click on submit
 Then Click on  Collect Answers icon on candidate card

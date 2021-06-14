@@ -70,6 +70,9 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath="//button[@class='btn btn-outline-danger']")
 	public List<WebElement> deletebtn;
 	
+	@FindBy(xpath="//button[@class='btn Custom-btn mr-2']")
+	public List<WebElement> editbtn;
+	
 	@FindBy(xpath="//button[text()='Logout']")
 	public WebElement logout;
 		
