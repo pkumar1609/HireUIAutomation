@@ -99,20 +99,13 @@ public class CandidateDashboardPage extends baseclass {
 		if(Jobs.size() != 0 && Questionnarietab.size() != 0 ){
 			
 			System.out.println("Job-1 Test Engineer, job is present on candidate dashboard and Questionnaire tab is present for that job.");
-
 		}
-		
-		
 		else {
 			
-			System.out.println("Questionnaire tab is not present for that job");
-	
+			System.out.println("Questionnaire tab is not present for that job");	
 		}
 }
 
-   public void ClickonQuestionnairetab() {
-	   
-	   QuestionnarieTab.click();
-   }
+
 }
 
