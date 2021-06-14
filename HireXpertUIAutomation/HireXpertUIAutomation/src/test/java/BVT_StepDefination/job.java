@@ -294,8 +294,7 @@ public class job extends baseclass {
 		workbenchpage.AddJob();
 		addjobpage.addjob(credentials);
 		common.ClickSumbit();
-		//common.clickOnOKBtn();
-		workbenchpage.selectJobK();
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);	
 		executor.executeScript("arguments[0].click();", workbenchpage.shareJob);
 		executor.executeScript("arguments[0].click();", workbenchpage.shareWithAgencyButton);
 		sharewithagencypage.shareWithAgency(agencyname);
@@ -435,7 +434,7 @@ public class job extends baseclass {
 		loginpage.ClickOnEmployerAgencySigninLink();
 		loginpage.loginIn(Username, Password);
 		dashboardpage.openWorkbenchPage();
-		workbenchpage.selectJobK();
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
 		explicitwait.until(ExpectedConditions.visibilityOf(candidatecardsectionpage.editCandidate));
 		executor.executeScript("arguments[0].click();", candidatecardsectionpage.editCandidate);
 		explicitwait.until(ExpectedConditions.visibilityOf(editcandidatepage.skillMatchScore));
@@ -465,14 +464,13 @@ public class job extends baseclass {
 	@Then("^On Audit log verify for newly added skill is displayed$")
 	public void on_Audit_log_verify_for_newly_added_skill_is_displayed() throws Throwable {
 		dashboardpage.openWorkbenchPage();
-		workbenchpage.selectJobK();
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.jobAudit);
 		Assert.assertEquals(driver
 				.findElement(By.xpath("//td[contains(text(),\" pemp updated '" + addjobpage.jobname + "' job.\")]"))
 				.isDisplayed(), true);
 		common.clickOnCloseBtn();
-
 	}
 
 //---------------------------------------------------------------
@@ -491,8 +489,7 @@ public class job extends baseclass {
 		addjobpage.addSkills(Skill1, Skill2, Skill3, level1, level2, level3, Weightage1, Weightage2, Weightage3,
 				certificate1, certificate2, certificate3, remark1, remark2, remark3);
 		common.ClickSumbit();
-		common.clickOnOKBtn();
-		workbenchpage.selectJobK();
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
 		executor.executeScript("arguments[0].click();", workbenchpage.shareJob);
 		executor.executeScript("arguments[0].click();", workbenchpage.shareWithAgencyButton);
 		sharewithagencypage.shareWithAgency(agencyname);
@@ -536,13 +533,13 @@ public class job extends baseclass {
 			executor.executeScript("arguments[0].click();", btn);
 		}
 		common.ClickSumbit();
+		Thread.sleep(7000);
 	}
 
 	@Then("^Agency \"([^\"]*)\" \"([^\"]*)\" logs in to view shared job and checks removed skill is not displayed \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void agency_logs_in_to_view_shared_job_and_checks_removed_skill_is_not_displayed(String Username,
 			String Password, String Skill1, String Skill2, String Skill3) throws Throwable {
 		loginpage.logoutFromAppK();
-		common.clickOnOKBtn();
 		loginpage.ClickOnEmployerAgencySigninLink();
 		loginpage.loginIn(Username, "12345");
 		common.searchField.sendKeys(addjobpage.jobname);
@@ -551,7 +548,6 @@ public class job extends baseclass {
 		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
 		Assert.assertEquals(driver.findElements(By.xpath("//strong[contains(text(),'Skill')]")).size() > 0, false);
 		common.clickOnCloseBtn();
-
 	}
 
 	@Then("^On Candidate Dashboard under Job Hiring section click on job link and verify removed skill should not be displayed in the job details dialog \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -611,13 +607,10 @@ public class job extends baseclass {
 	public void on_Application_Tracking_page_Employer_clicks_Close_job_option_and_click_No_button_on_confirmation_popup()
 			throws Throwable {
 
-		workbenchpage.selectJobK();
-
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
-
 		executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
-
 		Thread.sleep(3000);
 		common.clickNoButton();
 	}
@@ -625,8 +618,8 @@ public class job extends baseclass {
 	@Then("^verify job do not get closed$")
 	public void verify_job_do_not_get_closed() throws Throwable {
 
-		workbenchpage.selectJobK();
-
+		//workbenchpage.selectJobK();
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
 		Assert.assertEquals(
 				driver.findElement(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed(),
 				true);
@@ -635,12 +628,10 @@ public class job extends baseclass {
 	@Then("^Employer selects Close job option and clicks Yes on popup$")
 	public void employer_selects_Close_job_option_and_clicks_Yes_on_popup() throws Throwable {
 
-		workbenchpage.selectJobK();
-
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
-
 		common.clickOnConfirmYes();
 	}
 
@@ -671,7 +662,7 @@ public class job extends baseclass {
 
 		dashboardpage.openWorkbenchPage();
 		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
-		workbenchpage.selectJobK();
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
 
 		Assert.assertEquals(
 				driver.findElements(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).size() > 0,
@@ -686,7 +677,6 @@ public class job extends baseclass {
 		executor.executeScript("arguments[0].click();", workbenchpage.shareJob);
 		Thread.sleep(1000);
 		workbenchpage.shareWithTeamButton.click();
-
 		sharewithteampage.shareWithTeam(agencyTeamMember);
 
 		Assert.assertEquals(driver
@@ -796,7 +786,7 @@ public class job extends baseclass {
 		dashboardpage.openWorkbenchPage();
 		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
 
-		workbenchpage.selectJobK();
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
 
 		Assert.assertEquals(
 				driver.findElements(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).size() > 0,
@@ -816,7 +806,7 @@ public class job extends baseclass {
 
 		dashboardpage.openWorkbenchPage();
 		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
-		workbenchpage.selectJobK();
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
 		String activeStatusJobName = driver
 				.findElement(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).getText();
 		Assert.assertTrue(activeStatusJobName.contains("Active"));
@@ -893,7 +883,7 @@ public class job extends baseclass {
 	@Then("^Agency try sharing this Hold job with its team member verify it should not get shared and display proper message \"([^\"]*)\"$")
 	public void agency_try_sharing_this_Hold_job_with_its_team_member_verify_it_should_not_get_shared_and_display_proper_message(String agencyTeamMember) throws Throwable {
 			
-		workbenchpage.selectJobK();
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
         Thread.sleep(1000); 
 		executor.executeScript("arguments[0].click();",workbenchpage.shareJob );
 		Thread.sleep(1000); 
@@ -998,7 +988,7 @@ public class job extends baseclass {
 
 		dashboardpage.openWorkbenchPage();
 		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
-		workbenchpage.selectJobK();
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
 		String activeStatusJobName = driver
 				.findElement(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).getText();
 		Assert.assertTrue(activeStatusJobName.contains("Active"));		
@@ -1046,7 +1036,7 @@ public class job extends baseclass {
 
 		dashboardpage.openWorkbenchPage();
 		explicitwait.until(ExpectedConditions.visibilityOf(workbenchpage.job));
-		workbenchpage.selectJobK();			
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
 		String jobActiveStatusInJobName = driver
 				.findElement(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).getText();		
 		Assert.assertTrue(jobActiveStatusInJobName.contains("Active"));
@@ -1082,7 +1072,7 @@ public class job extends baseclass {
 		workbenchpage.AddJob();
 		addjobpage.addjob(credentials);
 		common.ClickSumbit();
-		workbenchpage.selectJobK();
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
 	}
 	
 	@Then("^On Employer dashboard in Job section from Action dropdown select Clone Job and select Yes on confirm popup dialog$")
