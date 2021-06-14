@@ -97,6 +97,10 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath="//textarea[@placeholder='Enter Comment']")
 	public WebElement CommentTextArea;
 	
+	@FindBy(xpath="//span[@class='close']")
+	public WebElement closeIcon;
+	
+	
 	WebDriverWait explicitwait = new WebDriverWait(driver,80);
 	
 	public void ClickonCrossIcon()
@@ -156,6 +160,7 @@ public class Commonfunction extends baseclass {
 	public void ClickSumbit() throws InterruptedException
 	{
 		Thread.sleep(4000);
+		explicitwait.until(ExpectedConditions.visibilityOf(submitbtn));
 		executor.executeScript("arguments[0].click();",submitbtn);
 //		submitbtn.click(); 
 	}
