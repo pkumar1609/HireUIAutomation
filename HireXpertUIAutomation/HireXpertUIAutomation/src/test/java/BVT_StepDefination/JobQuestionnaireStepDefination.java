@@ -4,6 +4,7 @@ import utilPackage.baseclass;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import cucumber.api.java.en.Then;
@@ -17,6 +18,19 @@ public class JobQuestionnaireStepDefination extends baseclass {
 		Thread.sleep(3000);
 		workbenchpage.job.click();
 		workbenchpage.AddQuestionarybtn.click();
+	}
+
+	@When("^Candidate is moved to New column$")
+	public void candidate_is_moved_to_New_column() throws Throwable {
+
+		explicitwait.until(ExpectedConditions.elementToBeClickable(candidatecardsectionpage.editCandidate));
+		WebElement drag = candidatecardsectionpage.candidateCard;
+		WebElement drop = driver.findElement(By.xpath("//td[2]"));
+		Actions action = new Actions(driver);
+		Thread.sleep(3000);
+		action.clickAndHold(drag);
+		executor.executeScript("arguments[0].scrollIntoView()", drop);
+		action.moveToElement(drop).release(drop).perform();
 	}
 
 	@When("^Verify Collect Answer icon when no questionary is added for that job$")
@@ -244,26 +258,13 @@ public class JobQuestionnaireStepDefination extends baseclass {
 		executor.executeScript("arguments[0].click();", addquestionarypage.SubmitBtn);
 	}
 
-//	@Then("^answer the question by selecting the provided options$")
-//	public void answer_the_question_by_selecting_the_provided_options() throws Throwable {
-//
-//		Thread.sleep(4200);
-//		addquestionarypage.answerthequestion();
-//		common.ClickSumbit();
-//	}
+	@When("^Verify candidate present in Reject column$")
+	public void Verify_candidate_present_in_Reject_column() throws Throwable {
 
-//	@Then("^verify if the answer is correct it should display pass icon on candidate card or it should display fail icon if the asnswer is wrong with the candidate card in screened column$")
-//	public void verify_if_the_answer_is_correct_it_should_display_pass_icon_on_candidate_card_or_it_should_display_fail_icon_if_the_asnswer_is_wrong_with_the_candidate_card_in_screened_column() throws Throwable {
-//
-//		Thread.sleep(3000);
-//		addquestionarypage.verifypassfailicon();
-//	}
-
-//	@Then("^click on that Questionnaire tab and verify the answers given by employer$")
-//	public void click_on_that_Questionnaire_tab_and_verify_the_answers_given_by_employer() throws Throwable {
-//
-//		Thread.sleep(3000);
-//		candidatedashboardpage.ClickonQuestionnairetab();
-//	}
+		Thread.sleep(3000);
+		WebElement candCard = driver.findElement(By.xpath(
+				"//th[contains(text(),' Rejected ')]//following::h6[@title='Candidate Details']/child::span[text()=' hirecanQ']"));
+		Assert.assertEquals(candCard.isDisplayed(), true);
+	}
 
 }
