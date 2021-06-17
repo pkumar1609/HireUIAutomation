@@ -267,4 +267,47 @@ public class JobQuestionnaireStepDefination extends baseclass {
 		Assert.assertEquals(candCard.isDisplayed(), true);
 	}
 
+	@Then("^On candidate dashboard in Job section click on Screening for that job to which candidate is added$")
+	public void on_candidate_dashboard_in_Job_section_click_on_Screening_for_that_job_to_which_candidate_is_added() throws Throwable {
+
+		Thread.sleep(3000);
+		WebElement screeningLinkToClick = driver.findElement(By.xpath(
+				"//p[contains(text(),'"+addjobpage.jobname+"')]//following::a[@title='View screen detail']/child::p[text()='Screening']"));
+		Assert.assertEquals(screeningLinkToClick.isDisplayed(), true);		
+		screeningLinkToClick.click();
+	}
+	
+	@Then("^Verify candidate status$")
+	public void verify_candidate_status() throws Throwable {
+
+		Thread.sleep(2000);
+		//click job reload btn
+		driver.findElement(By.xpath("//button[@ngbtooltip='Reload jobs']")).click();
+			
+		WebElement status = driver.findElement(By.xpath(
+				"(//p[contains(text(),'"+addjobpage.jobname+"')]//following::p[text()=' Screened '])[1]"));
+
+		Assert.assertEquals(status.getText().strip().equals("Screened"), true);		
+	}
+	
+	@Then("^On Employer login verify candidate card is moved to screening column$")
+	public void on_Employer_login_verify_candidate_card_is_moved_to_screening_column() throws Throwable {
+
+		loginpage.logoutFromAppK();
+		Thread.sleep(3000);
+		common.logout.click();	
+		Action.moveToElement(loginpage.login).perform();
+		loginpage.ClickOnEmployerAgencySigninLink();			
+		Thread.sleep(3000);
+		registerpage.employerlogin();
+		
+		dashboardpage.openWorkbenchPage();		
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
+		
+		WebElement candCard = driver.findElement(By.xpath(
+				"//th[contains(text(),' Screened ')]//following::h6[@title='Candidate Details']/child::span[text()=' hirecanQ']"));
+		Assert.assertEquals(candCard.isDisplayed(), true);
+	}
+	
+	
 }
