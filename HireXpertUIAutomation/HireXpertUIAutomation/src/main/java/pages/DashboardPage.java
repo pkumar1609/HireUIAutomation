@@ -248,6 +248,8 @@ public class DashboardPage extends baseclass {
 	@FindBy(xpath= "//a[contains(text(),'CV Parser')] ")
 	public WebElement cvParser ;
 	
+	@FindBy(xpath= "//a[contains(text(),'Job Offered')] ")
+	public WebElement jobOffered ;
 	
 	@FindBy(xpath= "//a[text()='Tasks']")
 	public WebElement task ;
@@ -419,6 +421,13 @@ public class DashboardPage extends baseclass {
 		Action.moveToElement(dashboardpage.recruitment).build().perform();
 		dashboardpage.cvParser.click();
 	}
+	
+	public void openJobOfferedPage() throws InterruptedException
+	{
+		Action.moveToElement(dashboardpage.recruitment).build().perform();
+		dashboardpage.jobOffered.click();
+	}
+	
 	
 	public void VerifyUserIsOnCorrectPage() {
 		Action.moveToElement(loginpage.myAccount).perform();
