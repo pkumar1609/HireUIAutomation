@@ -1,6 +1,6 @@
 Feature: Job 
 
-@job
+@Job
 Scenario Outline: User adds new job and should be displayed to all 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 And Logged-In user creates new job 
@@ -25,7 +25,7 @@ Examples:
 | pemp@gmail.com | 12345    | pagy@gmail.com |
 		
 		
-@job
+@Job
 Scenario Outline: User edits added job by adding new changes 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 And Logged-In user creates new job
@@ -43,7 +43,7 @@ Examples:
 |pemp@gmail.com | 12345    |  50             |Chennai | Vandalur  | 30                         |
 				
 				
-@job
+@Job
 Scenario Outline: User adds new skill to the added job 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 Given job must be added and share with agency "<agencyName>" 
@@ -67,7 +67,7 @@ Examples:
 |pemp@gmail.com|pagy@gmail.com  |12345    |hirecan32@gmail.com |jr software developer|hirecan32|8890685538    |Sr.developer  |14/02/1995      |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
 						
-@job4
+@Job
 Scenario Outline: User Remove an existing skill from the added job 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 And job must be added with skill and share with agency "<agencyName>" "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>" 
@@ -86,7 +86,7 @@ Examples:
 |pemp@gmail.com|pagy@gmail.com  |12345    |hirecan32@gmail.com |jr software developer|hirecan32|8890685538    |Sr.developer  |14/02/1995 |Female  |Yes           |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 								
 								
-@jobScenario5 
+@Job
 Scenario Outline: User try to Close existing Job 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 Given job must be added and share with agency "<Agency Name>" 
@@ -107,7 +107,7 @@ Examples:
 |  pemp@gmail.com | 12345    | 	pagy@gmail.com | 12345          | pa1               |
 										
 										
-@job 
+@Job
 Scenario Outline: User try to Re-Open Closed Job 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 Then Employer add job in dashboard and should be able closed the job from Dashboard 
@@ -122,7 +122,7 @@ Examples:
 |  pemp@gmail.com | 12345    |
 												
 												
-@jobScenario7 
+@Job
 Scenario Outline: User try to verify Change Status of Job as-Active 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 And Logged-In user creates new job 
@@ -137,7 +137,7 @@ Examples:
 |  pemp@gmail.com | 12345    |	
 														
 														
-@job 
+@Job
 Scenario Outline: User try to verify Change Status of Job as-OnHold 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 Given job must be added and share with agency "<Agency Name>" 
@@ -167,7 +167,7 @@ Examples:
 |  pemp@gmail.com | 12345    | 	pagy@gmail.com | 12345          |  pa1              |
 																
 																
-@job 
+@Job
 Scenario Outline: User try to Clone existing Job 
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 And Logged-In user creates new job 

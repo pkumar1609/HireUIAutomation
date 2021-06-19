@@ -74,10 +74,12 @@ public class job extends baseclass {
 	@Then("^Added job should also display on CV Store and CV parser page in Jobs drop-down list$")
 	public void added_job_should_also_display_on_CV_Store_and_CV_parser_page_in_Jobs_drop_down_list() throws Throwable {
 		dashboardpage.openCvStorePage();
+		Thread.sleep(3000);
 		Assert.assertEquals(
 				driver.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed(),
 				true);
 		dashboardpage.openCvParserPage();
+		Thread.sleep(3000);
 		Assert.assertEquals(
 				driver.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed(),
 				true);
@@ -133,6 +135,8 @@ public class job extends baseclass {
 			sharewithagencypage.shareWithAgency(managerecruitmentagencies.name);
 			common.clickOnCloseBtn();
 			loginpage.logoutFromAppK();
+			Thread.sleep(2000);
+			common.logout.click();	
 		}
 	}
 
@@ -188,6 +192,7 @@ public class job extends baseclass {
 		executor.executeScript("arguments[0].click();", workbenchpage.job);
 		executor.executeScript("arguments[0].click();", workbenchpage.editJobButton);
 		explicitwait.until(ExpectedConditions.visibilityOf(addjobpage.noticePeriod));
+		Thread.sleep(2000);
 		Assert.assertEquals(addjobpage.noticePeriod.getAttribute("value").strip(), jobNoticePeriod);
 		Assert.assertEquals(addjobpage.city.getAttribute("value").strip(), city);
 		Assert.assertEquals(addjobpage.cityArea.getAttribute("value").strip(), cityArea);
@@ -207,7 +212,9 @@ public class job extends baseclass {
 		common.searchField.sendKeys(addjobpage.jobname);
 		DashboardPage.jobId = dashboardpage.Id.getText();
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
-		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
+		
+		explicitwait.until(ExpectedConditions.elementToBeClickable(
+				driver.findElement(By.xpath("//td[contains(text(),'"+addjobpage.jobname+"')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'View Job Description')][1]")))).click();
 
 		Assert.assertTrue(driver.findElement(By.xpath("(//strong[contains(text(),'Notice Period')]//following::p)[1]"))
 				.getText().strip().contains("50"), jobNoticePeriod);
@@ -230,10 +237,10 @@ public class job extends baseclass {
 		common.searchField.clear();
 		common.searchField.sendKeys(addjobpage.jobname);
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
-		executor.executeScript("arguments[0].click();", dashboardpage.editJob); //**********
+		
+		explicitwait.until(ExpectedConditions.elementToBeClickable(
+				driver.findElement(By.xpath("//td[contains(text(),'"+addjobpage.jobname+"')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'Edit Job')][1]")))).click();
 
-		explicitwait.until(ExpectedConditions.visibilityOf(addcandidatepage.noticePeriod));
-		Thread.sleep(3000);
 		addcandidatepage.noticePeriod.clear();
 		addcandidatepage.noticePeriod.sendKeys(updatedJobNoticePeriodFromDashboardEditJob);
 
@@ -247,8 +254,10 @@ public class job extends baseclass {
 			String updatedjobDashBrdNoticePeriod) throws Throwable {
 	
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
-		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
-		Thread.sleep(2000);
+
+		explicitwait.until(ExpectedConditions.elementToBeClickable(
+				driver.findElement(By.xpath("//td[contains(text(),'"+addjobpage.jobname+"')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'View Job Description')][1]")))).click();
+
 		Assert.assertTrue(driver.findElement(By.xpath("(//strong[contains(text(),'Notice Period')]//following::p)[1]"))
 				.getText().strip().contains("30"), "30");
 		common.clickOnCloseBtn();
@@ -650,6 +659,7 @@ public class job extends baseclass {
 			String agencyUserName, String agencyPwd) throws Throwable {
 
 		loginpage.logoutFromAppK();
+		common.logout.click();
 		executor.executeScript("arguments[0].click();", loginpage.login);
 		loginpage.ClickOnEmployerAgencySigninLink();
 		loginpage.loginIn(agencyUserName, agencyPwd);
@@ -688,6 +698,7 @@ public class job extends baseclass {
 		Thread.sleep(1000);
 		common.clickOnCloseBtn();
 		loginpage.logoutFromAppK();
+		common.logout.click();	
 	}
 
 	@Then("^Employer should be able closed the job from Dashboard \"([^\"]*)\" and \"([^\"]*)\"$")
@@ -737,7 +748,9 @@ public class job extends baseclass {
 		common.searchField.sendKeys(dashboardpage.jobname);
 
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
-		executor.executeScript("arguments[0].click();", dashboardpage.closeJob);
+		
+		explicitwait.until(ExpectedConditions.elementToBeClickable(
+				driver.findElement(By.xpath("//td[contains(text(),'"+dashboardpage.jobname+"')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'Close Job')][1]")))).click();
 
 		Thread.sleep(2000);
 		common.clickOnConfirmYes();
@@ -751,16 +764,17 @@ public class job extends baseclass {
 
 		Assert.assertEquals(
 				driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Closed']"))
-						.getText(),
-				"Closed");
+						.getText(),"Closed");
 	}
 
 	@Then("^On Employer dashboard in Job section from action dropdown select reOpen job and select yes on confirm popup$")
 	public void on_Employer_dashboard_in_Job_section_from_action_dropdown_select_reOpen_job_and_select_yes_on_confirm_popup()
 			throws Throwable {
 
-		executor.executeScript("arguments[0].click();", dashboardpage.reopenJob);
-		Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
+		explicitwait.until(ExpectedConditions.elementToBeClickable(
+				driver.findElement(By.xpath("//td[contains(text(),'"+dashboardpage.jobname+"')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'Reopen Job')][1]")))).click();
+		
 		common.clickOnConfirmYes();
 	}
 
@@ -775,8 +789,7 @@ public class job extends baseclass {
 				.isDisplayed(), true);
 		Assert.assertEquals(
 				driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Open']"))
-						.getText(),
-				"Open");
+						.getText(),"Open");
 	}
 
 	@Then("^On application tracking job should be displayed with status as active$")
@@ -821,8 +834,7 @@ public class job extends baseclass {
 		common.searchField.sendKeys(addjobpage.jobname);
 		Assert.assertEquals(
 				driver.findElement(By.xpath("//label[contains(text(),'Membership')]//following::td[text()='Open']"))
-						.getText(),
-				"Open");
+						.getText(),	"Open");
 	}
 
 	@Then("^On CVStore in Jobs dropdown job status should be displayed as Active$")
@@ -917,6 +929,7 @@ public class job extends baseclass {
 		Assert.assertTrue(cvParserHoldStatusJobName.contains("OnHold"));
 		Thread.sleep(2000);
 		loginpage.logoutFromAppK();
+		common.logout.click();	
 	}
 
 	@Then("^On Employer dashboard in job section job status should be displayed as OnHold and membership as Open \"([^\"]*)\" and \"([^\"]*)\"$")
@@ -1014,6 +1027,7 @@ public class job extends baseclass {
 		Assert.assertTrue(cvParserActiveStatusJobName.contains("Active"));
 		Thread.sleep(2000);
 		loginpage.logoutFromAppK();
+		common.logout.click();	
 	}
 
 	@Then("^On Agency dashboard in job section status of job is displayed as Active \"([^\"]*)\" and \"([^\"]*)\"$")
@@ -1062,6 +1076,7 @@ public class job extends baseclass {
 		Assert.assertTrue(cvParserHoldStatusJobName.contains("Active"));
 		Thread.sleep(2000);
 		loginpage.logoutFromAppK();
+		common.logout.click();	
 	}
 //---------------------------------------------------------
 	//Scenario-9
@@ -1124,6 +1139,7 @@ public class job extends baseclass {
 		Assert.assertTrue(cvParserClonedJobName.contains("_Clone"));	
 		Thread.sleep(2000);
 		loginpage.logoutFromAppK();
+		common.logout.click();	
 	}
 	
 //---------------------------------------------------------
