@@ -65,6 +65,11 @@ public class taskBWT extends baseclass {
 	public void Logout_from_App() throws Throwable {
 		Thread.sleep(2000);
 		loginpage.logoutFromAppK();
+		Thread.sleep(2000);
+		common.logout.click();
+		if (common.okbtnPopup.size() > 0) {
+			common.clickOnOKBtn();
+		}
 	}
 
 //	@And("^Login with employer team$")
