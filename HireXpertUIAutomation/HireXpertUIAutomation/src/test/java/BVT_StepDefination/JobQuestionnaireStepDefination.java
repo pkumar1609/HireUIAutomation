@@ -287,6 +287,11 @@ public class JobQuestionnaireStepDefination extends baseclass {
 		// click job reload btn
 		driver.findElement(By.xpath("//button[@ngbtooltip='Reload jobs']")).click();
 
+		Thread.sleep(6000);
+		
+		explicitwait.until(ExpectedConditions.visibilityOf(driver.findElement(
+				By.xpath("(//p[contains(text(),'" + addjobpage.jobname + "')]//following::p[text()=' Screened '])[1]"))));
+		
 		String statusValue = driver.findElement(
 				By.xpath("(//p[contains(text(),'" + addjobpage.jobname + "')]//following::p[text()=' Screened '])[1]")).getText().strip();
 
