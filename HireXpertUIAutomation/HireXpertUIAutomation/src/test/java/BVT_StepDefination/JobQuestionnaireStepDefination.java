@@ -3,6 +3,7 @@ package BVT_StepDefination;
 import utilPackage.baseclass;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -285,12 +286,24 @@ public class JobQuestionnaireStepDefination extends baseclass {
 		// click job reload btn
 		driver.findElement(By.xpath("//button[@ngbtooltip='Reload jobs']")).click();
 
-		WebElement status = driver.findElement(
-				By.xpath("(//p[contains(text(),'" + addjobpage.jobname + "')]//following::p[text()=' Screened '])[1]"));
+//		WebElement status = driver.findElement(
+//				By.xpath("(//p[contains(text(),'" + addjobpage.jobname + "')]//following::p[text()=' Screened '])[1]"));
 
-		explicitwait.until(ExpectedConditions.visibilityOf(status));
-		
-		Thread.sleep(3000);	
+		Boolean staleElement = true;
+		WebElement status = null;
+		while (staleElement) {
+
+			try {
+				status = driver.findElement(By.xpath(
+						"(//p[contains(text(),'" + addjobpage.jobname + "')]//following::p[text()=' Screened '])[1]"));
+
+				staleElement = false;
+
+			} catch (StaleElementReferenceException e) {
+
+				staleElement = true;
+			}
+		}
 
 		Assert.assertEquals(status.getText().strip().equals("Screened"), true);
 	}
