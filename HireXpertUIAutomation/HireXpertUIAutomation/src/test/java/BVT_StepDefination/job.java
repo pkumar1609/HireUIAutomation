@@ -241,6 +241,7 @@ public class job extends baseclass {
 		explicitwait.until(ExpectedConditions.elementToBeClickable(
 				driver.findElement(By.xpath("//td[contains(text(),'"+addjobpage.jobname+"')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'Edit Job')][1]")))).click();
 
+		Thread.sleep(3000);
 		addcandidatepage.noticePeriod.clear();
 		addcandidatepage.noticePeriod.sendKeys(updatedJobNoticePeriodFromDashboardEditJob);
 
@@ -617,9 +618,8 @@ public class job extends baseclass {
 			throws Throwable {
 
 		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
-		Thread.sleep(3000);
-		executor.executeScript("arguments[0].click();", workbenchpage.job);
-		executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
+		explicitwait.until(ExpectedConditions.elementToBeClickable(workbenchpage.job)).click();		
+		explicitwait.until(ExpectedConditions.elementToBeClickable(workbenchpage.closejobbtn)).click();				
 		Thread.sleep(3000);
 		common.clickNoButton();
 	}
@@ -627,7 +627,6 @@ public class job extends baseclass {
 	@Then("^verify job do not get closed$")
 	public void verify_job_do_not_get_closed() throws Throwable {
 
-		//workbenchpage.selectJobK();
 		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
 		Assert.assertEquals(
 				driver.findElement(By.xpath("//span[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed(),
@@ -638,9 +637,9 @@ public class job extends baseclass {
 	public void employer_selects_Close_job_option_and_clicks_Yes_on_popup() throws Throwable {
 
 		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
-		Thread.sleep(3000);
-		executor.executeScript("arguments[0].click();", workbenchpage.job);
-		executor.executeScript("arguments[0].click();", workbenchpage.closejobbtn);
+		explicitwait.until(ExpectedConditions.elementToBeClickable(workbenchpage.job)).click();		
+		explicitwait.until(ExpectedConditions.elementToBeClickable(workbenchpage.closejobbtn)).click();
+		Thread.sleep(2000);
 		common.clickOnConfirmYes();
 	}
 
@@ -659,7 +658,10 @@ public class job extends baseclass {
 			String agencyUserName, String agencyPwd) throws Throwable {
 
 		loginpage.logoutFromAppK();
-		common.logout.click();
+		common.logout.click();		
+		if (common.okbtnPopup.size() > 0) {
+			common.clickOnOKBtn();
+		}
 		executor.executeScript("arguments[0].click();", loginpage.login);
 		loginpage.ClickOnEmployerAgencySigninLink();
 		loginpage.loginIn(agencyUserName, agencyPwd);
@@ -699,6 +701,10 @@ public class job extends baseclass {
 		common.clickOnCloseBtn();
 		loginpage.logoutFromAppK();
 		common.logout.click();	
+		
+		if (common.okbtnPopup.size() > 0) {
+			common.clickOnOKBtn();
+		}
 	}
 
 	@Then("^Employer should be able closed the job from Dashboard \"([^\"]*)\" and \"([^\"]*)\"$")
@@ -718,10 +724,12 @@ public class job extends baseclass {
 
 		common.searchField.clear();
 		common.searchField.sendKeys(dashboardpage.jobname);
-
-		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
-		executor.executeScript("arguments[0].click();", dashboardpage.closeJob);
-
+		
+		explicitwait.until(ExpectedConditions.elementToBeClickable(dashboardpage.actionDropdown)).click();		
+				
+		explicitwait.until(ExpectedConditions.elementToBeClickable(
+				driver.findElement(By.xpath("//td[contains(text(),'"+dashboardpage.jobname+"')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'Close Job')][1]")))).click();
+		
 		Thread.sleep(2000);
 		common.clickOnConfirmYes();
 
