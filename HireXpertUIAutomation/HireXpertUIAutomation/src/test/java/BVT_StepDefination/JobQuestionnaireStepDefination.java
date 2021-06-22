@@ -286,25 +286,13 @@ public class JobQuestionnaireStepDefination extends baseclass {
 		// click job reload btn
 		driver.findElement(By.xpath("//button[@ngbtooltip='Reload jobs']")).click();
 
-//		WebElement status = driver.findElement(
-//				By.xpath("(//p[contains(text(),'" + addjobpage.jobname + "')]//following::p[text()=' Screened '])[1]"));
+		WebElement status = driver.findElement(
+				By.xpath("(//p[contains(text(),'" + addjobpage.jobname + "')]//following::p[text()=' Screened '])[1]"));
 
-		Boolean staleElement = true;
-		WebElement status = null;
-		while (staleElement) {
+		Thread.sleep(3000);
 
-			try {
-				status = driver.findElement(By.xpath(
-						"(//p[contains(text(),'" + addjobpage.jobname + "')]//following::p[text()=' Screened '])[1]"));
-
-				staleElement = false;
-
-			} catch (StaleElementReferenceException e) {
-
-				staleElement = true;
-			}
-		}
-
+		System.out.println("Status text Value=> "+status.getText().strip());
+		
 		Assert.assertEquals(status.getText().strip().equals("Screened"), true);
 	}
 
