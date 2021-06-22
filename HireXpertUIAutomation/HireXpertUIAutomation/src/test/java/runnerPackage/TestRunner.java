@@ -13,9 +13,9 @@ plugin = {"pretty",
         "html:target/cucumber-reports","json:target/cucumber.json", 
         "junit:C:/Users/admin/AppData/Local/Jenkins.jenkins/workspace/UI Automation/HireXpertUIAutomation/HireXpertUIAutomation/target/cucumber-reports/Cucumber.xml"
         },
-tags=("@Job")
-//tags=("@login,@register,@jobworkflow,@jobupdate,@interview,@JobCandidateManagement,@JCWF,@Job,@JobQuestionary")
+tags=("@login,@register,@jobworkflow,@jobupdate,@interview,@JobCandidateManagement,@JCWF,@Job,@JobQuestionary")
+
+//tags=("@Job")
 )
 public class TestRunner
 {};
-//@login,@register,@jobworkflow,@jobupdate,@interview,@JobCandidateManagement,@JCWF
