@@ -173,7 +173,7 @@ Examples:
 |pemp@gmail.com | 12345   | hirecanQ05@gmail.com | hirecanQ | 9125671966    | Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789        | NP Negotiable |  40     |  Yes    |   No    |  30    |  10    |   80              |      30             | EmpOrg          |
 
 
-@JobQuestionary
+@JobQuestionaryF
 Scenario Outline: Verify from Candidate dashboard Candidate should be able to provide an answer for the question which is added by employer 
 Given User must be registered
 When title of login page is Home
