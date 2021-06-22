@@ -283,17 +283,14 @@ public class JobQuestionnaireStepDefination extends baseclass {
 	public void verify_candidate_status() throws Throwable {
 
 		Thread.sleep(2000);
+
 		// click job reload btn
 		driver.findElement(By.xpath("//button[@ngbtooltip='Reload jobs']")).click();
 
-		WebElement status = driver.findElement(
-				By.xpath("(//p[contains(text(),'" + addjobpage.jobname + "')]//following::p[text()=' Screened '])[1]"));
+		String statusValue = driver.findElement(
+				By.xpath("(//p[contains(text(),'" + addjobpage.jobname + "')]//following::p[text()=' Screened '])[1]")).getText().strip();
 
-		Thread.sleep(3000);
-
-		System.out.println("Status text Value=> "+status.getText().strip());
-		
-		Assert.assertEquals(status.getText().strip().equals("Screened"), true);
+		Assert.assertEquals(statusValue.equals("Screened"), true);
 	}
 
 	@Then("^On Employer login verify candidate card is moved to screening column$")

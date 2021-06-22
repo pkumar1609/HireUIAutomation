@@ -15,7 +15,7 @@ plugin = {"pretty",
         },
 //tags=("@login,@register,@jobworkflow,@jobupdate,@interview,@JobCandidateManagement,@JCWF,@Job,@JobQuestionary")
 
-tags=("@JobQuestionaryF")
+tags=("@JobQuestionary")
 )
 public class TestRunner
 {};
