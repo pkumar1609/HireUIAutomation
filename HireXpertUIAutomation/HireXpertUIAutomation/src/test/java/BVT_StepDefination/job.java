@@ -2,6 +2,7 @@ package BVT_StepDefination;
 
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -213,8 +214,15 @@ public class job extends baseclass {
 		DashboardPage.jobId = dashboardpage.Id.getText();
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
 		
+		try {
 		explicitwait.until(ExpectedConditions.elementToBeClickable(
 				driver.findElement(By.xpath("//td[contains(text(),'"+addjobpage.jobname+"')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'View Job Description')][1]")))).click();
+		}
+		catch(ElementClickInterceptedException e)
+		{
+			explicitwait.until(ExpectedConditions.elementToBeClickable(
+					driver.findElement(By.xpath("//td[contains(text(),'"+addjobpage.jobname+"')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'View Job Description')][1]")))).click();			
+		}
 
 		Assert.assertTrue(driver.findElement(By.xpath("(//strong[contains(text(),'Notice Period')]//following::p)[1]"))
 				.getText().strip().contains("50"), jobNoticePeriod);
@@ -238,9 +246,16 @@ public class job extends baseclass {
 		common.searchField.sendKeys(addjobpage.jobname);
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
 		
-		explicitwait.until(ExpectedConditions.elementToBeClickable(
-				driver.findElement(By.xpath("//td[contains(text(),'"+addjobpage.jobname+"')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'Edit Job')][1]")))).click();
-
+		try {
+			explicitwait.until(ExpectedConditions.elementToBeClickable(
+					driver.findElement(By.xpath("//td[contains(text(),'"+addjobpage.jobname+"')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'Edit Job')][1]")))).click();
+			}
+			catch(ElementClickInterceptedException e)
+			{
+				explicitwait.until(ExpectedConditions.elementToBeClickable(
+						driver.findElement(By.xpath("//td[contains(text(),'"+addjobpage.jobname+"')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'Edit Job')][1]")))).click();			
+			}
+				
 		Thread.sleep(3000);
 		addcandidatepage.noticePeriod.clear();
 		addcandidatepage.noticePeriod.sendKeys(updatedJobNoticePeriodFromDashboardEditJob);
