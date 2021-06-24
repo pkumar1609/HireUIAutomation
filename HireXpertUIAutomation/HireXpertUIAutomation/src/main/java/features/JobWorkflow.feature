@@ -1,6 +1,6 @@
 Feature: Job Workflow
 
- @bvt_agencyblock @block @BVTC @jobworkflow  
+ @JobWorkflow 
  Scenario Outline: Verify the Block functionality for Agency with Employer login
     Given User is on Home page of application
     When title of page is HireXpert
@@ -33,13 +33,12 @@ Feature: Job Workflow
     Then user should able to search team member and blocked agency should not able to share job with any team members and error message should display
     And Click on close button
     Examples: 
-      | Username        | Password | AgencyName | AgyEmailId     | CandidateEmail   | Team | Teamid        | ContactNumber |
-      | empa02@gmail.com | 12345    | pagy       | pagy@gmail.com | pratik@gmail.com | pa1  | pa1@gmail.com |  689498595 |
+      | Username       | Password | AgencyName | AgyEmailId     | CandidateEmail   | Team | Teamid        | ContactNumber|
+      | pemp@gmail.com | 12345    | pagy       | pagy@gmail.com | pratik@gmail.com | pa1  | pa1@gmail.com |  689498595   |
 
   
   #TC ID - 61,65,66,384
-  #@bvt_vendorblock @block @BVTC 
-  @jobworkflow
+  @JobWorkflow
   Scenario Outline: Verify the Block functionality for vendor with Employer login
     Given User is on Home page of application
     When title of page is HireXpert
@@ -60,7 +59,7 @@ Feature: Job Workflow
     And Click on close button
     And Logout from App
     And Click on Employer-Agency Signin link
-    And user enters valid credentials "<Vendor>","<Password>"
+    And Vendor user enters valid credentials "<Vendor>","<Password>","<VendorOrg>","<VendorOrgWebsite>","<City>","<VendorAddress>"
     Given Employee should be added
       | Nameagy | Emailagy      | contact | Role           | Roleagy                 |
       | ca1     | ca1@gmail.com | 1234556 | Recruitment HR | Recruitment Agency Head |
@@ -91,11 +90,11 @@ Feature: Job Workflow
     And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
     And observe candidate is getting added in New column
     Examples: 
-      | Username       | Password | Vendor         | CandidateEmail   | Team | CandidateEmail      | profiletitle            | Name      | ContactNumber | Designation  | Date       | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay | experience | CTC    | expectedCTC | Country | City   | CityArea  | ZipCode | Communicationmode | Salaryoffered | distance | permanentAddress | relocate | Skill1 | Skill2        | Skill3     | level1          | level2       | level3 | Weightage1 | Weightage2 | Weightage3 | certificate1 | certificate2 | certificate3 | remark1             | remark2         | remark3          | certificateforskill1 | certificateforskill2 |
-      | pagy@gmail.com | 12345    | cagy@gmail.com | pratik@gmail.com | ca1  | hirecan31@gmail.com | jr software developer 1 | hirecan31 |   78950685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
+      | Username       | Password | Vendor            |VendorOrg |VendorOrgWebsite|VendorAddress| CandidateEmail   | Team | CandidateEmail      | profiletitle            | Name      | ContactNumber | Designation  | Date       | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay | experience | CTC    | expectedCTC | Country | City   | CityArea  | ZipCode | Communicationmode | Salaryoffered | distance | permanentAddress | relocate | Skill1 | Skill2        | Skill3     | level1          | level2       | level3 | Weightage1 | Weightage2 | Weightage3 | certificate1 | certificate2 | certificate3 | remark1             | remark2         | remark3          | certificateforskill1 | certificateforskill2 |
+      | pagy@gmail.com | 12345    | cagy@gmail.com    |cagyORG   |cagyORG.com     |Churchgate   | pratik@gmail.com | ca1  | hirecan31@gmail.com | jr software developer 1 | hirecan31 |   78950685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | Mumbai | Thane     |  455966 | Call              |        800000 |  4       | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
 
   
-  @bvt_teamblock @block @BVTC @jobworkflow
+ @JobWorkflow 
   Scenario Outline: Verify the Block functionality for team member with Employer and Agency login
     Given User is on Home page of application
     When title of page is HireXpert
@@ -131,7 +130,7 @@ Feature: Job Workflow
 
   
   #TC ID - 67,72,73
-  @bvt_agencyunblock @BVTC @unblock @jobworkflow
+ @JobWorkflow 
   Scenario Outline: Verify the Unblock functionality for Agency with Employer login
     Given User is on Home page of application
     When title of page is HireXpert
@@ -165,7 +164,7 @@ Feature: Job Workflow
       | pemp@gmail.com | pagy       | pagy@gmail.com | pe1@gmail.com | 12345    |hirecan08@gmail.com | jr software developer | hirecan08 |    9890685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
 
   
-  @bvt_teamunblock @BVTC @unblock @jobworkflow
+ @JobWorkflow 
   Scenario Outline: Verify the Unblock functionality for team member with Employer and Agency login
     Given User is on Home page of application
     When title of page is HireXpert
@@ -205,7 +204,7 @@ Feature: Job Workflow
 
   
   #TC ID - 236,237,238
-  @BVTC @primary @jobworkflow
+ @JobWorkflow 
   Scenario Outline: Verify user having only one primary contact with Employer and Agency login
     Given User is on Home page of application
     When title of page is HireXpert

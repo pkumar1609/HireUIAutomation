@@ -28,9 +28,9 @@ public class ShareWithVendorPage extends baseclass{
 	public void shareWithVendor(String Vendor) throws InterruptedException
 	{
 		Thread.sleep(4000);
-		selectVendor.sendKeys(Vendor);
+		selectVendor.sendKeys(Vendor.toLowerCase());
 		Thread.sleep(2000); 
-		driver.findElement(By.xpath("//span[contains(text(),'"+Vendor+"')]")).click();
+		driver.findElement(By.xpath("//span[contains(text(),'"+Vendor.toLowerCase() +"')]")).click();
 		Thread.sleep(2000); 
 		common.share.click();
 		common.clickOnConfirmYes();
@@ -42,10 +42,10 @@ public class ShareWithVendorPage extends baseclass{
 		if(isBlockUnblockSelected==false)
 		{
 			Thread.sleep(1000);
-			driver.findElement(By.xpath("//td[text()='"+vendor+"']//following::span[@class='checkmark CheckBoxM'][2]")).click();
+			driver.findElement(By.xpath("//td[text()='"+vendor.toLowerCase()+"']//following::span[@class='checkmark CheckBoxM'][2]")).click();
 			common.addComment();
 			common.ClickSumbit();
-			Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+vendor+"']//following::input[2]")).isSelected(), true);			
+			Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+vendor.toLowerCase()+"']//following::input[2]")).isSelected(), true);			
 		}
 	}
 	
@@ -55,10 +55,10 @@ public class ShareWithVendorPage extends baseclass{
 		if(isBlockUnblockSelected==true)
 		{
 			Thread.sleep(1000);
-			driver.findElement(By.xpath("//td[text()='"+vendor+"']//following::span[@class='checkmark CheckBoxM2'][1]")).click();
+			driver.findElement(By.xpath("//td[text()='"+vendor.toLowerCase()+"']//following::span[@class='checkmark CheckBoxM2'][1]")).click();
 			common.clickOnConfirmYes();
 		
-			Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+vendor+"']//following::input[2]")).isSelected(), false);
+			Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+vendor.toLowerCase()+"']//following::input[2]")).isSelected(), false);
 		}
 	}
 

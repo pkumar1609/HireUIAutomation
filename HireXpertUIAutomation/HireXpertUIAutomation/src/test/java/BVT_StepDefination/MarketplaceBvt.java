@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -37,6 +38,32 @@ public class MarketplaceBvt extends baseclass {
 	public void user_enters_valid_credentials(String Username, String Password) throws Throwable {
 		loginpage.loginIn(Username, Password);
 	}
+	
+	
+	
+	//add this in login&Register StepDef file
+	@When("^Vendor user enters valid credentials \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void vendor_user_enters_valid_credentials(String Username, String Password, String VendorOrg, String VendorOrgWebsite, String City, String VendorAddress) throws Throwable {
+
+	  loginpage.loginInAsVendor(Username, Password);
+				
+		try {
+			  WebElement updateProfileDialogTitle = driver.findElement(By.xpath("//h5[contains(text(),'Update Profile')]"));
+			  if(updateProfileDialogTitle.isDisplayed())
+			  {
+				driver.findElement(By.xpath("//input[@placeholder='Enter Organization']")).sendKeys(VendorOrg);
+				driver.findElement(By.xpath("//input[@placeholder='Enter Website']")).sendKeys(VendorOrgWebsite);
+				driver.findElement(By.xpath("//input[@placeholder='Enter City' and @formcontrolname='CityId']")).sendKeys(City);
+				driver.findElement(By.xpath("//textarea[@id='agencyaddress' and @placeholder='Enter Address']")).sendKeys(VendorAddress);
+				common.ClickSumbit();
+			  }
+		    }
+		catch(NoSuchElementException e)
+		{
+			dashboardpage.openDashboardPage();
+		}
+	}
+
 	
 	@Then("^login with registered agency$")
 	public void login_with_registered_agency() throws Throwable {

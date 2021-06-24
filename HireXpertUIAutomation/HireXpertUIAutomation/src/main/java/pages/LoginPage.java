@@ -216,6 +216,14 @@ public class LoginPage extends baseclass {
 //		common.clickOnCloseBtn();
 		identifyUserK();
 	}
+	
+	public void loginInAsVendor(String Username, String Password) throws InterruptedException {
+		emailaddress.sendKeys(Username);
+		password.sendKeys(Password);
+		Thread.sleep(4000);
+		signin.click();
+	}
+	
 
 	public void logoutFromAppK() throws InterruptedException {
 		Thread.sleep(2000);

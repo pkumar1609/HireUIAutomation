@@ -353,7 +353,7 @@ public class AddJobPage extends baseclass {
 					common.find.click();
 					Thread.sleep(2000);
 					common.addSubmitbtn.click();
-					select.selectByVisibleText("pemp -");
+					select.selectByVisibleText("pemp - ");
 				}
 				SelectedEmployer=select.getFirstSelectedOption().getText().substring(0, select.getFirstSelectedOption().getText().indexOf("-")).strip();	
 			}
