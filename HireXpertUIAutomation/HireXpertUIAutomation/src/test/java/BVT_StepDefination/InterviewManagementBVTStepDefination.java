@@ -125,7 +125,6 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 				driver.findElement(By.xpath("//span[contains(text(),' " + Name + "')]//following::p[text()=' "
 						+ scheduleInterview.interviewDate + ", " + interviewTimeOnCard + " ']")).isDisplayed(),
 				true);
-
 	}
 
 	@Then("^click on Edit Interview icon present on the left corner just beside of Cancel Interview icon \"([^\"]*)\"$")
