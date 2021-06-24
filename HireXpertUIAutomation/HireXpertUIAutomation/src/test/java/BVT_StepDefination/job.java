@@ -590,12 +590,24 @@ public class job extends baseclass {
 	public void agency_logs_in_to_view_shared_job_and_checks_removed_skill_is_not_displayed(String Username,
 			String Password, String Skill1, String Skill2, String Skill3) throws Throwable {
 		loginpage.logoutFromAppK();
+		common.logout.click();
+		if (common.okbtnPopup.size() > 0) {
+		common.clickOnOKBtn();
+		}
 		loginpage.ClickOnEmployerAgencySigninLink();
 		loginpage.loginIn(Username, "12345");
 		common.searchField.sendKeys(addjobpage.jobname);
 		DashboardPage.jobId = dashboardpage.Id.getText();
 		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
-		executor.executeScript("arguments[0].click();", dashboardpage.viewJobDescription);
+		try {
+			explicitwait.until(ExpectedConditions.elementToBeClickable(
+					driver.findElement(By.xpath("//td[contains(text(),'"+addjobpage.jobname+"')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'View Job Description')][1]")))).click();
+			}
+			catch(ElementClickInterceptedException e)
+			{
+				explicitwait.until(ExpectedConditions.elementToBeClickable(
+						driver.findElement(By.xpath("//td[contains(text(),'"+addjobpage.jobname+"')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'View Job Description')][1]")))).click();			
+			}
 		Assert.assertEquals(driver.findElements(By.xpath("//strong[contains(text(),'Skill')]")).size() > 0, false);
 		common.clickOnCloseBtn();
 	}
@@ -616,6 +628,10 @@ public class job extends baseclass {
 	public void skill_match_score_of_the_candidate_will_change_according_to_the_removed_skills(String Username,
 			String Password) throws Throwable {
 		loginpage.logoutFromAppK();
+		common.logout.click();
+		if (common.okbtnPopup.size() > 0) {
+		common.clickOnOKBtn();
+		}
 		loginpage.ClickOnEmployerAgencySigninLink();
 		loginpage.loginIn(Username, Password);
 		dashboardpage.openWorkbenchPage();
