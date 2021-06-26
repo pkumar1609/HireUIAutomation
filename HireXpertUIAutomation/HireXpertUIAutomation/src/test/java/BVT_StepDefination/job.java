@@ -3,6 +3,7 @@ package BVT_StepDefination;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -382,7 +383,15 @@ public class job extends baseclass {
 			String certificateforskill1, String certificateforskill2) throws Throwable {
 
 		executor.executeScript("arguments[0].click();", candidatecardsectionpage.editCandidate);
-		explicitwait.until(ExpectedConditions.visibilityOf(addcandidatepage.jobskill.get(1)));
+		try {
+			explicitwait.until(ExpectedConditions.visibilityOf(addcandidatepage.jobskill.get(1)));			
+			
+		}
+		catch(StaleElementReferenceException e)
+		{
+			explicitwait.until(ExpectedConditions.visibilityOf(addcandidatepage.jobskill.get(1)));
+		}
+		
 		addcandidatepage.addSkill(level1, level2, level3, certificate1, certificate2, certificate3,
 				certificateforskill1, certificateforskill2);
 		executor.executeScript("arguments[0].click();", editcandidatepage.saveButton);
