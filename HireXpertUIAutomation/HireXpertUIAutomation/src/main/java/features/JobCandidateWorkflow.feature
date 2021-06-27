@@ -70,7 +70,6 @@ Examples:
 
 @Regression @reg1 @JCWF
 Scenario Outline: To verify the functionality of Update Profile page of candidate
-
 Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
@@ -78,14 +77,13 @@ And Employer enters valid credentials "<Username>","<Password>"
 And Go to Workbench
 And Click on add job button
 And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
-|title		      |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-|JCFW 5           |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
+|title		      |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |  Email         | contact  |totalinterviews|organization|agyorganization|functionalArea|
+|JCFW 5           |developer        |IT software |pune     |400000 |3     |7     |350000|800000|pe1  | pe1@gmail.com  | 1234564  |2			     |Hirexpert   |rahitech       |Software Programming|
 And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
 And verify candidate card is displaying or not in New column "<Name>"
 And logout as employer and login as new candidate added by employer "<CandidateEmail>" "<Password>"
-#And click on ok button of confirmation popup
 And Click on Profile tab
 Then verify the Auto Populated fields on candidate update profile popup window "<Username>","<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<relocate>"
 And Add mandatory details on candidate profile page and save the details "<Jobtype>" "<Shift>" "<ProfileTitle>"
@@ -112,17 +110,15 @@ Then Verify that user get an alert message as "Same designation entered more tha
 And click on ok button
 And delete duplicate designation
 And Now Click on Add designation button to add more than ten designation
-#And Click on save btn for designation
 Then Verify that user get an alert message as "You can not add more than 5 designations." for adding more than ten designation
 And click on ok button
-#And click on Delete designation button in front of any designation for candidate
 And click on Personal & Professional tab
 And set looking for job as No
 And Click on save btn
 And click on ok button
 Examples:
-|Username      |Teamid         |Password |CandidateEmail      | ProfileTitle          |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod |LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|functionalArea|Jobtype               |Shift         |  
-|pemp@gmail.com|pe1@gmail.com  |12345    |hirecan18@gmail.com | Jr software developer |hirecan18|9899648789    |Sr.developer  |14/02/1995      |Female  |Yes            |25          |01/09/2021    |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |java          |Contractual Full Time |Mid-Day Shift |
+|Username        |Teamid         |Password |CandidateEmail       | ProfileTitle          |Name      |ContactNumber |Designation  |Date       |Gender |OnNoticePeriod|NoticePeriod |LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1 |Skill2       |Skill3    |level1         |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2         |remark3         |certificateforskill1|certificateforskill2|functionalArea|Jobtype               |Shift         |
+|pemp@gmail.com  |pe1@gmail.com  |12345    |hirecand18@gmail.com | Jr software developer |hirecand18| 9891008789   |Sr.developer |14/02/1995 |Female |Yes           | 25          |01/09/2021    |4         |600000|800000     | India |Mumbai|Thane    |455966 |Call             | 770000      |4       |No              |No      |JAVA   |Advanced java|JavaScript|Basic Knowledge| Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|Spring, Hybernet|Advanced version|Sun microsoft       |Advanced version    |Java          |Contractual Full Time |Mid-Day Shift |
 
 
 # TC :- 25,64,104,129,296        [Job candidate Workflow Regression TC] 
@@ -331,7 +327,7 @@ Examples:
 |pagy@gmail.com |12345    |hirecan22@gmail.com |jr software developer|hirecan22|7896485538    |Sr.developer  |14/02/1995 |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
 
-@Regression @reg7 @JCWF
+@Regression @reg7 @JCWF1
 Scenario Outline: To verify the functionality of Upload Resume on candidate profile
 	
 Given User must be registered
