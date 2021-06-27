@@ -41,7 +41,7 @@ public class MarketplaceBvt extends baseclass {
 	
 	
 	
-	//add this in login&Register StepDef file
+	//Do not delete stepDef code it need to move in login&Register StepDef file
 	@When("^Vendor user enters valid credentials \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
 	public void vendor_user_enters_valid_credentials(String Username, String Password, String VendorOrg, String VendorOrgWebsite, String City, String VendorAddress) throws Throwable {
 
@@ -64,6 +64,25 @@ public class MarketplaceBvt extends baseclass {
 		}
 	}
 
+	//Do not delete stepDef code it need to move in login&Register StepDef file
+	@Given("^enter valid \"([^\"]*)\" and \"([^\"]*)\" for registered employer and click on Sign in button \"([^\"]*)\",\"([^\"]*)\"$")
+	public void enter_valid_and_for_registered_employer_and_click_on_Sign_in_button(String Username, String Password, String TeamIdMemberCity, String TeamIdMemberAddress) throws Throwable {
+
+		  loginpage.loginInAsVendor(Username, Password);
+			try {
+				  WebElement updateProfileDialogTitle = driver.findElement(By.xpath("//h5[contains(text(),'Update Profile')]"));
+				  if(updateProfileDialogTitle.isDisplayed())
+				  {				
+					driver.findElement(By.xpath("//input[@placeholder='Enter City' and @formcontrolname='CityId']")).sendKeys(TeamIdMemberCity);
+					driver.findElement(By.xpath("//textarea[@id='agencyaddress' and @placeholder='Enter Address']")).sendKeys(TeamIdMemberAddress);
+					common.ClickSumbit();
+				  }
+			    }
+			catch(NoSuchElementException e)
+			{
+				dashboardpage.openDashboardPage();
+			}		  
+	}
 	
 	@Then("^login with registered agency$")
 	public void login_with_registered_agency() throws Throwable {

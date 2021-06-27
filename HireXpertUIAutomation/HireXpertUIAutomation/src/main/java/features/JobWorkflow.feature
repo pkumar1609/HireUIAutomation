@@ -39,7 +39,7 @@ Feature: Job Workflow
   
   #TC ID - 61,65,66,384
   @JobWorkflow
-  Scenario Outline: Verify the Block functionality for vendor with Employer login
+  Scenario Outline: Verify the Block functionality for vendor with Agency login
     Given User is on Home page of application
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
@@ -90,12 +90,12 @@ Feature: Job Workflow
     And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
     And observe candidate is getting added in New column
     Examples: 
-      | Username       | Password | Vendor            |VendorOrg |VendorOrgWebsite|VendorAddress| CandidateEmail   | Team | CandidateEmail      | profiletitle            | Name      | ContactNumber | Designation  | Date       | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay | experience | CTC    | expectedCTC | Country | City   | CityArea  | ZipCode | Communicationmode | Salaryoffered | distance | permanentAddress | relocate | Skill1 | Skill2        | Skill3     | level1          | level2       | level3 | Weightage1 | Weightage2 | Weightage3 | certificate1 | certificate2 | certificate3 | remark1             | remark2         | remark3          | certificateforskill1 | certificateforskill2 |
-      | pagy@gmail.com | 12345    | cagy@gmail.com    |cagyORG   |cagyORG.com     |Churchgate   | pratik@gmail.com | ca1  | hirecan31@gmail.com | jr software developer 1 | hirecan31 |   78950685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | Mumbai | Thane     |  455966 | Call              |        800000 |  4       | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
+      | Username       | Password | Vendor         |VendorOrg |VendorOrgWebsite|VendorAddress| CandidateEmail   | Team | CandidateEmail      | profiletitle            | Name      | ContactNumber | Designation  | Date       | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay | experience | CTC    | expectedCTC | Country | City   | CityArea  | ZipCode | Communicationmode | Salaryoffered | distance | permanentAddress | relocate | Skill1 | Skill2        | Skill3     | level1          | level2       | level3 | Weightage1 | Weightage2 | Weightage3 | certificate1 | certificate2 | certificate3 | remark1             | remark2         | remark3          | certificateforskill1 | certificateforskill2 |
+      | pagy@gmail.com | 12345    | cagy@gmail.com |cagyORG   |cagyORG.com     |Churchgate   | pratik@gmail.com | ca1  | hirecan31@gmail.com | jr software developer 1 | hirecan31 |   78950685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | Mumbai | Thane     |  455966 | Call              |        800000 |  4       | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
 
   
- @JobWorkflow 
-  Scenario Outline: Verify the Block functionality for team member with Employer and Agency login
+ @JobWorkflow
+  Scenario Outline: Verify the Block functionality for Team member with Employer and Agency login
     Given User is on Home page of application
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
@@ -116,7 +116,7 @@ Feature: Job Workflow
     And Click on close button
     And Logout from App
     And Click on Employer-Agency Signin link
-    And enter valid "<teamId>" and "<Password>" for registered employer and click on Sign in button
+    And enter valid "<teamId>" and "<Password>" for registered employer and click on Sign in button "<TeamIdMemberCity>","<TeamIdMemberAddress>"
     And Go to workbench
     And Select a added job
     And click on Add Candidate button
@@ -124,9 +124,9 @@ Feature: Job Workflow
     Then Blocked team member should not be able to add candidate
     And Click on close button and confirm Yes button
     Examples: 
-      | Username       | Password | team | teamId        | CandEmailId     |
-      | pemp@gmail.com | 12345    | pe1  | pe1@gmail.com | can12@gmail.com |
-      | pagy@gmail.com | 12345    | pa1  | pa1@gmail.com | can13@gmail.com |
+      | Username       | Password | team | teamId        | CandEmailId     |TeamIdMemberCity|TeamIdMemberAddress|
+      | pemp@gmail.com | 12345    | pe1  | pe1@gmail.com | can12@gmail.com |  Mumbai        |  Thane            |
+      | pagy@gmail.com | 12345    | pa1  | pa1@gmail.com | can13@gmail.com |  Mumbai        |  Thane            |
 
   
   #TC ID - 67,72,73
@@ -164,8 +164,8 @@ Feature: Job Workflow
       | pemp@gmail.com | pagy       | pagy@gmail.com | pe1@gmail.com | 12345    |hirecan08@gmail.com | jr software developer | hirecan08 |    9890685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
 
   
- @JobWorkflow 
-  Scenario Outline: Verify the Unblock functionality for team member with Employer and Agency login
+ @JobWorkflow
+  Scenario Outline: Verify the UnBlock functionality for Team member with Employer and Agency login
     Given User is on Home page of application
     When title of page is HireXpert
     And Click on Employer-Agency Signin link
@@ -184,27 +184,24 @@ Feature: Job Workflow
     And search the team "<Team>" and share job with it
     And block the team "<Team>"
     And Unblock the team "<Team>"
-    #    And click on Share With Team button and select the Share checkbox present in front of the team member "<Teamid>"
-    #    And Block the team "<Teamid>"
-    #    And click on the Block/Unblock to unblock checkbox present in front of team with whom you shared the job "<Teamid>"
     Then User should be able to unblock the team member
     And Click on close button
     And Logout from App
     And Click on Employer-Agency Signin link
-    And Employer enters valid credentials "<Teamid>","<Password>"
+    And enter valid "<Teamid>" and "<Password>" for registered employer and click on Sign in button "<TeamIdMemberCity>","<TeamIdMemberAddress>"
     And Go to workbench
     And Select a added job
     And Click on add candidate
     And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
     Then Unblocked team member should be able add candidate "<Name>"
     Examples: 
-      | Username       | Team | Teamid        | Password | CandidateEmail      | profiletitle            | Name      | ContactNumber | Designation  | Date       | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay | experience | CTC    | expectedCTC | Country | City   | CityArea  | ZipCode | Communicationmode | Salaryoffered | distance | permanentAddress | relocate | Skill1 | Skill2        | Skill3     | level1          | level2       | level3 | Weightage1 | Weightage2 | Weightage3 | certificate1 | certificate2 | certificate3 | remark1             | remark2         | remark3          | certificateforskill1 | certificateforskill2 |
-      | pemp@gmail.com | pe1  | pe1@gmail.com |  12345   | hirecan30@gmail.com | jr software developer   | hirecan30 |    9890685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
-      | pagy@gmail.com | pa1  | pa1@gmail.com |  12345   | hirecan31@gmail.com | jr software developer 1 | hirecan31 |   78950685538 | Sr.developer | 14/02/1995 | Female | Yes            |           25 | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |
+      | Username       | Team | Teamid        | Password | CandidateEmail      | profiletitle            | Name      | ContactNumber | Designation  | Date       | Gender | OnNoticePeriod | NoticePeriod | LastWorkingDay | experience | CTC    | expectedCTC | Country | City   | CityArea  | ZipCode | Communicationmode | Salaryoffered | distance | permanentAddress | relocate | Skill1 | Skill2        | Skill3     | level1          | level2       | level3 | Weightage1 | Weightage2 | Weightage3 | certificate1 | certificate2 | certificate3 | remark1             | remark2         | remark3          | certificateforskill1 | certificateforskill2 |TeamIdMemberCity|TeamIdMemberAddress|
+      | pemp@gmail.com | pe1  | pe1@gmail.com |  12345   | hirecan30@gmail.com | jr software developer   | hirecan30 | 9890685538    | Sr.developer | 14/02/1995 | Female | Yes            |  25          | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |  Mumbai        |  Thane            |
+      | pagy@gmail.com | pa1  | pa1@gmail.com |  12345   | hirecan31@gmail.com | jr software developer 1 | hirecan31 | 78950685538   | Sr.developer | 14/02/1995 | Female | Yes            |  25          | 01/09/2021     |        1.5 | 800000 |      800000 | India   | wardha | Arvi naka |  455966 | Call              |        800000 |        4 | No               | No       | JAVA   | advanced java | JavaScript | Basic Knowledge | Intermediate | Expert | Mandatory  | Preferred  | Optional   | Yes          | No           | No           | provide certificate | spring,hybernet | advanced version | sun microsoft        | advanced version     |  Mumbai        |  Thane            |
 
   
   #TC ID - 236,237,238
- @JobWorkflow 
+ @JobWorkflow
   Scenario Outline: Verify user having only one primary contact with Employer and Agency login
     Given User is on Home page of application
     When title of page is HireXpert
@@ -234,3 +231,6 @@ Feature: Job Workflow
       | Email          | Password | Team | Teamid        | contact  | anotherteam | thridteam     | Team2 | Team3 |
       | pemp@gmail.com | 12345    | pe1  | pe1@gmail.com | 16546856 | pe2         | pe3@gmail.com | pe2   | pe3   |
       | pagy@gmail.com | 12345    | pa1  | pa1@gmail.com | 98598695 | pa2         | pa3@gmail.com | pa2   | pa3   |
+      
+      
+
