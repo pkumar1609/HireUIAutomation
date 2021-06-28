@@ -328,13 +328,13 @@ When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<UNAgency>","<Password>"
 Given Employee should be added
-|Name| Email         | contact |Nameagy | Emailagy      | contact |Role          |Roleagy |
+|Name| Email         | contact |Nameagy  | Emailagy     | contact |Role          |Roleagy |
 |pe1 | pe1@gmail.com | 1234564 | pa1    | pa1@gmail.com |1234556  |Recruitment HR|Recruitment Agency Head|
 And click on Workbench tab
 And Click on add job button
 And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
 |title	  |agytitle     |designation |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name | Email         | contact |totalinterviews|organization|agyorganization|functionalArea|
-|JCFW 142 |JCFW Agy 142 |developer   |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com | 1234564 |2			    |Hirexpert   |rahitech       |java|
+|JCFW 142 |JCFW Agy 142 |developer   |IT software |pune     |400000 |4     |7     |500000|700000|pe1  | pe1@gmail.com | 1234564 |2			    |Hirexpert   |rahitech       |java|
 And Select a added job
 And click on share with Team 
 And search the team "<team>" and share job with it
@@ -369,8 +369,8 @@ And Employer enters valid credentials "<Username>","<Password>"
 And Go to Workbench
 And Click on add job button
 And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
-|title		     |agytitle     |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-|JCFW 14         |JCFWagy 14  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
+|title	|agytitle   |designation|industry    |location |budget |minexp|maxexp|minsal|maxsal|Name | Email         |contact |totalinterviews|organization|agyorganization|functionalArea|
+|JCFW 14|JCFWagy 14 |developer  |IT software |pune     |800000 |3     |6     |450000|700000|pe1  | pe1@gmail.com |1234564 |2			  |Hirexpert   |rahitech       |java |
 And Select a added job
 And Click on add candidate
 And Enter All details except skills "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>"
@@ -387,9 +387,9 @@ Examples:
 |pemp@gmail.com  |12345    |hirecan30@gmail.com |jr software developer|hirecan30|9545866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  |Intermediate  | Expert | Mandatory |Preferred |Optional  |No          |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com| Not Answered|Not Answered|
  
  
-#  TC :- 374  [Job candidate workfloww Regression TC]
-#@JCWF  // Need to Fix
-Scenario Outline: Verify there is asking reason when user manually drag the candidate card in rejection column from employer login, employer team member login, agency login, agency team member login
+#  TC :- 374  [Job candidate workflow Regression TC]
+@JCWF
+Scenario Outline: Verify Rejection reason is accepted when candidate card is moved to Reject column for user employer, employer team member, agency, agency team member login
 Given Open browser
 When title of login page is Home
 And Click on Employer-Agency Signin link
@@ -397,20 +397,19 @@ And Employer enters valid credentials "<Username>","<Password>"
 And Go to Workbench
 And Click on add job button
 And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
-|title		      |agytitle             |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-|JCFW Rejected    |JCFW Rejected Agy    |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
+|title		   |agytitle          |designation |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name | Email         | contact |totalinterviews|organization|agyorganization|functionalArea|
+|JCFW Rejected |JCFW Rejected Agy |developer   |IT software |pune     |800000 |4     |7     |450000|700000|pe1  | pe1@gmail.com | 1234564 | 2			  |Hirexpert   |rahitech       |java |
 And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
+And move the candidate card from potential candidate to new column
 And verify candidate card is displaying or not in New column "<Name>"	
 And Drag the candidate card from that column to rejected column
-And confirmation popup should diplay with Yes and No button and click on Yes buton "<Name>"
 And select the reason of rejection and cick on submit button
-#And Click on show all rejected candidate checkbox
 Then drag the candidate card from rejected column to any other column
 And Go to dashboard
 Given Employee should be added
-|Name|         Email   | contact  |Nameagy   |    Emailagy     | contact     |Role          |Roleagy|
+|Name     | Email                | contact  |Nameagy  | Emailagy           | contact |Role          |Roleagy|
 |pe1 | pe1@gmail.com   | 1234564  | pa1      | pa1@gmail.com   |1234556      |Recruitment HR|Recruitment Agency Head|
 And Logout from App
 And Click on Employer-Agency Signin link
@@ -419,18 +418,17 @@ And Go to Workbench
 And Click on add job button
 And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
 |title		       |agytitle              |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-|JCFW Rejected     |JCFW Rejected Agy 2   |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
+|JCFW Rejected     |JCFW Rejected Agy 2   |developer        |IT software |pune     |800000 |3     |6     |450000|750000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
 And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail2>","<Name2>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
+And move the candidate card from potential candidate to new column
 And verify candidate card is displaying or not in New column "<Name2>"	
 And Drag the candidate card from that column to rejected column
-And confirmation popup should diplay with Yes and No button and click on Yes buton "<Name2>"
 And select the reason of rejection and cick on submit button
-#And Click on show all rejected candidate checkbox
 Then drag the candidate card from rejected column to any other column
 Examples: 
-|Username        |Teamid         |Password |CandidateEmail      |CandidateEmail2    |profiletitle         |Name     |Name2    |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |Nolevel1     |Nolevel2|
-|pemp@gmail.com  |pe1@gmail.com  |12345    |hirecan48@gmail.com |hirecan49@gmail.com|jr software developer|hirecan48|hirecan49|7895866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  |Intermediate  | Expert | Mandatory |Preferred |Optional  |No          |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com| Not Answered|Not Answered|
-|pagy@gmail.com  |pa1@gmail.com  |12345    |hirecan50@gmail.com |hirecan51@gmail.com|jr software developer|hirecan50|hirecan51|7985866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  |Intermediate  | Expert | Mandatory |Preferred |Optional  |No          |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com| Not Answered|Not Answered|
+|Username        |Teamid        |Password |CandidateEmail       |CandidateEmail2     |profiletitle         |Name      |Name2     |ContactNumber |Designation |Date      |Gender |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |Nolevel1     |Nolevel2|
+|pemp@gmail.com  |pe1@gmail.com |12345    |hireccan01@gmail.com |hireccan02@gmail.com|jr software developer|hireccan01|hireccan02|7895866385    |Sr.developer|19/04/1995|Female |No            |25          |1/9/2021      |1.5       |600000|750000     | India |wardha|Arvi naka|455966 |Call             |720000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  |Intermediate  | Expert | Mandatory |Preferred |Optional  |No          |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com| Not Answered|Not Answered|
+|pagy@gmail.com  |pa1@gmail.com |12345    |hireccan03@gmail.com |hireccan04@gmail.com|jr software developer|hireccan03|hireccan04|7985866385    |Sr.developer|19/04/1995|Female |No            |25          |1/9/2021      |1.5       |600000|750000     | India |wardha|Arvi naka|455966 |Call             |720000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  |Intermediate  | Expert | Mandatory |Preferred |Optional  |No          |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com| Not Answered|Not Answered|
  

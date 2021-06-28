@@ -24,10 +24,6 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass {
 
 		Thread.sleep(3000);
 		common.clickOnSaveBtn();
-//		Thread.sleep(3000);
-
-//		common.clickOnConfirmYes();
-
 	}
 
 	@Given("^Employee should be added$")
@@ -974,6 +970,31 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass {
 		js.executeScript("arguments[0].scrollIntoView(true);", drop2);
 		Action.clickAndHold(drag).moveToElement(drop2).release(drop2).perform();
 	}
+	
+	@When("^select the reason of rejection and cick on submit button$")
+	public void select_the_reason_of_rejection_and_cick_on_submit_button() throws Throwable {
+
+		WebElement rejectreasonDialogTitle = driver.findElement(By.xpath("//h5[@class='modal-title' and contains(text(),'Reject')]"));
+		if(rejectreasonDialogTitle.isDisplayed())
+		{
+			WebElement dropdown = driver.findElement(By.xpath("//select[@id='rejectReason']"));
+			
+			if(dropdown.isDisplayed()) 
+			{
+				Select se = new Select(dropdown);
+				se.selectByVisibleText("CV Not Matching JD");
+				
+				WebElement commentTextArea = driver.findElement(By.xpath("//textarea[@formcontrolname='Comment']"));
+				if(commentTextArea.isDisplayed())
+				{
+					commentTextArea.clear();
+					commentTextArea.sendKeys("CV do not exactly match with JD.");
+				}
+			}
+		}
+		common.ClickSumbit();
+	}
+
 
 	@Then("^drag the candidate card from rejected column to any other column$")
 	public void drag_the_candidate_card_from_rejected_column_to_any_other_column() throws Throwable {
@@ -1199,4 +1220,8 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass {
 		common.clickOnSaveBtn();
 		addcandidatepage.checkCandidateALreadyPresent();
 	}
+
+
+	
+	
 }
