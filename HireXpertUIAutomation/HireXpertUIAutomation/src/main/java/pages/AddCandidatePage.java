@@ -398,29 +398,29 @@ public class AddCandidatePage extends baseclass {
 		upload.sendKeys("C:\\Selenium\\CV.docx");
 	}
 
-	public void uploadResumeDocumentT() throws AWTException {
+	public void uploadResumeDocumentDocFormat() throws AWTException {
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Selenium\\sample2.doc");
+		upload.sendKeys("C:\\Selenium\\SampleCvDocFormat.doc");
 	}
 
-	public void uploadResumeDocumentinZipformatT() throws AWTException { // Method for Trupti
+	public void uploadResumeDocumentinZipformat() throws AWTException {
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Selenium\\DVWA-master.zip"); // CV Path of Trupti's system
+		upload.sendKeys("C:\\Selenium\\SampleZip.zip"); 
 	}
 
-	public void uploadResumeDocumentinPdfformatT() throws AWTException { // Method for Trupti
+	public void uploadResumeDocumentinPdfFormat() throws AWTException { 
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Selenium\\Vimala_S__Bengaluru___Bangalore_7.06_yrs (2).pdf"); // CV Path of Trupti's system
+		upload.sendKeys("C:\\Selenium\\SampleCvPDF.pdf"); 
 	}
 
-	public void uploadResumeDocumentintextformatT() throws AWTException { // Method for Trupti
+	public void uploadResumeDocumentintextformatT() throws AWTException { 
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Selenium\\sample.txt"); // CV Path of Trupti's system
+		upload.sendKeys("C:\\Selenium\\SampleTxtCv.txt");
 	}
 
-	public void uploadResumeDocumentinPNGformatT() throws AWTException { // Method for Trupti
+	public void uploadResumeDocumentinPNGformatT() throws AWTException { 
 		WebElement upload = driver.findElement(By.xpath("//input[@formcontrolname='CVUpload']"));
-		upload.sendKeys("C:\\Selenium\\RequestControlPopUp (1).png"); // CV Path of Trupti's system
+		upload.sendKeys("C:\\Selenium\\SampleCvPngFormat.png"); 
 	}
 
 }

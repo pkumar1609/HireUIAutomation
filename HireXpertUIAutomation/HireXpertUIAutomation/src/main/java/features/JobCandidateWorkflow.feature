@@ -1,9 +1,8 @@
 Feature: Job Candidate Workflow feature
 
 
-@BVTC @JCWF @JCWFbvt1
+@JCWF
 Scenario Outline: Verify the functionality of Add, Edit & Delete Candidate with Employer login
-
 Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
@@ -20,55 +19,13 @@ And observe candidate is getting added in New column
 And Click on Edit Candidate icon on candidate card "<Name>"
 And Make the changes in "<contactnumber1>" field
 And Click on save button to save the update details
-#Then click on Delete Candidate icon on Candidate card "<Name>"
-#And Verify candidate is displayed on workbench after deleting
 Examples: 
 |Username       |Password | CandidateEmail        |  Name | ContactNumber | Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber1   |
 |pemp@gmail.com | 12345   | candidate14@gmail.com | Can14 | 9125671966    | Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       |
 |pagy@gmail.com | 12345   | candidate14@gmail.com | Can14 | 9125671966    | Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       |
 
 
-#TC ID :- 125 [Job Candidate Workflow BVT TC]
-
-# If DB clear, register the employer first = employermain01@gmail.com. otherwise no change required
-
-#@BVTC @JCWF4 
-#Scenario Outline: To verify that Questionnarie and Screening tab not displayed when log in with Agency and To verify 'Interviewer'dropdown 
-#on Schedule interview popup when login with Agency
-#
-#Given User must be registered
-#
-#When title of login page is Home
-#And Click on Employer-Agency Signin link
-#And Employer enters valid credentials "<Username>","<Password>"
-#And Go to Workbench 
-##And close all job    
-#And Add job
-#|title  |agytitle   |designation |industry   |jobrole        |location |budget |minexp|maxexp|minsal|maxsal|totalinterviews|organization|functionalArea|
-#|Jcwf 4 |Jcwfagy 4 | developer   |IT software|java developer |Pune     |400000 |1     |2     |400000|500000|4|talentxpert|java|
-#And Select a added job
-#And Click on add candidate
-#And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
-#And observe candidate is getting added in New column
-#And Verify that Questionnarie and Screening tab is not displayed when login with Agency
-#And Click on Schedule interview icon 
-##And Click interviewer from Interviewer drop down "<interviewer>"
-#And Fill all mandatory details "<title>" "<scheduleon>" "<hour>" "<minute>" "<interviewduration>" "<timezone>" "<interviewer>"
-#And click on submit
-#And click on close button
-
-#Examples:
-#|Username       |Password |		CandidateEmail      |  Name   |    ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber1   | interviewer | title     | scheduleon  | hour | minute | interviewduration | timezone                                       |
-#|pagy@gmail.com | 12345   | candidate14@gmail.com   | Can14   |   9125671966      |   Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789        | emp         | Interview |  25/12/2020  | 11   | 30     |  1 hour           | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi |
-
-#TC ID :- 109, 137 [Job Candidate Workflow BVT TC]
-
-#Examples:
-#| JobTitle | JobDesignation   | Industry    | MinExp | MaxExp | MinSalary  | MaxSalary | NoOfInterviews | JobNoticePeriod  |  JobSkill1  |  JobSkill2  | interviewer | title     | scheduleon  | hour | minute | interviewduration | timezone             |   CandidateEmail         |Name     |ContactNumber|Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate| OrganizationName |
-#| Engineer | Test Engineer    | IT-Software | 2      | 3      |  500000    | 600000    | 3              |    60            | Agile       |    Java     | emp         | Interview |  25/12/2020 | 11   | 30     |  1 hour           | Indian Standard Time | candidate020@gmail.com   |can020   |8956652538   |jr.developer  |04/08/1999      |Female  |No            |25          |2.0       |400000|800000     |India  |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |  EmpOrg          |
-
-
-@Regression @reg1 @JCWF
+@JCWF
 Scenario Outline: To verify the functionality of Update Profile page of candidate
 Given User must be registered
 When title of login page is Home
@@ -124,14 +81,9 @@ Examples:
 # TC :- 25,64,104,129,296        [Job candidate Workflow Regression TC] 
 # TC :- 36,37,38,39,92,228,229   [Job Candidate Workbench BVT TC ]
 
-#change email id of candidate [enter candidate email id not presnet in system]
-  
-#  change email id evrytime new one
-
-@Regression @reg2 @JCWF
+ @JCWF
 Scenario Outline: To verify the Notice Period field on candidate page 
 Given User must be registered
-
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
@@ -157,7 +109,6 @@ And Click on Edit Candidate icon on candidate card "<Name>"
 And verify that notice period field is having updated notice period "<NoticePeriod1>"
 And Set on Notice period field as "Yes" and enter "<LastWorkingDay>"
 And Click on save button to save the updated changes
-#And if confirmation popup is displayed click on ok button
 And Click on Edit Candidate icon on candidate card "<Name>"
 And verify that on Notice period field is set as "Yes"
 Examples:
@@ -167,17 +118,9 @@ Examples:
 
 
 #TC ID: 59,70,134,263  [Job candidate Workflow Regression TC]
-
-# If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com .
-# Change the candidate name & email everytime, add a new candidate which is not present in system
-# Also check the last working day 
-  
-  
-@Regression @reg3 @JCWF
+@JCWF
 Scenario Outline: Verify user is able to add comment for candidate
-
 Given User must be registered
-
 When title of login page is Home
 And Click on Employer-Agency Signin link
 And Employer enters valid credentials "<Username>","<Password>"
@@ -203,11 +146,8 @@ Examples:
 |pemp@gmail.com |12345    |hirecan22@gmail.com |jr software developer|hirecan22|4855866385    |Sr.developer  |14/02/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 |pagy@gmail.com |12345    |hirecan21@gmail.com |jr software developer|hirecan21|7896485538    |Sr.developer  |14/02/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
-#TC : 317     [Job candidate workfloww Regression TC]
-# If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
-
-@Regression @reg4 @JCWF
+@JCWF
 Scenario Outline: Verify user able to move rejected candidate from Rejected column to any other column
 
 Given User must be registered
@@ -235,58 +175,13 @@ Then Collect Answer icon should reflect on candidates card for giving answers
 And Click on Reject Candidate icon from candidate card to reject the candidate "<Name>"
 Then Observe candidate get moved in Rejected column automatically
 And Now move that candidate from Rejected column to any other column and observe
-
 Examples:     
 |Username       |Password  |  CandidateEmail       |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  QUESTION1          | QMARKS1 | ANSWER1 | ANSWER2 | MARKS1 | MARKS2 | Cuttoffpercentage | Rejectionpercentage | OrganizationName |Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
 |pemp@gmail.com |12345     |  hirecan23@gmail.com  | Cherry03   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | Ready to Relocate ? | 100     |  Yes    |  No     | 100    | 0      | 80                |  20                 | EmpOrg           |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
 
-# TC :- 292 [Job candidate workfloww Regression TC]
-
-# If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
-
-
-#the below scenario doesn't exist
-#@Regression @reg5 @JCWF
-#Scenario Outline: Verify one after one rejected candidate listed in Rejected Column
-#
-#Given User must be registered
-#When title of login page is Home
-#And Click on Employer-Agency Signin link
-#And Employer enters valid credentials "<Username>","<Password>"
-#And Go to Workbench
-#And Click on add job button
-#And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
-#|title		   |agytitle    |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-#|JCFW 91       |JCFWagy 9  |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
-#And Select a added job
-#And Click on add candidate
-#And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
-#And verify candidate card is displaying or not in New column "<Name>"
-#And Click on add candidate
-#And Enter All details of "<CandidateEmail1>","<Name1>","<ContactNumber1>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
-#And verify candidate card is displaying or not in New column "<Name>"
-#And move both candidates in Interview Pending one column
-#And Click on Reject Candidate icon from candidate card and reject that candidate "<Name>"
-#Then Observe candidate get moved in Rejected column automatically
-#And Click on Reject Candidate icon from candidate card for second candidate "<Name1>"
-#And click on No from confirmation popup and observe
-##And Click on show all rejected candidate checkbox
-#Then both candidates should not display in same column
-#
-#Examples:
-#|Username       |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |ContactNumber1|Name1    |
-#|pemp@gmail.com |12345    |hirecan22@gmail.com |jr software developer|hirecan22|4855866385    |Sr.developer  |14/02/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan24@gmail.com|8789566562    |hirecan24|
-
-
-# TC :- 467 [Job candidate workfloww Regression TC]
-
-# If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
-
-
-@Regression @reg6 @JCWF
-Scenario Outline: To verify the functionality of Upload Resume on emp/agy profile
-	
+@JCWF
+Scenario Outline: To verify the functionality of Upload Resume on emp/agy profile	
 Given User must be registered
 When title of login page is Home
 And Click on Employer-Agency Signin link
@@ -327,9 +222,8 @@ Examples:
 |pagy@gmail.com |12345    |hirecan22@gmail.com |jr software developer|hirecan22|7896485538    |Sr.developer  |14/02/1995 |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
 
-@Regression @reg7 @JCWF1
-Scenario Outline: To verify the functionality of Upload Resume on candidate profile
-	
+@JCWF
+Scenario Outline: To verify the functionality of Upload Resume on candidate profile	
 Given User must be registered
 When title of login page is Home
 And click on Job Seeker(Candidate) Sign In link
@@ -337,7 +231,6 @@ And enter candidate email and password "<CandidateEmail>" "<Password>"
 And click on Signin button
 And Click on Profile tab
 Then verify the Auto Populated fields on candidate update profile popup window "<Username>","<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<relocate>"
-#And Add mandatory details on candidate profile page and save the details "<Jobtype>" "<Shift>"
 And upload candidate resume in document format
 And Click on Save Button
 And click on ok button
@@ -356,16 +249,12 @@ And click on ok button
 And Click on Save Button 
 And click on ok button
 Examples:
-|Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod |NoticePeriod|LastWorkingDay  |experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2| Jobtype               | Shift        |
-|12345    |hirecan18@gmail.com |jr software developer|hirecan18|9899648789    |Sr.developer  |14/02/1995      |Female  |Yes            |25          |01/09/2021      |1.5         |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft     |advanced version    | Contractual Full Time | Evening Shift|
-
-# TC ID :- 26 [Job candidate workfloww Regression TC]
-# Change the candidate name & candidate email every time
+|Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod |NoticePeriod|LastWorkingDay |experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1          |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2| Jobtype               | Shift        |Industry|
+|12345    |hirecan18@gmail.com |jr software developer|hirecan18|9899648789    |Sr.developer  |14/02/1995      |Female  |Yes            |25          |01/09/2021     |5         |600000|800000     | India |wardha|Arvi naka  |455966 |Call             |750000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft     |advanced version      | Contractual Full Time | Evening Shift|IT-Software|
 
 
-@Regression @reg8 @JCWF
- Scenario Outline: To verify user is able to update skills and No. of Interviews for the job with Employer login
-	
+@JCWF
+Scenario Outline: To verify user is able to update skills and No. of Interviews for the job with Employer login
 Given Open browser
 When title of login page is Home
 And Click on Employer-Agency Signin link
@@ -374,10 +263,11 @@ And Go to Workbench
 And Click on add job button
 And Add job "<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>" and "<remark3>"
 |title		     |agytitle     |designation      |industry    |location |budget |minexp|maxexp|minsal|maxsal|Name |         Email   | contact  |totalinterviews|organization|agyorganization|functionalArea|
-|JCFW 13         |JCFWagy 13   |developer        |IT software |pune     |400000 |1     |2     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
+|JCFW 13         |JCFWagy 13   |developer        |IT software |pune     |400000 |2     |7     |450000|800000|pe1  | pe1@gmail.com   | 1234564  |2			   |Hirexpert |rahitech       |java|
 And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
+And move the candidate card from potential candidate to new column
 And verify candidate card is displaying or not in New column "<Name>"	
 And click on Edit Job button to update skills and number of interview
 And select number of interview except previously selected number "<NoOfInterviews1>"
@@ -386,18 +276,14 @@ And again click on Edit Job button and observe the number of interviews "<NoOfIn
 And click on Add Skill button and add one new skill "<Skill4>"
 And Click on Edit Candidate icon on candidate card "<Name>"
 Then Newly Added skills should be reflect in candidate profile which are already added for that job "<Skill4>"
-And Click on close button and confirm Yes button
+And Click on close button
 Examples: 
 |Username       |Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|NoOfInterviews1|Skill4|
-|pemp@gmail.com |12345    |hirecan26@gmail.com |jr software developer|hirecan26|7895866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |5			   |Spring|   
-    
-#Reg TC ID: 112,324 [Job candidate workfloww Regression TC]
-# If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
+|pemp@gmail.com |12345    |hirecan26@gmail.com |jr software developer|hirecan26|7895866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |5         |500000|650000     | India |wardha|Arvi naka  |455966 |Call             |620000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |5			  |Spring|   
     
 
-@Regression @reg9 @JCWF
+@JCWF
 Scenario Outline: To verify deleted skill on Candidate Details page and when employer is adding new candidate for the job
-  
 Given Open browser
 When title of login page is Home
 And Click on Employer-Agency Signin link
@@ -418,7 +304,6 @@ And Delete one skill from Skills section
 And click on submit button
 And Click on Edit Candidate icon on candidate card "<Name>"
 And observe deleted skill not displayed "<Skill3>"
-And Click on close button and confirm Yes button
 And Click on close button
 And Click on Candidate name from candidate card and observe the skills
 Then deleted skills should display on Candidate Details page "<Skill3>"
@@ -429,18 +314,16 @@ And click on submit button
 And Click on add candidate
 And Enter valid "<CandidateEmail1>"
 And click on find button
-#And click on ok button
 Then observe deleted job skill should not show when employer is going to add new candidate "<Skill1>" "<Skill2>" "<Skill3>"
 And Click on close button
-
 Examples: 
-|Username       |Password |CandidateEmail      | profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |
-|pemp@gmail.com |12345    |hirecan27@gmail.com | jr software developer|hirecan27|9875866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com|   
-   
-   #Reg TC ID: 335,349 [Job candidate workfloww Regression TC]
-   # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
-   
+|Username       |Password |CandidateEmail      | profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea  |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |
+|empa01@gmail.com |12345    |hirecan27@gmail.com | jr software developer|hirecan27|9875866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |5         |550000|670000     | India |wardha|Arvi naka |455966 |Call             |650000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|Sun Microsoft       |advanced version    |hirecan26@gmail.com|   
 
+   
+ #Reg TC ID: 335,349 [Job candidate workfloww Regression TC]
+ # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
+   
 #@Regression @reg10 @JCWF
 #Scenario Outline: Verify the functionality of adding a candidate to the job that is shared by agency team member
 #    
@@ -482,13 +365,9 @@ Examples:
 #|    email address    | agency2         | Password  |team|agyteam      |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod|NoticePeriod|LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|CandidateEmail1    |
 #|  pagy@gmail.com     | pagy1@gmail.com | 12345    |pa2  |pa2@gmail.com|hirecan27@gmail.com |jr software developer|hirecan27|9875866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com|   
 
-#Reg TC ID: 239  [Job candidate workfloww Regression TC]
 
-# If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
-
-@Regression @reg11 @JCWF
+@JCWF
 Scenario Outline: Verify functionality of bell icon on candidate card.
-
 Given Open browser
 When title of login page is Home
 And Click on Employer-Agency Signin link
@@ -517,9 +396,8 @@ Examples:
 
 # If DB clear, register the employer & agency first, employermain01@gmail.com & agencymain01@gmail.com . otherwise no change required
 
-#@Regression @reg12 @JCWF
+#@JCWF  // Need to Fix
 Scenario Outline: Verify there is asking reason when user manually drag the candidate card in rejection column from employer login, employer team member login, agency login, agency team member login
-
 Given Open browser
 When title of login page is Home
 And Click on Employer-Agency Signin link
@@ -564,4 +442,3 @@ Examples:
 |pemp@gmail.com  |pe1@gmail.com  |12345    |hirecan48@gmail.com |hirecan49@gmail.com|jr software developer|hirecan48|hirecan49|7895866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  |Intermediate  | Expert | Mandatory |Preferred |Optional  |No          |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com| Not Answered|Not Answered|
 |pagy@gmail.com  |pa1@gmail.com  |12345    |hirecan50@gmail.com |hirecan51@gmail.com|jr software developer|hirecan50|hirecan51|7985866385    |Sr.developer  |19/04/1995      |Female  |No            |25          |1/9/2021      |1.5       |800000|800000     | India |wardha|Arvi naka  |455966 |Call             |800000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge  |Intermediate  | Expert | Mandatory |Preferred |Optional  |No          |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |hirecan26@gmail.com| Not Answered|Not Answered|
  
-# TC = 533

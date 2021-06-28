@@ -67,10 +67,8 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 			driver.findElement(By.id("jobDropdown")).click();
 			boolean jobdisplayed = driver.findElement(By.xpath("//select[@id='jobDropdown']//following::option[text()='"+JobName+"')]")).isDisplayed();
 									
-//			"//option[contains(text(),'Engineer - EmpOrg - Active')]"
 			Assert.assertEquals(true, jobdisplayed);
-			
-			{         
+			    
 				  try   
 				  {    
 				    if(driver.findElement(By.xpath("//select[@id='jobDropdown']//following::option[text()='"+JobName+"')]")).isDisplayed())
@@ -83,7 +81,6 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 				  {       
 					  System.out.println("Job not got added");
 				  }       
-				}
 	}
 
 	@When("^Select the same job from job drop down$")
@@ -102,7 +99,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 	@When("^upload candidate resume$")
     public void upload_candidate_resume() throws Throwable {  
 	Thread.sleep(3000);
-    addcandidatepage.uploadResumeDocumentT();
+    addcandidatepage.uploadResumeDocument();
   }
 
 	@When("^Click on save button to save the update details$")
@@ -124,7 +121,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		Thread.sleep(3000);
 		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender, OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea, ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);
 		Thread.sleep(3000);
-		addcandidatepage.uploadResumeDocumentT();
+		addcandidatepage.uploadResumeDocument();
 	}
 
 	@When("^if confirmation popup is displayed click on ok button$")
@@ -334,7 +331,7 @@ public class JobCandidateWorkflowBVTStepDefination extends baseclass {
 		Thread.sleep(3000);
 //		addcandidatepage.clickUploadResumeField();
 //		Thread.sleep(3000);
-		addcandidatepage.uploadResumeDocumentT();
+		addcandidatepage.uploadResumeDocument();
 //		common.clickOnSaveBtn();
 //		Thread.sleep(3000);
 //		common.clickOnConfirmYes();
