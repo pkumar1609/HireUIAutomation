@@ -184,14 +184,14 @@ public class AddCandidatePage extends baseclass {
 			this.name.clear();
 			this.name.sendKeys(Name);
 		}
-		
-		nameOfCan = this.name.getAttribute("value");
-		
+	
 		if (this.contactNumber.getAttribute("value").isEmpty()) {
+			this.contactNumber.clear();
 			this.contactNumber.sendKeys(ContactNumber);
 		}
 		
 		if (this.designation.get(0).getAttribute("value").isEmpty()) {
+			this.contactNumber.clear();
 			this.designation.get(0).sendKeys(Designation);
 		}
 		
@@ -229,20 +229,24 @@ public class AddCandidatePage extends baseclass {
 			}
 		}
 
+		this.salaryOffered.clear();
 		this.salaryOffered.sendKeys(Salaryoffered);
 		
 		se = new Select(this.countryId);
 		se.selectByVisibleText(Country);
 
 		if (this.city.getAttribute("value").isEmpty()) {
+			this.city.clear();
 			this.city.sendKeys(City);
 		}		
 		
 		if (this.cityArea.getAttribute("value").isEmpty()) {
+			this.cityArea.clear();
 			this.cityArea.sendKeys(CityArea);
 		}
 		
 		if (this.zipCode.getAttribute("value").isEmpty()) {
+			this.zipCode.clear();
 			this.zipCode.sendKeys(ZipCode);
 		}
 		
