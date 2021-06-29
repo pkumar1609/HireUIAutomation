@@ -140,7 +140,7 @@ public class MarketplaceBvt extends baseclass {
 		explicitwait.until(ExpectedConditions.elementToBeClickable(loginpage.myAccount));
 		Action.moveToElement(loginpage.myAccount).click().perform();
 		Thread.sleep(2000);
-		loginpage.Logout.click();
+		loginpage.LogOut.click();
 	 }
 
 	@And("^verify shared job is displaying on support login$")

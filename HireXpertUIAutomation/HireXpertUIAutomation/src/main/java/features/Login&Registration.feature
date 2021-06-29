@@ -175,7 +175,7 @@ Feature: HireXpert Login & Registration feature
 	
 
 	@Bvt @Regression4 @register
-	Scenario Outline: Verify that Agency, Employer & Candidate is not able to continue without completing the profile. Also Agency, Employer $ Candidate is able to update profile.
+	 Scenario Outline: Verify that Agency, Employer & Candidate is not able to continue without completing the profile. Also Agency, Employer Candidate is able to update profile.
 	Given User open browser
 	When click on Register link 
 	And enter user details
@@ -250,8 +250,8 @@ Feature: HireXpert Login & Registration feature
 	| UPAgency16   | upagency3087@gmail.com    | 5685263125          |   Agency       | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |UPEmployer16  | upemployer3087@gmail.com   | 565566625             |   Employer       | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      |UPCandidate16   | upcandidate3087@gmail.com  | 9564783126    | Candidate             | India   |Test Engineer  | Software Tester |   30         | IT-Software |  Pune         | Male    | Intermediate   |java           |2         |250000 |No            |Day Shift|Permanent Full Time|45          |350000     |Wakad   ||30/12/2020    |
 
 
-@Regression @register
-	Scenario Outline: Forgot password functionality for not registered user
+ @Regression @register
+ 	Scenario Outline: Forgot password functionality for not registered user
 	Given User open browser
 	And Click on forgot password link
 	And Enter an email id which is not registered and click on submit button "<emailid>" 

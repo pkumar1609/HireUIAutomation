@@ -413,6 +413,8 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 			Thread.sleep(3000);
 //			workbenchpage.ClickonLogout();
 			loginpage.logoutFromAppK();
+			//resetPage.Logout.click();
+
 		}
 
 
@@ -493,8 +495,8 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		
 		@Then("^User should get error message as \"([^\"]*)\" when he try to login with old password$")
 		public void user_should_get_error_message_as_when_he_try_to_login_with_old_password(String ExpectedErrorMessage) throws Throwable {
-			
-			String ActualErrorMessage = driver.findElement(By.cssSelector("p.error.mb-1.pl-1.pr-1")).getText();
+			Thread.sleep(2000);
+			String ActualErrorMessage = driver.findElement(By.xpath("//p[@class='error pl-1 pr-1 mb-2']")).getText();
 			Assert.assertEquals(ExpectedErrorMessage, ActualErrorMessage);	
 		}
 
@@ -653,15 +655,15 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 					Thread.sleep(1000);
 					
 					forgetpasswordpage.EnterNonregisteredEmailid(emailid);
-					
-					common.ClickSumbit();
+					forgetpasswordpage.clickOnSendPasswordOnEmail();
 					
 				}
 
 				@Then("^Verify that user get an error message as \"([^\"]*)\" or not$")
 				public void verify_that_user_get_an_error_message_as_or_not(String ExpectedErrorMessage) throws Throwable {
-				   
-					String ActualErrorMessage = driver.findElement(By.cssSelector("p.error.mb-1.pl-1.pr-1")).getText();
+					Thread.sleep(3000);
+
+					String ActualErrorMessage = driver.findElement(By.xpath("//p[@class='error pl-1 pr-1 mb-2']")).getText();
 					Assert.assertEquals(ExpectedErrorMessage, ActualErrorMessage);	
 					
 					Thread.sleep(1000);
@@ -684,6 +686,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 					Thread.sleep(3000);
 					forgetpasswordpage.ClickonForgetPasswordLink();
 				}
+				
 				
 				@When("^enter candidate email and password \"([^\"]*)\" \"([^\"]*)\"$")
 				public void enter_candidate_email_and_password(String CandidateEmail , String password) throws Throwable {
