@@ -162,12 +162,8 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		registerpage.registerUserdetails(usertype, timezone, country);
 	}
 
-	@Then("^Verify User should get error message as \"([^\"]*)\" with OK button$")
-	public void verify_User_should_get_error_message_as_with_OK_button(String ExpectedErrorMessage) throws Throwable {
 
-     String ActualErrorMessage = driver.findElement(By.cssSelector("#alertlineheight")).getText();
-     Assert.assertEquals(ExpectedErrorMessage, ActualErrorMessage );
-	}
+	
 
 	@And("^click on ok button if displayed$")
 	public void click_on_ok_button_displayed() throws Throwable {
@@ -278,13 +274,43 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		registerpage.registerCandidatedetails(candidatename, candidateemail, candidatecontactnumber);
 	}
 
-	@Then("^User should get a error message as \"([^\"]*)\"$")
-	public void user_should_get_a_error_message_as(String ExpectedErrorMessage) throws Throwable {
-	    
+//	@Then("^User should get a error message as \"([^\"]*)\"$")
+//	public void user_should_get_a_error_message_as(String ExpectedErrorMessage) throws Throwable {
+//	    
+//		Thread.sleep(3000);
+//		String ActualErrorMessage = driver.findElement(By.xpath("//div[@class='col-md-12 error']")).getText();
+//		Assert.assertEquals(ExpectedErrorMessage, ActualErrorMessage);
+//	}
+//	
+//	@Then("^Verify User should get error message as \"([^\"]*)\" with OK button$")
+//	public void verify_User_should_get_error_message_as_with_OK_button(String ExpectedErrorMessage) throws Throwable {
+//
+//     String ActualErrorMessage = driver.findElement(By.cssSelector("#alertlineheight")).getText();
+//     Assert.assertEquals(ExpectedErrorMessage, ActualErrorMessage );
+//	}
+	
+	
+	@Then("^verify User should get a error message as \"([^\"]*)\"$")
+	public void verify_User_should_get_a_error_message_as(String ExpectedErrorMessage) throws Throwable {
 		Thread.sleep(3000);
 		String ActualErrorMessage = driver.findElement(By.cssSelector("div.col-md-12.error")).getText();
 		Assert.assertEquals(ExpectedErrorMessage, ActualErrorMessage);
 	}
+	@Then("^User should get a error message as \"([^\"]*)\"$")
+	public void user_should_get_a_error_message_as(String ExpectedErrorMessage) throws Throwable {
+		Thread.sleep(3000);
+		  String ActualErrorMessage = driver.findElement(By.cssSelector("div.col-md-12.error")).getText();
+		     Assert.assertEquals(ExpectedErrorMessage, ActualErrorMessage );
+	}
+
+	@Then("^User should get following error message as \"([^\"]*)\"$")
+	public void user_should_get_following_error_message_as(String ExpectedErrorMessage) throws Throwable {
+		 
+		Thread.sleep(3000);
+		String ActualErrorMessage = driver.findElement(By.cssSelector("div.col-md-12.error")).getText();
+		 Assert.assertEquals(ExpectedErrorMessage, ActualErrorMessage );
+		 }
+
 
 	@When("^enter details of already registered agency \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void enter_details_of_already_registered_agency(String agencyname, String agencyemail, String agencycontactnumber) throws Throwable {
