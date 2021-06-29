@@ -162,17 +162,19 @@ And Select a added job
 And Click on add candidate
 And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
 And Click on Reject Candidate icon from candidate card to reject the candidate "<Name>"
-Then Observe candidate get moved in Rejected column automatically
-And Now move that candidate from Rejected column to any other column and observe
+Then drag the candidate card from rejected column to any other column
 And Click on Questionnaire tab
 And Enter first question "<QUESTION1>" and marks "<QMARKS1>" 
+#And Enter the answer "<ANSWER1>" "<ANSWER2>"  and enter Marks "<MARKS1>" "<MARKS2>" for first question
 And Enter the answer "<ANSWER1>" "<ANSWER2>"  and enter Marks "<MARKS1>" "<MARKS2>" for first question
 And click on Save Changes button
 And Enter the cutoff & rejection percentage "<Cuttoffpercentage>" "<Rejectionpercentage>" 
 And click on submit
 Then Collect Answer icon should reflect on candidates card for giving answers
+And Click on Collect Answer icon
+And Fill all the Questions answers "<QUESTION1>" "<ANSWER1>"
+And click on submit
 And Click on Reject Candidate icon from candidate card to reject the candidate "<Name>"
-Then Observe candidate get moved in Rejected column automatically
 And Now move that candidate from Rejected column to any other column and observe
 Examples:     
 |Username       |Password  |  CandidateEmail       |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  QUESTION1          | QMARKS1 | ANSWER1 | ANSWER2 | MARKS1 | MARKS2 | Cuttoffpercentage | Rejectionpercentage | OrganizationName |Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|

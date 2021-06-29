@@ -132,7 +132,6 @@ public class CandidateCardSectionPage extends baseclass {
 		editCandidateIcon="//span[text()=' "+Name+"']//following::button[@id='EditCandidate']";
 		Thread.sleep(4000);
 		executor.executeScript("arguments[0].click();", driver.findElement(By.xpath(editCandidateIcon)));
-
 	}
 	
 	public void clickOnDeleteCandidateIcon(String Name) throws InterruptedException {
@@ -144,7 +143,6 @@ public class CandidateCardSectionPage extends baseclass {
 	public void clickOnRejectCandidateIcon(String Name) throws InterruptedException {
 		Thread.sleep(3000);
 	    String rejectCandidateIcon = "//span[contains(text(),'"+Name+"')]//following::button[@title='Reject Candidate']";
-//		driver.findElement(By.xpath(rejectCandidateIcon)).click();
 		executor.executeScript("arguments[0].click();", driver.findElement(By.xpath(rejectCandidateIcon)));
 
 	}
@@ -154,10 +152,8 @@ public class CandidateCardSectionPage extends baseclass {
 	    Thread.sleep(2000);
 	    driver.findElement(By.xpath(commentsIcon)).click();
 	}
-	
-	
-	public void clickOnCandidateNameFromCandidateCard() {
 		
+	public void clickOnCandidateNameFromCandidateCard() {		
 		candidateCardCandidateName.click();
 	}
 	
