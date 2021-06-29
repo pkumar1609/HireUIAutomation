@@ -210,10 +210,8 @@ public class CandidateCardSectionPage extends baseclass {
 			common.submitbtn.click();
 			Thread.sleep(3000);
 			System.out.println("\nUser able to edit Assign To name..");
-		}
-		
-		else {
-			
+		}		
+		else {			
 			System.out.println("\nChange Assign To field is disabled in New column when Assign To name displayed employer name..");
 		}
 	}
@@ -248,16 +246,13 @@ public class CandidateCardSectionPage extends baseclass {
 			if(s02.equalsIgnoreCase(sk1) || s02.equalsIgnoreCase(sk2)) {
 				
 				System.out.println("\nSkill found..");
-			}
-			
+			}			
 			else {
 				
 				System.out.println("\nSkill not found..");
-			}
-			
+			}			
 			i++;
-		}
-				
+		}				
 		driver.manage().timeouts().implicitlyWait(utilclass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 	}
 	

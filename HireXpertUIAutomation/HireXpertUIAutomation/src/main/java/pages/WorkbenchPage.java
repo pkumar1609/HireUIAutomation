@@ -333,16 +333,13 @@ public class WorkbenchPage extends baseclass {
 		emailfield.sendKeys(CandidateEmail);
 		Thread.sleep(4000);
 		findbtn.click();
-//		nameOfCan= name.getText();
 	}
 
 	public void clickReloadCandidateButton() throws InterruptedException {
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", candidate);
-//		candidate.click();
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", ReloadCandidateButton);
-//		ReloadCandidateButton.click();
 	}
 
 	public void ClickonScreeningBtn() {
@@ -361,7 +358,6 @@ public class WorkbenchPage extends baseclass {
 		{
 			try {
 				if (driver.findElement(By.xpath("//h6[@title='Candidate Details']")).isDisplayed())
-
 				{
 					System.out.println("Candidate added to job is displayed on workbench");
 				}

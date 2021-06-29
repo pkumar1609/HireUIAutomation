@@ -180,11 +180,9 @@ public class AddCandidatePage extends baseclass {
 			String ZipCode, String Communicationmode, String Salaryoffered, String distance, String permanentAddress,
 			String relocate) throws InterruptedException, AWTException {
 
-		if (this.name.getAttribute("value").isEmpty()) {
-			this.name.clear();
-			this.name.sendKeys(Name);
-		}
-	
+		this.name.clear();
+		this.name.sendKeys(Name);
+
 		if (this.contactNumber.getAttribute("value").isEmpty()) {
 			this.contactNumber.clear();
 			this.contactNumber.sendKeys(ContactNumber);
