@@ -77,7 +77,7 @@ public class ResetPasswordStepDefination extends baseclass {
 		explicitwait.until(ExpectedConditions.elementToBeClickable(loginpage.myAccount));
 		Action.moveToElement(loginpage.myAccount).click().perform();
 		Thread.sleep(2000);
-		loginpage.LogOut.click();
+		loginpage.Logout.click();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winRateUS));
 
 		Assert.assertEquals(resetPage.winRateUS.isDisplayed(), true);

@@ -52,12 +52,18 @@ public class LoginPage extends baseclass {
 	@FindBy(xpath = "//a[contains(text(),'Update Profile')]")
 	public WebElement updateProfile;
 
+//	@FindBy(xpath = "//button[contains(text(),'Log Out')]")
+//	public WebElement LogOut;
+//	
+//	@FindBy(xpath = "//button[contains(text(),'Logout')]")
+//	public WebElement logout;
+
 	@FindBy(xpath = "//button[contains(text(),'Log Out')]")
-	public WebElement LogOut;
+	public WebElement Logout;
 	
 	@FindBy(xpath = "//button[contains(text(),'Logout')]")
-	public WebElement logout;
-
+	public WebElement logOut1;
+	
 	@FindBy(xpath = "//p[@class='error mb-1 pl-1 pr-1']")
 	public WebElement errormsg1;
 
@@ -232,12 +238,22 @@ public class LoginPage extends baseclass {
 		Thread.sleep(2000);
 		explicitwait.until(ExpectedConditions.elementToBeClickable(myAccount));
 		Action.moveToElement(myAccount).click().perform();
-		executor.executeScript("arguments[0].click();", LogOut);
-		Thread.sleep(2000);
-		executor.executeScript("arguments[0].click();", logout);
-
-		// executor.executeScript("arguments[0].click();", common.logout);logout
+		executor.executeScript("arguments[0].click();", Logout);
+		
 	}
+	
+	
+//	public void logoutFromAppKD() throws InterruptedException {
+//		Thread.sleep(2000);
+//		explicitwait.until(ExpectedConditions.elementToBeClickable(myAccount));
+//		Action.moveToElement(myAccount).click().perform();
+//		executor.executeScript("arguments[0].click();", Logout);
+//		Thread.sleep(2000);
+//		executor.executeScript("arguments[0].click();", logOut1);
+//
+//		// executor.executeScript("arguments[0].click();", common.logout);logout
+//	}
+//	
 
 	public void identifyUserK() throws InterruptedException {
 		explicitwait.until(ExpectedConditions.visibilityOf(myAccount));
