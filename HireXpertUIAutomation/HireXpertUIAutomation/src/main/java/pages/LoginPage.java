@@ -176,7 +176,7 @@ public class LoginPage extends baseclass {
 
 	public void loginInAppWithEmpK() throws InterruptedException {
 		emailaddress.sendKeys(prop.getProperty("employer"));
-		password.sendKeys("12345678");
+		password.sendKeys("12345");
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", signin);
 		identifyUserK();

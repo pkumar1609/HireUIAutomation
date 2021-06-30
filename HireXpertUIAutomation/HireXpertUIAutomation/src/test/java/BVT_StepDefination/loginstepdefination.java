@@ -73,9 +73,7 @@ public class loginstepdefination extends baseclass {
 	public void click_on_add_Button_Fill_all_the_mandatory_details_for_Manage_Employer(DataTable credentials) throws Throwable {
 	    manageemployer.addEmployer(credentials);
 	}
-	
-	
-	
+
 	@Then("^Employer should be able to add Agency$")
 	public void employer_should_be_able_to_add_Agency() {
 	Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+managerecruitmentagencies.name+"']")).isDisplayed(), true);
@@ -104,7 +102,6 @@ public class loginstepdefination extends baseclass {
 		Assert.assertEquals(driver.getPageSource().contains(prop.getProperty("employer")), true); 
 	}
 	
-
 	
 	@Then("^delete the added team \"([^\"]*)\"$")
 	public void delete_the_added_team(String team) throws Throwable {
@@ -129,10 +126,6 @@ public class loginstepdefination extends baseclass {
 			Assert.assertEquals(driver.getPageSource().contains(ar.get(i)), true);	
 		}
 	}
-
-
-	
-
 
 	@Then("^delete the added employer \"([^\"]*)\"$")
 	public void delete_the_added_employer(String team) throws Throwable {
@@ -159,57 +152,13 @@ public class loginstepdefination extends baseclass {
 	public void deleted_user_should_not_be_display_on_page() throws Throwable {
 		
 //		boolean ele1 = driver.findElement(By.xpath("//td[text()='"+teampage.namevalidate+"']")) != null;
-//		System.out.println(teampage.namevalidate);
-		
-//		Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+teampage.namevalidate+"']")) != null, false);
-	
-		
+//		System.out.println(teampage.namevalidate);		
+//		Assert.assertEquals(driver.findElement(By.xpath("//td[text()='"+teampage.namevalidate+"']")) != null, false);		
 //		Assert.assertFalse(driver.findElement(By.xpath("//td[text()='"+teampage.namevalidate+"']")) != null);
 	}
 	
 //----------------------------------------------------------------------------	
-//	
-////	@Given("^User must be registered$")
-////	public void user_must_be_registered() throws Throwable {    
-////		baseclass.initialization();
-////	}
-////
-////	@When("^title of login page is Home$")
-////	public void title_of_login_page_is_Home()  {
-////		agenciespage.getTitle();
-////	}
-////
-////	@And("^Click on Employer-Agency Signin link$")
-////	public void click_on_Employer_Agency_Signin_link() throws Throwable {
-////	    loginpage.ClickOnEmployerAgencySigninLink();
-////	}
-////	
-////	@And("^Employer enters valid credentials$")
-////	public void Employer_enters_valid_credentials() throws InterruptedException{
-////		loginpage.loginInAppWithEmpK();
-////	}
-////
-////	@And("^Click on Agencies tab$")
-////	public void click_on_Agencies_tab() throws InterruptedException  {
-////		Thread.sleep(1000);
-////		agenciespage.Clickagencybtn();
-////	}
-//	
-//	@When("^Click on add Button Fill all the mandatory details for agency$")
-//	public void click_on_add_Button_Fill_all_the_mandatory_details_for_agency(DataTable credentials) throws Throwable {
-//		agenciespage.enterAllDetails(credentials);
-//	}
-//
-////	@When("^Click on team tab$")
-////	public void click_on_team_tab() throws Throwable {
-////		dashboardpage.openTeamPage();
-////	}
-////	
-////	@When("^Click on add Button and Fill all the mandatory details for team$")
-////	public void click_on_add_Button_and_Fill_all_the_mandatory_details_for_team(DataTable credentials) throws Throwable {
-////		teampage.AddAllDetailsK(credentials);
-////	}
-//	
+
 	@And("^Click on Search section and enter already existing agency$")
 	public void click_on_Search_section_and_enter_already_existing_agency(DataTable credentials) throws Throwable {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
@@ -240,21 +189,6 @@ public class loginstepdefination extends baseclass {
 	public void user_should_able_to_search_employer_team() throws Throwable {
 		Assert.assertEquals(true, driver.findElement(By.xpath("//td[contains(text(),'"+ this.ele +"')]")).isDisplayed());
 	}
-//	
-////	@And("^agency enters valid credentials$")
-////	public void agency_enters_valid_credentials() throws Throwable {
-////	   loginpage.loginInAppWithAgyK();
-////	}
-//
-////	@And("^Click on Employer tab$")
-////	public void click_on_Employer_tab() throws Throwable {
-////	   dashboardpage.openEmployersPage();
-////	}
-//
-////	@And("^Click on add Button and Fill all the mandatory details for employer$")
-////	public void click_on_add_Button_and_Fill_all_the_mandatory_details_for_employer(DataTable credentials) throws Throwable {
-////		employerspage.enterValidCredentials(credentials);
-////	}
 
 	@And("^Click on Search section and enter already existing employer$")
 	public void click_on_Search_section_and_enter_already_existing_employer(DataTable credentials) throws Throwable {
@@ -291,14 +225,7 @@ public class loginstepdefination extends baseclass {
 	Assert.assertEquals(true, driver.findElement(By.xpath("//td[contains(text(),'"+ this.ele +"')]")).isDisplayed());
 
 	}
-//	@And("^user enters valid credentials$")
-//	public void user_enters_valid_credentials() throws Throwable {
-//		loginpage.loginInAppWithAgyK();
-////		loginpage.loginInAppWithEmpK();
-//		loginpage.identifyUserK();
-//		this.b=loginpage.b;
-//	}
-//
+
 	@And("^Go to update profile$")
 	public void go_to_update_profile() throws Throwable {
 		workbenchpage.openUpdateProfilePage();

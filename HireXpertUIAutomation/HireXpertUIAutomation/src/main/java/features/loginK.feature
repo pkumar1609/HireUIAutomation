@@ -1,21 +1,19 @@
 Feature: UserAccount Feature
 
-@TC47_51 @BVTC @login
-Scenario: To verify whether the employer is able to add agency.
-
-Given User must be registered
-
-When title of login page is Home
-And Click on Employer-Agency Signin link
-And Employer enters valid credentials
+@login
+Scenario Outline: To verify whether the employer is able to add and delete recruitment agency.
+Given User logged in to HireXpert "<Username>" and "<Password>" 
 And Click on add Button Fill all the mandatory details for Recruitment Agencies
-|Name     |         Email        | contact  |
-|pagy     | pagy@gmail.com       | 1234564  |
+|Name       |         Email       | contact  |
 |pagy1    | pagy1@gmail.com      | 1234564  |
 Then Employer should be able to add Agency
 Then Newly added agency should be displayed in Agencies page
 And delete the added agency "pagy1"
 And Close browser
+Examples:
+|Username       |Password| 
+|pemp@gmail.com | 12345  | 
+
 
 
 @TC48_52 @BVTC @login
@@ -34,6 +32,7 @@ Then Newly added team member should be displayed in team page
 Then the employer with which you have logged in should display in team tab by default
 #And delete the added team "pe2"
 And Close browser
+
 
 @TC49_53 @BVTC @login
 Scenario: To verify whether the Agency is able to add and delete employer
@@ -70,6 +69,7 @@ Then Newly added team member should be displayed in team page
 #Then deleted user should not be display on page
 And Close browser
 
+
 #Regression Test Cases
 
 #@TC77_79_95 @login
@@ -96,6 +96,8 @@ And Close browser
 #|pe1 |
 #And User should able to search employer team
 #And Close browser
+
+
 
 #@TC_78_80_95 @login
 #Scenario: To verify search funtionality of Agency and team tab
@@ -139,6 +141,7 @@ Examples:
 |Username      |Password |Name                                                            |
 |pemp@gmail.com|12345678 |1234567890123456789012345678901234567890123456789012345678901234|
 |pagy@gmail.com|12345    |1234567890123456789012345678901234567890123456789012345678901234|
+
 
 @BVTC @login @invalid
   Scenario Outline: Verify that User is not able to Login with invalid credentials
