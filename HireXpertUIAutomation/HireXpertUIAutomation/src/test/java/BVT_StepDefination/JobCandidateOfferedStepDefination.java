@@ -37,6 +37,18 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 						+ candidateName + "')]"));
 		Assert.assertEquals(candCardFromIncompleteColumn.isDisplayed(), true);
 	}
+	
+	@Then("^Verify on Job Offerred menu Candidate should display in the Green column \"([^\"]*)\"$")
+	public void verify_on_Job_Offerred_menu_Candidate_should_display_in_the_Green_column(
+			String candidateName) throws Throwable {
+
+		dashboardpage.openJobOfferedPage();
+		
+		WebElement candCardFromIncompleteColumn = driver.findElement(By.xpath(
+				"//th[contains(text(),' Green (All good)')]//following::h6[@title='Candidate Name' and contains(text(),'"
+						+ candidateName + "')]"));
+		Assert.assertEquals(candCardFromIncompleteColumn.isDisplayed(), true);
+	}
 
 	@Then("^Employer is able to edit candidate from Job Offerred menu \"([^\"]*)\"$")
 	public void employer_is_able_to_edit_candidate_from_Job_Offerred_menu(String candidateName) throws Throwable {
