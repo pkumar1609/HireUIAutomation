@@ -26,7 +26,7 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 	@FindBy(xpath = "//li[@id='login']")
 	public WebElement loginlink;
 	
-	@FindBy(linkText="Employer-Agency Sign In")
+	@FindBy(linkText=" Employer-Agency Sign In")
 	public WebElement EmployerAgencySignInlink;
 	
 	@FindBy(linkText="Job Seeker(Candidate) Sign In")

@@ -26,7 +26,8 @@ public class ResetPasswordStepDefination extends baseclass {
 		Thread.sleep(4000);
 		registerpage.clickLogin();
 		Thread.sleep(2000);
-		registerpage.clickEmployerAgencySignInlink();
+		loginpage.ClickOnEmployerAgencySigninLink();
+		//registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(2000);
 		loginpage.loginInNew(Username, Password);
 		Thread.sleep(5000);
@@ -76,7 +77,7 @@ public class ResetPasswordStepDefination extends baseclass {
 		explicitwait.until(ExpectedConditions.elementToBeClickable(loginpage.myAccount));
 		Action.moveToElement(loginpage.myAccount).click().perform();
 		Thread.sleep(2000);
-		loginpage.Logout.click();
+		loginpage.LogOut.click();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winRateUS));
 
 		Assert.assertEquals(resetPage.winRateUS.isDisplayed(), true);
@@ -90,7 +91,8 @@ public class ResetPasswordStepDefination extends baseclass {
 
 		registerpage.clickLogin();
 		Thread.sleep(2000);
-		registerpage.clickEmployerAgencySignInlink();
+		//registerpage.clickEmployerAgencySignInlink();
+		loginpage.ClickOnEmployerAgencySigninLink();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winWelcome));
 
 		Assert.assertEquals(resetPage.winWelcome.isDisplayed(), true);
@@ -141,7 +143,8 @@ public class ResetPasswordStepDefination extends baseclass {
 		Thread.sleep(4000);
 		registerpage.clickLogin();
 		Thread.sleep(2000);
-		registerpage.clickEmployerAgencySignInlink();
+		loginpage.ClickOnEmployerAgencySigninLink();
+		//registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(2000);
 		loginpage.loginInNew(Username, Password);
 		Thread.sleep(5000);
@@ -188,7 +191,8 @@ public class ResetPasswordStepDefination extends baseclass {
 	public void users_should_not_be_able_to_login_with_old_Email_id(String Username1, String Password) throws Throwable {
 		registerpage.clickLogin();
 		Thread.sleep(2000);
-		registerpage.clickEmployerAgencySignInlink();
+		loginpage.ClickOnEmployerAgencySigninLink();
+		//registerpage.clickEmployerAgencySignInlink();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winWelcome));
 
 		Assert.assertEquals(resetPage.winWelcome.isDisplayed(), true);
@@ -221,7 +225,8 @@ public class ResetPasswordStepDefination extends baseclass {
 		Thread.sleep(4000);
 		registerpage.clickLogin();
 		Thread.sleep(2000);
-		registerpage.clickEmployerAgencySignInlink();
+		loginpage.ClickOnEmployerAgencySigninLink();
+		//registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(2000);
 		loginpage.loginInNew(Username, Password);
 		Thread.sleep(5000);
@@ -260,7 +265,8 @@ public class ResetPasswordStepDefination extends baseclass {
 		Thread.sleep(4000);
 		registerpage.clickLogin();
 		Thread.sleep(2000);
-		registerpage.clickEmployerAgencySignInlink();
+		loginpage.ClickOnEmployerAgencySigninLink();
+		//registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(2000);
 		loginpage.loginInNew(Username, Password);
 		Thread.sleep(5000);

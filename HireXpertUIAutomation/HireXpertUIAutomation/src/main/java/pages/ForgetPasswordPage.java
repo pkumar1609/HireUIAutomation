@@ -1,5 +1,6 @@
 package pages;
 
+import java.util.Hashtable;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -18,7 +19,10 @@ public class ForgetPasswordPage  extends baseclass {
 	@FindBy(xpath = "//h5[contains(text(),'Forgot Password')]")
 	public WebElement winForgetPassword;
 	
-	@FindBy(xpath = "//p[contains(text(),'Your password have been reset and send to your registered email. Please check.')]")
+	@FindBy(xpath = "//button[contains(text(),'Send Password On Email')]")
+	public WebElement btnForgetPassword;
+	
+	@FindBy(xpath = "//p[@class='error pl-1 pr-1 mb-2']")
 	public WebElement lnkPass;
 	@FindBy(xpath = "//button[contains(text(),'Sign in ')]//ancestor::form//p")
 	public WebElement lnkWrongEmail;
@@ -58,6 +62,11 @@ public class ForgetPasswordPage  extends baseclass {
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();",ForgotPasswordLink);
 
+	}
+	
+	public void clickOnSendPasswordOnEmail()throws Throwable {
+		Thread.sleep(3000);
+		executor.executeScript("arguments[0].click();",btnForgetPassword);
 	}
 	public void EmailAddress(String Username) throws Throwable {
 		Thread.sleep(2000);
@@ -110,7 +119,7 @@ public class ForgetPasswordPage  extends baseclass {
 	
 	List<WebElement> noOfRows=driver.findElements(By.xpath("//div[@class='PerformanceAnalysisTableHeight']//tbody//tr"));
 	System.out.println("Number Of rows : "+ noOfRows.size());
-	
+		
 	boolean f=false;
 	for(int i=1;i<=noOfRows.size();i++) {
 		String value=driver.findElement(By.xpath("//div[@class='PerformanceAnalysisTableHeight']//tbody//tr["+i+"]//td["+columnIndex+"]")).getText();
@@ -125,6 +134,46 @@ public class ForgetPasswordPage  extends baseclass {
 	}
 	
 	
+	
+	
+	//New Table Method
+	public boolean searchTableRow(WebElement thead,WebElement tbody,String columnHeaderName,String textToSearch ) {
+	  try {
+		boolean flag=false;
+		Hashtable<String, String> columnHeaderData = this.getColumnHeader(thead);
+		List<WebElement> tableRow= thead.findElements(By.xpath("./tbody/tr"));
+		for(WebElement row : tableRow) {			
+			WebElement tableColumn= row.findElement(By.xpath(".//td["+columnHeaderData.get(columnHeaderName.trim())+"]"));
+			 String search=tableColumn.getText().trim();
+			  if(search.equals(textToSearch.trim())){
+				  return flag=true;
+			  }		  
+		}
+		return flag;
+	  }catch(Exception e) {
+		  return false;
+	  }
+		 
+	}
+	
+	public Hashtable<String, String> getColumnHeader(WebElement thead){
+		try {
+			Hashtable<String, String> columnHeaderData = new Hashtable<>();
+			List<WebElement> listColumnHeader= thead.findElements(By.xpath("./thead/tr/th"));
+			int counter=1;
+			for(WebElement columnHeader : listColumnHeader) {
+				String columnName=columnHeader.getText().trim();
+				if(!columnName.equals("")){
+					columnHeaderData.put(columnName, String.valueOf(counter));
+				}
+				counter++;
+			}
+		  return columnHeaderData;
+		}catch(Exception e) {
+			return null;
+		}
+		
+	}
 }
 
 

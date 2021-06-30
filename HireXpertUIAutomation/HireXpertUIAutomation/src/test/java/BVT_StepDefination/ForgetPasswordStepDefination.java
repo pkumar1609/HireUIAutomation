@@ -39,7 +39,7 @@ public class ForgetPasswordStepDefination extends baseclass {
 	public void enter_an_email_id_and_Click_on_the_Submit_button(String Username) throws Throwable {
 
 		forgetpasswordpage.EmailAddress(Username);
-		forgetpasswordpage.clickOnSubmit();
+		forgetpasswordpage.clickOnSendPasswordOnEmail();
 	}
 
 	@Then("^User get an message \"([^\"]*)\"$")
@@ -55,7 +55,8 @@ public class ForgetPasswordStepDefination extends baseclass {
 		Thread.sleep(4000);
 		registerpage.clickLogin();
 		Thread.sleep(2000);
-		registerpage.clickEmployerAgencySignInlink();
+		loginpage.ClickOnEmployerAgencySigninLink();
+		//registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(2000);
 		loginpage.loginInNew(Username1, Password1);
 		Thread.sleep(5000);
@@ -105,7 +106,9 @@ public class ForgetPasswordStepDefination extends baseclass {
 		Thread.sleep(4000);
 		registerpage.clickLogin();
 		Thread.sleep(2000);
-		registerpage.clickEmployerAgencySignInlink();
+		loginpage.ClickOnEmployerAgencySigninLink();
+
+		//registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(2000);
 	}
 
@@ -133,7 +136,9 @@ public class ForgetPasswordStepDefination extends baseclass {
 		Thread.sleep(4000);
 		registerpage.clickLogin();
 		Thread.sleep(2000);
-		registerpage.clickEmployerAgencySignInlink();
+		loginpage.ClickOnEmployerAgencySigninLink();
+
+		//registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(2000);
 	}
 
