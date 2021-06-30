@@ -75,7 +75,8 @@ public class ForgetPasswordStepDefination extends baseclass {
 			throws Throwable {
 		registerpage.clickLogin();
 		Thread.sleep(2000);
-		registerpage.clickEmployerAgencySignInlink();
+		loginpage.ClickOnEmployerAgencySigninLink();
+		//registerpage.clickEmployerAgencySignInlink();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winWelcome));
 
 		Assert.assertEquals(resetPage.winWelcome.isDisplayed(), true);
