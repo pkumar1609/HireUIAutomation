@@ -54,7 +54,7 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 	public void employer_is_able_to_edit_candidate_from_Job_Offerred_menu(String candidateName) throws Throwable {
 			
 		WebElement candCardEditButtonToEdit = driver.findElement(By.xpath(
-				"//div[@class='InvoiceDragCard']//div//div[@class='col-md-10 pr-0']//h6[contains(text(),'"+candidateName+"')]//ancestor::div[@class='col-md-10 pr-0']//following-sibling::div[@class='col-md-2 pl-0']//button"));		
+				"(//div[@class='InvoiceDragCard']//div//div[@class='col-md-10 pr-0']//h6[contains(text(),'"+candidateName+"')]//ancestor::div[@class='col-md-10 pr-0']//following-sibling::div[@class='col-md-2 pl-0']//button)[1]"));		
 		Assert.assertEquals(candCardEditButtonToEdit.isDisplayed(), true);
 		
 		candCardEditButtonToEdit.click();
