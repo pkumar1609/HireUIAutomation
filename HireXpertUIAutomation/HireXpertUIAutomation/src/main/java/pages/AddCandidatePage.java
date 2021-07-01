@@ -27,7 +27,7 @@ public class AddCandidatePage extends baseclass {
 	@FindBy(xpath = "//input[@id='Title']")
 	public WebElement profileTitle;
 		
-	@FindBy(id = "Email")
+	@FindBy(xpath = "//input[@id='Email']")
 	public WebElement emailField;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Alternate Email']")
