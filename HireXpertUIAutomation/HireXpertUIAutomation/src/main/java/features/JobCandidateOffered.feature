@@ -19,9 +19,9 @@ Examples:
 |Username       |Password| CandidateEmail      | Name     | ContactNumber| Designation    |Date      | Gender|OnNoticePeriod | NoticePeriod |experience | CTC    |expectedCTC | Country|City  |CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|OrganizationName|contactnumber|Title      | Hour | Minute |DurationHour|DurationMinute|TimeZone                     				      |ScheduledOn|InterviewerName|InterviewerEmail|
 |pemp@gmail.com | 12345  | hirreck01@gmail.com | hirreck01 | 9121601966   | Software Tester|04/08/1999| Male  |   No          |  30          |  3        | 450000 | 600000     | India  | Pune | Viman Nagar| 411014 |        SMS         |             | 4      | No             | No     | EmpOrg         |123456789    |Interview1 | 20   | 00     |   0		   | 15 Minutes   |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi| 18/6/2021 | pe2		      |pe2@gmail.com   |
 
-#DB cleanup required to pass below test
-@JobCandidteOffered  
-Scenario Outline:  Verify Offered job candidate is displayed on the Job Offered Tab on Agency login.
+
+@JobCandidteOffered
+Scenario Outline:  Verify on Agency login Offered job candidate is displayed on the Job Offered Tab.
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 And Logged-In user creates new job 
 | title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
@@ -39,9 +39,9 @@ Examples:
 |Username       |Password| CandidateEmail  | Name | ContactNumber | Designation     |Date       | Gender |OnNoticePeriod | NoticePeriod |experience | CTC    |expectedCTC | Country|City  |CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|OrganizationName|contactnumber|Title      | Hour | Minute |DurationHour|DurationMinute|TimeZone                     				      |ScheduledOn|InterviewerName|InterviewerEmail|
 |pagy@gmail.com | 12345  | hcrk01@gmail.com | hcrk01| 9121601966    | Software Tester |04/08/1999 | Male   |   No          |  30          |  2.5      | 450000 | 600000     | India  | Pune | Viman Nagar| 411014 |        SMS         |             | 4      | No             | No     | EmpOrg         |123456789    |Interview1 | 20   | 00     |   0		   | 15 Minutes   |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi| 18/6/2021 | pe2		      |pe2@gmail.com   |
 
-#DB cleanup required to pass below test
+
 @JobCandidteOffered
-Scenario Outline: Verify candidate is displaying in green column in Job Offered menu when Salary Offered value is provided to candidate and candidate card can be edited.
+Scenario Outline: Verify on Employee login candidate is displaying in green column in Job Offered menu when Salary Offered value is provided to candidate and candidate card can be edited.
 Given User logged in to HireXpert "<Username>" and "<Password>" 
 And Logged-In user creates new job 
 | title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |

@@ -55,14 +55,14 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 			
 		WebElement candCardEditButtonToEdit = driver.findElement(By.xpath(
 				"(//div[@class='InvoiceDragCard']//div//div[@class='col-md-10 pr-0']//h6[contains(text(),'"+candidateName+"')]//ancestor::div[@class='col-md-10 pr-0']//following-sibling::div[@class='col-md-2 pl-0']//button)[1]"));		
-		Assert.assertEquals(candCardEditButtonToEdit.isDisplayed(), true);
-		
-		candCardEditButtonToEdit.click();
-		
+
+		if(candCardEditButtonToEdit.isDisplayed())
+		{
+			candCardEditButtonToEdit.click();			
+		}		
 		WebElement editDialog = driver.findElement(By.xpath("//h5[contains(text(),'Edit Candidate')]"));		
 		String editCandidateDialogTitle = editDialog.getText();		
-		Assert.assertEquals(editCandidateDialogTitle.contains("Edit Candidate"), true);
-		
+		Assert.assertEquals(editCandidateDialogTitle.contains("Edit Candidate"), true);		
 		Thread.sleep(3000);
 		common.clickOnCloseBtn();
 		common.clickOnConfirmYes();		
