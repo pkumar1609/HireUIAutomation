@@ -491,74 +491,32 @@ public class DashboardPage extends baseclass {
 	}
 
 	
-//	public void enterAllDetails(String profile,DataTable credentials) throws InterruptedException {
-//		Thread.sleep(3000);
-//		executor.executeScript("arguments[0].scrollIntoView();", AddTeamButton);
-//		clickOnAddButton(profile);
-//		if(loginpage.b==true)
-//		{
-//			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-//			{
-//				Thread.sleep(1000);
-//				namefield.clear();
-//				namefield.sendKeys(data.get("Name"));
-//				namevalidate=data.get("Name");
-//				ar.add(namevalidate);
-//				emailfield.clear();
-//				emailfield.sendKeys(data.get("Email"));
-//				contactnumberfield.clear();
-//				contactnumberfield.sendKeys(data.get("contact"));
-//				select = new Select(countryid);
-//				select.selectByVisibleText("India");
-//				common.ClickSumbit();
-//				if(common.okbtnPopup.size()>0)
-//				{
-//					common.clickOnOKBtn();
-//				}
-//				else
-//				{
-//					clickOnAddButton(profile);
-//				}	
-//			}
-//			common.clickOnAddClosebtn();
-//		}
-//		else
-//		{
-//			for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-//			{
-//				Thread.sleep(1000);
-//				namefield.clear();
-//				namefield.sendKeys(data.get("Nameagy"));
-//				namevalidate=data.get("Nameagy");
-//				ar.add(namevalidate);
-//				emailfield.clear();
-//				emailfield.sendKeys(data.get("Emailagy"));
-//				contactnumberfield.clear();
-//				contactnumberfield.sendKeys(data.get("contact"));
-//				select = new Select(countryid);
-//				select.selectByVisibleText("India");
-//				common.ClickSumbit();
-//				if(common.okbtnPopup.size()>0)
-//				{
-//					common.clickOnOKBtn();
-//				}
-//				else
-//				{
-//					clickOnAddButton(profile);
-//				}	
-//			}
-//			common.clickOnAddClosebtn();
-//		}
-//	}
-//	
- 
-	
 	public void deleteUser(String team) throws InterruptedException
 	{
 		Thread.sleep(1000);	
 		driver.findElement(By.xpath("(//td[contains(text(),'"+team+"')]//following::button[@id='btnGroupDrop1'])[1]")).click();
 		driver.findElement(By.xpath("(//td[contains(text(),'"+team+"')]//following::button[text()='Delete'])[1]")).click();
 	    common.clickOnConfirmYes();
+	    
+	    transferJobAndDataToOtherUser(); //
 	}
 		
+	public void transferJobAndDataToOtherUser() throws InterruptedException
+	{
+		Thread.sleep(1000);	
+		WebElement deleteDialog = driver.findElement(By.xpath("//h5[contains(text(),'Delete')]"));
+		
+		if(deleteDialog.isDisplayed())
+		{		
+		  WebElement dropDown =	driver.findElement(By.xpath("//select[@formcontrolname='EmployeeId']"));
+		  Select se = new Select(dropDown);
+		  se.selectByVisibleText("pe1");
+		  
+		  WebElement deleteButton =	driver.findElement(By.xpath("//app-delete-employee/div[3]/button[2]"));
+		  if(deleteButton.isDisplayed())
+		  {
+			  deleteButton.click();
+		  }
+		}
+	}
 }

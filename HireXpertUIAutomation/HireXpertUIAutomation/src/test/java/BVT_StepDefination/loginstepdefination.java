@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -64,11 +65,12 @@ public class loginstepdefination extends baseclass {
 		Thread.sleep(3500);
 		loginpage.loginInAppWithEmpK();
 	}
+	
 	@When("^Click on add Button Fill all the mandatory details for Recruitment Agencies$")
 	public void click_on_add_Button_Fill_all_the_mandatory_details_for_Recruitment_Agencies(DataTable credentials) throws Throwable {
 		managerecruitmentagencies.addRecruiters(credentials);
-
 	}
+	
 	@When("^Click on add Button Fill all the mandatory details for Manage Employer$")
 	public void click_on_add_Button_Fill_all_the_mandatory_details_for_Manage_Employer(DataTable credentials) throws Throwable {
 	    manageemployer.addEmployer(credentials);
@@ -223,13 +225,13 @@ public class loginstepdefination extends baseclass {
 	@And("^User should able to search agency team$")
 	public void user_should_able_to_search_agency_team() throws Throwable {
 	Assert.assertEquals(true, driver.findElement(By.xpath("//td[contains(text(),'"+ this.ele +"')]")).isDisplayed());
-
 	}
 
 	@And("^Go to update profile$")
 	public void go_to_update_profile() throws Throwable {
 		workbenchpage.openUpdateProfilePage();
 	}
+	
 	@When("^Check the character limit for fields with \"([^\"]*)\"$")
 	public void check_the_character_limit_for_fields_with(String Name) throws Throwable {
 		Thread.sleep(1000);
@@ -255,13 +257,19 @@ public class loginstepdefination extends baseclass {
 		error=driver.findElements(By.xpath("//div[contains(text(),'Name must be 3 - 64 alphabets.')]")).size()>0;
 		Assert.assertEquals(error, false);
 		common.namefield.clear();
-		common.namefield.sendKeys(Name+"a");
+		common.namefield.sendKeys(Name+"a");	
 	}
 	
 	
 	@Then("^Error message should show only after exceeding character limit$")
 	public void error_message_should_show_only_after_exceeding_character_limit() throws Throwable {
-		Assert.assertEquals(driver.findElement(By.xpath("//div[contains(text(),'Name must be 3 - 64 alphabets.')]")).isDisplayed(),true);
+		
+		WebElement errorMsg = driver.findElement(By.xpath("//div[contains(text(),'Name must be 3 - 64 alphabets.')]"));
+		if(errorMsg.isDisplayed())		
+		{
+			Assert.assertEquals(errorMsg.isDisplayed(),true);	
+		}
+		common.clickOnCloseBtn();
 	}
 	
 ////	@When("^Click on close button$")
