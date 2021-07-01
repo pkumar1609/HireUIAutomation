@@ -243,17 +243,17 @@ public class LoginPage extends baseclass {
 	}
 	
 	
-//	public void logoutFromAppKD() throws InterruptedException {
-//		Thread.sleep(2000);
-//		explicitwait.until(ExpectedConditions.elementToBeClickable(myAccount));
-//		Action.moveToElement(myAccount).click().perform();
-//		executor.executeScript("arguments[0].click();", Logout);
-//		Thread.sleep(2000);
-//		executor.executeScript("arguments[0].click();", logOut1);
-//
-//		// executor.executeScript("arguments[0].click();", common.logout);logout
-//	}
-//	
+	public void logoutFromAppKnew() throws InterruptedException {
+		Thread.sleep(2000);
+		explicitwait.until(ExpectedConditions.elementToBeClickable(myAccount));
+		Action.moveToElement(myAccount).click().perform();
+		executor.executeScript("arguments[0].click();", Logout);
+		Thread.sleep(2000);
+		executor.executeScript("arguments[0].click();", logOut1);
+
+		// executor.executeScript("arguments[0].click();", common.logout);logout
+	}
+	
 
 	public void identifyUserK() throws InterruptedException {
 		explicitwait.until(ExpectedConditions.visibilityOf(myAccount));

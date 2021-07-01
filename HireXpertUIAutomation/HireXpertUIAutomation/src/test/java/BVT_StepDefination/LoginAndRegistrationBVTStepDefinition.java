@@ -178,6 +178,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 	public void click_on_ok_button() throws Throwable {
 		
 		common.clickOnOKBtn();
+		Thread.sleep(2000);
 	}
 
 	@When("^click on update profile link$")
@@ -412,7 +413,8 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass  {
 		    
 			Thread.sleep(3000);
 //			workbenchpage.ClickonLogout();
-			loginpage.logoutFromAppK();
+			loginpage.logoutFromAppKnew();
+			Thread.sleep(2000);
 			//resetPage.Logout.click();
 
 		}
