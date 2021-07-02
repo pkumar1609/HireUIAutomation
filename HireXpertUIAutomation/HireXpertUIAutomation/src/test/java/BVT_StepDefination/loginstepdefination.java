@@ -103,12 +103,12 @@ public class loginstepdefination extends baseclass {
 	{
 		Assert.assertEquals(driver.getPageSource().contains(prop.getProperty("employer")), true); 
 	}
-	
-	
+		
 	@Then("^delete the added team \"([^\"]*)\"$")
 	public void delete_the_added_team(String team) throws Throwable {
-		dashboardpage.deleteUser(team);
+		dashboardpage.deleteTeamMembers(team);		
 	}
+	
 	@And("^agency enters valid credentials$")
 	public void agency_enters_valid_credentials() throws InterruptedException {
 		loginpage.loginInAppWithAgyK();

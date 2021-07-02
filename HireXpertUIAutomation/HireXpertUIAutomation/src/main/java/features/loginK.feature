@@ -27,7 +27,8 @@ And Click on add Button Fill all the mandatory details for Manage Employee
 |pe3 | pe3@gmail.com   | 12345364  |Recruitment HR|
 Then Newly added team member should be displayed in team page
 Then the employer with which you have logged in should display in team tab by default
-#And delete the added team "pe2" // deleting team member func is disabled in application
+#deleting team member func is disabled in application so below line is commented
+#And delete the added team "pe2"    
 And Close browser
 Examples:
 |Username       |Password| 
@@ -42,7 +43,8 @@ And Click on add Button Fill all the mandatory details for Manage Employee
 |pa4    | pa4@gmail.com | 123405164 |Recruitment Agency Head|
 |pa5    | pa5@gmail.com | 123405264 |Recruitment Agency Head|
 Then Newly added team member should be displayed in team page
-#And delete the added team "pa5" // deleting team member func is disabled in application
+#deleting team member func is disabled in application so below line is commented
+#And delete the added team "pa5"
 And Close browser
 Examples:
 |Username       |Password| 

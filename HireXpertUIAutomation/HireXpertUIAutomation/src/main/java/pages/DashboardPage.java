@@ -496,9 +496,17 @@ public class DashboardPage extends baseclass {
 		Thread.sleep(1000);	
 		driver.findElement(By.xpath("(//td[contains(text(),'"+team+"')]//following::button[@id='btnGroupDrop1'])[1]")).click();
 		driver.findElement(By.xpath("(//td[contains(text(),'"+team+"')]//following::button[text()='Delete'])[1]")).click();
+	    common.clickOnConfirmYes();	    	   
+	}
+	
+	public void deleteTeamMembers(String team) throws InterruptedException
+	{
+		Thread.sleep(1000);	
+		driver.findElement(By.xpath("(//td[contains(text(),'"+team+"')]//following::button[@id='btnGroupDrop1'])[1]")).click();
+		driver.findElement(By.xpath("(//td[contains(text(),'"+team+"')]//following::button[text()='Delete'])[1]")).click();
 	    common.clickOnConfirmYes();
 	    
-	    transferJobAndDataToOtherUser(); //
+	    transferJobAndDataToOtherUser();
 	}
 		
 	public void transferJobAndDataToOtherUser() throws InterruptedException
