@@ -58,6 +58,7 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 
 		if(candCardEditButtonToEdit.isDisplayed())
 		{
+			Thread.sleep(3000);
 			candCardEditButtonToEdit.click();			
 		}		
 		WebElement editDialog = driver.findElement(By.xpath("//h5[contains(text(),'Edit Candidate')]"));		
