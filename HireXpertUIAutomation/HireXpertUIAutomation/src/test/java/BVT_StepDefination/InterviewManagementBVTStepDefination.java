@@ -192,6 +192,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 			String certificate3, String remark1, String remark2, String remark3, String certificateforskill1,
 			String certificateforskill2) throws Throwable {
 		workbenchpage.enterEmailId(CandidateEmail);
+		Thread.sleep(3000);
 		addcandidatepage.EnterAllMandatoryfieldsT(CandidateEmail, Name, ContactNumber, Designation, Date, Gender,
 				OnNoticePeriod, NoticePeriod, LastWorkingDay, experience, CTC, expectedCTC, Country, City, CityArea,
 				ZipCode, Communicationmode, Salaryoffered, distance, permanentAddress, relocate);

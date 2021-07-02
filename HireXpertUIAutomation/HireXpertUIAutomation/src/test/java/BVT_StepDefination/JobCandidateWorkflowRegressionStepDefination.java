@@ -750,6 +750,7 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass {
 	public void verify_candidate_card_is_displaying_or_not_in_New_column(String Name) throws Throwable {
 		explicitwait.until(ExpectedConditions.elementToBeClickable(candidatecardsectionpage.editCandidate));
 		driver.findElement(By.xpath("//th[text()=' New ']//following::span[text()=' " + Name + "']")).isDisplayed();
+		Thread.sleep(2000);
 	}
 
 	@When("^move the candidate card from potential candidate to new column$")

@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -180,8 +181,15 @@ public class AddCandidatePage extends baseclass {
 			String ZipCode, String Communicationmode, String Salaryoffered, String distance, String permanentAddress,
 			String relocate) throws InterruptedException, AWTException {
 
-		this.name.clear();
-		this.name.sendKeys(Name);
+		explicitwait.until(ExpectedConditions.visibilityOf(this.name));
+		
+		if(this.name.isDisplayed())
+		{
+		  while (!this.name.getAttribute("value").equals("")) {
+			      this.name.sendKeys(Keys.BACK_SPACE);
+		         }
+			this.name.sendKeys(Name);
+		}
 
 		if (this.contactNumber.getAttribute("value").isEmpty()) {
 			this.contactNumber.clear();
