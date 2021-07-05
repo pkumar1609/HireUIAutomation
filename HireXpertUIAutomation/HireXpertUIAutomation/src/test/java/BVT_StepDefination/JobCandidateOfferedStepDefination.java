@@ -1,15 +1,59 @@
 package BVT_StepDefination;
 
 import utilPackage.baseclass;
+
+import java.time.LocalDateTime;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+
+import cucumber.api.DataTable;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class JobCandidateOfferedStepDefination extends baseclass {
+
+	@When("^Newly registered user logged in to Application \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void newly_registered_user_logged_in_to_Application(String name, String username, String contact,
+			String userType, String timezone, String country, String password, String address, String organization,
+			String website, String city) throws Throwable {
+
+		registerpage.clickRegister();
+
+		currentTime = LocalDateTime.now();
+		String empUserName = dtFormate.format(currentTime) + username;
+
+		registerpage.registeremployerdetails(name, empUserName, contact);
+		registerpage.registerUserdetails(userType, timezone, country);
+		common.ClickSumbit();
+		registerpage.ClickYesbtn();
+		common.clickOnOKBtn();
+
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginInNew(empUserName, password);
+
+		updateprofilepopuppage.UpdateProfile(address, organization, website, city);
+		common.ClickSumbit();
+	}
+
+	@And("^Newly registered user creates new job$")
+	public void newly_registered_user_creates_new_job(DataTable credentials) throws Throwable {
+
+		dashboardpage.openWorkbenchPage();
+		workbenchpage.AddJob();
+		addjobpage.addjob(credentials);
+		common.ClickSumbit();
+		if (common.okbtnPopup.size() > 0) {
+			common.okbtn.click();
+		}
+		workbenchpage.selectWorkBenchJobNew(addjobpage.jobname);
+	}
 
 	@When("^Candidate card is dragged to Job Offered column$")
 	public void candidate_card_is_dragged_to_Job_Offered_column() throws Throwable {
@@ -22,7 +66,7 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 		action.clickAndHold(drag);
 		executor.executeScript("arguments[0].scrollIntoView()", drop);
 		action.moveToElement(drop).release(drop).perform();
-		
+
 		Thread.sleep(5000);
 	}
 
@@ -31,41 +75,90 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 			String candidateName) throws Throwable {
 
 		dashboardpage.openJobOfferedPage();
-		
+
 		WebElement candCardFromIncompleteColumn = driver.findElement(By.xpath(
 				"//th[contains(text(),' Incomplete Information')]//following::h6[@title='Candidate Name' and contains(text(),'"
 						+ candidateName + "')]"));
 		Assert.assertEquals(candCardFromIncompleteColumn.isDisplayed(), true);
 	}
-	
+
 	@Then("^Verify on Job Offerred menu Candidate should display in the Green column \"([^\"]*)\"$")
-	public void verify_on_Job_Offerred_menu_Candidate_should_display_in_the_Green_column(
-			String candidateName) throws Throwable {
+	public void verify_on_Job_Offerred_menu_Candidate_should_display_in_the_Green_column(String candidateName)
+			throws Throwable {
 
 		dashboardpage.openJobOfferedPage();
+		common.ClickReloadAllBtn();
 		
 		WebElement candCardFromIncompleteColumn = driver.findElement(By.xpath(
 				"//th[contains(text(),' Green (All good)')]//following::h6[@title='Candidate Name' and contains(text(),'"
-						+ candidateName + "')]"));
-		Assert.assertEquals(candCardFromIncompleteColumn.isDisplayed(), true);
+						+ candidateName + "')]"));		
+		try
+		{			
+			if(candCardFromIncompleteColumn.isDisplayed())
+			{
+				Assert.assertEquals(candCardFromIncompleteColumn.isDisplayed(), true);		
+			}				
+		}
+		catch(StaleElementReferenceException e)
+		{
+			if(candCardFromIncompleteColumn.isDisplayed())
+			{
+				Assert.assertEquals(candCardFromIncompleteColumn.isDisplayed(), true);		
+			}	
+		}	
 	}
 
 	@Then("^Employer is able to edit candidate from Job Offerred menu \"([^\"]*)\"$")
 	public void employer_is_able_to_edit_candidate_from_Job_Offerred_menu(String candidateName) throws Throwable {
-			
-		WebElement candCardEditButtonToEdit = driver.findElement(By.xpath(
-				"(//div[@class='InvoiceDragCard']//div//div[@class='col-md-10 pr-0']//h6[contains(text(),'"+candidateName+"')]//ancestor::div[@class='col-md-10 pr-0']//following-sibling::div[@class='col-md-2 pl-0']//button)[1]"));		
 
-		if(candCardEditButtonToEdit.isDisplayed())
-		{
+		WebElement candCardEditButtonToEdit = driver.findElement(
+				By.xpath("(//div[@class='InvoiceDragCard']//div//div[@class='col-md-10 pr-0']//h6[contains(text(),'"
+						+ candidateName
+						+ "')]//ancestor::div[@class='col-md-10 pr-0']//following-sibling::div[@class='col-md-2 pl-0']//button)[1]"));
+
+		if (candCardEditButtonToEdit.isDisplayed()) {
 			Thread.sleep(3000);
-			candCardEditButtonToEdit.click();			
-		}		
-		WebElement editDialog = driver.findElement(By.xpath("//h5[contains(text(),'Edit Candidate')]"));		
-		String editCandidateDialogTitle = editDialog.getText();		
-		Assert.assertEquals(editCandidateDialogTitle.contains("Edit Candidate"), true);		
+			candCardEditButtonToEdit.click();
+		}
+		WebElement editDialog = driver.findElement(By.xpath("//h5[contains(text(),'Edit Candidate')]"));
+		String editCandidateDialogTitle = editDialog.getText();
+		Assert.assertEquals(editCandidateDialogTitle.contains("Edit Candidate"), true);
 		Thread.sleep(3000);
 		common.clickOnCloseBtn();
-		common.clickOnConfirmYes();		
+		common.clickOnConfirmYes();
 	}
+
+	@Given("^On Job Offerred tab click on Edit icon of candidate added \"([^\"]*)\"$")
+	public void on_Job_Offerred_tab_click_on_Edit_icon_of_candidate_added(String candidateName) throws Throwable {
+	
+		dashboardpage.openJobOfferedPage();
+		WebElement candCardEditButtonToEdit = driver.findElement(
+				By.xpath("(//div[@class='InvoiceDragCard']//div//div[@class='col-md-10 pr-0']//h6[contains(text(),'"
+						+ candidateName
+						+ "')]//ancestor::div[@class='col-md-10 pr-0']//following-sibling::div[@class='col-md-2 pl-0']//button)[1]"));
+
+		if (candCardEditButtonToEdit.isDisplayed()) {
+			Thread.sleep(3000);
+			candCardEditButtonToEdit.click();
+		}
+	}
+	
+	@Given("^Add Salary Offered value and save changes \"([^\"]*)\"$")
+	public void add_Salary_Offered_value_and_save_changes(String salaryOffered) throws Throwable {
+	   
+		WebElement salOffered = driver.findElement(By.xpath("//input[@id='salaryOffered']"));
+		if(salOffered.isDisplayed())
+		{
+			salOffered.sendKeys(salaryOffered);		
+		}		
+		
+		common.clickOnEditCandidateDialogSaveBtn();
+	}
+
+	@Then("^Verify Count of Active job on same candidate card$")
+	public void verify_Count_of_Active_job_on_same_candidate_card() throws Throwable {	
+		
+		// to find xpath for active job number count value 
+	}
+
 }

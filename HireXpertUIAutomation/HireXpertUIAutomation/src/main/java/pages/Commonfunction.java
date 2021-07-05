@@ -122,6 +122,15 @@ public class Commonfunction extends baseclass {
 		executor.executeScript("arguments[0].click();", savebtn);
 	}
 	
+	public void clickOnEditCandidateDialogSaveBtn() throws InterruptedException
+	{
+		WebElement saveBtn = driver.findElement(By.xpath("(//button[text()='Save'])[2]"));			
+		if(saveBtn.isDisplayed() && saveBtn.isEnabled())
+		{
+			executor.executeScript("arguments[0].click();", saveBtn);
+		}
+	}
+	
 	public void clickOnSearchBtn() throws InterruptedException
 	{
 		Thread.sleep(4000);
@@ -171,6 +180,17 @@ public class Commonfunction extends baseclass {
 	public void clickNoButton() {
 		
 		noButtonPopup.click();
+	}
+	
+	
+	public void ClickReloadAllBtn() throws InterruptedException
+	{
+		WebElement reloadAllBtn = driver.findElement(By.xpath("//button[@title='Clear and Reload All' and text()='Reload All']"));			
+		if(reloadAllBtn.isDisplayed() && reloadAllBtn.isEnabled())
+		{
+			executor.executeScript("arguments[0].click();", reloadAllBtn);
+			common.clickOnConfirmYes();
+		}
 	}
 	
 	public void enterdate(String date) throws InterruptedException

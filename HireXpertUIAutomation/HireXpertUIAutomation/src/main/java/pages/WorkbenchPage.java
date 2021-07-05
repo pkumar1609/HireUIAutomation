@@ -244,6 +244,19 @@ public class WorkbenchPage extends baseclass {
 		executor.executeScript("arguments[0].click();", job);
 	}
 	
+	public void selectWorkBenchJobNew(String jobName) throws InterruptedException {
+		
+		Thread.sleep(10000);		
+		try {
+			driver.findElement(By.xpath("(//div[text()='Select']//following::input)[1]")).sendKeys(jobName);
+		}
+		catch (ElementNotInteractableException e) {	
+			driver.findElement(By.xpath("(//div[text()='Select']//following::input)[1]")).sendKeys(jobName);
+		}
+		WebElement job = driver.findElement(By.xpath("//span[contains(text(),'" + jobName + "')]"));
+		explicitwait.until(ExpectedConditions.visibilityOf(job));
+		executor.executeScript("arguments[0].click();", job);
+	}
 	
 
 	public void clickonthreedot() throws InterruptedException {
