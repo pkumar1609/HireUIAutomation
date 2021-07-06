@@ -5,10 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import cucumber.api.DataTable;
 import utilPackage.baseclass;
@@ -211,7 +214,7 @@ public class AddJobPage extends baseclass {
 
 	@FindBy(xpath = "//th[text()='Job Skills']//following::i[@class='fa fa-trash']")
 	public List<WebElement> deleteJobSkill;
-	
+
 	public void validateJobPageTitle() {
 
 		String jobpagetitle = driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/add-edit-job/div[1]/h5"))
@@ -316,35 +319,30 @@ public class AddJobPage extends baseclass {
 
 	public void addjob(DataTable credentials) throws InterruptedException {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class)) {
-	
+
 			currentTime = LocalDateTime.now();
-	
-			if (loginpage.b==true) 
-			{			
+
+			if (loginpage.b == true) {
 				jobname = dtFormate.format(currentTime) + " Emp";
 				title.sendKeys(jobname);
 				Organization.clear();
 				this.Organization.sendKeys(data.get("organization"));
 				jobAddedByEmp = true;
-			}
-			else if(loginpage.user == "agency")
-			{
+			} else if (loginpage.user == "agency") {
 				jobAddedByEmp = false;
 				jobname = dtFormate.format(currentTime) + " Agy";
 				title.sendKeys(jobname);
 				select = new Select(employerId);
 				List<WebElement> options = select.getOptions();
 				boolean b = false;
-				for (WebElement option : options) 
-				{
-					b = option.getText().contains("pemp - ");
+				for (WebElement option : options) {
+					b = option.getText().strip().contains("pemp - ");
 					if (b == true) {
 						select.selectByVisibleText(option.getText());
 						break;
 					}
 				}
-				if (b==false) 
-				{
+				if (b == false) {
 					Thread.sleep(2000);
 					addEmployee.click();
 					Thread.sleep(5000);
@@ -353,15 +351,34 @@ public class AddJobPage extends baseclass {
 					common.find.click();
 					Thread.sleep(2000);
 					common.addSubmitbtn.click();
-					select.selectByVisibleText("pemp - ");
+							
+				    WebDriverWait wait = new WebDriverWait(driver, 10);
+				    // Wait until expected condition size of the drop down increases and becomes 2
+				    wait.until((ExpectedCondition<Boolean>) new ExpectedCondition<Boolean>(){
+				        public Boolean apply(WebDriver driver)  
+				        {
+				            Select select = new Select(employerId);
+				            return select.getOptions().size()==2;
+				        }
+				    });
+
+					List<WebElement> dd = select.getOptions();
+					String employerNameOption = "";
+					for (int j = 0; j < dd.size(); j++) {
+						if (dd.get(j).getText().strip().contains("pemp")) {
+							employerNameOption = dd.get(j).getText().strip();					
+							break;
+						}
+					}
+					select.selectByVisibleText(employerNameOption);
 				}
-				SelectedEmployer=select.getFirstSelectedOption().getText().substring(0, select.getFirstSelectedOption().getText().indexOf("-")).strip();	
+				
+				SelectedEmployer = select.getFirstSelectedOption().getText()
+						.substring(0, select.getFirstSelectedOption().getText().indexOf("-")).strip();
 			}
-			System.out.println(SelectedEmployer);
 			if (this.Organization.isEnabled()) {
 				this.Organization.sendKeys(data.get("organization"));
 			}
-			
 			selectedOrganization = this.Organization.getAttribute("value");
 			Thread.sleep(1000);
 			designation.sendKeys(data.get("designation"));

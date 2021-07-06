@@ -49,10 +49,12 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 		workbenchpage.AddJob();
 		addjobpage.addjob(credentials);
 		common.ClickSumbit();
+		workbenchpage.selectWorkBenchJobNew(addjobpage.jobname);
+		
 		if (common.okbtnPopup.size() > 0) {
 			common.okbtn.click();
 		}
-		workbenchpage.selectWorkBenchJobNew(addjobpage.jobname);
+//		workbenchpage.selectWorkBenchJobNew(addjobpage.jobname);
 	}
 
 	@When("^Candidate card is dragged to Job Offered column$")
@@ -89,21 +91,21 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 		dashboardpage.openJobOfferedPage();
 		common.ClickReloadAllBtn();
 		
-		WebElement candCardFromIncompleteColumn = driver.findElement(By.xpath(
+		WebElement candCardFromGreenColumn = driver.findElement(By.xpath(
 				"//th[contains(text(),' Green (All good)')]//following::h6[@title='Candidate Name' and contains(text(),'"
 						+ candidateName + "')]"));		
 		try
 		{			
-			if(candCardFromIncompleteColumn.isDisplayed())
+			if(candCardFromGreenColumn.isDisplayed())
 			{
-				Assert.assertEquals(candCardFromIncompleteColumn.isDisplayed(), true);		
+				Assert.assertEquals(candCardFromGreenColumn.isDisplayed(), true);		
 			}				
 		}
 		catch(StaleElementReferenceException e)
 		{
-			if(candCardFromIncompleteColumn.isDisplayed())
+			if(candCardFromGreenColumn.isDisplayed())
 			{
-				Assert.assertEquals(candCardFromIncompleteColumn.isDisplayed(), true);		
+				Assert.assertEquals(candCardFromGreenColumn.isDisplayed(), true);		
 			}	
 		}	
 	}
@@ -161,4 +163,24 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 		// to find xpath for active job number count value 
 	}
 
+	@Then("^Move the card to Schedule Interview column$")
+	public void move_the_card_to_Schedule_Interview_column() throws Throwable {
+	
+		explicitwait.until(ExpectedConditions.elementToBeClickable(candidatecardsectionpage.editCandidate));
+		WebElement drag = candidatecardsectionpage.candidateCard;
+		WebElement drop = driver.findElement(By.xpath("//td[3]"));
+		Actions action = new Actions(driver);
+		Thread.sleep(3000);
+		action.clickAndHold(drag);
+		executor.executeScript("arguments[0].scrollIntoView()", drop);
+		action.moveToElement(drop).release(drop).perform();
+
+		Thread.sleep(5000);
+	}
+
+	@Then("^Verify Count of Active Interview on same candidate card$")
+	public void verify_Count_of_Active_Interview_on_same_candidate_card() throws Throwable {
+	   
+		// to find xpath for active interview count value 
+	}
 }
