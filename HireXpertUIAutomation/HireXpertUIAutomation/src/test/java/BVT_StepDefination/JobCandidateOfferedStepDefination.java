@@ -181,6 +181,13 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 	@Then("^Verify Count of Active Interview on same candidate card$")
 	public void verify_Count_of_Active_Interview_on_same_candidate_card() throws Throwable {
 	   
-		// to find xpath for active interview count value 
+		// to find xpath for active interview count value 	
 	}
+	
+	@Then("^Verify Count of Offer Taken on candidate card$")
+	public void verify_Count_of_Offer_Taken_on_candidate_card() throws Throwable {
+
+		// to find xpath for Offer Taken count value
+	}
+
 }
