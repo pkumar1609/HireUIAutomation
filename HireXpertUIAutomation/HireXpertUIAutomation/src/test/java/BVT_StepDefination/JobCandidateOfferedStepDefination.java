@@ -50,11 +50,9 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 		addjobpage.addjob(credentials);
 		common.ClickSumbit();
 		workbenchpage.selectWorkBenchJobNew(addjobpage.jobname);
-		
 		if (common.okbtnPopup.size() > 0) {
 			common.okbtn.click();
 		}
-//		workbenchpage.selectWorkBenchJobNew(addjobpage.jobname);
 	}
 
 	@When("^Candidate card is dragged to Job Offered column$")
@@ -76,8 +74,10 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 	public void verify_on_Job_Offerred_menu_Candidate_should_display_in_the_Incomplete_information_column(
 			String candidateName) throws Throwable {
 
-		dashboardpage.openJobOfferedPage();
-
+		WebElement jobOfferedLink = driver.findElement(By.xpath("(//a[contains(text(),'Job Offered')])[2]"));
+		if (jobOfferedLink.isDisplayed()) {
+			jobOfferedLink.click();
+		}
 		WebElement candCardFromIncompleteColumn = driver.findElement(By.xpath(
 				"//th[contains(text(),' Incomplete Information')]//following::h6[@title='Candidate Name' and contains(text(),'"
 						+ candidateName + "')]"));
@@ -90,24 +90,40 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 
 		dashboardpage.openJobOfferedPage();
 		common.ClickReloadAllBtn();
-		
+
 		WebElement candCardFromGreenColumn = driver.findElement(By.xpath(
 				"//th[contains(text(),' Green (All good)')]//following::h6[@title='Candidate Name' and contains(text(),'"
-						+ candidateName + "')]"));		
-		try
-		{			
-			if(candCardFromGreenColumn.isDisplayed())
-			{
-				Assert.assertEquals(candCardFromGreenColumn.isDisplayed(), true);		
-			}				
+						+ candidateName + "')]"));
+		try {
+			if (candCardFromGreenColumn.isDisplayed()) {
+				Assert.assertEquals(candCardFromGreenColumn.isDisplayed(), true);
+			}
+		} catch (StaleElementReferenceException e) {
+			if (candCardFromGreenColumn.isDisplayed()) {
+				Assert.assertEquals(candCardFromGreenColumn.isDisplayed(), true);
+			}
 		}
-		catch(StaleElementReferenceException e)
-		{
-			if(candCardFromGreenColumn.isDisplayed())
-			{
-				Assert.assertEquals(candCardFromGreenColumn.isDisplayed(), true);		
-			}	
-		}	
+	}
+
+	@Then("^Verify on Job Offerred menu Candidate should display in the Red column \"([^\"]*)\"$")
+	public void verify_on_Job_Offerred_menu_Candidate_should_display_in_the_Red_column(String candidateName)
+			throws Throwable {
+
+		dashboardpage.openJobOfferedPage();
+		common.ClickReloadAllBtn();
+
+		WebElement candCardFromRedColumn = driver.findElement(By.xpath(
+				"//th[contains(text(),' Red (Action Required)')]//following::h6[@title='Candidate Name' and contains(text(),'"
+						+ candidateName + "')]"));
+		try {
+			if (candCardFromRedColumn.isDisplayed()) {
+				Assert.assertEquals(candCardFromRedColumn.isDisplayed(), true);
+			}
+		} catch (StaleElementReferenceException e) {
+			if (candCardFromRedColumn.isDisplayed()) {
+				Assert.assertEquals(candCardFromRedColumn.isDisplayed(), true);
+			}
+		}
 	}
 
 	@Then("^Employer is able to edit candidate from Job Offerred menu \"([^\"]*)\"$")
@@ -132,7 +148,7 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 
 	@Given("^On Job Offerred tab click on Edit icon of candidate added \"([^\"]*)\"$")
 	public void on_Job_Offerred_tab_click_on_Edit_icon_of_candidate_added(String candidateName) throws Throwable {
-	
+
 		dashboardpage.openJobOfferedPage();
 		WebElement candCardEditButtonToEdit = driver.findElement(
 				By.xpath("(//div[@class='InvoiceDragCard']//div//div[@class='col-md-10 pr-0']//h6[contains(text(),'"
@@ -144,28 +160,27 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 			candCardEditButtonToEdit.click();
 		}
 	}
-	
+
 	@Given("^Add Salary Offered value and save changes \"([^\"]*)\"$")
 	public void add_Salary_Offered_value_and_save_changes(String salaryOffered) throws Throwable {
-	   
+
 		WebElement salOffered = driver.findElement(By.xpath("//input[@id='salaryOffered']"));
-		if(salOffered.isDisplayed())
-		{
-			salOffered.sendKeys(salaryOffered);		
-		}		
-		
+		if (salOffered.isDisplayed()) {
+			salOffered.sendKeys(salaryOffered);
+		}
+
 		common.clickOnEditCandidateDialogSaveBtn();
 	}
 
 	@Then("^Verify Count of Active job on same candidate card$")
-	public void verify_Count_of_Active_job_on_same_candidate_card() throws Throwable {	
-		
-		// to find xpath for active job number count value 
+	public void verify_Count_of_Active_job_on_same_candidate_card() throws Throwable {
+
+		// to find xpath for active job number count value
 	}
 
 	@Then("^Move the card to Schedule Interview column$")
 	public void move_the_card_to_Schedule_Interview_column() throws Throwable {
-	
+
 		explicitwait.until(ExpectedConditions.elementToBeClickable(candidatecardsectionpage.editCandidate));
 		WebElement drag = candidatecardsectionpage.candidateCard;
 		WebElement drop = driver.findElement(By.xpath("//td[3]"));
@@ -180,14 +195,23 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 
 	@Then("^Verify Count of Active Interview on same candidate card$")
 	public void verify_Count_of_Active_Interview_on_same_candidate_card() throws Throwable {
-	   
-		// to find xpath for active interview count value 	
+
 	}
-	
+
 	@Then("^Verify Count of Offer Taken on candidate card$")
 	public void verify_Count_of_Offer_Taken_on_candidate_card() throws Throwable {
 
-		// to find xpath for Offer Taken count value
+	}
+
+	@Then("^Verify Count of Offer Taken After Your Offer on candidate card$")
+	public void verify_Count_of_Offer_Taken_After_Your_Offer_on_candidate_card() throws Throwable {
+
+	}
+
+	@Then("^Verify Count of Offered Salary count is increased on candidate card$")
+	public void verify_Count_of_Offered_Salary_count_is_increased_on_candidate_card() throws Throwable {
+
+		// need candidate name
 	}
 
 }
