@@ -174,7 +174,7 @@ public class CandidateCardSectionPage extends baseclass {
 	public void dragAndDropCardToThirdColumn() throws InterruptedException {
 		
 		WebElement drag = candidateCard;
-		WebElement drop = InterviewPendingthreecolumn;
+		WebElement drop=driver.findElement(By.xpath("//td[@class='TableCard' and @id='jobStatusColumn'][4]"));
 		
 		action = new Actions(driver);
 		executor.executeScript("scrollTo(3000,0);");  
