@@ -5,10 +5,14 @@ import utilPackage.baseclass;
 import java.time.LocalDateTime;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import cucumber.api.DataTable;
@@ -19,6 +23,8 @@ import cucumber.api.java.en.When;
 
 public class JobCandidateOfferedStepDefination extends baseclass {
 
+	job  objjob = new job();
+	
 	@When("^Newly registered user logged in to Application \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void newly_registered_user_logged_in_to_Application(String name, String username, String contact,
 			String userType, String timezone, String country, String password, String address, String organization,
@@ -49,12 +55,25 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 		workbenchpage.AddJob();
 		addjobpage.addjob(credentials);
 		common.ClickSumbit();
-		workbenchpage.selectWorkBenchJobNew(addjobpage.jobname);
+		workbenchpage.selectWorkBenchJobNew(addjobpage.jobname);	 
 		if (common.okbtnPopup.size() > 0) {
 			common.okbtn.click();
 		}
 	}
 
+	@When("^Candidate card is dragged to Offering Job column$")
+	public void candidate_card_is_dragged_to_Offering_Job_column() throws Throwable {
+
+		explicitwait.until(ExpectedConditions.elementToBeClickable(candidatecardsectionpage.editCandidate));
+		WebElement drag = candidatecardsectionpage.candidateCard;
+		WebElement drop = driver.findElement(By.xpath("//td[5]"));
+		Actions action = new Actions(driver);
+		Thread.sleep(3000);
+		action.clickAndHold(drag);
+		executor.executeScript("arguments[0].scrollIntoView()", drop);
+		action.moveToElement(drop).release(drop).perform();
+	}
+	
 	@When("^Candidate card is dragged to Job Offered column$")
 	public void candidate_card_is_dragged_to_Job_Offered_column() throws Throwable {
 
@@ -89,21 +108,22 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 			throws Throwable {
 
 		dashboardpage.openJobOfferedPage();
-		common.ClickReloadAllBtn();
+		
+		//common.ClickReloadAllBtn();
 
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(
+			By.xpath("//th[contains(text(),' Green (All good)')]//following::h6[@title='Candidate Name' and contains(text(),'"+ candidateName +"')]")));
+				
 		WebElement candCardFromGreenColumn = driver.findElement(By.xpath(
-				"//th[contains(text(),' Green (All good)')]//following::h6[@title='Candidate Name' and contains(text(),'"
-						+ candidateName + "')]"));
-		try {
-			if (candCardFromGreenColumn.isDisplayed()) {
-				Assert.assertEquals(candCardFromGreenColumn.isDisplayed(), true);
-			}
-		} catch (StaleElementReferenceException e) {
-			if (candCardFromGreenColumn.isDisplayed()) {
-				Assert.assertEquals(candCardFromGreenColumn.isDisplayed(), true);
-			}
-		}
+  				"//th[contains(text(),' Green (All good)')]//following::h6[@title='Candidate Name' and contains(text(),'"
+  						+ candidateName + "')]"));
+		
+	  	Assert.assertEquals(candCardFromGreenColumn.isDisplayed(), true);
+	  	
+		executor.executeScript("arguments[0].scrollIntoView(true);", candCardFromGreenColumn);	
 	}
+	
 
 	@Then("^Verify on Job Offerred menu Candidate should display in the Red column \"([^\"]*)\"$")
 	public void verify_on_Job_Offerred_menu_Candidate_should_display_in_the_Red_column(String candidateName)
@@ -155,8 +175,10 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 						+ candidateName
 						+ "')]//ancestor::div[@class='col-md-10 pr-0']//following-sibling::div[@class='col-md-2 pl-0']//button)[1]"));
 
-		if (candCardEditButtonToEdit.isDisplayed()) {
-			Thread.sleep(3000);
+		if (candCardEditButtonToEdit.isDisplayed())
+		{	
+		    WebDriverWait wait = new WebDriverWait(driver, 30);
+			wait.until(ExpectedConditions.elementToBeClickable(candCardEditButtonToEdit));
 			candCardEditButtonToEdit.click();
 		}
 	}
@@ -168,7 +190,6 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 		if (salOffered.isDisplayed()) {
 			salOffered.sendKeys(salaryOffered);
 		}
-
 		common.clickOnEditCandidateDialogSaveBtn();
 	}
 
@@ -193,14 +214,48 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 		Thread.sleep(5000);
 	}
 
-	@Then("^Verify Count of Active Interview on same candidate card$")
-	public void verify_Count_of_Active_Interview_on_same_candidate_card() throws Throwable {
-
+	
+	@Then("^Verify Count of Active Interview on same candidate card \"([^\"]*)\"$")
+	public void verify_Count_of_Active_Interview_on_same_candidate_card(String candidateName) throws Throwable {
+		
+		String jobName = objjob.selectedJobName;
+	
+		WebElement eleCard = driver.findElement
+				(By.xpath("(//th[contains(text(),' Green (All good)')]//following::h6[@title='Candidate Name' and contains(text(),'"+candidateName+"')]//following::p[contains(text(),'"+jobName+"')]//following::p[contains(text(),'1')])[3]"));
+		if(eleCard.isDisplayed())
+		{			
+			String cardInterviewCountValue = eleCard.getText();
+			Assert.assertEquals(cardInterviewCountValue, "1");
+		}
 	}
 
-	@Then("^Verify Count of Offer Taken on candidate card$")
-	public void verify_Count_of_Offer_Taken_on_candidate_card() throws Throwable {
+	
+	@Then("^Verify Count of Offer Taken on candidate card \"([^\"]*)\"$")
+	public void verify_Count_of_Offer_Taken_on_candidate_card(String candidateName) throws Throwable {
+		
+		String jobName = job.selectedJobName;
+		System.out.println("******Job Name => "+jobName);
 
+		WebDriverWait wait1 = new WebDriverWait(driver,30);
+		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//th[contains(text(),' Green (All good)')]//following::p[contains(text(),'"+jobName+"')]")));
+									
+		WebElement candCard = driver.findElement(
+				By.xpath("//th[contains(text(),' Green (All good)')]//following::p[contains(text(),'"+jobName+"')]"));
+
+		executor.executeScript("arguments[0].scrollIntoView(true);", candCard);	
+		
+		WebElement eleCard = driver.findElement
+				(By.xpath("(//th[contains(text(),' Green (All good)')]//following::h6[@title='Candidate Name' and contains(text(),'"+candidateName+"')]//following::p[contains(text(),'"+jobName+"')]//following::p[contains(text(),'1')])[3]"));	     
+		
+		if(eleCard.isDisplayed())
+		{	
+			System.out.println("****eleCard.getText() => "+eleCard.getText());
+			String cardOfferTakenCountValue = eleCard.getText();
+			System.out.println("****cardOfferTakenCountValue => "+cardOfferTakenCountValue);
+			int cardValue = Integer.parseInt(cardOfferTakenCountValue);
+			System.out.println("****cardValue => "+cardValue);
+			Assert.assertEquals(cardValue > 0, true);
+		}
 	}
 
 	@Then("^Verify Count of Offer Taken After Your Offer on candidate card$")
