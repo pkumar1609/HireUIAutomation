@@ -18,11 +18,13 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import pages.AddCandidatePage;
 import pages.AddJobPage;
 import pages.AddQuestionaryPage;
 import pages.CandidateCardSectionPage;
 import pages.CandidateDashboardPage;
+import pages.CandidatePoolPage;
 import pages.CandidateUpdateProfilePage;
 import pages.ChangePasswordPage;
 import pages.Commonfunction;
@@ -112,6 +114,7 @@ public class baseclass extends SuperBase{
 	public static JobUpdatesPage jobupdatepage;
 	public static ResetPasswordPage resetPage;	
 	public static CvParserPage cvParserPage;
+	public static CandidatePoolPage candidatePoolPage;
 
 
 	public baseclass() { 
@@ -191,5 +194,6 @@ public class baseclass extends SuperBase{
 		jobupdatepage=new JobUpdatesPage();
 		resetPage=new ResetPasswordPage();
 		cvParserPage=new CvParserPage();
+		candidatePoolPage=new CandidatePoolPage();
 	}
 }
