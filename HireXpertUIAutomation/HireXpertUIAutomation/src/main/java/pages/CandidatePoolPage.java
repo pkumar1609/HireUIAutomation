@@ -70,55 +70,7 @@ public class CandidatePoolPage extends baseclass {
 	public WebElement candidatetable;
 	By gridCandidateTable=By.xpath("//div[@class='CandidateRelationshipTableHeight']/table");
 	
-	public Hashtable<String, String> getTableColumnHeader(By weResultTableForThead) {
-		Hashtable<String, String> dataColumnHeader = new Hashtable<String, String>();
-		int intColumnNumber = 1;
-		try {
-			WebElement weResultTable = driver.findElement(weResultTableForThead);
-			
-			List<WebElement> weColumnsHeaders = weResultTable
-					.findElements(By.xpath(".//thead//th"));
-			for (WebElement weColumnHeader : weColumnsHeaders) {
-				String strHeader = weColumnHeader.getText().trim();
-				if (!strHeader.equals(""))
-					dataColumnHeader.put(strHeader, String.valueOf(intColumnNumber));
-				intColumnNumber++;
-			}
-			return dataColumnHeader;
-
-		
-		} catch (Exception exception) {
-			exception.printStackTrace();
-			return dataColumnHeader;
-		}
-
-	}
 	
-	public WebElement selectTableForSpecficColumn(By weResultTableForThead, By weResultTableForTbody,
-			String columnHeaderNameForSearch, String textToSearch, int ColoumnIndex) {
-		Hashtable<String, String> dataColumnHeader = new Hashtable<String, String>();
-		try {
-			dataColumnHeader = getTableColumnHeader(weResultTableForThead);
-			WebElement weResultTable = driver.findElement(weResultTableForTbody);
-			
-			List<WebElement> weRows = weResultTable.findElements(By.xpath(".//tbody/tr"));
-			for (WebElement weRow : weRows) {
-				WebElement weExceptedClm = weRow.findElement(By.xpath(
-						".//td[" + dataColumnHeader.get(columnHeaderNameForSearch.trim()) + "]"));
-				if (weExceptedClm.getText().trim().contains(textToSearch.trim())) {
-					WebElement weExceptedSpecificColoum = weRow
-							.findElement(By.xpath(".//td[" + ColoumnIndex + "]"));
-					return weExceptedSpecificColoum;
-				}
-			}
-		
-		} catch (Exception exception) {
-			exception.printStackTrace();
-			return null;
-		}
-		return null;
-	}
-
 
 	public void clickOnCandidatePool() throws InterruptedException {
 		Thread.sleep(3000);
@@ -180,19 +132,19 @@ public class CandidatePoolPage extends baseclass {
 	}
 	public void assertValues() throws InterruptedException {
 		Thread.sleep(10000);
-		WebElement element=selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 8);
+		WebElement element=common.selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 8);
 		String value=element.getText().trim();
 		Assert.assertTrue(value.equals("ABAP Developer"));
 		Thread.sleep(3000);
-		WebElement element1=selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 3);
+		WebElement element1=common.selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 3);
 		String value1=element1.getText().trim();
 		Assert.assertTrue(value1.equals("New Candidate"));
 		Thread.sleep(3000);
-		WebElement element2=selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 10);
+		WebElement element2=common.selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 10);
 		String value2=element2.getText().trim();
 		Assert.assertTrue(value2.equals("400000"));
 		Thread.sleep(3000);
-		WebElement element3=selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 11);
+		WebElement element3=common.selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 11);
 		String value3=element3.getText().trim();
 		Assert.assertTrue(value3.equals("600000"));
 
