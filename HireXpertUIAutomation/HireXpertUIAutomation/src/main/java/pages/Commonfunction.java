@@ -1,6 +1,7 @@
 package pages;
 
 import java.io.IOException;
+import java.util.Hashtable;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -277,6 +278,56 @@ public class Commonfunction extends baseclass {
 		explicitwait.until(ExpectedConditions.visibilityOf(CommentTextArea));
 		CommentTextArea.sendKeys("Comment added to text area.");
 	}
+	
+	public Hashtable<String, String> getTableColumnHeader(By weResultTableForThead) {
+		Hashtable<String, String> dataColumnHeader = new Hashtable<String, String>();
+		int intColumnNumber = 1;
+		try {
+			WebElement weResultTable = driver.findElement(weResultTableForThead);
+			
+			List<WebElement> weColumnsHeaders = weResultTable
+					.findElements(By.xpath(".//thead//th"));
+			for (WebElement weColumnHeader : weColumnsHeaders) {
+				String strHeader = weColumnHeader.getText().trim();
+				if (!strHeader.equals(""))
+					dataColumnHeader.put(strHeader, String.valueOf(intColumnNumber));
+				intColumnNumber++;
+			}
+			return dataColumnHeader;
+
+		
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			return dataColumnHeader;
+		}
+
+	}
+	
+	public WebElement selectTableForSpecficColumn(By weResultTableForThead, By weResultTableForTbody,
+			String columnHeaderNameForSearch, String textToSearch, int ColoumnIndex) {
+		Hashtable<String, String> dataColumnHeader = new Hashtable<String, String>();
+		try {
+			dataColumnHeader = getTableColumnHeader(weResultTableForThead);
+			WebElement weResultTable = driver.findElement(weResultTableForTbody);
+			
+			List<WebElement> weRows = weResultTable.findElements(By.xpath(".//tbody/tr"));
+			for (WebElement weRow : weRows) {
+				WebElement weExceptedClm = weRow.findElement(By.xpath(
+						".//td[" + dataColumnHeader.get(columnHeaderNameForSearch.trim()) + "]"));
+				if (weExceptedClm.getText().trim().contains(textToSearch.trim())) {
+					WebElement weExceptedSpecificColoum = weRow
+							.findElement(By.xpath(".//td[" + ColoumnIndex + "]"));
+					return weExceptedSpecificColoum;
+				}
+			}
+		
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			return null;
+		}
+		return null;
+	}
+
 
 }
 
