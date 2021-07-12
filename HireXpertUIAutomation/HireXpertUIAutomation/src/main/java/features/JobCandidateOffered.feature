@@ -145,8 +145,8 @@ And Add Salary Offered value and save changes "<Salaryoffered2>"
 Then Verify on Job Offerred menu Candidate should display in the Green column "<CandidateName>"
 Then Verify Count of Active Interview on same candidate card "<CandidateName>"
 Examples:
-|EmployerLogin  |NewEmployerLogin  |Password| CandidateEmail    | CandidateName|NewEmployerName |ContactNumber|Designation    |Date       | Gender |OnNoticePeriod | NoticePeriod |experience | CTC    |expectedCTC | Country|City  |CityArea    |ZipCode |Communicationmode |Salaryoffered|Salaryoffered2|distance|permanentAddress|relocate|OrganizationName|contactnumber|TimeZone                        				|
-|pemp@gmail.com |EmpNew01@gmail.com|12345   | hxcadj01@gmail.com| hxcadj01     |EmpNew01        |9120301966   |Software Tester|04/08/1999 | Male   |   No          |  30          |  2.5      | 300000 | 400000     | India  | Pune | Viman Nagar| 411014 |  SMS             |             |  380000      |4       | No             | No     | EmpOrg         |123456789    |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi|
+|EmployerLogin  |NewEmployerLogin   |Password| CandidateEmail    | CandidateName|NewEmployerName |ContactNumber|Designation    |Date       | Gender |OnNoticePeriod | NoticePeriod |experience | CTC    |expectedCTC | Country|City  |CityArea    |ZipCode |Communicationmode |Salaryoffered|Salaryoffered2|distance|permanentAddress|relocate|OrganizationName|contactnumber|TimeZone                        				|
+|pemp@gmail.com |EmpNewk01@gmail.com|12345   | hxcadj01@gmail.com| hxcadj01     |EmpNewk01       |9120301966   |Software Tester|04/08/1999 | Male   |   No          |  30          |  2.5      | 300000 | 400000     | India  | Pune | Viman Nagar| 411014 |  SMS             |             |  380000      |4       | No             | No     | EmpOrg         |123456789    |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi|
 
 
 @JobCandidteOffered
