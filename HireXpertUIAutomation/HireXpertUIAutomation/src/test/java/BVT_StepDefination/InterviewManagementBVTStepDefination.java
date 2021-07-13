@@ -10,6 +10,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -22,6 +23,8 @@ import utilPackage.baseclass;
 public class InterviewManagementBVTStepDefination extends baseclass {
 
 	public String interviewDate;
+
+	private String userInterviewScheduleComment = common.getRandomAlphabeticString();
 
 	@When("^Click on add job button$")
 	public void click_on_add_job_button() throws Throwable {
@@ -227,13 +230,83 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 
 		Thread.sleep(3000);
 		workbenchpage.clickOnCloseJobButton();
-
-//		Thread.sleep(3000);
-//		common.clickOnConfirmYes();
-
 	}
 
-//Close All Job
+	@Then("^Interview updated entry should be created in Job update menu \"([^\"]*)\",\"([^\"]*)\"$")
+	public void interview_updated_entry_should_be_created_in_Job_update_menu(String loggedInUser, String candidateName)
+			throws Throwable {
+
+		executor.executeScript("arguments[0].click();", dashboardpage.dashboard);
+		common.searchField.clear();
+		common.searchField.sendKeys(addjobpage.jobname);
+		dashboardpage.jobId = dashboardpage.Id.getText();
+
+		// executor.executeScript("arguments[0].click();", dashboardpage.recruitment);
+		executor.executeScript("arguments[0].click();", dashboardpage.jobUpdate);
+		Assert.assertEquals(
+				driver.findElement(By.xpath("//option[contains(text(),'" + addjobpage.jobname + "')]")).isDisplayed(),
+				true);
+
+		Assert.assertEquals(driver.findElement(By.xpath(
+				"(//strong[contains(text(),'Interview Update')]//following::th[contains(text(),'Job')]//following-sibling::th[contains(text(),'Updated Details')]//following::td[contains(text(),'"
+						+ dashboardpage.jobId + "-" + addjobpage.jobname
+						+ "')]//following::td[contains(text(),'Interview Update')])[1]"))
+				.isDisplayed(), true);
+
+		common.clickOnCloseBtn();
+	}
+
+	@When("^User is able to add comments \"([^\"]*)\"$")
+	public void user_is_able_to_add_comments(String comment) throws Throwable {
+
+		String commentt = common.getRandomAlphabeticString();
+		scheduleinterviewpage.addcommentTextArea.sendKeys(commentt);
+		scheduleinterviewpage.saveCommentButton.click();
+		Assert.assertEquals(scheduleinterviewpage.getAddedInterviewCommentWebElement(commentt) == true, true);
+	}
+
+	@When("^User is able to add comments$")
+	public void user_is_able_to_add_comments() throws Throwable {
+
+		scheduleinterviewpage.addcommentTextArea.sendKeys(userInterviewScheduleComment);
+		scheduleinterviewpage.saveCommentButton.click();
+		Assert.assertEquals(
+				scheduleinterviewpage.getAddedInterviewCommentWebElement(userInterviewScheduleComment) == true, true);
+	}
+
+	@When("^User is able to delete the addded comment$")
+	public void user_is_able_to_delete_the_addded_comment() throws Throwable {
+
+		if (scheduleinterviewpage.getAddedInterviewCommentWebElement(userInterviewScheduleComment)) {
+
+			try {
+				explicitwait.until(
+						ExpectedConditions.elementToBeClickable(scheduleinterviewpage.deleteInterviewCommentButton))
+						.click();
+			} catch (ElementClickInterceptedException ex) {
+				explicitwait.until(
+						ExpectedConditions.elementToBeClickable(scheduleinterviewpage.deleteInterviewCommentButton))
+						.click();
+			}
+		}
+	}
+
+	@When("^User is able to delete the interviewer \"([^\"]*)\"$")
+	public void user_is_able_to_delete_the_interviewer(String interviewerEmail) throws Throwable {
+
+		String newInterviewer = scheduleinterviewpage.addInterviewer();
+		
+		System.out.println("****newInterviewer=> " + newInterviewer);
+
+		for (WebElement interviewer : scheduleinterviewpage.interviewerEmail) {
+		
+			String myText = interviewer.getText();
+		
+			if (scheduleinterviewpage.interviewerEmail.contains(newInterviewer)) {
+				scheduleinterviewpage.deleteInterviewCommentButton.click();
+			}
+		}
+	}	
 
 	@When("^close all job$")
 	public void close_all_job() throws Throwable {
