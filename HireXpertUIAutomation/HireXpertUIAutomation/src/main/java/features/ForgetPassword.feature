@@ -1,7 +1,4 @@
 Feature: Forget Password
-
-
-
 	  
 @forgetPassword
 Scenario Outline: Verify when candidate enters correct email id hirexpert.
@@ -37,7 +34,7 @@ Scenario Outline: Verify user having only one primary contact with Employer and 
     When  User click forgot Password link on the login page.
     And Enter an  email id and Click on the Submit button."<Username>"
     Then User get an message "Your password have been reset send to your registered email id please check"
-    And Users should get an email with a new password. "<Username1>","<Password1>","<colName>","<colData>"
+    And Users should get an email with a new password. "<Username1>","<Password1>","<Username>"
     And Users should not be able to login with an old password."<Username>","<Password2>"
     And Users should be able to login with a new password."<Password>"
 	Examples: 

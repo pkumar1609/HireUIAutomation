@@ -40,6 +40,8 @@ public class ForgetPasswordPage  extends baseclass {
 	public WebElement lnkEmailHistory;
 	@FindBy(xpath = "//button[contains(text(),' Search ')]")
 	public WebElement btnSearch;
+	By gridTable=By.xpath("//div[@class='PerformanceAnalysisTableHeight']/table");
+	
 //	@FindBy(xpath="//button[text()='Submit']")
 //	public WebElement SubmitBtn;
 //	
@@ -113,7 +115,7 @@ public class ForgetPasswordPage  extends baseclass {
 			break;
 		}
 	}
-	System.out.println("Column Index : " +columnIndex );
+	//System.out.println("Column Index : " +columnIndex );
 	
 	//Step 02-- verify column data in the table
 	
@@ -173,6 +175,17 @@ public class ForgetPasswordPage  extends baseclass {
 			return null;
 		}
 		
+	}
+	public void assertValues(String username) throws InterruptedException {
+		Thread.sleep(10000);
+		WebElement element=common.selectTableForSpecficColumn(gridTable, gridTable,"Sent To Email", username, 5);
+		String value=element.getText().trim();
+		Assert.assertTrue(value.equals("Reset Password"));
+		Thread.sleep(3000);
+		WebElement element1=common.selectTableForSpecficColumn(gridTable, gridTable, "Name", username, 7);
+		String value1=element1.getText().trim();
+		Assert.assertTrue(value1.equals("HireXpert- Reset Password"));
+		Thread.sleep(3000);
 	}
 }
 
