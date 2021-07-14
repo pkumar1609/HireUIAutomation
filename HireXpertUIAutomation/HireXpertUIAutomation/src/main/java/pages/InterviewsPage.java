@@ -23,7 +23,7 @@ public class InterviewsPage extends baseclass {
 	public WebElement todate;
 	
 	@FindBy(xpath = "//button[@ngbtooltip='Reload Interviews']")
-	public WebElement searchButton;
+	public WebElement reloadInterviewsButton;
 	
 	@FindBy(xpath = "(//button[@aria-label='Clear Date'])[1]")
 	public WebElement clearFromDate;
