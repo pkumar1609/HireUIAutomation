@@ -91,8 +91,8 @@ public class MarketplaceBvt extends baseclass {
 	}
 	
 	@And("^Select a added job$")
-	public void select_a_added_job() throws Throwable {	
-		workbenchpage.selectJobK();
+	public void select_a_added_job() throws Throwable {			
+		workbenchpage.selectWorkBenchJobNew(addjobpage.jobname);
 		}
 
 	@And("^Click on share job with market place$")
