@@ -108,7 +108,29 @@ And User is able to add comments
 And User is able to delete the addded comment
 And User is able to delete the interviewer "<interviewerEmail>"
 Examples: 
-|Username       |Password |EmployerName |CandidateEmail      |  Name      | ContactNumber | Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode | Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber   | Title      | Hour | Minute |  DurationHour  | DurationMinute|TimeZone                     					| hour | DurationMinute1 | scheduleon |scheduleon1 |interviewerName|interviewerEmail|
-|empa01@gmail.com | 12345 | empa01      |hiredkf010@gmail.com | hiredkf010| 9125671966    | Software Tester |  04/08/1999 | Male   |  No            |   30         |  2.5      | 450000 | 550000      | India  | Pune | Viman Nagar | 411014 |   SMS             | 520000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     |   0			  |   15 Minutes  |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  |  20  | 30 Minutes      | 20/5/2021  |23/5/2021   |pe1			   |pe1@gmail.com|
-#|pemp@gmail.com | 12345  | pemp        |hireddk01@gmail.com | hireddk01 | 9125671966   | Software Tester |  04/08/1999 | Male   |  No            |   30         |  2.5      | 450000 | 550000      | India  | Pune | Viman Nagar | 411014 |   SMS             | 520000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     |   0			  |   15 Minutes  |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  |  20  | 30 Minutes      | 20/5/2021  |23/5/2021   |pe1			   |pe1@gmail.com|
+|Username        |Password |EmployerName |CandidateEmail      |  Name      | ContactNumber | Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode | Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber   | Title      | Hour | Minute |  DurationHour  | DurationMinute|TimeZone                     					| hour | DurationMinute1 | scheduleon |scheduleon1 |interviewerName|interviewerEmail|
+|pemp@gmail.com | 12345  | pemp        |hireddk01@gmail.com | hireddk01 | 9125671966   | Software Tester |  04/08/1999 | Male   |  No            |   30         |  2.5      | 450000 | 550000      | India  | Pune | Viman Nagar | 411014 |   SMS             | 520000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     |   0			  |   15 Minutes  |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  |  20  | 30 Minutes      | 20/5/2021  |23/5/2021   |pe1			   |pe1@gmail.com|
+
+
+#TC ID :- 373
+@interview
+Scenario Outline: To verify Interview schedule by Employer is displayed in Candidate card on Agency login
+Given User logged in to HireXpert "<Username>" and "<Password>" 
+Given job must be added and share with agency "<AgencyName>" 
+| title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
+| Developer | Agynew Developer | developer   | IT software | pune     | 400000 |      1 |      2 | 450000 | 800000 | pe1  | pe1@gmail.com | 1234564 |               2 | Hirexpert    | rahitech        | java           |
+And Agency selects the shared job from dashboard "<AgencyName>" and "<Password>"
+And Click on add candidate
+And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
+And move the candidate card from potential candidate to new column
+And Employer schedules interview for candidate added by agency "<Username>" and "<Password>" 
+And Move the card to Schedule Interview column
+And click on Schedule Interview icon from candidate card
+And fill all interview details and click on Submit button "<Title>" "<scheduleon>" "<Hour>" "<Minute>" "<DurationHour>" "<DurationMinute>" "<TimeZone>" "<interviewerName>" "<interviewerEmail>"
+And click on close button from Interview details page
+And click on Reload Candidate button and observe	
+And observe the interview date and time displayed on candidate card below Assign To field "<Name>"   
+Examples: 
+|Username       |Password|EmployerName |AgencyName      |CandidateEmail      |  Name     | ContactNumber| Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode | Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber   | Title      | Hour | Minute |  DurationHour  | DurationMinute|TimeZone                     					| hour | DurationMinute1 | scheduleon |scheduleon1 |interviewerName|interviewerEmail|
+|pemp@gmail.com | 12345  | pemp        | pagy@gmail.com |hireagk01@gmail.com | hireagk01 | 9125671966   | Software Tester |  04/08/1999 | Male   |  No            |   30         |  2.5      | 450000 | 550000      | India  | Pune | Viman Nagar | 411014 |   SMS             | 520000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     |   0			  |   15 Minutes  |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  |  20  | 30 Minutes      | 20/5/2021  |23/5/2021   |pe1			   |pe1@gmail.com|
 

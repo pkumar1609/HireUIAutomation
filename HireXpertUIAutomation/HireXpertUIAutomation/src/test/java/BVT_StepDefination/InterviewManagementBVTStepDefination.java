@@ -1,22 +1,18 @@
 
 package BVT_StepDefination;
 
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.DashboardPage;
 import pages.scheduleInterview;
 import utilPackage.baseclass;
 
@@ -295,18 +291,84 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 	public void user_is_able_to_delete_the_interviewer(String interviewerEmail) throws Throwable {
 
 		String newInterviewer = scheduleinterviewpage.addInterviewer();
-		
+
 		System.out.println("****newInterviewer=> " + newInterviewer);
 
 		for (WebElement interviewer : scheduleinterviewpage.interviewerEmail) {
-		
+
 			String myText = interviewer.getText();
-		
+
 			if (scheduleinterviewpage.interviewerEmail.contains(newInterviewer)) {
 				scheduleinterviewpage.deleteInterviewCommentButton.click();
 			}
 		}
-	}	
+	}
+
+	@Given("^Agency selects the shared job from dashboard \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void agency_selects_the_shared_job_from_dashboard_and(String AgencyUsername, String password)
+			throws Throwable {
+
+		loginpage.logoutFromAppK();
+		common.logout.click();
+		if (common.okbtnPopup.size() > 0) {
+			common.clickOnOKBtn();
+		}
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginIn(AgencyUsername, password);
+
+		System.out.println("**Job Name in Agency Dashboard=> " + addjobpage.jobname);
+
+		common.searchField.sendKeys(addjobpage.jobname);
+		DashboardPage.jobId = dashboardpage.Id.getText();
+
+		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
+		try {
+			explicitwait
+					.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//td[contains(text(),'"
+							+ addjobpage.jobname
+							+ "')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'View Applicants')][1]"))))
+					.click();
+		} catch (ElementClickInterceptedException e) {
+			explicitwait
+					.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//td[contains(text(),'"
+							+ addjobpage.jobname
+							+ "')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'View Applicants')][1]"))))
+					.click();
+		}
+	}
+
+	@Given("^Employer schedules interview for candidate added by agency \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void employer_schedules_interview_for_candidate_added_by_agency_and(String employerUserName, String password)
+			throws Throwable {
+
+		loginpage.logoutFromAppK();
+		common.logout.click();
+		if (common.okbtnPopup.size() > 0) {
+			common.clickOnOKBtn();
+		}
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginIn(employerUserName, password);
+
+		System.out.println("**Job Name in Employer to schedule interview => " + addjobpage.jobname);
+
+		common.searchField.sendKeys(addjobpage.jobname);
+		DashboardPage.jobId = dashboardpage.Id.getText();
+
+		executor.executeScript("arguments[0].click();", dashboardpage.actionDropdown);
+		try {
+			explicitwait
+					.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//td[contains(text(),'"
+							+ addjobpage.jobname
+							+ "')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'View Applicants')][1]"))))
+					.click();
+		} catch (ElementClickInterceptedException e) {
+			explicitwait
+					.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//td[contains(text(),'"
+							+ addjobpage.jobname
+							+ "')]//following::div[@id='jobsActionbtndropdown'][1]//button[contains(text(),'View Applicants')][1]"))))
+					.click();
+		}
+	}
 
 	@When("^close all job$")
 	public void close_all_job() throws Throwable {
