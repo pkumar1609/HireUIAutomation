@@ -496,4 +496,33 @@ public class AddJobPage extends baseclass {
 		}
 	}
 
+	//Do not delete below method.
+	public void filljobDetails( DataTable credentials) throws InterruptedException
+	{
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class)) {
+
+			currentTime = LocalDateTime.now();			
+			jobname = dtFormate.format(currentTime) + " Emp";
+			this.title.sendKeys(jobname);
+			this.designation.sendKeys(data.get("Designation"));
+			this.industry.sendKeys(data.get("Industry"));
+			this.functionalArea.sendKeys(data.get("FunctionalArea"));
+			this.minsal.sendKeys(data.get("MinSal"));
+			this.maxsal.sendKeys(data.get("MaxSal"));
+			this.minexp.sendKeys(data.get("MinExp"));
+			this.maxexp.sendKeys(data.get("MaxExp"));
+			this.noticePeriod.sendKeys("NoticePeriod");
+			this.city.sendKeys("City");
+			this.cityArea.sendKeys(data.get("CityArea"));
+			se = new Select(totalinterviews);
+			se.selectByVisibleText(data.get("NoOfInterviews"));
+			List<WebElement> deletebtn = driver
+					.findElements(By.xpath("//th[text()='Job Skills']//following::i[@class='fa fa-trash']"));
+			for (int i = 0; i < deletebtn.size(); i++) {
+				WebElement btn = deletebtn.get(i);
+				executor.executeScript("arguments[0].click();", btn);
+			}
+		}
+	}
+	
 }

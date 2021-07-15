@@ -131,6 +131,13 @@ And click on close button from Interview details page
 And click on Reload Candidate button and observe	
 And observe the interview date and time displayed on candidate card below Assign To field "<Name>"   
 Examples: 
-|Username       |Password|EmployerName |AgencyName      |CandidateEmail      |  Name     | ContactNumber| Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode | Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber   | Title      | Hour | Minute |  DurationHour  | DurationMinute|TimeZone                     					| hour | DurationMinute1 | scheduleon |scheduleon1 |interviewerName|interviewerEmail|
-|pemp@gmail.com | 12345  | pemp        | pagy@gmail.com |hireagk01@gmail.com | hireagk01 | 9125671966   | Software Tester |  04/08/1999 | Male   |  No            |   30         |  2.5      | 450000 | 550000      | India  | Pune | Viman Nagar | 411014 |   SMS             | 520000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     |   0			  |   15 Minutes  |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  |  20  | 30 Minutes      | 20/5/2021  |23/5/2021   |pe1			   |pe1@gmail.com|
+|Username       |Password|EmployerName |AgencyName      |CandidateEmail     |  Name    | ContactNumber| Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode | Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber   | Title      | Hour | Minute |  DurationHour  | DurationMinute|TimeZone                     					| hour | DurationMinute1 | scheduleon |scheduleon1 |interviewerName|interviewerEmail|
+|pemp@gmail.com | 12345  | pemp        | pagy@gmail.com |hiress01@gmail.com | hiress01 | 9125671966   | Software Tester |  04/08/1999 | Male   |  No            |   30         |  2.5      | 450000 | 550000      | India  | Pune | Viman Nagar | 411014 |   SMS             | 520000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     |   0			|   15 Minutes  |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi|  20  | 30 Minutes      | 20/5/2021  |23/5/2021   |pe1			   |pe1@gmail.com|
+
+
+
+
+
+
+
 

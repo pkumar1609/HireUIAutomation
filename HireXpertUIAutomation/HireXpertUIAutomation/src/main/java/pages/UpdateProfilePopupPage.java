@@ -238,9 +238,15 @@ public class UpdateProfilePopupPage extends baseclass {
      
 	
 	public void UpdateProfile (String Address, String OrganizationName, String Website, String City) throws InterruptedException {
-		Thread.sleep(2000);		
+		
+		Thread.sleep(2000);
+		
+		this.Address.clear();
 		this.Address.sendKeys(Address);
+		
+		this.OrganizationName.clear();
 		this.OrganizationName.sendKeys(OrganizationName);
+		
 		this.Website.sendKeys(Website);
 		this.City.sendKeys(City);
 	}
