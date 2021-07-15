@@ -246,11 +246,14 @@ public class WorkbenchPage extends baseclass {
 	
 	public void selectWorkBenchJobNew(String jobName) throws InterruptedException {
 		
-		Thread.sleep(10000);		
+		Thread.sleep(10000);
+		WebElement clearAll = driver.findElement(By.xpath("//span[@class='ng-clear-wrapper']//child::span[text()='×']"));
+		Action.click(clearAll).build().perform();		
 		try {
 			driver.findElement(By.xpath("(//div[text()='Select']//following::input)[1]")).sendKeys(jobName);
-		}
-		catch (ElementNotInteractableException e) {	
+			}
+		catch (ElementNotInteractableException e) {
+			 Action.click(clearAll).build().perform();	
 			driver.findElement(By.xpath("(//div[text()='Select']//following::input)[1]")).sendKeys(jobName);
 		}
 		WebElement job = driver.findElement(By.xpath("//span[contains(text(),'" + jobName + "')]"));
