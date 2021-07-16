@@ -13,7 +13,7 @@ plugin = {"pretty",
         "html:target/cucumber-reports","json:target/cucumber.json", 
         "junit:C:/Users/admin/AppData/Local/Jenkins.jenkins/workspace/UI Automation/HireXpertUIAutomation/HireXpertUIAutomation/target/cucumber-reports/Cucumber.xml"
         },
-tags=("@UserRegisterAfterDBCleanUp,@login,@register,@forgetPassword,@resetPassword,@JobWorkflow,@jobupdate,@interview,@JobCandidateManagement,@JCWF,@Job,@JobQuestionary,@JobCandidteOffered,@Dashboard,@candidatePool")
+tags=("@ApplicationUserRegister,@login,@register,@forgetPassword,@resetPassword,@JobWorkflow,@jobupdate,@interview,@JobCandidateManagement,@JCWF,@Job,@JobQuestionary,@JobCandidteOffered,@Dashboard,@candidatePool")
 
 )
 
