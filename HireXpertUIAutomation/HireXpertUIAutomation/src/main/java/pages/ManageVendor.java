@@ -16,26 +16,21 @@ import utilPackage.baseclass;
 import utilPackage.utilclass;
 
 public class ManageVendor extends baseclass {
-	
-	
-	
+
 	@FindBy(xpath = "//button[@title='Add Vendors']")
 	public WebElement addVendors;
-	
-	
+
 	public ManageVendor() {
-		
+
 		PageFactory.initElements(driver, this);
 	}
-	
-	public void addVendor(DataTable credentials) throws InterruptedException
-	{
+
+	public void addVendor(DataTable credentials) throws InterruptedException {
 		Thread.sleep(3000);
 		dashboardpage.openManageVendorsPage();
 		Thread.sleep(2000);
 		addVendors.click();
-		for (Map<String, String> data : credentials.asMaps(String.class, String.class))
-		{
+		for (Map<String, String> data : credentials.asMaps(String.class, String.class)) {
 			Thread.sleep(1000);
 			common.namefield.clear();
 			common.namefield.sendKeys(data.get("Name"));
@@ -46,12 +41,9 @@ public class ManageVendor extends baseclass {
 			select = new Select(common.countryid);
 			select.selectByVisibleText("India");
 			common.ClickSumbit();
-			if(common.okbtnPopup.size()>0)
-			{
+			if (common.okbtnPopup.size() > 0) {
 				common.clickOnOKBtn();
-			}
-			else
-			{
+			} else {
 				explicitwait.until(ExpectedConditions.elementToBeClickable(addVendors));
 				addVendors.click();
 			}
@@ -59,4 +51,30 @@ public class ManageVendor extends baseclass {
 		common.clickOnAddClosebtn();
 	}
 	
+
+	// Do not delete below method.
+	public void addVendorNew(String Name, String Email, String Contact) throws InterruptedException {
+		Thread.sleep(3000);
+		dashboardpage.openManageVendorsPage();
+		Thread.sleep(2000);
+		addVendors.click();
+		Thread.sleep(1000);
+		common.namefield.clear();
+		common.namefield.sendKeys(Name);
+		common.emailfield.clear();
+		common.emailfield.sendKeys(Email);
+		common.contactnumberfield.clear();
+		common.contactnumberfield.sendKeys(Contact);
+		select = new Select(common.countryid);
+		select.selectByVisibleText("India");
+		common.ClickSumbit();
+		if (common.okbtnPopup.size() > 0) {
+			common.clickOnOKBtn();
+		} else {
+			explicitwait.until(ExpectedConditions.elementToBeClickable(addVendors));
+			addVendors.click();
+		}
+		common.clickOnAddClosebtn();
+	}
+
 }

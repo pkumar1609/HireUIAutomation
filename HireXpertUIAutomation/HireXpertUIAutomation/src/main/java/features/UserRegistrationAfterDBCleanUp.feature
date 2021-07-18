@@ -1,6 +1,6 @@
 Feature: Application User Registration after Database CleanUp
 
-@ApplicationUserRegister
+#@ApplicationUserRegister
 Scenario Outline: After database cleanup New Application User registration
 Given User open browser
 When click on Register link

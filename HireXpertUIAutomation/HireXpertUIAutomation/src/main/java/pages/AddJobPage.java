@@ -351,28 +351,27 @@ public class AddJobPage extends baseclass {
 					common.find.click();
 					Thread.sleep(2000);
 					common.addSubmitbtn.click();
-							
-				    WebDriverWait wait = new WebDriverWait(driver, 10);
-				    // Wait until expected condition size of the drop down increases and becomes 2
-				    wait.until((ExpectedCondition<Boolean>) new ExpectedCondition<Boolean>(){
-				        public Boolean apply(WebDriver driver)  
-				        {
-				            Select select = new Select(employerId);
-				            return select.getOptions().size()==2;
-				        }
-				    });
+
+					WebDriverWait wait = new WebDriverWait(driver, 10);
+					// Wait until expected condition size of the drop down increases and becomes 2
+					wait.until((ExpectedCondition<Boolean>) new ExpectedCondition<Boolean>() {
+						public Boolean apply(WebDriver driver) {
+							Select select = new Select(employerId);
+							return select.getOptions().size() == 2;
+						}
+					});
 
 					List<WebElement> dd = select.getOptions();
 					String employerNameOption = "";
 					for (int j = 0; j < dd.size(); j++) {
 						if (dd.get(j).getText().strip().contains("pemp")) {
-							employerNameOption = dd.get(j).getText().strip();					
+							employerNameOption = dd.get(j).getText().strip();
 							break;
 						}
 					}
 					select.selectByVisibleText(employerNameOption);
 				}
-				
+
 				SelectedEmployer = select.getFirstSelectedOption().getText()
 						.substring(0, select.getFirstSelectedOption().getText().indexOf("-")).strip();
 			}
@@ -496,12 +495,11 @@ public class AddJobPage extends baseclass {
 		}
 	}
 
-	//Do not delete below method.
-	public void filljobDetails( DataTable credentials) throws InterruptedException
-	{
+	// Do not delete below method.
+	public void filljobDetails(DataTable credentials) throws InterruptedException {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class)) {
 
-			currentTime = LocalDateTime.now();			
+			currentTime = LocalDateTime.now();
 			jobname = dtFormate.format(currentTime) + " Emp";
 			this.title.sendKeys(jobname);
 			this.designation.sendKeys(data.get("Designation"));
@@ -524,5 +522,32 @@ public class AddJobPage extends baseclass {
 			}
 		}
 	}
-	
+
+	// Do not delete below method.
+	public void filljobDetailsNew(String Designation, String Industry, String FunctionalArea, String MinSal,
+			String MaxSal, String MinExp, String MaxExp, String NoticePeriod, String
+			City, String CityArea, String NoOfInterviews) throws InterruptedException {
+		currentTime = LocalDateTime.now();
+		jobname = dtFormate.format(currentTime) + " Emp";
+		this.title.sendKeys(jobname);
+		this.designation.sendKeys(Designation);
+		this.industry.sendKeys(Industry);
+		this.functionalArea.sendKeys(FunctionalArea);
+		this.minsal.sendKeys(MinSal);
+		this.maxsal.sendKeys(MaxSal);
+		this.minexp.sendKeys(MinExp);
+		this.maxexp.sendKeys(MaxExp);
+		this.noticePeriod.sendKeys(NoticePeriod);
+		this.city.sendKeys(City);
+		this.cityArea.sendKeys(CityArea);
+		se = new Select(totalinterviews);
+		se.selectByVisibleText(NoOfInterviews);
+		List<WebElement> deletebtn = driver
+				.findElements(By.xpath("//th[text()='Job Skills']//following::i[@class='fa fa-trash']"));
+		for (int i = 0; i < deletebtn.size(); i++) {
+			WebElement btn = deletebtn.get(i);
+			executor.executeScript("arguments[0].click();", btn);
+		}
+	}
+
 }
