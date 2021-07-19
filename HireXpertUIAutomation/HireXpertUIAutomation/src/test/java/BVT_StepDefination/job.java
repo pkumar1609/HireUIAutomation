@@ -487,20 +487,20 @@ public class job extends baseclass {
 	@Then("^Skill match score of the candidate will change according to the added skills \"([^\"]*)\" \"([^\"]*)\"$")
 	public void skill_match_score_of_the_candidate_will_change_according_to_the_added_skills(String Username,
 			String Password) throws Throwable {
-//		loginpage.logoutFromAppK();
-//		common.logout.click();
-//		if (common.okbtnPopup.size() > 0) {
-//			common.clickOnOKBtn();
-//		}
-//		loginpage.ClickOnEmployerAgencySigninLink();
-//		loginpage.loginIn(Username, Password);
-//		dashboardpage.openWorkbenchPage();
-//		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
-//		explicitwait.until(ExpectedConditions.visibilityOf(candidatecardsectionpage.editCandidate));
-//		executor.executeScript("arguments[0].click();", candidatecardsectionpage.editCandidate);
+		loginpage.logoutFromAppK();
+		common.logout.click();
+		if (common.okbtnPopup.size() > 0) {
+			common.clickOnOKBtn();
+		}
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginIn(Username, Password);
+		dashboardpage.openWorkbenchPage();
+		workbenchpage.selectWorkBenchJob(addjobpage.jobname);
+		explicitwait.until(ExpectedConditions.visibilityOf(candidatecardsectionpage.editCandidate));
+		executor.executeScript("arguments[0].click();", candidatecardsectionpage.editCandidate);
 //		explicitwait.until(ExpectedConditions.visibilityOf(editcandidatepage.skillMatchScore));
-		// Assert.assertEquals(editcandidatepage.skillMatchScore.getText().strip(),
-		// "71%");
+//		 Assert.assertEquals(editcandidatepage.skillMatchScore.getText().strip(),
+//		 "71%");
 	}
 
 	@Then("^Verify the job city \"([^\"]*)\" and city area \"([^\"]*)\" is present$")
