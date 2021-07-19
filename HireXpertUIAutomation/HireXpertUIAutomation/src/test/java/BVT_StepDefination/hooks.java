@@ -164,8 +164,10 @@ public class hooks extends baseclass {
 
 			// Add agency team member - Manage Employee
 			if (!userAlreadyRegistered) {
-				manageemployee.addEmployeeNew("Agency", "patmbr1", "patmbr1@gmail.com",
+				manageemployee.addEmployeeNew("Agency", "pa1", "pa1@gmail.com",
 						                       "Recruitment Agency Head", "7504123451");
+				manageemployee.addEmployeeNew("Agency", "pa2", "pa2@gmail.com",
+	                                             "Recruitment Agency Head", "7512223451");
 			}
 
 			// Add agency vendors - Manage Vendors
