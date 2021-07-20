@@ -44,9 +44,9 @@ public class AddJobPage extends baseclass {
 	@FindBy(xpath = "//input[@formcontrolname='Designation']")
 	public WebElement designation;
 
-	@FindBy(xpath = "//input[@placeholder='Enter Functional Area']")
+	@FindBy(xpath = "(//div[contains(text(),'Select Functional Area')]//following::input[@role='combobox'])[1]")
 	public WebElement functionalArea;
-
+	
 	@FindBy(xpath = "//input[@formcontrolname='Industry']")
 	public WebElement industry;
 

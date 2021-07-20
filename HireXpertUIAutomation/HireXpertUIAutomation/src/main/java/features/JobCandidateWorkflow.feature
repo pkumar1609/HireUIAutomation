@@ -42,7 +42,7 @@ And Enter All details of "<CandidateEmail>","<Name>","<ContactNumber>","<Designa
 And verify candidate card is displaying or not in New column "<Name>"
 And logout as employer and login as new candidate added by employer "<CandidateEmail>" "<Password>"
 And Click on Profile tab
-Then verify the Auto Populated fields on candidate update profile popup window "<Username>","<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<relocate>"
+Then verify the Auto Populated fields on candidate update profile popup window "<Username>","<CandidateEmail>","<ProfileTitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<relocate>"
 And Add mandatory details on candidate profile page and save the details "<Jobtype>" "<Shift>" "<ProfileTitle>"
 And Select the On Notice Period field and set Last working day on Update Profile page "<OnNoticePeriod>","<LastWorkingDay>"
 And set looking for job as yes
@@ -74,8 +74,8 @@ And set looking for job as No
 And Click on save btn
 And click on ok button
 Examples:
-|Username        |Teamid         |Password |CandidateEmail       | ProfileTitle          |Name      |ContactNumber |Designation  |Date       |Gender |OnNoticePeriod|NoticePeriod |LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1 |Skill2       |Skill3    |level1         |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2         |remark3         |certificateforskill1|certificateforskill2|functionalArea|Jobtype               |Shift         |
-|pemp@gmail.com  |pe1@gmail.com  |12345    |hirecand18@gmail.com | Jr software developer |hirecand18| 9891008789   |Sr.developer |14/02/1995 |Female |Yes           | 25          |01/09/2021    |4         |600000|800000     | India |Mumbai|Thane    |455966 |Call             | 770000      |4       |No              |No      |JAVA   |Advanced java|JavaScript|Basic Knowledge| Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|Spring, Hybernet|Advanced version|Sun microsoft       |Advanced version    |Java          |Contractual Full Time |Mid-Day Shift |
+|Username        |Teamid         |Password |CandidateEmail    | ProfileTitle          |Name   |ContactNumber |Designation  |Date       |Gender |OnNoticePeriod|NoticePeriod |LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1 |Skill2       |Skill3    |level1         |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2         |remark3         |certificateforskill1|certificateforskill2|functionalArea|Jobtype               |Shift         |
+|pemp@gmail.com  |pe1@gmail.com  |12345    |cdjwfa4@gmail.com | Jr software developer |cdjwfa4| 2891008789   |Sr.developer |14/02/1995 |Female |Yes           | 25          |01/09/2021    |4         |600000|800000     | India |Mumbai|Thane    |455966 |Call             | 770000      |4       |No              |No      |JAVA   |Advanced java|JavaScript|Basic Knowledge| Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|Spring, Hybernet|Advanced version|Sun microsoft       |Advanced version    |Java          |Contractual Full Time |Mid-Day Shift |
 
 
 # TC :- 25,64,104,129,296        [Job candidate Workflow Regression TC] 

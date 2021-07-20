@@ -19,6 +19,9 @@ public class CandidateUpdateProfilePage extends baseclass {
 
 	@FindBy(xpath = "//input[@id='Title']")
 	public WebElement title;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Functional Area']")
+	public WebElement functionalArea;
 
 	@FindBy(xpath = "//select[@formcontrolname='ReadyToRelocate']")
 	public WebElement readyToRelocate;
@@ -339,11 +342,11 @@ public class CandidateUpdateProfilePage extends baseclass {
 			String Name, String ContactNumber, String Designation, String Date, String Gender, String OnNoticePeriod,
 			String NoticePeriod, String LastWorkingDay, String experience, String CTC, String expectedCTC,
 			String Country, String City, String CityArea, String ZipCode, String Communicationmode, String relocate)
-			throws InterruptedException {
-
-		// Assert.assertEquals(addcandidatepage.profileTitle.getAttribute("value").toLowerCase(),profiletitle.toLowerCase());
+			throws InterruptedException {		
 		
-		String candidateEmail = CandidateEmail.toLowerCase();
+		String tt= "";
+		
+		String candidateEmail = CandidateEmail.strip().toLowerCase();
 		System.out.println("Candidate-Email==> "+candidateEmail);
 		System.out.println("Actual candEmail=> "+addcandidatepage.emailField.getAttribute("value").strip());
 		

@@ -728,8 +728,8 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass {
 		if (candidateupdateprofilepage.title.getAttribute("value").isEmpty()) {
 			candidateupdateprofilepage.title.sendKeys(title);
 		}
-		if (addjobpage.functionalArea.getAttribute("value").isEmpty()) {
-			addjobpage.functionalArea.sendKeys("java");
+		if (candidateupdateprofilepage.functionalArea.getAttribute("value").isEmpty()) {
+			candidateupdateprofilepage.functionalArea.sendKeys("Java Programming");
 		}
 		if (candidateupdateprofilepage.Shift.getText().contentEquals(shift)) {
 			candidateupdateprofilepage.Shift.sendKeys(shift);
