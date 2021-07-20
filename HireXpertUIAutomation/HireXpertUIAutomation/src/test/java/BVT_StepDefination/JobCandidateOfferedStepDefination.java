@@ -51,14 +51,12 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 	@And("^Newly registered user creates new job$")
 	public void newly_registered_user_creates_new_job(DataTable credentials) throws Throwable {
 
-		dashboardpage.openWorkbenchPage();
-		workbenchpage.AddJob();
-		addjobpage.addjob(credentials);
+		dashboardpage.openDashboardPage();
+		dashboardpage.AddJob();
+		addjobpage.filljobDetails(credentials);
 		common.ClickSumbit();
-		workbenchpage.selectWorkBenchJobNew(addjobpage.jobname);
-		if (common.okbtnPopup.size() > 0) {
-			common.okbtn.click();
-		}
+		common.clickOnOKBtn();
+		dashboardpage.openWorkbenchPage();		
 	}
 
 	@When("^Candidate card is dragged to Offering Job column$")

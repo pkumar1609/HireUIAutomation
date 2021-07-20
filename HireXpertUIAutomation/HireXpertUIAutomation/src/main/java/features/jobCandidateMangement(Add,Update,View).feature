@@ -1,6 +1,6 @@
 Feature: Job Candidate Management (Add,update,view) feature
 
-@BVT @JobCandidateManagement @jobcan1
+@JobCandidateManagement
 Scenario Outline: Verify the functionality of hide candidate contacts for candidate added by agency
 Given Open browser
 When title of login page is Home
@@ -61,7 +61,7 @@ Examples:
 
 # TC=582,583
  
-@jobcan2 @JobCandidateManagement
+@JobCandidateManagement
 Scenario Outline: Verify agency can change hide contacts value of candidate added by Agency team member and vise versa 
 Given Open browser
 When title of login page is Home
@@ -125,7 +125,7 @@ Examples:
   
 #TC=584,585
 
-@jobcan3 @JobCandidateManagement
+@JobCandidateManagement
 Scenario Outline: Check the functionality of add candidate by uploading resume.(employer login)
 Given Open browser
 When title of login page is Home
