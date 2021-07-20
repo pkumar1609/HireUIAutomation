@@ -47,16 +47,25 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 		updateprofilepopuppage.UpdateProfile(address, organization, website, city);
 		common.ClickSumbit();
 	}
-
-	@And("^Newly registered user creates new job$")
-	public void newly_registered_user_creates_new_job(DataTable credentials) throws Throwable {
-
+	
+	@Then("^Newly registered employer user creates new job$")
+	public void newly_registered_employer_user_creates_new_job(DataTable credentials) throws Throwable {
 		dashboardpage.openDashboardPage();
 		dashboardpage.AddJob();
 		addjobpage.filljobDetails(credentials);
 		common.ClickSumbit();
 		common.clickOnOKBtn();
-		dashboardpage.openWorkbenchPage();		
+		dashboardpage.openWorkbenchPage();	
+	}
+	
+	@Then("^Newly registered agency user creates new job$")
+	public void newly_registered_agency_user_creates_new_job(DataTable credentials) throws Throwable {
+		dashboardpage.openDashboardPage();
+		dashboardpage.AddJob();
+		addjobpage.addjob(credentials);
+		common.ClickSumbit();
+		common.clickOnOKBtn();
+		dashboardpage.openWorkbenchPage();
 	}
 
 	@When("^Candidate card is dragged to Offering Job column$")
@@ -231,6 +240,8 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 
 		String jobName = objjob.selectedJobName;
 
+		driver.navigate().refresh();
+		
 		WebElement eleCard = driver.findElement(By.xpath(
 				"(//th[contains(text(),' Green (All good)')]//following::h6[@title='Candidate Name' and contains(text(),'"
 						+ candidateName + "')]//following::p[contains(text(),'" + jobName
@@ -246,6 +257,8 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 
 		String jobName = job.selectedJobName;
 		System.out.println("******Job Name => " + jobName);
+		
+		driver.navigate().refresh();
 
 		WebDriverWait wait1 = new WebDriverWait(driver, 30);
 		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
@@ -259,7 +272,7 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 		WebElement eleCard = driver.findElement(By.xpath(
 				"(//th[contains(text(),' Green (All good)')]//following::h6[@title='Candidate Name' and contains(text(),'"
 						+ candidateName + "')]//following::p[contains(text(),'" + jobName
-						+ "')]//following::p[contains(text(),'1')])[3]"));
+						+ "')]//following::p[contains(text(),'1')])[4]"));
 
 		if (eleCard.isDisplayed()) {
 			System.out.println("****eleCard.getText() => " + eleCard.getText());
@@ -273,13 +286,15 @@ public class JobCandidateOfferedStepDefination extends baseclass {
 
 	@Then("^Verify Count of Offer Taken After Your Offer on candidate card$")
 	public void verify_Count_of_Offer_Taken_After_Your_Offer_on_candidate_card() throws Throwable {
-
+		
+		driver.navigate().refresh();
 	}
 
 	@Then("^Verify Count of Offered Salary count is increased on candidate card$")
 	public void verify_Count_of_Offered_Salary_count_is_increased_on_candidate_card() throws Throwable {
 
 		// need candidate name
+		driver.navigate().refresh();
 	}
 
 }
