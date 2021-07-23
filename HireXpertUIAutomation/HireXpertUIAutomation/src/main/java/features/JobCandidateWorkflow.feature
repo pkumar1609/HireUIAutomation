@@ -74,8 +74,8 @@ And set looking for job as No
 And Click on save btn
 And click on ok button
 Examples:
-|Username        |Teamid         |Password |CandidateEmail    | ProfileTitle          |Name   |ContactNumber |Designation  |Date       |Gender |OnNoticePeriod|NoticePeriod |LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1 |Skill2       |Skill3    |level1         |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2         |remark3         |certificateforskill1|certificateforskill2|functionalArea|Jobtype               |Shift         |
-|pemp@gmail.com  |pe1@gmail.com  |12345    |cdjwfa4@gmail.com | Jr software developer |cdjwfa4| 2891008789   |Sr.developer |14/02/1995 |Female |Yes           | 25          |01/09/2021    |4         |600000|800000     | India |Mumbai|Thane    |455966 |Call             | 770000      |4       |No              |No      |JAVA   |Advanced java|JavaScript|Basic Knowledge| Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|Spring, Hybernet|Advanced version|Sun microsoft       |Advanced version    |Java          |Contractual Full Time |Mid-Day Shift |
+|Username       |Teamid       |Password |CandidateEmail    | ProfileTitle          |Name    |ContactNumber |Designation  |Date       |Gender |OnNoticePeriod|NoticePeriod |LastWorkingDay|experience|CTC   |expectedCTC|Country|City  |CityArea |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1 |Skill2       |Skill3    |level1         |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2         |remark3         |certificateforskill1|certificateforskill2|functionalArea|Jobtype               |Shift         |
+|pemp@gmail.com |pe1@gmail.com|12345    |cdjwfb1@gmail.com | Jr software developer |cdjwfab1| 2891008789   |Sr.developer |14/02/1995 |Female |Yes           | 25          |01/09/2021    |4         |600000|800000     | India |Mumbai|Thane    |455966 |Call             | 770000      |4       |No              |No      |JAVA   |Advanced java|JavaScript|Basic Knowledge| Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|Spring, Hybernet|Advanced version|Sun microsoft       |Advanced version    |Java          |Contractual Full Time |Mid-Day Shift |
 
 
 # TC :- 25,64,104,129,296        [Job candidate Workflow Regression TC] 
@@ -176,8 +176,8 @@ And click on submit
 And Click on Reject Candidate icon from candidate card to reject the candidate "<Name>"
 And Now move that candidate from Rejected column to any other column and observe
 Examples:     
-|Username        |Password  |  CandidateEmail       |  Name      |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  QUESTION1          | QMARKS1 | ANSWER1 | ANSWER2 | MARKS1 | MARKS2 | Cuttoffpercentage | Rejectionpercentage | OrganizationName |Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
-|pemp@gmail.com  |12345     |  hirecan31@gmail.com  | Cherry31   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | Ready to Relocate ? | 100     |  Yes    |  No     | 100    | 0      | 80                |  20                 | EmpOrg           |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
+|Username        |Password  |  CandidateEmail |  Name  |   ContactNumber  |   Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  QUESTION1          | QMARKS1 | ANSWER1 | ANSWER2 | MARKS1 | MARKS2 | Cuttoffpercentage | Rejectionpercentage | OrganizationName |Skill1  |Skill2       |Skill3    |level1           |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2|
+|pemp@gmail.com  |12345     |  aak3@gmail.com | aak3   |   91345799666    |   Software Tester |  04/08/1999 | Male   |     No         |     0        |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     | Ready to Relocate ? | 100     |  Yes    |  No     | 100    | 0      | 80                |  20                 | EmpOrg           |JAVA    |advanced java|JavaScript|Basic Knowledge  | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft       |advanced version    |
 
 
 @JCWF
@@ -226,11 +226,12 @@ Examples:
 Scenario Outline: To verify the functionality of Upload Resume on candidate profile	
 Given User must be registered
 When title of login page is Home
+And Registered new candidate user in to Application "<CandidateName>" "<CandidateEmail>" "9410123214" "Candidate" "<Timezone>" "<Country>" "<Password>" 
 And click on Job Seeker(Candidate) Sign In link
 And enter candidate email and password "<CandidateEmail>" "<Password>" 
 And click on Signin button
 And Click on Profile tab
-Then verify the Auto Populated fields on candidate update profile popup window "<Username>","<CandidateEmail>","<profiletitle>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<relocate>"
+And Add new candidate mandatory data "<profiletitle>","<Industry>","<Designation>","<FunctionalArea>","<Gender>","<City>","<NoticePeriod>"
 And upload candidate resume in document format
 And Click on Save Button
 And click on ok button
@@ -249,8 +250,8 @@ And click on ok button
 And Click on Save Button 
 And click on ok button
 Examples:
-|Password |CandidateEmail      |profiletitle         |Name     |ContactNumber |Designation   |Date            |Gender  |OnNoticePeriod |NoticePeriod|LastWorkingDay |experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1          |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2| Jobtype               | Shift        |Industry|
-|12345    |hirecan18@gmail.com |jr software developer|hirecan18|9899648789    |Sr.developer  |14/02/1995      |Female  |Yes            |25          |01/09/2021     |5         |600000|800000     | India |wardha|Arvi naka  |455966 |Call             |750000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft     |advanced version      | Contractual Full Time | Evening Shift|IT-Software|
+|Password |CandidateEmail        |profiletitle         |CandidateName|ContactNumber |Designation  |FunctionalArea  |Date      |Gender  |OnNoticePeriod |NoticePeriod|LastWorkingDay |experience|CTC   |expectedCTC|Country|City  |CityArea   |ZipCode|Communicationmode|Salaryoffered|distance|permanentAddress|relocate|Skill1  |Skill2       |Skill3    |level1          |level2        |level3  |Weightage1 |Weightage2|Weightage3|certificate1|certificate2|certificate3|remark1            |remark2        |remark3         |certificateforskill1|certificateforskill2| Jobtype               | Shift        |Industry   |Timezone|
+|12345    |hirecadd015@gmail.com |jr software developer|hirecadd015  |9899648789    |Sr.developer |Java Programming|14/02/1995|Female  |Yes            |25          |01/09/2021     |5         |600000|800000     | India |wardha|Arvi naka  |455966 |Call             |750000       |4       |No              |No      |JAVA    |advanced java|JavaScript|Basic Knowledge | Intermediate | Expert | Mandatory |Preferred |Optional  |Yes         |No          |No          |provide certificate|spring,hybernet|advanced version|sun microsoft     |advanced version      | Contractual Full Time | Evening Shift|IT-Software|(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi|
 
 
 @JCWF

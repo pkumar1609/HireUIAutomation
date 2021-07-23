@@ -3,6 +3,7 @@ package pages;
 import java.awt.AWTException;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -20,12 +21,34 @@ public class CandidateUpdateProfilePage extends baseclass {
 	@FindBy(xpath = "//input[@id='Title']")
 	public WebElement title;
 	
+	@FindBy(xpath = "//input[@placeholder='Enter Title']")
+	public WebElement profileTitleCandidateUpdateProfile;
+	
 	@FindBy(xpath = "//input[@placeholder='Enter Functional Area']")
 	public WebElement functionalArea;
+		
+	@FindBy(xpath = "//input[@placeholder='Enter Current Designation']")
+	public WebElement designationCandidateUpdateProfile;
+	
+	@FindBy(xpath = "//select[@formcontrolname='Gender']")
+	public WebElement genderCandidateUpdateProfile;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Industry']")
+	public WebElement industryCandidateUpdateProfile;
 
+	@FindBy(xpath = "//input[@placeholder='Enter City']")
+	public WebElement cityCandidateUpdateProfile;	
+		
+	@FindBy(xpath = "//input[@placeholder='Enter Notice Period']")
+	public WebElement noticePeriodCandidateUpdateProfile;	
+	
+	
 	@FindBy(xpath = "//select[@formcontrolname='ReadyToRelocate']")
 	public WebElement readyToRelocate;
-
+	
+	@FindBy(xpath = "//input[@id='Email']")
+	public WebElement candidateProfileEmail;
+	
 	@FindBy(xpath = "//button[contains(text(),'Add Skill')]")
 	public WebElement addSkillButton;
 
@@ -343,19 +366,16 @@ public class CandidateUpdateProfilePage extends baseclass {
 			String NoticePeriod, String LastWorkingDay, String experience, String CTC, String expectedCTC,
 			String Country, String City, String CityArea, String ZipCode, String Communicationmode, String relocate)
 			throws InterruptedException {		
-		
-		String tt= "";
+			
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		String candidateEmail = CandidateEmail.strip().toLowerCase();
-		System.out.println("Candidate-Email==> "+candidateEmail);
-		System.out.println("Actual candEmail=> "+addcandidatepage.emailField.getAttribute("value").strip());
 		
-		if(addcandidatepage.emailField.isDisplayed())
+		if(candidateupdateprofilepage.candidateProfileEmail.getAttribute("value")!=null)
 		{
-			Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),CandidateEmail.strip().toLowerCase());	
-		}
+		   Assert.assertEquals(candidateupdateprofilepage.candidateProfileEmail.getAttribute("value"),candidateEmail);
+		}		
 		
-		//Assert.assertEquals(addcandidatepage.emailField.getAttribute("value"),CandidateEmail.strip().toLowerCase());
 		Assert.assertEquals(addcandidatepage.contactNumber.getAttribute("value"), ContactNumber);
 		Assert.assertEquals(this.dateOfBirth.getAttribute("value"), Date);
 		se = new Select(this.countryId);
@@ -432,6 +452,30 @@ public class CandidateUpdateProfilePage extends baseclass {
 		}
 	}
 
+	public void fillCandidateProfileMandatoryData(String Profiletitle, String Industry, String Designation, String FunctionalArea, String Gender, String City, String NoticePeriod)
+	{
+	     this.profileTitleCandidateUpdateProfile.clear();
+	     this.profileTitleCandidateUpdateProfile.sendKeys(Profiletitle);
+	     
+	     this.industryCandidateUpdateProfile.clear();
+	     this.industryCandidateUpdateProfile.sendKeys(Industry);
+	     
+	     this.designationCandidateUpdateProfile.clear();
+	     this.designationCandidateUpdateProfile.sendKeys(Designation);
+	     
+	     this.functionalArea.clear();
+	     this.functionalArea.sendKeys(FunctionalArea);
+	     
+	     Select se = new Select(this.genderCandidateUpdateProfile);
+	     se.selectByVisibleText(Gender);
+	     	     	     
+	     this.cityCandidateUpdateProfile.clear();
+	     this.cityCandidateUpdateProfile.sendKeys(City);
+	     
+	     this.noticePeriodCandidateUpdateProfile.clear();
+	     this.noticePeriodCandidateUpdateProfile.sendKeys(NoticePeriod);
+	}
+	
 	public void fillWorkExperienceDetails(DataTable credentials) throws InterruptedException {
 		int i = 0;
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class)) {

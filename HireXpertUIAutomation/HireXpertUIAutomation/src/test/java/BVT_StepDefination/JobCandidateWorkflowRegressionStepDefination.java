@@ -377,6 +377,8 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass {
 		candidatecardsectionpage.clickOnRejectCandidateIcon(Name);
 		Thread.sleep(3000);
 		candidatecardsectionpage.selectRejectReason();
+		candidatecardsectionpage.giveRejectionComment();
+		common.ClickSumbit();
 	}
 
 	@When("^move both candidates in Interview Pending one column$")
@@ -920,5 +922,22 @@ public class JobCandidateWorkflowRegressionStepDefination extends baseclass {
 		}
 	}
 	
+	@When("^Registered new candidate user in to Application \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void registered_new_candidate_user_in_to_Application(String CandidateName, String CandidateEmail, String Contact, String UserType, String TimeZone, String Country, String Password) throws Throwable {
+
+		registerpage.clickRegister();
+		registerpage.registerCandidatedetails(CandidateName, CandidateEmail, Contact);
+		registerpage.registerUserdetails(UserType, TimeZone, Country);
+		common.ClickSumbit();
+		registerpage.ClickYesbtn();
+		common.clickOnOKBtn();			
+	}
+	
+	@When("^Add new candidate mandatory data \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void add_new_candidate_mandatory_data(String Profiletitle, String Industry, String Designation, String FunctionalArea, String Gender, String City, String NoticePeriod) throws Throwable {
+
+		candidateupdateprofilepage.fillCandidateProfileMandatoryData(Profiletitle,Industry,Designation,FunctionalArea,Gender,City,NoticePeriod);
+	}
+
 
 }

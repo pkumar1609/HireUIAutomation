@@ -241,16 +241,16 @@ public class RegisterPage extends baseclass{    //HomePage.java class is child o
 //}
 
    //Do not uncomment below code lines.
-   public void registerUserdetails(String usertype, String timezone, String country ) {
+   public void registerUserdetails(String usertype, String timezone, String country) {
 	
 	 Select select1 = new Select (UserType);
 	 select1.selectByVisibleText(usertype);
-			
-	 Select select2 = new Select (TimeZone);
-	 select2.selectByVisibleText(timezone);
 	 
 	 Select select3 = new Select (Country);
 	 select3.selectByVisibleText(country);
+			
+	 Select select2 = new Select (TimeZone);
+	 select2.selectByVisibleText(timezone);	 
    }
 
 		public void enterEmployerEmailandPassword () throws InterruptedException {

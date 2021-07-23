@@ -112,6 +112,9 @@ public class CandidateCardSectionPage extends baseclass {
 	@FindBy(xpath = "//button[@title='Fail']")
 	public WebElement failIcon;
 	
+	@FindBy(xpath = "//textarea[@placeholder='Enter Comment']")
+	public WebElement rejectCommenttextArea;
+	
 	Actions action;
 	Select se;
 	public String newComment;
@@ -127,6 +130,7 @@ public class CandidateCardSectionPage extends baseclass {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(nameEyeIcon)).click();
 	}
+	
 
 	public void clickOnEditCandidateIcon(String Name) throws InterruptedException {
 		editCandidateIcon="//span[text()=' "+Name+"']//following::button[@id='EditCandidate']";
@@ -222,6 +226,15 @@ public class CandidateCardSectionPage extends baseclass {
 		se = new Select(rejectReason);
 		se.selectByIndex(3);
 		common.ClickSumbit();
+	}
+	
+	public void giveRejectionComment() throws InterruptedException {
+
+		if(rejectCommenttextArea.isDisplayed())
+		{
+			rejectCommenttextArea.clear();
+			rejectCommenttextArea.sendKeys("This candidate is now rejected.");
+		}
 	}
 	
 	public void observeAllPresentSkills() throws InterruptedException {
