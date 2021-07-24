@@ -19,9 +19,9 @@ import org.apache.commons.io.FileUtils;
 
 public class hooks extends baseclass {
 
+	
 	public hooks() throws InterruptedException {
-		super();
-		// TODO Auto-generated constructor stub
+		super();	
 	}
 
 	@Before("@login,@register,@forgetPassword,@resetPassword,@JobWorkflow,@jobupdate,@interview,@JobCandidateManagement,@JCWF,@Job,@JobQuestionary,@JobCandidteOffered,@Dashboard,@candidatePool")
@@ -32,7 +32,7 @@ public class hooks extends baseclass {
 		baseclass.initialization();
 		createEmployeeandRelatedUsers();
 	}
-
+	
 	@After()
 	public void screenShot(Scenario scenario) throws InterruptedException, IOException {
 
@@ -68,11 +68,11 @@ public class hooks extends baseclass {
 		String errorMessageForAlreadyRegisteredUser = "";
 		Boolean userAlreadyRegistered = false;
 		try {
-
+			
 			driver.navigate().refresh();
 			registerpage.clickRegister();
 			registerpage.registeremployerdetails("pemp", "pemp@gmail.com", "6512101234");
-
+			
 			registerpage.registerUserdetails("Employer", "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi", "India");
 			common.ClickSumbit();
 			common.clickOnConfirmYes();
@@ -91,7 +91,9 @@ public class hooks extends baseclass {
 			common.clickOnOKBtn();
 			loginpage.ClickOnEmployerAgencySigninLink();
 			loginpage.loginInNew("pemp@gmail.com", "12345");
+
 			updateprofilepopuppage.UpdateProfile("VimanNagar", "pempORG", "pempORG.com", "Pune");
+
 			common.ClickSumbit();
 			loginpage.identifyUserK();
 
@@ -128,18 +130,19 @@ public class hooks extends baseclass {
 
 			// Add employee recruiters - Manage Recruiters
 			if (!userAlreadyRegistered) {
-				managerecruitmentagencies.addRecruitersNew("pagy", "pagy@gmail.com", "6854101231");
+				managerecruitmentagencies.addRecruitersNew("pagy", "pagy@gmail.com", "6114101231");
 			}
 		}
 	}
 
+	//New
 	private void createAgencyandRelatedUsers() throws InterruptedException {
 
 		String errorMessageForAlreadyRegisteredUser = "";
 		Boolean userAlreadyRegistered = false;
 
 		try {
-			registerpage.registeremployerdetails("pagy", "pagy@gmail.com", "6854101231");
+			registerpage.registeremployerdetails("pagy", "pagy@gmail.com", "6114101231");
 			registerpage.registerUserdetails("Agency", "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi", "India");
 			common.ClickSumbit();
 			common.clickOnConfirmYes();
@@ -164,15 +167,20 @@ public class hooks extends baseclass {
 
 			// Add agency team member - Manage Employee
 			if (!userAlreadyRegistered) {
-				manageemployee.addEmployeeNew("Agency", "pa1", "pa1@gmail.com",
-						                       "Recruitment Agency Head", "7504123451");
-				manageemployee.addEmployeeNew("Agency", "pa2", "pa2@gmail.com",
-	                                             "Recruitment Agency Head", "7512223451");
+				manageemployee.addEmployeeNew("Agency", "pa1", "pa1@gmail.com","Recruitment Agency Head", "7304123451");
+				manageemployee.addEmployeeNew("Agency", "pa2", "pa2@gmail.com","Recruitment Agency Head", "7512223451");
+				
+				updateTeamMemberProfile("pa1@gmail.com","12345","Gwalior","pagyORG","pagyORG.com","Gwalior");
 			}
 
 			// Add agency vendors - Manage Vendors
 			if (!userAlreadyRegistered) {
-				managevendor.addVendorNew("pagvdr1", "pagvdr1@gmail.com", "4501362101");
+								
+				loginpage.ClickOnEmployerAgencySigninLink();
+				loginpage.loginInNew("pagy@gmail.com", "12345");
+				
+				managevendor.addVendorNew("pagvdr1", "pagvdr1@gmail.com", "4101362101");
+
 				// logout
 				loginpage.logoutFromAppK();
 				common.logout.click();
@@ -183,6 +191,24 @@ public class hooks extends baseclass {
 		}
 	}
 
+	public void updateTeamMemberProfile(String TeammemberLoginUN,String Password,String Address, String OrganizationName, String Website, String City) throws InterruptedException
+	{
+		loginpage.logoutFromAppK();
+		common.logout.click();
+		if (common.okbtnPopup.size() > 0) {
+		common.clickOnOKBtn();
+		}
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginInNew(TeammemberLoginUN, Password);//team member login
+		updateprofilepopuppage.UpdateProfile(Address, OrganizationName, Website, City);
+		common.ClickSumbit();
+		loginpage.logoutFromAppK();
+		common.logout.click();
+		if (common.okbtnPopup.size() > 0) {
+		common.clickOnOKBtn();
+		}
+	}
+	
 	
 //@After()
 //public void deleteJob() throws InterruptedException

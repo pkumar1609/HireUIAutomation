@@ -97,6 +97,9 @@ public class Commonfunction extends baseclass {
 
 	@FindBy(xpath = "//select[@formcontrolname='CountryId']")
 	public WebElement countryid;
+		
+	@FindBy(xpath = "//input[@placeholder='Enter City']")
+	public WebElement cityfield;
 
 	@FindBy(xpath = "//textarea[@placeholder='Enter Comment']")
 	public WebElement CommentTextArea;

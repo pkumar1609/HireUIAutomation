@@ -68,15 +68,22 @@ public class ManageRecruitmentAgencies extends baseclass {
 		Thread.sleep(1000);
 		common.namefield.clear();
 		common.namefield.sendKeys(Name.strip());
+		
 		name = Name.strip();
-		System.out.println("name: " + name);
 		ar.add(name);
+		
 		common.emailfield.clear();
 		common.emailfield.sendKeys(Email);
+		
 		common.contactnumberfield.clear();
 		common.contactnumberfield.sendKeys(Contact);
+		
 		select = new Select(common.countryid);
 		select.selectByVisibleText("India");
+		
+		common.cityfield.clear();
+		common.cityfield.sendKeys("Hyderabad");
+		
 		common.ClickSumbit();
 		if (common.okbtnPopup.size() > 0) {
 			common.clickOnOKBtn();

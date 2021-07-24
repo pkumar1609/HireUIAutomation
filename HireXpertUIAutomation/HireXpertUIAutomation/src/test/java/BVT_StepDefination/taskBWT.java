@@ -28,7 +28,6 @@ public class taskBWT extends baseclass {
 	@And("^Employer enters valid credentials \"([^\"]*)\",\"([^\"]*)\"$")
 	public void employer_enters_valid_credentials(String Username, String Password) throws Throwable {
 	  loginpage.loginIn(Username, Password);
-//	  loginpage.identifyUserK();
 	}
 	
 	@And("^Go to dashboard$")
