@@ -45,6 +45,8 @@ public class ManageRecruitmentAgencies extends baseclass {
 			common.contactnumberfield.sendKeys(data.get("contact"));
 			select = new Select(common.countryid);
 			select.selectByVisibleText("India");
+			common.cityfield.clear();
+			common.cityfield.sendKeys("Hyderabad");
 			common.ClickSumbit();
 			if (common.okbtnPopup.size() > 0) {
 				common.clickOnOKBtn();
