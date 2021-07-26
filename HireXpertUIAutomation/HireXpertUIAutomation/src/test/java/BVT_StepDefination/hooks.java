@@ -113,6 +113,8 @@ public class hooks extends baseclass {
 				manageemployee.addEmployeeNew("Employer", "pe1", "pe1@gmail.com", "Interviewer", "6504123451");
 				manageemployee.addEmployeeNew("Employer", "pe2", "pe2@gmail.com", "Recruitment HR",
 						"6514123451");
+				updateTeamMemberProfile("pe1@gmail.com","12345","Nashik","pempORG","pempORG.com","Nashik");
+				updateTeamMemberProfile("pe2@gmail.com","12345","Nashik","pempORG","pempORG.com","Nashik");
 				// logout
 				loginpage.logoutFromAppK();
 				common.logout.click();
@@ -171,6 +173,7 @@ public class hooks extends baseclass {
 				manageemployee.addEmployeeNew("Agency", "pa2", "pa2@gmail.com","Recruitment Agency Head", "7512223451");
 				
 				updateTeamMemberProfile("pa1@gmail.com","12345","Gwalior","pagyORG","pagyORG.com","Gwalior");
+				updateTeamMemberProfile("pa2@gmail.com","12345","Mumbai","pagyORG","pagyORG.com","Mumbai");
 			}
 
 			// Add agency vendors - Manage Vendors

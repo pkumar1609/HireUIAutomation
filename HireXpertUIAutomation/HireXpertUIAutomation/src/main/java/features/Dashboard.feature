@@ -23,61 +23,34 @@ Then Default Job data should display
 And Now search the job
 Then Job which is searched should display in Jobs section
 Examples: 
-| Username         | Password | 
-|pemp@gmail.com    | 12345    | 
-|pagy@gmail.com    | 12345    |
+| Username       | Password | 
+|pemp@gmail.com  | 12345    | 	
+|pagy@gmail.com  | 12345    |
 
-#@JobDashboard
-#Scenario Outline: Verify upcomings interviews on dashboard(Employer/agency)
-#Given An employer/agency logged in to HireXpert
-#And On Applicant Tracking,Open add job dailog and fill all details
-#When User click on submit button
-#Then Added job should display in Job drop-down
-#And Add one candidate for that job
-#Then Newly added candidate should display in applicant tracking page as well as in “Upcoming Interviews” section on dashboard 
-#And User should be able to view all the interview details in read only mode after clicking on “View” link on dashboard
-#And Click on the “More Interviews” link and edit the interview details
-#Then Updated interview details should also display on interview tab, applicant tracking and on dashboard page
-#And Now Share job with employer employee
-#And At employee side, Add one candidate into that job which is shared by employer and move the candidate card into new column
-#And Schedule one interview for that candidate
-#Then At employer side,candidate added by employee member and Scheduled Interview details should be display on applicant tracking, Interviews tab and also on dashboard page 
-#
-#@JobDashboard
-#Scenario Outline: To Verify Job Applications functionality on dashboard (Employer/agency)
-#Given An employer/agency logged in to HireXpert
-#And On Applicant Tracking,Open add job dailog and fill all details
-#When User click on submit button
-#Then Added job should display in Job drop-down
-#And Added job automatically approves from support user login and displays in job board page
-#And Candidate should be registered by himself and should enter all the details as per the job criteria once login.
-#Then Once job is approved, then candidate should be apply for that job from job board
-#And At employer side, on dashboard in “Job Applications” section, Job Application count for that job should be display as  1
-#And After clicking on “View” link, candidate who applies for that particular job should be display in job applications page
-#And After clicking on the “More applications”, then user should be redirects to the job application page in which user gets more candidates who applies for various jobs
-#
-#@JobDashboard
-#Scenario Outline:To Verify user can able to view the newly added candidate and able to download CV on dashboard (Employer/agency)
-#Given An employer/agency logged in to HireXpert
-#And On Applicant Tracking,Open add job dailog and fill all details
-#When User click on submit button
-#Then Added job should display in Job drop-down
-#And Add one candidate for that job
-#Then Newly added candidate should display in applicant tracking page
-#And Go to Dashboard and verify newly added candidate displays in “Submitted CVs Awaiting Review (ATS) - (1)” section
-#And Now Share job with employer employee
-#And At employee side, Add one candidate into that job which is shared by employer
-#Then Candidate added by employer employee should be display “Submitted CVs Awaiting Review (ATS) - (1)” section on dashboard at employer side
-#And Now click on the Candidate details link
-#Then Candidate details should be display in read only mode
-#And Click on the Download CV link for particular candidate
-#Then Candidate CV should get downloaded
-#And After clicking on the “View” link,User should be able to view the applicants for the selected job on applicant tracking page
-#And After clicking on “More Candidates” link, User should be able to view more candidates added for that particular job on applicant tracking page
-#
-#
-#@JobDashboard
-#Scenario Outline:
+@Dashboard
+Scenario Outline: Verify upcomings interviews on dashboard(Employer/agency)
+Given User logged in to HireXpert "<Username>" and "<Password>" 
+And On Applicant Tracking,Open add job dailog and fill all details
+| title     | agytitle         | designation | industry    | location | budget | minexp | maxexp | minsal | maxsal | Name | Email         | contact | totalinterviews | organization | agyorganization | functionalArea |
+| Developer | Agynew Developer | developer   | IT software | pune     | 400000 |      1 |      2 | 450000 | 800000 | pe1  | pe1@gmail.com | 1234564 |               2 | Hirexpert    | rahitech        | java           |
+When User click on submit button
+Then Added job should display in Job drop-down
+And Add one candidate for that job "<CandidateEmail>","<Name>","<ContactNumber>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"
+Then Newly added candidate should display in applicant tracking page as well as in “Upcoming Interviews” section on dashboard"<Title>" "<scheduleon>" "<Hour>" "<Minute>" "<DurationHour>" "<DurationMinute>" "<TimeZone>" "<interviewerName>" "<interviewerEmail>"
+And User should be able to view all the interview details in read only mode after clicking on “View” link on dashboard
+And Click on the “More Interviews” link and edit the interview details "<interviewerName1>" "<DurationMinute1>"
+Then Updated interview details should also display on interview tab, applicant tracking and on dashboard page "<Name>" 
+And Now Share job with employer employee "<Team>"
+And Click on Employer-Agency Signin link "<Teamid>", "<Password>"
+And At employee side, Add one candidate into that job which is shared by employer and move the candidate card into new column "<CandidateEmail1> ","<Name1>","<ContactNumber1>","<Designation>","<Date>","<Gender>","<OnNoticePeriod>","<NoticePeriod>","<LastWorkingDay>","<experience>","<CTC>","<expectedCTC>","<Country>","<City>","<CityArea>","<ZipCode>","<Communicationmode>","<Salaryoffered>","<distance>","<permanentAddress>","<relocate>","<Skill1>","<Skill2>","<Skill3>","<level1>","<level2>","<level3>","<Weightage1>","<Weightage2>","<Weightage3>","<certificate1>","<certificate2>","<certificate3>","<remark1>","<remark2>","<remark3>","<certificateforskill1>"and"<certificateforskill2>"" 
+And Schedule one interview for that candidate "<Title>" "<scheduleon>" "<Hour>" "<Minute>" "<DurationHour>" "<DurationMinute>" "<TimeZone>" "<interviewerName>" "<interviewerEmail>"
+Then At employer side,candidate added by employee member and Scheduled Interview details should be display on applicant tracking, Interviews tab and also on dashboard page 
+Examples: 
+|Username        |Password | CandidateEmail   |CandidateEmail1   |  Name     |Name1|ContactNumber |ContactNumber1|Designation     | Date        | Gender | OnNoticePeriod | NoticePeriod |experience | CTC    | expectedCTC | Country|City  | CityArea    |ZipCode |  Communicationmode |Salaryoffered|distance|permanentAddress|relocate|  OrganizationName |   contactnumber   | Title      | Hour | Minute |  DurationHour  | DurationMinute|TimeZone                     					 | hour | DurationMinute1  | scheduleon   |scheduleon1 |interviewerName|interviewerEmail |interviewerName1|Team|Teamid|     
+|pemp@gmail.com | 12345   | hirecan01@gmail.com| hirecan02@gmail.com|hirecan04 | hirecan02|9125671966 |9125671969 |Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     |   0			  |   15 Minutes  |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 30 Minutes       | 20/5/2021   |23/5/2021        |pe2			       |pe2@gmail.com         |pemp2   |pe2|pe2@gmail.com|
+|pagy@gmail.com | 12345   | hirecan03@gmail.com |hirecan04@gmail.com| hirecan03 |hirecan04 |9125671966 | 9125671969|Software Tester |  04/08/1999 | Male   |     No         |     30       |      2.5  | 450000 |     600000  | India  | Pune |  Viman Nagar| 411014 |        SMS         | 700000      | 4      | No             | No     |   EmpOrg          |   123456789       | Interview1 | 20   | 00     |   0     		  |   15 Minutes  |(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi   |  20  | 30 Minutes       | 20/5/2021   |23/5/2021  |pe1            |pe1@gmail.com   |pemp1		|pa1|pa1@gmail.com|
+
+
 
 
 

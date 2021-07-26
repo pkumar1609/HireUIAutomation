@@ -162,8 +162,10 @@ public class scheduleInterview extends baseclass {
 		Thread.sleep(2000);
 		this.mm.sendKeys(String.valueOf(calendar.getTime().getMinutes()));
 		System.out.println("mm" + calendar.getTime().getMinutes());
+		Thread.sleep(2000);
 		select = new Select(scheduleinterviewpage.durationHour);
 		select.selectByVisibleText(Durationhour);
+		Thread.sleep(2000);
 		select = new Select(scheduleinterviewpage.durationMinute);
 		select.selectByVisibleText(DurationMinute);
 		Thread.sleep(1000);
