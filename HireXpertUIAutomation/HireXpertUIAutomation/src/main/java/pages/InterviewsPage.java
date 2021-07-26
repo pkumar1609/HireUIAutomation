@@ -31,6 +31,21 @@ public class InterviewsPage extends baseclass {
 	@FindBy(xpath = "(//button[@aria-label='Clear Date'])[2]")
 	public WebElement clearToDate;
 	
+	@FindBy(xpath = "//p[normalize-space()='View']")
+	public WebElement viewInterviews;
+	
+	@FindBy(xpath = "//p[normalize-space()='More interviews..']")
+	public WebElement moreInterviews;
+	
+	@FindBy(xpath = "//a[@class='nav-link'][normalize-space()='Interviews']")
+	public WebElement clickInterviews;
+	
+	@FindBy(xpath = "//button[normalize-space()='Close']")
+	public WebElement closeButton;
+	
+	@FindBy(xpath = "//a[@class='nav-link'][normalize-space()='Applicant Tracking']")
+	public WebElement clickApplicationTracking;
+		
 	
 	public InterviewsPage() {
 		
