@@ -48,10 +48,10 @@ public class ForgetPasswordStepDefination extends baseclass {
 		Assert.assertEquals(forgetpasswordpage.lnkPass.isDisplayed(), true);
 		forgetpasswordpage.clickOnClose();
 	}
-	@Then("^Users should get an email with a new password\\. \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void users_should_get_an_email_with_a_new_password(String Username1, String Password1, String Username) throws Throwable {
-	
-		Thread.sleep(4000);
+	@Then("^Users should get an email with a new password\\. \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
+	public void users_should_get_an_email_with_a_new_password(String Username1, String Password1,String Username,String Username2) throws Throwable {
+	    
+	    Thread.sleep(4000);
 		registerpage.clickLogin();
 		Thread.sleep(2000);
 		loginpage.ClickOnEmployerAgencySigninLink();
@@ -62,11 +62,30 @@ public class ForgetPasswordStepDefination extends baseclass {
 		forgetpasswordpage.clickOnEmailHistory();
 		forgetpasswordpage.clickOnSearch();
 		Thread.sleep(5000);
-		forgetpasswordpage.assertValues(Username);
+		forgetpasswordpage.assertValues(Username,Username2);
 		Thread.sleep(3000);
 		loginpage.logoutFromAppK();
-
 	}
+	
+//	@Then("^Users should get an email with a new password")
+//	public void users_should_get_an_email_with_a_new_password_pemp() throws Throwable {
+//
+//		Thread.sleep(4000);
+//		registerpage.clickLogin();
+//		Thread.sleep(2000);
+//		loginpage.ClickOnEmployerAgencySigninLink();
+//		Thread.sleep(2000);
+//		loginpage.loginInNew(Username1, Password1);
+//		Thread.sleep(5000);
+//		forgetpasswordpage.clickOnAnalysis();
+//		forgetpasswordpage.clickOnEmailHistory();
+//		forgetpasswordpage.clickOnSearch();
+//		Thread.sleep(5000);
+//		forgetpasswordpage.assertValues(Username,Username2);
+//		Thread.sleep(3000);
+//		loginpage.logoutFromAppK();
+//	}
+
 
 
 	@And("^Users should not be able to login with an old password\\.\"([^\"]*)\",\"([^\"]*)\"$")

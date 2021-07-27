@@ -176,13 +176,13 @@ public class ForgetPasswordPage  extends baseclass {
 		}
 		
 	}
-	public void assertValues(String username) throws InterruptedException {
+	public void assertValues(String username,String Username2 ) throws InterruptedException {
 		Thread.sleep(10000);
 		WebElement element=common.selectTableForSpecficColumn(gridTable, gridTable,"Sent To Email", username, 5);
 		String value=element.getText().trim();
 		Assert.assertTrue(value.equals("Reset Password"));
 		Thread.sleep(3000);
-		WebElement element1=common.selectTableForSpecficColumn(gridTable, gridTable, "Name", username, 7);
+		WebElement element1=common.selectTableForSpecficColumn(gridTable, gridTable,"Name", Username2, 7);
 		String value1=element1.getText().trim();
 		Assert.assertTrue(value1.equals("HireXpert- Reset Password"));
 		Thread.sleep(3000);
