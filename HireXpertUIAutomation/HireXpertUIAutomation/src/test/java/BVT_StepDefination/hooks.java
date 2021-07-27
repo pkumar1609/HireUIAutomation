@@ -71,8 +71,7 @@ public class hooks extends baseclass {
 			
 			driver.navigate().refresh();
 			registerpage.clickRegister();
-			registerpage.registeremployerdetails("pemp", "pemp@gmail.com", "6512101234");
-			
+			registerpage.registeremployerdetails("pemp", "pemp@gmail.com", "6512101234");			
 			registerpage.registerUserdetails("Employer", "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi", "India");
 			common.ClickSumbit();
 			common.clickOnConfirmYes();
@@ -82,7 +81,6 @@ public class hooks extends baseclass {
 			if (errorMessageForAlreadyRegisteredUser.length() > 0
 					&& errorMessageForAlreadyRegisteredUser.contains("already register with")) {
 				userAlreadyRegistered = true;
-
 				common.clickOnCloseBtn();
 				common.clickOnConfirmYes();
 			}
@@ -91,12 +89,9 @@ public class hooks extends baseclass {
 			common.clickOnOKBtn();
 			loginpage.ClickOnEmployerAgencySigninLink();
 			loginpage.loginInNew("pemp@gmail.com", "12345");
-
 			updateprofilepopuppage.UpdateProfile("VimanNagar", "pempORG", "pempORG.com", "Pune");
-
 			common.ClickSumbit();
 			loginpage.identifyUserK();
-
 			// add job
 			if (!userAlreadyRegistered) {
 				dashboardpage.openDashboardPage();
@@ -107,29 +102,17 @@ public class hooks extends baseclass {
 				common.clickOnOKBtn();
 				dashboardpage.openWorkbenchPage();
 			}
-
 			// Add employee team member - Manage Employee
 			if (!userAlreadyRegistered) {
 				manageemployee.addEmployeeNew("Employer", "pe1", "pe1@gmail.com", "Interviewer", "6504123451");
-				manageemployee.addEmployeeNew("Employer", "pe2", "pe2@gmail.com", "Recruitment HR",
-						"6514123451");
-				updateTeamMemberProfile("pe1@gmail.com","12345","Nashik","pempORG","pempORG.com","Nashik");
-				updateTeamMemberProfile("pe2@gmail.com","12345","Nashik","pempORG","pempORG.com","Nashik");
-				// logout
-				loginpage.logoutFromAppK();
-				common.logout.click();
-				if (common.okbtnPopup.size() > 0) {
-					common.clickOnOKBtn();
-				}
+				manageemployee.addEmployeeNew("Employer", "pe2", "pe2@gmail.com", "Recruitment HR", "6514123451");
+				updateFirstTeamMemberProfile("pe1@gmail.com","12345","Nashik","pempORG","pempORG.com","Nashik");
+				updateSecondTeamMemberProfile("pe2@gmail.com","12345","Pune","pempORG","pempORG.com","Pune");
 			}
-
 			registerpage.clickRegister();
-
 			createAgencyandRelatedUsers();
-
 			// Employer logs in again to add employee recruiters
 			Login("pemp@gmail.com", "12345");
-
 			// Add employee recruiters - Manage Recruiters
 			if (!userAlreadyRegistered) {
 				managerecruitmentagencies.addRecruitersNew("pagy", "pagy@gmail.com", "6114101231");
@@ -137,7 +120,6 @@ public class hooks extends baseclass {
 		}
 	}
 
-	//New
 	private void createAgencyandRelatedUsers() throws InterruptedException {
 
 		String errorMessageForAlreadyRegisteredUser = "";
@@ -166,45 +148,44 @@ public class hooks extends baseclass {
 			updateprofilepopuppage.UpdateProfile("Chennai", "pagyORG", "pagyORG.com", "Chennai");
 			common.ClickSumbit();
 			loginpage.identifyUserK();
-
 			// Add agency team member - Manage Employee
 			if (!userAlreadyRegistered) {
 				manageemployee.addEmployeeNew("Agency", "pa1", "pa1@gmail.com","Recruitment Agency Head", "7304123451");
-				manageemployee.addEmployeeNew("Agency", "pa2", "pa2@gmail.com","Recruitment Agency Head", "7512223451");
-				
-				updateTeamMemberProfile("pa1@gmail.com","12345","Gwalior","pagyORG","pagyORG.com","Gwalior");
-				updateTeamMemberProfile("pa2@gmail.com","12345","Mumbai","pagyORG","pagyORG.com","Mumbai");
+				manageemployee.addEmployeeNew("Agency", "pa2", "pa2@gmail.com","Recruitment Agency Head", "7512223451");				
+				updateFirstTeamMemberProfile("pa1@gmail.com","12345","Gwalior","pagyORG","pagyORG.com","Gwalior");
+				updateSecondTeamMemberProfile("pa2@gmail.com","12345","Mumbai","pagyORG","pagyORG.com","Mumbai");
 			}
-
 			// Add agency vendors - Manage Vendors
-			if (!userAlreadyRegistered) {
-								
+			if (!userAlreadyRegistered) {								
 				loginpage.ClickOnEmployerAgencySigninLink();
-				loginpage.loginInNew("pagy@gmail.com", "12345");
-				
+				loginpage.loginInNew("pagy@gmail.com", "12345");				
 				managevendor.addVendorNew("pagvdr1", "pagvdr1@gmail.com", "4101362101");
-
-				// logout
-				loginpage.logoutFromAppK();
-				common.logout.click();
-				if (common.okbtnPopup.size() > 0) {
-					common.clickOnOKBtn();
-				}
+				CompleteLogout();
 			}
 		}
 	}
-
-	public void updateTeamMemberProfile(String TeammemberLoginUN,String Password,String Address, String OrganizationName, String Website, String City) throws InterruptedException
+			
+	private void updateFirstTeamMemberProfile(String TeammemberLoginUN,String Password,String Address, String OrganizationName, String Website, String City) throws InterruptedException
 	{
-		loginpage.logoutFromAppK();
-		common.logout.click();
-		if (common.okbtnPopup.size() > 0) {
-		common.clickOnOKBtn();
-		}
+		CompleteLogout();
 		loginpage.ClickOnEmployerAgencySigninLink();
-		loginpage.loginInNew(TeammemberLoginUN, Password);//team member login
+		loginpage.loginInNew(TeammemberLoginUN, Password);
 		updateprofilepopuppage.UpdateProfile(Address, OrganizationName, Website, City);
 		common.ClickSumbit();
+		CompleteLogout();
+	}
+	
+	private void updateSecondTeamMemberProfile(String TeammemberLoginUN,String Password,String Address, String OrganizationName, String Website, String City) throws InterruptedException
+	{
+		loginpage.ClickOnEmployerAgencySigninLink();
+		loginpage.loginInNew(TeammemberLoginUN, Password);
+		updateprofilepopuppage.UpdateProfile(Address, OrganizationName, Website, City);
+		common.ClickSumbit();
+		CompleteLogout();
+	}
+	
+	private void CompleteLogout() throws InterruptedException
+	{
 		loginpage.logoutFromAppK();
 		common.logout.click();
 		if (common.okbtnPopup.size() > 0) {
