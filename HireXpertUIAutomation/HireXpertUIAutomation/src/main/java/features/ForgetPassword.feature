@@ -14,8 +14,7 @@ Scenario Outline: Wrong email id entered
     Given User Navigate  to HireXpert
     When  User  login into wrong email id and password."<Username>","<Password>"
     Then Job provider gets  an Error message “ user with e50gmail.com” doesn't exist in the system.
-   
-	Examples: 
+    Examples: 
       |Username     |Password|
 	  |e50gmail.com |12345   |
 	  
@@ -24,11 +23,11 @@ Scenario Outline: Verify When the job provider enters the correct email id.
     Given Navigate to HireXpert 
     When  User login with valid email id and password."<Username>","<Password>"
     Then Users should be able to see a dashboard page.
-   Examples: 
+    Examples: 
       |Username             |Password|
 	  |employer101@gmail.com|12345   |
 	  |agency101@gmail.com  |12345   |	  
-@forgetPassword@f1
+@forgetPassword
 Scenario Outline: Verify user having only one primary contact with Employer and Agency login
     Given Navigate to Hirexpert Application
     When  User click forgot Password link on the login page.
