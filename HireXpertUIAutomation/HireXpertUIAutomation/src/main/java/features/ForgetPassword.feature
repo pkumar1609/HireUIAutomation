@@ -8,6 +8,7 @@ Scenario Outline: Verify when candidate enters correct email id hirexpert.
    	Examples: 
       |Username              |Password |
 	  |candidate100@gmail.com|12345678 |
+	  
 @forgetPassword
 Scenario Outline: Wrong email id entered
 
@@ -26,7 +27,8 @@ Scenario Outline: Verify When the job provider enters the correct email id.
     Examples: 
       |Username             |Password|
 	  |employer101@gmail.com|12345   |
-	  |agency101@gmail.com  |12345   |	  
+	  |agency101@gmail.com  |12345   |	
+	    
 @forgetPassword
 Scenario Outline: Verify user having only one primary contact with Employer and Agency login
     Given Navigate to Hirexpert Application
