@@ -22,6 +22,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.AddCandidatePage;
 import pages.AddJobPage;
 import pages.AddQuestionaryPage;
+import pages.AdminUserPage;
 import pages.CandidateCardSectionPage;
 import pages.CandidateDashboardPage;
 import pages.CandidatePoolPage;
@@ -115,6 +116,7 @@ public class baseclass extends SuperBase{
 	public static ResetPasswordPage resetPage;	
 	public static CvParserPage cvParserPage;
 	public static CandidatePoolPage candidatePoolPage;
+	public static AdminUserPage adminUserPage;
 
 
 	public baseclass() { 
@@ -147,8 +149,7 @@ public class baseclass extends SuperBase{
 		driver.get(prop.getProperty("url"));
 		driver.manage().window().setSize(new Dimension(1366,768));
 		driver.navigate().refresh();	
-//		driver.get("https://hiretest.txsas.com/#/home");
-		
+	
 		loginpage = new LoginPage();
 		dashboardpage = new DashboardPage();
 		workbenchpage = new WorkbenchPage();
@@ -195,5 +196,6 @@ public class baseclass extends SuperBase{
 		resetPage=new ResetPasswordPage();
 		cvParserPage=new CvParserPage();
 		candidatePoolPage=new CandidatePoolPage();
+		adminUserPage = new AdminUserPage();
 	}
 }

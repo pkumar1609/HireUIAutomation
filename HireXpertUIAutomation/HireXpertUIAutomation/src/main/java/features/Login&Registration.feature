@@ -1,6 +1,6 @@
 Feature: HireXpert Login & Registration feature
 
-	@Bvt @Regression1 @register
+	@register
 	Scenario Outline: To verify the fields/button on Registration popup window and check functionality of Registration
 	Given User open browser
 	When click on Register link     
@@ -76,8 +76,7 @@ Feature: HireXpert Login & Registration feature
 	| TXE15          |  txe3087@gmail.com    | 285248688             | Employer         | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  | India   | 12345       | Viman Nagar     |  EmpMain                 | www.mainemp.com |   Pune       | Age14        | age3087@gmail.com  |  1236556659         | Agency         | Viman Nagar   |   MainAgency           | www.mainag.com | Pune       | Mike15          | mike3087@gmail.com  | 369497878              | Candidate         |Test Engineer | Software Tester |   30         | IT-Software |  Pune         | Male   | Intermediate    |
 
 
-
-	@Bvt @register @Regression2
+	@register
 	Scenario Outline: To verify the registration functionality of already registered user and to verify user is not able to add one user with multiple roles.
 	Given User open browser
 	When click on Register link       
@@ -113,10 +112,8 @@ Feature: HireXpert Login & Registration feature
 	   | employername    |   employeremail     | employercontactnumber   | candidateusertype  | timezone                                        | country  |  agencyname   |   agencyemail       | agencycontactnumber  |   candidatename   |   candidateemail      | candidatecontactnumber  | employerusertype  |
 	   | employermain01  |  txe3088@gmail.com  | 9028311           		 | Candidate          | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi | India    | agencymain01  |  age3088@gmail.com  | 211314644            | candidatemain01   |  mike3088@gmail.com   | 123456456               | Employer          | 
 	   
-	
-
-  
-	 @Bvt @register @Regression3
+	  
+	@register
 	Scenario Outline: Verify user should not be able to Login with old password after creating the new password
 	Given User open browser
 	When click on Register link       
@@ -173,9 +170,8 @@ Feature: HireXpert Login & Registration feature
 	|CPemployer09   | cpemployer3087@gmail.com   | 565566625             |   Employer       |  (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi |  India  | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | 12345    | 12345678    | 12345678        | CPagency09   | CPagency3087@gmail.com   |  98563248           | Agency         | Viman Nagar   | CPAgency               | www.cpagency.com  | Pune       |
 	
 	
-
-	@Bvt @Regression4 @register
-	 Scenario Outline: Verify that Agency, Employer & Candidate is not able to continue without completing the profile. Also Agency, Employer Candidate is able to update profile.
+	@register
+	Scenario Outline: Verify that Agency, Employer & Candidate is not able to continue without completing the profile. Also Agency, Employer Candidate is able to update profile.
 	Given User open browser
 	When click on Register link 
 	And enter user details
@@ -250,7 +246,7 @@ Feature: HireXpert Login & Registration feature
 	| UPAgency16   | upagency3087@gmail.com    | 5685263125          |   Agency       | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi  |  India  | Viman Nagar   | AgencyOrg              | www.agencyorg.com | Pune       | OrgAgency        | 12345    |UPEmployer16  | upemployer3087@gmail.com   | 565566625             |   Employer       | Viman Nagar     | EmployerOrg              | www.employerorg.com | Pune         | OrgEmployer      |UPCandidate16   | upcandidate3087@gmail.com  | 9564783126    | Candidate             | India   |Test Engineer  | Software Tester |   30         | IT-Software |  Pune         | Male    | Intermediate   |java           |2         |250000 |No            |Day Shift|Permanent Full Time|45          |350000     |Wakad   ||30/12/2020    |
 
 
- @Regression @register
+    @register
  	Scenario Outline: Forgot password functionality for not registered user
 	Given User open browser
 	And Click on forgot password link

@@ -3,8 +3,11 @@ package BVT_StepDefination;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import cucumber.api.java.en.And;
@@ -31,8 +34,8 @@ public class ForgetPasswordStepDefination extends baseclass {
 
 	@When("^User click forgot Password link on the login page\\.$")
 	public void user_click_forgot_Password_link_on_the_login_page() throws Throwable {
-		explicitwait.until(ExpectedConditions.visibilityOf(forgetpasswordpage.winForgetPassword));
-		Assert.assertEquals(forgetpasswordpage.winForgetPassword.isDisplayed(), true);
+		explicitwait.until(ExpectedConditions.visibilityOf(forgetpasswordpage.ForgotPasswordLink));
+		forgetpasswordpage.ForgotPasswordLink.click();
 	}
 
 	@When("^Enter an  email id and Click on the Submit button\\.\"([^\"]*)\"$")
@@ -48,43 +51,29 @@ public class ForgetPasswordStepDefination extends baseclass {
 		Assert.assertEquals(forgetpasswordpage.lnkPass.isDisplayed(), true);
 		forgetpasswordpage.clickOnClose();
 	}
+
 	@Then("^Users should get an email with a new password\\. \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-	public void users_should_get_an_email_with_a_new_password(String Username1, String Password1,String Username,String Username2) throws Throwable {
-	    
-	    Thread.sleep(4000);
+	public void users_should_get_an_email_with_a_new_password(String Username1, String Password1, String Username,String Username2) throws Throwable {
+
 		registerpage.clickLogin();
-		Thread.sleep(2000);
 		loginpage.ClickOnEmployerAgencySigninLink();
-		Thread.sleep(2000);
 		loginpage.loginInNew(Username1, Password1);
-		Thread.sleep(5000);
 		forgetpasswordpage.clickOnAnalysis();
 		forgetpasswordpage.clickOnEmailHistory();
 		forgetpasswordpage.clickOnSearch();
-		Thread.sleep(5000);
-		forgetpasswordpage.assertValues(Username,Username2);
-		Thread.sleep(3000);
+			
+		if(forgetpasswordpage.searchToEmail.isDisplayed())
+		{
+			forgetpasswordpage.searchToEmail.sendKeys(Username);
+			forgetpasswordpage.clickOnSearch();
+			
+			String userNameToCheck = Username.toLowerCase();
+			WebElement gridRowElement = driver.findElement(By.xpath("//th[contains(text(),'Sent To Email')]//following::td[contains(text(),'"+userNameToCheck+"')]"));
+			String gridUsername = gridRowElement.getText();
+            Assert.assertEquals(userNameToCheck, gridUsername);
+		}		
 		loginpage.logoutFromAppK();
 	}
-	
-//	@Then("^Users should get an email with a new password")
-//	public void users_should_get_an_email_with_a_new_password_pemp() throws Throwable {
-//
-//		Thread.sleep(4000);
-//		registerpage.clickLogin();
-//		Thread.sleep(2000);
-//		loginpage.ClickOnEmployerAgencySigninLink();
-//		Thread.sleep(2000);
-//		loginpage.loginInNew(Username1, Password1);
-//		Thread.sleep(5000);
-//		forgetpasswordpage.clickOnAnalysis();
-//		forgetpasswordpage.clickOnEmailHistory();
-//		forgetpasswordpage.clickOnSearch();
-//		Thread.sleep(5000);
-//		forgetpasswordpage.assertValues(Username,Username2);
-//		Thread.sleep(3000);
-//		loginpage.logoutFromAppK();
-//	}
 
 
 
@@ -94,7 +83,7 @@ public class ForgetPasswordStepDefination extends baseclass {
 		registerpage.clickLogin();
 		Thread.sleep(2000);
 		loginpage.ClickOnEmployerAgencySigninLink();
-		//registerpage.clickEmployerAgencySignInlink();
+		// registerpage.clickEmployerAgencySignInlink();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winWelcome));
 
 		Assert.assertEquals(resetPage.winWelcome.isDisplayed(), true);
@@ -127,7 +116,7 @@ public class ForgetPasswordStepDefination extends baseclass {
 		Thread.sleep(2000);
 		loginpage.ClickOnEmployerAgencySigninLink();
 
-		//registerpage.clickEmployerAgencySignInlink();
+		// registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(2000);
 	}
 
@@ -157,7 +146,7 @@ public class ForgetPasswordStepDefination extends baseclass {
 		Thread.sleep(2000);
 		loginpage.ClickOnEmployerAgencySigninLink();
 
-		//registerpage.clickEmployerAgencySignInlink();
+		// registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(2000);
 	}
 
@@ -194,5 +183,44 @@ public class ForgetPasswordStepDefination extends baseclass {
 		Thread.sleep(5000);
 
 	}
+
+	@Given("^admin creates new support user \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void admin_creates_new_support_user(String Name, String Email, String ContactNumber, String UserType,
+			String Country, String TimeZone) throws Throwable {
+
+		if (adminUserPage.getadminNewUserMenu().isDisplayed()) {
+			executor.executeScript("arguments[0].click();", adminUserPage.getadminNewUserMenu());
+			if (adminUserPage.checkAdminAddMemberPopUp()) {
+				adminUserPage.getName().sendKeys(Name);
+				adminUserPage.getEmail().sendKeys(Email);
+				adminUserPage.getContactNumber().sendKeys(ContactNumber);
+				Select usertype = new Select(adminUserPage.getUserType());
+				usertype.selectByVisibleText(UserType);
+
+				WebDriverWait w = new WebDriverWait(driver, 10);
+				try {
+					w.until(ExpectedConditions.presenceOfNestedElementsLocatedBy(
+							By.xpath("//select[@formcontrolname='countryId']"), By.tagName("option")));
+					WebElement l = driver.findElement(By.xpath("//select[@formcontrolname='countryId']"));
+					Select s = new Select(l);
+					s.selectByVisibleText(Country);
+				} catch (Exception e) {
+					System.out.println("Options not available");
+				}
+				common.ClickSumbit();
+				common.clickOnOKBtn();
+			}
+		}
+	}
+
+	@Given("^Logout from admin user login$")
+	public void logout_from_admin_user_login() throws Throwable {
+		loginpage.logoutFromAppK();
+		Thread.sleep(2000);
+		if (common.okbtnPopup.size() > 0) {
+			common.clickOnOKBtn();
+		}
+	}
+	
 
 }

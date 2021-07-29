@@ -95,7 +95,6 @@ public class LoginPage extends baseclass {
 		Thread.sleep(2000);
 		Action.moveToElement(login).click().perform();
 		Thread.sleep(1000);
-//		EmployerAgencySignInlink.click();
 		executor.executeScript("arguments[0].click();", EmployerAgencySignInlink);
 	}
 
@@ -130,18 +129,6 @@ public class LoginPage extends baseclass {
 		signin.click();
 	}
 
-//	public void signInAgency2() {
-//		emailaddress.sendKeys(prop.getProperty("agencyemail2"));
-//		password.sendKeys(prop.getProperty("password"));
-//		signin.click();
-//	}
-
-//	public void signInCandidate() {
-//		emailaddress.sendKeys(prop.getProperty("candidateemail"));
-//		password.sendKeys(prop.getProperty("password"));
-//		signin.click();
-//	}
-
 	public void login(String username) throws InterruptedException {
 		emailaddress.sendKeys(username);
 		password.sendKeys("12345");
@@ -169,9 +156,7 @@ public class LoginPage extends baseclass {
 		password.sendKeys("12345");
 		Thread.sleep(4000);
 		signin.click();
-//		common.clickOnCloseBtn();
 		identifyUserK();
-
 	}
 
 	public void loginInAppWithEmpK() throws InterruptedException {
@@ -180,7 +165,6 @@ public class LoginPage extends baseclass {
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", signin);
 		identifyUserK();
-
 	}
 
 	public void loginInAppWithAgyK() throws InterruptedException {
@@ -188,12 +172,6 @@ public class LoginPage extends baseclass {
 		password.sendKeys("12345");
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", signin);
-//		try
-//		{
-//		common.clickOnOKBtn();
-//		}
-//		catch(NoSuchElementException e)
-//		{}
 		identifyUserK();
 	}
 
@@ -203,10 +181,6 @@ public class LoginPage extends baseclass {
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", signin);
 		identifyUserK();
-//		if(dashboardpage.jobPopup != null)
-//		{
-//			common.clickOnOKBtn();
-//		}
 	}
 
 	public void loginInAppWithSupport() throws InterruptedException {
@@ -214,7 +188,6 @@ public class LoginPage extends baseclass {
 		password.sendKeys("12345");
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", signin);
-
 	}
 
 	public void loginInAppWithAgyTeamK() throws InterruptedException {
@@ -222,7 +195,6 @@ public class LoginPage extends baseclass {
 		password.sendKeys("12345");
 		Thread.sleep(3000);
 		signin.click();
-//		common.clickOnCloseBtn();
 		identifyUserK();
 	}
 	
@@ -238,8 +210,7 @@ public class LoginPage extends baseclass {
 		Thread.sleep(2000);
 		explicitwait.until(ExpectedConditions.elementToBeClickable(myAccount));
 		Action.moveToElement(myAccount).click().perform();
-		executor.executeScript("arguments[0].click();", Logout);
-		
+		executor.executeScript("arguments[0].click();", Logout);		
 	}
 	
 	
@@ -250,8 +221,6 @@ public class LoginPage extends baseclass {
 		executor.executeScript("arguments[0].click();", Logout);
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", logOut1);
-
-		// executor.executeScript("arguments[0].click();", common.logout);logout
 	}
 	
 
@@ -272,6 +241,6 @@ public class LoginPage extends baseclass {
 			user = "candidate";
 			break;
 		}
-
 	}
+	
 }

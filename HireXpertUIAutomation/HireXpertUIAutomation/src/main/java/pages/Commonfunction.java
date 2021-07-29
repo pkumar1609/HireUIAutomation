@@ -77,7 +77,6 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath = "//button[text()='Logout']")
 	public WebElement logout;
 
-//	@FindBy(xpath="//input[@name= 'search-id']") // Old
 	@FindBy(xpath = "//all-jobs/div[2]/div[1]/input[@name= 'search-id']") // Dashboard Job section job search field.
 	public WebElement searchField;
 
@@ -156,9 +155,7 @@ public class Commonfunction extends baseclass {
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].scrollIntoView();", closebtn);
 		Thread.sleep(4000);
-//		closebtn.click();
 		executor.executeScript("arguments[0].click();", closebtn);
-
 	}
 
 	public void clickOnAddClosebtn() throws InterruptedException {
@@ -169,23 +166,18 @@ public class Commonfunction extends baseclass {
 	public void clickOnConfirmYes() throws InterruptedException {
 		Thread.sleep(4000);
 		executor.executeScript("arguments[0].click();", confimYes);
-
-//		confimYes.click();
 	}
 
 	public void clickOnOKBtn() throws InterruptedException {
 
 		Thread.sleep(4000);
 		executor.executeScript("arguments[0].click();", okbtn);
-//		okbtn.click();
-
 	}
 
 	public void ClickSumbit() throws InterruptedException {
 		Thread.sleep(4000);
 		explicitwait.until(ExpectedConditions.visibilityOf(submitbtn));
 		executor.executeScript("arguments[0].click();", submitbtn);
-//		submitbtn.click(); 
 	}
 
 	public void clickNoButton() {
@@ -225,7 +217,6 @@ public class Commonfunction extends baseclass {
 		Thread.sleep(2000);
 		explicitwait.until(ExpectedConditions.visibilityOf(clearFilter));
 		executor.executeScript("arguments[0].click();", clearFilter);
-		System.out.println("Here second");
 	}
 
 	public void ClickOnReloadJob() throws InterruptedException {
@@ -333,7 +324,6 @@ public class Commonfunction extends baseclass {
 			break;
 		}
 		return day + "-" + monthName + "-" + year;
-
 	}
 
 	public void addComment() throws InterruptedException {
@@ -383,7 +373,6 @@ public class Commonfunction extends baseclass {
 			exception.printStackTrace();
 			return dataColumnHeader;
 		}
-
 	}
 
 	public WebElement selectTableForSpecficColumn(By weResultTableForThead, By weResultTableForTbody,
