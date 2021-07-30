@@ -28,13 +28,14 @@ public class candidatePoolSteps extends baseclass {
 		candidatePoolPage.clickOnCandidatePool();
 		candidatePoolPage.clickOnAddCandidate();
 	}
-	@Then("^AddCandidate pop-up is displayed\\. Employer fills all mandatory information and clicks ‘Submit’\\.$")
-	public void addcandidate_pop_up_is_displayed_Employer_fills_all_mandatory_information_and_clicks_Submit() throws Throwable {
 	
+	@Then("^AddCandidate pop-up is displayed\\. Employer fills all mandatory information and clicks ‘Submit’$")
+	public void addcandidate_pop_up_is_displayed_Employer_fills_all_mandatory_information_and_clicks_Submit() throws Throwable {
 		explicitwait.until(ExpectedConditions.visibilityOf(candidatePoolPage.winAddCandidate));
 		Assert.assertEquals(candidatePoolPage.winAddCandidate.isDisplayed(), true);
 		candidatePoolPage.addCandidate();
 		candidatePoolPage.assertValues();
 	}
+
 
 }

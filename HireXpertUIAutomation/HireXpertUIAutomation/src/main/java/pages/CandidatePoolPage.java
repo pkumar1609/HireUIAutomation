@@ -76,9 +76,9 @@ public class CandidatePoolPage extends baseclass {
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", candidatePool);
 		Thread.sleep(3000);
-
-		Assert.assertEquals(popupInformation.isDisplayed(),true);
-		common.clickOnOKBtn();
+		
+		//Assert.assertEquals(popupInformation.isDisplayed(),true);
+		//common.clickOnOKBtn();
 	}
 	public void clickOnAddCandidate() throws InterruptedException {
 		Thread.sleep(3000);
