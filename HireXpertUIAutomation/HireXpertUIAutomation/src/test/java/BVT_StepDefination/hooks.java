@@ -24,7 +24,7 @@ public class hooks extends baseclass {
 		super();	
 	}
 
-	@Before("@login,@register,@forgetPassword,@resetPassword,@JobWorkflow,@jobupdate,@interview,@JobCandidateManagement,@JCWF,@Job,@JobCandidteOffered,@Dashboard,@candidatePool")
+	@Before("@login,@register,@forgetPassword,@ResetPassword,@JobWorkflow,@jobupdate,@interview,@JobCandidateManagement,@JCWF,@Job,@JobCandidteOffered,@Dashboard,@candidatePool")
 	public void CheckUserCreatedBeforeTestExecution() throws InterruptedException, AWTException, IOException {
 
 		System.out.println("Before hook executed to check user created");

@@ -54,6 +54,7 @@ public class ResetPasswordPage extends baseclass {
 
 	@FindBy(xpath = "//input[@placeholder='Password']")
 	public WebElement password;
+
 	@FindBy(xpath = "//button[contains(text(),'Change Login Email ')]")
 	public WebElement btnChangeEmail;
 
@@ -79,13 +80,16 @@ public class ResetPasswordPage extends baseclass {
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", ChangePasswordTab);
 		Thread.sleep(2000);
+	}
 
+	public void clickOnChangeEmail() throws Throwable {
+		Thread.sleep(3000);
+		executor.executeScript("arguments[0].click();", btnChangeEmail);
 	}
 
 	public void txtCurrentPassword(String curPassword) {
 
 		CurrentPassword.sendKeys(curPassword);
-
 	}
 
 	public void txtNewPassword(String nPassword) {
@@ -109,14 +113,12 @@ public class ResetPasswordPage extends baseclass {
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", btnOK);
 		Thread.sleep(2000);
-
 	}
 
 	public void clickOnCancle() throws Throwable {
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", btnCancle);
 		Thread.sleep(2000);
-
 	}
 
 }

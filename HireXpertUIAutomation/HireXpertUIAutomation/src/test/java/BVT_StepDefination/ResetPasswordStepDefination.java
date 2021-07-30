@@ -73,28 +73,21 @@ public class ResetPasswordStepDefination extends baseclass {
 
 	@Then("^Logout from myAccount$")
 	public void logout_as_a_support_user() throws Throwable {
-		Thread.sleep(3000);
 		explicitwait.until(ExpectedConditions.elementToBeClickable(loginpage.myAccount));
 		Action.moveToElement(loginpage.myAccount).click().perform();
-		Thread.sleep(2000);
 		loginpage.Logout.click();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winRateUS));
-
 		Assert.assertEquals(resetPage.winRateUS.isDisplayed(), true);
 		resetPage.Logout.click();
-
-		Thread.sleep(5000);
-
 	}
+	
 	@Then("^Users should not be able to login with an old password \"([^\"]*)\",\"([^\"]*)\"$")
 	public void users_should_not_be_able_to_login_with_an_old_password(String Username1, String Password1) throws Throwable {
 
 		registerpage.clickLogin();
 		Thread.sleep(2000);
-		//registerpage.clickEmployerAgencySignInlink();
 		loginpage.ClickOnEmployerAgencySigninLink();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winWelcome));
-
 		Assert.assertEquals(resetPage.winWelcome.isDisplayed(), true);
 		Thread.sleep(2000);
 		loginpage.loginInNew(Username1, Password1);
@@ -104,15 +97,12 @@ public class ResetPasswordStepDefination extends baseclass {
 		Thread.sleep(3000);
 	}
 
-
 	@Then("^Users should be able to login with a new password \"([^\"]*)\"$")
 	public void users_should_be_able_to_login_with_a_new_password(String Password) throws Throwable {
 		resetPage.password.clear();
 		Thread.sleep(2000);
 		resetPage.password.sendKeys(Password);
-		Thread.sleep(2000);
 		loginpage.signin.click();
-		Thread.sleep(5000);
 	}
 
 	@Given("^Candididate login to HireXpert \"([^\"]*)\",\"([^\"]*)\"$")
@@ -132,7 +122,6 @@ public class ResetPasswordStepDefination extends baseclass {
 		resetPage.clickOnMyAccount();
 
 		Thread.sleep(3000);
-
 	}
 
 
@@ -144,47 +133,36 @@ public class ResetPasswordStepDefination extends baseclass {
 		registerpage.clickLogin();
 		Thread.sleep(2000);
 		loginpage.ClickOnEmployerAgencySigninLink();
-		//registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(2000);
 		loginpage.loginInNew(Username, Password);
 		Thread.sleep(5000);
 		String hometitle = driver.getTitle();
-
 		explicitwait.until(ExpectedConditions.visibilityOf(resetPage.myAccount));
 		resetPage.clickOnMyAccount();
-
 		Thread.sleep(3000);
-
 	}
-	@When("^User clicks the ChangeLoginEmail   option on the profile  window$")
+	
+	@When("^User clicks the ChangeLoginEmail option on the profile  window$")
 	public void user_clicks_the_ChangeLoginEmail_option_on_the_profile_window() throws Throwable {
-
-		resetPage.btnChangeEmail.click();
-		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winChangeEmail));
-		Assert.assertEquals(resetPage.winChangeEmail.isDisplayed(), true);
-
+		
+		explicitwait.until(ExpectedConditions.elementToBeClickable(loginpage.myAccount));
+		Action.moveToElement(loginpage.myAccount).click().perform();
+		resetPage.clickOnChangeEmail();
 	}
 
-	@When("^The Change  Login Email  pop up window appears , fill the  data click on submit button \"([^\"]*)\",\"([^\"]*)\"$")
-	public void the_Change_Login_Email_pop_up_window_appears_fill_the_data_click_on_submit_button(String Username, String Password) throws Throwable {
-		Thread.sleep(2000);
+	@When("^On Change Login Email pop up window fill the data \"([^\"]*)\",\"([^\"]*)\"$")
+	public void on_Change_Login_Email_pop_up_window_fill_the_data(String Username, String Password) throws Throwable {
+
 		resetPage.inpChangeEmail.sendKeys(Username);
-		Thread.sleep(2000);
 		resetPage.password.sendKeys(Password);
-		Thread.sleep(2000);
 		resetPage.btnSubmit.click();
-
 	}
-
 
 	@Then("^Successful pop-up message displayed as \"([^\"]*)\"$")
 	public void successful_pop_up_message_displayed_as(String arg1) throws Throwable {
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winSuccess));
 		Assert.assertEquals(resetPage.winSuccess.isDisplayed(), true);
-
 		resetPage.clickOnOK();
-		Thread.sleep(3000);
-
 	}
 
 	@Then("^Users should not  be able to login with old Email id \"([^\"]*)\",\"([^\"]*)\"$")
@@ -192,9 +170,7 @@ public class ResetPasswordStepDefination extends baseclass {
 		registerpage.clickLogin();
 		Thread.sleep(2000);
 		loginpage.ClickOnEmployerAgencySigninLink();
-		//registerpage.clickEmployerAgencySignInlink();
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.winWelcome));
-
 		Assert.assertEquals(resetPage.winWelcome.isDisplayed(), true);
 		Thread.sleep(2000);
 		loginpage.loginInNew(Username1, Password);
@@ -202,7 +178,6 @@ public class ResetPasswordStepDefination extends baseclass {
 		explicitwait.until(ExpectedConditions.elementToBeClickable(resetPage.inpEmail));
 		Assert.assertEquals(resetPage.inpEmail.isDisplayed(), true);
 		Thread.sleep(3000);
-
 	}
 
 
@@ -214,9 +189,8 @@ public class ResetPasswordStepDefination extends baseclass {
 		Thread.sleep(2000);
 		loginpage.signin.click();
 		Thread.sleep(5000);
-
-
 	}
+	
 	@Given("^User login to HireXpert Application\"([^\"]*)\",\"([^\"]*)\"$")
 	public void user_login_to_HireXpert_Application(String Username, String Password) throws Throwable {
 
@@ -226,15 +200,12 @@ public class ResetPasswordStepDefination extends baseclass {
 		registerpage.clickLogin();
 		Thread.sleep(2000);
 		loginpage.ClickOnEmployerAgencySigninLink();
-		//registerpage.clickEmployerAgencySignInlink();
 		Thread.sleep(2000);
 		loginpage.loginInNew(Username, Password);
 		Thread.sleep(5000);
 		String hometitle = driver.getTitle();
-
 		explicitwait.until(ExpectedConditions.visibilityOf(resetPage.myAccount));
 		resetPage.clickOnMyAccount();
-
 		Thread.sleep(3000);
 	}
 
@@ -242,7 +213,6 @@ public class ResetPasswordStepDefination extends baseclass {
 	@When("^User clicks the Change Password   option on the profile  window\\.$")
 	public void user_clicks_the_Change_Password_option_on_the_profile_window() throws Throwable {
 		resetPage.clickOnChangePassword();
-
 	}
 
 	@When("^The Change password   pop up window appears\\.$")
@@ -256,8 +226,8 @@ public class ResetPasswordStepDefination extends baseclass {
 	public void users_should_remain_on_a_Dashboard_page() throws Throwable {
 		Thread.sleep(2000);
 		String hometitle = driver.getTitle();
-
 	}
+	
 	@Given("^User login to HireXpert Application\\(change Login Email \\)\"([^\"]*)\",\"([^\"]*)\"$")
 	public void user_login_to_HireXpert_Application_change_Login_Email(String Username, String Password) throws Throwable {
 		baseclass.initialization();
@@ -296,7 +266,6 @@ public class ResetPasswordStepDefination extends baseclass {
 		Thread.sleep(3000);		
 		resetPage.clickOnCancle();
 	}
-
 
 
 }
