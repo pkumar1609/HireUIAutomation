@@ -19,7 +19,7 @@ public class ManageRecruitmentAgencies extends baseclass {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//button[@title='Manage Recruiters']")
+	@FindBy(xpath = "//button[normalize-space()='Add Recruiters']")
 	public WebElement addRecruitmentAgencies;
 
 	public String name;
