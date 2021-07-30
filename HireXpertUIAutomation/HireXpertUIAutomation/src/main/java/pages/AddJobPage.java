@@ -44,12 +44,12 @@ public class AddJobPage extends baseclass {
 	@FindBy(xpath = "//input[@formcontrolname='Designation']")
 	public WebElement designation;
 
-	@FindBy(xpath = "(//div[contains(text(),'Select Functional Area')]//following::input[@role='combobox'])[1]")
-	public WebElement functionalArea;
-	
-	@FindBy(xpath = "//input[@formcontrolname='Industry']")
+	@FindBy(xpath = "(//div[contains(text(),'Select Industry')]//following::input[@role='combobox'])[1]")	
 	public WebElement industry;
-
+		
+	@FindBy(xpath = "(//div[@class='ng-option']//following::span[contains(text(),'IT-Software')])[1]")	
+	public WebElement industryValueITSoftware;
+								
 	@FindBy(xpath = "//input[@placeholder='Enter City Area']")
 	public WebElement cityArea;
 
@@ -277,8 +277,6 @@ public class AddJobPage extends baseclass {
 
 	public void addNewSkill2(String JobSkill2) {
 
-//		addskillbutton.click();
-
 		jobskill2.sendKeys(JobSkill2);
 		se = new Select(expertiselevel2);
 		se.selectByVisibleText("Expert");
@@ -288,13 +286,9 @@ public class AddJobPage extends baseclass {
 	}
 
 	public void addNewSkill3() {
-
-//		addskillbutton.click();
-
 		jobskill3.sendKeys("Python");
 		se = new Select(expertiselevel3);
 		se.selectByVisibleText("Expert");
-
 		se = new Select(weightage3);
 		se.selectByVisibleText("Preferred");
 	}
@@ -311,11 +305,6 @@ public class AddJobPage extends baseclass {
 		employerContactNumber.sendKeys("215245554");
 	}
 
-//	public void employerDropDown() {
-//		
-//		se = new Select(employer);
-//		se.selectByVisibleText("Trupti1");
-//	}
 
 	public void addjob(DataTable credentials) throws InterruptedException {
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class)) {
@@ -381,8 +370,16 @@ public class AddJobPage extends baseclass {
 			selectedOrganization = this.Organization.getAttribute("value");
 			Thread.sleep(1000);
 			designation.sendKeys(data.get("designation"));
-			functionalArea.sendKeys(data.get("functionalArea"));
-			this.industry.sendKeys(data.get("industry"));
+
+			if(industry.isDisplayed())
+			{
+				industry.click();
+				if(industryValueITSoftware.isDisplayed())
+				{
+					industryValueITSoftware.click();
+				}
+			}
+	
 			industryname = data.get("industry");
 			minsal.sendKeys(data.get("minsal"));
 			maxsal.sendKeys(data.get("maxsal"));
@@ -406,7 +403,8 @@ public class AddJobPage extends baseclass {
 		}
 		addJobFlag = 1;
 	}
-
+	
+	
 	public void extraInfoOfJob(DataTable credentials) throws InterruptedException {
 		this.emp = loginpage.b;
 		for (Map<String, String> data : credentials.asMaps(String.class, String.class)) {
@@ -504,7 +502,7 @@ public class AddJobPage extends baseclass {
 			this.title.sendKeys(jobname);
 			this.designation.sendKeys(data.get("Designation"));
 			this.industry.sendKeys(data.get("Industry"));
-			this.functionalArea.sendKeys(data.get("FunctionalArea"));
+			//this.functionalArea.sendKeys(data.get("FunctionalArea"));
 			this.minsal.sendKeys(data.get("MinSal"));
 			this.maxsal.sendKeys(data.get("MaxSal"));
 			this.minexp.sendKeys(data.get("MinExp"));
@@ -532,7 +530,7 @@ public class AddJobPage extends baseclass {
 		this.title.sendKeys(jobname);
 		this.designation.sendKeys(Designation);
 		this.industry.sendKeys(Industry);
-		this.functionalArea.sendKeys(FunctionalArea);
+		//this.functionalArea.sendKeys(FunctionalArea);
 		this.minsal.sendKeys(MinSal);
 		this.maxsal.sendKeys(MaxSal);
 		this.minexp.sendKeys(MinExp);
