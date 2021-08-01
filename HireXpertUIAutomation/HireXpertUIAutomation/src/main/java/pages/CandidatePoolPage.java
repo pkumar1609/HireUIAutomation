@@ -89,7 +89,7 @@ public class CandidatePoolPage extends baseclass {
 		executor.executeScript("arguments[0].click();", email);
 		Random randomGenerator = new Random();  
 		int randomInt = randomGenerator.nextInt(1000);
-		name="username"+ randomInt +"@gmail.com";
+		name="CandidateNew"+ randomInt +"@gmail.com";
 		 email.sendKeys(name);  
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", btnFind);

@@ -19,9 +19,8 @@ import org.apache.commons.io.FileUtils;
 
 public class hooks extends baseclass {
 
-	
 	public hooks() throws InterruptedException {
-		super();	
+		super();
 	}
 
 	@Before("@login,@register,@forgetPassword,@ResetPassword,@JobWorkflow,@jobupdate,@interview,@JobCandidateManagement,@JCWF,@Job,@JobCandidteOffered,@Dashboard,@candidatePool")
@@ -32,7 +31,7 @@ public class hooks extends baseclass {
 		baseclass.initialization();
 		createEmployeeandRelatedUsers();
 	}
-	
+
 	@After()
 	public void screenShot(Scenario scenario) throws InterruptedException, IOException {
 
@@ -47,13 +46,12 @@ public class hooks extends baseclass {
 				FileUtils.copyFile(screenshotFile, new File(rootFolder + "/" + filename + ".png"));
 			} catch (WebDriverException e) {
 				System.out.println("expection Thrown :" + e.getMessage());
-			} 
-			finally {
-				 driver.quit();
+			} finally {
+				driver.quit();
 			}
 
 		} else {
-			 driver.quit();
+			driver.quit();
 		}
 	}
 
@@ -68,10 +66,10 @@ public class hooks extends baseclass {
 		String errorMessageForAlreadyRegisteredUser = "";
 		Boolean userAlreadyRegistered = false;
 		try {
-			
+
 			driver.navigate().refresh();
 			registerpage.clickRegister();
-			registerpage.registeremployerdetails("pemp", "pemp@gmail.com", "6512101234");			
+			registerpage.registeremployerdetails("pemp", "pemp@gmail.com", "6512101234");
 			registerpage.registerUserdetails("Employer", "(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi", "India");
 			common.ClickSumbit();
 			common.clickOnConfirmYes();
@@ -83,6 +81,7 @@ public class hooks extends baseclass {
 				userAlreadyRegistered = true;
 				common.clickOnCloseBtn();
 				common.clickOnConfirmYes();
+				driver.quit();
 			}
 		} catch (NoSuchElementException ex) {
 			userAlreadyRegistered = false;
@@ -97,7 +96,7 @@ public class hooks extends baseclass {
 				dashboardpage.openDashboardPage();
 				dashboardpage.AddJob();
 				addjobpage.filljobDetailsNew("Software Developer", "IT-Software", "Software Programming", "200000",
-						                       "600000", "3", "6", "60", "Pune", "Kharadi", "2");
+						"600000", "3", "6", "60", "Pune", "Kharadi", "2");
 				common.ClickSumbit();
 				common.clickOnOKBtn();
 				dashboardpage.openWorkbenchPage();
@@ -106,8 +105,8 @@ public class hooks extends baseclass {
 			if (!userAlreadyRegistered) {
 				manageemployee.addEmployeeNew("Employer", "pe1", "pe1@gmail.com", "Interviewer", "6504123451");
 				manageemployee.addEmployeeNew("Employer", "pe2", "pe2@gmail.com", "Recruitment HR", "6514123451");
-				updateFirstTeamMemberProfile("pe1@gmail.com","12345","Nashik","pempORG","pempORG.com","Nashik");
-				updateSecondTeamMemberProfile("pe2@gmail.com","12345","Pune","pempORG","pempORG.com","Pune");
+				updateFirstTeamMemberProfile("pe1@gmail.com", "12345", "Nashik", "pempORG", "pempORG.com", "Nashik");
+				updateSecondTeamMemberProfile("pe2@gmail.com", "12345", "Pune", "pempORG", "pempORG.com", "Pune");
 			}
 			registerpage.clickRegister();
 			createAgencyandRelatedUsers();
@@ -150,23 +149,25 @@ public class hooks extends baseclass {
 			loginpage.identifyUserK();
 			// Add agency team member - Manage Employee
 			if (!userAlreadyRegistered) {
-				manageemployee.addEmployeeNew("Agency", "pa1", "pa1@gmail.com","Recruitment Agency Head", "7304123451");
-				manageemployee.addEmployeeNew("Agency", "pa2", "pa2@gmail.com","Recruitment Agency Head", "7512223451");				
-				updateFirstTeamMemberProfile("pa1@gmail.com","12345","Gwalior","pagyORG","pagyORG.com","Gwalior");
-				updateSecondTeamMemberProfile("pa2@gmail.com","12345","Mumbai","pagyORG","pagyORG.com","Mumbai");
+				manageemployee.addEmployeeNew("Agency", "pa1", "pa1@gmail.com", "Recruitment Agency Head",
+						"7304123451");
+				manageemployee.addEmployeeNew("Agency", "pa2", "pa2@gmail.com", "Recruitment Agency Head",
+						"7512223451");
+				updateFirstTeamMemberProfile("pa1@gmail.com", "12345", "Gwalior", "pagyORG", "pagyORG.com", "Gwalior");
+				updateSecondTeamMemberProfile("pa2@gmail.com", "12345", "Mumbai", "pagyORG", "pagyORG.com", "Mumbai");
 			}
 			// Add agency vendors - Manage Vendors
-			if (!userAlreadyRegistered) {								
+			if (!userAlreadyRegistered) {
 				loginpage.ClickOnEmployerAgencySigninLink();
-				loginpage.loginInNew("pagy@gmail.com", "12345");				
+				loginpage.loginInNew("pagy@gmail.com", "12345");
 				managevendor.addVendorNew("pagvdr1", "pagvdr1@gmail.com", "4101362101");
 				CompleteLogout();
 			}
 		}
 	}
-			
-	private void updateFirstTeamMemberProfile(String TeammemberLoginUN,String Password,String Address, String OrganizationName, String Website, String City) throws InterruptedException
-	{
+
+	private void updateFirstTeamMemberProfile(String TeammemberLoginUN, String Password, String Address,
+			String OrganizationName, String Website, String City) throws InterruptedException {
 		CompleteLogout();
 		loginpage.ClickOnEmployerAgencySigninLink();
 		loginpage.loginInNew(TeammemberLoginUN, Password);
@@ -174,26 +175,24 @@ public class hooks extends baseclass {
 		common.ClickSumbit();
 		CompleteLogout();
 	}
-	
-	private void updateSecondTeamMemberProfile(String TeammemberLoginUN,String Password,String Address, String OrganizationName, String Website, String City) throws InterruptedException
-	{
+
+	private void updateSecondTeamMemberProfile(String TeammemberLoginUN, String Password, String Address,
+			String OrganizationName, String Website, String City) throws InterruptedException {
 		loginpage.ClickOnEmployerAgencySigninLink();
 		loginpage.loginInNew(TeammemberLoginUN, Password);
 		updateprofilepopuppage.UpdateProfile(Address, OrganizationName, Website, City);
 		common.ClickSumbit();
 		CompleteLogout();
 	}
-	
-	private void CompleteLogout() throws InterruptedException
-	{
+
+	private void CompleteLogout() throws InterruptedException {
 		loginpage.logoutFromAppK();
 		common.logout.click();
 		if (common.okbtnPopup.size() > 0) {
-		common.clickOnOKBtn();
+			common.clickOnOKBtn();
 		}
 	}
-	
-	
+
 //@After()
 //public void deleteJob() throws InterruptedException
 //{
