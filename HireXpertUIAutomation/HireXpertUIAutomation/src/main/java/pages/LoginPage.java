@@ -1,7 +1,6 @@
 package pages;
 
 import java.util.List;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -60,10 +59,10 @@ public class LoginPage extends baseclass {
 
 	@FindBy(xpath = "//button[contains(text(),'Log Out')]")
 	public WebElement Logout;
-	
+
 	@FindBy(xpath = "//button[contains(text(),'Logout')]")
 	public WebElement logOut1;
-	
+
 	@FindBy(xpath = "//p[@class='error mb-1 pl-1 pr-1']")
 	public WebElement errormsg1;
 
@@ -197,23 +196,21 @@ public class LoginPage extends baseclass {
 		signin.click();
 		identifyUserK();
 	}
-	
+
 	public void loginInAsVendor(String Username, String Password) throws InterruptedException {
 		emailaddress.sendKeys(Username);
 		password.sendKeys(Password);
 		Thread.sleep(4000);
 		signin.click();
 	}
-	
 
 	public void logoutFromAppK() throws InterruptedException {
 		Thread.sleep(2000);
 		explicitwait.until(ExpectedConditions.elementToBeClickable(myAccount));
 		Action.moveToElement(myAccount).click().perform();
-		executor.executeScript("arguments[0].click();", Logout);		
+		executor.executeScript("arguments[0].click();", Logout);
 	}
-	
-	
+
 	public void logoutFromAppKnew() throws InterruptedException {
 		Thread.sleep(2000);
 		explicitwait.until(ExpectedConditions.elementToBeClickable(myAccount));
@@ -222,25 +219,32 @@ public class LoginPage extends baseclass {
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", logOut1);
 	}
-	
 
 	public void identifyUserK() throws InterruptedException {
-		explicitwait.until(ExpectedConditions.visibilityOf(myAccount));
-		Action.moveToElement(myAccount).click().perform();
-		String loggedUser = loggedInUser.getAttribute("title");
-		switch (loggedInUser.getAttribute("title")) {
-		case "Employer":
-			b = true;
-			user = "employer";
-			break;
-		case "Agency":
-			b = false;
-			user = "agency";
-			break;
-		case "Candidate":
-			user = "candidate";
-			break;
+
+		try {
+			explicitwait.until(ExpectedConditions.visibilityOf(myAccount));
+			if (myAccount.isDisplayed()) {
+				Action.moveToElement(myAccount).click().perform();
+				String loggedUser = loggedInUser.getAttribute("title");
+				switch (loggedInUser.getAttribute("title")) {
+				case "Employer":
+					b = true;
+					user = "employer";
+					break;
+				case "Agency":
+					b = false;
+					user = "agency";
+					break;
+				case "Candidate":
+					user = "candidate";
+					break;
+				}
+			}
+		} catch (Exception ex) {
+			System.out.println("Exception occured: " + ex);
 		}
+
 	}
-	
+
 }
