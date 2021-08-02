@@ -116,6 +116,8 @@ public class hooks extends baseclass {
 			if (!userAlreadyRegistered) {
 				managerecruitmentagencies.addRecruitersNew("pagy", "pagy@gmail.com", "6114101231");
 			}
+			CompleteLogout();
+			driver.quit();
 		}
 	}
 
@@ -192,17 +194,5 @@ public class hooks extends baseclass {
 			common.clickOnOKBtn();
 		}
 	}
-
-//@After()
-//public void deleteJob() throws InterruptedException
-//{
-//	if(addjobpage.addJobFlag==1)
-//	{
-//		dashboardpage.openWorkbenchPage();
-//		workbenchpage.selectJobK();
-//		workbenchpage.deleteJob();
-//	}
-//	addjobpage.addJobFlag=0;
-//}
 
 }

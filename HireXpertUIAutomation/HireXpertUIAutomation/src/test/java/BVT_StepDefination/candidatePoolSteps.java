@@ -21,6 +21,7 @@ public class candidatePoolSteps extends baseclass {
 		Thread.sleep(2000);
 		loginpage.loginInNew(Username, Password);
 	}
+	
 	@When("^Employer visits Recruitment menu, selects Candidate Pool and clicks on ‘Add Candidate’ button\\.$")
 	public void employer_visits_Recruitment_menu_selects_Candidate_Pool_and_clicks_on_Add_Candidate_button() throws Throwable {
 

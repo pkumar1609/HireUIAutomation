@@ -500,9 +500,16 @@ public class AddJobPage extends baseclass {
 			currentTime = LocalDateTime.now();
 			jobname = dtFormate.format(currentTime) + " Emp";
 			this.title.sendKeys(jobname);
-			this.designation.sendKeys(data.get("Designation"));
-			this.industry.sendKeys(data.get("Industry"));
-			//this.functionalArea.sendKeys(data.get("FunctionalArea"));
+			this.designation.sendKeys(data.get("Designation"));			
+			if(this.industry.isDisplayed())
+			{
+				this.industry.click();
+				if(this.industryValueITSoftware.isDisplayed())
+				{
+					this.industryValueITSoftware.click();
+				}
+			}			
+			//this.industry.sendKeys(data.get("Industry"));
 			this.minsal.sendKeys(data.get("MinSal"));
 			this.maxsal.sendKeys(data.get("MaxSal"));
 			this.minexp.sendKeys(data.get("MinExp"));
@@ -528,9 +535,15 @@ public class AddJobPage extends baseclass {
 		currentTime = LocalDateTime.now();
 		jobname = dtFormate.format(currentTime) + " Emp";
 		this.title.sendKeys(jobname);
-		this.designation.sendKeys(Designation);
-		this.industry.sendKeys(Industry);
-		//this.functionalArea.sendKeys(FunctionalArea);
+		this.designation.sendKeys(Designation);		
+		if(this.industry.isDisplayed())
+		{
+			this.industry.click();
+			if(this.industryValueITSoftware.isDisplayed())
+			{
+				this.industryValueITSoftware.click();
+			}
+		}	
 		this.minsal.sendKeys(MinSal);
 		this.maxsal.sendKeys(MaxSal);
 		this.minexp.sendKeys(MinExp);
