@@ -107,7 +107,7 @@ public class CandidatePoolPage extends baseclass {
 		addcandidatepage.uploadResumeDocument();
 		Thread.sleep(3000);
 		executor.executeScript("arguments[0].click();", txtdesignation);
-		txtdesignation.sendKeys("ABAP Developer");
+		txtdesignation.sendKeys("Senior Software Engineer");
 		Thread.sleep(3000);
 		txtContactNumber.sendKeys("1231231234");
 		Thread.sleep(3000);
@@ -132,19 +132,19 @@ public class CandidatePoolPage extends baseclass {
 	}
 	public void assertValues() throws InterruptedException {
 		Thread.sleep(10000);
-		WebElement element=common.selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 8);
+		WebElement element=common.selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 9);
 		String value=element.getText().trim();
-		Assert.assertTrue(value.equals("ABAP Developer"));
+		Assert.assertTrue(value.equals("Senior Software Engineer"));
 		Thread.sleep(3000);
-		WebElement element1=common.selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 3);
+		WebElement element1=common.selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 4);
 		String value1=element1.getText().trim();
 		Assert.assertTrue(value1.equals("New Candidate"));
 		Thread.sleep(3000);
-		WebElement element2=common.selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 10);
+		WebElement element2=common.selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 11);
 		String value2=element2.getText().trim();
 		Assert.assertTrue(value2.equals("400000"));
 		Thread.sleep(3000);
-		WebElement element3=common.selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 11);
+		WebElement element3=common.selectTableForSpecficColumn(gridCandidateTable, gridCandidateTable, "Name", name, 12);
 		String value3=element3.getText().trim();
 		Assert.assertTrue(value3.equals("600000"));
 

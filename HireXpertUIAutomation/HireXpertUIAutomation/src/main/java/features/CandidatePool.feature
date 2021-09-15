@@ -6,8 +6,8 @@ When Employer visits Recruitment menu, selects Candidate Pool and clicks on ‘A
 Then AddCandidate pop-up is displayed. Employer fills all mandatory information and clicks ‘Submit’
 	
 	Examples: 
-		|Username       |Password|Role          |Tag          |CTC   |ECTC  |
-		|pemp@gmail.com |12345	 |ABAP Developer|New Candidate|400000|600000|
+		|Username       |Password|Role              |Tag          |CTC   |ECTC  |
+		|pemp@gmail.com |12345	 |Software Developer|New Candidate|400000|600000|
 
 
 
