@@ -43,7 +43,7 @@ public class Dashboard_StepDefination extends baseclass {
 			executor.executeScript("arguments[0].click();", dashboardpage.AddJob);
 			addjobpage.addjob(credentials);
 			common.ClickSumbit();
-			common.clickOnOKBtn();
+//			common.clickOnOKBtn();
 		}
 		Thread.sleep(3000);
 		common.searchField.clear();

@@ -44,7 +44,7 @@ public class Commonfunction extends baseclass {
 	@FindBy(xpath = "//button[text()='Save']")
 	public WebElement savebtn;
 
-	@FindBy(xpath = "//button[text()='Submit']")
+	@FindBy(xpath = "//button[normalize-space()='Submit']")
 	public WebElement submitbtn;
 
 	@FindBy(xpath = "(//button[text()='Submit'])[2]")

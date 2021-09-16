@@ -313,6 +313,7 @@ public class AddJobPage extends baseclass {
 
 			if (loginpage.b == true) {
 				jobname = dtFormate.format(currentTime) + " Emp";
+				System.out.println("My New Job name"+jobname);
 				title.sendKeys(jobname);
 				Organization.clear();
 				this.Organization.sendKeys(data.get("organization"));
@@ -386,10 +387,10 @@ public class AddJobPage extends baseclass {
 			minexp.sendKeys(data.get("minexp"));
 			maxexp.sendKeys(data.get("maxexp"));
 			this.noticePeriod.sendKeys("45");
-			if (city.getAttribute("value").isEmpty()) {
-				city.sendKeys("Pune");
-			}
-			cityArea.sendKeys(data.get("location"));
+//			if (city.getAttribute("value").isEmpty()) {
+//				city.sendKeys("Pune");
+//			}
+//			cityArea.sendKeys(data.get("location"));
 			Thread.sleep(1000);
 			se = new Select(totalinterviews);
 			se.selectByVisibleText(data.get("totalinterviews"));
