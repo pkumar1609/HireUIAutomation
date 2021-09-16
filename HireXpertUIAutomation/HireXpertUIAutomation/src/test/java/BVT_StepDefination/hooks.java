@@ -98,7 +98,7 @@ public class hooks extends baseclass {
 				addjobpage.filljobDetailsNew("Software Developer", "IT-Software", "Software Programming", "200000",
 						"600000", "3", "6", "60", "Pune", "Kharadi", "2");
 				common.ClickSumbit();
-				common.clickOnOKBtn();
+//				common.clickOnOKBtn();
 				dashboardpage.openWorkbenchPage();
 			}
 			// Add employee team member - Manage Employee
