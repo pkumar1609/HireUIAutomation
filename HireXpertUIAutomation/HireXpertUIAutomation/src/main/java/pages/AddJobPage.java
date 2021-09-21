@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -38,7 +39,7 @@ public class AddJobPage extends baseclass {
 	public String industryname;
 	public String allOptions;
 
-	@FindBy(xpath = "//input[@id='title']")
+	@FindBy(xpath = "//input[@placeholder='Enter Title']")
 	public WebElement title;
 
 	@FindBy(xpath = "//input[@formcontrolname='Designation']")
@@ -313,15 +314,22 @@ public class AddJobPage extends baseclass {
 
 			if (loginpage.b == true) {
 				jobname = dtFormate.format(currentTime) + " Emp";
-				System.out.println("My New Job name"+jobname);
-				title.sendKeys(jobname);
+				Thread.sleep(3000);
+				if(title.isDisplayed())
+				{
+					title.sendKeys(jobname);
+				}
 				Organization.clear();
 				this.Organization.sendKeys(data.get("organization"));
 				jobAddedByEmp = true;
 			} else if (loginpage.user == "agency") {
 				jobAddedByEmp = false;
 				jobname = dtFormate.format(currentTime) + " Agy";
-				title.sendKeys(jobname);
+				Thread.sleep(3000);
+				if(title.isDisplayed())
+				{
+					title.sendKeys(jobname);
+				}
 				select = new Select(employerId);
 				List<WebElement> options = select.getOptions();
 				boolean b = false;
@@ -390,7 +398,7 @@ public class AddJobPage extends baseclass {
 //			if (city.getAttribute("value").isEmpty()) {
 //				city.sendKeys("Pune");
 //			}
-//			cityArea.sendKeys(data.get("location"));
+			cityArea.sendKeys(data.get("location"));
 			Thread.sleep(1000);
 			se = new Select(totalinterviews);
 			se.selectByVisibleText(data.get("totalinterviews"));
@@ -530,7 +538,7 @@ public class AddJobPage extends baseclass {
 	}
 
 	// Do not delete below method.
-	public void filljobDetailsNew(String Designation, String Industry, String FunctionalArea, String MinSal,
+	public void filljobDetailsNew(String Designation, String Industry,String MinSal,
 			String MaxSal, String MinExp, String MaxExp, String NoticePeriod, String
 			City, String CityArea, String NoOfInterviews) throws InterruptedException {
 		currentTime = LocalDateTime.now();

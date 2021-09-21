@@ -43,6 +43,9 @@ public class Commonfunction extends baseclass {
 
 	@FindBy(xpath = "//button[text()='Save']")
 	public WebElement savebtn;
+	
+	@FindBy(xpath = "//button[normalize-space()='Add to Job']")
+	public WebElement addtojobbtn;
 
 	@FindBy(xpath = "//button[normalize-space()='Submit']")
 	public WebElement submitbtn;
@@ -137,6 +140,11 @@ public class Commonfunction extends baseclass {
 	public void clickOnSaveBtn() throws InterruptedException {
 		Thread.sleep(5000);
 		executor.executeScript("arguments[0].click();", savebtn);
+	}
+
+	public void clickOnAddToJobBtn() throws InterruptedException {
+		Thread.sleep(5000);
+		executor.executeScript("arguments[0].click();", addtojobbtn);
 	}
 
 	public void clickOnEditCandidateDialogSaveBtn() throws InterruptedException {

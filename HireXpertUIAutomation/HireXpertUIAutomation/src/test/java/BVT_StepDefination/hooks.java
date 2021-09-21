@@ -95,7 +95,7 @@ public class hooks extends baseclass {
 			if (!userAlreadyRegistered) {
 				dashboardpage.openDashboardPage();
 				dashboardpage.AddJob();
-				addjobpage.filljobDetailsNew("Software Developer", "IT-Software", "Software Programming", "200000",
+				addjobpage.filljobDetailsNew("Software Developer", "IT-Software","200000",
 						"600000", "3", "6", "60", "Pune", "Kharadi", "2");
 				common.ClickSumbit();
 //				common.clickOnOKBtn();

@@ -29,7 +29,10 @@ public class Dashboard_StepDefination extends baseclass {
 
 	@Then("^Added job should display in the Jobs section$")
 	public void added_job_should_display_in_the_Jobs_section() throws Throwable {
+		if(common.searchField.isDisplayed())
+		{
 		common.searchField.clear();
+		}
 		Thread.sleep(1000);
 		common.searchField.sendKeys(addjobpage.jobname);
 		dashboardpage.jobId = dashboardpage.Id.getText();
@@ -43,7 +46,6 @@ public class Dashboard_StepDefination extends baseclass {
 			executor.executeScript("arguments[0].click();", dashboardpage.AddJob);
 			addjobpage.addjob(credentials);
 			common.ClickSumbit();
-//			common.clickOnOKBtn();
 		}
 		Thread.sleep(3000);
 		common.searchField.clear();
@@ -164,7 +166,7 @@ public class Dashboard_StepDefination extends baseclass {
 		addcandidatepage.addSkill(level1, level2, level3, certificate1, certificate2, certificate3,
 				certificateforskill1, certificateforskill2);
 		addcandidatepage.uploadResumeDocument();
-		common.clickOnSaveBtn();
+		common.clickOnAddToJobBtn();
 	}
 
 	@SuppressWarnings("deprecation")
@@ -309,7 +311,8 @@ public class Dashboard_StepDefination extends baseclass {
 		addcandidatepage.addSkill(level1, level2, level3, certificate1, certificate2, certificate3,
 				certificateforskill1, certificateforskill2);
 		addcandidatepage.uploadResumeDocument();
-		common.clickOnSaveBtn();
+//		common.clickOnSaveBtn();
+		common.clickOnAddToJobBtn();
 		addcandidatepage.checkCandidateALreadyPresent();
 		Thread.sleep(2000);
 		WebElement drag = candidatecardsectionpage.candidateCard;

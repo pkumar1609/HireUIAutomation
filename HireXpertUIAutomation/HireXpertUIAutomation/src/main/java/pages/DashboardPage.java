@@ -244,10 +244,10 @@ public class DashboardPage extends baseclass {
 			minexp.sendKeys(data.get("minexp"));
 			maxexp.sendKeys(data.get("maxexp"));
 			this.noticePeriod.sendKeys("45");
-			if (city.getAttribute("value").isEmpty()) {
-				city.clear();
-				city.sendKeys("Pune");
-			}
+//			if (city.getAttribute("value").isEmpty()) {
+//				city.clear();
+//				city.sendKeys("Pune");
+//			}
 			cityArea.clear();
 			cityArea.sendKeys(data.get("location"));
 			Thread.sleep(1000);
