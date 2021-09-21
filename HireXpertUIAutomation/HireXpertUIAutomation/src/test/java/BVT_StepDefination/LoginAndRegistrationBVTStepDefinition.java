@@ -56,7 +56,6 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass {
 
 	@When("^Click on Yes button of confirmation popup$")
 	public void click_on_Yes_button_of_confirmation_popup() throws Throwable {
-
 		Thread.sleep(3000);
 		registerpage.ClickYesbtn();
 	}
@@ -309,7 +308,7 @@ public class LoginAndRegistrationBVTStepDefinition extends baseclass {
 	public void user_should_get_following_error_message_as(String ExpectedErrorMessage) throws Throwable {
 
 		Thread.sleep(3000);
-		String ActualErrorMessage = driver.findElement(By.cssSelector("div.col-md-12.error")).getText();
+		String ActualErrorMessage = driver.findElement(By.cssSelector("div[role='document'] div newuser div div div p")).getText();
 		Assert.assertEquals(ExpectedErrorMessage, ActualErrorMessage);
 	}
 
