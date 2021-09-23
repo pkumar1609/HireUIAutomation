@@ -198,7 +198,7 @@ public class InterviewManagementBVTStepDefination extends baseclass {
 		addcandidatepage.addSkill(level1, level2, level3, certificate1, certificate2, certificate3,
 				certificateforskill1, certificateforskill2);
 		addcandidatepage.uploadResumeDocument();
-		common.clickOnSaveBtn();
+		common.clickOnAddToJobBtn();
 		addcandidatepage.checkCandidateALreadyPresent();
 	}
 
