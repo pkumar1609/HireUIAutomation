@@ -1,13 +1,17 @@
 package pages;
 
 import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
+import utilPackage.ActionExtension;
 import utilPackage.baseclass;
 
 public class LoginPage extends baseclass {
@@ -17,15 +21,13 @@ public class LoginPage extends baseclass {
 
 	@FindBy(linkText = "Job Seeker(Candidate) Sign In")
 	public WebElement JobseekerCandidateSignInlink;
+	
+	
+//	@FindBy(xpath = "//input[@placeholder='Password']")
+//	public WebElement password;
 
-	@FindBy(xpath = "//input[@placeholder='Email address']")
-	public WebElement emailaddress;
-
-	@FindBy(xpath = "//input[@placeholder='Password']")
-	public WebElement password;
-
-	@FindBy(xpath = "//button[contains(text(),'Sign in')]")
-	public WebElement signin;
+//	@FindBy(xpath = "//button[contains(text(),'Sign in')]")
+//	public WebElement signin;
 
 	@FindBy(xpath = "(//div[@id='ProfileDropDown']//button)[1]")
 	public WebElement loggedInUser;
@@ -81,6 +83,16 @@ public class LoginPage extends baseclass {
 	public String logedinuser;
 	Actions Action = new Actions(driver);
 	WebDriverWait explicitwait = new WebDriverWait(driver, 80);
+	public WebElement emailaddress;
+	public WebElement password;
+	public WebElement signin;
+	public WebElement myaccount;
+	public WebElement logout;
+	public WebElement logoutFromApp;
+	public WebElement jobSeekerSignIn;
+	public WebElement candidateProfileOk;
+	public WebElement loginLink;
+	public WebElement employerAgencySignInLink;
 
 	public LoginPage() {
 
@@ -90,11 +102,22 @@ public class LoginPage extends baseclass {
 		explicitwait = new WebDriverWait(driver, 80);
 	}
 
-	public void ClickOnEmployerAgencySigninLink() throws InterruptedException {
-		Thread.sleep(2000);
-		Action.moveToElement(login).click().perform();
-		Thread.sleep(1000);
-		executor.executeScript("arguments[0].click();", EmployerAgencySignInlink);
+	public void ClickOnEmployerAgencySigninLink(){
+		hoverToLoginLink();
+		clickOnEmployerAgencySignInLink();
+	}
+	
+	private void  hoverToLoginLink() 
+	{
+		loginLink=ActionExtension.SafeFindElement(driver,By.id("login"));
+		ActionExtension.SafeHoverElement(loginLink);
+
+	}
+	
+	private void clickOnEmployerAgencySignInLink() 
+	{
+		employerAgencySignInLink = ActionExtension.SafeFindElement(driver,By.id("EmployerAgencySignIn"));
+		ActionExtension.SafeClick(employerAgencySignInLink);
 	}
 
 	public String validateTitle() {
@@ -102,13 +125,71 @@ public class LoginPage extends baseclass {
 		return driver.getTitle();
 	}
 
-	public void signInEmployer() {
-
-		emailaddress.sendKeys(prop.getProperty("employeremail"));
-		password.sendKeys(prop.getProperty("password"));
-		signin.click();
+//	public void signInEmployer()  {
+//
+////		emailaddress.sendKeys(prop.getProperty("employeremail"));
+////		password.sendKeys(prop.getProperty("password"));
+////		signin.click();
+//		enterEmailAddress(prop.getProperty("employer"));
+//		enterPassword(prop.getProperty("password"));
+//		clickSignIn();
+//		assertUrlForJobDashboard();
+//		
+//	}
+	private void enterEmailAddress(String email) 
+	{
+		emailaddress=ActionExtension.SafeFindElement(driver, By.id("EmailAddress"));
+		ActionExtension.SafeEnterText(emailaddress,email);
+	}
+	
+	private void enterPassword(String pas) 
+	{
+		password=ActionExtension.SafeFindElement(driver, By.id("Password"));
+		ActionExtension.SafeEnterText(password,pas);
 	}
 
+
+	public void clickSignIn() 
+	{
+		signin=ActionExtension.SafeFindElement(driver, By.id("SignIn"));	
+		ActionExtension.SafeClick(signin);
+	}
+	
+	public void clickJobSeekerSignIn() 
+	{
+		jobSeekerSignIn=ActionExtension.SafeFindElement(driver, By.id("JobSeeker"));	
+		ActionExtension.SafeClick(jobSeekerSignIn);
+	}
+	
+	public void clickCandidateProfileOk() 
+	{
+		candidateProfileOk=ActionExtension.SafeFindElement(driver, By.id("alertModalCloseBtn"));	
+		ActionExtension.SafeClick(candidateProfileOk);
+	}
+	
+	
+	public void clickMyAccount() 
+	{
+		myaccount=ActionExtension.SafeFindElement(driver, By.id("MyAcoount"));	
+		ActionExtension.SafeClick(myaccount);
+	}
+	
+	public void assertUrlForJobDashboard()  
+	{
+		ActionExtension.wait(1);
+		String URL = driver.getCurrentUrl();
+		System.out.println("My URl"+URL.contains("jobdashboard"));
+		Assert.assertTrue(URL.contains("jobdashboard"));
+		
+	}
+	public void assertUrlForCandidate()
+	{
+		ActionExtension.wait(1);
+		String URL = driver.getCurrentUrl();
+		System.out.println("My URl"+URL.contains("candidate"));
+		Assert.assertTrue(URL.contains("candidate"));
+		
+	}
 	public void signInAgency() throws InterruptedException {
 		loginpage.ClickOnEmployerAgencySigninLink();
 		emailaddress.sendKeys(prop.getProperty("agency"));
@@ -142,12 +223,9 @@ public class LoginPage extends baseclass {
 		signin.click();
 	}
 
-	public void loginIn(String Username, String Password) throws InterruptedException {
-		emailaddress.sendKeys(Username);
-		password.sendKeys(Password);
-		Thread.sleep(4000);
-		signin.click();
-		identifyUserK();
+	public void loginIn(String Username, String Password) {
+		enterEmailAddress(Username);
+		enterPassword(Password);
 	}
 
 	public void loginInAppWithTeamK() throws InterruptedException {
@@ -219,7 +297,20 @@ public class LoginPage extends baseclass {
 		Thread.sleep(2000);
 		executor.executeScript("arguments[0].click();", logOut1);
 	}
-
+	
+	public void clickLogout() 
+	{
+		logout=ActionExtension.SafeFindElement(driver, By.id("Logout"));	
+		ActionExtension.SafeClick(logout);
+	}
+	public void clickLogoutFromApp() 
+	{
+		logoutFromApp=ActionExtension.SafeFindElement(driver, By.id("LogoutApp"));	
+		ActionExtension.SafeClick(logoutFromApp);
+		
+	}
+	
+	
 	public void identifyUserK() throws InterruptedException {
 
 		try {
